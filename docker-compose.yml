@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+
+  lusid-sdk-js-gen:
+    container_name: lusid-sdk-js-gen
+    build: .
+    image: finbourne/lusid-sdk-js-gen
+    volumes:
+      - .:/usr/src
