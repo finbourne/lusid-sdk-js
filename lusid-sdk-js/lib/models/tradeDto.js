@@ -32,15 +32,16 @@ class TradeDto {
    * Create a TradeDto.
    * @member {string} tradeId Unique trade identifier
    * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
-   * StockOut, etc. Possible values include: 'Buy', 'Sell', 'StockIn',
-   * 'StockOut'
+   * StockOut, etc
    * @member {string} securityUid Unique security identifier
    * @member {date} tradeDate Trade date
    * @member {date} settlementDate Settlement date
    * @member {number} units Quantity of trade in units of the security
    * @member {number} tradePrice Execution price for the trade
    * @member {number} totalConsideration Total value of the trade
+   * @member {number} [exchangeRate] Rate between trade and settle currency
    * @member {string} settlementCurrency Settlement currency
+   * @member {string} [tradeCurrency] Trade currency
    * @member {array} [properties]
    * @member {string} [counterpartyId] Counterparty identifier
    * @member {string} source Where this trade came from, either Client or
@@ -126,9 +127,23 @@ class TradeDto {
               name: 'Number'
             }
           },
+          exchangeRate: {
+            required: false,
+            serializedName: 'exchangeRate',
+            type: {
+              name: 'Number'
+            }
+          },
           settlementCurrency: {
             required: true,
             serializedName: 'settlementCurrency',
+            type: {
+              name: 'String'
+            }
+          },
+          tradeCurrency: {
+            required: false,
+            serializedName: 'tradeCurrency',
             type: {
               name: 'String'
             }

@@ -485,32 +485,37 @@ export interface ProcessedCommandDto {
 
 /**
  * @class
- * Initializes a new instance of the PortfolioDto class.
+ * Initializes a new instance of the CompletePortfolioDto class.
  * @constructor
- * @member {string} [href] Link to retrieve the current entity
- * @member {object} [id] Identifier for the portfolio
+ * @member {object} [id]
  * @member {string} [id.scope]
  * @member {string} [id.code]
- * @member {string} [name] Name of the portfolio
- * @member {date} [created] Portfolio creation time in UTC
- * @member {object} [parentPortfolioId] If this is a derived portfolio, the
- * identifier of the portfolio from which it is derived
+ * @member {string} [href]
+ * @member {string} [description]
+ * @member {string} [name]
+ * @member {date} [created]
+ * @member {object} [parentPortfolioId]
  * @member {string} [parentPortfolioId.scope]
  * @member {string} [parentPortfolioId.code]
- * @member {object} [version] The version of the portfolio
+ * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
  * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [properties]
+ * @member {string} [baseCurrency]
  * @member {array} [_links]
  */
-export interface PortfolioDto {
-  href?: string;
+export interface CompletePortfolioDto {
   id?: ResourceId;
+  href?: string;
+  description?: string;
   name?: string;
   created?: Date;
   parentPortfolioId?: ResourceId;
   version?: VersionDto;
+  properties?: PropertyDto[];
+  baseCurrency?: string;
   _links?: Link[];
 }
 
@@ -538,7 +543,7 @@ export interface ExpandedGroupDto {
   id?: ResourceId;
   name?: string;
   description?: string;
-  values?: PortfolioDto[];
+  values?: CompletePortfolioDto[];
   subGroups?: ExpandedGroupDto[];
   version?: VersionDto;
   _links?: Link[];
@@ -654,6 +659,37 @@ export interface CreatePortfolioRequest {
 
 /**
  * @class
+ * Initializes a new instance of the PortfolioDto class.
+ * @constructor
+ * @member {string} [href] Link to retrieve the current entity
+ * @member {object} [id] Identifier for the portfolio
+ * @member {string} [id.scope]
+ * @member {string} [id.code]
+ * @member {string} [name] Name of the portfolio
+ * @member {date} [created] Portfolio creation time in UTC
+ * @member {object} [parentPortfolioId] If this is a derived portfolio, the
+ * identifier of the portfolio from which it is derived
+ * @member {string} [parentPortfolioId.scope]
+ * @member {string} [parentPortfolioId.code]
+ * @member {object} [version] The version of the portfolio
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.updatedBy]
+ * @member {string} [version.href]
+ * @member {array} [_links]
+ */
+export interface PortfolioDto {
+  href?: string;
+  id?: ResourceId;
+  name?: string;
+  created?: Date;
+  parentPortfolioId?: ResourceId;
+  version?: VersionDto;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the UpdatePortfolioRequest class.
  * @constructor
  * @member {string} name
@@ -704,14 +740,16 @@ export interface PortfolioDetailsRequest {
  * @constructor
  * @member {string} tradeId Unique trade identifier
  * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
- * StockOut, etc. Possible values include: 'Buy', 'Sell', 'StockIn', 'StockOut'
+ * StockOut, etc
  * @member {string} securityUid Unique security identifier
  * @member {date} tradeDate Trade date
  * @member {date} settlementDate Settlement date
  * @member {number} units Quantity of trade in units of the security
  * @member {number} tradePrice Execution price for the trade
  * @member {number} totalConsideration Total value of the trade
+ * @member {number} [exchangeRate] Rate between trade and settle currency
  * @member {string} settlementCurrency Settlement currency
+ * @member {string} [tradeCurrency] Trade currency
  * @member {array} [properties]
  * @member {string} [counterpartyId] Counterparty identifier
  * @member {string} source Where this trade came from, either Client or System.
@@ -733,7 +771,9 @@ export interface TradeDto {
   units: number;
   tradePrice: number;
   totalConsideration: number;
+  exchangeRate?: number;
   settlementCurrency: string;
+  tradeCurrency?: string;
   properties?: PropertyDto[];
   counterpartyId?: string;
   source: string;
@@ -754,12 +794,12 @@ export interface TradeDto {
  * @member {number} units Quantity of holding
  * @member {number} settledUnits Settled quantity of holding
  * @member {number} cost Book cost of holding in trade currency
+ * @member {number} costPortfolioCcy Book cost of holding in portfolio currency
  * @member {object} [transaction] If this is commitment-type holding, the
  * transaction behind it
  * @member {string} [transaction.tradeId] Unique trade identifier
  * @member {string} [transaction.type] LUSID transaction type code - Buy, Sell,
- * StockIn, StockOut, etc. Possible values include: 'Buy', 'Sell', 'StockIn',
- * 'StockOut'
+ * StockIn, StockOut, etc
  * @member {string} [transaction.securityUid] Unique security identifier
  * @member {date} [transaction.tradeDate] Trade date
  * @member {date} [transaction.settlementDate] Settlement date
@@ -767,7 +807,10 @@ export interface TradeDto {
  * security
  * @member {number} [transaction.tradePrice] Execution price for the trade
  * @member {number} [transaction.totalConsideration] Total value of the trade
+ * @member {number} [transaction.exchangeRate] Rate between trade and settle
+ * currency
  * @member {string} [transaction.settlementCurrency] Settlement currency
+ * @member {string} [transaction.tradeCurrency] Trade currency
  * @member {array} [transaction.properties]
  * @member {string} [transaction.counterpartyId] Counterparty identifier
  * @member {string} [transaction.source] Where this trade came from, either
@@ -787,6 +830,7 @@ export interface HoldingDto {
   units: number;
   settledUnits: number;
   cost: number;
+  costPortfolioCcy: number;
   transaction?: TradeDto;
 }
 
@@ -1162,10 +1206,10 @@ export interface KeyValuePairStringFieldSchema {
  * @member {string} [entity] Possible values include: 'PropertyKey',
  * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
  * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
- * 'Portfolio', 'PortfolioSearchResult', 'PortfolioDetails',
- * 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
- * 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
- * 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
+ * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
+ * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
+ * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
+ * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
  * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
  * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
  * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',

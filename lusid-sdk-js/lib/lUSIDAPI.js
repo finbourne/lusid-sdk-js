@@ -3568,6 +3568,8 @@ function _getPortfolioGroupCommands(scope, code, options, callback) {
  *
  * @param {date} [options.asAt]
  *
+ * @param {array} [options.propertyFilter]
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -3595,6 +3597,7 @@ function _getPortfolioGroupExpansion(scope, code, options, callback) {
   }
   let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
+  let propertyFilter = (options && options.propertyFilter !== undefined) ? options.propertyFilter : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
@@ -3611,6 +3614,13 @@ function _getPortfolioGroupExpansion(scope, code, options, callback) {
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
           throw new Error('asAt must be of type date.');
         }
+    if (Array.isArray(propertyFilter)) {
+      for (let i = 0; i < propertyFilter.length; i++) {
+        if (propertyFilter[i] !== null && propertyFilter[i] !== undefined && typeof propertyFilter[i].valueOf() !== 'string') {
+          throw new Error('propertyFilter[i] must be of type string.');
+        }
+      }
+    }
   } catch (error) {
     return callback(error);
   }
@@ -3626,6 +3636,16 @@ function _getPortfolioGroupExpansion(scope, code, options, callback) {
   }
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
+  if (propertyFilter !== null && propertyFilter !== undefined) {
+    if (propertyFilter.length == 0) {
+      queryParameters.push('propertyFilter=' + encodeURIComponent(''));
+    } else {
+      for (let item of propertyFilter) {
+        item = (item === null || item === undefined) ? '' : item;
+        queryParameters.push('propertyFilter=' + encodeURIComponent('' + item));
+      }
+    }
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -15987,10 +16007,10 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * @param {string} entity Possible values include: 'PropertyKey',
  * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
  * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
- * 'Portfolio', 'PortfolioSearchResult', 'PortfolioDetails',
- * 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
- * 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
- * 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
+ * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
+ * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
+ * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
+ * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
  * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
  * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
  * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
@@ -19603,6 +19623,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.asAt]
    *
+   * @param {array} [options.propertyFilter]
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -19638,6 +19660,8 @@ class LUSIDAPI extends ServiceClient {
    * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
+   *
+   * @param {array} [options.propertyFilter]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -25740,10 +25764,10 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} entity Possible values include: 'PropertyKey',
    * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
    * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-   * 'Portfolio', 'PortfolioSearchResult', 'PortfolioDetails',
-   * 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
-   * 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
-   * 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
+   * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
+   * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
+   * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
+   * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
    * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
    * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
    * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
@@ -25786,10 +25810,10 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} entity Possible values include: 'PropertyKey',
    * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
    * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-   * 'Portfolio', 'PortfolioSearchResult', 'PortfolioDetails',
-   * 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
-   * 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
-   * 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
+   * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
+   * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
+   * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
+   * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
    * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
    * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
    * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',

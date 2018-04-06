@@ -37,12 +37,13 @@ class HoldingDto {
    * @member {number} units Quantity of holding
    * @member {number} settledUnits Settled quantity of holding
    * @member {number} cost Book cost of holding in trade currency
+   * @member {number} costPortfolioCcy Book cost of holding in portfolio
+   * currency
    * @member {object} [transaction] If this is commitment-type holding, the
    * transaction behind it
    * @member {string} [transaction.tradeId] Unique trade identifier
    * @member {string} [transaction.type] LUSID transaction type code - Buy,
-   * Sell, StockIn, StockOut, etc. Possible values include: 'Buy', 'Sell',
-   * 'StockIn', 'StockOut'
+   * Sell, StockIn, StockOut, etc
    * @member {string} [transaction.securityUid] Unique security identifier
    * @member {date} [transaction.tradeDate] Trade date
    * @member {date} [transaction.settlementDate] Settlement date
@@ -50,7 +51,10 @@ class HoldingDto {
    * security
    * @member {number} [transaction.tradePrice] Execution price for the trade
    * @member {number} [transaction.totalConsideration] Total value of the trade
+   * @member {number} [transaction.exchangeRate] Rate between trade and settle
+   * currency
    * @member {string} [transaction.settlementCurrency] Settlement currency
+   * @member {string} [transaction.tradeCurrency] Trade currency
    * @member {array} [transaction.properties]
    * @member {string} [transaction.counterpartyId] Counterparty identifier
    * @member {string} [transaction.source] Where this trade came from, either
@@ -126,6 +130,13 @@ class HoldingDto {
           cost: {
             required: true,
             serializedName: 'cost',
+            type: {
+              name: 'Number'
+            }
+          },
+          costPortfolioCcy: {
+            required: true,
+            serializedName: 'costPortfolioCcy',
             type: {
               name: 'Number'
             }

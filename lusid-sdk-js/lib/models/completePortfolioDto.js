@@ -25,50 +25,47 @@
 const models = require('./index');
 
 /**
- * Class representing a ExpandedGroupDto.
+ * Class representing a CompletePortfolioDto.
  */
-class ExpandedGroupDto {
+class CompletePortfolioDto {
   /**
-   * Create a ExpandedGroupDto.
-   * @member {string} [href]
+   * Create a CompletePortfolioDto.
    * @member {object} [id]
    * @member {string} [id.scope]
    * @member {string} [id.code]
-   * @member {string} [name]
+   * @member {string} [href]
    * @member {string} [description]
-   * @member {array} [values]
-   * @member {array} [subGroups]
+   * @member {string} [name]
+   * @member {date} [created]
+   * @member {object} [parentPortfolioId]
+   * @member {string} [parentPortfolioId.scope]
+   * @member {string} [parentPortfolioId.code]
    * @member {object} [version]
    * @member {date} [version.effectiveFrom]
    * @member {date} [version.asAtDate]
    * @member {string} [version.updatedBy]
    * @member {string} [version.href]
+   * @member {array} [properties]
+   * @member {string} [baseCurrency]
    * @member {array} [_links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of ExpandedGroupDto
+   * Defines the metadata of CompletePortfolioDto
    *
-   * @returns {object} metadata of ExpandedGroupDto
+   * @returns {object} metadata of CompletePortfolioDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ExpandedGroupDto',
+      serializedName: 'CompletePortfolioDto',
       type: {
         name: 'Composite',
-        className: 'ExpandedGroupDto',
+        className: 'CompletePortfolioDto',
         modelProperties: {
-          href: {
-            required: false,
-            serializedName: 'href',
-            type: {
-              name: 'String'
-            }
-          },
           id: {
             required: false,
             serializedName: 'id',
@@ -77,9 +74,9 @@ class ExpandedGroupDto {
               className: 'ResourceId'
             }
           },
-          name: {
+          href: {
             required: false,
-            serializedName: 'name',
+            serializedName: 'href',
             type: {
               name: 'String'
             }
@@ -91,34 +88,26 @@ class ExpandedGroupDto {
               name: 'String'
             }
           },
-          values: {
+          name: {
             required: false,
-            serializedName: 'values',
+            serializedName: 'name',
             type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'CompletePortfolioDtoElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'CompletePortfolioDto'
-                  }
-              }
+              name: 'String'
             }
           },
-          subGroups: {
+          created: {
             required: false,
-            serializedName: 'subGroups',
+            serializedName: 'created',
             type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'ExpandedGroupDtoElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'ExpandedGroupDto'
-                  }
-              }
+              name: 'DateTime'
+            }
+          },
+          parentPortfolioId: {
+            required: false,
+            serializedName: 'parentPortfolioId',
+            type: {
+              name: 'Composite',
+              className: 'ResourceId'
             }
           },
           version: {
@@ -127,6 +116,28 @@ class ExpandedGroupDto {
             type: {
               name: 'Composite',
               className: 'VersionDto'
+            }
+          },
+          properties: {
+            required: false,
+            serializedName: 'properties',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'PropertyDtoElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'PropertyDto'
+                  }
+              }
+            }
+          },
+          baseCurrency: {
+            required: false,
+            serializedName: 'baseCurrency',
+            type: {
+              name: 'String'
             }
           },
           _links: {
@@ -150,4 +161,4 @@ class ExpandedGroupDto {
   }
 }
 
-module.exports = ExpandedGroupDto;
+module.exports = CompletePortfolioDto;

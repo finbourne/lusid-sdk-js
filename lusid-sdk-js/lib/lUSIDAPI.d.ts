@@ -1537,6 +1537,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.asAt]
    *
+   * @param {array} [options.propertyFilter]
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -1546,7 +1548,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPortfolioGroupExpansionWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getPortfolioGroupExpansionWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Get a full expansion of an existing group
@@ -1560,6 +1562,8 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
+   *
+   * @param {array} [options.propertyFilter]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1585,9 +1589,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPortfolioGroupExpansion(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getPortfolioGroupExpansion(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   getPortfolioGroupExpansion(scope: string, code: string, callback: ServiceCallback<any>): void;
-  getPortfolioGroupExpansion(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getPortfolioGroupExpansion(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -6000,10 +6004,10 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} entity Possible values include: 'PropertyKey',
    * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
    * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-   * 'Portfolio', 'PortfolioSearchResult', 'PortfolioDetails',
-   * 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
-   * 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
-   * 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
+   * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
+   * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
+   * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
+   * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
    * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
    * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
    * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
@@ -6034,10 +6038,10 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} entity Possible values include: 'PropertyKey',
    * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
    * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-   * 'Portfolio', 'PortfolioSearchResult', 'PortfolioDetails',
-   * 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
-   * 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
-   * 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
+   * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
+   * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
+   * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
+   * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
    * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
    * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
    * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
