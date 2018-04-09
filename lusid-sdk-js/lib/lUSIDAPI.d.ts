@@ -6221,7 +6221,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  tryAddClientSecurityWithHttpOperationResponse(options?: { definitions? : models.CreateClientSecurityRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  batchAddClientSecuritiesWithHttpOperationResponse(options?: { definitions? : models.CreateClientSecurityRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Attempt to create one or more client securities. Failed securities
@@ -6255,9 +6255,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  tryAddClientSecurity(options?: { definitions? : models.CreateClientSecurityRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  tryAddClientSecurity(callback: ServiceCallback<any>): void;
-  tryAddClientSecurity(options: { definitions? : models.CreateClientSecurityRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  batchAddClientSecurities(options?: { definitions? : models.CreateClientSecurityRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  batchAddClientSecurities(callback: ServiceCallback<any>): void;
+  batchAddClientSecurities(options: { definitions? : models.CreateClientSecurityRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -6277,7 +6277,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  tryDeleteClientSecurityWithHttpOperationResponse(options?: { uids? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  batchDeleteClientSecuritiesWithHttpOperationResponse(options?: { uids? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Attempt to delete one or more client securities. Failed securities
@@ -6311,9 +6311,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  tryDeleteClientSecurity(options?: { uids? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  tryDeleteClientSecurity(callback: ServiceCallback<any>): void;
-  tryDeleteClientSecurity(options: { uids? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  batchDeleteClientSecurities(options?: { uids? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  batchDeleteClientSecurities(callback: ServiceCallback<any>): void;
+  batchDeleteClientSecurities(options: { uids? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**

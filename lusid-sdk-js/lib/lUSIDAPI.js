@@ -16591,7 +16591,7 @@ function _getValueTypes(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _tryAddClientSecurity(options, callback) {
+function _batchAddClientSecurities(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -16760,7 +16760,7 @@ function _tryAddClientSecurity(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _tryDeleteClientSecurity(options, callback) {
+function _batchDeleteClientSecurities(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -17613,8 +17613,8 @@ class LUSIDAPI extends ServiceClient {
     this._getEntitySchema = _getEntitySchema;
     this._getPropertySchema = _getPropertySchema;
     this._getValueTypes = _getValueTypes;
-    this._tryAddClientSecurity = _tryAddClientSecurity;
-    this._tryDeleteClientSecurity = _tryDeleteClientSecurity;
+    this._batchAddClientSecurities = _batchAddClientSecurities;
+    this._batchDeleteClientSecurities = _batchDeleteClientSecurities;
     this._getSecurity = _getSecurity;
     this._lookupSecuritiesFromCodes = _lookupSecuritiesFromCodes;
     this._lookupSecuritiesFromCodesBulk = _lookupSecuritiesFromCodesBulk;
@@ -26062,11 +26062,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  tryAddClientSecurityWithHttpOperationResponse(options) {
+  batchAddClientSecuritiesWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._tryAddClientSecurity(options, (err, result, request, response) => {
+      self._batchAddClientSecurities(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -26108,7 +26108,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  tryAddClientSecurity(options, optionalCallback) {
+  batchAddClientSecurities(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -26117,14 +26117,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._tryAddClientSecurity(options, (err, result, request, response) => {
+        self._batchAddClientSecurities(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._tryAddClientSecurity(options, optionalCallback);
+      return self._batchAddClientSecurities(options, optionalCallback);
     }
   }
 
@@ -26145,11 +26145,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  tryDeleteClientSecurityWithHttpOperationResponse(options) {
+  batchDeleteClientSecuritiesWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._tryDeleteClientSecurity(options, (err, result, request, response) => {
+      self._batchDeleteClientSecurities(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -26191,7 +26191,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  tryDeleteClientSecurity(options, optionalCallback) {
+  batchDeleteClientSecurities(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -26200,14 +26200,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._tryDeleteClientSecurity(options, (err, result, request, response) => {
+        self._batchDeleteClientSecurities(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._tryDeleteClientSecurity(options, optionalCallback);
+      return self._batchDeleteClientSecurities(options, optionalCallback);
     }
   }
 
