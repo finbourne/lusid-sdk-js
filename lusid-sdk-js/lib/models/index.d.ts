@@ -25,6 +25,148 @@ import * as moment from "moment";
 
 /**
  * @class
+ * Initializes a new instance of the CorporateActionTransitionDto class.
+ * @constructor
+ * A 'transition' within a corporate action, representing a single incoming or
+ * outgoing component
+ *
+ * @member {string} direction Possible values include: 'In', 'Out'
+ * @member {string} securityUid
+ * @member {number} unitsFactor
+ * @member {number} costFactor
+ */
+export interface CorporateActionTransitionDto {
+  direction: string;
+  securityUid: string;
+  unitsFactor: number;
+  costFactor: number;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the UpsertCorporateActionRequest class.
+ * @constructor
+ * @member {string} corporateActionId
+ * @member {date} announcementDate
+ * @member {date} exDate
+ * @member {date} recordDate
+ * @member {array} transitions
+ */
+export interface UpsertCorporateActionRequest {
+  corporateActionId: string;
+  announcementDate: Date;
+  exDate: Date;
+  recordDate: Date;
+  transitions: CorporateActionTransitionDto[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceId class.
+ * @constructor
+ * @member {string} [scope]
+ * @member {string} [code]
+ */
+export interface ResourceId {
+  scope?: string;
+  code?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the CorporateActionEventDto class.
+ * @constructor
+ * A corporate action
+ *
+ * @member {object} sourceId Unique identifier for the corporate action source
+ * @member {string} [sourceId.scope]
+ * @member {string} [sourceId.code]
+ * @member {string} corporateActionId Unique identifier for the corporate
+ * action
+ * @member {date} [announcementDate] The announcement date of the corporate
+ * action
+ * @member {date} [exDate] The ex date of the corporate action
+ * @member {date} [recordDate] The record date of the corporate action
+ * @member {array} [transitions]
+ */
+export interface CorporateActionEventDto {
+  sourceId: ResourceId;
+  corporateActionId: string;
+  announcementDate?: Date;
+  exDate?: Date;
+  recordDate?: Date;
+  transitions?: CorporateActionTransitionDto[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ErrorDetail class.
+ * @constructor
+ * @member {string} [id]
+ * @member {string} [type]
+ * @member {string} [detail]
+ */
+export interface ErrorDetail {
+  id?: string;
+  type?: string;
+  detail?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ErrorResponse class.
+ * @constructor
+ * @member {number} [status] The status code that will be returned to the
+ * client
+ * @member {string} [code] The Finbourne specific error-code that encapsulates
+ * the specific issue encountered. Possible values include:
+ * 'PersonalisationNotFound', 'NonRecursivePersonalisation', 'VersionNotFound',
+ * 'SecurityNotFound', 'SecurityByCodeNotFound', 'PropertyNotFound',
+ * 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
+ * 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
+ * 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined',
+ * 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
+ * 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
+ * 'CannotModifyDefaultPropertyFormat', 'GroupAlreadyExists',
+ * 'NoSuchPropertyDataFormat', 'ValidationError',
+ * 'LoopDetectedInGroupHierarchy', 'SubGroupAlreadyExists',
+ * 'PriceSourceNotFound', 'AnalyticStoreNotFound',
+ * 'AnalyticStoreAlreadyExists', 'ClientSecurityAlreadyExists',
+ * 'DuplicateInParameterSet', 'ResultsNotFound', 'OrderFieldNotInResultSet',
+ * 'OperationFailed', 'ElasticSearchError', 'InvalidParameterValue',
+ * 'ServerConfigurationError', 'CommandProcessingFailure',
+ * 'EntityStateConstructionFailure', 'EntityTimelineDoesNotExist',
+ * 'EventPublishFailure', 'InvalidRequestFailure', 'EventPublishUnknown',
+ * 'EventQueryFailure', 'BlobDidNotExistFailure', 'SubSystemRequestFailure',
+ * 'SubSystemConfigurationFailure', 'FailedToDelete',
+ * 'UpsertClientSecurityFailure', 'IllegalAsAtInterval',
+ * 'IllegalBitemporalQuery', 'InvalidAlternateId',
+ * 'CannotAddSourcePortfolioPropertyExplicitly', 'EntityAlreadyExistsInGroup',
+ * 'EntityWithIdAlreadyExists', 'PortfolioDetailsDoNotExist',
+ * 'PortfolioWithNameAlreadyExists', 'InvalidTrades',
+ * 'ReferencePortfolioNotFound', 'DuplicateIdFailure',
+ * 'CommandRetrievalFailure', 'DataFilterApplicationFailure', 'SearchFailed',
+ * 'Unknown'
+ * @member {string} [message] The non-technical-user friendly message
+ * describing the error and how it might be remedied.
+ * @member {string} [detailedMessage] A technical error message that contains
+ * the details of the issue and how it might be fixed.
+ * @member {array} [items] Any action specific item specific sub errors (e.g.
+ * per-trade validation errors)
+ * @member {string} [moreInfo] A link to the endpoint that can provide the dev
+ * with more information about that class of error.
+ */
+export interface ErrorResponse {
+  readonly status?: number;
+  readonly code?: string;
+  readonly message?: string;
+  readonly detailedMessage?: string;
+  items?: ErrorDetail[];
+  readonly moreInfo?: string;
+}
+
+/**
+ * @class
  * Initializes a new instance of the AggregateSpec class.
  * @constructor
  * @member {string} [key]
@@ -156,73 +298,6 @@ export interface ListAggregationResponse {
   data?: { [propertyName: string]: any }[];
   aggregationCurrency?: string;
   dataSchema?: ResultDataSchema;
-}
-
-/**
- * @class
- * Initializes a new instance of the ErrorDetail class.
- * @constructor
- * @member {string} [id]
- * @member {string} [type]
- * @member {string} [detail]
- */
-export interface ErrorDetail {
-  id?: string;
-  type?: string;
-  detail?: string;
-}
-
-/**
- * @class
- * Initializes a new instance of the ErrorResponse class.
- * @constructor
- * @member {number} [status] The status code that will be returned to the
- * client
- * @member {string} [code] The Finbourne specific error-code that encapsulates
- * the specific issue encountered. Possible values include:
- * 'PersonalisationNotFound', 'NonRecursivePersonalisation', 'VersionNotFound',
- * 'SecurityNotFound', 'SecurityByCodeNotFound', 'PropertyNotFound',
- * 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
- * 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
- * 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined',
- * 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
- * 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
- * 'CannotModifyDefaultPropertyFormat', 'GroupAlreadyExists',
- * 'NoSuchPropertyDataFormat', 'ValidationError',
- * 'LoopDetectedInGroupHierarchy', 'SubGroupAlreadyExists',
- * 'PriceSourceNotFound', 'AnalyticStoreNotFound',
- * 'AnalyticStoreAlreadyExists', 'ClientSecurityAlreadyExists',
- * 'DuplicateInParameterSet', 'ResultsNotFound', 'OrderFieldNotInResultSet',
- * 'OperationFailed', 'ElasticSearchError', 'InvalidParameterValue',
- * 'ServerConfigurationError', 'CommandProcessingFailure',
- * 'EntityStateConstructionFailure', 'EntityTimelineDoesNotExist',
- * 'EventPublishFailure', 'InvalidRequestFailure', 'EventPublishUnknown',
- * 'EventQueryFailure', 'BlobDidNotExistFailure', 'SubSystemRequestFailure',
- * 'SubSystemConfigurationFailure', 'FailedToDelete',
- * 'UpsertClientSecurityFailure', 'IllegalAsAtInterval',
- * 'IllegalBitemporalQuery', 'InvalidAlternateId',
- * 'CannotAddSourcePortfolioPropertyExplicitly', 'EntityAlreadyExistsInGroup',
- * 'EntityWithIdAlreadyExists', 'PortfolioDetailsDoNotExist',
- * 'PortfolioWithNameAlreadyExists', 'InvalidTrades',
- * 'ReferencePortfolioNotFound', 'DuplicateIdFailure',
- * 'CommandRetrievalFailure', 'DataFilterApplicationFailure', 'SearchFailed',
- * 'Unknown'
- * @member {string} [message] The non-technical-user friendly message
- * describing the error and how it might be remedied.
- * @member {string} [detailedMessage] A technical error message that contains
- * the details of the issue and how it might be fixed.
- * @member {array} [items] Any action specific item specific sub errors (e.g.
- * per-trade validation errors)
- * @member {string} [moreInfo] A link to the endpoint that can provide the dev
- * with more information about that class of error.
- */
-export interface ErrorResponse {
-  readonly status?: number;
-  readonly code?: string;
-  readonly message?: string;
-  readonly detailedMessage?: string;
-  items?: ErrorDetail[];
-  readonly moreInfo?: string;
 }
 
 /**
@@ -385,18 +460,6 @@ export interface SecurityClassificationDto {
  */
 export interface ClassificationsDto {
   href?: string;
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceId class.
- * @constructor
- * @member {string} [scope]
- * @member {string} [code]
- */
-export interface ResourceId {
-  scope?: string;
-  code?: string;
 }
 
 /**
@@ -1219,7 +1282,8 @@ export interface KeyValuePairStringFieldSchema {
  * 'ResultDataSchema', 'Classification', 'SecurityClassification',
  * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
- * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes', 'ExpandedGroup'
+ * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
+ * 'ExpandedGroup', 'CreateCorporateAction'
  * @member {string} [href]
  * @member {array} [values]
  */

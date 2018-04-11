@@ -47,7 +47,7 @@ class SchemaDto {
    * 'SecurityClassification', 'WebLogMessage', 'UpsertPersonalisation',
    * 'CreatePortfolioDetails', 'UpsertConstituent', 'CreateResults', 'Results',
    * 'TryAddClientSecurities', 'TryDeleteClientSecurities',
-   * 'TryLookupSecuritiesFromCodes', 'ExpandedGroup'
+   * 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction'
    * @member {string} [href]
    * @member {array} [values]
    */

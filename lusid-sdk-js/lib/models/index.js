@@ -26,6 +26,12 @@
 
 'use strict';
 
+exports.CorporateActionTransitionDto = require('./corporateActionTransitionDto');
+exports.UpsertCorporateActionRequest = require('./upsertCorporateActionRequest');
+exports.ResourceId = require('./resourceId');
+exports.CorporateActionEventDto = require('./corporateActionEventDto');
+exports.ErrorDetail = require('./errorDetail');
+exports.ErrorResponse = require('./errorResponse');
 exports.AggregateSpec = require('./aggregateSpec');
 exports.PropertyFilter = require('./propertyFilter');
 exports.AggregationRequest = require('./aggregationRequest');
@@ -33,8 +39,6 @@ exports.FieldSchema = require('./fieldSchema');
 exports.KeyValuePairPropertyKeyFieldSchema = require('./keyValuePairPropertyKeyFieldSchema');
 exports.ResultDataSchema = require('./resultDataSchema');
 exports.ListAggregationResponse = require('./listAggregationResponse');
-exports.ErrorDetail = require('./errorDetail');
-exports.ErrorResponse = require('./errorResponse');
 exports.AggregationResponseNodeDictionaryStringObject = require('./aggregationResponseNodeDictionaryStringObject');
 exports.NestedAggregationResponse = require('./nestedAggregationResponse');
 exports.CreateAnalyticStoreRequest = require('./createAnalyticStoreRequest');
@@ -46,7 +50,6 @@ exports.SecurityAnalyticDataDto = require('./securityAnalyticDataDto');
 exports.PropertyDto = require('./propertyDto');
 exports.SecurityClassificationDto = require('./securityClassificationDto');
 exports.ClassificationsDto = require('./classificationsDto');
-exports.ResourceId = require('./resourceId');
 exports.CreateGroupRequest = require('./createGroupRequest');
 exports.VersionDto = require('./versionDto');
 exports.GroupDto = require('./groupDto');

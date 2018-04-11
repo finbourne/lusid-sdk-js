@@ -49,6 +49,156 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Gets a corporate action based on dates
+   *
+   * @param {string} scope Scope
+   *
+   * @param {string} sourceId Corporate action source id
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveDate] Effective Date
+   *
+   * @param {date} [options.asAt] AsAt Date filter
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  listCorporateActionsWithHttpOperationResponse(scope: string, sourceId: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+
+  /**
+   * @summary Gets a corporate action based on dates
+   *
+   * @param {string} scope Scope
+   *
+   * @param {string} sourceId Corporate action source id
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveDate] Effective Date
+   *
+   * @param {date} [options.asAt] AsAt Date filter
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listCorporateActions(scope: string, sourceId: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  listCorporateActions(scope: string, sourceId: string, callback: ServiceCallback<any>): void;
+  listCorporateActions(scope: string, sourceId: string, options: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+
+
+  /**
+   * @summary Creates/updates a corporate action
+   *
+   * @param {string} scope The intended scope of the corporate action
+   *
+   * @param {string} sourceId Source of the corporate action
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.createRequest] The corporate action creation
+   * request object
+   *
+   * @param {string} options.createRequest.corporateActionId
+   *
+   * @param {date} options.createRequest.announcementDate
+   *
+   * @param {date} options.createRequest.exDate
+   *
+   * @param {date} options.createRequest.recordDate
+   *
+   * @param {array} options.createRequest.transitions
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  upsertCorporateActionWithHttpOperationResponse(scope: string, sourceId: string, options?: { createRequest? : models.UpsertCorporateActionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+
+  /**
+   * @summary Creates/updates a corporate action
+   *
+   * @param {string} scope The intended scope of the corporate action
+   *
+   * @param {string} sourceId Source of the corporate action
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.createRequest] The corporate action creation
+   * request object
+   *
+   * @param {string} options.createRequest.corporateActionId
+   *
+   * @param {date} options.createRequest.announcementDate
+   *
+   * @param {date} options.createRequest.exDate
+   *
+   * @param {date} options.createRequest.recordDate
+   *
+   * @param {array} options.createRequest.transitions
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  upsertCorporateAction(scope: string, sourceId: string, options?: { createRequest? : models.UpsertCorporateActionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  upsertCorporateAction(scope: string, sourceId: string, callback: ServiceCallback<any>): void;
+  upsertCorporateAction(scope: string, sourceId: string, options: { createRequest? : models.UpsertCorporateActionRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+
+
+  /**
    * @summary Aggregate data in a group hierarchy
    *
    * @param {string} scope
@@ -6017,7 +6167,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ResultDataSchema', 'Classification', 'SecurityClassification',
    * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
-   * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes', 'ExpandedGroup'
+   * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
+   * 'ExpandedGroup', 'CreateCorporateAction'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6051,7 +6202,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ResultDataSchema', 'Classification', 'SecurityClassification',
    * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
-   * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes', 'ExpandedGroup'
+   * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
+   * 'ExpandedGroup', 'CreateCorporateAction'
    *
    * @param {object} [options] Optional Parameters.
    *
