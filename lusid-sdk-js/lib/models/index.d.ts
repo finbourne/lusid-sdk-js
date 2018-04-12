@@ -78,15 +78,13 @@ export interface ResourceId {
  * @constructor
  * A corporate action
  *
- * @member {object} sourceId Unique identifier for the corporate action source
+ * @member {object} sourceId
  * @member {string} [sourceId.scope]
  * @member {string} [sourceId.code]
- * @member {string} corporateActionId Unique identifier for the corporate
- * action
- * @member {date} [announcementDate] The announcement date of the corporate
- * action
- * @member {date} [exDate] The ex date of the corporate action
- * @member {date} [recordDate] The record date of the corporate action
+ * @member {string} corporateActionId
+ * @member {date} [announcementDate]
+ * @member {date} [exDate]
+ * @member {date} [recordDate]
  * @member {array} [transitions]
  */
 export interface CorporateActionEventDto {
@@ -1283,7 +1281,8 @@ export interface KeyValuePairStringFieldSchema {
  * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
  * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
- * 'ExpandedGroup', 'CreateCorporateAction'
+ * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
+ * 'CorporateActionTransition'
  * @member {string} [href]
  * @member {array} [values]
  */

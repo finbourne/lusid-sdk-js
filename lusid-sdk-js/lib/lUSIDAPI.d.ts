@@ -6168,7 +6168,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-   * 'ExpandedGroup', 'CreateCorporateAction'
+   * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
+   * 'CorporateActionTransition'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6203,7 +6204,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-   * 'ExpandedGroup', 'CreateCorporateAction'
+   * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
+   * 'CorporateActionTransition'
    *
    * @param {object} [options] Optional Parameters.
    *

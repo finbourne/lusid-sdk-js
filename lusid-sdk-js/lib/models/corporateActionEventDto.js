@@ -31,16 +31,13 @@ const models = require('./index');
 class CorporateActionEventDto {
   /**
    * Create a CorporateActionEventDto.
-   * @member {object} sourceId Unique identifier for the corporate action
-   * source
+   * @member {object} sourceId
    * @member {string} [sourceId.scope]
    * @member {string} [sourceId.code]
-   * @member {string} corporateActionId Unique identifier for the corporate
-   * action
-   * @member {date} [announcementDate] The announcement date of the corporate
-   * action
-   * @member {date} [exDate] The ex date of the corporate action
-   * @member {date} [recordDate] The record date of the corporate action
+   * @member {string} corporateActionId
+   * @member {date} [announcementDate]
+   * @member {date} [exDate]
+   * @member {date} [recordDate]
    * @member {array} [transitions]
    */
   constructor() {

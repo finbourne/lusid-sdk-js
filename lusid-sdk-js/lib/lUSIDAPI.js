@@ -16395,7 +16395,8 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
  * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
- * 'ExpandedGroup', 'CreateCorporateAction'
+ * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
+ * 'CorporateActionTransition'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -26359,7 +26360,8 @@ class LUSIDAPI extends ServiceClient {
    * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-   * 'ExpandedGroup', 'CreateCorporateAction'
+   * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
+   * 'CorporateActionTransition'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -26406,7 +26408,8 @@ class LUSIDAPI extends ServiceClient {
    * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-   * 'ExpandedGroup', 'CreateCorporateAction'
+   * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
+   * 'CorporateActionTransition'
    *
    * @param {object} [options] Optional Parameters.
    *
