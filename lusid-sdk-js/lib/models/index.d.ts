@@ -710,12 +710,16 @@ export interface UpsertPersonalisationsResponse {
  * @member {string} code
  * @member {date} [created]
  * @member {string} baseCurrency
+ * @member {object} [corporateActionSourceId]
+ * @member {string} [corporateActionSourceId.scope]
+ * @member {string} [corporateActionSourceId.code]
  */
 export interface CreatePortfolioRequest {
   name: string;
   code: string;
   created?: Date;
   baseCurrency: string;
+  corporateActionSourceId?: ResourceId;
 }
 
 /**

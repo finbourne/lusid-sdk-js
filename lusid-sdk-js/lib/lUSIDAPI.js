@@ -7198,6 +7198,12 @@ function _listPortfolios(scope, options, callback) {
  *
  * @param {string} options.createRequest.baseCurrency
  *
+ * @param {object} [options.createRequest.corporateActionSourceId]
+ *
+ * @param {string} [options.createRequest.corporateActionSourceId.scope]
+ *
+ * @param {string} [options.createRequest.corporateActionSourceId.code]
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -14943,6 +14949,12 @@ function _listReferencePortfolios(scope, effectiveAt, options, callback) {
  *
  * @param {string} options.referencePortfolio.baseCurrency
  *
+ * @param {object} [options.referencePortfolio.corporateActionSourceId]
+ *
+ * @param {string} [options.referencePortfolio.corporateActionSourceId.scope]
+ *
+ * @param {string} [options.referencePortfolio.corporateActionSourceId.code]
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -21882,6 +21894,12 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.createRequest.baseCurrency
    *
+   * @param {object} [options.createRequest.corporateActionSourceId]
+   *
+   * @param {string} [options.createRequest.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.createRequest.corporateActionSourceId.code]
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -21924,6 +21942,12 @@ class LUSIDAPI extends ServiceClient {
    * @param {date} [options.createRequest.created]
    *
    * @param {string} options.createRequest.baseCurrency
+   *
+   * @param {object} [options.createRequest.corporateActionSourceId]
+   *
+   * @param {string} [options.createRequest.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.createRequest.corporateActionSourceId.code]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -25655,6 +25679,12 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.referencePortfolio.baseCurrency
    *
+   * @param {object} [options.referencePortfolio.corporateActionSourceId]
+   *
+   * @param {string} [options.referencePortfolio.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.referencePortfolio.corporateActionSourceId.code]
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -25695,6 +25725,12 @@ class LUSIDAPI extends ServiceClient {
    * @param {date} [options.referencePortfolio.created]
    *
    * @param {string} options.referencePortfolio.baseCurrency
+   *
+   * @param {object} [options.referencePortfolio.corporateActionSourceId]
+   *
+   * @param {string} [options.referencePortfolio.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.referencePortfolio.corporateActionSourceId.code]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

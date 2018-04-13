@@ -22,6 +22,8 @@
 
 'use strict';
 
+const models = require('./index');
+
 /**
  * Class representing a CreatePortfolioRequest.
  */
@@ -32,6 +34,9 @@ class CreatePortfolioRequest {
    * @member {string} code
    * @member {date} [created]
    * @member {string} baseCurrency
+   * @member {object} [corporateActionSourceId]
+   * @member {string} [corporateActionSourceId.scope]
+   * @member {string} [corporateActionSourceId.code]
    */
   constructor() {
   }
@@ -76,6 +81,14 @@ class CreatePortfolioRequest {
             serializedName: 'baseCurrency',
             type: {
               name: 'String'
+            }
+          },
+          corporateActionSourceId: {
+            required: false,
+            serializedName: 'corporateActionSourceId',
+            type: {
+              name: 'Composite',
+              className: 'ResourceId'
             }
           }
         }
