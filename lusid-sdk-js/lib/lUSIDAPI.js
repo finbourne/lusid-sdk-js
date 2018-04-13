@@ -7595,6 +7595,8 @@ function _getPortfolio(scope, code, options, callback) {
 }
 
 /**
+ * @summary Update portfolio
+ *
  * @param {string} scope The scope of the portfolio to be updated
  *
  * @param {string} code Code for the portfolio
@@ -7986,8 +7988,9 @@ function _deletePortfolio(scope, code, options, callback) {
 }
 
 /**
- * @summary Gets all commands that modified the portfolio(s) with the specified
- * id.
+ * @summary Get modifications
+ *
+ * Gets all commands that modified the portfolio
  *
  * @param {string} scope The scope of the portfolio
  *
@@ -9518,7 +9521,7 @@ function _getProperties(scope, code, options, callback) {
 }
 
 /**
- * @summary Create properties
+ * @summary Update properties
  *
  * Create one or more properties on a portfolio
  *
@@ -10393,7 +10396,7 @@ function _getTrades(scope, code, options, callback) {
 }
 
 /**
- * @summary Add/updates trades in a portfolio
+ * @summary Add/update trades
  *
  * @param {string} scope The scope of the portfolio
  *
@@ -22095,6 +22098,8 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Update portfolio
+   *
    * @param {string} scope The scope of the portfolio to be updated
    *
    * @param {string} code Code for the portfolio
@@ -22133,6 +22138,8 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Update portfolio
+   *
    * @param {string} scope The scope of the portfolio to be updated
    *
    * @param {string} code Code for the portfolio
@@ -22285,8 +22292,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Gets all commands that modified the portfolio(s) with the specified
-   * id.
+   * @summary Get modifications
+   *
+   * Gets all commands that modified the portfolio
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -22326,8 +22334,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Gets all commands that modified the portfolio(s) with the specified
-   * id.
+   * @summary Get modifications
+   *
+   * Gets all commands that modified the portfolio
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -23016,7 +23025,7 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Create properties
+   * @summary Update properties
    *
    * Create one or more properties on a portfolio
    *
@@ -23054,7 +23063,7 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Create properties
+   * @summary Update properties
    *
    * Create one or more properties on a portfolio
    *
@@ -23424,7 +23433,7 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Add/updates trades in a portfolio
+   * @summary Add/update trades
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -23458,7 +23467,7 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Add/updates trades in a portfolio
+   * @summary Add/update trades
    *
    * @param {string} scope The scope of the portfolio
    *

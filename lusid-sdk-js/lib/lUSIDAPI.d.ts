@@ -3025,6 +3025,8 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Update portfolio
+   *
    * @param {string} scope The scope of the portfolio to be updated
    *
    * @param {string} code Code for the portfolio
@@ -3051,6 +3053,8 @@ export default class LUSIDAPI extends ServiceClient {
   updatePortfolioWithHttpOperationResponse(scope: string, code: string, options?: { request? : models.UpdatePortfolioRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
+   * @summary Update portfolio
+   *
    * @param {string} scope The scope of the portfolio to be updated
    *
    * @param {string} code Code for the portfolio
@@ -3161,8 +3165,9 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Gets all commands that modified the portfolio(s) with the specified
-   * id.
+   * @summary Get modifications
+   *
+   * Gets all commands that modified the portfolio
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -3190,8 +3195,9 @@ export default class LUSIDAPI extends ServiceClient {
   getCommandsWithHttpOperationResponse(scope: string, code: string, options?: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
-   * @summary Gets all commands that modified the portfolio(s) with the specified
-   * id.
+   * @summary Get modifications
+   *
+   * Gets all commands that modified the portfolio
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -3703,7 +3709,7 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Create properties
+   * @summary Update properties
    *
    * Create one or more properties on a portfolio
    *
@@ -3729,7 +3735,7 @@ export default class LUSIDAPI extends ServiceClient {
   upsertPortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { properties? : models.PropertyDto[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
-   * @summary Create properties
+   * @summary Update properties
    *
    * Create one or more properties on a portfolio
    *
@@ -4003,7 +4009,7 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Add/updates trades in a portfolio
+   * @summary Add/update trades
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -4025,7 +4031,7 @@ export default class LUSIDAPI extends ServiceClient {
   upsertTradesWithHttpOperationResponse(scope: string, code: string, options?: { trades? : models.TradeDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
-   * @summary Add/updates trades in a portfolio
+   * @summary Add/update trades
    *
    * @param {string} scope The scope of the portfolio
    *
