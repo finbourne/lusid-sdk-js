@@ -1227,6 +1227,178 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Adds a new transaction code movement to the list of existing codes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.code] transaction code to add
+   *
+   * @param {string} options.code.code The transaction code
+   *
+   * @param {string} options.code.description The transaction code description
+   *
+   * @param {array} options.code.movements Movement data for the transaction code
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  addTransactionCodeWithHttpOperationResponse(options?: { code? : models.TransactionCodeMovementsDto, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+
+  /**
+   * @summary Adds a new transaction code movement to the list of existing codes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.code] transaction code to add
+   *
+   * @param {string} options.code.code The transaction code
+   *
+   * @param {string} options.code.description The transaction code description
+   *
+   * @param {array} options.code.movements Movement data for the transaction code
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  addTransactionCode(options?: { code? : models.TransactionCodeMovementsDto, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  addTransactionCode(callback: ServiceCallback<any>): void;
+  addTransactionCode(options: { code? : models.TransactionCodeMovementsDto, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+
+
+  /**
+   * @summary Gets the list of persisted transaction codes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getTransactionCodesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+
+  /**
+   * @summary Gets the list of persisted transaction codes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getTransactionCodes(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getTransactionCodes(callback: ServiceCallback<any>): void;
+  getTransactionCodes(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+
+
+  /**
+   * @summary Uploads a list of transation codes to be used by the movements
+   * engine
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.codes] Codes to be uploaded
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  uploadTransactionCodesWithHttpOperationResponse(options?: { codes? : models.TransactionCodeMovementsDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+
+  /**
+   * @summary Uploads a list of transation codes to be used by the movements
+   * engine
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.codes] Codes to be uploaded
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  uploadTransactionCodes(options?: { codes? : models.TransactionCodeMovementsDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  uploadTransactionCodes(callback: ServiceCallback<any>): void;
+  uploadTransactionCodes(options: { codes? : models.TransactionCodeMovementsDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+
+
+  /**
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.version]
@@ -6199,7 +6371,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition'
+   * 'CorporateActionTransition', 'TransactionCodeMovements'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6235,7 +6407,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition'
+   * 'CorporateActionTransition', 'TransactionCodeMovements'
    *
    * @param {object} [options] Optional Parameters.
    *

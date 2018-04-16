@@ -48,7 +48,7 @@ class SchemaDto {
    * 'CreatePortfolioDetails', 'UpsertConstituent', 'CreateResults', 'Results',
    * 'TryAddClientSecurities', 'TryDeleteClientSecurities',
    * 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction',
-   * 'CorporateAction', 'CorporateActionTransition'
+   * 'CorporateAction', 'CorporateActionTransition', 'TransactionCodeMovements'
    * @member {string} [href]
    * @member {array} [values]
    */

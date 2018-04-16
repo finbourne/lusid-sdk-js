@@ -462,6 +462,39 @@ export interface ClassificationsDto {
 
 /**
  * @class
+ * Initializes a new instance of the MovementDataDto class.
+ * @constructor
+ * @member {string} movementTypes The movement types. Possible values include:
+ * 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
+ * 'CashSettlement', 'Accrual'
+ * @member {string} side The Side. Possible values include: 'Side1', 'Side2',
+ * 'BondInt'
+ * @member {number} direction
+ * @member {string} flags The Flags
+ */
+export interface MovementDataDto {
+  readonly movementTypes: string;
+  readonly side: string;
+  readonly direction: number;
+  readonly flags: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the TransactionCodeMovementsDto class.
+ * @constructor
+ * @member {string} code The transaction code
+ * @member {string} description The transaction code description
+ * @member {array} movements Movement data for the transaction code
+ */
+export interface TransactionCodeMovementsDto {
+  code: string;
+  description: string;
+  movements: MovementDataDto[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreateGroupRequest class.
  * @constructor
  * @member {string} id
@@ -1286,7 +1319,7 @@ export interface KeyValuePairStringFieldSchema {
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
  * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
- * 'CorporateActionTransition'
+ * 'CorporateActionTransition', 'TransactionCodeMovements'
  * @member {string} [href]
  * @member {array} [values]
  */

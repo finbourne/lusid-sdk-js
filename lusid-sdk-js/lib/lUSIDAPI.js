@@ -2698,6 +2698,500 @@ function _upsertClassification(options, callback) {
 }
 
 /**
+ * @summary Adds a new transaction code movement to the list of existing codes
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {object} [options.code] transaction code to add
+ *
+ * @param {string} options.code.code The transaction code
+ *
+ * @param {string} options.code.description The transaction code description
+ *
+ * @param {array} options.code.movements Movement data for the transaction code
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _addTransactionCode(options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let code = (options && options.code !== undefined) ? options.code : undefined;
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/configuration/addtransactioncode';
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (code !== null && code !== undefined) {
+      let requestModelMapper = new client.models['TransactionCodeMovementsDto']().mapper();
+      requestModel = client.serialize(requestModelMapper, code, 'code');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(code, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 201 && statusCode !== 400 && statusCode !== 500) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 201) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['TransactionCodeMovementsDto']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 400) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError1 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError1.request = msRest.stripRequest(httpRequest);
+        deserializationError1.response = msRest.stripResponse(response);
+        return callback(deserializationError1);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 500) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError2 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError2.request = msRest.stripRequest(httpRequest);
+        deserializationError2.response = msRest.stripResponse(response);
+        return callback(deserializationError2);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Gets the list of persisted transaction codes
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _getTransactionCodes(options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/configuration/gettransactioncodes';
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'GET';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  httpRequest.body = null;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200 && statusCode !== 400 && statusCode !== 500) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = {
+            required: false,
+            serializedName: 'parsedResponse',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'TransactionCodeMovementsDtoElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'TransactionCodeMovementsDto'
+                  }
+              }
+            }
+          };
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 400) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError1 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError1.request = msRest.stripRequest(httpRequest);
+        deserializationError1.response = msRest.stripResponse(response);
+        return callback(deserializationError1);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 500) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError2 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError2.request = msRest.stripRequest(httpRequest);
+        deserializationError2.response = msRest.stripResponse(response);
+        return callback(deserializationError2);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Uploads a list of transation codes to be used by the movements
+ * engine
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {array} [options.codes] Codes to be uploaded
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _uploadTransactionCodes(options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let codes = (options && options.codes !== undefined) ? options.codes : undefined;
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/configuration/uploadtransactioncodes';
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (codes !== null && codes !== undefined) {
+      let requestModelMapper = {
+        required: false,
+        serializedName: 'codes',
+        type: {
+          name: 'Sequence',
+          element: {
+              required: false,
+              serializedName: 'TransactionCodeMovementsDtoElementType',
+              type: {
+                name: 'Composite',
+                className: 'TransactionCodeMovementsDto'
+              }
+          }
+        }
+      };
+      requestModel = client.serialize(requestModelMapper, codes, 'codes');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(codes, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 201 && statusCode !== 400 && statusCode !== 500) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 201) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = {
+            required: false,
+            serializedName: 'parsedResponse',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'TransactionCodeMovementsDtoElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'TransactionCodeMovementsDto'
+                  }
+              }
+            }
+          };
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 400) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError1 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError1.request = msRest.stripRequest(httpRequest);
+        deserializationError1.response = msRest.stripResponse(response);
+        return callback(deserializationError1);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 500) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError2 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError2.request = msRest.stripRequest(httpRequest);
+        deserializationError2.response = msRest.stripResponse(response);
+        return callback(deserializationError2);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
  * @param {object} [options] Optional Parameters.
  *
  * @param {string} [options.version]
@@ -16411,7 +16905,7 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
  * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
- * 'CorporateActionTransition'
+ * 'CorporateActionTransition', 'TransactionCodeMovements'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -17934,6 +18428,9 @@ class LUSIDAPI extends ServiceClient {
     this._deleteAnalyticStore = _deleteAnalyticStore;
     this._insertAnalytics = _insertAnalytics;
     this._upsertClassification = _upsertClassification;
+    this._addTransactionCode = _addTransactionCode;
+    this._getTransactionCodes = _getTransactionCodes;
+    this._uploadTransactionCodes = _uploadTransactionCodes;
     this._getDownloadUrl = _getDownloadUrl;
     this._getLatestVersion = _getLatestVersion;
     this._listPortfolioGroups = _listPortfolioGroups;
@@ -19567,6 +20064,259 @@ class LUSIDAPI extends ServiceClient {
       });
     } else {
       return self._upsertClassification(options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Adds a new transaction code movement to the list of existing codes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.code] transaction code to add
+   *
+   * @param {string} options.code.code The transaction code
+   *
+   * @param {string} options.code.description The transaction code description
+   *
+   * @param {array} options.code.movements Movement data for the transaction code
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  addTransactionCodeWithHttpOperationResponse(options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._addTransactionCode(options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Adds a new transaction code movement to the list of existing codes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.code] transaction code to add
+   *
+   * @param {string} options.code.code The transaction code
+   *
+   * @param {string} options.code.description The transaction code description
+   *
+   * @param {array} options.code.movements Movement data for the transaction code
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  addTransactionCode(options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._addTransactionCode(options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._addTransactionCode(options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Gets the list of persisted transaction codes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  getTransactionCodesWithHttpOperationResponse(options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._getTransactionCodes(options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Gets the list of persisted transaction codes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getTransactionCodes(options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._getTransactionCodes(options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._getTransactionCodes(options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Uploads a list of transation codes to be used by the movements
+   * engine
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.codes] Codes to be uploaded
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  uploadTransactionCodesWithHttpOperationResponse(options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._uploadTransactionCodes(options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Uploads a list of transation codes to be used by the movements
+   * engine
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.codes] Codes to be uploaded
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  uploadTransactionCodes(options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._uploadTransactionCodes(options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._uploadTransactionCodes(options, optionalCallback);
     }
   }
 
@@ -26406,7 +27156,7 @@ class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition'
+   * 'CorporateActionTransition', 'TransactionCodeMovements'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -26454,7 +27204,7 @@ class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition'
+   * 'CorporateActionTransition', 'TransactionCodeMovements'
    *
    * @param {object} [options] Optional Parameters.
    *
