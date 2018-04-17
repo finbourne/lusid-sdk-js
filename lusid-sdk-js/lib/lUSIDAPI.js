@@ -10638,7 +10638,8 @@ function _deletePortfolioProperties(scope, code, options, callback) {
  *
  * @param {number} [options.limit] How many items to return from the set
  *
- * @param {array} [options.propertyFilter]
+ * @param {array} [options.securityPropertyKeys] Keys for the security
+ * properties to be decorated onto the trades
  *
  * @param {string} [options.filter] Trade filter
  *
@@ -10673,7 +10674,7 @@ function _getTrades(scope, code, options, callback) {
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
-  let propertyFilter = (options && options.propertyFilter !== undefined) ? options.propertyFilter : undefined;
+  let securityPropertyKeys = (options && options.securityPropertyKeys !== undefined) ? options.securityPropertyKeys : undefined;
   let filter = (options && options.filter !== undefined) ? options.filter : undefined;
   // Validate
   try {
@@ -10708,10 +10709,10 @@ function _getTrades(scope, code, options, callback) {
     if (limit !== null && limit !== undefined && typeof limit !== 'number') {
       throw new Error('limit must be of type number.');
     }
-    if (Array.isArray(propertyFilter)) {
-      for (let i1 = 0; i1 < propertyFilter.length; i1++) {
-        if (propertyFilter[i1] !== null && propertyFilter[i1] !== undefined && typeof propertyFilter[i1].valueOf() !== 'string') {
-          throw new Error('propertyFilter[i1] must be of type string.');
+    if (Array.isArray(securityPropertyKeys)) {
+      for (let i1 = 0; i1 < securityPropertyKeys.length; i1++) {
+        if (securityPropertyKeys[i1] !== null && securityPropertyKeys[i1] !== undefined && typeof securityPropertyKeys[i1].valueOf() !== 'string') {
+          throw new Error('securityPropertyKeys[i1] must be of type string.');
         }
       }
     }
@@ -10753,13 +10754,13 @@ function _getTrades(scope, code, options, callback) {
   if (limit !== null && limit !== undefined) {
     queryParameters.push('limit=' + encodeURIComponent(limit.toString()));
   }
-  if (propertyFilter !== null && propertyFilter !== undefined) {
-    if (propertyFilter.length == 0) {
-      queryParameters.push('propertyFilter=' + encodeURIComponent(''));
+  if (securityPropertyKeys !== null && securityPropertyKeys !== undefined) {
+    if (securityPropertyKeys.length == 0) {
+      queryParameters.push('securityPropertyKeys=' + encodeURIComponent(''));
     } else {
-      for (let item of propertyFilter) {
+      for (let item of securityPropertyKeys) {
         item = (item === null || item === undefined) ? '' : item;
-        queryParameters.push('propertyFilter=' + encodeURIComponent('' + item));
+        queryParameters.push('securityPropertyKeys=' + encodeURIComponent('' + item));
       }
     }
   }
@@ -24084,7 +24085,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {number} [options.limit] How many items to return from the set
    *
-   * @param {array} [options.propertyFilter]
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the trades
    *
    * @param {string} [options.filter] Trade filter
    *
@@ -24134,7 +24136,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {number} [options.limit] How many items to return from the set
    *
-   * @param {array} [options.propertyFilter]
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the trades
    *
    * @param {string} [options.filter] Trade filter
    *

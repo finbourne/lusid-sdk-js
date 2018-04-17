@@ -4109,7 +4109,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {number} [options.limit] How many items to return from the set
    *
-   * @param {array} [options.propertyFilter]
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the trades
    *
    * @param {string} [options.filter] Trade filter
    *
@@ -4122,7 +4123,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getTradesWithHttpOperationResponse(scope: string, code: string, options?: { fromTradeDate? : Date, toTradeDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, propertyFilter? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getTradesWithHttpOperationResponse(scope: string, code: string, options?: { fromTradeDate? : Date, toTradeDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Get trades
@@ -4147,7 +4148,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {number} [options.limit] How many items to return from the set
    *
-   * @param {array} [options.propertyFilter]
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the trades
    *
    * @param {string} [options.filter] Trade filter
    *
@@ -4175,9 +4177,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getTrades(scope: string, code: string, options?: { fromTradeDate? : Date, toTradeDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, propertyFilter? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getTrades(scope: string, code: string, options?: { fromTradeDate? : Date, toTradeDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   getTrades(scope: string, code: string, callback: ServiceCallback<any>): void;
-  getTrades(scope: string, code: string, options: { fromTradeDate? : Date, toTradeDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, propertyFilter? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getTrades(scope: string, code: string, options: { fromTradeDate? : Date, toTradeDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
