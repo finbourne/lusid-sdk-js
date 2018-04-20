@@ -25,44 +25,45 @@
 const models = require('./index');
 
 /**
- * Class representing a TransactionCodeMovementsDto.
+ * Class representing a TxnMetaDataDto.
  */
-class TransactionCodeMovementsDto {
+class TxnMetaDataDto {
   /**
-   * Create a TransactionCodeMovementsDto.
-   * @member {string} code The transaction code
-   * @member {string} description The transaction code description
-   * @member {array} movements Movement data for the transaction code
+   * Create a TxnMetaDataDto.
+   * @member {array} aliases Representative movements for transaction code
+   * @member {array} movements Representative movements for transaction code
+   * @member {array} [properties]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of TransactionCodeMovementsDto
+   * Defines the metadata of TxnMetaDataDto
    *
-   * @returns {object} metadata of TransactionCodeMovementsDto
+   * @returns {object} metadata of TxnMetaDataDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'TransactionCodeMovementsDto',
+      serializedName: 'TxnMetaDataDto',
       type: {
         name: 'Composite',
-        className: 'TransactionCodeMovementsDto',
+        className: 'TxnMetaDataDto',
         modelProperties: {
-          code: {
+          aliases: {
             required: true,
-            serializedName: 'code',
+            serializedName: 'aliases',
             type: {
-              name: 'String'
-            }
-          },
-          description: {
-            required: true,
-            serializedName: 'description',
-            type: {
-              name: 'String'
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'TxnTypeAliasDtoElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'TxnTypeAliasDto'
+                  }
+              }
             }
           },
           movements: {
@@ -72,10 +73,25 @@ class TransactionCodeMovementsDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'MovementDataDtoElementType',
+                  serializedName: 'TxnMovementMetaDataDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'MovementDataDto'
+                    className: 'TxnMovementMetaDataDto'
+                  }
+              }
+            }
+          },
+          properties: {
+            required: false,
+            serializedName: 'properties',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'PropertyDtoElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'PropertyDto'
                   }
               }
             }
@@ -86,4 +102,4 @@ class TransactionCodeMovementsDto {
   }
 }
 
-module.exports = TransactionCodeMovementsDto;
+module.exports = TxnMetaDataDto;

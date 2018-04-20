@@ -1233,11 +1233,13 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.code] transaction code to add
    *
-   * @param {string} options.code.code The transaction code
+   * @param {array} options.code.aliases Representative movements for transaction
+   * code
    *
-   * @param {string} options.code.description The transaction code description
+   * @param {array} options.code.movements Representative movements for
+   * transaction code
    *
-   * @param {array} options.code.movements Movement data for the transaction code
+   * @param {array} [options.code.properties]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1248,7 +1250,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  addTransactionCodeWithHttpOperationResponse(options?: { code? : models.TransactionCodeMovementsDto, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  addTransactionCodeWithHttpOperationResponse(options?: { code? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Adds a new transaction code movement to the list of existing codes
@@ -1257,11 +1259,13 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.code] transaction code to add
    *
-   * @param {string} options.code.code The transaction code
+   * @param {array} options.code.aliases Representative movements for transaction
+   * code
    *
-   * @param {string} options.code.description The transaction code description
+   * @param {array} options.code.movements Representative movements for
+   * transaction code
    *
-   * @param {array} options.code.movements Movement data for the transaction code
+   * @param {array} [options.code.properties]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1287,9 +1291,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  addTransactionCode(options?: { code? : models.TransactionCodeMovementsDto, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  addTransactionCode(options?: { code? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   addTransactionCode(callback: ServiceCallback<any>): void;
-  addTransactionCode(options: { code? : models.TransactionCodeMovementsDto, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  addTransactionCode(options: { code? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -1359,7 +1363,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  uploadTransactionCodesWithHttpOperationResponse(options?: { codes? : models.TransactionCodeMovementsDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  uploadTransactionCodesWithHttpOperationResponse(options?: { codes? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Uploads a list of transation codes to be used by the movements
@@ -1393,9 +1397,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  uploadTransactionCodes(options?: { codes? : models.TransactionCodeMovementsDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  uploadTransactionCodes(options?: { codes? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   uploadTransactionCodes(callback: ServiceCallback<any>): void;
-  uploadTransactionCodes(options: { codes? : models.TransactionCodeMovementsDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  uploadTransactionCodes(options: { codes? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -4820,7 +4824,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition]
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding'
+   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} [options.definition.scope]
    *
@@ -4860,7 +4864,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition]
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding'
+   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} [options.definition.scope]
    *
@@ -4984,7 +4988,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets all available property definitions.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -5011,7 +5015,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets all available property definitions.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -5057,7 +5061,7 @@ export default class LUSIDAPI extends ServiceClient {
    * domain.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -5085,7 +5089,7 @@ export default class LUSIDAPI extends ServiceClient {
    * domain.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -5130,7 +5134,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets all properties in a scope.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -5159,7 +5163,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets all properties in a scope.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -5206,7 +5210,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets a property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -5231,7 +5235,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets a property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -5274,7 +5278,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Updates the specified property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -5314,7 +5318,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Updates the specified property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -5372,7 +5376,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Deletes the property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -5395,7 +5399,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Deletes the property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -6373,7 +6377,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'TransactionCodeMovements'
+   * 'CorporateActionTransition'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6409,7 +6413,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'TransactionCodeMovements'
+   * 'CorporateActionTransition'
    *
    * @param {object} [options] Optional Parameters.
    *

@@ -23,64 +23,41 @@
 'use strict';
 
 /**
- * Class representing a MovementDataDto.
+ * Class representing a TxnTypeAliasDto.
  */
-class MovementDataDto {
+class TxnTypeAliasDto {
   /**
-   * Create a MovementDataDto.
-   * @member {string} movementTypes The movement types. Possible values
-   * include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
-   * 'CashSettlement', 'Accrual'
-   * @member {string} side The Side. Possible values include: 'Side1', 'Side2',
-   * 'BondInt'
-   * @member {number} direction
-   * @member {string} flags The Flags
+   * Create a TxnTypeAliasDto.
+   * @member {string} type Transaction Code
+   * @member {string} description Transaction Code description
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of MovementDataDto
+   * Defines the metadata of TxnTypeAliasDto
    *
-   * @returns {object} metadata of MovementDataDto
+   * @returns {object} metadata of TxnTypeAliasDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'MovementDataDto',
+      serializedName: 'TxnTypeAliasDto',
       type: {
         name: 'Composite',
-        className: 'MovementDataDto',
+        className: 'TxnTypeAliasDto',
         modelProperties: {
-          movementTypes: {
+          type: {
             required: true,
-            readOnly: true,
-            serializedName: 'movementTypes',
+            serializedName: 'type',
             type: {
               name: 'String'
             }
           },
-          side: {
+          description: {
             required: true,
-            readOnly: true,
-            serializedName: 'side',
-            type: {
-              name: 'String'
-            }
-          },
-          direction: {
-            required: true,
-            readOnly: true,
-            serializedName: 'direction',
-            type: {
-              name: 'Number'
-            }
-          },
-          flags: {
-            required: true,
-            readOnly: true,
-            serializedName: 'flags',
+            serializedName: 'description',
             type: {
               name: 'String'
             }
@@ -91,4 +68,4 @@ class MovementDataDto {
   }
 }
 
-module.exports = MovementDataDto;
+module.exports = TxnTypeAliasDto;

@@ -31,7 +31,7 @@ class CreatePropertyDefinitionRequest {
   /**
    * Create a CreatePropertyDefinitionRequest.
    * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    * @member {string} [scope]
    * @member {string} [name]
    * @member {boolean} [valueRequired]

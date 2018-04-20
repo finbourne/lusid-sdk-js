@@ -462,7 +462,33 @@ export interface ClassificationsDto {
 
 /**
  * @class
- * Initializes a new instance of the MovementDataDto class.
+ * Initializes a new instance of the TxnTypeAliasDto class.
+ * @constructor
+ * @member {string} type Transaction Code
+ * @member {string} description Transaction Code description
+ */
+export interface TxnTypeAliasDto {
+  type: string;
+  description: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the TxnPropertyMappingDto class.
+ * @constructor
+ * @member {string} propertyKey The Side
+ * @member {string} [mapFrom] The Side
+ * @member {object} [setTo] The Side
+ */
+export interface TxnPropertyMappingDto {
+  readonly propertyKey: string;
+  readonly mapFrom?: string;
+  readonly setTo?: any;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the TxnMovementMetaDataDto class.
  * @constructor
  * @member {string} movementTypes The movement types. Possible values include:
  * 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
@@ -470,27 +496,29 @@ export interface ClassificationsDto {
  * @member {string} side The Side. Possible values include: 'Side1', 'Side2',
  * 'BondInt'
  * @member {number} direction
- * @member {string} flags The Flags
+ * @member {array} [properties]
+ * @member {array} [mappings]
  */
-export interface MovementDataDto {
+export interface TxnMovementMetaDataDto {
   readonly movementTypes: string;
   readonly side: string;
   readonly direction: number;
-  readonly flags: string;
+  readonly properties?: PropertyDto[];
+  readonly mappings?: TxnPropertyMappingDto[];
 }
 
 /**
  * @class
- * Initializes a new instance of the TransactionCodeMovementsDto class.
+ * Initializes a new instance of the TxnMetaDataDto class.
  * @constructor
- * @member {string} code The transaction code
- * @member {string} description The transaction code description
- * @member {array} movements Movement data for the transaction code
+ * @member {array} aliases Representative movements for transaction code
+ * @member {array} movements Representative movements for transaction code
+ * @member {array} [properties]
  */
-export interface TransactionCodeMovementsDto {
-  code: string;
-  description: string;
-  movements: MovementDataDto[];
+export interface TxnMetaDataDto {
+  aliases: TxnTypeAliasDto[];
+  movements: TxnMovementMetaDataDto[];
+  properties?: PropertyDto[];
 }
 
 /**
@@ -1098,7 +1126,7 @@ export interface PropertyDefinitionDto {
  * Initializes a new instance of the CreatePropertyDefinitionRequest class.
  * @constructor
  * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding'
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
  * @member {string} [scope]
  * @member {string} [name]
  * @member {boolean} [valueRequired]
@@ -1319,7 +1347,7 @@ export interface KeyValuePairStringFieldSchema {
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
  * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
- * 'CorporateActionTransition', 'TransactionCodeMovements'
+ * 'CorporateActionTransition'
  * @member {string} [href]
  * @member {array} [values]
  */

@@ -2704,11 +2704,13 @@ function _upsertClassification(options, callback) {
  *
  * @param {object} [options.code] transaction code to add
  *
- * @param {string} options.code.code The transaction code
+ * @param {array} options.code.aliases Representative movements for transaction
+ * code
  *
- * @param {string} options.code.description The transaction code description
+ * @param {array} options.code.movements Representative movements for
+ * transaction code
  *
- * @param {array} options.code.movements Movement data for the transaction code
+ * @param {array} [options.code.properties]
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2760,7 +2762,7 @@ function _addTransactionCode(options, callback) {
   let requestModel = null;
   try {
     if (code !== null && code !== undefined) {
-      let requestModelMapper = new client.models['TransactionCodeMovementsDto']().mapper();
+      let requestModelMapper = new client.models['TxnMetaDataDto']().mapper();
       requestModel = client.serialize(requestModelMapper, code, 'code');
       requestContent = JSON.stringify(requestModel);
     }
@@ -2808,7 +2810,7 @@ function _addTransactionCode(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['TransactionCodeMovementsDto']().mapper();
+          let resultMapper = new client.models['TxnMetaDataDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -2952,10 +2954,10 @@ function _getTransactionCodes(options, callback) {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'TransactionCodeMovementsDtoElementType',
+                  serializedName: 'TxnMetaDataDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'TransactionCodeMovementsDto'
+                    className: 'TxnMetaDataDto'
                   }
               }
             }
@@ -3073,10 +3075,10 @@ function _uploadTransactionCodes(options, callback) {
           name: 'Sequence',
           element: {
               required: false,
-              serializedName: 'TransactionCodeMovementsDtoElementType',
+              serializedName: 'TxnMetaDataDtoElementType',
               type: {
                 name: 'Composite',
-                className: 'TransactionCodeMovementsDto'
+                className: 'TxnMetaDataDto'
               }
           }
         }
@@ -3135,10 +3137,10 @@ function _uploadTransactionCodes(options, callback) {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'TransactionCodeMovementsDtoElementType',
+                  serializedName: 'TxnMetaDataDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'TransactionCodeMovementsDto'
+                    className: 'TxnMetaDataDto'
                   }
               }
             }
@@ -12747,7 +12749,7 @@ function _getPropertyDefinitionDomains(options, callback) {
  * @param {object} [options.definition]
  *
  * @param {string} [options.definition.domain] Possible values include:
- * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding'
+ * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
  *
  * @param {string} [options.definition.scope]
  *
@@ -13166,7 +13168,7 @@ function _getMultiplePropertyDefinitions(options, callback) {
  * @summary Gets all available property definitions.
  *
  * @param {string} domain Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding'
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -13384,7 +13386,7 @@ function _getAllPropertyKeysInDomain(domain, options, callback) {
  * domain.
  *
  * @param {string} domain Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding'
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -13601,7 +13603,7 @@ function _getPropertyDefinitionScopesInDomain(domain, options, callback) {
  * @summary Gets all properties in a scope.
  *
  * @param {string} domain Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding'
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
  *
  * @param {string} scope
  *
@@ -13824,7 +13826,7 @@ function _getAllPropertyKeysInScope(domain, scope, options, callback) {
  * @summary Gets a property definition.
  *
  * @param {string} domain Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding'
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
  *
  * @param {string} scope
  *
@@ -14016,7 +14018,7 @@ function _getPropertyDefinition(domain, scope, name, options, callback) {
  * @summary Updates the specified property definition.
  *
  * @param {string} domain Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding'
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
  *
  * @param {string} scope
  *
@@ -14226,7 +14228,7 @@ function _updatePropertyDefinition(domain, scope, name, options, callback) {
  * @summary Deletes the property definition.
  *
  * @param {string} domain Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding'
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
  *
  * @param {string} scope
  *
@@ -16906,7 +16908,7 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
  * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
- * 'CorporateActionTransition', 'TransactionCodeMovements'
+ * 'CorporateActionTransition'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -20075,11 +20077,13 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.code] transaction code to add
    *
-   * @param {string} options.code.code The transaction code
+   * @param {array} options.code.aliases Representative movements for transaction
+   * code
    *
-   * @param {string} options.code.description The transaction code description
+   * @param {array} options.code.movements Representative movements for
+   * transaction code
    *
-   * @param {array} options.code.movements Movement data for the transaction code
+   * @param {array} [options.code.properties]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20111,11 +20115,13 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.code] transaction code to add
    *
-   * @param {string} options.code.code The transaction code
+   * @param {array} options.code.aliases Representative movements for transaction
+   * code
    *
-   * @param {string} options.code.description The transaction code description
+   * @param {array} options.code.movements Representative movements for
+   * transaction code
    *
-   * @param {array} options.code.movements Movement data for the transaction code
+   * @param {array} [options.code.properties]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -25066,7 +25072,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition]
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding'
+   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} [options.definition.scope]
    *
@@ -25118,7 +25124,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition]
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding'
+   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} [options.definition.scope]
    *
@@ -25284,7 +25290,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets all available property definitions.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -25323,7 +25329,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets all available property definitions.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -25384,7 +25390,7 @@ class LUSIDAPI extends ServiceClient {
    * domain.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -25424,7 +25430,7 @@ class LUSIDAPI extends ServiceClient {
    * domain.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -25484,7 +25490,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets all properties in a scope.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -25525,7 +25531,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets all properties in a scope.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -25587,7 +25593,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets a property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -25624,7 +25630,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets a property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -25682,7 +25688,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Updates the specified property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -25734,7 +25740,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Updates the specified property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -25807,7 +25813,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Deletes the property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -25842,7 +25848,7 @@ class LUSIDAPI extends ServiceClient {
    * @summary Deletes the property definition.
    *
    * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {string} scope
    *
@@ -27159,7 +27165,7 @@ class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'TransactionCodeMovements'
+   * 'CorporateActionTransition'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -27207,7 +27213,7 @@ class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'TransactionCodeMovements'
+   * 'CorporateActionTransition'
    *
    * @param {object} [options] Optional Parameters.
    *
