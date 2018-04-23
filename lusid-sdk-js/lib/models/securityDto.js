@@ -48,7 +48,7 @@ class SecurityDto {
    * @member {string} [aliases.clientInternal]
    * @member {string} [aliases.figi]
    * @member {string} [aliases.wertpapier]
-   * @member {object} [properties]
+   * @member {array} [properties]
    * @member {array} [_links]
    */
   constructor() {
@@ -109,13 +109,13 @@ class SecurityDto {
             required: false,
             serializedName: 'properties',
             type: {
-              name: 'Dictionary',
-              value: {
+              name: 'Sequence',
+              element: {
                   required: false,
-                  serializedName: 'PropertyElementType',
+                  serializedName: 'PropertyDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'Property'
+                    className: 'PropertyDto'
                   }
               }
             }

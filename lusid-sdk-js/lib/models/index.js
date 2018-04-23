@@ -95,7 +95,6 @@ exports.KeyValuePairCodeTypeString = require('./keyValuePairCodeTypeString');
 exports.InstrumentDefinitionDto = require('./instrumentDefinitionDto');
 exports.CreateClientSecurityRequest = require('./createClientSecurityRequest');
 exports.SecurityDtoAliases = require('./securityDtoAliases');
-exports.Property = require('./property');
 exports.SecurityDto = require('./securityDto');
 exports.TryAddClientSecuritiesDto = require('./tryAddClientSecuritiesDto');
 exports.TryDeleteClientSecuritiesDto = require('./tryDeleteClientSecuritiesDto');

@@ -1449,26 +1449,6 @@ export interface SecurityDtoAliases {
 
 /**
  * @class
- * Initializes a new instance of the Property class.
- * @constructor
- * This is intended to be the external facing property specification data type.
- *
- * @member {string} key The property key made up of the PropertyDomain, scope
- * and name delimited with a '/'
- * e.g. trade/myscope/myproperty
- * @member {object} value
- * @member {date} [effectiveDate] Date for which the property is effective from
- * @member {number} [version]
- */
-export interface Property {
-  key: string;
-  value: any;
-  effectiveDate?: Date;
-  version?: number;
-}
-
-/**
- * @class
  * Initializes a new instance of the SecurityDto class.
  * @constructor
  * @member {string} [href]
@@ -1489,7 +1469,7 @@ export interface Property {
  * @member {string} [aliases.clientInternal]
  * @member {string} [aliases.figi]
  * @member {string} [aliases.wertpapier]
- * @member {object} [properties]
+ * @member {array} [properties]
  * @member {array} [_links]
  */
 export interface SecurityDto {
@@ -1498,7 +1478,7 @@ export interface SecurityDto {
   version?: VersionDto;
   commonName?: string;
   aliases?: SecurityDtoAliases;
-  properties?: { [propertyName: string]: Property };
+  properties?: PropertyDto[];
   _links?: Link[];
 }
 
