@@ -58,7 +58,6 @@ class TxnMovementMetaDataDto {
         modelProperties: {
           movementTypes: {
             required: true,
-            readOnly: true,
             serializedName: 'movementTypes',
             type: {
               name: 'String'
@@ -66,7 +65,6 @@ class TxnMovementMetaDataDto {
           },
           side: {
             required: true,
-            readOnly: true,
             serializedName: 'side',
             type: {
               name: 'String'
@@ -74,7 +72,6 @@ class TxnMovementMetaDataDto {
           },
           direction: {
             required: true,
-            readOnly: true,
             serializedName: 'direction',
             type: {
               name: 'Number'
@@ -82,7 +79,6 @@ class TxnMovementMetaDataDto {
           },
           properties: {
             required: false,
-            readOnly: true,
             serializedName: 'properties',
             type: {
               name: 'Sequence',
@@ -98,7 +94,6 @@ class TxnMovementMetaDataDto {
           },
           mappings: {
             required: false,
-            readOnly: true,
             serializedName: 'mappings',
             type: {
               name: 'Sequence',

@@ -51,7 +51,6 @@ class TxnPropertyMappingDto {
         modelProperties: {
           propertyKey: {
             required: true,
-            readOnly: true,
             serializedName: 'propertyKey',
             type: {
               name: 'String'
@@ -59,7 +58,6 @@ class TxnPropertyMappingDto {
           },
           mapFrom: {
             required: false,
-            readOnly: true,
             serializedName: 'mapFrom',
             type: {
               name: 'String'
@@ -67,7 +65,6 @@ class TxnPropertyMappingDto {
           },
           setTo: {
             required: false,
-            readOnly: true,
             serializedName: 'setTo',
             type: {
               name: 'Object'

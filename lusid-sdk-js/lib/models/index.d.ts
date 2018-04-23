@@ -481,9 +481,9 @@ export interface TxnTypeAliasDto {
  * @member {object} [setTo] The Side
  */
 export interface TxnPropertyMappingDto {
-  readonly propertyKey: string;
-  readonly mapFrom?: string;
-  readonly setTo?: any;
+  propertyKey: string;
+  mapFrom?: string;
+  setTo?: any;
 }
 
 /**
@@ -500,11 +500,11 @@ export interface TxnPropertyMappingDto {
  * @member {array} [mappings]
  */
 export interface TxnMovementMetaDataDto {
-  readonly movementTypes: string;
-  readonly side: string;
-  readonly direction: number;
-  readonly properties?: PropertyDto[];
-  readonly mappings?: TxnPropertyMappingDto[];
+  movementTypes: string;
+  side: string;
+  direction: number;
+  properties?: PropertyDto[];
+  mappings?: TxnPropertyMappingDto[];
 }
 
 /**
