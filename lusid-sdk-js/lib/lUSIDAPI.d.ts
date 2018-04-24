@@ -1227,19 +1227,19 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Adds a new transaction code movement to the list of existing codes
+   * @summary Adds a new transaction type movement to the list of existing types
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.code] transaction code to add
+   * @param {object} [options.type]
    *
-   * @param {array} options.code.aliases Representative movements for transaction
+   * @param {array} options.type.aliases Representative movements for transaction
    * code
    *
-   * @param {array} options.code.movements Representative movements for
+   * @param {array} options.type.movements Representative movements for
    * transaction code
    *
-   * @param {array} [options.code.properties]
+   * @param {array} [options.type.properties]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1250,22 +1250,22 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  addTransactionCodeWithHttpOperationResponse(options?: { code? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  addTransactionTypeWithHttpOperationResponse(options?: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
-   * @summary Adds a new transaction code movement to the list of existing codes
+   * @summary Adds a new transaction type movement to the list of existing types
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.code] transaction code to add
+   * @param {object} [options.type]
    *
-   * @param {array} options.code.aliases Representative movements for transaction
+   * @param {array} options.type.aliases Representative movements for transaction
    * code
    *
-   * @param {array} options.code.movements Representative movements for
+   * @param {array} options.type.movements Representative movements for
    * transaction code
    *
-   * @param {array} [options.code.properties]
+   * @param {array} [options.type.properties]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1291,13 +1291,13 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  addTransactionCode(options?: { code? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  addTransactionCode(callback: ServiceCallback<any>): void;
-  addTransactionCode(options: { code? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  addTransactionType(options?: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  addTransactionType(callback: ServiceCallback<any>): void;
+  addTransactionType(options: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
-   * @summary Gets the list of persisted transaction codes
+   * @summary Gets the list of persisted transaction types
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1310,10 +1310,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getTransactionCodesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getTransactionTypesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
-   * @summary Gets the list of persisted transaction codes
+   * @summary Gets the list of persisted transaction types
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1341,18 +1341,18 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getTransactionCodes(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  getTransactionCodes(callback: ServiceCallback<any>): void;
-  getTransactionCodes(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getTransactionTypes(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getTransactionTypes(callback: ServiceCallback<any>): void;
+  getTransactionTypes(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
-   * @summary Uploads a list of transation codes to be used by the movements
+   * @summary Uploads a list of transaction types to be used by the movements
    * engine
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.codes] Codes to be uploaded
+   * @param {array} [options.types]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1363,15 +1363,15 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  uploadTransactionCodesWithHttpOperationResponse(options?: { codes? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  uploadTransactionTypesWithHttpOperationResponse(options?: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
-   * @summary Uploads a list of transation codes to be used by the movements
+   * @summary Uploads a list of transaction types to be used by the movements
    * engine
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.codes] Codes to be uploaded
+   * @param {array} [options.types]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1397,9 +1397,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  uploadTransactionCodes(options?: { codes? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  uploadTransactionCodes(callback: ServiceCallback<any>): void;
-  uploadTransactionCodes(options: { codes? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  uploadTransactionTypes(options?: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  uploadTransactionTypes(callback: ServiceCallback<any>): void;
+  uploadTransactionTypes(options: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -3818,8 +3818,6 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {number} [options.limit]
    *
-   * @param {array} [options.propertyFilter] Property to filter the results by
-   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -3829,7 +3827,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Get properties
@@ -3852,8 +3850,6 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {number} [options.start]
    *
    * @param {number} [options.limit]
-   *
-   * @param {array} [options.propertyFilter] Property to filter the results by
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -3879,9 +3875,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getProperties(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getProperties(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   getProperties(scope: string, code: string, callback: ServiceCallback<any>): void;
-  getProperties(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getProperties(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**

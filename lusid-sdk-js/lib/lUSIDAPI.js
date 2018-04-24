@@ -162,7 +162,21 @@ function _listCorporateActions(scope, sourceId, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['CorporateActionEventDto']().mapper();
+          let resultMapper = {
+            required: false,
+            serializedName: 'parsedResponse',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'CorporateActionEventDtoElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'CorporateActionEventDto'
+                  }
+              }
+            }
+          };
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -312,7 +326,7 @@ function _upsertCorporateAction(scope, sourceId, options, callback) {
       return callback(err);
     }
     let statusCode = response.statusCode;
-    if (statusCode !== 201 && statusCode !== 400 && statusCode !== 500) {
+    if (statusCode !== 200 && statusCode !== 400 && statusCode !== 500) {
       let error = new Error(responseBody);
       error.statusCode = response.statusCode;
       error.request = msRest.stripRequest(httpRequest);
@@ -338,7 +352,7 @@ function _upsertCorporateAction(scope, sourceId, options, callback) {
     let result = null;
     if (responseBody === '') responseBody = null;
     // Deserialize Response
-    if (statusCode === 201) {
+    if (statusCode === 200) {
       let parsedResponse = null;
       try {
         parsedResponse = JSON.parse(responseBody);
@@ -2698,19 +2712,19 @@ function _upsertClassification(options, callback) {
 }
 
 /**
- * @summary Adds a new transaction code movement to the list of existing codes
+ * @summary Adds a new transaction type movement to the list of existing types
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.code] transaction code to add
+ * @param {object} [options.type]
  *
- * @param {array} options.code.aliases Representative movements for transaction
+ * @param {array} options.type.aliases Representative movements for transaction
  * code
  *
- * @param {array} options.code.movements Representative movements for
+ * @param {array} options.type.movements Representative movements for
  * transaction code
  *
- * @param {array} [options.code.properties]
+ * @param {array} [options.type.properties]
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2727,7 +2741,7 @@ function _upsertClassification(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _addTransactionCode(options, callback) {
+function _addTransactionType(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -2737,7 +2751,7 @@ function _addTransactionCode(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let code = (options && options.code !== undefined) ? options.code : undefined;
+  let type = (options && options.type !== undefined) ? options.type : undefined;
 
   // Construct URL
   let baseUrl = this.baseUri;
@@ -2761,14 +2775,14 @@ function _addTransactionCode(options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (code !== null && code !== undefined) {
+    if (type !== null && type !== undefined) {
       let requestModelMapper = new client.models['TxnMetaDataDto']().mapper();
-      requestModel = client.serialize(requestModelMapper, code, 'code');
+      requestModel = client.serialize(requestModelMapper, type, 'type');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(code, null, 2)}.`);
+        `payload - ${JSON.stringify(type, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -2860,7 +2874,7 @@ function _addTransactionCode(options, callback) {
 }
 
 /**
- * @summary Gets the list of persisted transaction codes
+ * @summary Gets the list of persisted transaction types
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -2879,7 +2893,7 @@ function _addTransactionCode(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getTransactionCodes(options, callback) {
+function _getTransactionTypes(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -3011,12 +3025,12 @@ function _getTransactionCodes(options, callback) {
 }
 
 /**
- * @summary Uploads a list of transation codes to be used by the movements
+ * @summary Uploads a list of transaction types to be used by the movements
  * engine
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.codes] Codes to be uploaded
+ * @param {array} [options.types]
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3033,7 +3047,7 @@ function _getTransactionCodes(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _uploadTransactionCodes(options, callback) {
+function _uploadTransactionTypes(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -3043,7 +3057,7 @@ function _uploadTransactionCodes(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let codes = (options && options.codes !== undefined) ? options.codes : undefined;
+  let types = (options && options.types !== undefined) ? options.types : undefined;
 
   // Construct URL
   let baseUrl = this.baseUri;
@@ -3067,10 +3081,10 @@ function _uploadTransactionCodes(options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (codes !== null && codes !== undefined) {
+    if (types !== null && types !== undefined) {
       let requestModelMapper = {
         required: false,
-        serializedName: 'codes',
+        serializedName: 'types',
         type: {
           name: 'Sequence',
           element: {
@@ -3083,12 +3097,12 @@ function _uploadTransactionCodes(options, callback) {
           }
         }
       };
-      requestModel = client.serialize(requestModelMapper, codes, 'codes');
+      requestModel = client.serialize(requestModelMapper, types, 'types');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(codes, null, 2)}.`);
+        `payload - ${JSON.stringify(types, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -9782,8 +9796,6 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
  *
  * @param {number} [options.limit]
  *
- * @param {array} [options.propertyFilter] Property to filter the results by
- *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -9814,7 +9826,6 @@ function _getProperties(scope, code, options, callback) {
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
-  let propertyFilter = (options && options.propertyFilter !== undefined) ? options.propertyFilter : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
@@ -9843,13 +9854,6 @@ function _getProperties(scope, code, options, callback) {
     }
     if (limit !== null && limit !== undefined && typeof limit !== 'number') {
       throw new Error('limit must be of type number.');
-    }
-    if (Array.isArray(propertyFilter)) {
-      for (let i1 = 0; i1 < propertyFilter.length; i1++) {
-        if (propertyFilter[i1] !== null && propertyFilter[i1] !== undefined && typeof propertyFilter[i1].valueOf() !== 'string') {
-          throw new Error('propertyFilter[i1] must be of type string.');
-        }
-      }
     }
   } catch (error) {
     return callback(error);
@@ -9882,16 +9886,6 @@ function _getProperties(scope, code, options, callback) {
   }
   if (limit !== null && limit !== undefined) {
     queryParameters.push('limit=' + encodeURIComponent(limit.toString()));
-  }
-  if (propertyFilter !== null && propertyFilter !== undefined) {
-    if (propertyFilter.length == 0) {
-      queryParameters.push('propertyFilter=' + encodeURIComponent(''));
-    } else {
-      for (let item of propertyFilter) {
-        item = (item === null || item === undefined) ? '' : item;
-        queryParameters.push('propertyFilter=' + encodeURIComponent('' + item));
-      }
-    }
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -18431,9 +18425,9 @@ class LUSIDAPI extends ServiceClient {
     this._deleteAnalyticStore = _deleteAnalyticStore;
     this._insertAnalytics = _insertAnalytics;
     this._upsertClassification = _upsertClassification;
-    this._addTransactionCode = _addTransactionCode;
-    this._getTransactionCodes = _getTransactionCodes;
-    this._uploadTransactionCodes = _uploadTransactionCodes;
+    this._addTransactionType = _addTransactionType;
+    this._getTransactionTypes = _getTransactionTypes;
+    this._uploadTransactionTypes = _uploadTransactionTypes;
     this._getDownloadUrl = _getDownloadUrl;
     this._getLatestVersion = _getLatestVersion;
     this._listPortfolioGroups = _listPortfolioGroups;
@@ -20071,19 +20065,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Adds a new transaction code movement to the list of existing codes
+   * @summary Adds a new transaction type movement to the list of existing types
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.code] transaction code to add
+   * @param {object} [options.type]
    *
-   * @param {array} options.code.aliases Representative movements for transaction
+   * @param {array} options.type.aliases Representative movements for transaction
    * code
    *
-   * @param {array} options.code.movements Representative movements for
+   * @param {array} options.type.movements Representative movements for
    * transaction code
    *
-   * @param {array} [options.code.properties]
+   * @param {array} [options.type.properties]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20094,11 +20088,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  addTransactionCodeWithHttpOperationResponse(options) {
+  addTransactionTypeWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._addTransactionCode(options, (err, result, request, response) => {
+      self._addTransactionType(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -20109,19 +20103,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Adds a new transaction code movement to the list of existing codes
+   * @summary Adds a new transaction type movement to the list of existing types
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.code] transaction code to add
+   * @param {object} [options.type]
    *
-   * @param {array} options.code.aliases Representative movements for transaction
+   * @param {array} options.type.aliases Representative movements for transaction
    * code
    *
-   * @param {array} options.code.movements Representative movements for
+   * @param {array} options.type.movements Representative movements for
    * transaction code
    *
-   * @param {array} [options.code.properties]
+   * @param {array} [options.type.properties]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20147,7 +20141,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  addTransactionCode(options, optionalCallback) {
+  addTransactionType(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20156,19 +20150,19 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._addTransactionCode(options, (err, result, request, response) => {
+        self._addTransactionType(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._addTransactionCode(options, optionalCallback);
+      return self._addTransactionType(options, optionalCallback);
     }
   }
 
   /**
-   * @summary Gets the list of persisted transaction codes
+   * @summary Gets the list of persisted transaction types
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -20181,11 +20175,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getTransactionCodesWithHttpOperationResponse(options) {
+  getTransactionTypesWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getTransactionCodes(options, (err, result, request, response) => {
+      self._getTransactionTypes(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -20196,7 +20190,7 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Gets the list of persisted transaction codes
+   * @summary Gets the list of persisted transaction types
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -20224,7 +20218,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getTransactionCodes(options, optionalCallback) {
+  getTransactionTypes(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20233,24 +20227,24 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getTransactionCodes(options, (err, result, request, response) => {
+        self._getTransactionTypes(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getTransactionCodes(options, optionalCallback);
+      return self._getTransactionTypes(options, optionalCallback);
     }
   }
 
   /**
-   * @summary Uploads a list of transation codes to be used by the movements
+   * @summary Uploads a list of transaction types to be used by the movements
    * engine
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.codes] Codes to be uploaded
+   * @param {array} [options.types]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20261,11 +20255,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  uploadTransactionCodesWithHttpOperationResponse(options) {
+  uploadTransactionTypesWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._uploadTransactionCodes(options, (err, result, request, response) => {
+      self._uploadTransactionTypes(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -20276,12 +20270,12 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Uploads a list of transation codes to be used by the movements
+   * @summary Uploads a list of transaction types to be used by the movements
    * engine
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.codes] Codes to be uploaded
+   * @param {array} [options.types]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20307,7 +20301,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  uploadTransactionCodes(options, optionalCallback) {
+  uploadTransactionTypes(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20316,14 +20310,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._uploadTransactionCodes(options, (err, result, request, response) => {
+        self._uploadTransactionTypes(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._uploadTransactionCodes(options, optionalCallback);
+      return self._uploadTransactionTypes(options, optionalCallback);
     }
   }
 
@@ -23688,8 +23682,6 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {number} [options.limit]
    *
-   * @param {array} [options.propertyFilter] Property to filter the results by
-   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -23734,8 +23726,6 @@ class LUSIDAPI extends ServiceClient {
    * @param {number} [options.start]
    *
    * @param {number} [options.limit]
-   *
-   * @param {array} [options.propertyFilter] Property to filter the results by
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
