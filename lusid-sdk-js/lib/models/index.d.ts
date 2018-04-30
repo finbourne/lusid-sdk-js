@@ -144,7 +144,7 @@ export interface ErrorDetail {
  * 'PortfolioWithNameAlreadyExists', 'InvalidTrades',
  * 'ReferencePortfolioNotFound', 'DuplicateIdFailure',
  * 'CommandRetrievalFailure', 'DataFilterApplicationFailure', 'SearchFailed',
- * 'Unknown'
+ * 'MovementsEngineConfigurationKeyFailure', 'Unknown'
  * @member {string} [message] The non-technical-user friendly message
  * describing the error and how it might be remedied.
  * @member {string} [detailedMessage] A technical error message that contains

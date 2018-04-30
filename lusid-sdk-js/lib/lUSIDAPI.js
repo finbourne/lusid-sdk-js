@@ -2755,7 +2755,7 @@ function _addTransactionType(options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/configuration/addtransactioncode';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/configuration/transactiontype';
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -2906,7 +2906,7 @@ function _getTransactionTypes(options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/configuration/gettransactioncodes';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/configuration/transactiontypes';
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -3061,7 +3061,7 @@ function _uploadTransactionTypes(options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/configuration/uploadtransactioncodes';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/configuration/transactiontypes';
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
