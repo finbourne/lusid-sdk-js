@@ -5749,6 +5749,92 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Perform a reconciliation between two portfolios
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {string} [options.request.leftScope]
+   *
+   * @param {string} [options.request.leftCode]
+   *
+   * @param {date} [options.request.leftEffectiveAt]
+   *
+   * @param {date} [options.request.leftAsAt]
+   *
+   * @param {string} [options.request.rightScope]
+   *
+   * @param {string} [options.request.rightCode]
+   *
+   * @param {date} [options.request.rightEffectiveAt]
+   *
+   * @param {date} [options.request.rightAsAt]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  performReconciliationWithHttpOperationResponse(options?: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+
+  /**
+   * @summary Perform a reconciliation between two portfolios
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {string} [options.request.leftScope]
+   *
+   * @param {string} [options.request.leftCode]
+   *
+   * @param {date} [options.request.leftEffectiveAt]
+   *
+   * @param {date} [options.request.leftAsAt]
+   *
+   * @param {string} [options.request.rightScope]
+   *
+   * @param {string} [options.request.rightCode]
+   *
+   * @param {date} [options.request.rightEffectiveAt]
+   *
+   * @param {date} [options.request.rightAsAt]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  performReconciliation(options?: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  performReconciliation(callback: ServiceCallback<any>): void;
+  performReconciliation(options: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+
+
+  /**
    * @summary Get all reference portfolios in a scope
    *
    * @param {string} scope
@@ -6373,7 +6459,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition'
+   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6409,7 +6495,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition'
+   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
    *
    * @param {object} [options] Optional Parameters.
    *

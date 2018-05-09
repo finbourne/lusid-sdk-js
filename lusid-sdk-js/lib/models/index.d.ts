@@ -1245,6 +1245,48 @@ export interface UpdatePropertyDataFormatRequest {
 
 /**
  * @class
+ * Initializes a new instance of the ReconciliationRequest class.
+ * @constructor
+ * @member {string} [leftScope]
+ * @member {string} [leftCode]
+ * @member {date} [leftEffectiveAt]
+ * @member {date} [leftAsAt]
+ * @member {string} [rightScope]
+ * @member {string} [rightCode]
+ * @member {date} [rightEffectiveAt]
+ * @member {date} [rightAsAt]
+ */
+export interface ReconciliationRequest {
+  leftScope?: string;
+  leftCode?: string;
+  leftEffectiveAt?: Date;
+  leftAsAt?: Date;
+  rightScope?: string;
+  rightCode?: string;
+  rightEffectiveAt?: Date;
+  rightAsAt?: Date;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ReconciliationBreakDto class.
+ * @constructor
+ * A reconciliation break
+ *
+ * @member {string} securityUid Unique security identifier
+ * @member {array} [properties]
+ * @member {number} [unitsDifference] Difference in units
+ * @member {number} [costDifference] Difference in cost
+ */
+export interface ReconciliationBreakDto {
+  securityUid: string;
+  properties?: PropertyDto[];
+  unitsDifference?: number;
+  costDifference?: number;
+}
+
+/**
+ * @class
  * Initializes a new instance of the ReferencePortfolioConstituentDto class.
  * @constructor
  * @member {string} [id]
@@ -1347,7 +1389,7 @@ export interface KeyValuePairStringFieldSchema {
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
  * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
- * 'CorporateActionTransition'
+ * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
  * @member {string} [href]
  * @member {array} [values]
  */
@@ -1781,6 +1823,24 @@ export interface ResourceListPropertyKey {
  */
 export interface ResourceListPropertyDataFormatDto {
   values?: PropertyDataFormatDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListReconciliationBreakDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListReconciliationBreakDto {
+  values?: ReconciliationBreakDto[];
   href?: string;
   count?: number;
   _links?: Link[];
