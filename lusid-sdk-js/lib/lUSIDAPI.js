@@ -11097,8 +11097,6 @@ function _upsertTrades(scope, code, options, callback) {
  *
  * @param {string} code Code for the portfolio
  *
- * @param {date} cancelDate Date on which trades are deleted
- *
  * @param {object} [options] Optional Parameters.
  *
  * @param {array} [options.id] Ids of trades to delete
@@ -11118,7 +11116,7 @@ function _upsertTrades(scope, code, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _deleteTrades(scope, code, cancelDate, options, callback) {
+function _deleteTrades(scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -11137,10 +11135,6 @@ function _deleteTrades(scope, code, cancelDate, options, callback) {
     if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
       throw new Error('code cannot be null or undefined and it must be of type string.');
     }
-    if(!cancelDate || !(cancelDate instanceof Date ||
-        (typeof cancelDate.valueOf() === 'string' && !isNaN(Date.parse(cancelDate))))) {
-          throw new Error('cancelDate cannot be null or undefined and it must be of type date.');
-        }
     if (Array.isArray(id)) {
       for (let i = 0; i < id.length; i++) {
         if (id[i] !== null && id[i] !== undefined && typeof id[i].valueOf() !== 'string') {
@@ -11158,7 +11152,6 @@ function _deleteTrades(scope, code, cancelDate, options, callback) {
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
   let queryParameters = [];
-  queryParameters.push('cancelDate=' + encodeURIComponent(client.serializeObject(cancelDate)));
   if (id !== null && id !== undefined) {
     if (id.length == 0) {
       queryParameters.push('id=' + encodeURIComponent(''));
@@ -24467,8 +24460,6 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code Code for the portfolio
    *
-   * @param {date} cancelDate Date on which trades are deleted
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {array} [options.id] Ids of trades to delete
@@ -24482,11 +24473,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  deleteTradesWithHttpOperationResponse(scope, code, cancelDate, options) {
+  deleteTradesWithHttpOperationResponse(scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._deleteTrades(scope, code, cancelDate, options, (err, result, request, response) => {
+      self._deleteTrades(scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -24504,8 +24495,6 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} scope The scope of the portfolio
    *
    * @param {string} code Code for the portfolio
-   *
-   * @param {date} cancelDate Date on which trades are deleted
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -24535,7 +24524,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  deleteTrades(scope, code, cancelDate, options, optionalCallback) {
+  deleteTrades(scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -24544,14 +24533,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._deleteTrades(scope, code, cancelDate, options, (err, result, request, response) => {
+        self._deleteTrades(scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._deleteTrades(scope, code, cancelDate, options, optionalCallback);
+      return self._deleteTrades(scope, code, options, optionalCallback);
     }
   }
 

@@ -4253,8 +4253,6 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code Code for the portfolio
    *
-   * @param {date} cancelDate Date on which trades are deleted
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {array} [options.id] Ids of trades to delete
@@ -4268,7 +4266,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deleteTradesWithHttpOperationResponse(scope: string, code: string, cancelDate: Date|string, options?: { id? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  deleteTradesWithHttpOperationResponse(scope: string, code: string, options?: { id? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Delete trades
@@ -4278,8 +4276,6 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} scope The scope of the portfolio
    *
    * @param {string} code Code for the portfolio
-   *
-   * @param {date} cancelDate Date on which trades are deleted
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -4309,9 +4305,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deleteTrades(scope: string, code: string, cancelDate: Date|string, options?: { id? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  deleteTrades(scope: string, code: string, cancelDate: Date|string, callback: ServiceCallback<any>): void;
-  deleteTrades(scope: string, code: string, cancelDate: Date|string, options: { id? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  deleteTrades(scope: string, code: string, options?: { id? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  deleteTrades(scope: string, code: string, callback: ServiceCallback<any>): void;
+  deleteTrades(scope: string, code: string, options: { id? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
