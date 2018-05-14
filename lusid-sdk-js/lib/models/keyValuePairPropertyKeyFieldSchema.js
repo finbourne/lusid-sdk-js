@@ -37,7 +37,8 @@ class KeyValuePairPropertyKeyFieldSchema {
    * @member {string} [value.displayName]
    * @member {string} [value.type] Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
-   * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    * @member {boolean} [value.isMetric]
    * @member {number} [value.displayOrder]
    * @member {object} [value.propertySchema]

@@ -28,8 +28,8 @@
 class TxnTypeAliasDto {
   /**
    * Create a TxnTypeAliasDto.
-   * @member {string} type Transaction Code
-   * @member {string} description Transaction Code description
+   * @member {string} type The transaction type
+   * @member {string} description Brief description of the transaction
    */
   constructor() {
   }

@@ -49,7 +49,9 @@ class SchemaDto {
    * 'TryAddClientSecurities', 'TryDeleteClientSecurities',
    * 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction',
    * 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
-   * 'ReconciliationBreak'
+   * 'ReconciliationBreak', 'TransactionConfigurationData',
+   * 'TransactionConfigurationMovementData',
+   * 'TransactionConfigurationTypeAlias'
    * @member {string} [href]
    * @member {array} [values]
    */

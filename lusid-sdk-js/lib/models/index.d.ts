@@ -232,7 +232,8 @@ export interface AggregationRequest {
  * @member {string} [displayName]
  * @member {string} [type] Possible values include: 'String', 'Int', 'Decimal',
  * 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage', 'Currency',
- * 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+ * 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds', 'ArrayOfTxnAliases',
+ * 'ArrayofTxnMovements'
  * @member {boolean} [isMetric]
  * @member {number} [displayOrder]
  * @member {object} [propertySchema]
@@ -258,7 +259,8 @@ export interface FieldSchema {
  * @member {string} [value.displayName]
  * @member {string} [value.type] Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+ * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -464,8 +466,8 @@ export interface ClassificationsDto {
  * @class
  * Initializes a new instance of the TxnTypeAliasDto class.
  * @constructor
- * @member {string} type Transaction Code
- * @member {string} description Transaction Code description
+ * @member {string} type The transaction type
+ * @member {string} description Brief description of the transaction
  */
 export interface TxnTypeAliasDto {
   type: string;
@@ -490,12 +492,12 @@ export interface TxnPropertyMappingDto {
  * @class
  * Initializes a new instance of the TxnMovementMetaDataDto class.
  * @constructor
- * @member {string} movementTypes The movement types. Possible values include:
+ * @member {string} movementTypes The Movement Types. Possible values include:
  * 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
  * 'CashSettlement', 'Accrual'
- * @member {string} side The Side. Possible values include: 'Side1', 'Side2',
- * 'BondInt'
- * @member {number} direction
+ * @member {string} side The Movement Side. Possible values include: 'Side1',
+ * 'Side2', 'BondInt'
+ * @member {number} direction The Movement direction
  * @member {array} [properties]
  * @member {array} [mappings]
  */
@@ -511,8 +513,9 @@ export interface TxnMovementMetaDataDto {
  * @class
  * Initializes a new instance of the TxnMetaDataDto class.
  * @constructor
- * @member {array} aliases Representative movements for transaction code
- * @member {array} movements Representative movements for transaction code
+ * @member {array} aliases List of transaction codes that map to this specific
+ * transaction model
+ * @member {array} movements Movement data for the transaction code
  * @member {array} [properties]
  */
 export interface TxnMetaDataDto {
@@ -1098,7 +1101,8 @@ export interface PortfolioSearchResult {
  * @member {string} [key]
  * @member {string} [valueType] Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+ * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {boolean} [valueRequired]
  * @member {string} [displayName]
  * @member {object} [dataFormatId]
@@ -1182,7 +1186,8 @@ export interface UpdatePropertyDefinitionRequest {
  * @member {string} displayName
  * @member {string} valueType Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+ * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {array} [acceptableValues]
  */
 export interface CreatePropertyDataFormatRequest {
@@ -1209,7 +1214,8 @@ export interface CreatePropertyDataFormatRequest {
  * @member {string} [displayName]
  * @member {string} [valueType] Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+ * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {array} [acceptableValues]
  */
 export interface PropertyDataFormatDto {
@@ -1232,7 +1238,8 @@ export interface PropertyDataFormatDto {
  * @member {string} displayName
  * @member {string} valueType Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+ * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {array} [acceptableValues]
  */
 export interface UpdatePropertyDataFormatRequest {
@@ -1357,7 +1364,8 @@ export interface ResultsDto {
  * @member {string} [value.displayName]
  * @member {string} [value.type] Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+ * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -1389,7 +1397,9 @@ export interface KeyValuePairStringFieldSchema {
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
  * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
- * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
+ * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
+ * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
+ * 'TransactionConfigurationTypeAlias'
  * @member {string} [href]
  * @member {array} [values]
  */
@@ -1595,6 +1605,24 @@ export interface TryLookupSecuritiesFromCodesDto {
  */
 export interface ResourceListAnalyticStoreKeyDto {
   values?: AnalyticStoreKeyDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListTxnMetaDataDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListTxnMetaDataDto {
+  values?: TxnMetaDataDto[];
   href?: string;
   count?: number;
   _links?: Link[];

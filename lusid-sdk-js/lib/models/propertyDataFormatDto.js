@@ -40,7 +40,8 @@ class PropertyDataFormatDto {
    * @member {string} [displayName]
    * @member {string} [valueType] Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
-   * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    * @member {array} [acceptableValues]
    */
   constructor() {

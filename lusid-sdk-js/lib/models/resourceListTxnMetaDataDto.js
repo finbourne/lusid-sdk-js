@@ -25,74 +25,75 @@
 const models = require('./index');
 
 /**
- * Class representing a TxnMetaDataDto.
+ * Class representing a ResourceListTxnMetaDataDto.
  */
-class TxnMetaDataDto {
+class ResourceListTxnMetaDataDto {
   /**
-   * Create a TxnMetaDataDto.
-   * @member {array} aliases List of transaction codes that map to this
-   * specific transaction model
-   * @member {array} movements Movement data for the transaction code
-   * @member {array} [properties]
+   * Create a ResourceListTxnMetaDataDto.
+   * @member {array} [values]
+   * @member {string} [href] The Uri that returns the same result as the
+   * original request,
+   * but may include resolved as at time(s).
+   * @member {number} [count] The total number of records returned in the set
+   * @member {array} [_links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of TxnMetaDataDto
+   * Defines the metadata of ResourceListTxnMetaDataDto
    *
-   * @returns {object} metadata of TxnMetaDataDto
+   * @returns {object} metadata of ResourceListTxnMetaDataDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'TxnMetaDataDto',
+      serializedName: 'ResourceList_TxnMetaDataDto_',
       type: {
         name: 'Composite',
-        className: 'TxnMetaDataDto',
+        className: 'ResourceListTxnMetaDataDto',
         modelProperties: {
-          aliases: {
-            required: true,
-            serializedName: 'aliases',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'TxnTypeAliasDtoElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'TxnTypeAliasDto'
-                  }
-              }
-            }
-          },
-          movements: {
-            required: true,
-            serializedName: 'movements',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'TxnMovementMetaDataDtoElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'TxnMovementMetaDataDto'
-                  }
-              }
-            }
-          },
-          properties: {
+          values: {
             required: false,
-            serializedName: 'properties',
+            serializedName: 'values',
             type: {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PropertyDtoElementType',
+                  serializedName: 'TxnMetaDataDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PropertyDto'
+                    className: 'TxnMetaDataDto'
+                  }
+              }
+            }
+          },
+          href: {
+            required: false,
+            serializedName: 'href',
+            type: {
+              name: 'String'
+            }
+          },
+          count: {
+            required: false,
+            serializedName: 'count',
+            type: {
+              name: 'Number'
+            }
+          },
+          _links: {
+            required: false,
+            serializedName: '_links',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
                   }
               }
             }
@@ -103,4 +104,4 @@ class TxnMetaDataDto {
   }
 }
 
-module.exports = TxnMetaDataDto;
+module.exports = ResourceListTxnMetaDataDto;

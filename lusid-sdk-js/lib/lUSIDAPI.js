@@ -2718,11 +2718,10 @@ function _upsertClassification(options, callback) {
  *
  * @param {object} [options.type]
  *
- * @param {array} options.type.aliases Representative movements for transaction
- * code
+ * @param {array} options.type.aliases List of transaction codes that map to
+ * this specific transaction model
  *
- * @param {array} options.type.movements Representative movements for
- * transaction code
+ * @param {array} options.type.movements Movement data for the transaction code
  *
  * @param {array} [options.type.properties]
  *
@@ -2741,7 +2740,7 @@ function _upsertClassification(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _addTransactionType(options, callback) {
+function _addConfigurationTransactionType(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -2893,7 +2892,7 @@ function _addTransactionType(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getTransactionTypes(options, callback) {
+function _getConfigurationTransactionTypes(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -2961,21 +2960,7 @@ function _getTransactionTypes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = {
-            required: false,
-            serializedName: 'parsedResponse',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'TxnMetaDataDtoElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'TxnMetaDataDto'
-                  }
-              }
-            }
-          };
+          let resultMapper = new client.models['ResourceListTxnMetaDataDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -3047,7 +3032,7 @@ function _getTransactionTypes(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _uploadTransactionTypes(options, callback) {
+function _uploadConfigurationTransactionTypes(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -3144,21 +3129,7 @@ function _uploadTransactionTypes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = {
-            required: false,
-            serializedName: 'parsedResponse',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'TxnMetaDataDtoElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'TxnMetaDataDto'
-                  }
-              }
-            }
-          };
+          let resultMapper = new client.models['ResourceListTxnMetaDataDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -14410,7 +14381,8 @@ function _deletePropertyDefinition(domain, scope, name, options, callback) {
  *
  * @param {string} options.request.valueType Possible values include: 'String',
  * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
- * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+ * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+ * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -15004,7 +14976,8 @@ function _getPropertyDataFormat(scope, name, options, callback) {
  *
  * @param {string} options.request.valueType Possible values include: 'String',
  * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
- * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+ * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+ * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -17082,7 +17055,9 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
  * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
- * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
+ * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
+ * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
+ * 'TransactionConfigurationTypeAlias'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -18605,9 +18580,9 @@ class LUSIDAPI extends ServiceClient {
     this._deleteAnalyticStore = _deleteAnalyticStore;
     this._insertAnalytics = _insertAnalytics;
     this._upsertClassification = _upsertClassification;
-    this._addTransactionType = _addTransactionType;
-    this._getTransactionTypes = _getTransactionTypes;
-    this._uploadTransactionTypes = _uploadTransactionTypes;
+    this._addConfigurationTransactionType = _addConfigurationTransactionType;
+    this._getConfigurationTransactionTypes = _getConfigurationTransactionTypes;
+    this._uploadConfigurationTransactionTypes = _uploadConfigurationTransactionTypes;
     this._getDownloadUrl = _getDownloadUrl;
     this._getLatestVersion = _getLatestVersion;
     this._listPortfolioGroups = _listPortfolioGroups;
@@ -20252,11 +20227,10 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.type]
    *
-   * @param {array} options.type.aliases Representative movements for transaction
-   * code
+   * @param {array} options.type.aliases List of transaction codes that map to
+   * this specific transaction model
    *
-   * @param {array} options.type.movements Representative movements for
-   * transaction code
+   * @param {array} options.type.movements Movement data for the transaction code
    *
    * @param {array} [options.type.properties]
    *
@@ -20269,11 +20243,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  addTransactionTypeWithHttpOperationResponse(options) {
+  addConfigurationTransactionTypeWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._addTransactionType(options, (err, result, request, response) => {
+      self._addConfigurationTransactionType(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -20290,11 +20264,10 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.type]
    *
-   * @param {array} options.type.aliases Representative movements for transaction
-   * code
+   * @param {array} options.type.aliases List of transaction codes that map to
+   * this specific transaction model
    *
-   * @param {array} options.type.movements Representative movements for
-   * transaction code
+   * @param {array} options.type.movements Movement data for the transaction code
    *
    * @param {array} [options.type.properties]
    *
@@ -20322,7 +20295,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  addTransactionType(options, optionalCallback) {
+  addConfigurationTransactionType(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20331,14 +20304,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._addTransactionType(options, (err, result, request, response) => {
+        self._addConfigurationTransactionType(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._addTransactionType(options, optionalCallback);
+      return self._addConfigurationTransactionType(options, optionalCallback);
     }
   }
 
@@ -20356,11 +20329,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getTransactionTypesWithHttpOperationResponse(options) {
+  getConfigurationTransactionTypesWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getTransactionTypes(options, (err, result, request, response) => {
+      self._getConfigurationTransactionTypes(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -20399,7 +20372,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getTransactionTypes(options, optionalCallback) {
+  getConfigurationTransactionTypes(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20408,14 +20381,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getTransactionTypes(options, (err, result, request, response) => {
+        self._getConfigurationTransactionTypes(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getTransactionTypes(options, optionalCallback);
+      return self._getConfigurationTransactionTypes(options, optionalCallback);
     }
   }
 
@@ -20436,11 +20409,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  uploadTransactionTypesWithHttpOperationResponse(options) {
+  uploadConfigurationTransactionTypesWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._uploadTransactionTypes(options, (err, result, request, response) => {
+      self._uploadConfigurationTransactionTypes(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -20482,7 +20455,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  uploadTransactionTypes(options, optionalCallback) {
+  uploadConfigurationTransactionTypes(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20491,14 +20464,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._uploadTransactionTypes(options, (err, result, request, response) => {
+        self._uploadConfigurationTransactionTypes(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._uploadTransactionTypes(options, optionalCallback);
+      return self._uploadConfigurationTransactionTypes(options, optionalCallback);
     }
   }
 
@@ -26088,7 +26061,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -26136,7 +26110,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -26395,7 +26370,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -26443,7 +26419,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -27445,7 +27422,9 @@ class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
+   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
+   * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
+   * 'TransactionConfigurationTypeAlias'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -27493,7 +27472,9 @@ class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
+   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
+   * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
+   * 'TransactionConfigurationTypeAlias'
    *
    * @param {object} [options] Optional Parameters.
    *

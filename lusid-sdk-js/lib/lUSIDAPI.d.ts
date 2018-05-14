@@ -1233,11 +1233,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.type]
    *
-   * @param {array} options.type.aliases Representative movements for transaction
-   * code
+   * @param {array} options.type.aliases List of transaction codes that map to
+   * this specific transaction model
    *
-   * @param {array} options.type.movements Representative movements for
-   * transaction code
+   * @param {array} options.type.movements Movement data for the transaction code
    *
    * @param {array} [options.type.properties]
    *
@@ -1250,7 +1249,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  addTransactionTypeWithHttpOperationResponse(options?: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  addConfigurationTransactionTypeWithHttpOperationResponse(options?: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Adds a new transaction type movement to the list of existing types
@@ -1259,11 +1258,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.type]
    *
-   * @param {array} options.type.aliases Representative movements for transaction
-   * code
+   * @param {array} options.type.aliases List of transaction codes that map to
+   * this specific transaction model
    *
-   * @param {array} options.type.movements Representative movements for
-   * transaction code
+   * @param {array} options.type.movements Movement data for the transaction code
    *
    * @param {array} [options.type.properties]
    *
@@ -1291,9 +1289,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  addTransactionType(options?: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  addTransactionType(callback: ServiceCallback<any>): void;
-  addTransactionType(options: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  addConfigurationTransactionType(options?: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  addConfigurationTransactionType(callback: ServiceCallback<any>): void;
+  addConfigurationTransactionType(options: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -1310,7 +1308,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getTransactionTypesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getConfigurationTransactionTypesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Gets the list of persisted transaction types
@@ -1341,9 +1339,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getTransactionTypes(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  getTransactionTypes(callback: ServiceCallback<any>): void;
-  getTransactionTypes(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getConfigurationTransactionTypes(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getConfigurationTransactionTypes(callback: ServiceCallback<any>): void;
+  getConfigurationTransactionTypes(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -1363,7 +1361,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  uploadTransactionTypesWithHttpOperationResponse(options?: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  uploadConfigurationTransactionTypesWithHttpOperationResponse(options?: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Uploads a list of transaction types to be used by the movements
@@ -1397,9 +1395,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  uploadTransactionTypes(options?: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  uploadTransactionTypes(callback: ServiceCallback<any>): void;
-  uploadTransactionTypes(options: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  uploadConfigurationTransactionTypes(options?: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  uploadConfigurationTransactionTypes(callback: ServiceCallback<any>): void;
+  uploadConfigurationTransactionTypes(options: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -5449,7 +5447,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -5485,7 +5484,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -5675,7 +5675,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -5711,7 +5712,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -6455,7 +6457,9 @@ export default class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
+   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
+   * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
+   * 'TransactionConfigurationTypeAlias'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6491,7 +6495,9 @@ export default class LUSIDAPI extends ServiceClient {
    * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
    * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
+   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
+   * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
+   * 'TransactionConfigurationTypeAlias'
    *
    * @param {object} [options] Optional Parameters.
    *

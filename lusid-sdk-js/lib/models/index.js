@@ -103,6 +103,7 @@ exports.TryDeleteClientSecuritiesDto = require('./tryDeleteClientSecuritiesDto')
 exports.ResourceListSecurityDto = require('./resourceListSecurityDto');
 exports.TryLookupSecuritiesFromCodesDto = require('./tryLookupSecuritiesFromCodesDto');
 exports.ResourceListAnalyticStoreKeyDto = require('./resourceListAnalyticStoreKeyDto');
+exports.ResourceListTxnMetaDataDto = require('./resourceListTxnMetaDataDto');
 exports.ResourceListGroupDto = require('./resourceListGroupDto');
 exports.ResourceListProcessedCommandDto = require('./resourceListProcessedCommandDto');
 exports.ResourceListPersonalisationDto = require('./resourceListPersonalisationDto');
