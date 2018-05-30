@@ -7685,6 +7685,10 @@ function _listPortfolios(scope, options, callback) {
  *
  * @param {string} [options.createRequest.corporateActionSourceId.code]
  *
+ * @param {string} [options.createRequest.accountingMethod] Possible values
+ * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+ * 'HighestCostFirst', 'LowestCostFirst'
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -15602,6 +15606,10 @@ function _listReferencePortfolios(scope, effectiveAt, options, callback) {
  *
  * @param {string} [options.referencePortfolio.corporateActionSourceId.code]
  *
+ * @param {string} [options.referencePortfolio.accountingMethod] Possible
+ * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
+ * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -22808,6 +22816,10 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.createRequest.corporateActionSourceId.code]
    *
+   * @param {string} [options.createRequest.accountingMethod] Possible values
+   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+   * 'HighestCostFirst', 'LowestCostFirst'
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -22856,6 +22868,10 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.createRequest.corporateActionSourceId.scope]
    *
    * @param {string} [options.createRequest.corporateActionSourceId.code]
+   *
+   * @param {string} [options.createRequest.accountingMethod] Possible values
+   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+   * 'HighestCostFirst', 'LowestCostFirst'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -26710,6 +26726,10 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.referencePortfolio.corporateActionSourceId.code]
    *
+   * @param {string} [options.referencePortfolio.accountingMethod] Possible
+   * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
+   * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -26756,6 +26776,10 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.referencePortfolio.corporateActionSourceId.scope]
    *
    * @param {string} [options.referencePortfolio.corporateActionSourceId.code]
+   *
+   * @param {string} [options.referencePortfolio.accountingMethod] Possible
+   * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
+   * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

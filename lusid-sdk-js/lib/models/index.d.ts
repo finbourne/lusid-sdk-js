@@ -494,7 +494,7 @@ export interface TxnPropertyMappingDto {
  * @constructor
  * @member {string} movementTypes The Movement Types. Possible values include:
  * 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
- * 'CashSettlement', 'Accrual'
+ * 'CashSettlement', 'Accrual', 'UnsettledCashTypes'
  * @member {string} side The Movement Side. Possible values include: 'Side1',
  * 'Side2', 'BondInt'
  * @member {number} direction The Movement direction
@@ -777,6 +777,9 @@ export interface UpsertPersonalisationsResponse {
  * @member {object} [corporateActionSourceId]
  * @member {string} [corporateActionSourceId.scope]
  * @member {string} [corporateActionSourceId.code]
+ * @member {string} [accountingMethod] Possible values include: 'Default',
+ * 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
+ * 'LowestCostFirst'
  */
 export interface CreatePortfolioRequest {
   name: string;
@@ -784,6 +787,7 @@ export interface CreatePortfolioRequest {
   created?: Date;
   baseCurrency: string;
   corporateActionSourceId?: ResourceId;
+  accountingMethod?: string;
 }
 
 /**

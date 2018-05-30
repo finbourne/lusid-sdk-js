@@ -37,6 +37,9 @@ class CreatePortfolioRequest {
    * @member {object} [corporateActionSourceId]
    * @member {string} [corporateActionSourceId.scope]
    * @member {string} [corporateActionSourceId.code]
+   * @member {string} [accountingMethod] Possible values include: 'Default',
+   * 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
+   * 'LowestCostFirst'
    */
   constructor() {
   }
@@ -89,6 +92,13 @@ class CreatePortfolioRequest {
             type: {
               name: 'Composite',
               className: 'ResourceId'
+            }
+          },
+          accountingMethod: {
+            required: false,
+            serializedName: 'accountingMethod',
+            type: {
+              name: 'String'
             }
           }
         }

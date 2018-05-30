@@ -32,7 +32,7 @@ class TxnMovementMetaDataDto {
    * Create a TxnMovementMetaDataDto.
    * @member {string} movementTypes The Movement Types. Possible values
    * include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
-   * 'CashSettlement', 'Accrual'
+   * 'CashSettlement', 'Accrual', 'UnsettledCashTypes'
    * @member {string} side The Movement Side. Possible values include: 'Side1',
    * 'Side2', 'BondInt'
    * @member {number} direction The Movement direction
