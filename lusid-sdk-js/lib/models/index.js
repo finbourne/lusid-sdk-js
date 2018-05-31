@@ -26,12 +26,13 @@
 
 'use strict';
 
+exports.ClearEntityCachesDto = require('./clearEntityCachesDto');
+exports.ErrorDetail = require('./errorDetail');
+exports.ErrorResponse = require('./errorResponse');
 exports.CorporateActionTransitionDto = require('./corporateActionTransitionDto');
 exports.UpsertCorporateActionRequest = require('./upsertCorporateActionRequest');
 exports.ResourceId = require('./resourceId');
 exports.CorporateActionEventDto = require('./corporateActionEventDto');
-exports.ErrorDetail = require('./errorDetail');
-exports.ErrorResponse = require('./errorResponse');
 exports.AggregateSpec = require('./aggregateSpec');
 exports.PropertyFilter = require('./propertyFilter');
 exports.AggregationRequest = require('./aggregationRequest');

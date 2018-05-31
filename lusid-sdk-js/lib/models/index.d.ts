@@ -25,6 +25,84 @@ import * as moment from "moment";
 
 /**
  * @class
+ * Initializes a new instance of the ClearEntityCachesDto class.
+ * @constructor
+ * @member {number} numberOfItemsCleared The total number of items cleared from
+ * all instances of the caches on this machine instance
+ */
+export interface ClearEntityCachesDto {
+  numberOfItemsCleared: number;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ErrorDetail class.
+ * @constructor
+ * @member {string} [id]
+ * @member {string} [type]
+ * @member {string} [detail]
+ */
+export interface ErrorDetail {
+  id?: string;
+  type?: string;
+  detail?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ErrorResponse class.
+ * @constructor
+ * @member {number} [status] The status code that will be returned to the
+ * client
+ * @member {string} [code] The Finbourne specific error-code that encapsulates
+ * the specific issue encountered. Possible values include:
+ * 'PersonalisationNotFound', 'NonRecursivePersonalisation', 'VersionNotFound',
+ * 'SecurityNotFound', 'SecurityByCodeNotFound', 'PropertyNotFound',
+ * 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
+ * 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
+ * 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined',
+ * 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
+ * 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
+ * 'CannotModifyDefaultPropertyFormat', 'GroupAlreadyExists',
+ * 'NoSuchPropertyDataFormat', 'ValidationError',
+ * 'LoopDetectedInGroupHierarchy', 'SubGroupAlreadyExists',
+ * 'PriceSourceNotFound', 'AnalyticStoreNotFound',
+ * 'AnalyticStoreAlreadyExists', 'ClientSecurityAlreadyExists',
+ * 'DuplicateInParameterSet', 'ResultsNotFound', 'OrderFieldNotInResultSet',
+ * 'OperationFailed', 'ElasticSearchError', 'InvalidParameterValue',
+ * 'ServerConfigurationError', 'CommandProcessingFailure',
+ * 'EntityStateConstructionFailure', 'EntityTimelineDoesNotExist',
+ * 'EventPublishFailure', 'InvalidRequestFailure', 'EventPublishUnknown',
+ * 'EventQueryFailure', 'BlobDidNotExistFailure', 'SubSystemRequestFailure',
+ * 'SubSystemConfigurationFailure', 'FailedToDelete',
+ * 'UpsertClientSecurityFailure', 'IllegalAsAtInterval',
+ * 'IllegalBitemporalQuery', 'InvalidAlternateId',
+ * 'CannotAddSourcePortfolioPropertyExplicitly', 'EntityAlreadyExistsInGroup',
+ * 'EntityWithIdAlreadyExists', 'PortfolioDetailsDoNotExist',
+ * 'PortfolioWithNameAlreadyExists', 'InvalidTrades',
+ * 'ReferencePortfolioNotFound', 'DuplicateIdFailure',
+ * 'CommandRetrievalFailure', 'DataFilterApplicationFailure', 'SearchFailed',
+ * 'MovementsEngineConfigurationKeyFailure', 'Unknown'
+ * @member {string} [message] The non-technical-user friendly message
+ * describing the error and how it might be remedied.
+ * @member {string} [detailedMessage] A technical error message that contains
+ * the details of the issue and how it might be fixed.
+ * @member {array} [items] Any action specific item specific sub errors (e.g.
+ * per-trade validation errors)
+ * @member {string} [moreInfo] A link to the endpoint that can provide the dev
+ * with more information about that class of error.
+ */
+export interface ErrorResponse {
+  readonly status?: number;
+  readonly code?: string;
+  readonly message?: string;
+  readonly detailedMessage?: string;
+  items?: ErrorDetail[];
+  readonly moreInfo?: string;
+}
+
+/**
+ * @class
  * Initializes a new instance of the CorporateActionTransitionDto class.
  * @constructor
  * A 'transition' within a corporate action, representing a single incoming or
@@ -94,73 +172,6 @@ export interface CorporateActionEventDto {
   exDate?: Date;
   recordDate?: Date;
   transitions?: CorporateActionTransitionDto[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ErrorDetail class.
- * @constructor
- * @member {string} [id]
- * @member {string} [type]
- * @member {string} [detail]
- */
-export interface ErrorDetail {
-  id?: string;
-  type?: string;
-  detail?: string;
-}
-
-/**
- * @class
- * Initializes a new instance of the ErrorResponse class.
- * @constructor
- * @member {number} [status] The status code that will be returned to the
- * client
- * @member {string} [code] The Finbourne specific error-code that encapsulates
- * the specific issue encountered. Possible values include:
- * 'PersonalisationNotFound', 'NonRecursivePersonalisation', 'VersionNotFound',
- * 'SecurityNotFound', 'SecurityByCodeNotFound', 'PropertyNotFound',
- * 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
- * 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
- * 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined',
- * 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
- * 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
- * 'CannotModifyDefaultPropertyFormat', 'GroupAlreadyExists',
- * 'NoSuchPropertyDataFormat', 'ValidationError',
- * 'LoopDetectedInGroupHierarchy', 'SubGroupAlreadyExists',
- * 'PriceSourceNotFound', 'AnalyticStoreNotFound',
- * 'AnalyticStoreAlreadyExists', 'ClientSecurityAlreadyExists',
- * 'DuplicateInParameterSet', 'ResultsNotFound', 'OrderFieldNotInResultSet',
- * 'OperationFailed', 'ElasticSearchError', 'InvalidParameterValue',
- * 'ServerConfigurationError', 'CommandProcessingFailure',
- * 'EntityStateConstructionFailure', 'EntityTimelineDoesNotExist',
- * 'EventPublishFailure', 'InvalidRequestFailure', 'EventPublishUnknown',
- * 'EventQueryFailure', 'BlobDidNotExistFailure', 'SubSystemRequestFailure',
- * 'SubSystemConfigurationFailure', 'FailedToDelete',
- * 'UpsertClientSecurityFailure', 'IllegalAsAtInterval',
- * 'IllegalBitemporalQuery', 'InvalidAlternateId',
- * 'CannotAddSourcePortfolioPropertyExplicitly', 'EntityAlreadyExistsInGroup',
- * 'EntityWithIdAlreadyExists', 'PortfolioDetailsDoNotExist',
- * 'PortfolioWithNameAlreadyExists', 'InvalidTrades',
- * 'ReferencePortfolioNotFound', 'DuplicateIdFailure',
- * 'CommandRetrievalFailure', 'DataFilterApplicationFailure', 'SearchFailed',
- * 'MovementsEngineConfigurationKeyFailure', 'Unknown'
- * @member {string} [message] The non-technical-user friendly message
- * describing the error and how it might be remedied.
- * @member {string} [detailedMessage] A technical error message that contains
- * the details of the issue and how it might be fixed.
- * @member {array} [items] Any action specific item specific sub errors (e.g.
- * per-trade validation errors)
- * @member {string} [moreInfo] A link to the endpoint that can provide the dev
- * with more information about that class of error.
- */
-export interface ErrorResponse {
-  readonly status?: number;
-  readonly code?: string;
-  readonly message?: string;
-  readonly detailedMessage?: string;
-  items?: ErrorDetail[];
-  readonly moreInfo?: string;
 }
 
 /**
