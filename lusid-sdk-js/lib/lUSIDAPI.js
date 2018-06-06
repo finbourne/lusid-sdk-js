@@ -12870,6 +12870,9 @@ function _getPropertyDefinitionDomains(options, callback) {
  * @param {string} [options.definition.lifeTime] Possible values include:
  * 'Perpetual', 'TimeVariant'
  *
+ * @param {string} [options.definition.type] Possible values include: 'Label',
+ * 'Metric'
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -14142,6 +14145,9 @@ function _getPropertyDefinition(domain, scope, name, options, callback) {
  *
  * @param {string} [options.definition.lifeTime] Possible values include:
  * 'Perpetual', 'TimeVariant'
+ *
+ * @param {string} [options.definition.type] Possible values include: 'Label',
+ * 'Metric'
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -25467,6 +25473,9 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.definition.lifeTime] Possible values include:
    * 'Perpetual', 'TimeVariant'
    *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -25518,6 +25527,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.lifeTime] Possible values include:
    * 'Perpetual', 'TimeVariant'
+   *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -26087,6 +26099,9 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.definition.lifeTime] Possible values include:
    * 'Perpetual', 'TimeVariant'
    *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -26138,6 +26153,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.lifeTime] Possible values include:
    * 'Perpetual', 'TimeVariant'
+   *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

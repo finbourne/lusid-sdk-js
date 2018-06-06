@@ -1126,6 +1126,7 @@ export interface PortfolioSearchResult {
  * @member {string} [sort]
  * @member {string} [lifeTime] Possible values include: 'Perpetual',
  * 'TimeVariant'
+ * @member {string} [type] Possible values include: 'Label', 'Metric'
  * @member {array} [_links]
  */
 export interface PropertyDefinitionDto {
@@ -1137,6 +1138,7 @@ export interface PropertyDefinitionDto {
   dataFormatId?: ResourceId;
   sort?: string;
   lifeTime?: string;
+  type?: string;
   _links?: Link[];
 }
 
@@ -1156,6 +1158,7 @@ export interface PropertyDefinitionDto {
  * @member {string} [sort]
  * @member {string} [lifeTime] Possible values include: 'Perpetual',
  * 'TimeVariant'
+ * @member {string} [type] Possible values include: 'Label', 'Metric'
  */
 export interface CreatePropertyDefinitionRequest {
   domain?: string;
@@ -1166,6 +1169,7 @@ export interface CreatePropertyDefinitionRequest {
   dataFormatId?: ResourceId;
   sort?: string;
   lifeTime?: string;
+  type?: string;
 }
 
 /**
@@ -1180,6 +1184,7 @@ export interface CreatePropertyDefinitionRequest {
  * @member {string} [sort]
  * @member {string} [lifeTime] Possible values include: 'Perpetual',
  * 'TimeVariant'
+ * @member {string} [type] Possible values include: 'Label', 'Metric'
  */
 export interface UpdatePropertyDefinitionRequest {
   valueRequired?: boolean;
@@ -1187,6 +1192,7 @@ export interface UpdatePropertyDefinitionRequest {
   dataFormatId?: ResourceId;
   sort?: string;
   lifeTime?: string;
+  type?: string;
 }
 
 /**

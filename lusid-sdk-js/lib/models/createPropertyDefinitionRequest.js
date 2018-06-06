@@ -42,6 +42,7 @@ class CreatePropertyDefinitionRequest {
    * @member {string} [sort]
    * @member {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
+   * @member {string} [type] Possible values include: 'Label', 'Metric'
    */
   constructor() {
   }
@@ -113,6 +114,13 @@ class CreatePropertyDefinitionRequest {
           lifeTime: {
             required: false,
             serializedName: 'lifeTime',
+            type: {
+              name: 'String'
+            }
+          },
+          type: {
+            required: false,
+            serializedName: 'type',
             type: {
               name: 'String'
             }

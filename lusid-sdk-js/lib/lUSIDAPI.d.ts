@@ -4895,6 +4895,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} [options.definition.lifeTime] Possible values include:
    * 'Perpetual', 'TimeVariant'
    *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -4934,6 +4937,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.lifeTime] Possible values include:
    * 'Perpetual', 'TimeVariant'
+   *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5353,6 +5359,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} [options.definition.lifeTime] Possible values include:
    * 'Perpetual', 'TimeVariant'
    *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -5392,6 +5401,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.lifeTime] Possible values include:
    * 'Perpetual', 'TimeVariant'
+   *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

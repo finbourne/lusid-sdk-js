@@ -44,6 +44,7 @@ class PropertyDefinitionDto {
    * @member {string} [sort]
    * @member {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
+   * @member {string} [type] Possible values include: 'Label', 'Metric'
    * @member {array} [_links]
    */
   constructor() {
@@ -116,6 +117,13 @@ class PropertyDefinitionDto {
           lifeTime: {
             required: false,
             serializedName: 'lifeTime',
+            type: {
+              name: 'String'
+            }
+          },
+          type: {
+            required: false,
+            serializedName: 'type',
             type: {
               name: 'String'
             }
