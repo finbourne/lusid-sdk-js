@@ -479,10 +479,20 @@ export interface ClassificationsDto {
  * @constructor
  * @member {string} type The transaction type
  * @member {string} description Brief description of the transaction
+ * @member {string} txnClass Relates types of a similar class. E.g. Buy/Sell,
+ * StockIn/StockOut
+ * @member {string} txnGroup Group is a set of codes related to a source, or
+ * sync
+ * @member {string} txnRoles Transactions role within a class. E.g. Increase a
+ * long position. Possible values include: 'None', 'LongLonger', 'LongShorter',
+ * 'ShortShorter', 'Shorter', 'ShortLonger', 'Longer', 'AllRoles'
  */
 export interface TxnTypeAliasDto {
   type: string;
   description: string;
+  txnClass: string;
+  txnGroup: string;
+  txnRoles: string;
 }
 
 /**

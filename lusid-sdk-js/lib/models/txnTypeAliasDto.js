@@ -30,6 +30,14 @@ class TxnTypeAliasDto {
    * Create a TxnTypeAliasDto.
    * @member {string} type The transaction type
    * @member {string} description Brief description of the transaction
+   * @member {string} txnClass Relates types of a similar class. E.g. Buy/Sell,
+   * StockIn/StockOut
+   * @member {string} txnGroup Group is a set of codes related to a source, or
+   * sync
+   * @member {string} txnRoles Transactions role within a class. E.g. Increase
+   * a long position. Possible values include: 'None', 'LongLonger',
+   * 'LongShorter', 'ShortShorter', 'Shorter', 'ShortLonger', 'Longer',
+   * 'AllRoles'
    */
   constructor() {
   }
@@ -58,6 +66,27 @@ class TxnTypeAliasDto {
           description: {
             required: true,
             serializedName: 'description',
+            type: {
+              name: 'String'
+            }
+          },
+          txnClass: {
+            required: true,
+            serializedName: 'txnClass',
+            type: {
+              name: 'String'
+            }
+          },
+          txnGroup: {
+            required: true,
+            serializedName: 'txnGroup',
+            type: {
+              name: 'String'
+            }
+          },
+          txnRoles: {
+            required: true,
+            serializedName: 'txnRoles',
             type: {
               name: 'String'
             }
