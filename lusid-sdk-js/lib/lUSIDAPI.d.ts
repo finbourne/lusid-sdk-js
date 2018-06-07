@@ -4977,6 +4977,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {array} [options.keys]
    *
+   * @param {date} [options.asAt]
+   *
    * @param {array} [options.sortBy]
    *
    * @param {number} [options.start]
@@ -4994,7 +4996,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getMultiplePropertyDefinitionsWithHttpOperationResponse(options?: { keys? : string[], sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getMultiplePropertyDefinitionsWithHttpOperationResponse(options?: { keys? : string[], asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Gets multiple property definitions.
@@ -5003,6 +5005,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {array} [options.keys]
    *
+   * @param {date} [options.asAt]
+   *
    * @param {array} [options.sortBy]
    *
    * @param {number} [options.start]
@@ -5035,9 +5039,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getMultiplePropertyDefinitions(options?: { keys? : string[], sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getMultiplePropertyDefinitions(options?: { keys? : string[], asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   getMultiplePropertyDefinitions(callback: ServiceCallback<any>): void;
-  getMultiplePropertyDefinitions(options: { keys? : string[], sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getMultiplePropertyDefinitions(options: { keys? : string[], asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -5047,6 +5051,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
    *
    * @param {array} [options.sortBy]
    *
@@ -5065,7 +5071,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getAllPropertyKeysInDomainWithHttpOperationResponse(domain: string, options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getAllPropertyKeysInDomainWithHttpOperationResponse(domain: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Gets all available property definitions.
@@ -5074,6 +5080,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
    *
    * @param {array} [options.sortBy]
    *
@@ -5107,9 +5115,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getAllPropertyKeysInDomain(domain: string, options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getAllPropertyKeysInDomain(domain: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   getAllPropertyKeysInDomain(domain: string, callback: ServiceCallback<any>): void;
-  getAllPropertyKeysInDomain(domain: string, options: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getAllPropertyKeysInDomain(domain: string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -5196,6 +5204,8 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
+   * @param {date} [options.asAt]
+   *
    * @param {array} [options.sortBy]
    *
    * @param {number} [options.start]
@@ -5213,7 +5223,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getAllPropertyKeysInScopeWithHttpOperationResponse(domain: string, scope: string, options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getAllPropertyKeysInScopeWithHttpOperationResponse(domain: string, scope: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Gets all properties in a scope.
@@ -5224,6 +5234,8 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} scope
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
    *
    * @param {array} [options.sortBy]
    *
@@ -5257,9 +5269,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getAllPropertyKeysInScope(domain: string, scope: string, options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getAllPropertyKeysInScope(domain: string, scope: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   getAllPropertyKeysInScope(domain: string, scope: string, callback: ServiceCallback<any>): void;
-  getAllPropertyKeysInScope(domain: string, scope: string, options: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getAllPropertyKeysInScope(domain: string, scope: string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -6619,6 +6631,8 @@ export default class LUSIDAPI extends ServiceClient {
    * keys in string format. e.g.
    * "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
    *
+   * @param {date} [options.asAt]
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -6628,7 +6642,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPropertySchemaWithHttpOperationResponse(options?: { propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getPropertySchemaWithHttpOperationResponse(options?: { propertyKeys? : string[], asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Get the schemas for the provided list of property keys
@@ -6638,6 +6652,8 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {array} [options.propertyKeys] A comma delimited list of property
    * keys in string format. e.g.
    * "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
+   *
+   * @param {date} [options.asAt]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6663,9 +6679,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPropertySchema(options?: { propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getPropertySchema(options?: { propertyKeys? : string[], asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   getPropertySchema(callback: ServiceCallback<any>): void;
-  getPropertySchema(options: { propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getPropertySchema(options: { propertyKeys? : string[], asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**

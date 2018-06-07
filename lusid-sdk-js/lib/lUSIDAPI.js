@@ -13044,6 +13044,8 @@ function _createPropertyDefinition(options, callback) {
  *
  * @param {array} [options.keys]
  *
+ * @param {date} [options.asAt]
+ *
  * @param {array} [options.sortBy]
  *
  * @param {number} [options.start]
@@ -13078,6 +13080,7 @@ function _getMultiplePropertyDefinitions(options, callback) {
     throw new Error('callback cannot be null.');
   }
   let keys = (options && options.keys !== undefined) ? options.keys : undefined;
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
@@ -13091,6 +13094,10 @@ function _getMultiplePropertyDefinitions(options, callback) {
         }
       }
     }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
     if (Array.isArray(sortBy)) {
       for (let i1 = 0; i1 < sortBy.length; i1++) {
         if (sortBy[i1] !== null && sortBy[i1] !== undefined && typeof sortBy[i1].valueOf() !== 'string') {
@@ -13124,6 +13131,9 @@ function _getMultiplePropertyDefinitions(options, callback) {
         queryParameters.push('keys=' + encodeURIComponent('' + item));
       }
     }
+  }
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
   }
   if (sortBy !== null && sortBy !== undefined) {
     if (sortBy.length == 0) {
@@ -13275,6 +13285,8 @@ function _getMultiplePropertyDefinitions(options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
+ * @param {date} [options.asAt]
+ *
  * @param {array} [options.sortBy]
  *
  * @param {number} [options.start]
@@ -13308,6 +13320,7 @@ function _getAllPropertyKeysInDomain(domain, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
@@ -13317,6 +13330,10 @@ function _getAllPropertyKeysInDomain(domain, options, callback) {
     if (domain === null || domain === undefined || typeof domain.valueOf() !== 'string') {
       throw new Error('domain cannot be null or undefined and it must be of type string.');
     }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
     if (Array.isArray(sortBy)) {
       for (let i = 0; i < sortBy.length; i++) {
         if (sortBy[i] !== null && sortBy[i] !== undefined && typeof sortBy[i].valueOf() !== 'string') {
@@ -13342,6 +13359,9 @@ function _getAllPropertyKeysInDomain(domain, options, callback) {
   let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/propertydefinitions/{domain}';
   requestUrl = requestUrl.replace('{domain}', encodeURIComponent(domain));
   let queryParameters = [];
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
   if (sortBy !== null && sortBy !== undefined) {
     if (sortBy.length == 0) {
       queryParameters.push('sortBy=' + encodeURIComponent(''));
@@ -13712,6 +13732,8 @@ function _getPropertyDefinitionScopesInDomain(domain, options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
+ * @param {date} [options.asAt]
+ *
  * @param {array} [options.sortBy]
  *
  * @param {number} [options.start]
@@ -13745,6 +13767,7 @@ function _getAllPropertyKeysInScope(domain, scope, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
@@ -13757,6 +13780,10 @@ function _getAllPropertyKeysInScope(domain, scope, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
     if (Array.isArray(sortBy)) {
       for (let i = 0; i < sortBy.length; i++) {
         if (sortBy[i] !== null && sortBy[i] !== undefined && typeof sortBy[i].valueOf() !== 'string') {
@@ -13783,6 +13810,9 @@ function _getAllPropertyKeysInScope(domain, scope, options, callback) {
   requestUrl = requestUrl.replace('{domain}', encodeURIComponent(domain));
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   let queryParameters = [];
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
   if (sortBy !== null && sortBy !== undefined) {
     if (sortBy.length == 0) {
       queryParameters.push('sortBy=' + encodeURIComponent(''));
@@ -17380,6 +17410,8 @@ function _getEntitySchema(entity, options, callback) {
  * keys in string format. e.g.
  * "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
  *
+ * @param {date} [options.asAt]
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -17406,6 +17438,7 @@ function _getPropertySchema(options, callback) {
     throw new Error('callback cannot be null.');
   }
   let propertyKeys = (options && options.propertyKeys !== undefined) ? options.propertyKeys : undefined;
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   // Validate
   try {
     if (Array.isArray(propertyKeys)) {
@@ -17415,6 +17448,10 @@ function _getPropertySchema(options, callback) {
         }
       }
     }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
   } catch (error) {
     return callback(error);
   }
@@ -17432,6 +17469,9 @@ function _getPropertySchema(options, callback) {
         queryParameters.push('propertyKeys=' + encodeURIComponent('' + item));
       }
     }
+  }
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -25582,6 +25622,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {array} [options.keys]
    *
+   * @param {date} [options.asAt]
+   *
    * @param {array} [options.sortBy]
    *
    * @param {number} [options.start]
@@ -25619,6 +25661,8 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options] Optional Parameters.
    *
    * @param {array} [options.keys]
+   *
+   * @param {date} [options.asAt]
    *
    * @param {array} [options.sortBy]
    *
@@ -25680,6 +25724,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
+   * @param {date} [options.asAt]
+   *
    * @param {array} [options.sortBy]
    *
    * @param {number} [options.start]
@@ -25718,6 +25764,8 @@ class LUSIDAPI extends ServiceClient {
    * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
    *
    * @param {array} [options.sortBy]
    *
@@ -25882,6 +25930,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
+   * @param {date} [options.asAt]
+   *
    * @param {array} [options.sortBy]
    *
    * @param {number} [options.start]
@@ -25922,6 +25972,8 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} scope
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
    *
    * @param {array} [options.sortBy]
    *
@@ -27791,6 +27843,8 @@ class LUSIDAPI extends ServiceClient {
    * keys in string format. e.g.
    * "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
    *
+   * @param {date} [options.asAt]
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -27822,6 +27876,8 @@ class LUSIDAPI extends ServiceClient {
    * @param {array} [options.propertyKeys] A comma delimited list of property
    * keys in string format. e.g.
    * "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
+   *
+   * @param {date} [options.asAt]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
