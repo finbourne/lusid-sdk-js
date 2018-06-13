@@ -36,7 +36,7 @@ class TxnTypeAliasDto {
    * sync
    * @member {string} txnRoles Transactions role within a class. E.g. Increase
    * a long position. Possible values include: 'None', 'LongLonger',
-   * 'LongShorter', 'ShortShorter', 'Shorter', 'ShortLonger', 'Longer',
+   * 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
    * 'AllRoles'
    */
   constructor() {

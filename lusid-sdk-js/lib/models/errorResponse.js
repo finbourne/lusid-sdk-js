@@ -34,15 +34,15 @@ class ErrorResponse {
    * client
    * @member {string} [code] The Finbourne specific error-code that
    * encapsulates the specific issue encountered. Possible values include:
-   * 'PersonalisationNotFound', 'NonRecursivePersonalisation',
-   * 'VersionNotFound', 'SecurityNotFound', 'SecurityByCodeNotFound',
-   * 'PropertyNotFound', 'PortfolioRecursionDepth', 'GroupNotFound',
-   * 'PortfolioNotFound', 'PropertySchemaNotFound',
-   * 'PortfolioWithIdAlreadyExists', 'OrphanedPortfolio', 'MissingBaseClaims',
-   * 'PropertyNotDefined', 'CannotDeleteSystemProperty',
-   * 'CannotModifyImmutablePropertyField', 'PropertyAlreadyExists',
-   * 'InvalidPropertyLifeTime', 'CannotModifyDefaultPropertyFormat',
-   * 'GroupAlreadyExists', 'NoSuchPropertyDataFormat', 'ValidationError',
+   * 'Unknown', 'PersonalisationNotFound', 'NonRecursivePersonalisation',
+   * 'VersionNotFound', 'SecurityNotFound', 'PropertyNotFound',
+   * 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
+   * 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
+   * 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined',
+   * 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
+   * 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
+   * 'CannotModifyDefaultPropertyFormat', 'GroupAlreadyExists',
+   * 'NoSuchPropertyDataFormat', 'ValidationError',
    * 'LoopDetectedInGroupHierarchy', 'SubGroupAlreadyExists',
    * 'PriceSourceNotFound', 'AnalyticStoreNotFound',
    * 'AnalyticStoreAlreadyExists', 'ClientSecurityAlreadyExists',
@@ -59,8 +59,9 @@ class ErrorResponse {
    * 'EntityAlreadyExistsInGroup', 'EntityWithIdAlreadyExists',
    * 'PortfolioDetailsDoNotExist', 'PortfolioWithNameAlreadyExists',
    * 'InvalidTrades', 'ReferencePortfolioNotFound', 'DuplicateIdFailure',
-   * 'CommandRetrievalFailure', 'DataFilterApplicationFailure', 'SearchFailed',
-   * 'MovementsEngineConfigurationKeyFailure', 'Unknown'
+   * 'SecurityByCodeNotFound', 'CommandRetrievalFailure',
+   * 'DataFilterApplicationFailure', 'SearchFailed',
+   * 'MovementsEngineConfigurationKeyFailure'
    * @member {string} [message] The non-technical-user friendly message
    * describing the error and how it might be remedied.
    * @member {string} [detailedMessage] A technical error message that contains

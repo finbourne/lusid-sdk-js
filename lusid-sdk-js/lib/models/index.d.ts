@@ -55,16 +55,15 @@ export interface ErrorDetail {
  * @member {number} [status] The status code that will be returned to the
  * client
  * @member {string} [code] The Finbourne specific error-code that encapsulates
- * the specific issue encountered. Possible values include:
+ * the specific issue encountered. Possible values include: 'Unknown',
  * 'PersonalisationNotFound', 'NonRecursivePersonalisation', 'VersionNotFound',
- * 'SecurityNotFound', 'SecurityByCodeNotFound', 'PropertyNotFound',
- * 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
- * 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
- * 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined',
- * 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
- * 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
- * 'CannotModifyDefaultPropertyFormat', 'GroupAlreadyExists',
- * 'NoSuchPropertyDataFormat', 'ValidationError',
+ * 'SecurityNotFound', 'PropertyNotFound', 'PortfolioRecursionDepth',
+ * 'GroupNotFound', 'PortfolioNotFound', 'PropertySchemaNotFound',
+ * 'PortfolioWithIdAlreadyExists', 'OrphanedPortfolio', 'MissingBaseClaims',
+ * 'PropertyNotDefined', 'CannotDeleteSystemProperty',
+ * 'CannotModifyImmutablePropertyField', 'PropertyAlreadyExists',
+ * 'InvalidPropertyLifeTime', 'CannotModifyDefaultPropertyFormat',
+ * 'GroupAlreadyExists', 'NoSuchPropertyDataFormat', 'ValidationError',
  * 'LoopDetectedInGroupHierarchy', 'SubGroupAlreadyExists',
  * 'PriceSourceNotFound', 'AnalyticStoreNotFound',
  * 'AnalyticStoreAlreadyExists', 'ClientSecurityAlreadyExists',
@@ -81,8 +80,9 @@ export interface ErrorDetail {
  * 'EntityWithIdAlreadyExists', 'PortfolioDetailsDoNotExist',
  * 'PortfolioWithNameAlreadyExists', 'InvalidTrades',
  * 'ReferencePortfolioNotFound', 'DuplicateIdFailure',
- * 'CommandRetrievalFailure', 'DataFilterApplicationFailure', 'SearchFailed',
- * 'MovementsEngineConfigurationKeyFailure', 'Unknown'
+ * 'SecurityByCodeNotFound', 'CommandRetrievalFailure',
+ * 'DataFilterApplicationFailure', 'SearchFailed',
+ * 'MovementsEngineConfigurationKeyFailure'
  * @member {string} [message] The non-technical-user friendly message
  * describing the error and how it might be remedied.
  * @member {string} [detailedMessage] A technical error message that contains
@@ -485,7 +485,7 @@ export interface ClassificationsDto {
  * sync
  * @member {string} txnRoles Transactions role within a class. E.g. Increase a
  * long position. Possible values include: 'None', 'LongLonger', 'LongShorter',
- * 'ShortShorter', 'Shorter', 'ShortLonger', 'Longer', 'AllRoles'
+ * 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter', 'AllRoles'
  */
 export interface TxnTypeAliasDto {
   type: string;
