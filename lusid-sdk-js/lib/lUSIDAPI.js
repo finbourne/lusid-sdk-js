@@ -10220,10 +10220,10 @@ function _upsertPortfolioProperties(scope, code, options, callback) {
           name: 'Sequence',
           element: {
               required: false,
-              serializedName: 'PropertyDtoElementType',
+              serializedName: 'CreatePropertyRequestElementType',
               type: {
                 name: 'Composite',
-                className: 'PropertyDto'
+                className: 'CreatePropertyRequest'
               }
           }
         }
@@ -11080,10 +11080,10 @@ function _upsertTrades(scope, code, options, callback) {
           name: 'Sequence',
           element: {
               required: false,
-              serializedName: 'TradeDtoElementType',
+              serializedName: 'UpsertPortfolioTradeRequestElementType',
               type: {
                 name: 'Composite',
-                className: 'TradeDto'
+                className: 'UpsertPortfolioTradeRequest'
               }
           }
         }
@@ -11487,10 +11487,10 @@ function _addTradeProperty(scope, code, tradeId, options, callback) {
           name: 'Sequence',
           element: {
               required: false,
-              serializedName: 'PropertyDtoElementType',
+              serializedName: 'CreatePropertyRequestElementType',
               type: {
                 name: 'Composite',
-                className: 'PropertyDto'
+                className: 'CreatePropertyRequest'
               }
           }
         }
@@ -17016,13 +17016,14 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * @summary Gets the schema for a given entity.
  *
  * @param {string} entity Possible values include: 'PropertyKey',
- * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
- * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
- * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
- * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
- * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
- * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
- * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
+ * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
+ * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+ * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
+ * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
+ * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
+ * 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
+ * 'UpsertPortfolioTradesRequest', 'PortfolioHolding', 'AdjustHolding',
+ * 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
  * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
  * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
  * 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',
@@ -27419,13 +27420,14 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets the schema for a given entity.
    *
    * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
-   * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-   * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
-   * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
-   * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
-   * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
-   * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
+   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
+   * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+   * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
+   * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
+   * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
+   * 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
+   * 'UpsertPortfolioTradesRequest', 'PortfolioHolding', 'AdjustHolding',
+   * 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
    * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
    * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
    * 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',
@@ -27469,13 +27471,14 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets the schema for a given entity.
    *
    * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
-   * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-   * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
-   * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
-   * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
-   * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
-   * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
+   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
+   * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+   * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
+   * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
+   * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
+   * 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
+   * 'UpsertPortfolioTradesRequest', 'PortfolioHolding', 'AdjustHolding',
+   * 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
    * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
    * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
    * 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',

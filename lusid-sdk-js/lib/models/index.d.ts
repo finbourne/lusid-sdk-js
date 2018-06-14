@@ -436,8 +436,6 @@ export interface SecurityAnalyticDataDto {
  * @class
  * Initializes a new instance of the PropertyDto class.
  * @constructor
- * This is intended to be the external facing property specification data type.
- *
  * @member {string} key
  * @member {object} value
  * @member {date} [effectiveFrom] Date for which the property is effective from
@@ -1054,6 +1052,71 @@ export interface PortfolioPropertiesDto {
 
 /**
  * @class
+ * Initializes a new instance of the CreatePropertyRequest class.
+ * @constructor
+ * @member {string} [scope]
+ * @member {string} [name]
+ * @member {object} value
+ * @member {date} [effectiveFrom] Date for which the property is effective from
+ */
+export interface CreatePropertyRequest {
+  scope?: string;
+  name?: string;
+  value: any;
+  effectiveFrom?: Date;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the UpsertPortfolioTradeRequest class.
+ * @constructor
+ * @member {string} tradeId Unique trade identifier
+ * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
+ * StockOut, etc
+ * @member {string} securityUid Unique security identifier
+ * @member {date} tradeDate Trade date
+ * @member {date} settlementDate Settlement date
+ * @member {number} units Quantity of trade in units of the security
+ * @member {number} tradePrice Execution price for the trade
+ * @member {number} totalConsideration Total value of the trade
+ * @member {number} [exchangeRate] Rate between trade and settle currency
+ * @member {string} settlementCurrency Settlement currency
+ * @member {string} [tradeCurrency] Trade currency
+ * @member {array} [properties]
+ * @member {string} [counterpartyId] Counterparty identifier
+ * @member {string} source Where this trade came from, either Client or System.
+ * Possible values include: 'System', 'Client'
+ * @member {string} [dividendState] Possible values include: 'Default',
+ * 'ExDividend', 'CumDividend'
+ * @member {string} [tradePriceType] Possible values include: 'Price', 'Yield',
+ * 'Spread'
+ * @member {string} [unitType] Possible values include: 'Nominal', 'Shares',
+ * 'FaceValue', 'Contracts'
+ * @member {string} [nettingSet]
+ */
+export interface UpsertPortfolioTradeRequest {
+  tradeId: string;
+  type: string;
+  securityUid: string;
+  tradeDate: Date;
+  settlementDate: Date;
+  units: number;
+  tradePrice: number;
+  totalConsideration: number;
+  exchangeRate?: number;
+  settlementCurrency: string;
+  tradeCurrency?: string;
+  properties?: CreatePropertyRequest[];
+  counterpartyId?: string;
+  source: string;
+  dividendState?: string;
+  tradePriceType?: string;
+  unitType?: string;
+  nettingSet?: string;
+}
+
+/**
+ * @class
  * Initializes a new instance of the AddTradePropertyDto class.
  * @constructor
  * @member {string} [href]
@@ -1411,13 +1474,14 @@ export interface KeyValuePairStringFieldSchema {
  * Initializes a new instance of the SchemaDto class.
  * @constructor
  * @member {string} [entity] Possible values include: 'PropertyKey',
- * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
- * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
- * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
- * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
- * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
- * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
- * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
+ * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
+ * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+ * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
+ * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
+ * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
+ * 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
+ * 'UpsertPortfolioTradesRequest', 'PortfolioHolding', 'AdjustHolding',
+ * 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
  * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
  * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
  * 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',

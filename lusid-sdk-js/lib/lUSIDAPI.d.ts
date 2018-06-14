@@ -3962,7 +3962,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  upsertPortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { properties? : models.PropertyDto[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  upsertPortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { properties? : models.CreatePropertyRequest[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Update properties
@@ -4003,9 +4003,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertPortfolioProperties(scope: string, code: string, options?: { properties? : models.PropertyDto[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  upsertPortfolioProperties(scope: string, code: string, options?: { properties? : models.CreatePropertyRequest[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   upsertPortfolioProperties(scope: string, code: string, callback: ServiceCallback<any>): void;
-  upsertPortfolioProperties(scope: string, code: string, options: { properties? : models.PropertyDto[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  upsertPortfolioProperties(scope: string, code: string, options: { properties? : models.CreatePropertyRequest[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -4260,7 +4260,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  upsertTradesWithHttpOperationResponse(scope: string, code: string, options?: { trades? : models.TradeDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  upsertTradesWithHttpOperationResponse(scope: string, code: string, options?: { trades? : models.UpsertPortfolioTradeRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Add/update trades
@@ -4297,9 +4297,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertTrades(scope: string, code: string, options?: { trades? : models.TradeDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  upsertTrades(scope: string, code: string, options?: { trades? : models.UpsertPortfolioTradeRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   upsertTrades(scope: string, code: string, callback: ServiceCallback<any>): void;
-  upsertTrades(scope: string, code: string, options: { trades? : models.TradeDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  upsertTrades(scope: string, code: string, options: { trades? : models.UpsertPortfolioTradeRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -4392,7 +4392,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  addTradePropertyWithHttpOperationResponse(scope: string, code: string, tradeId: string, options?: { properties? : models.PropertyDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  addTradePropertyWithHttpOperationResponse(scope: string, code: string, tradeId: string, options?: { properties? : models.CreatePropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Add/update trade properties
@@ -4433,9 +4433,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  addTradeProperty(scope: string, code: string, tradeId: string, options?: { properties? : models.PropertyDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  addTradeProperty(scope: string, code: string, tradeId: string, options?: { properties? : models.CreatePropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   addTradeProperty(scope: string, code: string, tradeId: string, callback: ServiceCallback<any>): void;
-  addTradeProperty(scope: string, code: string, tradeId: string, options: { properties? : models.PropertyDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  addTradeProperty(scope: string, code: string, tradeId: string, options: { properties? : models.CreatePropertyRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -6466,13 +6466,14 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets the schema for a given entity.
    *
    * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
-   * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-   * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
-   * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
-   * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
-   * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
-   * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
+   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
+   * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+   * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
+   * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
+   * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
+   * 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
+   * 'UpsertPortfolioTradesRequest', 'PortfolioHolding', 'AdjustHolding',
+   * 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
    * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
    * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
    * 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',
@@ -6504,13 +6505,14 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets the schema for a given entity.
    *
    * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'Login',
-   * 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-   * 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
-   * 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
-   * 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
-   * 'Constituent', 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
-   * 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
+   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
+   * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+   * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
+   * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
+   * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
+   * 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
+   * 'UpsertPortfolioTradesRequest', 'PortfolioHolding', 'AdjustHolding',
+   * 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
    * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
    * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
    * 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',

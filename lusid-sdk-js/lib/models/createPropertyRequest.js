@@ -23,12 +23,13 @@
 'use strict';
 
 /**
- * Class representing a PropertyDto.
+ * Class representing a CreatePropertyRequest.
  */
-class PropertyDto {
+class CreatePropertyRequest {
   /**
-   * Create a PropertyDto.
-   * @member {string} key
+   * Create a CreatePropertyRequest.
+   * @member {string} [scope]
+   * @member {string} [name]
    * @member {object} value
    * @member {date} [effectiveFrom] Date for which the property is effective
    * from
@@ -37,22 +38,29 @@ class PropertyDto {
   }
 
   /**
-   * Defines the metadata of PropertyDto
+   * Defines the metadata of CreatePropertyRequest
    *
-   * @returns {object} metadata of PropertyDto
+   * @returns {object} metadata of CreatePropertyRequest
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'PropertyDto',
+      serializedName: 'CreatePropertyRequest',
       type: {
         name: 'Composite',
-        className: 'PropertyDto',
+        className: 'CreatePropertyRequest',
         modelProperties: {
-          key: {
-            required: true,
-            serializedName: 'key',
+          scope: {
+            required: false,
+            serializedName: 'scope',
+            type: {
+              name: 'String'
+            }
+          },
+          name: {
+            required: false,
+            serializedName: 'name',
             type: {
               name: 'String'
             }
@@ -77,4 +85,4 @@ class PropertyDto {
   }
 }
 
-module.exports = PropertyDto;
+module.exports = CreatePropertyRequest;
