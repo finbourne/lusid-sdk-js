@@ -30,6 +30,8 @@ class SecurityAnalyticDataDto {
    * Create a SecurityAnalyticDataDto.
    * @member {string} [id] Unique security identifier
    * @member {number} [value] Value of the analytic, eg price
+   * @member {string} [denomination] Underlying unit of the analytic, eg
+   * currency, EPS etc.
    */
   constructor() {
   }
@@ -60,6 +62,13 @@ class SecurityAnalyticDataDto {
             serializedName: 'value',
             type: {
               name: 'Number'
+            }
+          },
+          denomination: {
+            required: false,
+            serializedName: 'denomination',
+            type: {
+              name: 'String'
             }
           }
         }

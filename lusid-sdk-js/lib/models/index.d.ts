@@ -82,7 +82,8 @@ export interface ErrorDetail {
  * 'ReferencePortfolioNotFound', 'DuplicateIdFailure',
  * 'SecurityByCodeNotFound', 'CommandRetrievalFailure',
  * 'DataFilterApplicationFailure', 'SearchFailed',
- * 'MovementsEngineConfigurationKeyFailure'
+ * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
+ * 'AccrualSourceNotFound'
  * @member {string} [message] The non-technical-user friendly message
  * describing the error and how it might be remedied.
  * @member {string} [detailedMessage] A technical error message that contains
@@ -426,10 +427,13 @@ export interface DeletedEntityResponse {
  * @constructor
  * @member {string} [id] Unique security identifier
  * @member {number} [value] Value of the analytic, eg price
+ * @member {string} [denomination] Underlying unit of the analytic, eg
+ * currency, EPS etc.
  */
 export interface SecurityAnalyticDataDto {
   id?: string;
   value?: number;
+  denomination?: string;
 }
 
 /**

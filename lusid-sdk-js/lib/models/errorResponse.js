@@ -61,7 +61,8 @@ class ErrorResponse {
    * 'InvalidTrades', 'ReferencePortfolioNotFound', 'DuplicateIdFailure',
    * 'SecurityByCodeNotFound', 'CommandRetrievalFailure',
    * 'DataFilterApplicationFailure', 'SearchFailed',
-   * 'MovementsEngineConfigurationKeyFailure'
+   * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
+   * 'AccrualSourceNotFound'
    * @member {string} [message] The non-technical-user friendly message
    * describing the error and how it might be remedied.
    * @member {string} [detailedMessage] A technical error message that contains
