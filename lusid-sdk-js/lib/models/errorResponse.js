@@ -62,7 +62,8 @@ class ErrorResponse {
    * 'SecurityByCodeNotFound', 'CommandRetrievalFailure',
    * 'DataFilterApplicationFailure', 'SearchFailed',
    * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
-   * 'AccrualSourceNotFound'
+   * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
+   * 'InvalidRequestHeaders'
    * @member {string} [message] The non-technical-user friendly message
    * describing the error and how it might be remedied.
    * @member {string} [detailedMessage] A technical error message that contains

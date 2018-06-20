@@ -101,156 +101,6 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Gets a corporate action based on dates
-   *
-   * @param {string} scope Scope
-   *
-   * @param {string} sourceId Corporate action source id
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveDate] Effective Date
-   *
-   * @param {date} [options.asAt] AsAt Date filter
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  listCorporateActionsWithHttpOperationResponse(scope: string, sourceId: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
-
-  /**
-   * @summary Gets a corporate action based on dates
-   *
-   * @param {string} scope Scope
-   *
-   * @param {string} sourceId Corporate action source id
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveDate] Effective Date
-   *
-   * @param {date} [options.asAt] AsAt Date filter
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {Object} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {Object} [result]   - The deserialized result object if an error did not occur.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  listCorporateActions(scope: string, sourceId: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  listCorporateActions(scope: string, sourceId: string, callback: ServiceCallback<any>): void;
-  listCorporateActions(scope: string, sourceId: string, options: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
-
-
-  /**
-   * @summary Creates/updates a corporate action
-   *
-   * @param {string} scope The intended scope of the corporate action
-   *
-   * @param {string} sourceId Source of the corporate action
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.createRequest] The corporate action creation
-   * request object
-   *
-   * @param {string} options.createRequest.corporateActionId
-   *
-   * @param {date} options.createRequest.announcementDate
-   *
-   * @param {date} options.createRequest.exDate
-   *
-   * @param {date} options.createRequest.recordDate
-   *
-   * @param {array} options.createRequest.transitions
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  upsertCorporateActionWithHttpOperationResponse(scope: string, sourceId: string, options?: { createRequest? : models.UpsertCorporateActionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
-
-  /**
-   * @summary Creates/updates a corporate action
-   *
-   * @param {string} scope The intended scope of the corporate action
-   *
-   * @param {string} sourceId Source of the corporate action
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.createRequest] The corporate action creation
-   * request object
-   *
-   * @param {string} options.createRequest.corporateActionId
-   *
-   * @param {date} options.createRequest.announcementDate
-   *
-   * @param {date} options.createRequest.exDate
-   *
-   * @param {date} options.createRequest.recordDate
-   *
-   * @param {array} options.createRequest.transitions
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {Object} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {Object} [result]   - The deserialized result object if an error did not occur.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  upsertCorporateAction(scope: string, sourceId: string, options?: { createRequest? : models.UpsertCorporateActionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  upsertCorporateAction(scope: string, sourceId: string, callback: ServiceCallback<any>): void;
-  upsertCorporateAction(scope: string, sourceId: string, options: { createRequest? : models.UpsertCorporateActionRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
-
-
-  /**
    * @summary Aggregate data in a group hierarchy
    *
    * @param {string} scope
@@ -1450,6 +1300,138 @@ export default class LUSIDAPI extends ServiceClient {
   uploadConfigurationTransactionTypes(options?: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   uploadConfigurationTransactionTypes(callback: ServiceCallback<any>): void;
   uploadConfigurationTransactionTypes(options: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+
+
+  /**
+   * @summary Gets a corporate action based on dates
+   *
+   * @param {string} scope Scope
+   *
+   * @param {string} sourceId Corporate action source id
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveDate] Effective Date
+   *
+   * @param {date} [options.asAt] AsAt Date filter
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  listCorporateActionsWithHttpOperationResponse(scope: string, sourceId: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+
+  /**
+   * @summary Gets a corporate action based on dates
+   *
+   * @param {string} scope Scope
+   *
+   * @param {string} sourceId Corporate action source id
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveDate] Effective Date
+   *
+   * @param {date} [options.asAt] AsAt Date filter
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listCorporateActions(scope: string, sourceId: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  listCorporateActions(scope: string, sourceId: string, callback: ServiceCallback<any>): void;
+  listCorporateActions(scope: string, sourceId: string, options: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+
+
+  /**
+   * @summary Attempt to create/update one or more corporate action. Failed
+   * actions will be identified in the body of the response.
+   *
+   * @param {string} scope The intended scope of the corporate action
+   *
+   * @param {string} sourceId Source of the corporate action
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.actions] The corporate action creation request
+   * objects
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  batchUpsertCorporateActionsWithHttpOperationResponse(scope: string, sourceId: string, options?: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+
+  /**
+   * @summary Attempt to create/update one or more corporate action. Failed
+   * actions will be identified in the body of the response.
+   *
+   * @param {string} scope The intended scope of the corporate action
+   *
+   * @param {string} sourceId Source of the corporate action
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.actions] The corporate action creation request
+   * objects
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  batchUpsertCorporateActions(scope: string, sourceId: string, options?: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  batchUpsertCorporateActions(scope: string, sourceId: string, callback: ServiceCallback<any>): void;
+  batchUpsertCorporateActions(scope: string, sourceId: string, options: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -3114,6 +3096,9 @@ export default class LUSIDAPI extends ServiceClient {
    * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
    * 'HighestCostFirst', 'LowestCostFirst'
    *
+   * @param {array} [options.createRequest.properties] Portfolio properties to
+   * add to the portfolio
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -3154,6 +3139,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} [options.createRequest.accountingMethod] Possible values
    * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
    * 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.createRequest.properties] Portfolio properties to
+   * add to the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4392,7 +4380,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  addTradePropertyWithHttpOperationResponse(scope: string, code: string, tradeId: string, options?: { properties? : models.CreatePropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  addTradePropertyWithHttpOperationResponse(scope: string, code: string, tradeId: string, options?: { properties? : models.CreatePerpetualPropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Add/update trade properties
@@ -4433,9 +4421,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  addTradeProperty(scope: string, code: string, tradeId: string, options?: { properties? : models.CreatePropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  addTradeProperty(scope: string, code: string, tradeId: string, options?: { properties? : models.CreatePerpetualPropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
   addTradeProperty(scope: string, code: string, tradeId: string, callback: ServiceCallback<any>): void;
-  addTradeProperty(scope: string, code: string, tradeId: string, options: { properties? : models.CreatePropertyRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  addTradeProperty(scope: string, code: string, tradeId: string, options: { properties? : models.CreatePerpetualPropertyRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -5956,6 +5944,9 @@ export default class LUSIDAPI extends ServiceClient {
    * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
    * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
    *
+   * @param {array} [options.referencePortfolio.properties] Portfolio properties
+   * to add to the portfolio
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -5994,6 +5985,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} [options.referencePortfolio.accountingMethod] Possible
    * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
    * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.referencePortfolio.properties] Portfolio properties
+   * to add to the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6466,8 +6460,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets the schema for a given entity.
    *
    * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
-   * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+   * 'FieldSchema', 'Personalisation', 'Security', 'Property',
+   * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
+   * 'PerpetualProperty', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
    * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
    * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
    * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
@@ -6486,7 +6481,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias'
+   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6505,8 +6500,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Gets the schema for a given entity.
    *
    * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
-   * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+   * 'FieldSchema', 'Personalisation', 'Security', 'Property',
+   * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
+   * 'PerpetualProperty', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
    * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
    * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
    * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
@@ -6525,7 +6521,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias'
+   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
    *
    * @param {object} [options] Optional Parameters.
    *

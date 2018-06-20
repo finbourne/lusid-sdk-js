@@ -32,7 +32,8 @@ class SchemaDto {
    * Create a SchemaDto.
    * @member {string} [entity] Possible values include: 'PropertyKey',
    * 'FieldSchema', 'Personalisation', 'Security', 'Property',
-   * 'PropertyRequest', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+   * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
+   * 'PerpetualProperty', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
    * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
    * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
    * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
@@ -52,7 +53,7 @@ class SchemaDto {
    * 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
    * 'ReconciliationBreak', 'TransactionConfigurationData',
    * 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias'
+   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
    * @member {string} [href]
    * @member {array} [values]
    */

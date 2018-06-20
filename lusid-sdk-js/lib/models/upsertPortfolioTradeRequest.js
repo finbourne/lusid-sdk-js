@@ -155,10 +155,10 @@ class UpsertPortfolioTradeRequest {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'CreatePropertyRequestElementType',
+                  serializedName: 'CreatePerpetualPropertyRequestElementType',
                   type: {
                     name: 'Composite',
-                    className: 'CreatePropertyRequest'
+                    className: 'CreatePerpetualPropertyRequest'
                   }
               }
             }

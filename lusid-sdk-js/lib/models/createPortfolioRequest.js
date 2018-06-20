@@ -40,6 +40,7 @@ class CreatePortfolioRequest {
    * @member {string} [accountingMethod] Possible values include: 'Default',
    * 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
    * 'LowestCostFirst'
+   * @member {array} [properties] Portfolio properties to add to the portfolio
    */
   constructor() {
   }
@@ -99,6 +100,21 @@ class CreatePortfolioRequest {
             serializedName: 'accountingMethod',
             type: {
               name: 'String'
+            }
+          },
+          properties: {
+            required: false,
+            serializedName: 'properties',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'CreatePropertyRequestElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'CreatePropertyRequest'
+                  }
+              }
             }
           }
         }

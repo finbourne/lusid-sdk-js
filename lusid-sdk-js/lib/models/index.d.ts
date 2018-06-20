@@ -83,7 +83,8 @@ export interface ErrorDetail {
  * 'SecurityByCodeNotFound', 'CommandRetrievalFailure',
  * 'DataFilterApplicationFailure', 'SearchFailed',
  * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
- * 'AccrualSourceNotFound'
+ * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
+ * 'InvalidRequestHeaders'
  * @member {string} [message] The non-technical-user friendly message
  * describing the error and how it might be remedied.
  * @member {string} [detailedMessage] A technical error message that contains
@@ -100,79 +101,6 @@ export interface ErrorResponse {
   readonly detailedMessage?: string;
   items?: ErrorDetail[];
   readonly moreInfo?: string;
-}
-
-/**
- * @class
- * Initializes a new instance of the CorporateActionTransitionDto class.
- * @constructor
- * A 'transition' within a corporate action, representing a single incoming or
- * outgoing component
- *
- * @member {string} direction Possible values include: 'In', 'Out'
- * @member {string} securityUid
- * @member {number} unitsFactor
- * @member {number} costFactor
- */
-export interface CorporateActionTransitionDto {
-  direction: string;
-  securityUid: string;
-  unitsFactor: number;
-  costFactor: number;
-}
-
-/**
- * @class
- * Initializes a new instance of the UpsertCorporateActionRequest class.
- * @constructor
- * @member {string} corporateActionId
- * @member {date} announcementDate
- * @member {date} exDate
- * @member {date} recordDate
- * @member {array} transitions
- */
-export interface UpsertCorporateActionRequest {
-  corporateActionId: string;
-  announcementDate: Date;
-  exDate: Date;
-  recordDate: Date;
-  transitions: CorporateActionTransitionDto[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceId class.
- * @constructor
- * @member {string} [scope]
- * @member {string} [code]
- */
-export interface ResourceId {
-  scope?: string;
-  code?: string;
-}
-
-/**
- * @class
- * Initializes a new instance of the CorporateActionEventDto class.
- * @constructor
- * A corporate action
- *
- * @member {object} sourceId
- * @member {string} [sourceId.scope]
- * @member {string} [sourceId.code]
- * @member {string} corporateActionId
- * @member {date} [announcementDate]
- * @member {date} [exDate]
- * @member {date} [recordDate]
- * @member {array} [transitions]
- */
-export interface CorporateActionEventDto {
-  sourceId: ResourceId;
-  corporateActionId: string;
-  announcementDate?: Date;
-  exDate?: Date;
-  recordDate?: Date;
-  transitions?: CorporateActionTransitionDto[];
 }
 
 /**
@@ -549,6 +477,93 @@ export interface TxnMetaDataDto {
 
 /**
  * @class
+ * Initializes a new instance of the CorporateActionTransitionDto class.
+ * @constructor
+ * A 'transition' within a corporate action, representing a single incoming or
+ * outgoing component
+ *
+ * @member {string} direction Possible values include: 'In', 'Out'
+ * @member {string} securityUid
+ * @member {number} unitsFactor
+ * @member {number} costFactor
+ */
+export interface CorporateActionTransitionDto {
+  direction: string;
+  securityUid: string;
+  unitsFactor: number;
+  costFactor: number;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the UpsertCorporateActionRequest class.
+ * @constructor
+ * @member {string} corporateActionId
+ * @member {date} announcementDate
+ * @member {date} exDate
+ * @member {date} recordDate
+ * @member {array} transitions
+ */
+export interface UpsertCorporateActionRequest {
+  corporateActionId: string;
+  announcementDate: Date;
+  exDate: Date;
+  recordDate: Date;
+  transitions: CorporateActionTransitionDto[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceId class.
+ * @constructor
+ * @member {string} [scope]
+ * @member {string} [code]
+ */
+export interface ResourceId {
+  scope?: string;
+  code?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the CorporateActionEventDto class.
+ * @constructor
+ * A corporate action
+ *
+ * @member {object} sourceId
+ * @member {string} [sourceId.scope]
+ * @member {string} [sourceId.code]
+ * @member {string} corporateActionId
+ * @member {date} [announcementDate]
+ * @member {date} [exDate]
+ * @member {date} [recordDate]
+ * @member {array} [transitions]
+ */
+export interface CorporateActionEventDto {
+  sourceId: ResourceId;
+  corporateActionId: string;
+  announcementDate?: Date;
+  exDate?: Date;
+  recordDate?: Date;
+  transitions?: CorporateActionTransitionDto[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the TryUpsertCorporateActionsDto class.
+ * @constructor
+ * @member {string} [href]
+ * @member {array} [values]
+ * @member {array} [failed]
+ */
+export interface TryUpsertCorporateActionsDto {
+  href?: string;
+  values?: CorporateActionEventDto[];
+  failed?: ErrorDetail[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreateGroupRequest class.
  * @constructor
  * @member {string} id
@@ -791,6 +806,22 @@ export interface UpsertPersonalisationsResponse {
 
 /**
  * @class
+ * Initializes a new instance of the CreatePropertyRequest class.
+ * @constructor
+ * @member {string} [scope]
+ * @member {string} [name]
+ * @member {object} value
+ * @member {date} [effectiveFrom] Date for which the property is effective from
+ */
+export interface CreatePropertyRequest {
+  scope?: string;
+  name?: string;
+  value: any;
+  effectiveFrom?: Date;
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreatePortfolioRequest class.
  * @constructor
  * @member {string} name
@@ -803,6 +834,7 @@ export interface UpsertPersonalisationsResponse {
  * @member {string} [accountingMethod] Possible values include: 'Default',
  * 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
  * 'LowestCostFirst'
+ * @member {array} [properties] Portfolio properties to add to the portfolio
  */
 export interface CreatePortfolioRequest {
   name: string;
@@ -811,6 +843,7 @@ export interface CreatePortfolioRequest {
   baseCurrency: string;
   corporateActionSourceId?: ResourceId;
   accountingMethod?: string;
+  properties?: CreatePropertyRequest[];
 }
 
 /**
@@ -892,6 +925,21 @@ export interface PortfolioDetailsRequest {
 
 /**
  * @class
+ * Initializes a new instance of the PerpetualPropertyDto class.
+ * @constructor
+ * This is intended to be the external facing unitemporal property
+ * specification data type.
+ *
+ * @member {string} key
+ * @member {object} value
+ */
+export interface PerpetualPropertyDto {
+  key: string;
+  value: any;
+}
+
+/**
+ * @class
  * Initializes a new instance of the TradeDto class.
  * @constructor
  * @member {string} tradeId Unique trade identifier
@@ -930,7 +978,7 @@ export interface TradeDto {
   exchangeRate?: number;
   settlementCurrency: string;
   tradeCurrency?: string;
-  properties?: PropertyDto[];
+  properties?: PerpetualPropertyDto[];
   counterpartyId?: string;
   source: string;
   dividendState?: string;
@@ -1056,18 +1104,16 @@ export interface PortfolioPropertiesDto {
 
 /**
  * @class
- * Initializes a new instance of the CreatePropertyRequest class.
+ * Initializes a new instance of the CreatePerpetualPropertyRequest class.
  * @constructor
  * @member {string} [scope]
  * @member {string} [name]
  * @member {object} value
- * @member {date} [effectiveFrom] Date for which the property is effective from
  */
-export interface CreatePropertyRequest {
+export interface CreatePerpetualPropertyRequest {
   scope?: string;
   name?: string;
   value: any;
-  effectiveFrom?: Date;
 }
 
 /**
@@ -1110,7 +1156,7 @@ export interface UpsertPortfolioTradeRequest {
   exchangeRate?: number;
   settlementCurrency: string;
   tradeCurrency?: string;
-  properties?: CreatePropertyRequest[];
+  properties?: CreatePerpetualPropertyRequest[];
   counterpartyId?: string;
   source: string;
   dividendState?: string;
@@ -1478,8 +1524,9 @@ export interface KeyValuePairStringFieldSchema {
  * Initializes a new instance of the SchemaDto class.
  * @constructor
  * @member {string} [entity] Possible values include: 'PropertyKey',
- * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
- * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+ * 'FieldSchema', 'Personalisation', 'Security', 'Property',
+ * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
+ * 'PerpetualProperty', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
  * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
  * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
  * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
@@ -1498,7 +1545,7 @@ export interface KeyValuePairStringFieldSchema {
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
  * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
  * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
- * 'TransactionConfigurationTypeAlias'
+ * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
  * @member {string} [href]
  * @member {array} [values]
  */

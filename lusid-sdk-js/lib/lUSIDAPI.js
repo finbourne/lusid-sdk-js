@@ -172,394 +172,6 @@ function _clearEntityCaches(options, callback) {
 }
 
 /**
- * @summary Gets a corporate action based on dates
- *
- * @param {string} scope Scope
- *
- * @param {string} sourceId Corporate action source id
- *
- * @param {object} [options] Optional Parameters.
- *
- * @param {date} [options.effectiveDate] Effective Date
- *
- * @param {date} [options.asAt] AsAt Date filter
- *
- * @param {object} [options.customHeaders] Headers that will be added to the
- * request
- *
- * @param {function} callback - The callback.
- *
- * @returns {function} callback(err, result, request, response)
- *
- *                      {Error}  err        - The Error object if an error occurred, null otherwise.
- *
- *                      {object} [result]   - The deserialized result object if an error did not occur.
- *
- *                      {object} [request]  - The HTTP Request object if an error did not occur.
- *
- *                      {stream} [response] - The HTTP Response stream if an error did not occur.
- */
-function _listCorporateActions(scope, sourceId, options, callback) {
-   /* jshint validthis: true */
-  let client = this;
-  if(!callback && typeof options === 'function') {
-    callback = options;
-    options = null;
-  }
-  if (!callback) {
-    throw new Error('callback cannot be null.');
-  }
-  let effectiveDate = (options && options.effectiveDate !== undefined) ? options.effectiveDate : undefined;
-  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
-  // Validate
-  try {
-    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
-      throw new Error('scope cannot be null or undefined and it must be of type string.');
-    }
-    if (sourceId === null || sourceId === undefined || typeof sourceId.valueOf() !== 'string') {
-      throw new Error('sourceId cannot be null or undefined and it must be of type string.');
-    }
-    if (effectiveDate && !(effectiveDate instanceof Date ||
-        (typeof effectiveDate.valueOf() === 'string' && !isNaN(Date.parse(effectiveDate))))) {
-          throw new Error('effectiveDate must be of type date.');
-        }
-    if (asAt && !(asAt instanceof Date ||
-        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
-          throw new Error('asAt must be of type date.');
-        }
-  } catch (error) {
-    return callback(error);
-  }
-
-  // Construct URL
-  let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/actions/{scope}/{sourceId}';
-  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{sourceId}', encodeURIComponent(sourceId));
-  let queryParameters = [];
-  if (effectiveDate !== null && effectiveDate !== undefined) {
-    queryParameters.push('effectiveDate=' + encodeURIComponent(client.serializeObject(effectiveDate)));
-  }
-  if (asAt !== null && asAt !== undefined) {
-    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
-  }
-  if (queryParameters.length > 0) {
-    requestUrl += '?' + queryParameters.join('&');
-  }
-
-  // Create HTTP transport objects
-  let httpRequest = new WebResource();
-  httpRequest.method = 'GET';
-  httpRequest.url = requestUrl;
-  httpRequest.headers = {};
-  // Set Headers
-  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
-  if(options) {
-    for(let headerName in options['customHeaders']) {
-      if (options['customHeaders'].hasOwnProperty(headerName)) {
-        httpRequest.headers[headerName] = options['customHeaders'][headerName];
-      }
-    }
-  }
-  httpRequest.body = null;
-  // Send Request
-  return client.pipeline(httpRequest, (err, response, responseBody) => {
-    if (err) {
-      return callback(err);
-    }
-    let statusCode = response.statusCode;
-    if (statusCode !== 200 && statusCode !== 404 && statusCode !== 500) {
-      let error = new Error(responseBody);
-      error.statusCode = response.statusCode;
-      error.request = msRest.stripRequest(httpRequest);
-      error.response = msRest.stripResponse(response);
-      if (responseBody === '') responseBody = null;
-      let parsedErrorResponse;
-      try {
-        parsedErrorResponse = JSON.parse(responseBody);
-        if (parsedErrorResponse) {
-          let internalError = null;
-          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
-          error.code = internalError ? internalError.code : parsedErrorResponse.code;
-          error.message = internalError ? internalError.message : parsedErrorResponse.message;
-        }
-      } catch (defaultError) {
-        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
-                         `- "${responseBody}" for the default response.`;
-        return callback(error);
-      }
-      return callback(error);
-    }
-    // Create Result
-    let result = null;
-    if (responseBody === '') responseBody = null;
-    // Deserialize Response
-    if (statusCode === 200) {
-      let parsedResponse = null;
-      try {
-        parsedResponse = JSON.parse(responseBody);
-        result = JSON.parse(responseBody);
-        if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = {
-            required: false,
-            serializedName: 'parsedResponse',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'CorporateActionEventDtoElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'CorporateActionEventDto'
-                  }
-              }
-            }
-          };
-          result = client.deserialize(resultMapper, parsedResponse, 'result');
-        }
-      } catch (error) {
-        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
-        deserializationError.request = msRest.stripRequest(httpRequest);
-        deserializationError.response = msRest.stripResponse(response);
-        return callback(deserializationError);
-      }
-    }
-    // Deserialize Response
-    if (statusCode === 404) {
-      let parsedResponse = null;
-      try {
-        parsedResponse = JSON.parse(responseBody);
-        result = JSON.parse(responseBody);
-        if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ErrorResponse']().mapper();
-          result = client.deserialize(resultMapper, parsedResponse, 'result');
-        }
-      } catch (error) {
-        let deserializationError1 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
-        deserializationError1.request = msRest.stripRequest(httpRequest);
-        deserializationError1.response = msRest.stripResponse(response);
-        return callback(deserializationError1);
-      }
-    }
-    // Deserialize Response
-    if (statusCode === 500) {
-      let parsedResponse = null;
-      try {
-        parsedResponse = JSON.parse(responseBody);
-        result = JSON.parse(responseBody);
-        if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ErrorResponse']().mapper();
-          result = client.deserialize(resultMapper, parsedResponse, 'result');
-        }
-      } catch (error) {
-        let deserializationError2 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
-        deserializationError2.request = msRest.stripRequest(httpRequest);
-        deserializationError2.response = msRest.stripResponse(response);
-        return callback(deserializationError2);
-      }
-    }
-
-    return callback(null, result, httpRequest, response);
-  });
-}
-
-/**
- * @summary Creates/updates a corporate action
- *
- * @param {string} scope The intended scope of the corporate action
- *
- * @param {string} sourceId Source of the corporate action
- *
- * @param {object} [options] Optional Parameters.
- *
- * @param {object} [options.createRequest] The corporate action creation
- * request object
- *
- * @param {string} options.createRequest.corporateActionId
- *
- * @param {date} options.createRequest.announcementDate
- *
- * @param {date} options.createRequest.exDate
- *
- * @param {date} options.createRequest.recordDate
- *
- * @param {array} options.createRequest.transitions
- *
- * @param {object} [options.customHeaders] Headers that will be added to the
- * request
- *
- * @param {function} callback - The callback.
- *
- * @returns {function} callback(err, result, request, response)
- *
- *                      {Error}  err        - The Error object if an error occurred, null otherwise.
- *
- *                      {object} [result]   - The deserialized result object if an error did not occur.
- *
- *                      {object} [request]  - The HTTP Request object if an error did not occur.
- *
- *                      {stream} [response] - The HTTP Response stream if an error did not occur.
- */
-function _upsertCorporateAction(scope, sourceId, options, callback) {
-   /* jshint validthis: true */
-  let client = this;
-  if(!callback && typeof options === 'function') {
-    callback = options;
-    options = null;
-  }
-  if (!callback) {
-    throw new Error('callback cannot be null.');
-  }
-  let createRequest = (options && options.createRequest !== undefined) ? options.createRequest : undefined;
-  // Validate
-  try {
-    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
-      throw new Error('scope cannot be null or undefined and it must be of type string.');
-    }
-    if (sourceId === null || sourceId === undefined || typeof sourceId.valueOf() !== 'string') {
-      throw new Error('sourceId cannot be null or undefined and it must be of type string.');
-    }
-  } catch (error) {
-    return callback(error);
-  }
-
-  // Construct URL
-  let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/actions/{scope}/{sourceId}';
-  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{sourceId}', encodeURIComponent(sourceId));
-
-  // Create HTTP transport objects
-  let httpRequest = new WebResource();
-  httpRequest.method = 'POST';
-  httpRequest.url = requestUrl;
-  httpRequest.headers = {};
-  // Set Headers
-  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
-  if(options) {
-    for(let headerName in options['customHeaders']) {
-      if (options['customHeaders'].hasOwnProperty(headerName)) {
-        httpRequest.headers[headerName] = options['customHeaders'][headerName];
-      }
-    }
-  }
-  // Serialize Request
-  let requestContent = null;
-  let requestModel = null;
-  try {
-    if (createRequest !== null && createRequest !== undefined) {
-      let requestModelMapper = new client.models['UpsertCorporateActionRequest']().mapper();
-      requestModel = client.serialize(requestModelMapper, createRequest, 'createRequest');
-      requestContent = JSON.stringify(requestModel);
-    }
-  } catch (error) {
-    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(createRequest, null, 2)}.`);
-    return callback(serializationError);
-  }
-  httpRequest.body = requestContent;
-  // Send Request
-  return client.pipeline(httpRequest, (err, response, responseBody) => {
-    if (err) {
-      return callback(err);
-    }
-    let statusCode = response.statusCode;
-    if (statusCode !== 200 && statusCode !== 400 && statusCode !== 500) {
-      let error = new Error(responseBody);
-      error.statusCode = response.statusCode;
-      error.request = msRest.stripRequest(httpRequest);
-      error.response = msRest.stripResponse(response);
-      if (responseBody === '') responseBody = null;
-      let parsedErrorResponse;
-      try {
-        parsedErrorResponse = JSON.parse(responseBody);
-        if (parsedErrorResponse) {
-          let internalError = null;
-          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
-          error.code = internalError ? internalError.code : parsedErrorResponse.code;
-          error.message = internalError ? internalError.message : parsedErrorResponse.message;
-        }
-      } catch (defaultError) {
-        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
-                         `- "${responseBody}" for the default response.`;
-        return callback(error);
-      }
-      return callback(error);
-    }
-    // Create Result
-    let result = null;
-    if (responseBody === '') responseBody = null;
-    // Deserialize Response
-    if (statusCode === 200) {
-      let parsedResponse = null;
-      try {
-        parsedResponse = JSON.parse(responseBody);
-        result = JSON.parse(responseBody);
-        if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = {
-            required: false,
-            serializedName: 'parsedResponse',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'CorporateActionEventDtoElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'CorporateActionEventDto'
-                  }
-              }
-            }
-          };
-          result = client.deserialize(resultMapper, parsedResponse, 'result');
-        }
-      } catch (error) {
-        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
-        deserializationError.request = msRest.stripRequest(httpRequest);
-        deserializationError.response = msRest.stripResponse(response);
-        return callback(deserializationError);
-      }
-    }
-    // Deserialize Response
-    if (statusCode === 400) {
-      let parsedResponse = null;
-      try {
-        parsedResponse = JSON.parse(responseBody);
-        result = JSON.parse(responseBody);
-        if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ErrorResponse']().mapper();
-          result = client.deserialize(resultMapper, parsedResponse, 'result');
-        }
-      } catch (error) {
-        let deserializationError1 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
-        deserializationError1.request = msRest.stripRequest(httpRequest);
-        deserializationError1.response = msRest.stripResponse(response);
-        return callback(deserializationError1);
-      }
-    }
-    // Deserialize Response
-    if (statusCode === 500) {
-      let parsedResponse = null;
-      try {
-        parsedResponse = JSON.parse(responseBody);
-        result = JSON.parse(responseBody);
-        if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ErrorResponse']().mapper();
-          result = client.deserialize(resultMapper, parsedResponse, 'result');
-        }
-      } catch (error) {
-        let deserializationError2 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
-        deserializationError2.request = msRest.stripRequest(httpRequest);
-        deserializationError2.response = msRest.stripResponse(response);
-        return callback(deserializationError2);
-      }
-    }
-
-    return callback(null, result, httpRequest, response);
-  });
-}
-
-/**
  * @summary Aggregate data in a group hierarchy
  *
  * @param {string} scope
@@ -3268,6 +2880,385 @@ function _uploadConfigurationTransactionTypes(options, callback) {
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
           let resultMapper = new client.models['ResourceListTxnMetaDataDto']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 400) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError1 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError1.request = msRest.stripRequest(httpRequest);
+        deserializationError1.response = msRest.stripResponse(response);
+        return callback(deserializationError1);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 500) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError2 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError2.request = msRest.stripRequest(httpRequest);
+        deserializationError2.response = msRest.stripResponse(response);
+        return callback(deserializationError2);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Gets a corporate action based on dates
+ *
+ * @param {string} scope Scope
+ *
+ * @param {string} sourceId Corporate action source id
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.effectiveDate] Effective Date
+ *
+ * @param {date} [options.asAt] AsAt Date filter
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _listCorporateActions(scope, sourceId, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let effectiveDate = (options && options.effectiveDate !== undefined) ? options.effectiveDate : undefined;
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
+  // Validate
+  try {
+    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
+      throw new Error('scope cannot be null or undefined and it must be of type string.');
+    }
+    if (sourceId === null || sourceId === undefined || typeof sourceId.valueOf() !== 'string') {
+      throw new Error('sourceId cannot be null or undefined and it must be of type string.');
+    }
+    if (effectiveDate && !(effectiveDate instanceof Date ||
+        (typeof effectiveDate.valueOf() === 'string' && !isNaN(Date.parse(effectiveDate))))) {
+          throw new Error('effectiveDate must be of type date.');
+        }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/corporateactions/{scope}/{sourceId}';
+  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
+  requestUrl = requestUrl.replace('{sourceId}', encodeURIComponent(sourceId));
+  let queryParameters = [];
+  if (effectiveDate !== null && effectiveDate !== undefined) {
+    queryParameters.push('effectiveDate=' + encodeURIComponent(client.serializeObject(effectiveDate)));
+  }
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'GET';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  httpRequest.body = null;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200 && statusCode !== 404 && statusCode !== 500) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = {
+            required: false,
+            serializedName: 'parsedResponse',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'CorporateActionEventDtoElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'CorporateActionEventDto'
+                  }
+              }
+            }
+          };
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 404) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError1 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError1.request = msRest.stripRequest(httpRequest);
+        deserializationError1.response = msRest.stripResponse(response);
+        return callback(deserializationError1);
+      }
+    }
+    // Deserialize Response
+    if (statusCode === 500) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError2 = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError2.request = msRest.stripRequest(httpRequest);
+        deserializationError2.response = msRest.stripResponse(response);
+        return callback(deserializationError2);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Attempt to create/update one or more corporate action. Failed
+ * actions will be identified in the body of the response.
+ *
+ * @param {string} scope The intended scope of the corporate action
+ *
+ * @param {string} sourceId Source of the corporate action
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {array} [options.actions] The corporate action creation request
+ * objects
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _batchUpsertCorporateActions(scope, sourceId, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let actions = (options && options.actions !== undefined) ? options.actions : undefined;
+  // Validate
+  try {
+    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
+      throw new Error('scope cannot be null or undefined and it must be of type string.');
+    }
+    if (sourceId === null || sourceId === undefined || typeof sourceId.valueOf() !== 'string') {
+      throw new Error('sourceId cannot be null or undefined and it must be of type string.');
+    }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/corporateactions/{scope}/{sourceId}';
+  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
+  requestUrl = requestUrl.replace('{sourceId}', encodeURIComponent(sourceId));
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (actions !== null && actions !== undefined) {
+      let requestModelMapper = {
+        required: false,
+        serializedName: 'actions',
+        type: {
+          name: 'Sequence',
+          element: {
+              required: false,
+              serializedName: 'UpsertCorporateActionRequestElementType',
+              type: {
+                name: 'Composite',
+                className: 'UpsertCorporateActionRequest'
+              }
+          }
+        }
+      };
+      requestModel = client.serialize(requestModelMapper, actions, 'actions');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(actions, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 201 && statusCode !== 400 && statusCode !== 500) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 201) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['TryUpsertCorporateActionsDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -7827,6 +7818,9 @@ function _listPortfolios(scope, options, callback) {
  * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
  * 'HighestCostFirst', 'LowestCostFirst'
  *
+ * @param {array} [options.createRequest.properties] Portfolio properties to
+ * add to the portfolio
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -11487,10 +11481,10 @@ function _addTradeProperty(scope, code, tradeId, options, callback) {
           name: 'Sequence',
           element: {
               required: false,
-              serializedName: 'CreatePropertyRequestElementType',
+              serializedName: 'CreatePerpetualPropertyRequestElementType',
               type: {
                 name: 'Composite',
-                className: 'CreatePropertyRequest'
+                className: 'CreatePerpetualPropertyRequest'
               }
           }
         }
@@ -15580,6 +15574,9 @@ function _listReferencePortfolios(scope, effectiveAt, options, callback) {
  * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
  * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
  *
+ * @param {array} [options.referencePortfolio.properties] Portfolio properties
+ * to add to the portfolio
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -17016,8 +17013,9 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * @summary Gets the schema for a given entity.
  *
  * @param {string} entity Possible values include: 'PropertyKey',
- * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
- * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+ * 'FieldSchema', 'Personalisation', 'Security', 'Property',
+ * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
+ * 'PerpetualProperty', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
  * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
  * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
  * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
@@ -17036,7 +17034,7 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
  * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
  * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
- * 'TransactionConfigurationTypeAlias'
+ * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -18556,8 +18554,6 @@ class LUSIDAPI extends ServiceClient {
     this.addUserAgentInfo(`${packageInfo.name}/${packageInfo.version}`);
     this.models = models;
     this._clearEntityCaches = _clearEntityCaches;
-    this._listCorporateActions = _listCorporateActions;
-    this._upsertCorporateAction = _upsertCorporateAction;
     this._getAggregationByGroup = _getAggregationByGroup;
     this._getNestedAggregationByGroup = _getNestedAggregationByGroup;
     this._getAggregationByPortfolio = _getAggregationByPortfolio;
@@ -18573,6 +18569,8 @@ class LUSIDAPI extends ServiceClient {
     this._addConfigurationTransactionType = _addConfigurationTransactionType;
     this._getConfigurationTransactionTypes = _getConfigurationTransactionTypes;
     this._uploadConfigurationTransactionTypes = _uploadConfigurationTransactionTypes;
+    this._listCorporateActions = _listCorporateActions;
+    this._batchUpsertCorporateActions = _batchUpsertCorporateActions;
     this._getDownloadUrl = _getDownloadUrl;
     this._getLatestVersion = _getLatestVersion;
     this._listPortfolioGroups = _listPortfolioGroups;
@@ -18729,210 +18727,6 @@ class LUSIDAPI extends ServiceClient {
       });
     } else {
       return self._clearEntityCaches(options, optionalCallback);
-    }
-  }
-
-  /**
-   * @summary Gets a corporate action based on dates
-   *
-   * @param {string} scope Scope
-   *
-   * @param {string} sourceId Corporate action source id
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveDate] Effective Date
-   *
-   * @param {date} [options.asAt] AsAt Date filter
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
-   *
-   * @reject {Error} - The error object.
-   */
-  listCorporateActionsWithHttpOperationResponse(scope, sourceId, options) {
-    let client = this;
-    let self = this;
-    return new Promise((resolve, reject) => {
-      self._listCorporateActions(scope, sourceId, options, (err, result, request, response) => {
-        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
-        httpOperationResponse.body = result;
-        if (err) { reject(err); }
-        else { resolve(httpOperationResponse); }
-        return;
-      });
-    });
-  }
-
-  /**
-   * @summary Gets a corporate action based on dates
-   *
-   * @param {string} scope Scope
-   *
-   * @param {string} sourceId Corporate action source id
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveDate] Effective Date
-   *
-   * @param {date} [options.asAt] AsAt Date filter
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {function} [optionalCallback] - The optional callback.
-   *
-   * @returns {function|Promise} If a callback was passed as the last parameter
-   * then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned
-   *
-   *                      @resolve {Object} - The deserialized result object.
-   *
-   *                      @reject {Error} - The error object.
-   *
-   * {function} optionalCallback(err, result, request, response)
-   *
-   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *
-   *                      {object} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
-   */
-  listCorporateActions(scope, sourceId, options, optionalCallback) {
-    let client = this;
-    let self = this;
-    if (!optionalCallback && typeof options === 'function') {
-      optionalCallback = options;
-      options = null;
-    }
-    if (!optionalCallback) {
-      return new Promise((resolve, reject) => {
-        self._listCorporateActions(scope, sourceId, options, (err, result, request, response) => {
-          if (err) { reject(err); }
-          else { resolve(result); }
-          return;
-        });
-      });
-    } else {
-      return self._listCorporateActions(scope, sourceId, options, optionalCallback);
-    }
-  }
-
-  /**
-   * @summary Creates/updates a corporate action
-   *
-   * @param {string} scope The intended scope of the corporate action
-   *
-   * @param {string} sourceId Source of the corporate action
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.createRequest] The corporate action creation
-   * request object
-   *
-   * @param {string} options.createRequest.corporateActionId
-   *
-   * @param {date} options.createRequest.announcementDate
-   *
-   * @param {date} options.createRequest.exDate
-   *
-   * @param {date} options.createRequest.recordDate
-   *
-   * @param {array} options.createRequest.transitions
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
-   *
-   * @reject {Error} - The error object.
-   */
-  upsertCorporateActionWithHttpOperationResponse(scope, sourceId, options) {
-    let client = this;
-    let self = this;
-    return new Promise((resolve, reject) => {
-      self._upsertCorporateAction(scope, sourceId, options, (err, result, request, response) => {
-        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
-        httpOperationResponse.body = result;
-        if (err) { reject(err); }
-        else { resolve(httpOperationResponse); }
-        return;
-      });
-    });
-  }
-
-  /**
-   * @summary Creates/updates a corporate action
-   *
-   * @param {string} scope The intended scope of the corporate action
-   *
-   * @param {string} sourceId Source of the corporate action
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.createRequest] The corporate action creation
-   * request object
-   *
-   * @param {string} options.createRequest.corporateActionId
-   *
-   * @param {date} options.createRequest.announcementDate
-   *
-   * @param {date} options.createRequest.exDate
-   *
-   * @param {date} options.createRequest.recordDate
-   *
-   * @param {array} options.createRequest.transitions
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {function} [optionalCallback] - The optional callback.
-   *
-   * @returns {function|Promise} If a callback was passed as the last parameter
-   * then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned
-   *
-   *                      @resolve {Object} - The deserialized result object.
-   *
-   *                      @reject {Error} - The error object.
-   *
-   * {function} optionalCallback(err, result, request, response)
-   *
-   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *
-   *                      {object} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
-   */
-  upsertCorporateAction(scope, sourceId, options, optionalCallback) {
-    let client = this;
-    let self = this;
-    if (!optionalCallback && typeof options === 'function') {
-      optionalCallback = options;
-      options = null;
-    }
-    if (!optionalCallback) {
-      return new Promise((resolve, reject) => {
-        self._upsertCorporateAction(scope, sourceId, options, (err, result, request, response) => {
-          if (err) { reject(err); }
-          else { resolve(result); }
-          return;
-        });
-      });
-    } else {
-      return self._upsertCorporateAction(scope, sourceId, options, optionalCallback);
     }
   }
 
@@ -20540,6 +20334,192 @@ class LUSIDAPI extends ServiceClient {
       });
     } else {
       return self._uploadConfigurationTransactionTypes(options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Gets a corporate action based on dates
+   *
+   * @param {string} scope Scope
+   *
+   * @param {string} sourceId Corporate action source id
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveDate] Effective Date
+   *
+   * @param {date} [options.asAt] AsAt Date filter
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  listCorporateActionsWithHttpOperationResponse(scope, sourceId, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._listCorporateActions(scope, sourceId, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Gets a corporate action based on dates
+   *
+   * @param {string} scope Scope
+   *
+   * @param {string} sourceId Corporate action source id
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveDate] Effective Date
+   *
+   * @param {date} [options.asAt] AsAt Date filter
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listCorporateActions(scope, sourceId, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._listCorporateActions(scope, sourceId, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._listCorporateActions(scope, sourceId, options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Attempt to create/update one or more corporate action. Failed
+   * actions will be identified in the body of the response.
+   *
+   * @param {string} scope The intended scope of the corporate action
+   *
+   * @param {string} sourceId Source of the corporate action
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.actions] The corporate action creation request
+   * objects
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  batchUpsertCorporateActionsWithHttpOperationResponse(scope, sourceId, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._batchUpsertCorporateActions(scope, sourceId, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Attempt to create/update one or more corporate action. Failed
+   * actions will be identified in the body of the response.
+   *
+   * @param {string} scope The intended scope of the corporate action
+   *
+   * @param {string} sourceId Source of the corporate action
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.actions] The corporate action creation request
+   * objects
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  batchUpsertCorporateActions(scope, sourceId, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._batchUpsertCorporateActions(scope, sourceId, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._batchUpsertCorporateActions(scope, sourceId, options, optionalCallback);
     }
   }
 
@@ -22880,6 +22860,9 @@ class LUSIDAPI extends ServiceClient {
    * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
    * 'HighestCostFirst', 'LowestCostFirst'
    *
+   * @param {array} [options.createRequest.properties] Portfolio properties to
+   * add to the portfolio
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -22932,6 +22915,9 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.createRequest.accountingMethod] Possible values
    * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
    * 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.createRequest.properties] Portfolio properties to
+   * add to the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -26721,6 +26707,9 @@ class LUSIDAPI extends ServiceClient {
    * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
    * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
    *
+   * @param {array} [options.referencePortfolio.properties] Portfolio properties
+   * to add to the portfolio
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -26771,6 +26760,9 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.referencePortfolio.accountingMethod] Possible
    * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
    * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.referencePortfolio.properties] Portfolio properties
+   * to add to the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -27420,8 +27412,9 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets the schema for a given entity.
    *
    * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
-   * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+   * 'FieldSchema', 'Personalisation', 'Security', 'Property',
+   * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
+   * 'PerpetualProperty', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
    * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
    * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
    * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
@@ -27440,7 +27433,7 @@ class LUSIDAPI extends ServiceClient {
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias'
+   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -27471,8 +27464,9 @@ class LUSIDAPI extends ServiceClient {
    * @summary Gets the schema for a given entity.
    *
    * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property', 'PropertyRequest',
-   * 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+   * 'FieldSchema', 'Personalisation', 'Security', 'Property',
+   * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
+   * 'PerpetualProperty', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
    * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
    * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
    * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
@@ -27491,7 +27485,7 @@ class LUSIDAPI extends ServiceClient {
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias'
+   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
    *
    * @param {object} [options] Optional Parameters.
    *

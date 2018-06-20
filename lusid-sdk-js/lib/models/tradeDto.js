@@ -155,10 +155,10 @@ class TradeDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PropertyDtoElementType',
+                  serializedName: 'PerpetualPropertyDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PropertyDto'
+                    className: 'PerpetualPropertyDto'
                   }
               }
             }
