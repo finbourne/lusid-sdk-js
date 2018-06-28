@@ -366,14 +366,16 @@ export interface SecurityAnalyticDataDto {
 
 /**
  * @class
- * Initializes a new instance of the PropertyDto class.
+ * Initializes a new instance of the CreatePropertyRequest class.
  * @constructor
- * @member {string} key
+ * @member {string} [scope]
+ * @member {string} [name]
  * @member {object} value
  * @member {date} [effectiveFrom] Date for which the property is effective from
  */
-export interface PropertyDto {
-  key: string;
+export interface CreatePropertyRequest {
+  scope?: string;
+  name?: string;
   value: any;
   effectiveFrom?: Date;
 }
@@ -383,14 +385,11 @@ export interface PropertyDto {
  * Initializes a new instance of the SecurityClassificationDto class.
  * @constructor
  * @member {string} [uid] Unique security identifier
- * @member {date} [effectiveFrom] Date from which this classification is
- * effective
  * @member {array} [properties]
  */
 export interface SecurityClassificationDto {
   uid?: string;
-  effectiveFrom?: Date;
-  properties?: PropertyDto[];
+  properties?: CreatePropertyRequest[];
 }
 
 /**
@@ -423,6 +422,20 @@ export interface TxnTypeAliasDto {
   txnClass: string;
   txnGroup: string;
   txnRoles: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the PropertyDto class.
+ * @constructor
+ * @member {string} key
+ * @member {object} value
+ * @member {date} [effectiveFrom] Date for which the property is effective from
+ */
+export interface PropertyDto {
+  key: string;
+  value: any;
+  effectiveFrom?: Date;
 }
 
 /**
@@ -802,22 +815,6 @@ export interface PersonalisationDto {
  */
 export interface UpsertPersonalisationsResponse {
   href?: string;
-}
-
-/**
- * @class
- * Initializes a new instance of the CreatePropertyRequest class.
- * @constructor
- * @member {string} [scope]
- * @member {string} [name]
- * @member {object} value
- * @member {date} [effectiveFrom] Date for which the property is effective from
- */
-export interface CreatePropertyRequest {
-  scope?: string;
-  name?: string;
-  value: any;
-  effectiveFrom?: Date;
 }
 
 /**

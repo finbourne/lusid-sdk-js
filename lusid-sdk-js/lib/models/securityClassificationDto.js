@@ -31,8 +31,6 @@ class SecurityClassificationDto {
   /**
    * Create a SecurityClassificationDto.
    * @member {string} [uid] Unique security identifier
-   * @member {date} [effectiveFrom] Date from which this classification is
-   * effective
    * @member {array} [properties]
    */
   constructor() {
@@ -59,13 +57,6 @@ class SecurityClassificationDto {
               name: 'String'
             }
           },
-          effectiveFrom: {
-            required: false,
-            serializedName: 'effectiveFrom',
-            type: {
-              name: 'DateTime'
-            }
-          },
           properties: {
             required: false,
             serializedName: 'properties',
@@ -73,10 +64,10 @@ class SecurityClassificationDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PropertyDtoElementType',
+                  serializedName: 'CreatePropertyRequestElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PropertyDto'
+                    className: 'CreatePropertyRequest'
                   }
               }
             }
