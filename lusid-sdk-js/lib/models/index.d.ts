@@ -84,7 +84,7 @@ export interface ErrorDetail {
  * 'DataFilterApplicationFailure', 'SearchFailed',
  * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
  * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
- * 'InvalidRequestHeaders'
+ * 'InvalidRequestHeaders', 'PriceNotFound'
  * @member {string} [message] The non-technical-user friendly message
  * describing the error and how it might be remedied.
  * @member {string} [detailedMessage] A technical error message that contains
