@@ -942,8 +942,6 @@ function _getNestedAggregationByPortfolio(scope, portfolioCode, options, callbac
  *
  * @param {string} resultsKey
  *
- * @param {string} resultsDate
- *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.request]
@@ -983,7 +981,7 @@ function _getNestedAggregationByPortfolio(scope, portfolioCode, options, callbac
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getAggregationByResultSet(scope, resultsKey, resultsDate, options, callback) {
+function _getAggregationByResultSet(scope, resultsKey, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -1002,19 +1000,15 @@ function _getAggregationByResultSet(scope, resultsKey, resultsDate, options, cal
     if (resultsKey === null || resultsKey === undefined || typeof resultsKey.valueOf() !== 'string') {
       throw new Error('resultsKey cannot be null or undefined and it must be of type string.');
     }
-    if (resultsDate === null || resultsDate === undefined || typeof resultsDate.valueOf() !== 'string') {
-      throw new Error('resultsDate cannot be null or undefined and it must be of type string.');
-    }
   } catch (error) {
     return callback(error);
   }
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/aggregation/results/{scope}/{resultsKey}/{resultsDate}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/aggregation/results/{scope}/{resultsKey}';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{resultsKey}', encodeURIComponent(resultsKey));
-  requestUrl = requestUrl.replace('{resultsDate}', encodeURIComponent(resultsDate));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -1139,8 +1133,6 @@ function _getAggregationByResultSet(scope, resultsKey, resultsDate, options, cal
  *
  * @param {string} resultsKey
  *
- * @param {date} resultsDate
- *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.request]
@@ -1180,7 +1172,7 @@ function _getAggregationByResultSet(scope, resultsKey, resultsDate, options, cal
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getNestedAggregationByResultSet(scope, resultsKey, resultsDate, options, callback) {
+function _getNestedAggregationByResultSet(scope, resultsKey, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -1199,20 +1191,15 @@ function _getNestedAggregationByResultSet(scope, resultsKey, resultsDate, option
     if (resultsKey === null || resultsKey === undefined || typeof resultsKey.valueOf() !== 'string') {
       throw new Error('resultsKey cannot be null or undefined and it must be of type string.');
     }
-    if(!resultsDate || !(resultsDate instanceof Date ||
-        (typeof resultsDate.valueOf() === 'string' && !isNaN(Date.parse(resultsDate))))) {
-          throw new Error('resultsDate cannot be null or undefined and it must be of type date.');
-        }
   } catch (error) {
     return callback(error);
   }
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/aggregation/results/nested/{scope}/{resultsKey}/{resultsDate}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/aggregation/results/nested/{scope}/{resultsKey}';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{resultsKey}', encodeURIComponent(resultsKey));
-  requestUrl = requestUrl.replace('{resultsDate}', encodeURIComponent(client.serializeObject(resultsDate)));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -2933,7 +2920,7 @@ function _uploadConfigurationTransactionTypes(options, callback) {
  *
  * @param {string} scope Scope
  *
- * @param {string} sourceId Corporate action source id
+ * @param {string} corporateActionSourceCode Corporate action source id
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -2956,7 +2943,7 @@ function _uploadConfigurationTransactionTypes(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _listCorporateActions(scope, sourceId, options, callback) {
+function _listCorporateActions(scope, corporateActionSourceCode, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -2973,8 +2960,8 @@ function _listCorporateActions(scope, sourceId, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (sourceId === null || sourceId === undefined || typeof sourceId.valueOf() !== 'string') {
-      throw new Error('sourceId cannot be null or undefined and it must be of type string.');
+    if (corporateActionSourceCode === null || corporateActionSourceCode === undefined || typeof corporateActionSourceCode.valueOf() !== 'string') {
+      throw new Error('corporateActionSourceCode cannot be null or undefined and it must be of type string.');
     }
     if (effectiveDate && !(effectiveDate instanceof Date ||
         (typeof effectiveDate.valueOf() === 'string' && !isNaN(Date.parse(effectiveDate))))) {
@@ -2990,9 +2977,9 @@ function _listCorporateActions(scope, sourceId, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/corporateactions/{scope}/{sourceId}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/corporateactions/{scope}/{corporateActionSourceCode}';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{sourceId}', encodeURIComponent(sourceId));
+  requestUrl = requestUrl.replace('{corporateActionSourceCode}', encodeURIComponent(corporateActionSourceCode));
   let queryParameters = [];
   if (effectiveDate !== null && effectiveDate !== undefined) {
     queryParameters.push('effectiveDate=' + encodeURIComponent(client.serializeObject(effectiveDate)));
@@ -3126,12 +3113,11 @@ function _listCorporateActions(scope, sourceId, options, callback) {
  *
  * @param {string} scope The intended scope of the corporate action
  *
- * @param {string} sourceId Source of the corporate action
+ * @param {string} corporateActionSourceCode Source of the corporate action
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.actions] The corporate action creation request
- * objects
+ * @param {array} [options.actions] The corporate actions to create
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3148,7 +3134,7 @@ function _listCorporateActions(scope, sourceId, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _batchUpsertCorporateActions(scope, sourceId, options, callback) {
+function _batchUpsertCorporateActions(scope, corporateActionSourceCode, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -3164,8 +3150,8 @@ function _batchUpsertCorporateActions(scope, sourceId, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (sourceId === null || sourceId === undefined || typeof sourceId.valueOf() !== 'string') {
-      throw new Error('sourceId cannot be null or undefined and it must be of type string.');
+    if (corporateActionSourceCode === null || corporateActionSourceCode === undefined || typeof corporateActionSourceCode.valueOf() !== 'string') {
+      throw new Error('corporateActionSourceCode cannot be null or undefined and it must be of type string.');
     }
   } catch (error) {
     return callback(error);
@@ -3173,9 +3159,9 @@ function _batchUpsertCorporateActions(scope, sourceId, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/corporateactions/{scope}/{sourceId}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/corporateactions/{scope}/{corporateActionSourceCode}';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{sourceId}', encodeURIComponent(sourceId));
+  requestUrl = requestUrl.replace('{corporateActionSourceCode}', encodeURIComponent(corporateActionSourceCode));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -19253,8 +19239,6 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} resultsKey
    *
-   * @param {string} resultsDate
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.request]
@@ -19288,11 +19272,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getAggregationByResultSetWithHttpOperationResponse(scope, resultsKey, resultsDate, options) {
+  getAggregationByResultSetWithHttpOperationResponse(scope, resultsKey, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getAggregationByResultSet(scope, resultsKey, resultsDate, options, (err, result, request, response) => {
+      self._getAggregationByResultSet(scope, resultsKey, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -19309,8 +19293,6 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} resultsKey
    *
-   * @param {string} resultsDate
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.request]
@@ -19359,7 +19341,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getAggregationByResultSet(scope, resultsKey, resultsDate, options, optionalCallback) {
+  getAggregationByResultSet(scope, resultsKey, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -19368,14 +19350,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getAggregationByResultSet(scope, resultsKey, resultsDate, options, (err, result, request, response) => {
+        self._getAggregationByResultSet(scope, resultsKey, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getAggregationByResultSet(scope, resultsKey, resultsDate, options, optionalCallback);
+      return self._getAggregationByResultSet(scope, resultsKey, options, optionalCallback);
     }
   }
 
@@ -19385,8 +19367,6 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} scope
    *
    * @param {string} resultsKey
-   *
-   * @param {date} resultsDate
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19421,11 +19401,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getNestedAggregationByResultSetWithHttpOperationResponse(scope, resultsKey, resultsDate, options) {
+  getNestedAggregationByResultSetWithHttpOperationResponse(scope, resultsKey, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getNestedAggregationByResultSet(scope, resultsKey, resultsDate, options, (err, result, request, response) => {
+      self._getNestedAggregationByResultSet(scope, resultsKey, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -19441,8 +19421,6 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} scope
    *
    * @param {string} resultsKey
-   *
-   * @param {date} resultsDate
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19492,7 +19470,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getNestedAggregationByResultSet(scope, resultsKey, resultsDate, options, optionalCallback) {
+  getNestedAggregationByResultSet(scope, resultsKey, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -19501,14 +19479,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getNestedAggregationByResultSet(scope, resultsKey, resultsDate, options, (err, result, request, response) => {
+        self._getNestedAggregationByResultSet(scope, resultsKey, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getNestedAggregationByResultSet(scope, resultsKey, resultsDate, options, optionalCallback);
+      return self._getNestedAggregationByResultSet(scope, resultsKey, options, optionalCallback);
     }
   }
 
@@ -20342,7 +20320,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope Scope
    *
-   * @param {string} sourceId Corporate action source id
+   * @param {string} corporateActionSourceCode Corporate action source id
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -20359,11 +20337,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  listCorporateActionsWithHttpOperationResponse(scope, sourceId, options) {
+  listCorporateActionsWithHttpOperationResponse(scope, corporateActionSourceCode, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._listCorporateActions(scope, sourceId, options, (err, result, request, response) => {
+      self._listCorporateActions(scope, corporateActionSourceCode, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -20378,7 +20356,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope Scope
    *
-   * @param {string} sourceId Corporate action source id
+   * @param {string} corporateActionSourceCode Corporate action source id
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -20410,7 +20388,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  listCorporateActions(scope, sourceId, options, optionalCallback) {
+  listCorporateActions(scope, corporateActionSourceCode, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20419,14 +20397,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._listCorporateActions(scope, sourceId, options, (err, result, request, response) => {
+        self._listCorporateActions(scope, corporateActionSourceCode, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._listCorporateActions(scope, sourceId, options, optionalCallback);
+      return self._listCorporateActions(scope, corporateActionSourceCode, options, optionalCallback);
     }
   }
 
@@ -20436,12 +20414,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope The intended scope of the corporate action
    *
-   * @param {string} sourceId Source of the corporate action
+   * @param {string} corporateActionSourceCode Source of the corporate action
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.actions] The corporate action creation request
-   * objects
+   * @param {array} [options.actions] The corporate actions to create
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20452,11 +20429,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  batchUpsertCorporateActionsWithHttpOperationResponse(scope, sourceId, options) {
+  batchUpsertCorporateActionsWithHttpOperationResponse(scope, corporateActionSourceCode, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._batchUpsertCorporateActions(scope, sourceId, options, (err, result, request, response) => {
+      self._batchUpsertCorporateActions(scope, corporateActionSourceCode, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -20472,12 +20449,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope The intended scope of the corporate action
    *
-   * @param {string} sourceId Source of the corporate action
+   * @param {string} corporateActionSourceCode Source of the corporate action
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.actions] The corporate action creation request
-   * objects
+   * @param {array} [options.actions] The corporate actions to create
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20503,7 +20479,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  batchUpsertCorporateActions(scope, sourceId, options, optionalCallback) {
+  batchUpsertCorporateActions(scope, corporateActionSourceCode, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20512,14 +20488,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._batchUpsertCorporateActions(scope, sourceId, options, (err, result, request, response) => {
+        self._batchUpsertCorporateActions(scope, corporateActionSourceCode, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._batchUpsertCorporateActions(scope, sourceId, options, optionalCallback);
+      return self._batchUpsertCorporateActions(scope, corporateActionSourceCode, options, optionalCallback);
     }
   }
 

@@ -90,10 +90,10 @@ class HoldingAdjustmentDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PropertyDtoElementType',
+                  serializedName: 'CreatePropertyRequestElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PropertyDto'
+                    className: 'CreatePropertyRequest'
                   }
               }
             }

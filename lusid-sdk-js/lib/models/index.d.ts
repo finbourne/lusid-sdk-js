@@ -1053,7 +1053,7 @@ export interface HoldingAdjustmentDto {
   securityUid?: string;
   units?: number;
   cost?: number;
-  properties?: PropertyDto[];
+  properties?: CreatePropertyRequest[];
   _links?: Link[];
 }
 

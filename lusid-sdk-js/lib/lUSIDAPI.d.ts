@@ -515,8 +515,6 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} resultsKey
    *
-   * @param {string} resultsDate
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.request]
@@ -550,7 +548,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getAggregationByResultSetWithHttpOperationResponse(scope: string, resultsKey: string, resultsDate: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getAggregationByResultSetWithHttpOperationResponse(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Aggregate data from a result set
@@ -559,8 +557,6 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} resultsKey
    *
-   * @param {string} resultsDate
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.request]
@@ -609,9 +605,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getAggregationByResultSet(scope: string, resultsKey: string, resultsDate: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  getAggregationByResultSet(scope: string, resultsKey: string, resultsDate: string, callback: ServiceCallback<any>): void;
-  getAggregationByResultSet(scope: string, resultsKey: string, resultsDate: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getAggregationByResultSet(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getAggregationByResultSet(scope: string, resultsKey: string, callback: ServiceCallback<any>): void;
+  getAggregationByResultSet(scope: string, resultsKey: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -620,8 +616,6 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} scope
    *
    * @param {string} resultsKey
-   *
-   * @param {date} resultsDate
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -656,7 +650,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getNestedAggregationByResultSetWithHttpOperationResponse(scope: string, resultsKey: string, resultsDate: Date|string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  getNestedAggregationByResultSetWithHttpOperationResponse(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Aggregate data from a result set into a nested structure
@@ -664,8 +658,6 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} scope
    *
    * @param {string} resultsKey
-   *
-   * @param {date} resultsDate
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -715,9 +707,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getNestedAggregationByResultSet(scope: string, resultsKey: string, resultsDate: Date|string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  getNestedAggregationByResultSet(scope: string, resultsKey: string, resultsDate: Date|string, callback: ServiceCallback<any>): void;
-  getNestedAggregationByResultSet(scope: string, resultsKey: string, resultsDate: Date|string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  getNestedAggregationByResultSet(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  getNestedAggregationByResultSet(scope: string, resultsKey: string, callback: ServiceCallback<any>): void;
+  getNestedAggregationByResultSet(scope: string, resultsKey: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -1307,7 +1299,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope Scope
    *
-   * @param {string} sourceId Corporate action source id
+   * @param {string} corporateActionSourceCode Corporate action source id
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1324,14 +1316,14 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listCorporateActionsWithHttpOperationResponse(scope: string, sourceId: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  listCorporateActionsWithHttpOperationResponse(scope: string, corporateActionSourceCode: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Gets a corporate action based on dates
    *
    * @param {string} scope Scope
    *
-   * @param {string} sourceId Corporate action source id
+   * @param {string} corporateActionSourceCode Corporate action source id
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1363,9 +1355,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listCorporateActions(scope: string, sourceId: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  listCorporateActions(scope: string, sourceId: string, callback: ServiceCallback<any>): void;
-  listCorporateActions(scope: string, sourceId: string, options: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  listCorporateActions(scope: string, corporateActionSourceCode: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  listCorporateActions(scope: string, corporateActionSourceCode: string, callback: ServiceCallback<any>): void;
+  listCorporateActions(scope: string, corporateActionSourceCode: string, options: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
@@ -1374,12 +1366,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope The intended scope of the corporate action
    *
-   * @param {string} sourceId Source of the corporate action
+   * @param {string} corporateActionSourceCode Source of the corporate action
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.actions] The corporate action creation request
-   * objects
+   * @param {array} [options.actions] The corporate actions to create
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1390,7 +1381,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  batchUpsertCorporateActionsWithHttpOperationResponse(scope: string, sourceId: string, options?: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+  batchUpsertCorporateActionsWithHttpOperationResponse(scope: string, corporateActionSourceCode: string, options?: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
 
   /**
    * @summary Attempt to create/update one or more corporate action. Failed
@@ -1398,12 +1389,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope The intended scope of the corporate action
    *
-   * @param {string} sourceId Source of the corporate action
+   * @param {string} corporateActionSourceCode Source of the corporate action
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.actions] The corporate action creation request
-   * objects
+   * @param {array} [options.actions] The corporate actions to create
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1429,9 +1419,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  batchUpsertCorporateActions(scope: string, sourceId: string, options?: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  batchUpsertCorporateActions(scope: string, sourceId: string, callback: ServiceCallback<any>): void;
-  batchUpsertCorporateActions(scope: string, sourceId: string, options: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+  batchUpsertCorporateActions(scope: string, corporateActionSourceCode: string, options?: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  batchUpsertCorporateActions(scope: string, corporateActionSourceCode: string, callback: ServiceCallback<any>): void;
+  batchUpsertCorporateActions(scope: string, corporateActionSourceCode: string, options: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
 
 
   /**
