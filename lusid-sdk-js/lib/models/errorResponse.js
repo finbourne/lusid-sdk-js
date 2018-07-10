@@ -48,10 +48,10 @@ class ErrorResponse {
    * 'AnalyticStoreAlreadyExists', 'ClientSecurityAlreadyExists',
    * 'DuplicateInParameterSet', 'ResultsNotFound', 'OrderFieldNotInResultSet',
    * 'OperationFailed', 'ElasticSearchError', 'InvalidParameterValue',
-   * 'ServerConfigurationError', 'CommandProcessingFailure',
-   * 'EntityStateConstructionFailure', 'EntityTimelineDoesNotExist',
-   * 'EventPublishFailure', 'InvalidRequestFailure', 'EventPublishUnknown',
-   * 'EventQueryFailure', 'BlobDidNotExistFailure', 'SubSystemRequestFailure',
+   * 'CommandProcessingFailure', 'EntityStateConstructionFailure',
+   * 'EntityTimelineDoesNotExist', 'EventPublishFailure',
+   * 'InvalidRequestFailure', 'EventPublishUnknown', 'EventQueryFailure',
+   * 'BlobDidNotExistFailure', 'SubSystemRequestFailure',
    * 'SubSystemConfigurationFailure', 'FailedToDelete',
    * 'UpsertClientSecurityFailure', 'IllegalAsAtInterval',
    * 'IllegalBitemporalQuery', 'InvalidAlternateId',
@@ -63,7 +63,7 @@ class ErrorResponse {
    * 'DataFilterApplicationFailure', 'SearchFailed',
    * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
    * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
-   * 'InvalidRequestHeaders', 'PriceNotFound'
+   * 'InvalidRequestHeaders', 'PriceNotFound', 'ServerConfigurationError'
    * @member {string} [message] The non-technical-user friendly message
    * describing the error and how it might be remedied.
    * @member {string} [detailedMessage] A technical error message that contains
