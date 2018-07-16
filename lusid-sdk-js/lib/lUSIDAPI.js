@@ -2418,7 +2418,7 @@ function _uploadConfigurationTransactionTypes(options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveDate] Effective Date
+ * @param {date} [options.effectiveAt] Effective Date
  *
  * @param {date} [options.asAt] AsAt Date filter
  *
@@ -2447,7 +2447,7 @@ function _listCorporateActions(scope, corporateActionSourceCode, options, callba
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let effectiveDate = (options && options.effectiveDate !== undefined) ? options.effectiveDate : undefined;
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   // Validate
   try {
@@ -2457,9 +2457,9 @@ function _listCorporateActions(scope, corporateActionSourceCode, options, callba
     if (corporateActionSourceCode === null || corporateActionSourceCode === undefined || typeof corporateActionSourceCode.valueOf() !== 'string') {
       throw new Error('corporateActionSourceCode cannot be null or undefined and it must be of type string.');
     }
-    if (effectiveDate && !(effectiveDate instanceof Date ||
-        (typeof effectiveDate.valueOf() === 'string' && !isNaN(Date.parse(effectiveDate))))) {
-          throw new Error('effectiveDate must be of type date.');
+    if (effectiveAt && !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt must be of type date.');
         }
     if (asAt && !(asAt instanceof Date ||
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
@@ -2475,8 +2475,8 @@ function _listCorporateActions(scope, corporateActionSourceCode, options, callba
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{corporateActionSourceCode}', encodeURIComponent(corporateActionSourceCode));
   let queryParameters = [];
-  if (effectiveDate !== null && effectiveDate !== undefined) {
-    queryParameters.push('effectiveDate=' + encodeURIComponent(client.serializeObject(effectiveDate)));
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
   }
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
@@ -16674,7 +16674,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveDate] Effective Date
+   * @param {date} [options.effectiveAt] Effective Date
    *
    * @param {date} [options.asAt] AsAt Date filter
    *
@@ -16710,7 +16710,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveDate] Effective Date
+   * @param {date} [options.effectiveAt] Effective Date
    *
    * @param {date} [options.asAt] AsAt Date filter
    *

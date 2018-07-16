@@ -1328,7 +1328,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveDate] Effective Date
+   * @param {date} [options.effectiveAt] Effective Date
    *
    * @param {date} [options.asAt] AsAt Date filter
    *
@@ -1341,7 +1341,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listCorporateActionsWithHttpOperationResponse(scope: string, corporateActionSourceCode: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CorporateActionEventDto[]>>;
+  listCorporateActionsWithHttpOperationResponse(scope: string, corporateActionSourceCode: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CorporateActionEventDto[]>>;
 
   /**
    * @summary Gets a corporate action based on dates
@@ -1352,7 +1352,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveDate] Effective Date
+   * @param {date} [options.effectiveAt] Effective Date
    *
    * @param {date} [options.asAt] AsAt Date filter
    *
@@ -1380,9 +1380,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listCorporateActions(scope: string, corporateActionSourceCode: string, options?: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.CorporateActionEventDto[]>;
+  listCorporateActions(scope: string, corporateActionSourceCode: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.CorporateActionEventDto[]>;
   listCorporateActions(scope: string, corporateActionSourceCode: string, callback: ServiceCallback<models.CorporateActionEventDto[]>): void;
-  listCorporateActions(scope: string, corporateActionSourceCode: string, options: { effectiveDate? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CorporateActionEventDto[]>): void;
+  listCorporateActions(scope: string, corporateActionSourceCode: string, options: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CorporateActionEventDto[]>): void;
 
 
   /**
