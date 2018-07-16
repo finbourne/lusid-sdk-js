@@ -1086,6 +1086,70 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Upsert Analytics
+   *
+   * @param {string} scope Scope of the analytic
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request] A valid and fully populated analytic store
+   * creation request
+   *
+   * @param {array} [options.request.items]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  upsertAnalyticsWithHttpOperationResponse(scope: string, options?: { request? : models.AnalyticsStorageRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
+
+  /**
+   * @summary Upsert Analytics
+   *
+   * @param {string} scope Scope of the analytic
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request] A valid and fully populated analytic store
+   * creation request
+   *
+   * @param {array} [options.request.items]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Object} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Object} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  upsertAnalytics(scope: string, options?: { request? : models.AnalyticsStorageRequest, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
+  upsertAnalytics(scope: string, callback: ServiceCallback<any>): void;
+  upsertAnalytics(scope: string, options: { request? : models.AnalyticsStorageRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
+
+
+  /**
    * @summary Update classification data
    *
    * @param {object} [options] Optional Parameters.

@@ -366,6 +366,38 @@ export interface SecurityAnalyticDataDto {
 
 /**
  * @class
+ * Initializes a new instance of the AnalyticsItemDto class.
+ * @constructor
+ * @member {string} label
+ * @member {string} securityUid
+ * @member {date} analyticDate
+ * @member {string} [recipeScope]
+ * @member {string} recipeKey
+ * @member {object} metricKey
+ * @member {object} value
+ */
+export interface AnalyticsItemDto {
+  label: string;
+  securityUid: string;
+  analyticDate: Date;
+  recipeScope?: string;
+  recipeKey: string;
+  metricKey: { [propertyName: string]: any };
+  value: { [propertyName: string]: any };
+}
+
+/**
+ * @class
+ * Initializes a new instance of the AnalyticsStorageRequest class.
+ * @constructor
+ * @member {array} [items]
+ */
+export interface AnalyticsStorageRequest {
+  items?: AnalyticsItemDto[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreatePropertyRequest class.
  * @constructor
  * @member {string} [scope]
