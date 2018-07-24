@@ -39,15 +39,6 @@ class SecurityDto {
    * @member {string} [version.href]
    * @member {string} [commonName]
    * @member {object} [aliases]
-   * @member {string} [aliases.undefined]
-   * @member {string} [aliases.reutersAssetId]
-   * @member {string} [aliases.cINS]
-   * @member {string} [aliases.isin]
-   * @member {string} [aliases.sedol]
-   * @member {string} [aliases.cusip]
-   * @member {string} [aliases.clientInternal]
-   * @member {string} [aliases.figi]
-   * @member {string} [aliases.wertpapier]
    * @member {array} [properties]
    * @member {array} [_links]
    */
@@ -101,8 +92,14 @@ class SecurityDto {
             required: false,
             serializedName: 'aliases',
             type: {
-              name: 'Composite',
-              className: 'SecurityDtoAliases'
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'StringElementType',
+                  type: {
+                    name: 'String'
+                  }
+              }
             }
           },
           properties: {

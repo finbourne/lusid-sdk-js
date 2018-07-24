@@ -6503,6 +6503,8 @@ function _listPortfolios(scope, options, callback) {
  * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
  * 'HighestCostFirst', 'LowestCostFirst'
  *
+ * @param {array} [options.createRequest.subHoldingKeys]
+ *
  * @param {array} [options.createRequest.properties] Portfolio properties to
  * add to the portfolio
  *
@@ -11654,7 +11656,7 @@ function _deletePropertyDefinition(domain, scope, name, options, callback) {
  * @param {string} options.request.displayName
  *
  * @param {string} options.request.valueType Possible values include: 'String',
- * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
+ * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
  * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  *
@@ -12112,7 +12114,7 @@ function _getPropertyDataFormat(scope, name, options, callback) {
  * @param {string} options.request.displayName
  *
  * @param {string} options.request.valueType Possible values include: 'String',
- * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
+ * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
  * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  *
@@ -12606,6 +12608,8 @@ function _listReferencePortfolios(scope, effectiveAt, options, callback) {
  * @param {string} [options.referencePortfolio.accountingMethod] Possible
  * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
  * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
+ *
+ * @param {array} [options.referencePortfolio.subHoldingKeys]
  *
  * @param {array} [options.referencePortfolio.properties] Portfolio properties
  * to add to the portfolio
@@ -19446,6 +19450,8 @@ class LUSIDAPI extends ServiceClient {
    * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
    * 'HighestCostFirst', 'LowestCostFirst'
    *
+   * @param {array} [options.createRequest.subHoldingKeys]
+   *
    * @param {array} [options.createRequest.properties] Portfolio properties to
    * add to the portfolio
    *
@@ -19501,6 +19507,8 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.createRequest.accountingMethod] Possible values
    * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
    * 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.createRequest.subHoldingKeys]
    *
    * @param {array} [options.createRequest.properties] Portfolio properties to
    * add to the portfolio
@@ -22683,7 +22691,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} options.request.displayName
    *
    * @param {string} options.request.valueType Possible values include: 'String',
-   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
+   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
    * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
@@ -22732,7 +22740,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} options.request.displayName
    *
    * @param {string} options.request.valueType Possible values include: 'String',
-   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
+   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
    * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
@@ -22996,7 +23004,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} options.request.displayName
    *
    * @param {string} options.request.valueType Possible values include: 'String',
-   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
+   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
    * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
@@ -23045,7 +23053,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} options.request.displayName
    *
    * @param {string} options.request.valueType Possible values include: 'String',
-   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
+   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
    * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
    *
@@ -23346,6 +23354,8 @@ class LUSIDAPI extends ServiceClient {
    * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
    * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
    *
+   * @param {array} [options.referencePortfolio.subHoldingKeys]
+   *
    * @param {array} [options.referencePortfolio.properties] Portfolio properties
    * to add to the portfolio
    *
@@ -23399,6 +23409,8 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.referencePortfolio.accountingMethod] Possible
    * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
    * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.referencePortfolio.subHoldingKeys]
    *
    * @param {array} [options.referencePortfolio.properties] Portfolio properties
    * to add to the portfolio

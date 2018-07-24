@@ -30,11 +30,9 @@ const models = require('./index');
 class ErrorResponse {
   /**
    * Create a ErrorResponse.
-   * @member {number} [status] The status code that will be returned to the
-   * client
-   * @member {string} [code] The Finbourne specific error-code that
-   * encapsulates the specific issue encountered. Possible values include:
-   * 'Unknown', 'PersonalisationNotFound', 'NonRecursivePersonalisation',
+   * @member {number} [status]
+   * @member {string} [code] Possible values include: 'Unknown',
+   * 'PersonalisationNotFound', 'NonRecursivePersonalisation',
    * 'VersionNotFound', 'SecurityNotFound', 'PropertyNotFound',
    * 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
    * 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
@@ -64,14 +62,10 @@ class ErrorResponse {
    * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
    * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
    * 'InvalidRequestHeaders', 'PriceNotFound', 'ServerConfigurationError'
-   * @member {string} [message] The non-technical-user friendly message
-   * describing the error and how it might be remedied.
-   * @member {string} [detailedMessage] A technical error message that contains
-   * the details of the issue and how it might be fixed.
-   * @member {array} [items] Any action specific item specific sub errors (e.g.
-   * per-trade validation errors)
-   * @member {string} [moreInfo] A link to the endpoint that can provide the
-   * dev with more information about that class of error.
+   * @member {string} [message]
+   * @member {string} [detailedMessage]
+   * @member {array} [items]
+   * @member {string} [moreInfo]
    */
   constructor() {
   }
@@ -129,10 +123,10 @@ class ErrorResponse {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'ErrorDetailElementType',
+                  serializedName: 'ErrorDetailBaseElementType',
                   type: {
                     name: 'Composite',
-                    className: 'ErrorDetail'
+                    className: 'ErrorDetailBase'
                   }
               }
             }

@@ -27,7 +27,7 @@
 'use strict';
 
 exports.ClearEntityCachesDto = require('./clearEntityCachesDto');
-exports.ErrorDetail = require('./errorDetail');
+exports.ErrorDetailBase = require('./errorDetailBase');
 exports.ErrorResponse = require('./errorResponse');
 exports.AggregateSpec = require('./aggregateSpec');
 exports.PropertyFilter = require('./propertyFilter');
@@ -58,6 +58,7 @@ exports.CorporateActionTransitionDto = require('./corporateActionTransitionDto')
 exports.UpsertCorporateActionRequest = require('./upsertCorporateActionRequest');
 exports.ResourceId = require('./resourceId');
 exports.CorporateActionEventDto = require('./corporateActionEventDto');
+exports.ErrorDetail = require('./errorDetail');
 exports.TryUpsertCorporateActionsDto = require('./tryUpsertCorporateActionsDto');
 exports.CreateGroupRequest = require('./createGroupRequest');
 exports.VersionDto = require('./versionDto');
@@ -104,7 +105,6 @@ exports.PropertySchemaDto = require('./propertySchemaDto');
 exports.KeyValuePairCodeTypeString = require('./keyValuePairCodeTypeString');
 exports.InstrumentDefinitionDto = require('./instrumentDefinitionDto');
 exports.CreateClientSecurityRequest = require('./createClientSecurityRequest');
-exports.SecurityDtoAliases = require('./securityDtoAliases');
 exports.SecurityDto = require('./securityDto');
 exports.TryAddClientSecuritiesDto = require('./tryAddClientSecuritiesDto');
 exports.TryDeleteClientSecuritiesDto = require('./tryDeleteClientSecuritiesDto');

@@ -36,13 +36,13 @@ export interface ClearEntityCachesDto {
 
 /**
  * @class
- * Initializes a new instance of the ErrorDetail class.
+ * Initializes a new instance of the ErrorDetailBase class.
  * @constructor
  * @member {string} [id]
  * @member {string} [type]
  * @member {string} [detail]
  */
-export interface ErrorDetail {
+export interface ErrorDetailBase {
   id?: string;
   type?: string;
   detail?: string;
@@ -52,10 +52,8 @@ export interface ErrorDetail {
  * @class
  * Initializes a new instance of the ErrorResponse class.
  * @constructor
- * @member {number} [status] The status code that will be returned to the
- * client
- * @member {string} [code] The Finbourne specific error-code that encapsulates
- * the specific issue encountered. Possible values include: 'Unknown',
+ * @member {number} [status]
+ * @member {string} [code] Possible values include: 'Unknown',
  * 'PersonalisationNotFound', 'NonRecursivePersonalisation', 'VersionNotFound',
  * 'SecurityNotFound', 'PropertyNotFound', 'PortfolioRecursionDepth',
  * 'GroupNotFound', 'PortfolioNotFound', 'PropertySchemaNotFound',
@@ -85,21 +83,17 @@ export interface ErrorDetail {
  * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
  * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
  * 'InvalidRequestHeaders', 'PriceNotFound', 'ServerConfigurationError'
- * @member {string} [message] The non-technical-user friendly message
- * describing the error and how it might be remedied.
- * @member {string} [detailedMessage] A technical error message that contains
- * the details of the issue and how it might be fixed.
- * @member {array} [items] Any action specific item specific sub errors (e.g.
- * per-trade validation errors)
- * @member {string} [moreInfo] A link to the endpoint that can provide the dev
- * with more information about that class of error.
+ * @member {string} [message]
+ * @member {string} [detailedMessage]
+ * @member {array} [items]
+ * @member {string} [moreInfo]
  */
 export interface ErrorResponse {
   readonly status?: number;
   readonly code?: string;
   readonly message?: string;
   readonly detailedMessage?: string;
-  items?: ErrorDetail[];
+  items?: ErrorDetailBase[];
   readonly moreInfo?: string;
 }
 
@@ -171,9 +165,9 @@ export interface AggregationRequest {
  * @member {string} [name]
  * @member {string} [displayName]
  * @member {string} [type] Possible values include: 'String', 'Int', 'Decimal',
- * 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage', 'Currency',
- * 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds', 'ArrayOfTxnAliases',
- * 'ArrayofTxnMovements'
+ * 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray', 'Percentage',
+ * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {boolean} [isMetric]
  * @member {number} [displayOrder]
  * @member {object} [propertySchema]
@@ -198,9 +192,9 @@ export interface FieldSchema {
  * @member {string} [value.name]
  * @member {string} [value.displayName]
  * @member {string} [value.type] Possible values include: 'String', 'Int',
- * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
- * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+ * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+ * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -595,6 +589,20 @@ export interface CorporateActionEventDto {
 
 /**
  * @class
+ * Initializes a new instance of the ErrorDetail class.
+ * @constructor
+ * @member {string} [id]
+ * @member {string} [type]
+ * @member {string} [detail]
+ */
+export interface ErrorDetail {
+  id?: string;
+  type?: string;
+  detail?: string;
+}
+
+/**
+ * @class
  * Initializes a new instance of the TryUpsertCorporateActionsDto class.
  * @constructor
  * @member {string} [href]
@@ -863,6 +871,7 @@ export interface UpsertPersonalisationsResponse {
  * @member {string} [accountingMethod] Possible values include: 'Default',
  * 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
  * 'LowestCostFirst'
+ * @member {array} [subHoldingKeys]
  * @member {array} [properties] Portfolio properties to add to the portfolio
  */
 export interface CreatePortfolioRequest {
@@ -872,6 +881,7 @@ export interface CreatePortfolioRequest {
   baseCurrency: string;
   corporateActionSourceId?: ResourceId;
   accountingMethod?: string;
+  subHoldingKeys?: string[];
   properties?: CreatePropertyRequest[];
 }
 
@@ -1267,9 +1277,9 @@ export interface PortfolioSearchResult {
  * @member {string} [href]
  * @member {string} [key]
  * @member {string} [valueType] Possible values include: 'String', 'Int',
- * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
- * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+ * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+ * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {boolean} [valueRequired]
  * @member {string} [displayName]
  * @member {object} [dataFormatId]
@@ -1358,9 +1368,9 @@ export interface UpdatePropertyDefinitionRequest {
  * @member {number} order
  * @member {string} displayName
  * @member {string} valueType Possible values include: 'String', 'Int',
- * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
- * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+ * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+ * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {array} [acceptableValues]
  */
 export interface CreatePropertyDataFormatRequest {
@@ -1386,9 +1396,9 @@ export interface CreatePropertyDataFormatRequest {
  * @member {number} [order]
  * @member {string} [displayName]
  * @member {string} [valueType] Possible values include: 'String', 'Int',
- * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
- * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+ * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+ * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {array} [acceptableValues]
  */
 export interface PropertyDataFormatDto {
@@ -1410,9 +1420,9 @@ export interface PropertyDataFormatDto {
  * @member {number} order
  * @member {string} displayName
  * @member {string} valueType Possible values include: 'String', 'Int',
- * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
- * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+ * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+ * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {array} [acceptableValues]
  */
 export interface UpdatePropertyDataFormatRequest {
@@ -1536,9 +1546,9 @@ export interface ResultsDto {
  * @member {string} [value.name]
  * @member {string} [value.displayName]
  * @member {string} [value.type] Possible values include: 'String', 'Int',
- * 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
- * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+ * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+ * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -1650,32 +1660,6 @@ export interface CreateClientSecurityRequest {
 
 /**
  * @class
- * Initializes a new instance of the SecurityDtoAliases class.
- * @constructor
- * @member {string} [undefined]
- * @member {string} [reutersAssetId]
- * @member {string} [cINS]
- * @member {string} [isin]
- * @member {string} [sedol]
- * @member {string} [cusip]
- * @member {string} [clientInternal]
- * @member {string} [figi]
- * @member {string} [wertpapier]
- */
-export interface SecurityDtoAliases {
-  undefined?: string;
-  reutersAssetId?: string;
-  cINS?: string;
-  isin?: string;
-  sedol?: string;
-  cusip?: string;
-  clientInternal?: string;
-  figi?: string;
-  wertpapier?: string;
-}
-
-/**
- * @class
  * Initializes a new instance of the SecurityDto class.
  * @constructor
  * @member {string} [href]
@@ -1687,15 +1671,6 @@ export interface SecurityDtoAliases {
  * @member {string} [version.href]
  * @member {string} [commonName]
  * @member {object} [aliases]
- * @member {string} [aliases.undefined]
- * @member {string} [aliases.reutersAssetId]
- * @member {string} [aliases.cINS]
- * @member {string} [aliases.isin]
- * @member {string} [aliases.sedol]
- * @member {string} [aliases.cusip]
- * @member {string} [aliases.clientInternal]
- * @member {string} [aliases.figi]
- * @member {string} [aliases.wertpapier]
  * @member {array} [properties]
  * @member {array} [_links]
  */
@@ -1704,7 +1679,7 @@ export interface SecurityDto {
   uid?: string;
   version?: VersionDto;
   commonName?: string;
-  aliases?: SecurityDtoAliases;
+  aliases?: { [propertyName: string]: string };
   properties?: PropertyDto[];
   _links?: Link[];
 }

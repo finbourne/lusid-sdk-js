@@ -22,59 +22,52 @@
 
 'use strict';
 
-const models = require('./index');
-
 /**
- * Class representing a KeyValuePairPropertyKeyFieldSchema.
+ * Class representing a ErrorDetailBase.
  */
-class KeyValuePairPropertyKeyFieldSchema {
+class ErrorDetailBase {
   /**
-   * Create a KeyValuePairPropertyKeyFieldSchema.
-   * @member {string} [key]
-   * @member {object} [value]
-   * @member {string} [value.scope]
-   * @member {string} [value.name]
-   * @member {string} [value.displayName]
-   * @member {string} [value.type] Possible values include: 'String', 'Int',
-   * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
-   * @member {boolean} [value.isMetric]
-   * @member {number} [value.displayOrder]
-   * @member {object} [value.propertySchema]
+   * Create a ErrorDetailBase.
+   * @member {string} [id]
+   * @member {string} [type]
+   * @member {string} [detail]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of KeyValuePairPropertyKeyFieldSchema
+   * Defines the metadata of ErrorDetailBase
    *
-   * @returns {object} metadata of KeyValuePairPropertyKeyFieldSchema
+   * @returns {object} metadata of ErrorDetailBase
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'KeyValuePair_PropertyKey_FieldSchema_',
+      serializedName: 'ErrorDetailBase',
       type: {
         name: 'Composite',
-        className: 'KeyValuePairPropertyKeyFieldSchema',
+        className: 'ErrorDetailBase',
         modelProperties: {
-          key: {
+          id: {
             required: false,
-            readOnly: true,
-            serializedName: 'key',
+            serializedName: 'id',
             type: {
               name: 'String'
             }
           },
-          value: {
+          type: {
             required: false,
-            readOnly: true,
-            serializedName: 'value',
+            serializedName: 'type',
             type: {
-              name: 'Composite',
-              className: 'FieldSchema'
+              name: 'String'
+            }
+          },
+          detail: {
+            required: false,
+            serializedName: 'detail',
+            type: {
+              name: 'String'
             }
           }
         }
@@ -83,4 +76,4 @@ class KeyValuePairPropertyKeyFieldSchema {
   }
 }
 
-module.exports = KeyValuePairPropertyKeyFieldSchema;
+module.exports = ErrorDetailBase;
