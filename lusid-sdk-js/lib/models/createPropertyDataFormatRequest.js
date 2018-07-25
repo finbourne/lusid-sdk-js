@@ -22,6 +22,8 @@
 
 'use strict';
 
+const models = require('./index');
+
 /**
  * Class representing a CreatePropertyDataFormatRequest.
  */
@@ -30,15 +32,19 @@ class CreatePropertyDataFormatRequest {
    * Create a CreatePropertyDataFormatRequest.
    * @member {string} scope
    * @member {string} code
-   * @member {string} formatType Possible values include: 'Basic', 'Limited',
-   * 'Currency'
+   * @member {string} formatType Possible values include: 'Open', 'Closed'
    * @member {number} order
    * @member {string} displayName
+   * @member {string} description
    * @member {string} valueType Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+   * 'UnitCreation'
    * @member {array} [acceptableValues]
+   * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
+   * 'Iso4217Currency', 'TimeSpan'
+   * @member {array} [acceptableUnits]
    */
   constructor() {
   }
@@ -92,6 +98,13 @@ class CreatePropertyDataFormatRequest {
               name: 'String'
             }
           },
+          description: {
+            required: true,
+            serializedName: 'description',
+            type: {
+              name: 'String'
+            }
+          },
           valueType: {
             required: true,
             serializedName: 'valueType',
@@ -109,6 +122,30 @@ class CreatePropertyDataFormatRequest {
                   serializedName: 'ObjectElementType',
                   type: {
                     name: 'Object'
+                  }
+              }
+            }
+          },
+          unitSchema: {
+            required: false,
+            readOnly: true,
+            serializedName: 'unitSchema',
+            type: {
+              name: 'String'
+            }
+          },
+          acceptableUnits: {
+            required: false,
+            readOnly: true,
+            serializedName: 'acceptableUnits',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'CreateUnitDefinitionElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'CreateUnitDefinition'
                   }
               }
             }

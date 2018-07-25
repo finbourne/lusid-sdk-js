@@ -61,7 +61,12 @@ class ErrorResponse {
    * 'DataFilterApplicationFailure', 'SearchFailed',
    * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
    * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
-   * 'InvalidRequestHeaders', 'PriceNotFound', 'ServerConfigurationError'
+   * 'InvalidRequestHeaders', 'PriceNotFound', 'ServerConfigurationError',
+   * 'InvalidUnitForDataType', 'InvalidTypeForDataType',
+   * 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
+   * 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
+   * 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
+   * 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition'
    * @member {string} [message]
    * @member {string} [detailedMessage]
    * @member {array} [items]

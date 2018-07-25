@@ -53,7 +53,8 @@ class SchemaDto {
    * 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
    * 'ReconciliationBreak', 'TransactionConfigurationData',
    * 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
+   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
+   * 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
    * @member {string} [href]
    * @member {array} [values]
    */

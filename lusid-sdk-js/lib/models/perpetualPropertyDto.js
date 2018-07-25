@@ -32,6 +32,7 @@ class PerpetualPropertyDto {
    * Create a PerpetualPropertyDto.
    * @member {string} key
    * @member {object} value
+   * @member {string} [unit]
    */
   constructor() {
   }
@@ -62,6 +63,14 @@ class PerpetualPropertyDto {
             serializedName: 'value',
             type: {
               name: 'Object'
+            }
+          },
+          unit: {
+            required: false,
+            readOnly: true,
+            serializedName: 'unit',
+            type: {
+              name: 'String'
             }
           }
         }

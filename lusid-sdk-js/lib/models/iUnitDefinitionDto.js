@@ -23,67 +23,62 @@
 'use strict';
 
 /**
- * Class representing a CreatePropertyRequest.
+ * Class representing a IUnitDefinitionDto.
  */
-class CreatePropertyRequest {
+class IUnitDefinitionDto {
   /**
-   * Create a CreatePropertyRequest.
-   * @member {string} [scope]
-   * @member {string} [name]
-   * @member {object} value
-   * @member {date} [effectiveFrom] Date for which the property is effective
-   * from
-   * @member {string} [unit]
+   * Create a IUnitDefinitionDto.
+   * @member {string} [schema] Possible values include: 'NoUnits', 'Basic',
+   * 'Iso4217Currency', 'TimeSpan'
+   * @member {string} [code]
+   * @member {string} [displayName]
+   * @member {string} [description]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of CreatePropertyRequest
+   * Defines the metadata of IUnitDefinitionDto
    *
-   * @returns {object} metadata of CreatePropertyRequest
+   * @returns {object} metadata of IUnitDefinitionDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CreatePropertyRequest',
+      serializedName: 'IUnitDefinitionDto',
       type: {
         name: 'Composite',
-        className: 'CreatePropertyRequest',
+        className: 'IUnitDefinitionDto',
         modelProperties: {
-          scope: {
-            required: false,
-            serializedName: 'scope',
-            type: {
-              name: 'String'
-            }
-          },
-          name: {
-            required: false,
-            serializedName: 'name',
-            type: {
-              name: 'String'
-            }
-          },
-          value: {
-            required: true,
-            serializedName: 'value',
-            type: {
-              name: 'Object'
-            }
-          },
-          effectiveFrom: {
-            required: false,
-            serializedName: 'effectiveFrom',
-            type: {
-              name: 'DateTime'
-            }
-          },
-          unit: {
+          schema: {
             required: false,
             readOnly: true,
-            serializedName: 'unit',
+            serializedName: 'schema',
+            type: {
+              name: 'String'
+            }
+          },
+          code: {
+            required: false,
+            readOnly: true,
+            serializedName: 'code',
+            type: {
+              name: 'String'
+            }
+          },
+          displayName: {
+            required: false,
+            readOnly: true,
+            serializedName: 'displayName',
+            type: {
+              name: 'String'
+            }
+          },
+          description: {
+            required: false,
+            readOnly: true,
+            serializedName: 'description',
             type: {
               name: 'String'
             }
@@ -94,4 +89,4 @@ class CreatePropertyRequest {
   }
 }
 
-module.exports = CreatePropertyRequest;
+module.exports = IUnitDefinitionDto;

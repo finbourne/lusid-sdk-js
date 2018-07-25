@@ -23,69 +23,67 @@
 'use strict';
 
 /**
- * Class representing a CreatePropertyRequest.
+ * Class representing a CreateUnitDefinition.
  */
-class CreatePropertyRequest {
+class CreateUnitDefinition {
   /**
-   * Create a CreatePropertyRequest.
-   * @member {string} [scope]
-   * @member {string} [name]
-   * @member {object} value
-   * @member {date} [effectiveFrom] Date for which the property is effective
-   * from
-   * @member {string} [unit]
+   * Create a CreateUnitDefinition.
+   * @member {string} code
+   * @member {string} displayName
+   * @member {string} description
+   * @member {object} [details]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of CreatePropertyRequest
+   * Defines the metadata of CreateUnitDefinition
    *
-   * @returns {object} metadata of CreatePropertyRequest
+   * @returns {object} metadata of CreateUnitDefinition
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CreatePropertyRequest',
+      serializedName: 'CreateUnitDefinition',
       type: {
         name: 'Composite',
-        className: 'CreatePropertyRequest',
+        className: 'CreateUnitDefinition',
         modelProperties: {
-          scope: {
-            required: false,
-            serializedName: 'scope',
-            type: {
-              name: 'String'
-            }
-          },
-          name: {
-            required: false,
-            serializedName: 'name',
-            type: {
-              name: 'String'
-            }
-          },
-          value: {
+          code: {
             required: true,
-            serializedName: 'value',
+            serializedName: 'code',
             type: {
-              name: 'Object'
+              name: 'String'
             }
           },
-          effectiveFrom: {
-            required: false,
-            serializedName: 'effectiveFrom',
+          displayName: {
+            required: true,
+            serializedName: 'displayName',
             type: {
-              name: 'DateTime'
+              name: 'String'
             }
           },
-          unit: {
+          description: {
+            required: true,
+            serializedName: 'description',
+            type: {
+              name: 'String'
+            }
+          },
+          details: {
             required: false,
             readOnly: true,
-            serializedName: 'unit',
+            serializedName: 'details',
             type: {
-              name: 'String'
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'StringElementType',
+                  type: {
+                    name: 'String'
+                  }
+              }
             }
           }
         }
@@ -94,4 +92,4 @@ class CreatePropertyRequest {
   }
 }
 
-module.exports = CreatePropertyRequest;
+module.exports = CreateUnitDefinition;

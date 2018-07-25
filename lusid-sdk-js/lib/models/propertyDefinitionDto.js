@@ -34,8 +34,9 @@ class PropertyDefinitionDto {
    * @member {string} [key]
    * @member {string} [valueType] Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+   * 'UnitCreation'
    * @member {boolean} [valueRequired]
    * @member {string} [displayName]
    * @member {object} [dataFormatId]
@@ -45,6 +46,8 @@ class PropertyDefinitionDto {
    * @member {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
    * @member {string} [type] Possible values include: 'Label', 'Metric'
+   * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
+   * 'Iso4217Currency', 'TimeSpan'
    * @member {array} [_links]
    */
   constructor() {
@@ -124,6 +127,13 @@ class PropertyDefinitionDto {
           type: {
             required: false,
             serializedName: 'type',
+            type: {
+              name: 'String'
+            }
+          },
+          unitSchema: {
+            required: false,
+            serializedName: 'unitSchema',
             type: {
               name: 'String'
             }

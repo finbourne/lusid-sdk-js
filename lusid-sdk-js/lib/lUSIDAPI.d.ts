@@ -3824,6 +3824,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.filter] A filter on the results
    *
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the holdings
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -3833,7 +3836,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getAggregateHoldingsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListHoldingDto>>;
+  getAggregateHoldingsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, securityPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListHoldingDto>>;
 
   /**
    * @summary Get holdings
@@ -3858,6 +3861,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {number} [options.limit] How many items to return from the set
    *
    * @param {string} [options.filter] A filter on the results
+   *
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the holdings
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -3885,9 +3891,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getAggregateHoldings(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListHoldingDto>;
+  getAggregateHoldings(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, securityPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListHoldingDto>;
   getAggregateHoldings(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListHoldingDto>): void;
-  getAggregateHoldings(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListHoldingDto>): void;
+  getAggregateHoldings(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, securityPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListHoldingDto>): void;
 
 
   /**
@@ -5595,17 +5601,20 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.code
    *
-   * @param {string} options.request.formatType Possible values include: 'Basic',
-   * 'Limited', 'Currency'
+   * @param {string} options.request.formatType Possible values include: 'Open',
+   * 'Closed'
    *
    * @param {number} options.request.order
    *
    * @param {string} options.request.displayName
    *
+   * @param {string} options.request.description
+   *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+   * 'UnitCreation'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -5632,17 +5641,20 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} options.request.code
    *
-   * @param {string} options.request.formatType Possible values include: 'Basic',
-   * 'Limited', 'Currency'
+   * @param {string} options.request.formatType Possible values include: 'Open',
+   * 'Closed'
    *
    * @param {number} options.request.order
    *
    * @param {string} options.request.displayName
    *
+   * @param {string} options.request.description
+   *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+   * 'UnitCreation'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -5827,17 +5839,20 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.request] The new definition of the format
    *
-   * @param {string} options.request.formatType Possible values include: 'Basic',
-   * 'Limited', 'Currency'
+   * @param {string} options.request.formatType Possible values include: 'Open',
+   * 'Closed'
    *
    * @param {number} options.request.order
    *
    * @param {string} options.request.displayName
    *
+   * @param {string} options.request.description
+   *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+   * 'UnitCreation'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -5864,17 +5879,20 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.request] The new definition of the format
    *
-   * @param {string} options.request.formatType Possible values include: 'Basic',
-   * 'Limited', 'Currency'
+   * @param {string} options.request.formatType Possible values include: 'Open',
+   * 'Closed'
    *
    * @param {number} options.request.order
    *
    * @param {string} options.request.displayName
    *
+   * @param {string} options.request.description
+   *
    * @param {string} options.request.valueType Possible values include: 'String',
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-   * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+   * 'UnitCreation'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -5906,6 +5924,69 @@ export default class LUSIDAPI extends ServiceClient {
   updatePropertyDataFormat(scope: string, name: string, options?: { request? : models.UpdatePropertyDataFormatRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDataFormatDto>;
   updatePropertyDataFormat(scope: string, name: string, callback: ServiceCallback<models.PropertyDataFormatDto>): void;
   updatePropertyDataFormat(scope: string, name: string, options: { request? : models.UpdatePropertyDataFormatRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDataFormatDto>): void;
+
+
+  /**
+   * @summary Return the definitions for the specified list of units
+   *
+   * @param {string} scope
+   *
+   * @param {string} name
+   *
+   * @param {array} units
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<IUnitDefinitionDto>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getUnitsFromPropertyDataFormatWithHttpOperationResponse(scope: string, name: string, units: string[], options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.IUnitDefinitionDto>>;
+
+  /**
+   * @summary Return the definitions for the specified list of units
+   *
+   * @param {string} scope
+   *
+   * @param {string} name
+   *
+   * @param {array} units
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {IUnitDefinitionDto} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {IUnitDefinitionDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link IUnitDefinitionDto} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getUnitsFromPropertyDataFormat(scope: string, name: string, units: string[], options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.IUnitDefinitionDto>;
+  getUnitsFromPropertyDataFormat(scope: string, name: string, units: string[], callback: ServiceCallback<models.IUnitDefinitionDto>): void;
+  getUnitsFromPropertyDataFormat(scope: string, name: string, units: string[], options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.IUnitDefinitionDto>): void;
 
 
   /**
@@ -6657,7 +6738,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
+   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
+   * 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6697,7 +6779,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
+   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
+   * 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
    *
    * @param {object} [options] Optional Parameters.
    *

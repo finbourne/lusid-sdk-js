@@ -30,6 +30,7 @@ class PropertyDto {
    * Create a PropertyDto.
    * @member {string} key
    * @member {object} value
+   * @member {string} [unit]
    * @member {date} [effectiveFrom] Date for which the property is effective
    * from
    */
@@ -62,6 +63,13 @@ class PropertyDto {
             serializedName: 'value',
             type: {
               name: 'Object'
+            }
+          },
+          unit: {
+            required: false,
+            serializedName: 'unit',
+            type: {
+              name: 'String'
             }
           },
           effectiveFrom: {

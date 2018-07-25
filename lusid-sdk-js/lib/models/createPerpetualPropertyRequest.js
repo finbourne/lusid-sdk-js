@@ -31,6 +31,7 @@ class CreatePerpetualPropertyRequest {
    * @member {string} [scope]
    * @member {string} [name]
    * @member {object} value
+   * @member {string} [unit]
    */
   constructor() {
   }
@@ -68,6 +69,14 @@ class CreatePerpetualPropertyRequest {
             serializedName: 'value',
             type: {
               name: 'Object'
+            }
+          },
+          unit: {
+            required: false,
+            readOnly: true,
+            serializedName: 'unit',
+            type: {
+              name: 'String'
             }
           }
         }

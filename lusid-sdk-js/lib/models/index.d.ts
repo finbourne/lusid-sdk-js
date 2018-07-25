@@ -82,7 +82,12 @@ export interface ErrorDetailBase {
  * 'DataFilterApplicationFailure', 'SearchFailed',
  * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
  * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
- * 'InvalidRequestHeaders', 'PriceNotFound', 'ServerConfigurationError'
+ * 'InvalidRequestHeaders', 'PriceNotFound', 'ServerConfigurationError',
+ * 'InvalidUnitForDataType', 'InvalidTypeForDataType',
+ * 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
+ * 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
+ * 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
+ * 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition'
  * @member {string} [message]
  * @member {string} [detailedMessage]
  * @member {array} [items]
@@ -166,8 +171,8 @@ export interface AggregationRequest {
  * @member {string} [displayName]
  * @member {string} [type] Possible values include: 'String', 'Int', 'Decimal',
  * 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray', 'Percentage',
- * 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
- * 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds', 'ArrayOfTxnAliases',
+ * 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray', 'UnitCreation'
  * @member {boolean} [isMetric]
  * @member {number} [displayOrder]
  * @member {object} [propertySchema]
@@ -193,8 +198,9 @@ export interface FieldSchema {
  * @member {string} [value.displayName]
  * @member {string} [value.type] Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
- * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
- * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+ * 'UnitCreation'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -398,12 +404,14 @@ export interface AnalyticsStorageRequest {
  * @member {string} [name]
  * @member {object} value
  * @member {date} [effectiveFrom] Date for which the property is effective from
+ * @member {string} [unit]
  */
 export interface CreatePropertyRequest {
   scope?: string;
   name?: string;
   value: any;
   effectiveFrom?: Date;
+  readonly unit?: string;
 }
 
 /**
@@ -456,11 +464,13 @@ export interface TxnTypeAliasDto {
  * @constructor
  * @member {string} key
  * @member {object} value
+ * @member {string} [unit]
  * @member {date} [effectiveFrom] Date for which the property is effective from
  */
 export interface PropertyDto {
   key: string;
   value: any;
+  unit?: string;
   effectiveFrom?: Date;
 }
 
@@ -971,10 +981,12 @@ export interface PortfolioDetailsRequest {
  *
  * @member {string} key
  * @member {object} value
+ * @member {string} [unit]
  */
 export interface PerpetualPropertyDto {
   key: string;
   value: any;
+  readonly unit?: string;
 }
 
 /**
@@ -1148,11 +1160,13 @@ export interface PortfolioPropertiesDto {
  * @member {string} [scope]
  * @member {string} [name]
  * @member {object} value
+ * @member {string} [unit]
  */
 export interface CreatePerpetualPropertyRequest {
   scope?: string;
   name?: string;
   value: any;
+  readonly unit?: string;
 }
 
 /**
@@ -1278,8 +1292,9 @@ export interface PortfolioSearchResult {
  * @member {string} [key]
  * @member {string} [valueType] Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
- * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
- * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+ * 'UnitCreation'
  * @member {boolean} [valueRequired]
  * @member {string} [displayName]
  * @member {object} [dataFormatId]
@@ -1289,6 +1304,8 @@ export interface PortfolioSearchResult {
  * @member {string} [lifeTime] Possible values include: 'Perpetual',
  * 'TimeVariant'
  * @member {string} [type] Possible values include: 'Label', 'Metric'
+ * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
+ * 'Iso4217Currency', 'TimeSpan'
  * @member {array} [_links]
  */
 export interface PropertyDefinitionDto {
@@ -1301,6 +1318,7 @@ export interface PropertyDefinitionDto {
   sort?: string;
   lifeTime?: string;
   type?: string;
+  unitSchema?: string;
   _links?: Link[];
 }
 
@@ -1359,19 +1377,39 @@ export interface UpdatePropertyDefinitionRequest {
 
 /**
  * @class
+ * Initializes a new instance of the CreateUnitDefinition class.
+ * @constructor
+ * @member {string} code
+ * @member {string} displayName
+ * @member {string} description
+ * @member {object} [details]
+ */
+export interface CreateUnitDefinition {
+  code: string;
+  displayName: string;
+  description: string;
+  readonly details?: { [propertyName: string]: string };
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreatePropertyDataFormatRequest class.
  * @constructor
  * @member {string} scope
  * @member {string} code
- * @member {string} formatType Possible values include: 'Basic', 'Limited',
- * 'Currency'
+ * @member {string} formatType Possible values include: 'Open', 'Closed'
  * @member {number} order
  * @member {string} displayName
+ * @member {string} description
  * @member {string} valueType Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
- * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
- * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+ * 'UnitCreation'
  * @member {array} [acceptableValues]
+ * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
+ * 'Iso4217Currency', 'TimeSpan'
+ * @member {array} [acceptableUnits]
  */
 export interface CreatePropertyDataFormatRequest {
   scope: string;
@@ -1379,8 +1417,28 @@ export interface CreatePropertyDataFormatRequest {
   formatType: string;
   order: number;
   displayName: string;
+  description: string;
   valueType: string;
   acceptableValues?: any[];
+  readonly unitSchema?: string;
+  readonly acceptableUnits?: CreateUnitDefinition[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the IUnitDefinitionDto class.
+ * @constructor
+ * @member {string} [schema] Possible values include: 'NoUnits', 'Basic',
+ * 'Iso4217Currency', 'TimeSpan'
+ * @member {string} [code]
+ * @member {string} [displayName]
+ * @member {string} [description]
+ */
+export interface IUnitDefinitionDto {
+  readonly schema?: string;
+  readonly code?: string;
+  readonly displayName?: string;
+  readonly description?: string;
 }
 
 /**
@@ -1388,18 +1446,22 @@ export interface CreatePropertyDataFormatRequest {
  * Initializes a new instance of the PropertyDataFormatDto class.
  * @constructor
  * @member {string} [href]
- * @member {string} [formatType] Possible values include: 'Basic', 'Limited',
- * 'Currency'
+ * @member {string} [formatType] Possible values include: 'Open', 'Closed'
  * @member {object} [id]
  * @member {string} [id.scope]
  * @member {string} [id.code]
  * @member {number} [order]
  * @member {string} [displayName]
+ * @member {string} [description]
  * @member {string} [valueType] Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
- * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
- * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+ * 'UnitCreation'
  * @member {array} [acceptableValues]
+ * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
+ * 'Iso4217Currency', 'TimeSpan'
+ * @member {array} [acceptableUnits]
  */
 export interface PropertyDataFormatDto {
   href?: string;
@@ -1407,30 +1469,40 @@ export interface PropertyDataFormatDto {
   id?: ResourceId;
   order?: number;
   displayName?: string;
+  description?: string;
   valueType?: string;
   acceptableValues?: any[];
+  unitSchema?: string;
+  acceptableUnits?: IUnitDefinitionDto[];
 }
 
 /**
  * @class
  * Initializes a new instance of the UpdatePropertyDataFormatRequest class.
  * @constructor
- * @member {string} formatType Possible values include: 'Basic', 'Limited',
- * 'Currency'
+ * @member {string} formatType Possible values include: 'Open', 'Closed'
  * @member {number} order
  * @member {string} displayName
+ * @member {string} description
  * @member {string} valueType Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
- * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
- * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+ * 'UnitCreation'
  * @member {array} [acceptableValues]
+ * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
+ * 'Iso4217Currency', 'TimeSpan'
+ * @member {array} [acceptableUnits]
  */
 export interface UpdatePropertyDataFormatRequest {
   formatType: string;
   order: number;
   displayName: string;
+  description: string;
   valueType: string;
   acceptableValues?: any[];
+  readonly unitSchema?: string;
+  readonly acceptableUnits?: CreateUnitDefinition[];
 }
 
 /**
@@ -1547,8 +1619,9 @@ export interface ResultsDto {
  * @member {string} [value.displayName]
  * @member {string} [value.type] Possible values include: 'String', 'Int',
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
- * 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
- * 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+ * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+ * 'UnitCreation'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -1584,7 +1657,8 @@ export interface KeyValuePairStringFieldSchema {
  * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
  * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
  * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
- * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
+ * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
+ * 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
  * @member {string} [href]
  * @member {array} [values]
  */
