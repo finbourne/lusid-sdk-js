@@ -2564,6 +2564,62 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Get the unique identifier for the SAML Identity Provider to be used
+   * by domain.
+   *
+   * @param {string} domain The domain that the user will be logging in to.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getSamlIdentityProviderIdWithHttpOperationResponse(domain: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
+
+  /**
+   * @summary Get the unique identifier for the SAML Identity Provider to be used
+   * by domain.
+   *
+   * @param {string} domain The domain that the user will be logging in to.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {String} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {String} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getSamlIdentityProviderId(domain: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<string>;
+  getSamlIdentityProviderId(domain: string, callback: ServiceCallback<string>): void;
+  getSamlIdentityProviderId(domain: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
+
+
+  /**
    * @summary Store a log message
    *
    * @param {object} [options] Optional Parameters.
@@ -6739,7 +6795,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-   * 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
+   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6780,7 +6836,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-   * 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
+   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
    *
    * @param {object} [options] Optional Parameters.
    *

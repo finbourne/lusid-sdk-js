@@ -41,7 +41,7 @@ class UpdatePropertyDataFormatRequest {
    * 'UnitCreation'
    * @member {array} [acceptableValues]
    * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
-   * 'Iso4217Currency', 'TimeSpan'
+   * 'Iso4217Currency'
    * @member {array} [acceptableUnits]
    */
   constructor() {

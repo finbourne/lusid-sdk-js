@@ -29,7 +29,7 @@ class IUnitDefinitionDto {
   /**
    * Create a IUnitDefinitionDto.
    * @member {string} [schema] Possible values include: 'NoUnits', 'Basic',
-   * 'Iso4217Currency', 'TimeSpan'
+   * 'Iso4217Currency'
    * @member {string} [code]
    * @member {string} [displayName]
    * @member {string} [description]

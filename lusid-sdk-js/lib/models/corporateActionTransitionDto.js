@@ -22,18 +22,21 @@
 
 'use strict';
 
+const models = require('./index');
+
 /**
- * A 'transition' within a corporate action, representing a single incoming or
- * outgoing component
+ * A 'transition' within a corporate action, representing a set of output
+ * movements paired to a single input position
  *
  */
 class CorporateActionTransitionDto {
   /**
    * Create a CorporateActionTransitionDto.
-   * @member {string} direction Possible values include: 'In', 'Out'
-   * @member {string} securityUid
-   * @member {number} unitsFactor
-   * @member {number} costFactor
+   * @member {object} [inputTransition]
+   * @member {string} [inputTransition.securityUid]
+   * @member {number} [inputTransition.unitsFactor]
+   * @member {number} [inputTransition.costFactor]
+   * @member {array} [outputTransitions]
    */
   constructor() {
   }
@@ -52,32 +55,27 @@ class CorporateActionTransitionDto {
         name: 'Composite',
         className: 'CorporateActionTransitionDto',
         modelProperties: {
-          direction: {
-            required: true,
-            serializedName: 'direction',
+          inputTransition: {
+            required: false,
+            serializedName: 'inputTransition',
             type: {
-              name: 'String'
+              name: 'Composite',
+              className: 'CorporateActionTransitionComponentDto'
             }
           },
-          securityUid: {
-            required: true,
-            serializedName: 'securityUid',
+          outputTransitions: {
+            required: false,
+            serializedName: 'outputTransitions',
             type: {
-              name: 'String'
-            }
-          },
-          unitsFactor: {
-            required: true,
-            serializedName: 'unitsFactor',
-            type: {
-              name: 'Number'
-            }
-          },
-          costFactor: {
-            required: true,
-            serializedName: 'costFactor',
-            type: {
-              name: 'Number'
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'CorporateActionTransitionComponentDtoElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'CorporateActionTransitionComponentDto'
+                  }
+              }
             }
           }
         }

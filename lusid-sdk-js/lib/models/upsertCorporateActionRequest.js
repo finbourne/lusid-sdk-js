@@ -34,6 +34,7 @@ class UpsertCorporateActionRequest {
    * @member {date} announcementDate
    * @member {date} exDate
    * @member {date} recordDate
+   * @member {date} paymentDate
    * @member {array} transitions
    */
   constructor() {
@@ -77,6 +78,13 @@ class UpsertCorporateActionRequest {
           recordDate: {
             required: true,
             serializedName: 'recordDate',
+            type: {
+              name: 'DateTime'
+            }
+          },
+          paymentDate: {
+            required: true,
+            serializedName: 'paymentDate',
             type: {
               name: 'DateTime'
             }

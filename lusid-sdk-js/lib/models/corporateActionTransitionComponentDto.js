@@ -23,47 +23,51 @@
 'use strict';
 
 /**
- * Class representing a KeyValuePairCodeTypeString.
+ * Class representing a CorporateActionTransitionComponentDto.
  */
-class KeyValuePairCodeTypeString {
+class CorporateActionTransitionComponentDto {
   /**
-   * Create a KeyValuePairCodeTypeString.
-   * @member {string} [key] Possible values include: 'Undefined',
-   * 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-   * 'Figi', 'Wertpapier'
-   * @member {string} [value]
+   * Create a CorporateActionTransitionComponentDto.
+   * @member {string} securityUid
+   * @member {number} unitsFactor
+   * @member {number} costFactor
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of KeyValuePairCodeTypeString
+   * Defines the metadata of CorporateActionTransitionComponentDto
    *
-   * @returns {object} metadata of KeyValuePairCodeTypeString
+   * @returns {object} metadata of CorporateActionTransitionComponentDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'KeyValuePair_CodeType_String_',
+      serializedName: 'CorporateActionTransitionComponentDto',
       type: {
         name: 'Composite',
-        className: 'KeyValuePairCodeTypeString',
+        className: 'CorporateActionTransitionComponentDto',
         modelProperties: {
-          key: {
-            required: false,
-            readOnly: true,
-            serializedName: 'key',
+          securityUid: {
+            required: true,
+            serializedName: 'securityUid',
             type: {
               name: 'String'
             }
           },
-          value: {
-            required: false,
-            readOnly: true,
-            serializedName: 'value',
+          unitsFactor: {
+            required: true,
+            serializedName: 'unitsFactor',
             type: {
-              name: 'String'
+              name: 'Number'
+            }
+          },
+          costFactor: {
+            required: true,
+            serializedName: 'costFactor',
+            type: {
+              name: 'Number'
             }
           }
         }
@@ -72,4 +76,4 @@ class KeyValuePairCodeTypeString {
   }
 }
 
-module.exports = KeyValuePairCodeTypeString;
+module.exports = CorporateActionTransitionComponentDto;

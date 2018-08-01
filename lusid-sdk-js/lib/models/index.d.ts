@@ -87,7 +87,8 @@ export interface ErrorDetailBase {
  * 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
  * 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
  * 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
- * 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition'
+ * 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
+ * 'InvalidSecurityIdentifierUnit'
  * @member {string} [message]
  * @member {string} [detailedMessage]
  * @member {array} [items]
@@ -526,21 +527,34 @@ export interface TxnMetaDataDto {
 
 /**
  * @class
- * Initializes a new instance of the CorporateActionTransitionDto class.
+ * Initializes a new instance of the CorporateActionTransitionComponentDto class.
  * @constructor
- * A 'transition' within a corporate action, representing a single incoming or
- * outgoing component
- *
- * @member {string} direction Possible values include: 'In', 'Out'
  * @member {string} securityUid
  * @member {number} unitsFactor
  * @member {number} costFactor
  */
-export interface CorporateActionTransitionDto {
-  direction: string;
+export interface CorporateActionTransitionComponentDto {
   securityUid: string;
   unitsFactor: number;
   costFactor: number;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the CorporateActionTransitionDto class.
+ * @constructor
+ * A 'transition' within a corporate action, representing a set of output
+ * movements paired to a single input position
+ *
+ * @member {object} [inputTransition]
+ * @member {string} [inputTransition.securityUid]
+ * @member {number} [inputTransition.unitsFactor]
+ * @member {number} [inputTransition.costFactor]
+ * @member {array} [outputTransitions]
+ */
+export interface CorporateActionTransitionDto {
+  inputTransition?: CorporateActionTransitionComponentDto;
+  outputTransitions?: CorporateActionTransitionComponentDto[];
 }
 
 /**
@@ -551,6 +565,7 @@ export interface CorporateActionTransitionDto {
  * @member {date} announcementDate
  * @member {date} exDate
  * @member {date} recordDate
+ * @member {date} paymentDate
  * @member {array} transitions
  */
 export interface UpsertCorporateActionRequest {
@@ -558,6 +573,7 @@ export interface UpsertCorporateActionRequest {
   announcementDate: Date;
   exDate: Date;
   recordDate: Date;
+  paymentDate: Date;
   transitions: CorporateActionTransitionDto[];
 }
 
@@ -586,6 +602,7 @@ export interface ResourceId {
  * @member {date} [announcementDate]
  * @member {date} [exDate]
  * @member {date} [recordDate]
+ * @member {date} [paymentDate]
  * @member {array} [transitions]
  */
 export interface CorporateActionEventDto {
@@ -594,6 +611,7 @@ export interface CorporateActionEventDto {
   announcementDate?: Date;
   exDate?: Date;
   recordDate?: Date;
+  paymentDate?: Date;
   transitions?: CorporateActionTransitionDto[];
 }
 
@@ -1305,7 +1323,7 @@ export interface PortfolioSearchResult {
  * 'TimeVariant'
  * @member {string} [type] Possible values include: 'Label', 'Metric'
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
- * 'Iso4217Currency', 'TimeSpan'
+ * 'Iso4217Currency'
  * @member {array} [_links]
  */
 export interface PropertyDefinitionDto {
@@ -1408,7 +1426,7 @@ export interface CreateUnitDefinition {
  * 'UnitCreation'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
- * 'Iso4217Currency', 'TimeSpan'
+ * 'Iso4217Currency'
  * @member {array} [acceptableUnits]
  */
 export interface CreatePropertyDataFormatRequest {
@@ -1429,7 +1447,7 @@ export interface CreatePropertyDataFormatRequest {
  * Initializes a new instance of the IUnitDefinitionDto class.
  * @constructor
  * @member {string} [schema] Possible values include: 'NoUnits', 'Basic',
- * 'Iso4217Currency', 'TimeSpan'
+ * 'Iso4217Currency'
  * @member {string} [code]
  * @member {string} [displayName]
  * @member {string} [description]
@@ -1460,7 +1478,7 @@ export interface IUnitDefinitionDto {
  * 'UnitCreation'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
- * 'Iso4217Currency', 'TimeSpan'
+ * 'Iso4217Currency'
  * @member {array} [acceptableUnits]
  */
 export interface PropertyDataFormatDto {
@@ -1491,7 +1509,7 @@ export interface PropertyDataFormatDto {
  * 'UnitCreation'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
- * 'Iso4217Currency', 'TimeSpan'
+ * 'Iso4217Currency'
  * @member {array} [acceptableUnits]
  */
 export interface UpdatePropertyDataFormatRequest {
@@ -1658,7 +1676,7 @@ export interface KeyValuePairStringFieldSchema {
  * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
  * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
  * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
- * 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
+ * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
  * @member {string} [href]
  * @member {array} [values]
  */
@@ -1682,20 +1700,6 @@ export interface PropertySchemaDto {
 
 /**
  * @class
- * Initializes a new instance of the KeyValuePairCodeTypeString class.
- * @constructor
- * @member {string} [key] Possible values include: 'Undefined',
- * 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
- * 'Figi', 'Wertpapier'
- * @member {string} [value]
- */
-export interface KeyValuePairCodeTypeString {
-  readonly key?: string;
-  readonly value?: string;
-}
-
-/**
- * @class
  * Initializes a new instance of the InstrumentDefinitionDto class.
  * @constructor
  * An opaque instrument definition.
@@ -1714,7 +1718,6 @@ export interface InstrumentDefinitionDto {
  * @member {string} clientSecurityId
  * @member {string} name
  * @member {array} properties
- * @member {array} [aliases]
  * @member {object} [lookThroughPortfolioId]
  * @member {string} [lookThroughPortfolioId.scope]
  * @member {string} [lookThroughPortfolioId.code]
@@ -1727,7 +1730,6 @@ export interface CreateClientSecurityRequest {
   clientSecurityId: string;
   name: string;
   properties: PropertyDto[];
-  aliases?: KeyValuePairCodeTypeString[];
   lookThroughPortfolioId?: ResourceId;
   instrument?: InstrumentDefinitionDto;
 }

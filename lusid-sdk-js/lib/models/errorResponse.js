@@ -66,7 +66,8 @@ class ErrorResponse {
    * 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
    * 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
    * 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
-   * 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition'
+   * 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
+   * 'InvalidSecurityIdentifierUnit'
    * @member {string} [message]
    * @member {string} [detailedMessage]
    * @member {array} [items]

@@ -47,7 +47,7 @@ class PropertyDefinitionDto {
    * 'TimeVariant'
    * @member {string} [type] Possible values include: 'Label', 'Metric'
    * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
-   * 'Iso4217Currency', 'TimeSpan'
+   * 'Iso4217Currency'
    * @member {array} [_links]
    */
   constructor() {

@@ -33,7 +33,6 @@ class CreateClientSecurityRequest {
    * @member {string} clientSecurityId
    * @member {string} name
    * @member {array} properties
-   * @member {array} [aliases]
    * @member {object} [lookThroughPortfolioId]
    * @member {string} [lookThroughPortfolioId.scope]
    * @member {string} [lookThroughPortfolioId.code]
@@ -84,21 +83,6 @@ class CreateClientSecurityRequest {
                   type: {
                     name: 'Composite',
                     className: 'PropertyDto'
-                  }
-              }
-            }
-          },
-          aliases: {
-            required: false,
-            serializedName: 'aliases',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'KeyValuePairCodeTypeStringElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'KeyValuePairCodeTypeString'
                   }
               }
             }
