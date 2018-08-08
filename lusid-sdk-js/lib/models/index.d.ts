@@ -82,7 +82,8 @@ export interface ErrorDetailBase {
  * 'DataFilterApplicationFailure', 'SearchFailed',
  * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
  * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
- * 'InvalidRequestHeaders', 'PriceNotFound', 'ServerConfigurationError',
+ * 'InvalidRequestHeaders', 'PriceNotFound', 'InvalidSubHoldingKeysProvided',
+ * 'DuplicateSubHoldingKeysProvided', 'ServerConfigurationError',
  * 'InvalidUnitForDataType', 'InvalidTypeForDataType',
  * 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
  * 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
@@ -1109,41 +1110,81 @@ export interface HoldingDto {
 
 /**
  * @class
- * Initializes a new instance of the HoldingAdjustmentDto class.
+ * Initializes a new instance of the CreatePerpetualPropertyRequest class.
  * @constructor
- * Used to specify the 'target' holding when calling the AdjustHoldings Api
- *
- * @member {string} [href]
- * @member {string} [securityUid]
- * @member {number} [units]
- * @member {number} [cost]
- * @member {array} [properties]
- * @member {array} [_links]
+ * @member {string} [scope]
+ * @member {string} [name]
+ * @member {object} value
+ * @member {string} [unit]
  */
-export interface HoldingAdjustmentDto {
-  href?: string;
-  securityUid?: string;
-  units?: number;
-  cost?: number;
-  properties?: CreatePropertyRequest[];
-  _links?: Link[];
+export interface CreatePerpetualPropertyRequest {
+  scope?: string;
+  name?: string;
+  value: any;
+  readonly unit?: string;
 }
 
 /**
  * @class
- * Initializes a new instance of the UpsertPortfolioTradesDto class.
+ * Initializes a new instance of the TargetTaxLotDto class.
  * @constructor
+ * Used to specify holdings target amounts at the tax-lot level
+ *
+ * @member {number} units Quantity of holding
+ * @member {number} [cost] Book cost of holding in trade currency
+ * @member {number} [portfolioCost] Book cost of holding in portfolio currency
+ * @member {number} [price] Purchase price. Part of the unique key required for
+ * multiple taxlots
+ * @member {date} [purchaseDate] Purchase Date. Part of the unique key required
+ * for multiple taxlots
+ * @member {date} [settlementDate] Original settlement date of the tax-lot's
+ * opening transaction.
+ */
+export interface TargetTaxLotDto {
+  units: number;
+  cost?: number;
+  portfolioCost?: number;
+  price?: number;
+  purchaseDate?: Date;
+  settlementDate?: Date;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the AdjustHoldingRequest class.
+ * @constructor
+ * This 'dto' contains target holdings. i.e. holding data that the
+ * system should match. When processed by the movement
+ * engine, it will create 'true-up' adjustments on the fly.
+ *
+ * @member {string} securityUid Unique security identifier
+ * @member {array} [subHoldingKeys] Key fields to uniquely index the sub
+ * holdings of a security
+ * @member {array} taxLots 1 or more quantity amounts
+ */
+export interface AdjustHoldingRequest {
+  securityUid: string;
+  subHoldingKeys?: CreatePerpetualPropertyRequest[];
+  taxLots: TargetTaxLotDto[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the AdjustHoldingsDto class.
+ * @constructor
+ * The response given from the AdjustHoldings Api call
+ *
+ * @member {string} [href]
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
  * @member {string} [version.updatedBy]
  * @member {string} [version.href]
- * @member {string} [href]
  * @member {array} [_links]
  */
-export interface UpsertPortfolioTradesDto {
-  version?: VersionDto;
+export interface AdjustHoldingsDto {
   href?: string;
+  version?: VersionDto;
   _links?: Link[];
 }
 
@@ -1169,22 +1210,6 @@ export interface PortfolioPropertiesDto {
   properties?: PropertyDto[];
   version?: VersionDto;
   _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the CreatePerpetualPropertyRequest class.
- * @constructor
- * @member {string} [scope]
- * @member {string} [name]
- * @member {object} value
- * @member {string} [unit]
- */
-export interface CreatePerpetualPropertyRequest {
-  scope?: string;
-  name?: string;
-  value: any;
-  readonly unit?: string;
 }
 
 /**
@@ -1234,6 +1259,24 @@ export interface UpsertPortfolioTradeRequest {
   tradePriceType?: string;
   unitType?: string;
   nettingSet?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the UpsertPortfolioTradesDto class.
+ * @constructor
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.updatedBy]
+ * @member {string} [version.href]
+ * @member {string} [href]
+ * @member {array} [_links]
+ */
+export interface UpsertPortfolioTradesDto {
+  version?: VersionDto;
+  href?: string;
+  _links?: Link[];
 }
 
 /**
@@ -1676,7 +1719,8 @@ export interface KeyValuePairStringFieldSchema {
  * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
  * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
  * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
- * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
+ * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
+ * 'TargetTaxlot', 'AdjustHoldingRequest'
  * @member {string} [href]
  * @member {array} [values]
  */

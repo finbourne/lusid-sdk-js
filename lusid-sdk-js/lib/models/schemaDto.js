@@ -54,7 +54,8 @@ class SchemaDto {
    * 'ReconciliationBreak', 'TransactionConfigurationData',
    * 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
+   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
+   * 'TargetTaxlot', 'AdjustHoldingRequest'
    * @member {string} [href]
    * @member {array} [values]
    */

@@ -3965,18 +3965,18 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.holdings]
+   * @param {array} [options.holdingAdjustments]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<UpsertPortfolioTradesDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<AdjustHoldingsDto>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  adjustHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { holdings? : models.HoldingAdjustmentDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertPortfolioTradesDto>>;
+  adjustAllHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AdjustHoldingsDto>>;
 
   /**
    * @summary Adjust holdings
@@ -3991,7 +3991,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.holdings]
+   * @param {array} [options.holdingAdjustments]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4003,7 +4003,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {UpsertPortfolioTradesDto} - The deserialized result object.
+   *                      @resolve {AdjustHoldingsDto} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -4011,17 +4011,87 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {UpsertPortfolioTradesDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link UpsertPortfolioTradesDto} for more
-   *                      information.
+   *                      {AdjustHoldingsDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link AdjustHoldingsDto} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { holdings? : models.HoldingAdjustmentDto[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertPortfolioTradesDto>;
-  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.UpsertPortfolioTradesDto>): void;
-  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, options: { holdings? : models.HoldingAdjustmentDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertPortfolioTradesDto>): void;
+  adjustAllHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.AdjustHoldingsDto>;
+  adjustAllHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.AdjustHoldingsDto>): void;
+  adjustAllHoldings(scope: string, code: string, effectiveAt: Date|string, options: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AdjustHoldingsDto>): void;
+
+
+  /**
+   * @summary Adjust holdings
+   *
+   * Create trades in a specific portfolio to bring it to the specified holdings
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.holdingAdjustments]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<AdjustHoldingsDto>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  adjustHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AdjustHoldingsDto>>;
+
+  /**
+   * @summary Adjust holdings
+   *
+   * Create trades in a specific portfolio to bring it to the specified holdings
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.holdingAdjustments]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {AdjustHoldingsDto} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {AdjustHoldingsDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link AdjustHoldingsDto} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.AdjustHoldingsDto>;
+  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.AdjustHoldingsDto>): void;
+  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, options: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AdjustHoldingsDto>): void;
 
 
   /**
@@ -6795,7 +6865,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
+   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
+   * 'TargetTaxlot', 'AdjustHoldingRequest'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6836,7 +6907,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
+   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
+   * 'TargetTaxlot', 'AdjustHoldingRequest'
    *
    * @param {object} [options] Optional Parameters.
    *

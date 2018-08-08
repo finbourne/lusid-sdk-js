@@ -8104,7 +8104,7 @@ function _getAggregateHoldings(scope, code, options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.holdings]
+ * @param {array} [options.holdingAdjustments]
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -8116,14 +8116,13 @@ function _getAggregateHoldings(scope, code, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link UpsertPortfolioTradesDto} for more
- *                      information.
+ *                      See {@link AdjustHoldingsDto} for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _adjustHoldings(scope, code, effectiveAt, options, callback) {
+function _adjustAllHoldings(scope, code, effectiveAt, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -8133,7 +8132,7 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let holdings = (options && options.holdings !== undefined) ? options.holdings : undefined;
+  let holdingAdjustments = (options && options.holdingAdjustments !== undefined) ? options.holdingAdjustments : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
@@ -8159,7 +8158,7 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
-  httpRequest.method = 'POST';
+  httpRequest.method = 'PUT';
   httpRequest.url = requestUrl;
   httpRequest.headers = {};
   // Set Headers
@@ -8175,28 +8174,28 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (holdings !== null && holdings !== undefined) {
+    if (holdingAdjustments !== null && holdingAdjustments !== undefined) {
       let requestModelMapper = {
         required: false,
-        serializedName: 'holdings',
+        serializedName: 'holdingAdjustments',
         type: {
           name: 'Sequence',
           element: {
               required: false,
-              serializedName: 'HoldingAdjustmentDtoElementType',
+              serializedName: 'AdjustHoldingRequestElementType',
               type: {
                 name: 'Composite',
-                className: 'HoldingAdjustmentDto'
+                className: 'AdjustHoldingRequest'
               }
           }
         }
       };
-      requestModel = client.serialize(requestModelMapper, holdings, 'holdings');
+      requestModel = client.serialize(requestModelMapper, holdingAdjustments, 'holdingAdjustments');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(holdings, null, 2)}.`);
+        `payload - ${JSON.stringify(holdingAdjustments, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -8242,7 +8241,172 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['UpsertPortfolioTradesDto']().mapper();
+          let resultMapper = new client.models['AdjustHoldingsDto']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Adjust holdings
+ *
+ * Create trades in a specific portfolio to bring it to the specified holdings
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code Code for the portfolio
+ *
+ * @param {date} effectiveAt Effective date
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {array} [options.holdingAdjustments]
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link AdjustHoldingsDto} for more information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _adjustHoldings(scope, code, effectiveAt, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let holdingAdjustments = (options && options.holdingAdjustments !== undefined) ? options.holdingAdjustments : undefined;
+  // Validate
+  try {
+    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
+      throw new Error('scope cannot be null or undefined and it must be of type string.');
+    }
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
+    }
+    if(!effectiveAt || !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt cannot be null or undefined and it must be of type date.');
+        }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/portfolios/{scope}/{code}/holdings/{effectiveAt}';
+  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
+  requestUrl = requestUrl.replace('{effectiveAt}', encodeURIComponent(client.serializeObject(effectiveAt)));
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'PATCH';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (holdingAdjustments !== null && holdingAdjustments !== undefined) {
+      let requestModelMapper = {
+        required: false,
+        serializedName: 'holdingAdjustments',
+        type: {
+          name: 'Sequence',
+          element: {
+              required: false,
+              serializedName: 'AdjustHoldingRequestElementType',
+              type: {
+                name: 'Composite',
+                className: 'AdjustHoldingRequest'
+              }
+          }
+        }
+      };
+      requestModel = client.serialize(requestModelMapper, holdingAdjustments, 'holdingAdjustments');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(holdingAdjustments, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['AdjustHoldingsDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -14054,7 +14218,8 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
  * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
  * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
- * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
+ * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
+ * 'TargetTaxlot', 'AdjustHoldingRequest'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -15366,6 +15531,7 @@ class LUSIDAPI extends ServiceClient {
     this._upsertPortfolioDetails = _upsertPortfolioDetails;
     this._deletePortfolioDetails = _deletePortfolioDetails;
     this._getAggregateHoldings = _getAggregateHoldings;
+    this._adjustAllHoldings = _adjustAllHoldings;
     this._adjustHoldings = _adjustHoldings;
     this._getProperties = _getProperties;
     this._upsertPortfolioProperties = _upsertPortfolioProperties;
@@ -20788,14 +20954,112 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.holdings]
+   * @param {array} [options.holdingAdjustments]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<UpsertPortfolioTradesDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<AdjustHoldingsDto>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  adjustAllHoldingsWithHttpOperationResponse(scope, code, effectiveAt, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._adjustAllHoldings(scope, code, effectiveAt, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Adjust holdings
+   *
+   * Create trades in a specific portfolio to bring it to the specified holdings
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.holdingAdjustments]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {AdjustHoldingsDto} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link AdjustHoldingsDto} for more information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  adjustAllHoldings(scope, code, effectiveAt, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._adjustAllHoldings(scope, code, effectiveAt, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._adjustAllHoldings(scope, code, effectiveAt, options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Adjust holdings
+   *
+   * Create trades in a specific portfolio to bring it to the specified holdings
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.holdingAdjustments]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<AdjustHoldingsDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -20826,7 +21090,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.holdings]
+   * @param {array} [options.holdingAdjustments]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20838,7 +21102,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {UpsertPortfolioTradesDto} - The deserialized result object.
+   *                      @resolve {AdjustHoldingsDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -20847,8 +21111,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link UpsertPortfolioTradesDto} for more
-   *                      information.
+   *                      See {@link AdjustHoldingsDto} for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -24590,7 +24853,8 @@ class LUSIDAPI extends ServiceClient {
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
+   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
+   * 'TargetTaxlot', 'AdjustHoldingRequest'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -24643,7 +24907,8 @@ class LUSIDAPI extends ServiceClient {
    * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
+   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
+   * 'TargetTaxlot', 'AdjustHoldingRequest'
    *
    * @param {object} [options] Optional Parameters.
    *

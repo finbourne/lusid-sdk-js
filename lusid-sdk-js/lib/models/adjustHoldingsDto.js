@@ -25,35 +25,36 @@
 const models = require('./index');
 
 /**
- * Used to specify the 'target' holding when calling the AdjustHoldings Api
+ * The response given from the AdjustHoldings Api call
  *
  */
-class HoldingAdjustmentDto {
+class AdjustHoldingsDto {
   /**
-   * Create a HoldingAdjustmentDto.
+   * Create a AdjustHoldingsDto.
    * @member {string} [href]
-   * @member {string} [securityUid]
-   * @member {number} [units]
-   * @member {number} [cost]
-   * @member {array} [properties]
+   * @member {object} [version]
+   * @member {date} [version.effectiveFrom]
+   * @member {date} [version.asAtDate]
+   * @member {string} [version.updatedBy]
+   * @member {string} [version.href]
    * @member {array} [_links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of HoldingAdjustmentDto
+   * Defines the metadata of AdjustHoldingsDto
    *
-   * @returns {object} metadata of HoldingAdjustmentDto
+   * @returns {object} metadata of AdjustHoldingsDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'HoldingAdjustmentDto',
+      serializedName: 'AdjustHoldingsDto',
       type: {
         name: 'Composite',
-        className: 'HoldingAdjustmentDto',
+        className: 'AdjustHoldingsDto',
         modelProperties: {
           href: {
             required: false,
@@ -62,40 +63,12 @@ class HoldingAdjustmentDto {
               name: 'String'
             }
           },
-          securityUid: {
+          version: {
             required: false,
-            serializedName: 'securityUid',
+            serializedName: 'version',
             type: {
-              name: 'String'
-            }
-          },
-          units: {
-            required: false,
-            serializedName: 'units',
-            type: {
-              name: 'Number'
-            }
-          },
-          cost: {
-            required: false,
-            serializedName: 'cost',
-            type: {
-              name: 'Number'
-            }
-          },
-          properties: {
-            required: false,
-            serializedName: 'properties',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'CreatePropertyRequestElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'CreatePropertyRequest'
-                  }
-              }
+              name: 'Composite',
+              className: 'VersionDto'
             }
           },
           _links: {
@@ -119,4 +92,4 @@ class HoldingAdjustmentDto {
   }
 }
 
-module.exports = HoldingAdjustmentDto;
+module.exports = AdjustHoldingsDto;
