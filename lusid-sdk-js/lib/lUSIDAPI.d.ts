@@ -4024,6 +4024,73 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Cancel adjust-holdings
+   *
+   * Cancels a previous adjust holdings request
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<DeletedEntityResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  cancelAdjustHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+
+  /**
+   * @summary Cancel adjust-holdings
+   *
+   * Cancels a previous adjust holdings request
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {DeletedEntityResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {DeletedEntityResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DeletedEntityResponse} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date|string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+
+
+  /**
    * @summary Adjust holdings
    *
    * Create trades in a specific portfolio to bring it to the specified holdings
@@ -4399,11 +4466,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromTradeDate] Include trades with a trade date equal
-   * or later than this date
+   * @param {date} [options.fromTradeDate] Exclude trades with a trade-date less
+   * than this date. If not supplied, no lower filter is applied
    *
-   * @param {date} [options.toTradeDate] Include trades with a trade date equal
-   * or before this date
+   * @param {date} [options.toTradeDate] Exclude trades with a trade-date greater
+   * than this date. If not supplied, no upper filter is applied
    *
    * @param {date} [options.asAt]
    *
@@ -4438,11 +4505,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromTradeDate] Include trades with a trade date equal
-   * or later than this date
+   * @param {date} [options.fromTradeDate] Exclude trades with a trade-date less
+   * than this date. If not supplied, no lower filter is applied
    *
-   * @param {date} [options.toTradeDate] Include trades with a trade date equal
-   * or before this date
+   * @param {date} [options.toTradeDate] Exclude trades with a trade-date greater
+   * than this date. If not supplied, no upper filter is applied
    *
    * @param {date} [options.asAt]
    *
@@ -7256,7 +7323,7 @@ export default class LUSIDAPI extends ServiceClient {
    * properties.
    *
    * @param {string} codeType The type of identifier. Possible values include:
-   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
    * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
    *
    * @param {object} [options] Optional Parameters.
@@ -7284,7 +7351,7 @@ export default class LUSIDAPI extends ServiceClient {
    * properties.
    *
    * @param {string} codeType The type of identifier. Possible values include:
-   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
    * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
    *
    * @param {object} [options] Optional Parameters.
@@ -7332,7 +7399,7 @@ export default class LUSIDAPI extends ServiceClient {
    * properties.
    *
    * @param {string} codeType The type of identifier. Possible values include:
-   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
    * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
    *
    * @param {object} [options] Optional Parameters.
@@ -7360,7 +7427,7 @@ export default class LUSIDAPI extends ServiceClient {
    * properties.
    *
    * @param {string} codeType The type of identifier. Possible values include:
-   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
    * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
    *
    * @param {object} [options] Optional Parameters.

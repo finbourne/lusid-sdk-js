@@ -40,6 +40,7 @@ class SecurityDto {
    * @member {string} [commonName]
    * @member {object} [aliases]
    * @member {array} [properties]
+   * @member {string} [marketIdentifierCode]
    * @member {array} [_links]
    */
   constructor() {
@@ -115,6 +116,13 @@ class SecurityDto {
                     className: 'PropertyDto'
                   }
               }
+            }
+          },
+          marketIdentifierCode: {
+            required: false,
+            serializedName: 'marketIdentifierCode',
+            type: {
+              name: 'String'
             }
           },
           _links: {

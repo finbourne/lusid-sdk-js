@@ -1792,6 +1792,7 @@ export interface CreateClientSecurityRequest {
  * @member {string} [commonName]
  * @member {object} [aliases]
  * @member {array} [properties]
+ * @member {string} [marketIdentifierCode]
  * @member {array} [_links]
  */
 export interface SecurityDto {
@@ -1801,6 +1802,7 @@ export interface SecurityDto {
   commonName?: string;
   aliases?: { [propertyName: string]: string };
   properties?: PropertyDto[];
+  marketIdentifierCode?: string;
   _links?: Link[];
 }
 
