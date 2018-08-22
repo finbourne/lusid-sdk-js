@@ -36,6 +36,8 @@ class AdjustHoldingRequest {
    * @member {string} securityUid Unique security identifier
    * @member {array} [subHoldingKeys] Key fields to uniquely index the sub
    * holdings of a security
+   * @member {array} [properties] Arbitrary properties to store with the
+   * holding
    * @member {array} taxLots 1 or more quantity amounts
    */
   constructor() {
@@ -65,6 +67,21 @@ class AdjustHoldingRequest {
           subHoldingKeys: {
             required: false,
             serializedName: 'subHoldingKeys',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'CreatePerpetualPropertyRequestElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'CreatePerpetualPropertyRequest'
+                  }
+              }
+            }
+          },
+          properties: {
+            required: false,
+            serializedName: 'properties',
             type: {
               name: 'Sequence',
               element: {
