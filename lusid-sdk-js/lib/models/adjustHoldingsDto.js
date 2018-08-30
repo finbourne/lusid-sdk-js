@@ -22,8 +22,6 @@
 
 'use strict';
 
-const models = require('./index');
-
 /**
  * The response given from the AdjustHoldings Api call
  *

@@ -51,7 +51,6 @@ class InstrumentDefinitionDto {
         modelProperties: {
           content: {
             required: false,
-            readOnly: true,
             serializedName: 'content',
             type: {
               name: 'String'

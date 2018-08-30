@@ -1754,7 +1754,7 @@ export interface PropertySchemaDto {
  * @member {string} [content]
  */
 export interface InstrumentDefinitionDto {
-  readonly content?: string;
+  content?: string;
 }
 
 /**

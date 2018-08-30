@@ -22,8 +22,6 @@
 
 'use strict';
 
-const models = require('./index');
-
 /**
  * Specification object for the parameters of an aggregation
  *

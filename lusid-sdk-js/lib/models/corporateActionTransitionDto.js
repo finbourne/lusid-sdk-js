@@ -22,8 +22,6 @@
 
 'use strict';
 
-const models = require('./index');
-
 /**
  * A 'transition' within a corporate action, representing a set of output
  * movements paired to a single input position

@@ -22,8 +22,6 @@
 
 'use strict';
 
-const models = require('./index');
-
 /**
  * This 'dto' contains target holdings. i.e. holding data that the
  * system should match. When processed by the movement

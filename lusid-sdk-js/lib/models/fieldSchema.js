@@ -22,8 +22,6 @@
 
 'use strict';
 
-const models = require('./index');
-
 /**
  * Class representing a FieldSchema.
  */
