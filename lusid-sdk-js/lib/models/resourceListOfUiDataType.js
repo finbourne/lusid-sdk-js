@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListGroupDto.
+ * Class representing a ResourceListOfUiDataType.
  */
-class ResourceListGroupDto {
+class ResourceListOfUiDataType {
   /**
-   * Create a ResourceListGroupDto.
+   * Create a ResourceListOfUiDataType.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListGroupDto {
   }
 
   /**
-   * Defines the metadata of ResourceListGroupDto
+   * Defines the metadata of ResourceListOfUiDataType
    *
-   * @returns {object} metadata of ResourceListGroupDto
+   * @returns {object} metadata of ResourceListOfUiDataType
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_GroupDto_',
+      serializedName: 'ResourceListOfUiDataType',
       type: {
         name: 'Composite',
-        className: 'ResourceListGroupDto',
+        className: 'ResourceListOfUiDataType',
         modelProperties: {
           values: {
             required: false,
@@ -59,10 +59,9 @@ class ResourceListGroupDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'GroupDtoElementType',
+                  serializedName: 'StringElementType',
                   type: {
-                    name: 'Composite',
-                    className: 'GroupDto'
+                    name: 'String'
                   }
               }
             }
@@ -102,4 +101,4 @@ class ResourceListGroupDto {
   }
 }
 
-module.exports = ResourceListGroupDto;
+module.exports = ResourceListOfUiDataType;

@@ -55,10 +55,10 @@ class ResultDataSchema {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'KeyValuePairPropertyKeyFieldSchemaElementType',
+                  serializedName: 'KeyValuePairOfPropertyKeyToFieldSchemaElementType',
                   type: {
                     name: 'Composite',
-                    className: 'KeyValuePairPropertyKeyFieldSchema'
+                    className: 'KeyValuePairOfPropertyKeyToFieldSchema'
                   }
               }
             }

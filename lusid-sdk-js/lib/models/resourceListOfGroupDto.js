@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListPropertyDomain.
+ * Class representing a ResourceListOfGroupDto.
  */
-class ResourceListPropertyDomain {
+class ResourceListOfGroupDto {
   /**
-   * Create a ResourceListPropertyDomain.
+   * Create a ResourceListOfGroupDto.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListPropertyDomain {
   }
 
   /**
-   * Defines the metadata of ResourceListPropertyDomain
+   * Defines the metadata of ResourceListOfGroupDto
    *
-   * @returns {object} metadata of ResourceListPropertyDomain
+   * @returns {object} metadata of ResourceListOfGroupDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_PropertyDomain_',
+      serializedName: 'ResourceListOfGroupDto',
       type: {
         name: 'Composite',
-        className: 'ResourceListPropertyDomain',
+        className: 'ResourceListOfGroupDto',
         modelProperties: {
           values: {
             required: false,
@@ -59,9 +59,10 @@ class ResourceListPropertyDomain {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'StringElementType',
+                  serializedName: 'GroupDtoElementType',
                   type: {
-                    name: 'String'
+                    name: 'Composite',
+                    className: 'GroupDto'
                   }
               }
             }
@@ -101,4 +102,4 @@ class ResourceListPropertyDomain {
   }
 }
 
-module.exports = ResourceListPropertyDomain;
+module.exports = ResourceListOfGroupDto;

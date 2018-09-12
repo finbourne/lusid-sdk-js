@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a KeyValuePairPropertyKeyFieldSchema.
+ * Class representing a KeyValuePairOfStringToFieldSchema.
  */
-class KeyValuePairPropertyKeyFieldSchema {
+class KeyValuePairOfStringToFieldSchema {
   /**
-   * Create a KeyValuePairPropertyKeyFieldSchema.
+   * Create a KeyValuePairOfStringToFieldSchema.
    * @member {string} [key]
    * @member {object} [value]
    * @member {string} [value.scope]
@@ -46,18 +46,18 @@ class KeyValuePairPropertyKeyFieldSchema {
   }
 
   /**
-   * Defines the metadata of KeyValuePairPropertyKeyFieldSchema
+   * Defines the metadata of KeyValuePairOfStringToFieldSchema
    *
-   * @returns {object} metadata of KeyValuePairPropertyKeyFieldSchema
+   * @returns {object} metadata of KeyValuePairOfStringToFieldSchema
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'KeyValuePair_PropertyKey_FieldSchema_',
+      serializedName: 'KeyValuePairOfStringToFieldSchema',
       type: {
         name: 'Composite',
-        className: 'KeyValuePairPropertyKeyFieldSchema',
+        className: 'KeyValuePairOfStringToFieldSchema',
         modelProperties: {
           key: {
             required: false,
@@ -82,4 +82,4 @@ class KeyValuePairPropertyKeyFieldSchema {
   }
 }
 
-module.exports = KeyValuePairPropertyKeyFieldSchema;
+module.exports = KeyValuePairOfStringToFieldSchema;

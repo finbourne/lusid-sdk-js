@@ -23,76 +23,57 @@
 'use strict';
 
 /**
- * Class representing a ResourceListScope.
+ * Class representing a KeyValuePairOfPropertyKeyToFieldSchema.
  */
-class ResourceListScope {
+class KeyValuePairOfPropertyKeyToFieldSchema {
   /**
-   * Create a ResourceListScope.
-   * @member {array} [values]
-   * @member {string} [href] The Uri that returns the same result as the
-   * original request,
-   * but may include resolved as at time(s).
-   * @member {number} [count] The total number of records returned in the set
-   * @member {array} [_links]
+   * Create a KeyValuePairOfPropertyKeyToFieldSchema.
+   * @member {string} [key]
+   * @member {object} [value]
+   * @member {string} [value.scope]
+   * @member {string} [value.name]
+   * @member {string} [value.displayName]
+   * @member {string} [value.type] Possible values include: 'String', 'Int',
+   * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
+   * 'UnitCreation'
+   * @member {boolean} [value.isMetric]
+   * @member {number} [value.displayOrder]
+   * @member {object} [value.propertySchema]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of ResourceListScope
+   * Defines the metadata of KeyValuePairOfPropertyKeyToFieldSchema
    *
-   * @returns {object} metadata of ResourceListScope
+   * @returns {object} metadata of KeyValuePairOfPropertyKeyToFieldSchema
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_Scope_',
+      serializedName: 'KeyValuePairOfPropertyKeyToFieldSchema',
       type: {
         name: 'Composite',
-        className: 'ResourceListScope',
+        className: 'KeyValuePairOfPropertyKeyToFieldSchema',
         modelProperties: {
-          values: {
+          key: {
             required: false,
-            serializedName: 'values',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'StringElementType',
-                  type: {
-                    name: 'String'
-                  }
-              }
-            }
-          },
-          href: {
-            required: false,
-            serializedName: 'href',
+            readOnly: true,
+            serializedName: 'key',
             type: {
               name: 'String'
             }
           },
-          count: {
+          value: {
             required: false,
-            serializedName: 'count',
+            readOnly: true,
+            serializedName: 'value',
             type: {
-              name: 'Number'
-            }
-          },
-          _links: {
-            required: false,
-            serializedName: '_links',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'LinkElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'Link'
-                  }
-              }
+              name: 'Composite',
+              className: 'FieldSchema'
             }
           }
         }
@@ -101,4 +82,4 @@ class ResourceListScope {
   }
 }
 
-module.exports = ResourceListScope;
+module.exports = KeyValuePairOfPropertyKeyToFieldSchema;

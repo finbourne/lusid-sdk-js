@@ -63,10 +63,10 @@ class TryLookupSecuritiesFromCodesDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'ResourceListSecurityDtoElementType',
+                  serializedName: 'ResourceListOfSecurityDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'ResourceListSecurityDto'
+                    className: 'ResourceListOfSecurityDto'
                   }
               }
             }

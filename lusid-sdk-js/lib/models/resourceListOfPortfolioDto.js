@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListReferencePortfolioConstituentDto.
+ * Class representing a ResourceListOfPortfolioDto.
  */
-class ResourceListReferencePortfolioConstituentDto {
+class ResourceListOfPortfolioDto {
   /**
-   * Create a ResourceListReferencePortfolioConstituentDto.
+   * Create a ResourceListOfPortfolioDto.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListReferencePortfolioConstituentDto {
   }
 
   /**
-   * Defines the metadata of ResourceListReferencePortfolioConstituentDto
+   * Defines the metadata of ResourceListOfPortfolioDto
    *
-   * @returns {object} metadata of ResourceListReferencePortfolioConstituentDto
+   * @returns {object} metadata of ResourceListOfPortfolioDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_ReferencePortfolioConstituentDto_',
+      serializedName: 'ResourceListOfPortfolioDto',
       type: {
         name: 'Composite',
-        className: 'ResourceListReferencePortfolioConstituentDto',
+        className: 'ResourceListOfPortfolioDto',
         modelProperties: {
           values: {
             required: false,
@@ -59,10 +59,10 @@ class ResourceListReferencePortfolioConstituentDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'ReferencePortfolioConstituentDtoElementType',
+                  serializedName: 'PortfolioDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'ReferencePortfolioConstituentDto'
+                    className: 'PortfolioDto'
                   }
               }
             }
@@ -102,4 +102,4 @@ class ResourceListReferencePortfolioConstituentDto {
   }
 }
 
-module.exports = ResourceListReferencePortfolioConstituentDto;
+module.exports = ResourceListOfPortfolioDto;

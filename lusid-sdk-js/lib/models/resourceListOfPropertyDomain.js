@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListReconciliationBreakDto.
+ * Class representing a ResourceListOfPropertyDomain.
  */
-class ResourceListReconciliationBreakDto {
+class ResourceListOfPropertyDomain {
   /**
-   * Create a ResourceListReconciliationBreakDto.
+   * Create a ResourceListOfPropertyDomain.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListReconciliationBreakDto {
   }
 
   /**
-   * Defines the metadata of ResourceListReconciliationBreakDto
+   * Defines the metadata of ResourceListOfPropertyDomain
    *
-   * @returns {object} metadata of ResourceListReconciliationBreakDto
+   * @returns {object} metadata of ResourceListOfPropertyDomain
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_ReconciliationBreakDto_',
+      serializedName: 'ResourceListOfPropertyDomain',
       type: {
         name: 'Composite',
-        className: 'ResourceListReconciliationBreakDto',
+        className: 'ResourceListOfPropertyDomain',
         modelProperties: {
           values: {
             required: false,
@@ -59,10 +59,9 @@ class ResourceListReconciliationBreakDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'ReconciliationBreakDtoElementType',
+                  serializedName: 'StringElementType',
                   type: {
-                    name: 'Composite',
-                    className: 'ReconciliationBreakDto'
+                    name: 'String'
                   }
               }
             }
@@ -102,4 +101,4 @@ class ResourceListReconciliationBreakDto {
   }
 }
 
-module.exports = ResourceListReconciliationBreakDto;
+module.exports = ResourceListOfPropertyDomain;

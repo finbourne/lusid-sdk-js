@@ -23,16 +23,11 @@
 'use strict';
 
 /**
- * Class representing a VersionedResourceListHoldingDto.
+ * Class representing a ResourceListOfReconciliationBreakDto.
  */
-class VersionedResourceListHoldingDto {
+class ResourceListOfReconciliationBreakDto {
   /**
-   * Create a VersionedResourceListHoldingDto.
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.updatedBy]
-   * @member {string} [version.href]
+   * Create a ResourceListOfReconciliationBreakDto.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -44,27 +39,19 @@ class VersionedResourceListHoldingDto {
   }
 
   /**
-   * Defines the metadata of VersionedResourceListHoldingDto
+   * Defines the metadata of ResourceListOfReconciliationBreakDto
    *
-   * @returns {object} metadata of VersionedResourceListHoldingDto
+   * @returns {object} metadata of ResourceListOfReconciliationBreakDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'VersionedResourceList_HoldingDto_',
+      serializedName: 'ResourceListOfReconciliationBreakDto',
       type: {
         name: 'Composite',
-        className: 'VersionedResourceListHoldingDto',
+        className: 'ResourceListOfReconciliationBreakDto',
         modelProperties: {
-          version: {
-            required: false,
-            serializedName: 'version',
-            type: {
-              name: 'Composite',
-              className: 'VersionDto'
-            }
-          },
           values: {
             required: false,
             serializedName: 'values',
@@ -72,10 +59,10 @@ class VersionedResourceListHoldingDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'HoldingDtoElementType',
+                  serializedName: 'ReconciliationBreakDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'HoldingDto'
+                    className: 'ReconciliationBreakDto'
                   }
               }
             }
@@ -115,4 +102,4 @@ class VersionedResourceListHoldingDto {
   }
 }
 
-module.exports = VersionedResourceListHoldingDto;
+module.exports = ResourceListOfReconciliationBreakDto;

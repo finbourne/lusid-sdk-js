@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListPortfolioSearchResult.
+ * Class representing a ResourceListOfScope.
  */
-class ResourceListPortfolioSearchResult {
+class ResourceListOfScope {
   /**
-   * Create a ResourceListPortfolioSearchResult.
+   * Create a ResourceListOfScope.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListPortfolioSearchResult {
   }
 
   /**
-   * Defines the metadata of ResourceListPortfolioSearchResult
+   * Defines the metadata of ResourceListOfScope
    *
-   * @returns {object} metadata of ResourceListPortfolioSearchResult
+   * @returns {object} metadata of ResourceListOfScope
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_PortfolioSearchResult_',
+      serializedName: 'ResourceListOfScope',
       type: {
         name: 'Composite',
-        className: 'ResourceListPortfolioSearchResult',
+        className: 'ResourceListOfScope',
         modelProperties: {
           values: {
             required: false,
@@ -59,10 +59,9 @@ class ResourceListPortfolioSearchResult {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PortfolioSearchResultElementType',
+                  serializedName: 'StringElementType',
                   type: {
-                    name: 'Composite',
-                    className: 'PortfolioSearchResult'
+                    name: 'String'
                   }
               }
             }
@@ -102,4 +101,4 @@ class ResourceListPortfolioSearchResult {
   }
 }
 
-module.exports = ResourceListPortfolioSearchResult;
+module.exports = ResourceListOfScope;

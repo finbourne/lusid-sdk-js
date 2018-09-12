@@ -23,11 +23,16 @@
 'use strict';
 
 /**
- * Class representing a ResourceListPortfolioDto.
+ * Class representing a VersionedResourceListOfHoldingDto.
  */
-class ResourceListPortfolioDto {
+class VersionedResourceListOfHoldingDto {
   /**
-   * Create a ResourceListPortfolioDto.
+   * Create a VersionedResourceListOfHoldingDto.
+   * @member {object} [version]
+   * @member {date} [version.effectiveFrom]
+   * @member {date} [version.asAtDate]
+   * @member {string} [version.updatedBy]
+   * @member {string} [version.href]
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,19 +44,27 @@ class ResourceListPortfolioDto {
   }
 
   /**
-   * Defines the metadata of ResourceListPortfolioDto
+   * Defines the metadata of VersionedResourceListOfHoldingDto
    *
-   * @returns {object} metadata of ResourceListPortfolioDto
+   * @returns {object} metadata of VersionedResourceListOfHoldingDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_PortfolioDto_',
+      serializedName: 'VersionedResourceListOfHoldingDto',
       type: {
         name: 'Composite',
-        className: 'ResourceListPortfolioDto',
+        className: 'VersionedResourceListOfHoldingDto',
         modelProperties: {
+          version: {
+            required: false,
+            serializedName: 'version',
+            type: {
+              name: 'Composite',
+              className: 'VersionDto'
+            }
+          },
           values: {
             required: false,
             serializedName: 'values',
@@ -59,10 +72,10 @@ class ResourceListPortfolioDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PortfolioDtoElementType',
+                  serializedName: 'HoldingDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PortfolioDto'
+                    className: 'HoldingDto'
                   }
               }
             }
@@ -102,4 +115,4 @@ class ResourceListPortfolioDto {
   }
 }
 
-module.exports = ResourceListPortfolioDto;
+module.exports = VersionedResourceListOfHoldingDto;

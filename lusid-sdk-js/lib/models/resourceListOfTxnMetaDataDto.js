@@ -23,40 +23,50 @@
 'use strict';
 
 /**
- * Class representing a NestedAggregationResponse.
+ * Class representing a ResourceListOfTxnMetaDataDto.
  */
-class NestedAggregationResponse {
+class ResourceListOfTxnMetaDataDto {
   /**
-   * Create a NestedAggregationResponse.
-   * @member {string} [href]
-   * @member {object} [data]
-   * @member {string} [data.groupPropertyKey]
-   * @member {string} [data.groupPropertyValue]
-   * @member {number} [data.idx]
-   * @member {object} [data.properties]
-   * @member {array} [data.children]
-   * @member {string} [aggregationCurrency]
-   * @member {object} [dataSchema]
-   * @member {array} [dataSchema.nodeValueSchema]
-   * @member {object} [dataSchema.propertySchema]
+   * Create a ResourceListOfTxnMetaDataDto.
+   * @member {array} [values]
+   * @member {string} [href] The Uri that returns the same result as the
+   * original request,
+   * but may include resolved as at time(s).
+   * @member {number} [count] The total number of records returned in the set
+   * @member {array} [_links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of NestedAggregationResponse
+   * Defines the metadata of ResourceListOfTxnMetaDataDto
    *
-   * @returns {object} metadata of NestedAggregationResponse
+   * @returns {object} metadata of ResourceListOfTxnMetaDataDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'NestedAggregationResponse',
+      serializedName: 'ResourceListOfTxnMetaDataDto',
       type: {
         name: 'Composite',
-        className: 'NestedAggregationResponse',
+        className: 'ResourceListOfTxnMetaDataDto',
         modelProperties: {
+          values: {
+            required: false,
+            serializedName: 'values',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'TxnMetaDataDtoElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'TxnMetaDataDto'
+                  }
+              }
+            }
+          },
           href: {
             required: false,
             serializedName: 'href',
@@ -64,27 +74,26 @@ class NestedAggregationResponse {
               name: 'String'
             }
           },
-          data: {
+          count: {
             required: false,
-            serializedName: 'data',
+            serializedName: 'count',
             type: {
-              name: 'Composite',
-              className: 'AggregationResponseNodeOfDictionaryOfStringToObject'
+              name: 'Number'
             }
           },
-          aggregationCurrency: {
+          _links: {
             required: false,
-            serializedName: 'aggregationCurrency',
+            serializedName: '_links',
             type: {
-              name: 'String'
-            }
-          },
-          dataSchema: {
-            required: false,
-            serializedName: 'dataSchema',
-            type: {
-              name: 'Composite',
-              className: 'ResultDataSchema'
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
+                  }
+              }
             }
           }
         }
@@ -93,4 +102,4 @@ class NestedAggregationResponse {
   }
 }
 
-module.exports = NestedAggregationResponse;
+module.exports = ResourceListOfTxnMetaDataDto;

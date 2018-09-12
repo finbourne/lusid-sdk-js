@@ -23,80 +23,75 @@
 'use strict';
 
 /**
- * Class representing a AggregationResponseNodeDictionaryStringObject.
+ * Class representing a ResourceListOfReferencePortfolioConstituentDto.
  */
-class AggregationResponseNodeDictionaryStringObject {
+class ResourceListOfReferencePortfolioConstituentDto {
   /**
-   * Create a AggregationResponseNodeDictionaryStringObject.
-   * @member {string} [groupPropertyKey]
-   * @member {string} [groupPropertyValue]
-   * @member {number} [idx]
-   * @member {object} [properties]
-   * @member {array} [children]
+   * Create a ResourceListOfReferencePortfolioConstituentDto.
+   * @member {array} [values]
+   * @member {string} [href] The Uri that returns the same result as the
+   * original request,
+   * but may include resolved as at time(s).
+   * @member {number} [count] The total number of records returned in the set
+   * @member {array} [_links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of AggregationResponseNodeDictionaryStringObject
+   * Defines the metadata of ResourceListOfReferencePortfolioConstituentDto
    *
-   * @returns {object} metadata of AggregationResponseNodeDictionaryStringObject
+   * @returns {object} metadata of ResourceListOfReferencePortfolioConstituentDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'AggregationResponseNode_Dictionary_String_Object_',
+      serializedName: 'ResourceListOfReferencePortfolioConstituentDto',
       type: {
         name: 'Composite',
-        className: 'AggregationResponseNodeDictionaryStringObject',
+        className: 'ResourceListOfReferencePortfolioConstituentDto',
         modelProperties: {
-          groupPropertyKey: {
+          values: {
             required: false,
-            serializedName: 'groupPropertyKey',
-            type: {
-              name: 'String'
-            }
-          },
-          groupPropertyValue: {
-            required: false,
-            serializedName: 'groupPropertyValue',
-            type: {
-              name: 'String'
-            }
-          },
-          idx: {
-            required: false,
-            serializedName: 'idx',
-            type: {
-              name: 'Number'
-            }
-          },
-          properties: {
-            required: false,
-            serializedName: 'properties',
-            type: {
-              name: 'Dictionary',
-              value: {
-                  required: false,
-                  serializedName: 'ObjectElementType',
-                  type: {
-                    name: 'Object'
-                  }
-              }
-            }
-          },
-          children: {
-            required: false,
-            serializedName: 'children',
+            serializedName: 'values',
             type: {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'AggregationResponseNodeDictionaryStringObjectElementType',
+                  serializedName: 'ReferencePortfolioConstituentDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'AggregationResponseNodeDictionaryStringObject'
+                    className: 'ReferencePortfolioConstituentDto'
+                  }
+              }
+            }
+          },
+          href: {
+            required: false,
+            serializedName: 'href',
+            type: {
+              name: 'String'
+            }
+          },
+          count: {
+            required: false,
+            serializedName: 'count',
+            type: {
+              name: 'Number'
+            }
+          },
+          _links: {
+            required: false,
+            serializedName: '_links',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
                   }
               }
             }
@@ -107,4 +102,4 @@ class AggregationResponseNodeDictionaryStringObject {
   }
 }
 
-module.exports = AggregationResponseNodeDictionaryStringObject;
+module.exports = ResourceListOfReferencePortfolioConstituentDto;

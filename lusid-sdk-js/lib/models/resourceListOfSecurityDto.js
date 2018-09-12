@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListPropertyKey.
+ * Class representing a ResourceListOfSecurityDto.
  */
-class ResourceListPropertyKey {
+class ResourceListOfSecurityDto {
   /**
-   * Create a ResourceListPropertyKey.
+   * Create a ResourceListOfSecurityDto.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListPropertyKey {
   }
 
   /**
-   * Defines the metadata of ResourceListPropertyKey
+   * Defines the metadata of ResourceListOfSecurityDto
    *
-   * @returns {object} metadata of ResourceListPropertyKey
+   * @returns {object} metadata of ResourceListOfSecurityDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_PropertyKey_',
+      serializedName: 'ResourceListOfSecurityDto',
       type: {
         name: 'Composite',
-        className: 'ResourceListPropertyKey',
+        className: 'ResourceListOfSecurityDto',
         modelProperties: {
           values: {
             required: false,
@@ -59,9 +59,10 @@ class ResourceListPropertyKey {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'StringElementType',
+                  serializedName: 'SecurityDtoElementType',
                   type: {
-                    name: 'String'
+                    name: 'Composite',
+                    className: 'SecurityDto'
                   }
               }
             }
@@ -101,4 +102,4 @@ class ResourceListPropertyKey {
   }
 }
 
-module.exports = ResourceListPropertyKey;
+module.exports = ResourceListOfSecurityDto;

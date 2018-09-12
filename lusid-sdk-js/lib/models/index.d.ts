@@ -191,7 +191,7 @@ export interface FieldSchema {
 
 /**
  * @class
- * Initializes a new instance of the KeyValuePairPropertyKeyFieldSchema class.
+ * Initializes a new instance of the KeyValuePairOfPropertyKeyToFieldSchema class.
  * @constructor
  * @member {string} [key]
  * @member {object} [value]
@@ -207,7 +207,7 @@ export interface FieldSchema {
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
  */
-export interface KeyValuePairPropertyKeyFieldSchema {
+export interface KeyValuePairOfPropertyKeyToFieldSchema {
   readonly key?: string;
   readonly value?: FieldSchema;
 }
@@ -220,7 +220,7 @@ export interface KeyValuePairPropertyKeyFieldSchema {
  * @member {object} [propertySchema]
  */
 export interface ResultDataSchema {
-  nodeValueSchema?: KeyValuePairPropertyKeyFieldSchema[];
+  nodeValueSchema?: KeyValuePairOfPropertyKeyToFieldSchema[];
   propertySchema?: { [propertyName: string]: FieldSchema };
 }
 
@@ -244,7 +244,7 @@ export interface ListAggregationResponse {
 
 /**
  * @class
- * Initializes a new instance of the AggregationResponseNodeDictionaryStringObject class.
+ * Initializes a new instance of the AggregationResponseNodeOfDictionaryOfStringToObject class.
  * @constructor
  * @member {string} [groupPropertyKey]
  * @member {string} [groupPropertyValue]
@@ -252,12 +252,12 @@ export interface ListAggregationResponse {
  * @member {object} [properties]
  * @member {array} [children]
  */
-export interface AggregationResponseNodeDictionaryStringObject {
+export interface AggregationResponseNodeOfDictionaryOfStringToObject {
   groupPropertyKey?: string;
   groupPropertyValue?: string;
   idx?: number;
   properties?: { [propertyName: string]: any };
-  children?: AggregationResponseNodeDictionaryStringObject[];
+  children?: AggregationResponseNodeOfDictionaryOfStringToObject[];
 }
 
 /**
@@ -278,7 +278,7 @@ export interface AggregationResponseNodeDictionaryStringObject {
  */
 export interface NestedAggregationResponse {
   href?: string;
-  data?: AggregationResponseNodeDictionaryStringObject;
+  data?: AggregationResponseNodeOfDictionaryOfStringToObject;
   aggregationCurrency?: string;
   dataSchema?: ResultDataSchema;
 }
@@ -337,6 +337,24 @@ export interface Link {
   href: string;
   description?: string;
   method: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfAnalyticStoreKeyDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfAnalyticStoreKeyDto {
+  values?: AnalyticStoreKeyDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
 }
 
 /**
@@ -528,6 +546,24 @@ export interface TxnMetaDataDto {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfTxnMetaDataDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfTxnMetaDataDto {
+  values?: TxnMetaDataDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CorporateActionTransitionComponentDto class.
  * @constructor
  * @member {string} securityUid
@@ -712,6 +748,24 @@ export interface GroupDto {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfGroupDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfGroupDto {
+  values?: GroupDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the ProcessedCommandDto class.
  * @constructor
  * @member {string} [description]
@@ -726,6 +780,24 @@ export interface ProcessedCommandDto {
   path?: string;
   userId?: string;
   processedTime?: any;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfProcessedCommandDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfProcessedCommandDto {
+  values?: ProcessedCommandDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
 }
 
 /**
@@ -878,12 +950,48 @@ export interface PersonalisationDto {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfPersonalisationDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfPersonalisationDto {
+  values?: PersonalisationDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the UpsertPersonalisationsResponse class.
  * @constructor
  * @member {string} [href]
  */
 export interface UpsertPersonalisationsResponse {
   href?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfScope class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfScope {
+  values?: string[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
 }
 
 /**
@@ -942,6 +1050,24 @@ export interface PortfolioDto {
   created?: Date;
   parentPortfolioId?: ResourceId;
   version?: VersionDto;
+  _links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfPortfolioDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfPortfolioDto {
+  values?: PortfolioDto[];
+  href?: string;
+  count?: number;
   _links?: Link[];
 }
 
@@ -1110,6 +1236,30 @@ export interface HoldingDto {
 
 /**
  * @class
+ * Initializes a new instance of the VersionedResourceListOfHoldingDto class.
+ * @constructor
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.updatedBy]
+ * @member {string} [version.href]
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface VersionedResourceListOfHoldingDto {
+  version?: VersionDto;
+  values?: HoldingDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreatePerpetualPropertyRequest class.
  * @constructor
  * @member {string} [scope]
@@ -1211,6 +1361,30 @@ export interface PortfolioPropertiesDto {
   originPortfolioId?: ResourceId;
   properties?: PropertyDto[];
   version?: VersionDto;
+  _links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the VersionedResourceListOfTradeDto class.
+ * @constructor
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.updatedBy]
+ * @member {string} [version.href]
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface VersionedResourceListOfTradeDto {
+  version?: VersionDto;
+  values?: TradeDto[];
+  href?: string;
+  count?: number;
   _links?: Link[];
 }
 
@@ -1349,6 +1523,24 @@ export interface PortfolioSearchResult {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfPortfolioSearchResult class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfPortfolioSearchResult {
+  values?: PortfolioSearchResult[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the PropertyDefinitionDto class.
  * @constructor
  * @member {string} [href]
@@ -1387,6 +1579,24 @@ export interface PropertyDefinitionDto {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfPropertyDefinitionDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfPropertyDefinitionDto {
+  values?: PropertyDefinitionDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreatePropertyDefinitionRequest class.
  * @constructor
  * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
@@ -1413,6 +1623,42 @@ export interface CreatePropertyDefinitionRequest {
   sort?: string;
   lifeTime?: string;
   type?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfPropertyDomain class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfPropertyDomain {
+  values?: string[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfPropertyKey class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfPropertyKey {
+  values?: string[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
 }
 
 /**
@@ -1570,6 +1816,24 @@ export interface UpdatePropertyDataFormatRequest {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfPropertyDataFormatDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfPropertyDataFormatDto {
+  values?: PropertyDataFormatDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the ReconciliationRequest class.
  * @constructor
  * @member {string} [leftScope]
@@ -1612,6 +1876,24 @@ export interface ReconciliationBreakDto {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfReconciliationBreakDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfReconciliationBreakDto {
+  values?: ReconciliationBreakDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the ReferencePortfolioConstituentDto class.
  * @constructor
  * @member {string} [id]
@@ -1625,6 +1907,24 @@ export interface ReferencePortfolioConstituentDto {
   properties?: PropertyDto[];
   quantity?: number;
   type?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfReferencePortfolioConstituentDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfReferencePortfolioConstituentDto {
+  values?: ReferencePortfolioConstituentDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
 }
 
 /**
@@ -1673,7 +1973,7 @@ export interface ResultsDto {
 
 /**
  * @class
- * Initializes a new instance of the KeyValuePairStringFieldSchema class.
+ * Initializes a new instance of the KeyValuePairOfStringToFieldSchema class.
  * @constructor
  * @member {string} [key]
  * @member {object} [value]
@@ -1689,7 +1989,7 @@ export interface ResultsDto {
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
  */
-export interface KeyValuePairStringFieldSchema {
+export interface KeyValuePairOfStringToFieldSchema {
   readonly key?: string;
   readonly value?: FieldSchema;
 }
@@ -1729,7 +2029,7 @@ export interface KeyValuePairStringFieldSchema {
 export interface SchemaDto {
   entity?: string;
   href?: string;
-  values?: KeyValuePairStringFieldSchema[];
+  values?: KeyValuePairOfStringToFieldSchema[];
 }
 
 /**
@@ -1741,7 +2041,25 @@ export interface SchemaDto {
  */
 export interface PropertySchemaDto {
   href?: string;
-  values?: KeyValuePairPropertyKeyFieldSchema[];
+  values?: KeyValuePairOfPropertyKeyToFieldSchema[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfUiDataType class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfUiDataType {
+  values?: string[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
 }
 
 /**
@@ -1836,7 +2154,7 @@ export interface TryDeleteClientSecuritiesDto {
 
 /**
  * @class
- * Initializes a new instance of the ResourceListSecurityDto class.
+ * Initializes a new instance of the ResourceListOfSecurityDto class.
  * @constructor
  * @member {array} [values]
  * @member {string} [href] The Uri that returns the same result as the original
@@ -1845,7 +2163,7 @@ export interface TryDeleteClientSecuritiesDto {
  * @member {number} [count] The total number of records returned in the set
  * @member {array} [_links]
  */
-export interface ResourceListSecurityDto {
+export interface ResourceListOfSecurityDto {
   values?: SecurityDto[];
   href?: string;
   count?: number;
@@ -1862,324 +2180,6 @@ export interface ResourceListSecurityDto {
  */
 export interface TryLookupSecuritiesFromCodesDto {
   href?: string;
-  values?: ResourceListSecurityDto[];
+  values?: ResourceListOfSecurityDto[];
   failed?: ErrorDetail[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListAnalyticStoreKeyDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListAnalyticStoreKeyDto {
-  values?: AnalyticStoreKeyDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListTxnMetaDataDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListTxnMetaDataDto {
-  values?: TxnMetaDataDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListGroupDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListGroupDto {
-  values?: GroupDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListProcessedCommandDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListProcessedCommandDto {
-  values?: ProcessedCommandDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListPersonalisationDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListPersonalisationDto {
-  values?: PersonalisationDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListScope class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListScope {
-  values?: string[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListPortfolioDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListPortfolioDto {
-  values?: PortfolioDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the VersionedResourceListHoldingDto class.
- * @constructor
- * @member {object} [version]
- * @member {date} [version.effectiveFrom]
- * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
- * @member {string} [version.href]
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface VersionedResourceListHoldingDto {
-  version?: VersionDto;
-  values?: HoldingDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the VersionedResourceListTradeDto class.
- * @constructor
- * @member {object} [version]
- * @member {date} [version.effectiveFrom]
- * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
- * @member {string} [version.href]
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface VersionedResourceListTradeDto {
-  version?: VersionDto;
-  values?: TradeDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListPortfolioSearchResult class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListPortfolioSearchResult {
-  values?: PortfolioSearchResult[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListPropertyDefinitionDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListPropertyDefinitionDto {
-  values?: PropertyDefinitionDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListPropertyDomain class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListPropertyDomain {
-  values?: string[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListPropertyKey class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListPropertyKey {
-  values?: string[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListPropertyDataFormatDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListPropertyDataFormatDto {
-  values?: PropertyDataFormatDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListReconciliationBreakDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListReconciliationBreakDto {
-  values?: ReconciliationBreakDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListReferencePortfolioConstituentDto class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListReferencePortfolioConstituentDto {
-  values?: ReferencePortfolioConstituentDto[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListUiDataType class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [_links]
- */
-export interface ResourceListUiDataType {
-  values?: string[];
-  href?: string;
-  count?: number;
-  _links?: Link[];
 }

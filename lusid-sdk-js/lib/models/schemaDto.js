@@ -95,10 +95,10 @@ class SchemaDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'KeyValuePairStringFieldSchemaElementType',
+                  serializedName: 'KeyValuePairOfStringToFieldSchemaElementType',
                   type: {
                     name: 'Composite',
-                    className: 'KeyValuePairStringFieldSchema'
+                    className: 'KeyValuePairOfStringToFieldSchema'
                   }
               }
             }

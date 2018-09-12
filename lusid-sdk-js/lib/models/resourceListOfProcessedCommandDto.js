@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListUiDataType.
+ * Class representing a ResourceListOfProcessedCommandDto.
  */
-class ResourceListUiDataType {
+class ResourceListOfProcessedCommandDto {
   /**
-   * Create a ResourceListUiDataType.
+   * Create a ResourceListOfProcessedCommandDto.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListUiDataType {
   }
 
   /**
-   * Defines the metadata of ResourceListUiDataType
+   * Defines the metadata of ResourceListOfProcessedCommandDto
    *
-   * @returns {object} metadata of ResourceListUiDataType
+   * @returns {object} metadata of ResourceListOfProcessedCommandDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_UiDataType_',
+      serializedName: 'ResourceListOfProcessedCommandDto',
       type: {
         name: 'Composite',
-        className: 'ResourceListUiDataType',
+        className: 'ResourceListOfProcessedCommandDto',
         modelProperties: {
           values: {
             required: false,
@@ -59,9 +59,10 @@ class ResourceListUiDataType {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'StringElementType',
+                  serializedName: 'ProcessedCommandDtoElementType',
                   type: {
-                    name: 'String'
+                    name: 'Composite',
+                    className: 'ProcessedCommandDto'
                   }
               }
             }
@@ -101,4 +102,4 @@ class ResourceListUiDataType {
   }
 }
 
-module.exports = ResourceListUiDataType;
+module.exports = ResourceListOfProcessedCommandDto;

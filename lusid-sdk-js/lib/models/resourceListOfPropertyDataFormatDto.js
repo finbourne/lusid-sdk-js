@@ -23,16 +23,11 @@
 'use strict';
 
 /**
- * Class representing a VersionedResourceListTradeDto.
+ * Class representing a ResourceListOfPropertyDataFormatDto.
  */
-class VersionedResourceListTradeDto {
+class ResourceListOfPropertyDataFormatDto {
   /**
-   * Create a VersionedResourceListTradeDto.
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.updatedBy]
-   * @member {string} [version.href]
+   * Create a ResourceListOfPropertyDataFormatDto.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -44,27 +39,19 @@ class VersionedResourceListTradeDto {
   }
 
   /**
-   * Defines the metadata of VersionedResourceListTradeDto
+   * Defines the metadata of ResourceListOfPropertyDataFormatDto
    *
-   * @returns {object} metadata of VersionedResourceListTradeDto
+   * @returns {object} metadata of ResourceListOfPropertyDataFormatDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'VersionedResourceList_TradeDto_',
+      serializedName: 'ResourceListOfPropertyDataFormatDto',
       type: {
         name: 'Composite',
-        className: 'VersionedResourceListTradeDto',
+        className: 'ResourceListOfPropertyDataFormatDto',
         modelProperties: {
-          version: {
-            required: false,
-            serializedName: 'version',
-            type: {
-              name: 'Composite',
-              className: 'VersionDto'
-            }
-          },
           values: {
             required: false,
             serializedName: 'values',
@@ -72,10 +59,10 @@ class VersionedResourceListTradeDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'TradeDtoElementType',
+                  serializedName: 'PropertyDataFormatDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'TradeDto'
+                    className: 'PropertyDataFormatDto'
                   }
               }
             }
@@ -115,4 +102,4 @@ class VersionedResourceListTradeDto {
   }
 }
 
-module.exports = VersionedResourceListTradeDto;
+module.exports = ResourceListOfPropertyDataFormatDto;

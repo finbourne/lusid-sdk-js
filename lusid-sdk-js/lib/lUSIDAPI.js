@@ -1145,7 +1145,7 @@ function _getNestedAggregationByResultSet(scope, resultsKey, options, callback) 
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListAnalyticStoreKeyDto} for more
+ *                      See {@link ResourceListOfAnalyticStoreKeyDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -1280,7 +1280,7 @@ function _listAnalyticStores(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListAnalyticStoreKeyDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfAnalyticStoreKeyDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -2318,7 +2318,7 @@ function _addConfigurationTransactionType(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListTxnMetaDataDto} for more
+ *                      See {@link ResourceListOfTxnMetaDataDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -2397,7 +2397,7 @@ function _getConfigurationTransactionTypes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListTxnMetaDataDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfTxnMetaDataDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -2430,7 +2430,7 @@ function _getConfigurationTransactionTypes(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListTxnMetaDataDto} for more
+ *                      See {@link ResourceListOfTxnMetaDataDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -2538,7 +2538,7 @@ function _uploadConfigurationTransactionTypes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListTxnMetaDataDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfTxnMetaDataDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -3141,7 +3141,8 @@ function _getLatestVersion(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListGroupDto} for more information.
+ *                      See {@link ResourceListOfGroupDto} for more
+ *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -3279,7 +3280,7 @@ function _listPortfolioGroups(scope, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListGroupDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfGroupDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -3733,7 +3734,7 @@ function _deletePortfolioGroup(scope, code, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListProcessedCommandDto} for more
+ *                      See {@link ResourceListOfProcessedCommandDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -3852,7 +3853,7 @@ function _getPortfolioGroupCommands(scope, code, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListProcessedCommandDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfProcessedCommandDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -4775,7 +4776,8 @@ function _updatePortfolioGroup(scope, code, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListGroupDto} for more information.
+ *                      See {@link ResourceListOfGroupDto} for more
+ *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -4925,7 +4927,7 @@ function _portfolioGroupsSearch(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListGroupDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfGroupDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -5807,7 +5809,7 @@ function _getVersion(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPersonalisationDto} for more
+ *                      See {@link ResourceListOfPersonalisationDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -5949,7 +5951,7 @@ function _getPersonalisations(recursive, wildcards, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPersonalisationDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfPersonalisationDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -6271,7 +6273,7 @@ function _deletePersonalisation(scope, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListScope} for more information.
+ *                      See {@link ResourceListOfScope} for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -6390,7 +6392,7 @@ function _listPortfolioScopes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListScope']().mapper();
+          let resultMapper = new client.models['ResourceListOfScope']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -6436,7 +6438,7 @@ function _listPortfolioScopes(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPortfolioDto} for more
+ *                      See {@link ResourceListOfPortfolioDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -6583,7 +6585,7 @@ function _listPortfolios(scope, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPortfolioDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfPortfolioDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -7261,7 +7263,7 @@ function _deletePortfolio(scope, code, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListProcessedCommandDto} for more
+ *                      See {@link ResourceListOfProcessedCommandDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -7380,7 +7382,7 @@ function _getCommands(scope, code, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListProcessedCommandDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfProcessedCommandDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -7907,7 +7909,7 @@ function _deletePortfolioDetails(scope, code, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link VersionedResourceListHoldingDto} for more
+ *                      See {@link VersionedResourceListOfHoldingDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -8076,7 +8078,7 @@ function _getAggregateHoldings(scope, code, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['VersionedResourceListHoldingDto']().mapper();
+          let resultMapper = new client.models['VersionedResourceListOfHoldingDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -9248,7 +9250,7 @@ function _deletePortfolioProperties(scope, code, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link VersionedResourceListTradeDto} for more
+ *                      See {@link VersionedResourceListOfTradeDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -9425,7 +9427,7 @@ function _getTrades(scope, code, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['VersionedResourceListTradeDto']().mapper();
+          let resultMapper = new client.models['VersionedResourceListOfTradeDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -10235,8 +10237,8 @@ function _createDerivedPortfolio(scope, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPortfolioSearchResult} for more
- *                      information.
+ *                      See {@link ResourceListOfPortfolioSearchResult} for
+ *                      more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -10386,7 +10388,7 @@ function _portfoliosSearch(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPortfolioSearchResult']().mapper();
+          let resultMapper = new client.models['ResourceListOfPortfolioSearchResult']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -10426,8 +10428,8 @@ function _portfoliosSearch(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPropertyDefinitionDto} for more
- *                      information.
+ *                      See {@link ResourceListOfPropertyDefinitionDto} for
+ *                      more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -10577,7 +10579,7 @@ function _propertiesSearch(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPropertyDefinitionDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfPropertyDefinitionDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -10613,7 +10615,7 @@ function _propertiesSearch(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPropertyDomain} for more
+ *                      See {@link ResourceListOfPropertyDomain} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -10733,7 +10735,7 @@ function _getPropertyDefinitionDomains(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPropertyDomain']().mapper();
+          let resultMapper = new client.models['ResourceListOfPropertyDomain']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -10925,8 +10927,8 @@ function _createPropertyDefinition(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPropertyDefinitionDto} for more
- *                      information.
+ *                      See {@link ResourceListOfPropertyDefinitionDto} for
+ *                      more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -11078,7 +11080,7 @@ function _getMultiplePropertyDefinitions(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPropertyDefinitionDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfPropertyDefinitionDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -11121,7 +11123,7 @@ function _getMultiplePropertyDefinitions(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPropertyKey} for more
+ *                      See {@link ResourceListOfPropertyKey} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -11260,7 +11262,7 @@ function _getAllPropertyKeysInDomain(domain, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPropertyKey']().mapper();
+          let resultMapper = new client.models['ResourceListOfPropertyKey']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -11302,7 +11304,7 @@ function _getAllPropertyKeysInDomain(domain, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListScope} for more information.
+ *                      See {@link ResourceListOfScope} for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -11432,7 +11434,7 @@ function _getPropertyDefinitionScopesInDomain(domain, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListScope']().mapper();
+          let resultMapper = new client.models['ResourceListOfScope']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -11477,7 +11479,7 @@ function _getPropertyDefinitionScopesInDomain(domain, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPropertyKey} for more
+ *                      See {@link ResourceListOfPropertyKey} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -11620,7 +11622,7 @@ function _getAllPropertyKeysInScope(domain, scope, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPropertyKey']().mapper();
+          let resultMapper = new client.models['ResourceListOfPropertyKey']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -12256,8 +12258,8 @@ function _createPropertyDataFormat(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPropertyDataFormatDto} for more
- *                      information.
+ *                      See {@link ResourceListOfPropertyDataFormatDto} for
+ *                      more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -12401,7 +12403,7 @@ function _listPropertyDataFormats(scope, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPropertyDataFormatDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfPropertyDataFormatDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -12881,8 +12883,8 @@ function _getUnitsFromPropertyDataFormat(scope, name, units, options, callback) 
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListReconciliationBreakDto} for more
- *                      information.
+ *                      See {@link ResourceListOfReconciliationBreakDto} for
+ *                      more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -12975,7 +12977,7 @@ function _performReconciliation(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListReconciliationBreakDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfReconciliationBreakDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -13019,7 +13021,7 @@ function _performReconciliation(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListPortfolioDto} for more
+ *                      See {@link ResourceListOfPortfolioDto} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -13163,7 +13165,7 @@ function _listReferencePortfolios(scope, effectiveAt, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListPortfolioDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfPortfolioDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -13362,8 +13364,8 @@ function _createReferencePortfolio(scope, options, callback) {
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
  *                      See {@link
- *                      ResourceListReferencePortfolioConstituentDto} for more
- *                      information.
+ *                      ResourceListOfReferencePortfolioConstituentDto} for
+ *                      more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -13471,7 +13473,7 @@ function _getReferencePortfolio(scope, code, effectiveAt, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListReferencePortfolioConstituentDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfReferencePortfolioConstituentDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -13657,8 +13659,8 @@ function _deleteReferencePortfolio(scope, code, options, callback) {
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
  *                      See {@link
- *                      ResourceListReferencePortfolioConstituentDto} for more
- *                      information.
+ *                      ResourceListOfReferencePortfolioConstituentDto} for
+ *                      more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -13805,7 +13807,7 @@ function _getReferencePortfolioConstituents(scope, effectiveAt, code, options, c
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListReferencePortfolioConstituentDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfReferencePortfolioConstituentDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -14639,7 +14641,7 @@ function _getPropertySchema(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListUiDataType} for more
+ *                      See {@link ResourceListOfUiDataType} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -14759,7 +14761,7 @@ function _getValueTypes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListUiDataType']().mapper();
+          let resultMapper = new client.models['ResourceListOfUiDataType']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -16600,7 +16602,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListAnalyticStoreKeyDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfAnalyticStoreKeyDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -16643,7 +16645,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListAnalyticStoreKeyDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfAnalyticStoreKeyDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -16652,7 +16654,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListAnalyticStoreKeyDto} for more
+   *                      See {@link ResourceListOfAnalyticStoreKeyDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -17354,7 +17356,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListTxnMetaDataDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTxnMetaDataDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -17387,7 +17389,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListTxnMetaDataDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfTxnMetaDataDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -17396,7 +17398,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListTxnMetaDataDto} for more
+   *                      See {@link ResourceListOfTxnMetaDataDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -17436,7 +17438,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListTxnMetaDataDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTxnMetaDataDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -17472,7 +17474,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListTxnMetaDataDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfTxnMetaDataDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -17481,7 +17483,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListTxnMetaDataDto} for more
+   *                      See {@link ResourceListOfTxnMetaDataDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -17867,7 +17869,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListGroupDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfGroupDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -17913,7 +17915,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListGroupDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfGroupDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -17922,7 +17924,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListGroupDto} for more information.
+   *                      See {@link ResourceListOfGroupDto} for more
+   *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -18254,7 +18257,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListProcessedCommandDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfProcessedCommandDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -18301,7 +18304,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListProcessedCommandDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfProcessedCommandDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -18310,7 +18313,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListProcessedCommandDto} for more
+   *                      See {@link ResourceListOfProcessedCommandDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -18941,7 +18944,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListGroupDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfGroupDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -18984,7 +18987,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListGroupDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfGroupDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -18993,7 +18996,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListGroupDto} for more information.
+   *                      See {@link ResourceListOfGroupDto} for more
+   *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -19636,7 +19640,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPersonalisationDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPersonalisationDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -19686,7 +19690,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPersonalisationDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPersonalisationDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -19695,7 +19699,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPersonalisationDto} for more
+   *                      See {@link ResourceListOfPersonalisationDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -19919,7 +19923,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListScope>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfScope>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -19960,7 +19964,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListScope} - The deserialized result object.
+   *                      @resolve {ResourceListOfScope} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -19969,7 +19973,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListScope} for more information.
+   *                      See {@link ResourceListOfScope} for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -20021,7 +20025,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPortfolioDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPortfolioDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -20070,7 +20074,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPortfolioDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPortfolioDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -20079,7 +20083,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPortfolioDto} for more
+   *                      See {@link ResourceListOfPortfolioDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -20566,7 +20570,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListProcessedCommandDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfProcessedCommandDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -20613,7 +20617,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListProcessedCommandDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfProcessedCommandDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -20622,7 +20626,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListProcessedCommandDto} for more
+   *                      See {@link ResourceListOfProcessedCommandDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -20985,7 +20989,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<VersionedResourceListHoldingDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<VersionedResourceListOfHoldingDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -21040,7 +21044,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {VersionedResourceListHoldingDto} - The deserialized result object.
+   *                      @resolve {VersionedResourceListOfHoldingDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -21049,7 +21053,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link VersionedResourceListHoldingDto} for more
+   *                      See {@link VersionedResourceListOfHoldingDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -21803,7 +21807,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<VersionedResourceListTradeDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<VersionedResourceListOfTradeDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -21859,7 +21863,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {VersionedResourceListTradeDto} - The deserialized result object.
+   *                      @resolve {VersionedResourceListOfTradeDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -21868,7 +21872,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link VersionedResourceListTradeDto} for more
+   *                      See {@link VersionedResourceListOfTradeDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -22414,7 +22418,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPortfolioSearchResult>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPortfolioSearchResult>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -22457,7 +22461,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPortfolioSearchResult} - The deserialized result object.
+   *                      @resolve {ResourceListOfPortfolioSearchResult} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -22466,8 +22470,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPortfolioSearchResult} for more
-   *                      information.
+   *                      See {@link ResourceListOfPortfolioSearchResult} for
+   *                      more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -22513,7 +22517,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPropertyDefinitionDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPropertyDefinitionDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -22556,7 +22560,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPropertyDefinitionDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPropertyDefinitionDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -22565,8 +22569,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPropertyDefinitionDto} for more
-   *                      information.
+   *                      See {@link ResourceListOfPropertyDefinitionDto} for
+   *                      more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -22608,7 +22612,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPropertyDomain>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPropertyDomain>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -22647,7 +22651,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPropertyDomain} - The deserialized result object.
+   *                      @resolve {ResourceListOfPropertyDomain} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -22656,7 +22660,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPropertyDomain} for more
+   *                      See {@link ResourceListOfPropertyDomain} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -22837,7 +22841,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPropertyDefinitionDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPropertyDefinitionDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -22882,7 +22886,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPropertyDefinitionDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPropertyDefinitionDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -22891,8 +22895,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPropertyDefinitionDto} for more
-   *                      information.
+   *                      See {@link ResourceListOfPropertyDefinitionDto} for
+   *                      more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -22941,7 +22945,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPropertyKey>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPropertyKey>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -22987,7 +22991,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPropertyKey} - The deserialized result object.
+   *                      @resolve {ResourceListOfPropertyKey} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -22996,7 +23000,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPropertyKey} for more
+   *                      See {@link ResourceListOfPropertyKey} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -23045,7 +23049,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListScope>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfScope>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -23090,7 +23094,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListScope} - The deserialized result object.
+   *                      @resolve {ResourceListOfScope} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -23099,7 +23103,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListScope} for more information.
+   *                      See {@link ResourceListOfScope} for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -23150,7 +23154,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPropertyKey>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPropertyKey>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -23198,7 +23202,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPropertyKey} - The deserialized result object.
+   *                      @resolve {ResourceListOfPropertyKey} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -23207,7 +23211,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPropertyKey} for more
+   *                      See {@link ResourceListOfPropertyKey} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -23704,7 +23708,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPropertyDataFormatDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPropertyDataFormatDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -23751,7 +23755,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPropertyDataFormatDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPropertyDataFormatDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -23760,8 +23764,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPropertyDataFormatDto} for more
-   *                      information.
+   *                      See {@link ResourceListOfPropertyDataFormatDto} for
+   *                      more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -24117,7 +24121,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListReconciliationBreakDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfReconciliationBreakDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -24168,7 +24172,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListReconciliationBreakDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfReconciliationBreakDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -24177,8 +24181,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListReconciliationBreakDto} for more
-   *                      information.
+   *                      See {@link ResourceListOfReconciliationBreakDto} for
+   *                      more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -24228,7 +24232,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListPortfolioDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPortfolioDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -24275,7 +24279,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListPortfolioDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPortfolioDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -24284,7 +24288,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListPortfolioDto} for more
+   *                      See {@link ResourceListOfPortfolioDto} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -24463,7 +24467,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListReferencePortfolioConstituentDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfReferencePortfolioConstituentDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -24504,7 +24508,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListReferencePortfolioConstituentDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfReferencePortfolioConstituentDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -24514,8 +24518,8 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
    *                      See {@link
-   *                      ResourceListReferencePortfolioConstituentDto} for more
-   *                      information.
+   *                      ResourceListOfReferencePortfolioConstituentDto} for
+   *                      more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -24657,7 +24661,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListReferencePortfolioConstituentDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfReferencePortfolioConstituentDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -24706,7 +24710,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListReferencePortfolioConstituentDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfReferencePortfolioConstituentDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -24716,8 +24720,8 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
    *                      See {@link
-   *                      ResourceListReferencePortfolioConstituentDto} for more
-   *                      information.
+   *                      ResourceListOfReferencePortfolioConstituentDto} for
+   *                      more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -25292,7 +25296,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListUiDataType>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfUiDataType>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -25331,7 +25335,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListUiDataType} - The deserialized result object.
+   *                      @resolve {ResourceListOfUiDataType} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -25340,7 +25344,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListUiDataType} for more
+   *                      See {@link ResourceListOfUiDataType} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.

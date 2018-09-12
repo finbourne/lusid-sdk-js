@@ -23,11 +23,16 @@
 'use strict';
 
 /**
- * Class representing a ResourceListAnalyticStoreKeyDto.
+ * Class representing a VersionedResourceListOfTradeDto.
  */
-class ResourceListAnalyticStoreKeyDto {
+class VersionedResourceListOfTradeDto {
   /**
-   * Create a ResourceListAnalyticStoreKeyDto.
+   * Create a VersionedResourceListOfTradeDto.
+   * @member {object} [version]
+   * @member {date} [version.effectiveFrom]
+   * @member {date} [version.asAtDate]
+   * @member {string} [version.updatedBy]
+   * @member {string} [version.href]
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,19 +44,27 @@ class ResourceListAnalyticStoreKeyDto {
   }
 
   /**
-   * Defines the metadata of ResourceListAnalyticStoreKeyDto
+   * Defines the metadata of VersionedResourceListOfTradeDto
    *
-   * @returns {object} metadata of ResourceListAnalyticStoreKeyDto
+   * @returns {object} metadata of VersionedResourceListOfTradeDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_AnalyticStoreKeyDto_',
+      serializedName: 'VersionedResourceListOfTradeDto',
       type: {
         name: 'Composite',
-        className: 'ResourceListAnalyticStoreKeyDto',
+        className: 'VersionedResourceListOfTradeDto',
         modelProperties: {
+          version: {
+            required: false,
+            serializedName: 'version',
+            type: {
+              name: 'Composite',
+              className: 'VersionDto'
+            }
+          },
           values: {
             required: false,
             serializedName: 'values',
@@ -59,10 +72,10 @@ class ResourceListAnalyticStoreKeyDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'AnalyticStoreKeyDtoElementType',
+                  serializedName: 'TradeDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'AnalyticStoreKeyDto'
+                    className: 'TradeDto'
                   }
               }
             }
@@ -102,4 +115,4 @@ class ResourceListAnalyticStoreKeyDto {
   }
 }
 
-module.exports = ResourceListAnalyticStoreKeyDto;
+module.exports = VersionedResourceListOfTradeDto;

@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListPropertyDataFormatDto.
+ * Class representing a ResourceListOfPropertyKey.
  */
-class ResourceListPropertyDataFormatDto {
+class ResourceListOfPropertyKey {
   /**
-   * Create a ResourceListPropertyDataFormatDto.
+   * Create a ResourceListOfPropertyKey.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListPropertyDataFormatDto {
   }
 
   /**
-   * Defines the metadata of ResourceListPropertyDataFormatDto
+   * Defines the metadata of ResourceListOfPropertyKey
    *
-   * @returns {object} metadata of ResourceListPropertyDataFormatDto
+   * @returns {object} metadata of ResourceListOfPropertyKey
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_PropertyDataFormatDto_',
+      serializedName: 'ResourceListOfPropertyKey',
       type: {
         name: 'Composite',
-        className: 'ResourceListPropertyDataFormatDto',
+        className: 'ResourceListOfPropertyKey',
         modelProperties: {
           values: {
             required: false,
@@ -59,10 +59,9 @@ class ResourceListPropertyDataFormatDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PropertyDataFormatDtoElementType',
+                  serializedName: 'StringElementType',
                   type: {
-                    name: 'Composite',
-                    className: 'PropertyDataFormatDto'
+                    name: 'String'
                   }
               }
             }
@@ -102,4 +101,4 @@ class ResourceListPropertyDataFormatDto {
   }
 }
 
-module.exports = ResourceListPropertyDataFormatDto;
+module.exports = ResourceListOfPropertyKey;

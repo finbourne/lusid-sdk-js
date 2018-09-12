@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListTxnMetaDataDto.
+ * Class representing a ResourceListOfAnalyticStoreKeyDto.
  */
-class ResourceListTxnMetaDataDto {
+class ResourceListOfAnalyticStoreKeyDto {
   /**
-   * Create a ResourceListTxnMetaDataDto.
+   * Create a ResourceListOfAnalyticStoreKeyDto.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListTxnMetaDataDto {
   }
 
   /**
-   * Defines the metadata of ResourceListTxnMetaDataDto
+   * Defines the metadata of ResourceListOfAnalyticStoreKeyDto
    *
-   * @returns {object} metadata of ResourceListTxnMetaDataDto
+   * @returns {object} metadata of ResourceListOfAnalyticStoreKeyDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_TxnMetaDataDto_',
+      serializedName: 'ResourceListOfAnalyticStoreKeyDto',
       type: {
         name: 'Composite',
-        className: 'ResourceListTxnMetaDataDto',
+        className: 'ResourceListOfAnalyticStoreKeyDto',
         modelProperties: {
           values: {
             required: false,
@@ -59,10 +59,10 @@ class ResourceListTxnMetaDataDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'TxnMetaDataDtoElementType',
+                  serializedName: 'AnalyticStoreKeyDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'TxnMetaDataDto'
+                    className: 'AnalyticStoreKeyDto'
                   }
               }
             }
@@ -102,4 +102,4 @@ class ResourceListTxnMetaDataDto {
   }
 }
 
-module.exports = ResourceListTxnMetaDataDto;
+module.exports = ResourceListOfAnalyticStoreKeyDto;

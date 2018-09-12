@@ -23,75 +23,80 @@
 'use strict';
 
 /**
- * Class representing a ResourceListProcessedCommandDto.
+ * Class representing a AggregationResponseNodeOfDictionaryOfStringToObject.
  */
-class ResourceListProcessedCommandDto {
+class AggregationResponseNodeOfDictionaryOfStringToObject {
   /**
-   * Create a ResourceListProcessedCommandDto.
-   * @member {array} [values]
-   * @member {string} [href] The Uri that returns the same result as the
-   * original request,
-   * but may include resolved as at time(s).
-   * @member {number} [count] The total number of records returned in the set
-   * @member {array} [_links]
+   * Create a AggregationResponseNodeOfDictionaryOfStringToObject.
+   * @member {string} [groupPropertyKey]
+   * @member {string} [groupPropertyValue]
+   * @member {number} [idx]
+   * @member {object} [properties]
+   * @member {array} [children]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of ResourceListProcessedCommandDto
+   * Defines the metadata of AggregationResponseNodeOfDictionaryOfStringToObject
    *
-   * @returns {object} metadata of ResourceListProcessedCommandDto
+   * @returns {object} metadata of AggregationResponseNodeOfDictionaryOfStringToObject
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_ProcessedCommandDto_',
+      serializedName: 'AggregationResponseNodeOfDictionaryOfStringToObject',
       type: {
         name: 'Composite',
-        className: 'ResourceListProcessedCommandDto',
+        className: 'AggregationResponseNodeOfDictionaryOfStringToObject',
         modelProperties: {
-          values: {
+          groupPropertyKey: {
             required: false,
-            serializedName: 'values',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'ProcessedCommandDtoElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'ProcessedCommandDto'
-                  }
-              }
-            }
-          },
-          href: {
-            required: false,
-            serializedName: 'href',
+            serializedName: 'groupPropertyKey',
             type: {
               name: 'String'
             }
           },
-          count: {
+          groupPropertyValue: {
             required: false,
-            serializedName: 'count',
+            serializedName: 'groupPropertyValue',
+            type: {
+              name: 'String'
+            }
+          },
+          idx: {
+            required: false,
+            serializedName: 'idx',
             type: {
               name: 'Number'
             }
           },
-          _links: {
+          properties: {
             required: false,
-            serializedName: '_links',
+            serializedName: 'properties',
+            type: {
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'ObjectElementType',
+                  type: {
+                    name: 'Object'
+                  }
+              }
+            }
+          },
+          children: {
+            required: false,
+            serializedName: 'children',
             type: {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'LinkElementType',
+                  serializedName: 'AggregationResponseNodeOfDictionaryOfStringToObjectElementType',
                   type: {
                     name: 'Composite',
-                    className: 'Link'
+                    className: 'AggregationResponseNodeOfDictionaryOfStringToObject'
                   }
               }
             }
@@ -102,4 +107,4 @@ class ResourceListProcessedCommandDto {
   }
 }
 
-module.exports = ResourceListProcessedCommandDto;
+module.exports = AggregationResponseNodeOfDictionaryOfStringToObject;

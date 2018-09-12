@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListSecurityDto.
+ * Class representing a ResourceListOfPortfolioSearchResult.
  */
-class ResourceListSecurityDto {
+class ResourceListOfPortfolioSearchResult {
   /**
-   * Create a ResourceListSecurityDto.
+   * Create a ResourceListOfPortfolioSearchResult.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListSecurityDto {
   }
 
   /**
-   * Defines the metadata of ResourceListSecurityDto
+   * Defines the metadata of ResourceListOfPortfolioSearchResult
    *
-   * @returns {object} metadata of ResourceListSecurityDto
+   * @returns {object} metadata of ResourceListOfPortfolioSearchResult
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_SecurityDto_',
+      serializedName: 'ResourceListOfPortfolioSearchResult',
       type: {
         name: 'Composite',
-        className: 'ResourceListSecurityDto',
+        className: 'ResourceListOfPortfolioSearchResult',
         modelProperties: {
           values: {
             required: false,
@@ -59,10 +59,10 @@ class ResourceListSecurityDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'SecurityDtoElementType',
+                  serializedName: 'PortfolioSearchResultElementType',
                   type: {
                     name: 'Composite',
-                    className: 'SecurityDto'
+                    className: 'PortfolioSearchResult'
                   }
               }
             }
@@ -102,4 +102,4 @@ class ResourceListSecurityDto {
   }
 }
 
-module.exports = ResourceListSecurityDto;
+module.exports = ResourceListOfPortfolioSearchResult;

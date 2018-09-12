@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListPropertyDefinitionDto.
+ * Class representing a ResourceListOfPersonalisationDto.
  */
-class ResourceListPropertyDefinitionDto {
+class ResourceListOfPersonalisationDto {
   /**
-   * Create a ResourceListPropertyDefinitionDto.
+   * Create a ResourceListOfPersonalisationDto.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListPropertyDefinitionDto {
   }
 
   /**
-   * Defines the metadata of ResourceListPropertyDefinitionDto
+   * Defines the metadata of ResourceListOfPersonalisationDto
    *
-   * @returns {object} metadata of ResourceListPropertyDefinitionDto
+   * @returns {object} metadata of ResourceListOfPersonalisationDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceList_PropertyDefinitionDto_',
+      serializedName: 'ResourceListOfPersonalisationDto',
       type: {
         name: 'Composite',
-        className: 'ResourceListPropertyDefinitionDto',
+        className: 'ResourceListOfPersonalisationDto',
         modelProperties: {
           values: {
             required: false,
@@ -59,10 +59,10 @@ class ResourceListPropertyDefinitionDto {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PropertyDefinitionDtoElementType',
+                  serializedName: 'PersonalisationDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PropertyDefinitionDto'
+                    className: 'PersonalisationDto'
                   }
               }
             }
@@ -102,4 +102,4 @@ class ResourceListPropertyDefinitionDto {
   }
 }
 
-module.exports = ResourceListPropertyDefinitionDto;
+module.exports = ResourceListOfPersonalisationDto;
