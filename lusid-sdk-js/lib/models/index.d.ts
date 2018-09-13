@@ -89,7 +89,7 @@ export interface ErrorDetailBase {
  * 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
  * 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
  * 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
- * 'InvalidSecurityIdentifierUnit'
+ * 'InvalidSecurityIdentifierUnit', 'HoldingsAdjustmentDoesNotExist'
  * @member {string} [message]
  * @member {string} [detailedMessage]
  * @member {array} [items]
@@ -326,7 +326,7 @@ export interface AnalyticStoreDto {
  * Initializes a new instance of the Link class.
  * @constructor
  * @member {string} relation Possible values include: 'Root', 'Properties',
- * 'Trades', 'Details', 'Constituents'
+ * 'Trades', 'Details', 'Constituents', 'HoldingsAdjustment'
  * @member {string} href
  * @member {string} [description]
  * @member {string} method Possible values include: 'POST', 'GET', 'PATCH',
@@ -1342,6 +1342,58 @@ export interface AdjustHoldingsDto {
 
 /**
  * @class
+ * Initializes a new instance of the HoldingsAdjustmentHeaderDto class.
+ * @constructor
+ * Summary information of a holdings adjustment for a single portfolio and
+ * effective date.
+ *
+ * @member {date} [effectiveAt] There can be at most one holdings adjustment
+ * for a portfolio at a
+ * specific effective time so this uniquely identifies the adjustment.
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.updatedBy]
+ * @member {string} [version.href]
+ * @member {string} [unmatchedHoldingMethod] Possible values include:
+ * 'PositionToZero', 'KeepTheSame'
+ * @member {array} [_links]
+ */
+export interface HoldingsAdjustmentHeaderDto {
+  effectiveAt?: Date;
+  version?: VersionDto;
+  unmatchedHoldingMethod?: string;
+  _links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the HoldingsAdjustmentDto class.
+ * @constructor
+ * Full content of a holdings adjustment for a single portfolio and effective
+ * date.
+ *
+ * @member {date} [effectiveAt] There can be at most one holdings adjustment
+ * for a portfolio at a
+ * specific effective time so this uniquely identifies the adjustment.
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.updatedBy]
+ * @member {string} [version.href]
+ * @member {string} [unmatchedHoldingMethod] Possible values include:
+ * 'PositionToZero', 'KeepTheSame'
+ * @member {array} [adjustments]
+ */
+export interface HoldingsAdjustmentDto {
+  effectiveAt?: Date;
+  version?: VersionDto;
+  unmatchedHoldingMethod?: string;
+  adjustments?: AdjustHoldingRequest[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the PortfolioPropertiesDto class.
  * @constructor
  * @member {string} [href]
@@ -2022,7 +2074,8 @@ export interface KeyValuePairOfStringToFieldSchema {
  * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
  * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
  * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
- * 'TargetTaxlot', 'AdjustHoldingRequest'
+ * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
+ * 'HoldingsAdjustmentHeader'
  * @member {string} [href]
  * @member {array} [values]
  */

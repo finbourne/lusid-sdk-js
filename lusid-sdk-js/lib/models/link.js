@@ -29,7 +29,7 @@ class Link {
   /**
    * Create a Link.
    * @member {string} relation Possible values include: 'Root', 'Properties',
-   * 'Trades', 'Details', 'Constituents'
+   * 'Trades', 'Details', 'Constituents', 'HoldingsAdjustment'
    * @member {string} href
    * @member {string} [description]
    * @member {string} method Possible values include: 'POST', 'GET', 'PATCH',

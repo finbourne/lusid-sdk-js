@@ -8558,6 +8558,312 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
 }
 
 /**
+ * @summary Gets holdings adjustments in an interval of effective time.
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code Code for the portfolio
+ *
+ * @param {date} fromEffectiveAt Events between this time (inclusive) and the
+ * toEffectiveAt are returned.
+ *
+ * @param {date} toEffectiveAt Events between this time (inclusive) and the
+ * fromEffectiveAt are returned.
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.asAtTime] The as-at time for which the result is
+ * valid.
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link HoldingsAdjustmentHeaderDto} for more
+ *                      information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let asAtTime = (options && options.asAtTime !== undefined) ? options.asAtTime : undefined;
+  // Validate
+  try {
+    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
+      throw new Error('scope cannot be null or undefined and it must be of type string.');
+    }
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
+    }
+    if(!fromEffectiveAt || !(fromEffectiveAt instanceof Date ||
+        (typeof fromEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(fromEffectiveAt))))) {
+          throw new Error('fromEffectiveAt cannot be null or undefined and it must be of type date.');
+        }
+    if(!toEffectiveAt || !(toEffectiveAt instanceof Date ||
+        (typeof toEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(toEffectiveAt))))) {
+          throw new Error('toEffectiveAt cannot be null or undefined and it must be of type date.');
+        }
+    if (asAtTime && !(asAtTime instanceof Date ||
+        (typeof asAtTime.valueOf() === 'string' && !isNaN(Date.parse(asAtTime))))) {
+          throw new Error('asAtTime must be of type date.');
+        }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/portfolios/{scope}/{code}/holdingsadjustments';
+  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
+  let queryParameters = [];
+  queryParameters.push('fromEffectiveAt=' + encodeURIComponent(client.serializeObject(fromEffectiveAt)));
+  queryParameters.push('toEffectiveAt=' + encodeURIComponent(client.serializeObject(toEffectiveAt)));
+  if (asAtTime !== null && asAtTime !== undefined) {
+    queryParameters.push('asAtTime=' + encodeURIComponent(client.serializeObject(asAtTime)));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'GET';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  httpRequest.body = null;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['HoldingsAdjustmentHeaderDto']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Get a holdings adjustment for a single portfolio at a specific
+ * effective time.
+ * If no adjustment exists at this effective time, not found is returned.
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code Code for the portfolio
+ *
+ * @param {date} effectiveAt The effective time of the holdings adjustment.
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.asAtTime] The as-at time for which the result is
+ * valid.
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link HoldingsAdjustmentDto} for more information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _getHoldingsAdjustment(scope, code, effectiveAt, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let asAtTime = (options && options.asAtTime !== undefined) ? options.asAtTime : undefined;
+  // Validate
+  try {
+    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
+      throw new Error('scope cannot be null or undefined and it must be of type string.');
+    }
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
+    }
+    if(!effectiveAt || !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt cannot be null or undefined and it must be of type date.');
+        }
+    if (asAtTime && !(asAtTime instanceof Date ||
+        (typeof asAtTime.valueOf() === 'string' && !isNaN(Date.parse(asAtTime))))) {
+          throw new Error('asAtTime must be of type date.');
+        }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/portfolios/{scope}/{code}/holdingsadjustments/{effectiveAt}';
+  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
+  requestUrl = requestUrl.replace('{effectiveAt}', encodeURIComponent(client.serializeObject(effectiveAt)));
+  let queryParameters = [];
+  if (asAtTime !== null && asAtTime !== undefined) {
+    queryParameters.push('asAtTime=' + encodeURIComponent(client.serializeObject(asAtTime)));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'GET';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  httpRequest.body = null;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['HoldingsAdjustmentDto']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
  * @summary Get properties
  *
  * Get properties attached to the portfolio.  If the asAt is not specified then
@@ -14355,7 +14661,8 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
  * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
  * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
- * 'TargetTaxlot', 'AdjustHoldingRequest'
+ * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
+ * 'HoldingsAdjustmentHeader'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -15670,6 +15977,8 @@ class LUSIDAPI extends ServiceClient {
     this._adjustAllHoldings = _adjustAllHoldings;
     this._cancelAdjustHoldings = _cancelAdjustHoldings;
     this._adjustHoldings = _adjustHoldings;
+    this._listHoldingsAdjustments = _listHoldingsAdjustments;
+    this._getHoldingsAdjustment = _getHoldingsAdjustment;
     this._getProperties = _getProperties;
     this._upsertPortfolioProperties = _upsertPortfolioProperties;
     this._deletePortfolioProperty = _deletePortfolioProperty;
@@ -21371,6 +21680,211 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Gets holdings adjustments in an interval of effective time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} fromEffectiveAt Events between this time (inclusive) and the
+   * toEffectiveAt are returned.
+   *
+   * @param {date} toEffectiveAt Events between this time (inclusive) and the
+   * fromEffectiveAt are returned.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<HoldingsAdjustmentHeaderDto>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  listHoldingsAdjustmentsWithHttpOperationResponse(scope, code, fromEffectiveAt, toEffectiveAt, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Gets holdings adjustments in an interval of effective time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} fromEffectiveAt Events between this time (inclusive) and the
+   * toEffectiveAt are returned.
+   *
+   * @param {date} toEffectiveAt Events between this time (inclusive) and the
+   * fromEffectiveAt are returned.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {HoldingsAdjustmentHeaderDto} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link HoldingsAdjustmentHeaderDto} for more
+   *                      information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Get a holdings adjustment for a single portfolio at a specific
+   * effective time.
+   * If no adjustment exists at this effective time, not found is returned.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt The effective time of the holdings adjustment.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<HoldingsAdjustmentDto>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  getHoldingsAdjustmentWithHttpOperationResponse(scope, code, effectiveAt, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._getHoldingsAdjustment(scope, code, effectiveAt, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Get a holdings adjustment for a single portfolio at a specific
+   * effective time.
+   * If no adjustment exists at this effective time, not found is returned.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt The effective time of the holdings adjustment.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {HoldingsAdjustmentDto} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link HoldingsAdjustmentDto} for more information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getHoldingsAdjustment(scope, code, effectiveAt, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._getHoldingsAdjustment(scope, code, effectiveAt, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._getHoldingsAdjustment(scope, code, effectiveAt, options, optionalCallback);
+    }
+  }
+
+  /**
    * @summary Get properties
    *
    * Get properties attached to the portfolio.  If the asAt is not specified then
@@ -25087,7 +25601,8 @@ class LUSIDAPI extends ServiceClient {
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
    * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-   * 'TargetTaxlot', 'AdjustHoldingRequest'
+   * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
+   * 'HoldingsAdjustmentHeader'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -25141,7 +25656,8 @@ class LUSIDAPI extends ServiceClient {
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
    * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-   * 'TargetTaxlot', 'AdjustHoldingRequest'
+   * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
+   * 'HoldingsAdjustmentHeader'
    *
    * @param {object} [options] Optional Parameters.
    *

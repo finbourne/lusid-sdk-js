@@ -66,7 +66,7 @@ class ErrorResponse {
    * 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
    * 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
    * 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
-   * 'InvalidSecurityIdentifierUnit'
+   * 'InvalidSecurityIdentifierUnit', 'HoldingsAdjustmentDoesNotExist'
    * @member {string} [message]
    * @member {string} [detailedMessage]
    * @member {array} [items]

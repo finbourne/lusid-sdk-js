@@ -4164,6 +4164,157 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Gets holdings adjustments in an interval of effective time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} fromEffectiveAt Events between this time (inclusive) and the
+   * toEffectiveAt are returned.
+   *
+   * @param {date} toEffectiveAt Events between this time (inclusive) and the
+   * fromEffectiveAt are returned.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<HoldingsAdjustmentHeaderDto>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  listHoldingsAdjustmentsWithHttpOperationResponse(scope: string, code: string, fromEffectiveAt: Date|string, toEffectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.HoldingsAdjustmentHeaderDto>>;
+
+  /**
+   * @summary Gets holdings adjustments in an interval of effective time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} fromEffectiveAt Events between this time (inclusive) and the
+   * toEffectiveAt are returned.
+   *
+   * @param {date} toEffectiveAt Events between this time (inclusive) and the
+   * fromEffectiveAt are returned.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {HoldingsAdjustmentHeaderDto} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {HoldingsAdjustmentHeaderDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link HoldingsAdjustmentHeaderDto} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listHoldingsAdjustments(scope: string, code: string, fromEffectiveAt: Date|string, toEffectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.HoldingsAdjustmentHeaderDto>;
+  listHoldingsAdjustments(scope: string, code: string, fromEffectiveAt: Date|string, toEffectiveAt: Date|string, callback: ServiceCallback<models.HoldingsAdjustmentHeaderDto>): void;
+  listHoldingsAdjustments(scope: string, code: string, fromEffectiveAt: Date|string, toEffectiveAt: Date|string, options: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.HoldingsAdjustmentHeaderDto>): void;
+
+
+  /**
+   * @summary Get a holdings adjustment for a single portfolio at a specific
+   * effective time.
+   * If no adjustment exists at this effective time, not found is returned.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt The effective time of the holdings adjustment.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<HoldingsAdjustmentDto>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getHoldingsAdjustmentWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.HoldingsAdjustmentDto>>;
+
+  /**
+   * @summary Get a holdings adjustment for a single portfolio at a specific
+   * effective time.
+   * If no adjustment exists at this effective time, not found is returned.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt The effective time of the holdings adjustment.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {HoldingsAdjustmentDto} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {HoldingsAdjustmentDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link HoldingsAdjustmentDto} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.HoldingsAdjustmentDto>;
+  getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.HoldingsAdjustmentDto>): void;
+  getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date|string, options: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.HoldingsAdjustmentDto>): void;
+
+
+  /**
    * @summary Get properties
    *
    * Get properties attached to the portfolio.  If the asAt is not specified then
@@ -6935,7 +7086,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
    * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-   * 'TargetTaxlot', 'AdjustHoldingRequest'
+   * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
+   * 'HoldingsAdjustmentHeader'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6977,7 +7129,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
    * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-   * 'TargetTaxlot', 'AdjustHoldingRequest'
+   * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
+   * 'HoldingsAdjustmentHeader'
    *
    * @param {object} [options] Optional Parameters.
    *
