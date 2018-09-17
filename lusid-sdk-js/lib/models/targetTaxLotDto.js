@@ -29,7 +29,7 @@
 class TargetTaxLotDto {
   /**
    * Create a TargetTaxLotDto.
-   * @member {number} units Quantity of holding
+   * @member {number} [units] Quantity of holding
    * @member {number} [cost] Book cost of holding in trade currency
    * @member {number} [portfolioCost] Book cost of holding in portfolio
    * currency
@@ -58,7 +58,7 @@ class TargetTaxLotDto {
         className: 'TargetTaxLotDto',
         modelProperties: {
           units: {
-            required: true,
+            required: false,
             serializedName: 'units',
             type: {
               name: 'Number'

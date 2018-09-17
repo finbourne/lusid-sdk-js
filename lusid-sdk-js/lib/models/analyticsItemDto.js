@@ -29,8 +29,8 @@ class AnalyticsItemDto {
   /**
    * Create a AnalyticsItemDto.
    * @member {string} label
-   * @member {string} securityUid
-   * @member {date} analyticDate
+   * @member {string} [securityUid]
+   * @member {date} [analyticDate]
    * @member {string} [recipeScope]
    * @member {string} recipeKey
    * @member {object} metricKey
@@ -61,14 +61,14 @@ class AnalyticsItemDto {
             }
           },
           securityUid: {
-            required: true,
+            required: false,
             serializedName: 'securityUid',
             type: {
               name: 'String'
             }
           },
           analyticDate: {
-            required: true,
+            required: false,
             serializedName: 'analyticDate',
             type: {
               name: 'DateTime'

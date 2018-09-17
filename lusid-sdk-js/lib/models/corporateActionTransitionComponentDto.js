@@ -28,9 +28,9 @@
 class CorporateActionTransitionComponentDto {
   /**
    * Create a CorporateActionTransitionComponentDto.
-   * @member {string} securityUid
-   * @member {number} unitsFactor
-   * @member {number} costFactor
+   * @member {string} [securityUid]
+   * @member {number} [unitsFactor]
+   * @member {number} [costFactor]
    */
   constructor() {
   }
@@ -50,21 +50,21 @@ class CorporateActionTransitionComponentDto {
         className: 'CorporateActionTransitionComponentDto',
         modelProperties: {
           securityUid: {
-            required: true,
+            required: false,
             serializedName: 'securityUid',
             type: {
               name: 'String'
             }
           },
           unitsFactor: {
-            required: true,
+            required: false,
             serializedName: 'unitsFactor',
             type: {
               name: 'Number'
             }
           },
           costFactor: {
-            required: true,
+            required: false,
             serializedName: 'costFactor',
             type: {
               name: 'Number'

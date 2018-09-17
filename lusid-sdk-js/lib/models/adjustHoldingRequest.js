@@ -31,7 +31,7 @@
 class AdjustHoldingRequest {
   /**
    * Create a AdjustHoldingRequest.
-   * @member {string} securityUid Unique security identifier
+   * @member {string} [securityUid] Unique security identifier
    * @member {array} [subHoldingKeys] Key fields to uniquely index the sub
    * holdings of a security
    * @member {array} [properties] Arbitrary properties to store with the
@@ -56,7 +56,7 @@ class AdjustHoldingRequest {
         className: 'AdjustHoldingRequest',
         modelProperties: {
           securityUid: {
-            required: true,
+            required: false,
             serializedName: 'securityUid',
             type: {
               name: 'String'

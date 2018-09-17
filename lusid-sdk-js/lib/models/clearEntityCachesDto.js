@@ -28,7 +28,7 @@
 class ClearEntityCachesDto {
   /**
    * Create a ClearEntityCachesDto.
-   * @member {number} numberOfItemsCleared The total number of items cleared
+   * @member {number} [numberOfItemsCleared] The total number of items cleared
    * from all instances of the caches on this machine instance
    */
   constructor() {
@@ -49,7 +49,7 @@ class ClearEntityCachesDto {
         className: 'ClearEntityCachesDto',
         modelProperties: {
           numberOfItemsCleared: {
-            required: true,
+            required: false,
             serializedName: 'numberOfItemsCleared',
             type: {
               name: 'Number'

@@ -34,8 +34,8 @@ class TxnTypeAliasDto {
    * StockIn/StockOut
    * @member {string} txnGroup Group is a set of codes related to a source, or
    * sync
-   * @member {string} txnRoles Transactions role within a class. E.g. Increase
-   * a long position. Possible values include: 'None', 'LongLonger',
+   * @member {string} [txnRoles] Transactions role within a class. E.g.
+   * Increase a long position. Possible values include: 'None', 'LongLonger',
    * 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
    * 'AllRoles'
    */
@@ -85,7 +85,7 @@ class TxnTypeAliasDto {
             }
           },
           txnRoles: {
-            required: true,
+            required: false,
             serializedName: 'txnRoles',
             type: {
               name: 'String'

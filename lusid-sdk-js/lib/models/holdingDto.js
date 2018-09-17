@@ -28,14 +28,14 @@
 class HoldingDto {
   /**
    * Create a HoldingDto.
-   * @member {string} securityUid Unique security identifier
+   * @member {string} [securityUid] Unique security identifier
    * @member {array} [properties]
    * @member {string} holdingType Type of holding, eg Position, Balance,
    * CashCommitment, Receivable, ForwardFX
-   * @member {number} units Quantity of holding
-   * @member {number} settledUnits Settled quantity of holding
-   * @member {number} cost Book cost of holding in trade currency
-   * @member {number} costPortfolioCcy Book cost of holding in portfolio
+   * @member {number} [units] Quantity of holding
+   * @member {number} [settledUnits] Settled quantity of holding
+   * @member {number} [cost] Book cost of holding in trade currency
+   * @member {number} [costPortfolioCcy] Book cost of holding in portfolio
    * currency
    * @member {object} [transaction] If this is commitment-type holding, the
    * transaction behind it
@@ -83,7 +83,7 @@ class HoldingDto {
         className: 'HoldingDto',
         modelProperties: {
           securityUid: {
-            required: true,
+            required: false,
             serializedName: 'securityUid',
             type: {
               name: 'String'
@@ -112,28 +112,28 @@ class HoldingDto {
             }
           },
           units: {
-            required: true,
+            required: false,
             serializedName: 'units',
             type: {
               name: 'Number'
             }
           },
           settledUnits: {
-            required: true,
+            required: false,
             serializedName: 'settledUnits',
             type: {
               name: 'Number'
             }
           },
           cost: {
-            required: true,
+            required: false,
             serializedName: 'cost',
             type: {
               name: 'Number'
             }
           },
           costPortfolioCcy: {
-            required: true,
+            required: false,
             serializedName: 'costPortfolioCcy',
             type: {
               name: 'Number'

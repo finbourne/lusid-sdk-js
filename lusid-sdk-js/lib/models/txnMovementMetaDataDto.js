@@ -28,12 +28,12 @@
 class TxnMovementMetaDataDto {
   /**
    * Create a TxnMovementMetaDataDto.
-   * @member {string} movementTypes The Movement Types. Possible values
+   * @member {string} [movementTypes] The Movement Types. Possible values
    * include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
    * 'CashSettlement', 'Accrual', 'UnsettledCashTypes'
-   * @member {string} side The Movement Side. Possible values include: 'Side1',
-   * 'Side2', 'BondInt'
-   * @member {number} direction The Movement direction
+   * @member {string} [side] The Movement Side. Possible values include:
+   * 'Side1', 'Side2', 'BondInt'
+   * @member {number} [direction] The Movement direction
    * @member {array} [properties]
    * @member {array} [mappings]
    */
@@ -55,21 +55,21 @@ class TxnMovementMetaDataDto {
         className: 'TxnMovementMetaDataDto',
         modelProperties: {
           movementTypes: {
-            required: true,
+            required: false,
             serializedName: 'movementTypes',
             type: {
               name: 'String'
             }
           },
           side: {
-            required: true,
+            required: false,
             serializedName: 'side',
             type: {
               name: 'String'
             }
           },
           direction: {
-            required: true,
+            required: false,
             serializedName: 'direction',
             type: {
               name: 'Number'

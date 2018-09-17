@@ -29,10 +29,10 @@ class UpsertCorporateActionRequest {
   /**
    * Create a UpsertCorporateActionRequest.
    * @member {string} corporateActionId
-   * @member {date} announcementDate
-   * @member {date} exDate
-   * @member {date} recordDate
-   * @member {date} paymentDate
+   * @member {date} [announcementDate]
+   * @member {date} [exDate]
+   * @member {date} [recordDate]
+   * @member {date} [paymentDate]
    * @member {array} transitions
    */
   constructor() {
@@ -60,28 +60,28 @@ class UpsertCorporateActionRequest {
             }
           },
           announcementDate: {
-            required: true,
+            required: false,
             serializedName: 'announcementDate',
             type: {
               name: 'DateTime'
             }
           },
           exDate: {
-            required: true,
+            required: false,
             serializedName: 'exDate',
             type: {
               name: 'DateTime'
             }
           },
           recordDate: {
-            required: true,
+            required: false,
             serializedName: 'recordDate',
             type: {
               name: 'DateTime'
             }
           },
           paymentDate: {
-            required: true,
+            required: false,
             serializedName: 'paymentDate',
             type: {
               name: 'DateTime'

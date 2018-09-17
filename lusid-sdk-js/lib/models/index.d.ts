@@ -27,11 +27,11 @@ import * as moment from "moment";
  * @class
  * Initializes a new instance of the ClearEntityCachesDto class.
  * @constructor
- * @member {number} numberOfItemsCleared The total number of items cleared from
- * all instances of the caches on this machine instance
+ * @member {number} [numberOfItemsCleared] The total number of items cleared
+ * from all instances of the caches on this machine instance
  */
 export interface ClearEntityCachesDto {
-  numberOfItemsCleared: number;
+  numberOfItemsCleared?: number;
 }
 
 /**
@@ -389,8 +389,8 @@ export interface SecurityAnalyticDataDto {
  * Initializes a new instance of the AnalyticsItemDto class.
  * @constructor
  * @member {string} label
- * @member {string} securityUid
- * @member {date} analyticDate
+ * @member {string} [securityUid]
+ * @member {date} [analyticDate]
  * @member {string} [recipeScope]
  * @member {string} recipeKey
  * @member {object} metricKey
@@ -398,8 +398,8 @@ export interface SecurityAnalyticDataDto {
  */
 export interface AnalyticsItemDto {
   label: string;
-  securityUid: string;
-  analyticDate: Date;
+  securityUid?: string;
+  analyticDate?: Date;
   recipeScope?: string;
   recipeKey: string;
   metricKey: { [propertyName: string]: any };
@@ -466,16 +466,17 @@ export interface ClassificationsDto {
  * StockIn/StockOut
  * @member {string} txnGroup Group is a set of codes related to a source, or
  * sync
- * @member {string} txnRoles Transactions role within a class. E.g. Increase a
- * long position. Possible values include: 'None', 'LongLonger', 'LongShorter',
- * 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter', 'AllRoles'
+ * @member {string} [txnRoles] Transactions role within a class. E.g. Increase
+ * a long position. Possible values include: 'None', 'LongLonger',
+ * 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
+ * 'AllRoles'
  */
 export interface TxnTypeAliasDto {
   type: string;
   description: string;
   txnClass: string;
   txnGroup: string;
-  txnRoles: string;
+  txnRoles?: string;
 }
 
 /**
@@ -512,19 +513,19 @@ export interface TxnPropertyMappingDto {
  * @class
  * Initializes a new instance of the TxnMovementMetaDataDto class.
  * @constructor
- * @member {string} movementTypes The Movement Types. Possible values include:
- * 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
+ * @member {string} [movementTypes] The Movement Types. Possible values
+ * include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
  * 'CashSettlement', 'Accrual', 'UnsettledCashTypes'
- * @member {string} side The Movement Side. Possible values include: 'Side1',
+ * @member {string} [side] The Movement Side. Possible values include: 'Side1',
  * 'Side2', 'BondInt'
- * @member {number} direction The Movement direction
+ * @member {number} [direction] The Movement direction
  * @member {array} [properties]
  * @member {array} [mappings]
  */
 export interface TxnMovementMetaDataDto {
-  movementTypes: string;
-  side: string;
-  direction: number;
+  movementTypes?: string;
+  side?: string;
+  direction?: number;
   properties?: PropertyDto[];
   mappings?: TxnPropertyMappingDto[];
 }
@@ -566,14 +567,14 @@ export interface ResourceListOfTxnMetaDataDto {
  * @class
  * Initializes a new instance of the CorporateActionTransitionComponentDto class.
  * @constructor
- * @member {string} securityUid
- * @member {number} unitsFactor
- * @member {number} costFactor
+ * @member {string} [securityUid]
+ * @member {number} [unitsFactor]
+ * @member {number} [costFactor]
  */
 export interface CorporateActionTransitionComponentDto {
-  securityUid: string;
-  unitsFactor: number;
-  costFactor: number;
+  securityUid?: string;
+  unitsFactor?: number;
+  costFactor?: number;
 }
 
 /**
@@ -599,18 +600,18 @@ export interface CorporateActionTransitionDto {
  * Initializes a new instance of the UpsertCorporateActionRequest class.
  * @constructor
  * @member {string} corporateActionId
- * @member {date} announcementDate
- * @member {date} exDate
- * @member {date} recordDate
- * @member {date} paymentDate
+ * @member {date} [announcementDate]
+ * @member {date} [exDate]
+ * @member {date} [recordDate]
+ * @member {date} [paymentDate]
  * @member {array} transitions
  */
 export interface UpsertCorporateActionRequest {
   corporateActionId: string;
-  announcementDate: Date;
-  exDate: Date;
-  recordDate: Date;
-  paymentDate: Date;
+  announcementDate?: Date;
+  exDate?: Date;
+  recordDate?: Date;
+  paymentDate?: Date;
   transitions: CorporateActionTransitionDto[];
 }
 
@@ -1141,19 +1142,19 @@ export interface PerpetualPropertyDto {
  * @member {string} tradeId Unique trade identifier
  * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
  * StockOut, etc
- * @member {string} securityUid Unique security identifier
- * @member {date} tradeDate Trade date
- * @member {date} settlementDate Settlement date
- * @member {number} units Quantity of trade in units of the security
- * @member {number} tradePrice Execution price for the trade
- * @member {number} totalConsideration Total value of the trade
+ * @member {string} [securityUid] Unique security identifier
+ * @member {date} [tradeDate] Trade date
+ * @member {date} [settlementDate] Settlement date
+ * @member {number} [units] Quantity of trade in units of the security
+ * @member {number} [tradePrice] Execution price for the trade
+ * @member {number} [totalConsideration] Total value of the trade
  * @member {number} [exchangeRate] Rate between trade and settle currency
  * @member {string} settlementCurrency Settlement currency
  * @member {string} [tradeCurrency] Trade currency
  * @member {array} [properties]
  * @member {string} [counterpartyId] Counterparty identifier
- * @member {string} source Where this trade came from, either Client or System.
- * Possible values include: 'System', 'Client'
+ * @member {string} [source] Where this trade came from, either Client or
+ * System. Possible values include: 'System', 'Client'
  * @member {string} [dividendState] Possible values include: 'Default',
  * 'ExDividend', 'CumDividend'
  * @member {string} [tradePriceType] Possible values include: 'Price', 'Yield',
@@ -1165,18 +1166,18 @@ export interface PerpetualPropertyDto {
 export interface TradeDto {
   tradeId: string;
   type: string;
-  securityUid: string;
-  tradeDate: Date;
-  settlementDate: Date;
-  units: number;
-  tradePrice: number;
-  totalConsideration: number;
+  securityUid?: string;
+  tradeDate?: Date;
+  settlementDate?: Date;
+  units?: number;
+  tradePrice?: number;
+  totalConsideration?: number;
   exchangeRate?: number;
   settlementCurrency: string;
   tradeCurrency?: string;
   properties?: PerpetualPropertyDto[];
   counterpartyId?: string;
-  source: string;
+  source?: string;
   dividendState?: string;
   tradePriceType?: string;
   unitType?: string;
@@ -1187,14 +1188,15 @@ export interface TradeDto {
  * @class
  * Initializes a new instance of the HoldingDto class.
  * @constructor
- * @member {string} securityUid Unique security identifier
+ * @member {string} [securityUid] Unique security identifier
  * @member {array} [properties]
  * @member {string} holdingType Type of holding, eg Position, Balance,
  * CashCommitment, Receivable, ForwardFX
- * @member {number} units Quantity of holding
- * @member {number} settledUnits Settled quantity of holding
- * @member {number} cost Book cost of holding in trade currency
- * @member {number} costPortfolioCcy Book cost of holding in portfolio currency
+ * @member {number} [units] Quantity of holding
+ * @member {number} [settledUnits] Settled quantity of holding
+ * @member {number} [cost] Book cost of holding in trade currency
+ * @member {number} [costPortfolioCcy] Book cost of holding in portfolio
+ * currency
  * @member {object} [transaction] If this is commitment-type holding, the
  * transaction behind it
  * @member {string} [transaction.tradeId] Unique trade identifier
@@ -1224,13 +1226,13 @@ export interface TradeDto {
  * @member {string} [transaction.nettingSet]
  */
 export interface HoldingDto {
-  securityUid: string;
+  securityUid?: string;
   properties?: PropertyDto[];
   holdingType: string;
-  units: number;
-  settledUnits: number;
-  cost: number;
-  costPortfolioCcy: number;
+  units?: number;
+  settledUnits?: number;
+  cost?: number;
+  costPortfolioCcy?: number;
   transaction?: TradeDto;
 }
 
@@ -1280,7 +1282,7 @@ export interface CreatePerpetualPropertyRequest {
  * @constructor
  * Used to specify holdings target amounts at the tax-lot level
  *
- * @member {number} units Quantity of holding
+ * @member {number} [units] Quantity of holding
  * @member {number} [cost] Book cost of holding in trade currency
  * @member {number} [portfolioCost] Book cost of holding in portfolio currency
  * @member {number} [price] Purchase price. Part of the unique key required for
@@ -1291,7 +1293,7 @@ export interface CreatePerpetualPropertyRequest {
  * opening transaction.
  */
 export interface TargetTaxLotDto {
-  units: number;
+  units?: number;
   cost?: number;
   portfolioCost?: number;
   price?: number;
@@ -1307,14 +1309,14 @@ export interface TargetTaxLotDto {
  * system should match. When processed by the movement
  * engine, it will create 'true-up' adjustments on the fly.
  *
- * @member {string} securityUid Unique security identifier
+ * @member {string} [securityUid] Unique security identifier
  * @member {array} [subHoldingKeys] Key fields to uniquely index the sub
  * holdings of a security
  * @member {array} [properties] Arbitrary properties to store with the holding
  * @member {array} taxLots 1 or more quantity amounts
  */
 export interface AdjustHoldingRequest {
-  securityUid: string;
+  securityUid?: string;
   subHoldingKeys?: CreatePerpetualPropertyRequest[];
   properties?: CreatePerpetualPropertyRequest[];
   taxLots: TargetTaxLotDto[];
@@ -1447,19 +1449,19 @@ export interface VersionedResourceListOfTradeDto {
  * @member {string} tradeId Unique trade identifier
  * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
  * StockOut, etc
- * @member {string} securityUid Unique security identifier
- * @member {date} tradeDate Trade date
- * @member {date} settlementDate Settlement date
- * @member {number} units Quantity of trade in units of the security
- * @member {number} tradePrice Execution price for the trade
- * @member {number} totalConsideration Total value of the trade
+ * @member {string} [securityUid] Unique security identifier
+ * @member {date} [tradeDate] Trade date
+ * @member {date} [settlementDate] Settlement date
+ * @member {number} [units] Quantity of trade in units of the security
+ * @member {number} [tradePrice] Execution price for the trade
+ * @member {number} [totalConsideration] Total value of the trade
  * @member {number} [exchangeRate] Rate between trade and settle currency
  * @member {string} settlementCurrency Settlement currency
  * @member {string} [tradeCurrency] Trade currency
  * @member {array} [properties]
  * @member {string} [counterpartyId] Counterparty identifier
- * @member {string} source Where this trade came from, either Client or System.
- * Possible values include: 'System', 'Client'
+ * @member {string} [source] Where this trade came from, either Client or
+ * System. Possible values include: 'System', 'Client'
  * @member {string} [dividendState] Possible values include: 'Default',
  * 'ExDividend', 'CumDividend'
  * @member {string} [tradePriceType] Possible values include: 'Price', 'Yield',
@@ -1471,18 +1473,18 @@ export interface VersionedResourceListOfTradeDto {
 export interface UpsertPortfolioTradeRequest {
   tradeId: string;
   type: string;
-  securityUid: string;
-  tradeDate: Date;
-  settlementDate: Date;
-  units: number;
-  tradePrice: number;
-  totalConsideration: number;
+  securityUid?: string;
+  tradeDate?: Date;
+  settlementDate?: Date;
+  units?: number;
+  tradePrice?: number;
+  totalConsideration?: number;
   exchangeRate?: number;
   settlementCurrency: string;
   tradeCurrency?: string;
   properties?: CreatePerpetualPropertyRequest[];
   counterpartyId?: string;
-  source: string;
+  source?: string;
   dividendState?: string;
   tradePriceType?: string;
   unitType?: string;
@@ -1914,13 +1916,13 @@ export interface ReconciliationRequest {
  * @constructor
  * A reconciliation break
  *
- * @member {string} securityUid Unique security identifier
+ * @member {string} [securityUid] Unique security identifier
  * @member {array} [properties]
  * @member {number} [unitsDifference] Difference in units
  * @member {number} [costDifference] Difference in cost
  */
 export interface ReconciliationBreakDto {
-  securityUid: string;
+  securityUid?: string;
   properties?: PropertyDto[];
   unitsDifference?: number;
   costDifference?: number;

@@ -2868,18 +2868,18 @@ export default class LUSIDAPI extends ServiceClient {
   /**
    * @summary Get a personalisation, recursing to get any referenced if required.
    *
-   * @param {boolean} recursive Whether to recurse into dereference recursive
-   * settings
-   *
-   * @param {boolean} wildcards Whether to apply wildcards to the provided
-   * pattern and pull back any matching
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.pattern] The search pattern or specific key
    *
    * @param {string} [options.scope] The scope level to request for. Possible
    * values include: 'User', 'Group', 'Default', 'All'
+   *
+   * @param {boolean} [options.recursive] Whether to recurse into dereference
+   * recursive settings
+   *
+   * @param {boolean} [options.wildcards] Whether to apply wildcards to the
+   * provided pattern and pull back any matching
    *
    * @param {array} [options.sortBy]
    *
@@ -2896,16 +2896,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPersonalisationsWithHttpOperationResponse(recursive: boolean, wildcards: boolean, options?: { pattern? : string, scope? : string, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPersonalisationDto>>;
+  getPersonalisationsWithHttpOperationResponse(options?: { pattern? : string, scope? : string, recursive? : boolean, wildcards? : boolean, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPersonalisationDto>>;
 
   /**
    * @summary Get a personalisation, recursing to get any referenced if required.
-   *
-   * @param {boolean} recursive Whether to recurse into dereference recursive
-   * settings
-   *
-   * @param {boolean} wildcards Whether to apply wildcards to the provided
-   * pattern and pull back any matching
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -2913,6 +2907,12 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.scope] The scope level to request for. Possible
    * values include: 'User', 'Group', 'Default', 'All'
+   *
+   * @param {boolean} [options.recursive] Whether to recurse into dereference
+   * recursive settings
+   *
+   * @param {boolean} [options.wildcards] Whether to apply wildcards to the
+   * provided pattern and pull back any matching
    *
    * @param {array} [options.sortBy]
    *
@@ -2946,9 +2946,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPersonalisations(recursive: boolean, wildcards: boolean, options?: { pattern? : string, scope? : string, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPersonalisationDto>;
-  getPersonalisations(recursive: boolean, wildcards: boolean, callback: ServiceCallback<models.ResourceListOfPersonalisationDto>): void;
-  getPersonalisations(recursive: boolean, wildcards: boolean, options: { pattern? : string, scope? : string, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPersonalisationDto>): void;
+  getPersonalisations(options?: { pattern? : string, scope? : string, recursive? : boolean, wildcards? : boolean, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPersonalisationDto>;
+  getPersonalisations(callback: ServiceCallback<models.ResourceListOfPersonalisationDto>): void;
+  getPersonalisations(options: { pattern? : string, scope? : string, recursive? : boolean, wildcards? : boolean, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPersonalisationDto>): void;
 
 
   /**
@@ -3011,12 +3011,13 @@ export default class LUSIDAPI extends ServiceClient {
    * @summary Delete a personalisation at a specific scope (or use scope ALL to
    * purge the setting entirely)
    *
-   * @param {string} scope The scope to delete at (use ALL to purge the setting
-   * entirely). Possible values include: 'User', 'Group', 'Default', 'All'
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.key] The key of the setting to be deleted
+   *
+   * @param {string} [options.scope] The scope to delete at (use ALL to purge the
+   * setting entirely). Possible values include: 'User', 'Group', 'Default',
+   * 'All'
    *
    * @param {string} [options.group] If deleting a setting at group level,
    * specify the group here
@@ -3030,18 +3031,19 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deletePersonalisationWithHttpOperationResponse(scope: string, options?: { key? : string, group? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+  deletePersonalisationWithHttpOperationResponse(options?: { key? : string, scope? : string, group? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
 
   /**
    * @summary Delete a personalisation at a specific scope (or use scope ALL to
    * purge the setting entirely)
    *
-   * @param {string} scope The scope to delete at (use ALL to purge the setting
-   * entirely). Possible values include: 'User', 'Group', 'Default', 'All'
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.key] The key of the setting to be deleted
+   *
+   * @param {string} [options.scope] The scope to delete at (use ALL to purge the
+   * setting entirely). Possible values include: 'User', 'Group', 'Default',
+   * 'All'
    *
    * @param {string} [options.group] If deleting a setting at group level,
    * specify the group here
@@ -3071,9 +3073,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deletePersonalisation(scope: string, options?: { key? : string, group? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  deletePersonalisation(scope: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deletePersonalisation(scope: string, options: { key? : string, group? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deletePersonalisation(options?: { key? : string, scope? : string, group? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deletePersonalisation(callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deletePersonalisation(options: { key? : string, scope? : string, group? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
 
 
   /**
@@ -4170,13 +4172,13 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code Code for the portfolio
    *
-   * @param {date} fromEffectiveAt Events between this time (inclusive) and the
-   * toEffectiveAt are returned.
-   *
-   * @param {date} toEffectiveAt Events between this time (inclusive) and the
-   * fromEffectiveAt are returned.
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
+   *
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
    *
    * @param {date} [options.asAtTime] The as-at time for which the result is
    * valid.
@@ -4190,7 +4192,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listHoldingsAdjustmentsWithHttpOperationResponse(scope: string, code: string, fromEffectiveAt: Date|string, toEffectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.HoldingsAdjustmentHeaderDto>>;
+  listHoldingsAdjustmentsWithHttpOperationResponse(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.HoldingsAdjustmentHeaderDto>>;
 
   /**
    * @summary Gets holdings adjustments in an interval of effective time.
@@ -4199,13 +4201,13 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code Code for the portfolio
    *
-   * @param {date} fromEffectiveAt Events between this time (inclusive) and the
-   * toEffectiveAt are returned.
-   *
-   * @param {date} toEffectiveAt Events between this time (inclusive) and the
-   * fromEffectiveAt are returned.
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
+   *
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
    *
    * @param {date} [options.asAtTime] The as-at time for which the result is
    * valid.
@@ -4236,9 +4238,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listHoldingsAdjustments(scope: string, code: string, fromEffectiveAt: Date|string, toEffectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.HoldingsAdjustmentHeaderDto>;
-  listHoldingsAdjustments(scope: string, code: string, fromEffectiveAt: Date|string, toEffectiveAt: Date|string, callback: ServiceCallback<models.HoldingsAdjustmentHeaderDto>): void;
-  listHoldingsAdjustments(scope: string, code: string, fromEffectiveAt: Date|string, toEffectiveAt: Date|string, options: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.HoldingsAdjustmentHeaderDto>): void;
+  listHoldingsAdjustments(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.HoldingsAdjustmentHeaderDto>;
+  listHoldingsAdjustments(scope: string, code: string, callback: ServiceCallback<models.HoldingsAdjustmentHeaderDto>): void;
+  listHoldingsAdjustments(scope: string, code: string, options: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.HoldingsAdjustmentHeaderDto>): void;
 
 
   /**
@@ -6428,9 +6430,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {date} effectiveAt
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
    *
@@ -6451,16 +6453,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listReferencePortfoliosWithHttpOperationResponse(scope: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioDto>>;
+  listReferencePortfoliosWithHttpOperationResponse(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioDto>>;
 
   /**
    * @summary Get all reference portfolios in a scope
    *
    * @param {string} scope
    *
-   * @param {date} effectiveAt
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
    *
@@ -6498,9 +6500,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listReferencePortfolios(scope: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioDto>;
-  listReferencePortfolios(scope: string, effectiveAt: Date|string, callback: ServiceCallback<models.ResourceListOfPortfolioDto>): void;
-  listReferencePortfolios(scope: string, effectiveAt: Date|string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioDto>): void;
+  listReferencePortfolios(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioDto>;
+  listReferencePortfolios(scope: string, callback: ServiceCallback<models.ResourceListOfPortfolioDto>): void;
+  listReferencePortfolios(scope: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioDto>): void;
 
 
   /**
@@ -6617,9 +6619,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code
    *
-   * @param {date} effectiveAt
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
    *
@@ -6632,7 +6634,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getReferencePortfolioWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReferencePortfolioConstituentDto>>;
+  getReferencePortfolioWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReferencePortfolioConstituentDto>>;
 
   /**
    * @summary Get a reference portfolio by name (as opposed to id)
@@ -6641,9 +6643,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code
    *
-   * @param {date} effectiveAt
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
    *
@@ -6674,9 +6676,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getReferencePortfolio(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReferencePortfolioConstituentDto>;
-  getReferencePortfolio(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituentDto>): void;
-  getReferencePortfolio(scope: string, code: string, effectiveAt: Date|string, options: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituentDto>): void;
+  getReferencePortfolio(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReferencePortfolioConstituentDto>;
+  getReferencePortfolio(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituentDto>): void;
+  getReferencePortfolio(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituentDto>): void;
 
 
   /**
@@ -7060,8 +7062,6 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Gets the schema for a given entity.
-   *
    * @param {string} entity Possible values include: 'PropertyKey',
    * 'FieldSchema', 'Personalisation', 'Security', 'Property',
    * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
@@ -7103,8 +7103,6 @@ export default class LUSIDAPI extends ServiceClient {
   getEntitySchemaWithHttpOperationResponse(entity: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SchemaDto>>;
 
   /**
-   * @summary Gets the schema for a given entity.
-   *
    * @param {string} entity Possible values include: 'PropertyKey',
    * 'FieldSchema', 'Personalisation', 'Security', 'Property',
    * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',

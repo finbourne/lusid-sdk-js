@@ -29,7 +29,7 @@
 class ReconciliationBreakDto {
   /**
    * Create a ReconciliationBreakDto.
-   * @member {string} securityUid Unique security identifier
+   * @member {string} [securityUid] Unique security identifier
    * @member {array} [properties]
    * @member {number} [unitsDifference] Difference in units
    * @member {number} [costDifference] Difference in cost
@@ -52,7 +52,7 @@ class ReconciliationBreakDto {
         className: 'ReconciliationBreakDto',
         modelProperties: {
           securityUid: {
-            required: true,
+            required: false,
             serializedName: 'securityUid',
             type: {
               name: 'String'

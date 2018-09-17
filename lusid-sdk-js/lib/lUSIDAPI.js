@@ -5780,18 +5780,18 @@ function _getVersion(options, callback) {
 /**
  * @summary Get a personalisation, recursing to get any referenced if required.
  *
- * @param {boolean} recursive Whether to recurse into dereference recursive
- * settings
- *
- * @param {boolean} wildcards Whether to apply wildcards to the provided
- * pattern and pull back any matching
- *
  * @param {object} [options] Optional Parameters.
  *
  * @param {string} [options.pattern] The search pattern or specific key
  *
  * @param {string} [options.scope] The scope level to request for. Possible
  * values include: 'User', 'Group', 'Default', 'All'
+ *
+ * @param {boolean} [options.recursive] Whether to recurse into dereference
+ * recursive settings
+ *
+ * @param {boolean} [options.wildcards] Whether to apply wildcards to the
+ * provided pattern and pull back any matching
  *
  * @param {array} [options.sortBy]
  *
@@ -5816,7 +5816,7 @@ function _getVersion(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getPersonalisations(recursive, wildcards, options, callback) {
+function _getPersonalisations(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -5828,6 +5828,8 @@ function _getPersonalisations(recursive, wildcards, options, callback) {
   }
   let pattern = (options && options.pattern !== undefined) ? options.pattern : undefined;
   let scope = (options && options.scope !== undefined) ? options.scope : undefined;
+  let recursive = (options && options.recursive !== undefined) ? options.recursive : undefined;
+  let wildcards = (options && options.wildcards !== undefined) ? options.wildcards : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
@@ -5839,11 +5841,11 @@ function _getPersonalisations(recursive, wildcards, options, callback) {
     if (scope !== null && scope !== undefined && typeof scope.valueOf() !== 'string') {
       throw new Error('scope must be of type string.');
     }
-    if (recursive === null || recursive === undefined || typeof recursive !== 'boolean') {
-      throw new Error('recursive cannot be null or undefined and it must be of type boolean.');
+    if (recursive !== null && recursive !== undefined && typeof recursive !== 'boolean') {
+      throw new Error('recursive must be of type boolean.');
     }
-    if (wildcards === null || wildcards === undefined || typeof wildcards !== 'boolean') {
-      throw new Error('wildcards cannot be null or undefined and it must be of type boolean.');
+    if (wildcards !== null && wildcards !== undefined && typeof wildcards !== 'boolean') {
+      throw new Error('wildcards must be of type boolean.');
     }
     if (Array.isArray(sortBy)) {
       for (let i = 0; i < sortBy.length; i++) {
@@ -5872,8 +5874,12 @@ function _getPersonalisations(recursive, wildcards, options, callback) {
   if (scope !== null && scope !== undefined) {
     queryParameters.push('scope=' + encodeURIComponent(scope));
   }
-  queryParameters.push('recursive=' + encodeURIComponent(recursive.toString()));
-  queryParameters.push('wildcards=' + encodeURIComponent(wildcards.toString()));
+  if (recursive !== null && recursive !== undefined) {
+    queryParameters.push('recursive=' + encodeURIComponent(recursive.toString()));
+  }
+  if (wildcards !== null && wildcards !== undefined) {
+    queryParameters.push('wildcards=' + encodeURIComponent(wildcards.toString()));
+  }
   if (sortBy !== null && sortBy !== undefined) {
     if (sortBy.length == 0) {
       queryParameters.push('sortBy=' + encodeURIComponent(''));
@@ -6110,12 +6116,13 @@ function _upsertPersonalisations(options, callback) {
  * @summary Delete a personalisation at a specific scope (or use scope ALL to
  * purge the setting entirely)
  *
- * @param {string} scope The scope to delete at (use ALL to purge the setting
- * entirely). Possible values include: 'User', 'Group', 'Default', 'All'
- *
  * @param {object} [options] Optional Parameters.
  *
  * @param {string} [options.key] The key of the setting to be deleted
+ *
+ * @param {string} [options.scope] The scope to delete at (use ALL to purge the
+ * setting entirely). Possible values include: 'User', 'Group', 'Default',
+ * 'All'
  *
  * @param {string} [options.group] If deleting a setting at group level,
  * specify the group here
@@ -6136,7 +6143,7 @@ function _upsertPersonalisations(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _deletePersonalisation(scope, options, callback) {
+function _deletePersonalisation(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -6147,14 +6154,15 @@ function _deletePersonalisation(scope, options, callback) {
     throw new Error('callback cannot be null.');
   }
   let key = (options && options.key !== undefined) ? options.key : undefined;
+  let scope = (options && options.scope !== undefined) ? options.scope : undefined;
   let group = (options && options.group !== undefined) ? options.group : undefined;
   // Validate
   try {
     if (key !== null && key !== undefined && typeof key.valueOf() !== 'string') {
       throw new Error('key must be of type string.');
     }
-    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
-      throw new Error('scope cannot be null or undefined and it must be of type string.');
+    if (scope !== null && scope !== undefined && typeof scope.valueOf() !== 'string') {
+      throw new Error('scope must be of type string.');
     }
     if (group !== null && group !== undefined && typeof group.valueOf() !== 'string') {
       throw new Error('group must be of type string.');
@@ -6170,7 +6178,9 @@ function _deletePersonalisation(scope, options, callback) {
   if (key !== null && key !== undefined) {
     queryParameters.push('key=' + encodeURIComponent(key));
   }
-  queryParameters.push('scope=' + encodeURIComponent(scope));
+  if (scope !== null && scope !== undefined) {
+    queryParameters.push('scope=' + encodeURIComponent(scope));
+  }
   if (group !== null && group !== undefined) {
     queryParameters.push('group=' + encodeURIComponent(group));
   }
@@ -8564,13 +8574,13 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
  *
  * @param {string} code Code for the portfolio
  *
- * @param {date} fromEffectiveAt Events between this time (inclusive) and the
- * toEffectiveAt are returned.
- *
- * @param {date} toEffectiveAt Events between this time (inclusive) and the
- * fromEffectiveAt are returned.
- *
  * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+ * and the toEffectiveAt are returned.
+ *
+ * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+ * and the fromEffectiveAt are returned.
  *
  * @param {date} [options.asAtTime] The as-at time for which the result is
  * valid.
@@ -8592,7 +8602,7 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, callback) {
+function _listHoldingsAdjustments(scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -8602,6 +8612,8 @@ function _listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, o
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
+  let fromEffectiveAt = (options && options.fromEffectiveAt !== undefined) ? options.fromEffectiveAt : undefined;
+  let toEffectiveAt = (options && options.toEffectiveAt !== undefined) ? options.toEffectiveAt : undefined;
   let asAtTime = (options && options.asAtTime !== undefined) ? options.asAtTime : undefined;
   // Validate
   try {
@@ -8611,13 +8623,13 @@ function _listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, o
     if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
       throw new Error('code cannot be null or undefined and it must be of type string.');
     }
-    if(!fromEffectiveAt || !(fromEffectiveAt instanceof Date ||
+    if (fromEffectiveAt && !(fromEffectiveAt instanceof Date ||
         (typeof fromEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(fromEffectiveAt))))) {
-          throw new Error('fromEffectiveAt cannot be null or undefined and it must be of type date.');
+          throw new Error('fromEffectiveAt must be of type date.');
         }
-    if(!toEffectiveAt || !(toEffectiveAt instanceof Date ||
+    if (toEffectiveAt && !(toEffectiveAt instanceof Date ||
         (typeof toEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(toEffectiveAt))))) {
-          throw new Error('toEffectiveAt cannot be null or undefined and it must be of type date.');
+          throw new Error('toEffectiveAt must be of type date.');
         }
     if (asAtTime && !(asAtTime instanceof Date ||
         (typeof asAtTime.valueOf() === 'string' && !isNaN(Date.parse(asAtTime))))) {
@@ -8633,8 +8645,12 @@ function _listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, o
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
   let queryParameters = [];
-  queryParameters.push('fromEffectiveAt=' + encodeURIComponent(client.serializeObject(fromEffectiveAt)));
-  queryParameters.push('toEffectiveAt=' + encodeURIComponent(client.serializeObject(toEffectiveAt)));
+  if (fromEffectiveAt !== null && fromEffectiveAt !== undefined) {
+    queryParameters.push('fromEffectiveAt=' + encodeURIComponent(client.serializeObject(fromEffectiveAt)));
+  }
+  if (toEffectiveAt !== null && toEffectiveAt !== undefined) {
+    queryParameters.push('toEffectiveAt=' + encodeURIComponent(client.serializeObject(toEffectiveAt)));
+  }
   if (asAtTime !== null && asAtTime !== undefined) {
     queryParameters.push('asAtTime=' + encodeURIComponent(client.serializeObject(asAtTime)));
   }
@@ -13303,9 +13319,9 @@ function _performReconciliation(options, callback) {
  *
  * @param {string} scope
  *
- * @param {date} effectiveAt
- *
  * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.effectiveAt]
  *
  * @param {date} [options.asAt]
  *
@@ -13334,7 +13350,7 @@ function _performReconciliation(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _listReferencePortfolios(scope, effectiveAt, options, callback) {
+function _listReferencePortfolios(scope, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -13344,6 +13360,7 @@ function _listReferencePortfolios(scope, effectiveAt, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
@@ -13354,9 +13371,9 @@ function _listReferencePortfolios(scope, effectiveAt, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if(!effectiveAt || !(effectiveAt instanceof Date ||
+    if (effectiveAt && !(effectiveAt instanceof Date ||
         (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
-          throw new Error('effectiveAt cannot be null or undefined and it must be of type date.');
+          throw new Error('effectiveAt must be of type date.');
         }
     if (asAt && !(asAt instanceof Date ||
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
@@ -13387,7 +13404,9 @@ function _listReferencePortfolios(scope, effectiveAt, options, callback) {
   let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/reference/{scope}';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   let queryParameters = [];
-  queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  }
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
   }
@@ -13653,9 +13672,9 @@ function _createReferencePortfolio(scope, options, callback) {
  *
  * @param {string} code
  *
- * @param {date} effectiveAt
- *
  * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.effectiveAt]
  *
  * @param {date} [options.asAt]
  *
@@ -13677,7 +13696,7 @@ function _createReferencePortfolio(scope, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getReferencePortfolio(scope, code, effectiveAt, options, callback) {
+function _getReferencePortfolio(scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -13687,6 +13706,7 @@ function _getReferencePortfolio(scope, code, effectiveAt, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   // Validate
   try {
@@ -13696,9 +13716,9 @@ function _getReferencePortfolio(scope, code, effectiveAt, options, callback) {
     if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
       throw new Error('code cannot be null or undefined and it must be of type string.');
     }
-    if(!effectiveAt || !(effectiveAt instanceof Date ||
+    if (effectiveAt && !(effectiveAt instanceof Date ||
         (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
-          throw new Error('effectiveAt cannot be null or undefined and it must be of type date.');
+          throw new Error('effectiveAt must be of type date.');
         }
     if (asAt && !(asAt instanceof Date ||
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
@@ -13714,7 +13734,9 @@ function _getReferencePortfolio(scope, code, effectiveAt, options, callback) {
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
   let queryParameters = [];
-  queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  }
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
   }
@@ -14635,8 +14657,6 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
 }
 
 /**
- * @summary Gets the schema for a given entity.
- *
  * @param {string} entity Possible values include: 'PropertyKey',
  * 'FieldSchema', 'Personalisation', 'Security', 'Property',
  * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
@@ -19925,18 +19945,18 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Get a personalisation, recursing to get any referenced if required.
    *
-   * @param {boolean} recursive Whether to recurse into dereference recursive
-   * settings
-   *
-   * @param {boolean} wildcards Whether to apply wildcards to the provided
-   * pattern and pull back any matching
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.pattern] The search pattern or specific key
    *
    * @param {string} [options.scope] The scope level to request for. Possible
    * values include: 'User', 'Group', 'Default', 'All'
+   *
+   * @param {boolean} [options.recursive] Whether to recurse into dereference
+   * recursive settings
+   *
+   * @param {boolean} [options.wildcards] Whether to apply wildcards to the
+   * provided pattern and pull back any matching
    *
    * @param {array} [options.sortBy]
    *
@@ -19953,11 +19973,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getPersonalisationsWithHttpOperationResponse(recursive, wildcards, options) {
+  getPersonalisationsWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getPersonalisations(recursive, wildcards, options, (err, result, request, response) => {
+      self._getPersonalisations(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -19970,18 +19990,18 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Get a personalisation, recursing to get any referenced if required.
    *
-   * @param {boolean} recursive Whether to recurse into dereference recursive
-   * settings
-   *
-   * @param {boolean} wildcards Whether to apply wildcards to the provided
-   * pattern and pull back any matching
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.pattern] The search pattern or specific key
    *
    * @param {string} [options.scope] The scope level to request for. Possible
    * values include: 'User', 'Group', 'Default', 'All'
+   *
+   * @param {boolean} [options.recursive] Whether to recurse into dereference
+   * recursive settings
+   *
+   * @param {boolean} [options.wildcards] Whether to apply wildcards to the
+   * provided pattern and pull back any matching
    *
    * @param {array} [options.sortBy]
    *
@@ -20015,7 +20035,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPersonalisations(recursive, wildcards, options, optionalCallback) {
+  getPersonalisations(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20024,14 +20044,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getPersonalisations(recursive, wildcards, options, (err, result, request, response) => {
+        self._getPersonalisations(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getPersonalisations(recursive, wildcards, options, optionalCallback);
+      return self._getPersonalisations(options, optionalCallback);
     }
   }
 
@@ -20122,12 +20142,13 @@ class LUSIDAPI extends ServiceClient {
    * @summary Delete a personalisation at a specific scope (or use scope ALL to
    * purge the setting entirely)
    *
-   * @param {string} scope The scope to delete at (use ALL to purge the setting
-   * entirely). Possible values include: 'User', 'Group', 'Default', 'All'
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.key] The key of the setting to be deleted
+   *
+   * @param {string} [options.scope] The scope to delete at (use ALL to purge the
+   * setting entirely). Possible values include: 'User', 'Group', 'Default',
+   * 'All'
    *
    * @param {string} [options.group] If deleting a setting at group level,
    * specify the group here
@@ -20141,11 +20162,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  deletePersonalisationWithHttpOperationResponse(scope, options) {
+  deletePersonalisationWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._deletePersonalisation(scope, options, (err, result, request, response) => {
+      self._deletePersonalisation(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -20159,12 +20180,13 @@ class LUSIDAPI extends ServiceClient {
    * @summary Delete a personalisation at a specific scope (or use scope ALL to
    * purge the setting entirely)
    *
-   * @param {string} scope The scope to delete at (use ALL to purge the setting
-   * entirely). Possible values include: 'User', 'Group', 'Default', 'All'
-   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.key] The key of the setting to be deleted
+   *
+   * @param {string} [options.scope] The scope to delete at (use ALL to purge the
+   * setting entirely). Possible values include: 'User', 'Group', 'Default',
+   * 'All'
    *
    * @param {string} [options.group] If deleting a setting at group level,
    * specify the group here
@@ -20194,7 +20216,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  deletePersonalisation(scope, options, optionalCallback) {
+  deletePersonalisation(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -20203,14 +20225,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._deletePersonalisation(scope, options, (err, result, request, response) => {
+        self._deletePersonalisation(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._deletePersonalisation(scope, options, optionalCallback);
+      return self._deletePersonalisation(options, optionalCallback);
     }
   }
 
@@ -21686,13 +21708,13 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code Code for the portfolio
    *
-   * @param {date} fromEffectiveAt Events between this time (inclusive) and the
-   * toEffectiveAt are returned.
-   *
-   * @param {date} toEffectiveAt Events between this time (inclusive) and the
-   * fromEffectiveAt are returned.
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
+   *
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
    *
    * @param {date} [options.asAtTime] The as-at time for which the result is
    * valid.
@@ -21706,11 +21728,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  listHoldingsAdjustmentsWithHttpOperationResponse(scope, code, fromEffectiveAt, toEffectiveAt, options) {
+  listHoldingsAdjustmentsWithHttpOperationResponse(scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, (err, result, request, response) => {
+      self._listHoldingsAdjustments(scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -21727,13 +21749,13 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code Code for the portfolio
    *
-   * @param {date} fromEffectiveAt Events between this time (inclusive) and the
-   * toEffectiveAt are returned.
-   *
-   * @param {date} toEffectiveAt Events between this time (inclusive) and the
-   * fromEffectiveAt are returned.
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
+   *
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
    *
    * @param {date} [options.asAtTime] The as-at time for which the result is
    * valid.
@@ -21764,7 +21786,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, optionalCallback) {
+  listHoldingsAdjustments(scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -21773,14 +21795,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, (err, result, request, response) => {
+        self._listHoldingsAdjustments(scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._listHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, options, optionalCallback);
+      return self._listHoldingsAdjustments(scope, code, options, optionalCallback);
     }
   }
 
@@ -24727,9 +24749,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {date} effectiveAt
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
    *
@@ -24750,11 +24772,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  listReferencePortfoliosWithHttpOperationResponse(scope, effectiveAt, options) {
+  listReferencePortfoliosWithHttpOperationResponse(scope, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._listReferencePortfolios(scope, effectiveAt, options, (err, result, request, response) => {
+      self._listReferencePortfolios(scope, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -24769,9 +24791,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {date} effectiveAt
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
    *
@@ -24809,7 +24831,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  listReferencePortfolios(scope, effectiveAt, options, optionalCallback) {
+  listReferencePortfolios(scope, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -24818,14 +24840,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._listReferencePortfolios(scope, effectiveAt, options, (err, result, request, response) => {
+        self._listReferencePortfolios(scope, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._listReferencePortfolios(scope, effectiveAt, options, optionalCallback);
+      return self._listReferencePortfolios(scope, options, optionalCallback);
     }
   }
 
@@ -24970,9 +24992,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code
    *
-   * @param {date} effectiveAt
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
    *
@@ -24985,11 +25007,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getReferencePortfolioWithHttpOperationResponse(scope, code, effectiveAt, options) {
+  getReferencePortfolioWithHttpOperationResponse(scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getReferencePortfolio(scope, code, effectiveAt, options, (err, result, request, response) => {
+      self._getReferencePortfolio(scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -25006,9 +25028,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code
    *
-   * @param {date} effectiveAt
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
    *
    * @param {date} [options.asAt]
    *
@@ -25039,7 +25061,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getReferencePortfolio(scope, code, effectiveAt, options, optionalCallback) {
+  getReferencePortfolio(scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -25048,14 +25070,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getReferencePortfolio(scope, code, effectiveAt, options, (err, result, request, response) => {
+        self._getReferencePortfolio(scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getReferencePortfolio(scope, code, effectiveAt, options, optionalCallback);
+      return self._getReferencePortfolio(scope, code, options, optionalCallback);
     }
   }
 
@@ -25575,8 +25597,6 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Gets the schema for a given entity.
-   *
    * @param {string} entity Possible values include: 'PropertyKey',
    * 'FieldSchema', 'Personalisation', 'Security', 'Property',
    * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
@@ -25630,8 +25650,6 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Gets the schema for a given entity.
-   *
    * @param {string} entity Possible values include: 'PropertyKey',
    * 'FieldSchema', 'Personalisation', 'Security', 'Property',
    * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',

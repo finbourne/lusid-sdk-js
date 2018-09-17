@@ -31,18 +31,18 @@ class UpsertPortfolioTradeRequest {
    * @member {string} tradeId Unique trade identifier
    * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
    * StockOut, etc
-   * @member {string} securityUid Unique security identifier
-   * @member {date} tradeDate Trade date
-   * @member {date} settlementDate Settlement date
-   * @member {number} units Quantity of trade in units of the security
-   * @member {number} tradePrice Execution price for the trade
-   * @member {number} totalConsideration Total value of the trade
+   * @member {string} [securityUid] Unique security identifier
+   * @member {date} [tradeDate] Trade date
+   * @member {date} [settlementDate] Settlement date
+   * @member {number} [units] Quantity of trade in units of the security
+   * @member {number} [tradePrice] Execution price for the trade
+   * @member {number} [totalConsideration] Total value of the trade
    * @member {number} [exchangeRate] Rate between trade and settle currency
    * @member {string} settlementCurrency Settlement currency
    * @member {string} [tradeCurrency] Trade currency
    * @member {array} [properties]
    * @member {string} [counterpartyId] Counterparty identifier
-   * @member {string} source Where this trade came from, either Client or
+   * @member {string} [source] Where this trade came from, either Client or
    * System. Possible values include: 'System', 'Client'
    * @member {string} [dividendState] Possible values include: 'Default',
    * 'ExDividend', 'CumDividend'
@@ -84,42 +84,42 @@ class UpsertPortfolioTradeRequest {
             }
           },
           securityUid: {
-            required: true,
+            required: false,
             serializedName: 'securityUid',
             type: {
               name: 'String'
             }
           },
           tradeDate: {
-            required: true,
+            required: false,
             serializedName: 'tradeDate',
             type: {
               name: 'DateTime'
             }
           },
           settlementDate: {
-            required: true,
+            required: false,
             serializedName: 'settlementDate',
             type: {
               name: 'DateTime'
             }
           },
           units: {
-            required: true,
+            required: false,
             serializedName: 'units',
             type: {
               name: 'Number'
             }
           },
           tradePrice: {
-            required: true,
+            required: false,
             serializedName: 'tradePrice',
             type: {
               name: 'Number'
             }
           },
           totalConsideration: {
-            required: true,
+            required: false,
             serializedName: 'totalConsideration',
             type: {
               name: 'Number'
@@ -169,7 +169,7 @@ class UpsertPortfolioTradeRequest {
             }
           },
           source: {
-            required: true,
+            required: false,
             serializedName: 'source',
             type: {
               name: 'String'
