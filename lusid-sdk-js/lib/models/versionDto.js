@@ -31,8 +31,8 @@ class VersionDto {
    * Create a VersionDto.
    * @member {date} [effectiveFrom]
    * @member {date} [asAtDate]
-   * @member {string} [updatedBy]
    * @member {string} [href]
+   * @member {array} [_links]
    */
   constructor() {
   }
@@ -65,18 +65,26 @@ class VersionDto {
               name: 'DateTime'
             }
           },
-          updatedBy: {
-            required: false,
-            serializedName: 'updatedBy',
-            type: {
-              name: 'String'
-            }
-          },
           href: {
             required: false,
             serializedName: 'href',
             type: {
               name: 'String'
+            }
+          },
+          _links: {
+            required: false,
+            serializedName: '_links',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
+                  }
+              }
             }
           }
         }

@@ -31,8 +31,8 @@ class UpsertPortfolioTradesDto {
    * @member {object} [version]
    * @member {date} [version.effectiveFrom]
    * @member {date} [version.asAtDate]
-   * @member {string} [version.updatedBy]
    * @member {string} [version.href]
+   * @member {array} [version._links]
    * @member {string} [href]
    * @member {array} [_links]
    */

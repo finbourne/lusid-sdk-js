@@ -36,8 +36,8 @@ class PortfolioPropertiesDto {
    * @member {object} [version] The version of the portfolio
    * @member {date} [version.effectiveFrom]
    * @member {date} [version.asAtDate]
-   * @member {string} [version.updatedBy]
    * @member {string} [version.href]
+   * @member {array} [version._links]
    * @member {array} [_links]
    */
   constructor() {

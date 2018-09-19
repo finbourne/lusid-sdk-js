@@ -36,8 +36,8 @@ class HoldingsAdjustmentDto {
    * @member {object} [version]
    * @member {date} [version.effectiveFrom]
    * @member {date} [version.asAtDate]
-   * @member {string} [version.updatedBy]
    * @member {string} [version.href]
+   * @member {array} [version._links]
    * @member {string} [unmatchedHoldingMethod] Possible values include:
    * 'PositionToZero', 'KeepTheSame'
    * @member {array} [adjustments]

@@ -327,7 +327,7 @@ export interface AnalyticStoreDto {
  * Initializes a new instance of the Link class.
  * @constructor
  * @member {string} relation Possible values include: 'Root', 'Properties',
- * 'Trades', 'Details', 'Constituents', 'HoldingsAdjustment'
+ * 'Trades', 'Details', 'Constituents', 'HoldingsAdjustment', 'Commands'
  * @member {string} href
  * @member {string} [description]
  * @member {string} method Possible values include: 'POST', 'GET', 'PATCH',
@@ -708,14 +708,14 @@ export interface CreateGroupRequest {
  *
  * @member {date} [effectiveFrom]
  * @member {date} [asAtDate]
- * @member {string} [updatedBy]
  * @member {string} [href]
+ * @member {array} [_links]
  */
 export interface VersionDto {
   effectiveFrom?: Date;
   asAtDate?: Date;
-  updatedBy?: string;
   href?: string;
+  _links?: Link[];
 }
 
 /**
@@ -733,8 +733,8 @@ export interface VersionDto {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {array} [_links]
  */
 export interface GroupDto {
@@ -819,8 +819,8 @@ export interface ResourceListOfProcessedCommandDto {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {array} [properties]
  * @member {string} [baseCurrency]
  * @member {array} [_links]
@@ -853,8 +853,8 @@ export interface CompletePortfolioDto {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {array} [_links]
  */
 export interface ExpandedGroupDto {
@@ -1041,8 +1041,8 @@ export interface CreatePortfolioRequest {
  * @member {object} [version] The version of the portfolio
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {array} [_links]
  */
 export interface PortfolioDto {
@@ -1096,8 +1096,8 @@ export interface UpdatePortfolioRequest {
  * @member {object} [version] The version of the portfolio
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {string} [baseCurrency]
  * @member {array} [_links]
  */
@@ -1244,8 +1244,8 @@ export interface HoldingDto {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {array} [values]
  * @member {string} [href] The Uri that returns the same result as the original
  * request,
@@ -1333,8 +1333,8 @@ export interface AdjustHoldingRequest {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {array} [_links]
  */
 export interface AdjustHoldingsDto {
@@ -1356,8 +1356,8 @@ export interface AdjustHoldingsDto {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {string} [unmatchedHoldingMethod] Possible values include:
  * 'PositionToZero', 'KeepTheSame'
  * @member {array} [_links]
@@ -1382,8 +1382,8 @@ export interface HoldingsAdjustmentHeaderDto {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {string} [unmatchedHoldingMethod] Possible values include:
  * 'PositionToZero', 'KeepTheSame'
  * @member {array} [adjustments]
@@ -1407,8 +1407,8 @@ export interface HoldingsAdjustmentDto {
  * @member {object} [version] The version of the portfolio
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {array} [_links]
  */
 export interface PortfolioPropertiesDto {
@@ -1426,8 +1426,8 @@ export interface PortfolioPropertiesDto {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {array} [values]
  * @member {string} [href] The Uri that returns the same result as the original
  * request,
@@ -1499,8 +1499,8 @@ export interface UpsertPortfolioTradeRequest {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {string} [href]
  * @member {array} [_links]
  */
@@ -1518,8 +1518,8 @@ export interface UpsertPortfolioTradesDto {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {array} [_links]
  */
 export interface AddTradePropertyDto {
@@ -2015,8 +2015,8 @@ export interface CreateResultsRequest {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {string} [href]
  * @member {object} [values]
  */
@@ -2163,8 +2163,8 @@ export interface CreateClientSecurityRequest {
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
  * @member {date} [version.asAtDate]
- * @member {string} [version.updatedBy]
  * @member {string} [version.href]
+ * @member {array} [version._links]
  * @member {string} [commonName]
  * @member {object} [aliases]
  * @member {array} [properties]
