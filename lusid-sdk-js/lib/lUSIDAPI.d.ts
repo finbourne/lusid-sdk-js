@@ -4984,6 +4984,122 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Get transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.sortBy] The columns to sort the returned data by
+   *
+   * @param {number} [options.start] How many items to skip from the returned set
+   *
+   * @param {number} [options.limit] How many items to return from the set
+   *
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the trades
+   *
+   * @param {string} [options.filter] Trade filter
+   *
+   * @param {object} [options.parameters] Core query parameters
+   *
+   * @param {date} [options.parameters.startDate] The required set of
+   * transactions should begin from this date
+   *
+   * @param {date} [options.parameters.endDate] The required set of transactions
+   * should end at this date
+   *
+   * @param {string} [options.parameters.queryMode] The method for date
+   * selection. Trade date or Settlement date. Possible values include: 'None',
+   * 'TradeDate', 'SettleDate'
+   *
+   * @param {boolean} [options.parameters.showCancelledTransactions] Option to
+   * include cancelled transactions in the results
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<VersionedResourceListOfOutputTransactionDto>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  buildTransactionsWithHttpOperationResponse(scope: string, code: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, parameters? : models.TransactionQueryParameters, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListOfOutputTransactionDto>>;
+
+  /**
+   * @summary Get transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.sortBy] The columns to sort the returned data by
+   *
+   * @param {number} [options.start] How many items to skip from the returned set
+   *
+   * @param {number} [options.limit] How many items to return from the set
+   *
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the trades
+   *
+   * @param {string} [options.filter] Trade filter
+   *
+   * @param {object} [options.parameters] Core query parameters
+   *
+   * @param {date} [options.parameters.startDate] The required set of
+   * transactions should begin from this date
+   *
+   * @param {date} [options.parameters.endDate] The required set of transactions
+   * should end at this date
+   *
+   * @param {string} [options.parameters.queryMode] The method for date
+   * selection. Trade date or Settlement date. Possible values include: 'None',
+   * 'TradeDate', 'SettleDate'
+   *
+   * @param {boolean} [options.parameters.showCancelledTransactions] Option to
+   * include cancelled transactions in the results
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {VersionedResourceListOfOutputTransactionDto} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {VersionedResourceListOfOutputTransactionDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link VersionedResourceListOfOutputTransactionDto}
+   *                      for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  buildTransactions(scope: string, code: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, parameters? : models.TransactionQueryParameters, customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListOfOutputTransactionDto>;
+  buildTransactions(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListOfOutputTransactionDto>): void;
+  buildTransactions(scope: string, code: string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, parameters? : models.TransactionQueryParameters, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListOfOutputTransactionDto>): void;
+
+
+  /**
    * @summary Create derived portfolio
    *
    * Creates a portfolio that derives from an existing portfolio
@@ -5962,7 +6078,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -6002,7 +6118,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -6200,7 +6316,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -6240,7 +6356,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -7087,7 +7203,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
    * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
    * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-   * 'HoldingsAdjustmentHeader'
+   * 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -7128,7 +7244,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
    * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
    * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-   * 'HoldingsAdjustmentHeader'
+   * 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
    *
    * @param {object} [options] Optional Parameters.
    *

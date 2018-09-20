@@ -175,7 +175,8 @@ export interface AggregationRequest {
  * @member {string} [type] Possible values include: 'String', 'Int', 'Decimal',
  * 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray', 'Percentage',
  * 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds', 'ArrayOfTxnAliases',
- * 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray', 'UnitCreation'
+ * 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount',
+ * 'TradePrice'
  * @member {boolean} [isMetric]
  * @member {number} [displayOrder]
  * @member {object} [propertySchema]
@@ -203,7 +204,7 @@ export interface FieldSchema {
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
- * 'UnitCreation'
+ * 'CurrencyAndAmount', 'TradePrice'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -1530,6 +1531,182 @@ export interface AddTradePropertyDto {
 
 /**
  * @class
+ * Initializes a new instance of the TransactionQueryParameters class.
+ * @constructor
+ * @member {date} [startDate] The required set of transactions should begin
+ * from this date
+ * @member {date} [endDate] The required set of transactions should end at this
+ * date
+ * @member {string} [queryMode] The method for date selection. Trade date or
+ * Settlement date. Possible values include: 'None', 'TradeDate', 'SettleDate'
+ * @member {boolean} [showCancelledTransactions] Option to include cancelled
+ * transactions in the results
+ */
+export interface TransactionQueryParameters {
+  startDate?: Date;
+  endDate?: Date;
+  queryMode?: string;
+  showCancelledTransactions?: boolean;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the TradePrice class.
+ * @constructor
+ * A price with its associated type
+ *
+ * @member {number} [value]
+ * @member {string} [type] Possible values include: 'Price', 'Yield', 'Spread'
+ */
+export interface TradePrice {
+  readonly value?: number;
+  readonly type?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the CurrencyAndAmount class.
+ * @constructor
+ * @member {number} [value]
+ * @member {string} [unit]
+ */
+export interface CurrencyAndAmount {
+  readonly value?: number;
+  readonly unit?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the RealisedGainLossDto class.
+ * @constructor
+ * @member {string} [securityUid] Unique security identifier
+ * @member {number} [units] Quantity against which gain has ben made in units
+ * of the security
+ * @member {date} [purchaseTradeDate] Date the position was originally
+ * purchased
+ * @member {date} [purchaseSettlementDate] Date the position originally settled
+ * @member {number} [purchasePrice] Price the security was purchased at
+ * @member {object} [costTradeCcy] Purchase cost in the trade currency
+ * @member {number} [costTradeCcy.value]
+ * @member {string} [costTradeCcy.unit]
+ * @member {object} [costPortfolioCcy] Purchase cost in the trade currency
+ * @member {number} [costPortfolioCcy.value]
+ * @member {string} [costPortfolioCcy.unit]
+ * @member {object} [realisedTradeCcy] Gains or losses in the trade currency
+ * @member {number} [realisedTradeCcy.value]
+ * @member {string} [realisedTradeCcy.unit]
+ * @member {object} [realisedTotal] Total gains or losses in the portfolio
+ * currency
+ * @member {number} [realisedTotal.value]
+ * @member {string} [realisedTotal.unit]
+ * @member {object} [realisedMarket] Market gains or losses in the portfolio
+ * currency
+ * @member {number} [realisedMarket.value]
+ * @member {string} [realisedMarket.unit]
+ * @member {object} [realisedCurrency] Currency gains or losses in the
+ * portfolio currency
+ * @member {number} [realisedCurrency.value]
+ * @member {string} [realisedCurrency.unit]
+ */
+export interface RealisedGainLossDto {
+  readonly securityUid?: string;
+  readonly units?: number;
+  readonly purchaseTradeDate?: Date;
+  readonly purchaseSettlementDate?: Date;
+  readonly purchasePrice?: number;
+  readonly costTradeCcy?: CurrencyAndAmount;
+  readonly costPortfolioCcy?: CurrencyAndAmount;
+  readonly realisedTradeCcy?: CurrencyAndAmount;
+  readonly realisedTotal?: CurrencyAndAmount;
+  readonly realisedMarket?: CurrencyAndAmount;
+  readonly realisedCurrency?: CurrencyAndAmount;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the OutputTransactionDto class.
+ * @constructor
+ * @member {string} tradeId Unique trade identifier
+ * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
+ * StockOut, etc
+ * @member {string} description LUSID transaction description
+ * @member {string} [securityUid] Unique security identifier
+ * @member {date} [tradeDate] Trade date
+ * @member {date} [settlementDate] Settlement date
+ * @member {number} [units] Quantity of trade in units of the security
+ * @member {object} [tradePrice] Execution price for the trade
+ * @member {number} [tradePrice.value]
+ * @member {string} [tradePrice.type] Possible values include: 'Price',
+ * 'Yield', 'Spread'
+ * @member {object} [totalConsideration] Total value of the trade
+ * @member {number} [totalConsideration.value]
+ * @member {string} [totalConsideration.unit]
+ * @member {number} [exchangeRate] Rate between trade and settlement currency
+ * @member {number} [tradeToPortfolioRate] Rate between trade and portfolio
+ * currency
+ * @member {string} [tradeCurrency] Trade currency
+ * @member {array} [properties]
+ * @member {string} [counterpartyId] Counterparty identifier
+ * @member {string} [source] Where this trade came from, either Client or
+ * System. Possible values include: 'System', 'Client'
+ * @member {string} [nettingSet]
+ * @member {string} [transactionStatus] Transaction status (active, amended or
+ * cancelled). Possible values include: 'Active', 'Amended', 'Cancelled'
+ * @member {date} [entryDateTime] Date/Time the transaction was booked into
+ * LUSID
+ * @member {date} [cancelDateTime] Date/Time the cancellation was booked into
+ * LUSID
+ * @member {array} [realisedGainLoss] Collection of gains or losses
+ */
+export interface OutputTransactionDto {
+  readonly tradeId: string;
+  readonly type: string;
+  readonly description: string;
+  readonly securityUid?: string;
+  readonly tradeDate?: Date;
+  readonly settlementDate?: Date;
+  readonly units?: number;
+  readonly tradePrice?: TradePrice;
+  readonly totalConsideration?: CurrencyAndAmount;
+  readonly exchangeRate?: number;
+  readonly tradeToPortfolioRate?: number;
+  readonly tradeCurrency?: string;
+  readonly properties?: PerpetualPropertyDto[];
+  readonly counterpartyId?: string;
+  readonly source?: string;
+  readonly nettingSet?: string;
+  readonly transactionStatus?: string;
+  readonly entryDateTime?: Date;
+  readonly cancelDateTime?: Date;
+  readonly realisedGainLoss?: RealisedGainLossDto[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the VersionedResourceListOfOutputTransactionDto class.
+ * @constructor
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.href]
+ * @member {array} [version._links]
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface VersionedResourceListOfOutputTransactionDto {
+  version?: VersionDto;
+  values?: OutputTransactionDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreateDerivedPortfolioRequest class.
  * @constructor
  * @member {string} name
@@ -1604,7 +1781,7 @@ export interface ResourceListOfPortfolioSearchResult {
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
- * 'UnitCreation'
+ * 'CurrencyAndAmount', 'TradePrice'
  * @member {boolean} [valueRequired]
  * @member {string} [displayName]
  * @member {object} [dataFormatId]
@@ -1769,7 +1946,7 @@ export interface CreateUnitDefinition {
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
- * 'UnitCreation'
+ * 'CurrencyAndAmount', 'TradePrice'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
@@ -1821,7 +1998,7 @@ export interface IUnitDefinitionDto {
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
- * 'UnitCreation'
+ * 'CurrencyAndAmount', 'TradePrice'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
@@ -1852,7 +2029,7 @@ export interface PropertyDataFormatDto {
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
- * 'UnitCreation'
+ * 'CurrencyAndAmount', 'TradePrice'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
@@ -2039,7 +2216,7 @@ export interface ResultsDto {
  * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
- * 'UnitCreation'
+ * 'CurrencyAndAmount', 'TradePrice'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -2078,7 +2255,7 @@ export interface KeyValuePairOfStringToFieldSchema {
  * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
  * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
  * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
- * 'HoldingsAdjustmentHeader'
+ * 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
  * @member {string} [href]
  * @member {array} [values]
  */

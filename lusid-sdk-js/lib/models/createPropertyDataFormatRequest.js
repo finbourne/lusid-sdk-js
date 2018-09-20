@@ -38,7 +38,7 @@ class CreatePropertyDataFormatRequest {
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    * @member {array} [acceptableValues]
    * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
    * 'Iso4217Currency'

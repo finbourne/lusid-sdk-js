@@ -23,57 +23,64 @@
 'use strict';
 
 /**
- * Class representing a KeyValuePairOfPropertyKeyToFieldSchema.
+ * Class representing a TransactionQueryParameters.
  */
-class KeyValuePairOfPropertyKeyToFieldSchema {
+class TransactionQueryParameters {
   /**
-   * Create a KeyValuePairOfPropertyKeyToFieldSchema.
-   * @member {string} [key]
-   * @member {object} [value]
-   * @member {string} [value.scope]
-   * @member {string} [value.name]
-   * @member {string} [value.displayName]
-   * @member {string} [value.type] Possible values include: 'String', 'Int',
-   * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'CurrencyAndAmount', 'TradePrice'
-   * @member {boolean} [value.isMetric]
-   * @member {number} [value.displayOrder]
-   * @member {object} [value.propertySchema]
+   * Create a TransactionQueryParameters.
+   * @member {date} [startDate] The required set of transactions should begin
+   * from this date
+   * @member {date} [endDate] The required set of transactions should end at
+   * this date
+   * @member {string} [queryMode] The method for date selection. Trade date or
+   * Settlement date. Possible values include: 'None', 'TradeDate',
+   * 'SettleDate'
+   * @member {boolean} [showCancelledTransactions] Option to include cancelled
+   * transactions in the results
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * Defines the metadata of TransactionQueryParameters
    *
-   * @returns {object} metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * @returns {object} metadata of TransactionQueryParameters
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'KeyValuePairOfPropertyKeyToFieldSchema',
+      serializedName: 'TransactionQueryParameters',
       type: {
         name: 'Composite',
-        className: 'KeyValuePairOfPropertyKeyToFieldSchema',
+        className: 'TransactionQueryParameters',
         modelProperties: {
-          key: {
+          startDate: {
             required: false,
-            readOnly: true,
-            serializedName: 'key',
+            serializedName: 'startDate',
+            type: {
+              name: 'DateTime'
+            }
+          },
+          endDate: {
+            required: false,
+            serializedName: 'endDate',
+            type: {
+              name: 'DateTime'
+            }
+          },
+          queryMode: {
+            required: false,
+            serializedName: 'queryMode',
             type: {
               name: 'String'
             }
           },
-          value: {
+          showCancelledTransactions: {
             required: false,
-            readOnly: true,
-            serializedName: 'value',
+            serializedName: 'showCancelledTransactions',
             type: {
-              name: 'Composite',
-              className: 'FieldSchema'
+              name: 'Boolean'
             }
           }
         }
@@ -82,4 +89,4 @@ class KeyValuePairOfPropertyKeyToFieldSchema {
   }
 }
 
-module.exports = KeyValuePairOfPropertyKeyToFieldSchema;
+module.exports = TransactionQueryParameters;

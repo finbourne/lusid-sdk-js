@@ -10383,6 +10383,244 @@ function _deletePropertyFromTrade(scope, code, tradeId, options, callback) {
 }
 
 /**
+ * @summary Get transactions
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code Code for the portfolio
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.asAt]
+ *
+ * @param {array} [options.sortBy] The columns to sort the returned data by
+ *
+ * @param {number} [options.start] How many items to skip from the returned set
+ *
+ * @param {number} [options.limit] How many items to return from the set
+ *
+ * @param {array} [options.securityPropertyKeys] Keys for the security
+ * properties to be decorated onto the trades
+ *
+ * @param {string} [options.filter] Trade filter
+ *
+ * @param {object} [options.parameters] Core query parameters
+ *
+ * @param {date} [options.parameters.startDate] The required set of
+ * transactions should begin from this date
+ *
+ * @param {date} [options.parameters.endDate] The required set of transactions
+ * should end at this date
+ *
+ * @param {string} [options.parameters.queryMode] The method for date
+ * selection. Trade date or Settlement date. Possible values include: 'None',
+ * 'TradeDate', 'SettleDate'
+ *
+ * @param {boolean} [options.parameters.showCancelledTransactions] Option to
+ * include cancelled transactions in the results
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link VersionedResourceListOfOutputTransactionDto}
+ *                      for more information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _buildTransactions(scope, code, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
+  let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
+  let start = (options && options.start !== undefined) ? options.start : undefined;
+  let limit = (options && options.limit !== undefined) ? options.limit : undefined;
+  let securityPropertyKeys = (options && options.securityPropertyKeys !== undefined) ? options.securityPropertyKeys : undefined;
+  let filter = (options && options.filter !== undefined) ? options.filter : undefined;
+  let parameters = (options && options.parameters !== undefined) ? options.parameters : undefined;
+  // Validate
+  try {
+    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
+      throw new Error('scope cannot be null or undefined and it must be of type string.');
+    }
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
+    }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
+    if (Array.isArray(sortBy)) {
+      for (let i = 0; i < sortBy.length; i++) {
+        if (sortBy[i] !== null && sortBy[i] !== undefined && typeof sortBy[i].valueOf() !== 'string') {
+          throw new Error('sortBy[i] must be of type string.');
+        }
+      }
+    }
+    if (start !== null && start !== undefined && typeof start !== 'number') {
+      throw new Error('start must be of type number.');
+    }
+    if (limit !== null && limit !== undefined && typeof limit !== 'number') {
+      throw new Error('limit must be of type number.');
+    }
+    if (Array.isArray(securityPropertyKeys)) {
+      for (let i1 = 0; i1 < securityPropertyKeys.length; i1++) {
+        if (securityPropertyKeys[i1] !== null && securityPropertyKeys[i1] !== undefined && typeof securityPropertyKeys[i1].valueOf() !== 'string') {
+          throw new Error('securityPropertyKeys[i1] must be of type string.');
+        }
+      }
+    }
+    if (filter !== null && filter !== undefined && typeof filter.valueOf() !== 'string') {
+      throw new Error('filter must be of type string.');
+    }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'v1/api/portfolios/{scope}/{code}/transactions/$build';
+  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
+  let queryParameters = [];
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
+  if (sortBy !== null && sortBy !== undefined) {
+    if (sortBy.length == 0) {
+      queryParameters.push('sortBy=' + encodeURIComponent(''));
+    } else {
+      for (let item of sortBy) {
+        item = (item === null || item === undefined) ? '' : item;
+        queryParameters.push('sortBy=' + encodeURIComponent('' + item));
+      }
+    }
+  }
+  if (start !== null && start !== undefined) {
+    queryParameters.push('start=' + encodeURIComponent(start.toString()));
+  }
+  if (limit !== null && limit !== undefined) {
+    queryParameters.push('limit=' + encodeURIComponent(limit.toString()));
+  }
+  if (securityPropertyKeys !== null && securityPropertyKeys !== undefined) {
+    if (securityPropertyKeys.length == 0) {
+      queryParameters.push('securityPropertyKeys=' + encodeURIComponent(''));
+    } else {
+      for (let item of securityPropertyKeys) {
+        item = (item === null || item === undefined) ? '' : item;
+        queryParameters.push('securityPropertyKeys=' + encodeURIComponent('' + item));
+      }
+    }
+  }
+  if (filter !== null && filter !== undefined) {
+    queryParameters.push('filter=' + encodeURIComponent(filter));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (parameters !== null && parameters !== undefined) {
+      let requestModelMapper = new client.models['TransactionQueryParameters']().mapper();
+      requestModel = client.serialize(requestModelMapper, parameters, 'parameters');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(parameters, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['VersionedResourceListOfOutputTransactionDto']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
  * @summary Create derived portfolio
  *
  * Creates a portfolio that derives from an existing portfolio
@@ -12429,7 +12667,7 @@ function _deletePropertyDefinition(domain, scope, name, options, callback) {
  * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
- * 'UnitCreation'
+ * 'CurrencyAndAmount', 'TradePrice'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -12890,7 +13128,7 @@ function _getPropertyDataFormat(scope, name, options, callback) {
  * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
- * 'UnitCreation'
+ * 'CurrencyAndAmount', 'TradePrice'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -14682,7 +14920,7 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
  * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
  * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
- * 'HoldingsAdjustmentHeader'
+ * 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -16008,6 +16246,7 @@ class LUSIDAPI extends ServiceClient {
     this._deleteTrades = _deleteTrades;
     this._addTradeProperty = _addTradeProperty;
     this._deletePropertyFromTrade = _deletePropertyFromTrade;
+    this._buildTransactions = _buildTransactions;
     this._createDerivedPortfolio = _createDerivedPortfolio;
     this._portfoliosSearch = _portfoliosSearch;
     this._propertiesSearch = _propertiesSearch;
@@ -22817,6 +23056,149 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.sortBy] The columns to sort the returned data by
+   *
+   * @param {number} [options.start] How many items to skip from the returned set
+   *
+   * @param {number} [options.limit] How many items to return from the set
+   *
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the trades
+   *
+   * @param {string} [options.filter] Trade filter
+   *
+   * @param {object} [options.parameters] Core query parameters
+   *
+   * @param {date} [options.parameters.startDate] The required set of
+   * transactions should begin from this date
+   *
+   * @param {date} [options.parameters.endDate] The required set of transactions
+   * should end at this date
+   *
+   * @param {string} [options.parameters.queryMode] The method for date
+   * selection. Trade date or Settlement date. Possible values include: 'None',
+   * 'TradeDate', 'SettleDate'
+   *
+   * @param {boolean} [options.parameters.showCancelledTransactions] Option to
+   * include cancelled transactions in the results
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<VersionedResourceListOfOutputTransactionDto>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  buildTransactionsWithHttpOperationResponse(scope, code, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._buildTransactions(scope, code, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Get transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.sortBy] The columns to sort the returned data by
+   *
+   * @param {number} [options.start] How many items to skip from the returned set
+   *
+   * @param {number} [options.limit] How many items to return from the set
+   *
+   * @param {array} [options.securityPropertyKeys] Keys for the security
+   * properties to be decorated onto the trades
+   *
+   * @param {string} [options.filter] Trade filter
+   *
+   * @param {object} [options.parameters] Core query parameters
+   *
+   * @param {date} [options.parameters.startDate] The required set of
+   * transactions should begin from this date
+   *
+   * @param {date} [options.parameters.endDate] The required set of transactions
+   * should end at this date
+   *
+   * @param {string} [options.parameters.queryMode] The method for date
+   * selection. Trade date or Settlement date. Possible values include: 'None',
+   * 'TradeDate', 'SettleDate'
+   *
+   * @param {boolean} [options.parameters.showCancelledTransactions] Option to
+   * include cancelled transactions in the results
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {VersionedResourceListOfOutputTransactionDto} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link VersionedResourceListOfOutputTransactionDto}
+   *                      for more information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  buildTransactions(scope, code, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._buildTransactions(scope, code, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._buildTransactions(scope, code, options, optionalCallback);
+    }
+  }
+
+  /**
    * @summary Create derived portfolio
    *
    * Creates a portfolio that derives from an existing portfolio
@@ -24119,7 +24501,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -24171,7 +24553,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -24438,7 +24820,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -24490,7 +24872,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -25622,7 +26004,7 @@ class LUSIDAPI extends ServiceClient {
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
    * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
    * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-   * 'HoldingsAdjustmentHeader'
+   * 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -25675,7 +26057,7 @@ class LUSIDAPI extends ServiceClient {
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
    * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
    * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-   * 'HoldingsAdjustmentHeader'
+   * 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
    *
    * @param {object} [options] Optional Parameters.
    *

@@ -23,57 +23,45 @@
 'use strict';
 
 /**
- * Class representing a KeyValuePairOfPropertyKeyToFieldSchema.
+ * Class representing a CurrencyAndAmount.
  */
-class KeyValuePairOfPropertyKeyToFieldSchema {
+class CurrencyAndAmount {
   /**
-   * Create a KeyValuePairOfPropertyKeyToFieldSchema.
-   * @member {string} [key]
-   * @member {object} [value]
-   * @member {string} [value.scope]
-   * @member {string} [value.name]
-   * @member {string} [value.displayName]
-   * @member {string} [value.type] Possible values include: 'String', 'Int',
-   * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'CurrencyAndAmount', 'TradePrice'
-   * @member {boolean} [value.isMetric]
-   * @member {number} [value.displayOrder]
-   * @member {object} [value.propertySchema]
+   * Create a CurrencyAndAmount.
+   * @member {number} [value]
+   * @member {string} [unit]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * Defines the metadata of CurrencyAndAmount
    *
-   * @returns {object} metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * @returns {object} metadata of CurrencyAndAmount
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'KeyValuePairOfPropertyKeyToFieldSchema',
+      serializedName: 'CurrencyAndAmount',
       type: {
         name: 'Composite',
-        className: 'KeyValuePairOfPropertyKeyToFieldSchema',
+        className: 'CurrencyAndAmount',
         modelProperties: {
-          key: {
-            required: false,
-            readOnly: true,
-            serializedName: 'key',
-            type: {
-              name: 'String'
-            }
-          },
           value: {
             required: false,
             readOnly: true,
             serializedName: 'value',
             type: {
-              name: 'Composite',
-              className: 'FieldSchema'
+              name: 'Number'
+            }
+          },
+          unit: {
+            required: false,
+            readOnly: true,
+            serializedName: 'unit',
+            type: {
+              name: 'String'
             }
           }
         }
@@ -82,4 +70,4 @@ class KeyValuePairOfPropertyKeyToFieldSchema {
   }
 }
 
-module.exports = KeyValuePairOfPropertyKeyToFieldSchema;
+module.exports = CurrencyAndAmount;

@@ -34,7 +34,7 @@ class PropertyDefinitionDto {
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'UnitCreation'
+   * 'CurrencyAndAmount', 'TradePrice'
    * @member {boolean} [valueRequired]
    * @member {string} [displayName]
    * @member {object} [dataFormatId]

@@ -23,57 +23,47 @@
 'use strict';
 
 /**
- * Class representing a KeyValuePairOfPropertyKeyToFieldSchema.
+ * A price with its associated type
+ *
  */
-class KeyValuePairOfPropertyKeyToFieldSchema {
+class TradePrice {
   /**
-   * Create a KeyValuePairOfPropertyKeyToFieldSchema.
-   * @member {string} [key]
-   * @member {object} [value]
-   * @member {string} [value.scope]
-   * @member {string} [value.name]
-   * @member {string} [value.displayName]
-   * @member {string} [value.type] Possible values include: 'String', 'Int',
-   * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'CurrencyAndAmount', 'TradePrice'
-   * @member {boolean} [value.isMetric]
-   * @member {number} [value.displayOrder]
-   * @member {object} [value.propertySchema]
+   * Create a TradePrice.
+   * @member {number} [value]
+   * @member {string} [type] Possible values include: 'Price', 'Yield',
+   * 'Spread'
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * Defines the metadata of TradePrice
    *
-   * @returns {object} metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * @returns {object} metadata of TradePrice
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'KeyValuePairOfPropertyKeyToFieldSchema',
+      serializedName: 'TradePrice',
       type: {
         name: 'Composite',
-        className: 'KeyValuePairOfPropertyKeyToFieldSchema',
+        className: 'TradePrice',
         modelProperties: {
-          key: {
-            required: false,
-            readOnly: true,
-            serializedName: 'key',
-            type: {
-              name: 'String'
-            }
-          },
           value: {
             required: false,
             readOnly: true,
             serializedName: 'value',
             type: {
-              name: 'Composite',
-              className: 'FieldSchema'
+              name: 'Number'
+            }
+          },
+          type: {
+            required: false,
+            readOnly: true,
+            serializedName: 'type',
+            type: {
+              name: 'String'
             }
           }
         }
@@ -82,4 +72,4 @@ class KeyValuePairOfPropertyKeyToFieldSchema {
   }
 }
 
-module.exports = KeyValuePairOfPropertyKeyToFieldSchema;
+module.exports = TradePrice;

@@ -54,7 +54,7 @@ class SchemaDto {
    * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
    * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
    * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-   * 'HoldingsAdjustmentHeader'
+   * 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
    * @member {string} [href]
    * @member {array} [values]
    */
