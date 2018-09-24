@@ -4188,11 +4188,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<HoldingsAdjustmentHeaderDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfHoldingsAdjustmentHeaderDto>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listHoldingsAdjustmentsWithHttpOperationResponse(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.HoldingsAdjustmentHeaderDto>>;
+  listHoldingsAdjustmentsWithHttpOperationResponse(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfHoldingsAdjustmentHeaderDto>>;
 
   /**
    * @summary Gets holdings adjustments in an interval of effective time.
@@ -4222,7 +4222,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {HoldingsAdjustmentHeaderDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfHoldingsAdjustmentHeaderDto} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -4230,17 +4230,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {HoldingsAdjustmentHeaderDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link HoldingsAdjustmentHeaderDto} for more
-   *                      information.
+   *                      {ResourceListOfHoldingsAdjustmentHeaderDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfHoldingsAdjustmentHeaderDto}
+   *                      for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listHoldingsAdjustments(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.HoldingsAdjustmentHeaderDto>;
-  listHoldingsAdjustments(scope: string, code: string, callback: ServiceCallback<models.HoldingsAdjustmentHeaderDto>): void;
-  listHoldingsAdjustments(scope: string, code: string, options: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.HoldingsAdjustmentHeaderDto>): void;
+  listHoldingsAdjustments(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfHoldingsAdjustmentHeaderDto>;
+  listHoldingsAdjustments(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfHoldingsAdjustmentHeaderDto>): void;
+  listHoldingsAdjustments(scope: string, code: string, options: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfHoldingsAdjustmentHeaderDto>): void;
 
 
   /**

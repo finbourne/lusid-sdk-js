@@ -1372,6 +1372,24 @@ export interface HoldingsAdjustmentHeaderDto {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfHoldingsAdjustmentHeaderDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [_links]
+ */
+export interface ResourceListOfHoldingsAdjustmentHeaderDto {
+  values?: HoldingsAdjustmentHeaderDto[];
+  href?: string;
+  count?: number;
+  _links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the HoldingsAdjustmentDto class.
  * @constructor
  * Full content of a holdings adjustment for a single portfolio and effective

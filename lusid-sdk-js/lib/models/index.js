@@ -93,6 +93,7 @@ exports.TargetTaxLotDto = require('./targetTaxLotDto');
 exports.AdjustHoldingRequest = require('./adjustHoldingRequest');
 exports.AdjustHoldingsDto = require('./adjustHoldingsDto');
 exports.HoldingsAdjustmentHeaderDto = require('./holdingsAdjustmentHeaderDto');
+exports.ResourceListOfHoldingsAdjustmentHeaderDto = require('./resourceListOfHoldingsAdjustmentHeaderDto');
 exports.HoldingsAdjustmentDto = require('./holdingsAdjustmentDto');
 exports.PortfolioPropertiesDto = require('./portfolioPropertiesDto');
 exports.VersionedResourceListOfTradeDto = require('./versionedResourceListOfTradeDto');

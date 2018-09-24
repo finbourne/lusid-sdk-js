@@ -8595,8 +8595,8 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link HoldingsAdjustmentHeaderDto} for more
- *                      information.
+ *                      See {@link ResourceListOfHoldingsAdjustmentHeaderDto}
+ *                      for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -8715,7 +8715,7 @@ function _listHoldingsAdjustments(scope, code, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['HoldingsAdjustmentHeaderDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfHoldingsAdjustmentHeaderDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -21963,7 +21963,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<HoldingsAdjustmentHeaderDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfHoldingsAdjustmentHeaderDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -22009,7 +22009,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {HoldingsAdjustmentHeaderDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfHoldingsAdjustmentHeaderDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -22018,8 +22018,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link HoldingsAdjustmentHeaderDto} for more
-   *                      information.
+   *                      See {@link ResourceListOfHoldingsAdjustmentHeaderDto}
+   *                      for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
