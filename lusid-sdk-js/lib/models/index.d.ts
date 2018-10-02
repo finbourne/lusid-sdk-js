@@ -325,6 +325,24 @@ export interface UpsertCorporateActionsResponse {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfCorporateActionEvent class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [links]
+ */
+export interface ResourceListOfCorporateActionEvent {
+  values?: CorporateAction[];
+  href?: string;
+  count?: number;
+  links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreateUnitDefinition class.
  * @constructor
  * @member {string} code
@@ -546,20 +564,6 @@ export interface Portfolio {
 
 /**
  * @class
- * Initializes a new instance of the CreatePropertyRequest class.
- * @constructor
- * @member {object} value
- * @member {date} [effectiveFrom] Date for which the property is effective from
- * @member {string} [unit]
- */
-export interface CreatePropertyRequest {
-  value: any;
-  effectiveFrom?: Date;
-  unit?: string;
-}
-
-/**
- * @class
  * Initializes a new instance of the InstrumentDefinition class.
  * @constructor
  * An opaque instrument definition.
@@ -577,19 +581,19 @@ export interface InstrumentDefinition {
  * @constructor
  * @member {string} clientInstrumentId
  * @member {string} name
- * @member {object} instrumentProperties
  * @member {object} [lookThroughPortfolioId]
  * @member {string} [lookThroughPortfolioId.scope]
  * @member {string} [lookThroughPortfolioId.code]
- * @member {object} [instrument] There could be multiple underlying instrument
- * definitions (same
- * instrument but different format), but for now store one.
+ * @member {object} [instrument] Expanded instrument definition - in the case
+ * of OTC instruments
+ * this contains the definition of the non-exchange traded instrument.
+ * The format for this can be client-defined, but in order to transparently use
+ * vendor libraries it must conform to a format that LUSID understands.
  * @member {string} [instrument.content]
  */
 export interface CreateClientInstrumentRequest {
   clientInstrumentId: string;
   name: string;
-  instrumentProperties: { [propertyName: string]: CreatePropertyRequest };
   lookThroughPortfolioId?: ResourceId;
   instrument?: InstrumentDefinition;
 }
@@ -681,6 +685,20 @@ export interface LookupInstrumentsFromCodesResponse {
   values?: { [propertyName: string]: Instrument[] };
   failed?: { [propertyName: string]: ErrorDetail };
   links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the CreatePropertyRequest class.
+ * @constructor
+ * @member {object} value
+ * @member {date} [effectiveFrom] Date for which the property is effective from
+ * @member {string} [unit]
+ */
+export interface CreatePropertyRequest {
+  value: any;
+  effectiveFrom?: Date;
+  unit?: string;
 }
 
 /**
@@ -1055,11 +1073,11 @@ export interface NestedAggregationResponse {
 
 /**
  * @class
- * Initializes a new instance of the UserId class.
+ * Initializes a new instance of the User class.
  * @constructor
  * @member {string} [id]
  */
-export interface UserId {
+export interface User {
   readonly id?: string;
 }
 
@@ -1078,7 +1096,7 @@ export interface UserId {
 export interface ProcessedCommand {
   description?: string;
   path?: string;
-  userId?: UserId;
+  userId?: User;
   processedTime?: any;
 }
 
@@ -1828,7 +1846,7 @@ export interface ResourceListOfTransactionMetaData {
  * @member {string} [description]
  * @member {string} code
  * @member {date} [created]
- * @member {string} [baseCurrency]
+ * @member {string} baseCurrency
  * @member {object} [corporateActionSourceId]
  * @member {string} [corporateActionSourceId.scope]
  * @member {string} [corporateActionSourceId.code]
@@ -1843,7 +1861,7 @@ export interface CreateTransactionPortfolioRequest {
   description?: string;
   code: string;
   created?: Date;
-  baseCurrency?: string;
+  baseCurrency: string;
   corporateActionSourceId?: ResourceId;
   accountingMethod?: string;
   subHoldingKeys?: string[];
@@ -1911,16 +1929,6 @@ export interface CurrencyAndAmount {
 
 /**
  * @class
- * Initializes a new instance of the NullableOfCurrency class.
- * @constructor
- * @member {string} [value]
- */
-export interface NullableOfCurrency {
-  readonly value?: string;
-}
-
-/**
- * @class
  * Initializes a new instance of the PerpetualProperty class.
  * @constructor
  * This is intended to be the external facing unitemporal property
@@ -1955,8 +1963,7 @@ export interface PerpetualProperty {
  * @member {number} [totalConsideration.amount]
  * @member {string} [totalConsideration.currency]
  * @member {number} [exchangeRate] Rate between transaction and settle currency
- * @member {object} [transactionCurrency] Transaction currency
- * @member {string} [transactionCurrency.value]
+ * @member {string} [transactionCurrency] Transaction currency
  * @member {array} [properties]
  * @member {string} [counterpartyId] Counterparty identifier
  * @member {string} [source] Where this transaction came from. Possible values
@@ -1973,7 +1980,7 @@ export interface Transaction {
   transactionPrice: TransactionPrice;
   totalConsideration: CurrencyAndAmount;
   exchangeRate?: number;
-  transactionCurrency?: NullableOfCurrency;
+  transactionCurrency?: string;
   properties?: PerpetualProperty[];
   counterpartyId?: string;
   source?: string;
@@ -2014,8 +2021,7 @@ export interface Transaction {
  * @member {string} [transaction.totalConsideration.currency]
  * @member {number} [transaction.exchangeRate] Rate between transaction and
  * settle currency
- * @member {object} [transaction.transactionCurrency] Transaction currency
- * @member {string} [transaction.transactionCurrency.value]
+ * @member {string} [transaction.transactionCurrency] Transaction currency
  * @member {array} [transaction.properties]
  * @member {string} [transaction.counterpartyId] Counterparty identifier
  * @member {string} [transaction.source] Where this transaction came from.
@@ -2232,8 +2238,7 @@ export interface VersionedResourceListOfTransaction {
  * @member {number} [totalConsideration.amount]
  * @member {string} [totalConsideration.currency]
  * @member {number} [exchangeRate] Rate between transaction and settle currency
- * @member {object} [transactionCurrency] Transaction currency
- * @member {string} [transactionCurrency.value]
+ * @member {string} [transactionCurrency] Transaction currency
  * @member {object} [properties]
  * @member {string} [counterpartyId] Counterparty identifier
  * @member {string} [source] Where this transaction came from, either Client or
@@ -2250,7 +2255,7 @@ export interface TransactionRequest {
   transactionPrice: TransactionPrice;
   totalConsideration: CurrencyAndAmount;
   exchangeRate?: number;
-  transactionCurrency?: NullableOfCurrency;
+  transactionCurrency?: string;
   properties?: { [propertyName: string]: CreatePerpetualPropertyRequest };
   counterpartyId?: string;
   source?: string;

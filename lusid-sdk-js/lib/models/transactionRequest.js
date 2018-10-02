@@ -46,8 +46,7 @@ class TransactionRequest {
    * @member {string} [totalConsideration.currency]
    * @member {number} [exchangeRate] Rate between transaction and settle
    * currency
-   * @member {object} [transactionCurrency] Transaction currency
-   * @member {string} [transactionCurrency.value]
+   * @member {string} [transactionCurrency] Transaction currency
    * @member {object} [properties]
    * @member {string} [counterpartyId] Counterparty identifier
    * @member {string} [source] Where this transaction came from, either Client
@@ -140,8 +139,7 @@ class TransactionRequest {
             required: false,
             serializedName: 'transactionCurrency',
             type: {
-              name: 'Composite',
-              className: 'NullableOfCurrency'
+              name: 'String'
             }
           },
           properties: {

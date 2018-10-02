@@ -32,7 +32,7 @@ class CreateTransactionPortfolioRequest {
    * @member {string} [description]
    * @member {string} code
    * @member {date} [created]
-   * @member {string} [baseCurrency]
+   * @member {string} baseCurrency
    * @member {object} [corporateActionSourceId]
    * @member {string} [corporateActionSourceId.scope]
    * @member {string} [corporateActionSourceId.code]
@@ -88,7 +88,7 @@ class CreateTransactionPortfolioRequest {
             }
           },
           baseCurrency: {
-            required: false,
+            required: true,
             serializedName: 'baseCurrency',
             type: {
               name: 'String'

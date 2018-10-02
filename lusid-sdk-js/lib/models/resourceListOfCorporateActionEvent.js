@@ -23,63 +23,77 @@
 'use strict';
 
 /**
- * Class representing a ProcessedCommand.
+ * Class representing a ResourceListOfCorporateActionEvent.
  */
-class ProcessedCommand {
+class ResourceListOfCorporateActionEvent {
   /**
-   * Create a ProcessedCommand.
-   * @member {string} [description]
-   * @member {string} [path]
-   * @member {object} [userId] The user that issued the command.
-   * @member {string} [userId.id]
-   * @member {object} [processedTime] The as at time of the events published by
-   * the processing of
-   * this command.
+   * Create a ResourceListOfCorporateActionEvent.
+   * @member {array} [values]
+   * @member {string} [href] The Uri that returns the same result as the
+   * original request,
+   * but may include resolved as at time(s).
+   * @member {number} [count] The total number of records returned in the set
+   * @member {array} [links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of ProcessedCommand
+   * Defines the metadata of ResourceListOfCorporateActionEvent
    *
-   * @returns {object} metadata of ProcessedCommand
+   * @returns {object} metadata of ResourceListOfCorporateActionEvent
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ProcessedCommand',
+      serializedName: 'ResourceListOfCorporateActionEvent',
       type: {
         name: 'Composite',
-        className: 'ProcessedCommand',
+        className: 'ResourceListOfCorporateActionEvent',
         modelProperties: {
-          description: {
+          values: {
             required: false,
-            serializedName: 'description',
+            serializedName: 'values',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'CorporateActionElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'CorporateAction'
+                  }
+              }
+            }
+          },
+          href: {
+            required: false,
+            serializedName: 'href',
             type: {
               name: 'String'
             }
           },
-          path: {
+          count: {
             required: false,
-            serializedName: 'path',
+            serializedName: 'count',
             type: {
-              name: 'String'
+              name: 'Number'
             }
           },
-          userId: {
+          links: {
             required: false,
-            serializedName: 'userId',
+            serializedName: 'links',
             type: {
-              name: 'Composite',
-              className: 'User'
-            }
-          },
-          processedTime: {
-            required: false,
-            serializedName: 'processedTime',
-            type: {
-              name: 'Object'
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
+                  }
+              }
             }
           }
         }
@@ -88,4 +102,4 @@ class ProcessedCommand {
   }
 }
 
-module.exports = ProcessedCommand;
+module.exports = ResourceListOfCorporateActionEvent;

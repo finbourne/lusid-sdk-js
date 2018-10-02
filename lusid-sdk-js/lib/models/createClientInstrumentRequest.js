@@ -30,13 +30,15 @@ class CreateClientInstrumentRequest {
    * Create a CreateClientInstrumentRequest.
    * @member {string} clientInstrumentId
    * @member {string} name
-   * @member {object} instrumentProperties
    * @member {object} [lookThroughPortfolioId]
    * @member {string} [lookThroughPortfolioId.scope]
    * @member {string} [lookThroughPortfolioId.code]
-   * @member {object} [instrument] There could be multiple underlying
-   * instrument definitions (same
-   * instrument but different format), but for now store one.
+   * @member {object} [instrument] Expanded instrument definition - in the case
+   * of OTC instruments
+   * this contains the definition of the non-exchange traded instrument.
+   * The format for this can be client-defined, but in order to transparently
+   * use
+   * vendor libraries it must conform to a format that LUSID understands.
    * @member {string} [instrument.content]
    */
   constructor() {
@@ -68,21 +70,6 @@ class CreateClientInstrumentRequest {
             serializedName: 'name',
             type: {
               name: 'String'
-            }
-          },
-          instrumentProperties: {
-            required: true,
-            serializedName: 'instrumentProperties',
-            type: {
-              name: 'Dictionary',
-              value: {
-                  required: false,
-                  serializedName: 'CreatePropertyRequestElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'CreatePropertyRequest'
-                  }
-              }
             }
           },
           lookThroughPortfolioId: {

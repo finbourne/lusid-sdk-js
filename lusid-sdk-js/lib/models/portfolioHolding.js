@@ -58,8 +58,7 @@ class PortfolioHolding {
    * @member {string} [transaction.totalConsideration.currency]
    * @member {number} [transaction.exchangeRate] Rate between transaction and
    * settle currency
-   * @member {object} [transaction.transactionCurrency] Transaction currency
-   * @member {string} [transaction.transactionCurrency.value]
+   * @member {string} [transaction.transactionCurrency] Transaction currency
    * @member {array} [transaction.properties]
    * @member {string} [transaction.counterpartyId] Counterparty identifier
    * @member {string} [transaction.source] Where this transaction came from.

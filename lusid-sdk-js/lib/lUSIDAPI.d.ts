@@ -434,11 +434,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<Array>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfCorporateActionEvent>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getCorporateActionsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CorporateAction[]>>;
+  getCorporateActionsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfCorporateActionEvent>>;
 
   /**
    * @summary Gets a corporate action based on dates
@@ -471,7 +471,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {Array} - The deserialized result object.
+   *                      @resolve {ResourceListOfCorporateActionEvent} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -479,15 +479,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {Array} [result]   - The deserialized result object if an error did not occur.
+   *                      {ResourceListOfCorporateActionEvent} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfCorporateActionEvent} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getCorporateActions(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.CorporateAction[]>;
-  getCorporateActions(scope: string, code: string, callback: ServiceCallback<models.CorporateAction[]>): void;
-  getCorporateActions(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CorporateAction[]>): void;
+  getCorporateActions(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfCorporateActionEvent>;
+  getCorporateActions(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfCorporateActionEvent>): void;
+  getCorporateActions(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfCorporateActionEvent>): void;
 
 
   /**
@@ -5312,7 +5314,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.createRequest.created]
    *
-   * @param {string} [options.createRequest.baseCurrency]
+   * @param {string} options.createRequest.baseCurrency
    *
    * @param {object} [options.createRequest.corporateActionSourceId]
    *
@@ -5360,7 +5362,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.createRequest.created]
    *
-   * @param {string} [options.createRequest.baseCurrency]
+   * @param {string} options.createRequest.baseCurrency
    *
    * @param {object} [options.createRequest.corporateActionSourceId]
    *

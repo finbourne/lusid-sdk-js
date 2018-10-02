@@ -831,7 +831,9 @@ function _insertAnalytics(scope, year, month, day, options, callback) {
  *
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
- *                      {array} [result]   - The deserialized result object if an error did not occur.
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link ResourceListOfCorporateActionEvent} for more
+ *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -981,21 +983,7 @@ function _getCorporateActions(scope, code, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = {
-            required: false,
-            serializedName: 'parsedResponse',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'CorporateActionElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'CorporateAction'
-                  }
-              }
-            }
-          };
+          let resultMapper = new client.models['ResourceListOfCorporateActionEvent']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -11107,7 +11095,7 @@ function _createConfigurationTransactionType(options, callback) {
  *
  * @param {date} [options.createRequest.created]
  *
- * @param {string} [options.createRequest.baseCurrency]
+ * @param {string} options.createRequest.baseCurrency
  *
  * @param {object} [options.createRequest.corporateActionSourceId]
  *
@@ -14295,7 +14283,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<Array>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfCorporateActionEvent>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -14344,7 +14332,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {Array} - The deserialized result object.
+   *                      @resolve {ResourceListOfCorporateActionEvent} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -14352,7 +14340,9 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {array} [result]   - The deserialized result object if an error did not occur.
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfCorporateActionEvent} for more
+   *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -20928,7 +20918,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.createRequest.created]
    *
-   * @param {string} [options.createRequest.baseCurrency]
+   * @param {string} options.createRequest.baseCurrency
    *
    * @param {object} [options.createRequest.corporateActionSourceId]
    *
@@ -20988,7 +20978,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.createRequest.created]
    *
-   * @param {string} [options.createRequest.baseCurrency]
+   * @param {string} options.createRequest.baseCurrency
    *
    * @param {object} [options.createRequest.corporateActionSourceId]
    *

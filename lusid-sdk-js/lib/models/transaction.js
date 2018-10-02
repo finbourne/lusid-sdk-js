@@ -45,8 +45,7 @@ class Transaction {
    * @member {string} [totalConsideration.currency]
    * @member {number} [exchangeRate] Rate between transaction and settle
    * currency
-   * @member {object} [transactionCurrency] Transaction currency
-   * @member {string} [transactionCurrency.value]
+   * @member {string} [transactionCurrency] Transaction currency
    * @member {array} [properties]
    * @member {string} [counterpartyId] Counterparty identifier
    * @member {string} [source] Where this transaction came from. Possible
@@ -139,8 +138,7 @@ class Transaction {
             required: false,
             serializedName: 'transactionCurrency',
             type: {
-              name: 'Composite',
-              className: 'NullableOfCurrency'
+              name: 'String'
             }
           },
           properties: {

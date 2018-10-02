@@ -23,29 +23,29 @@
 'use strict';
 
 /**
- * Class representing a UserId.
+ * Class representing a User.
  */
-class UserId {
+class User {
   /**
-   * Create a UserId.
+   * Create a User.
    * @member {string} [id]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of UserId
+   * Defines the metadata of User
    *
-   * @returns {object} metadata of UserId
+   * @returns {object} metadata of User
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'UserId',
+      serializedName: 'User',
       type: {
         name: 'Composite',
-        className: 'UserId',
+        className: 'User',
         modelProperties: {
           id: {
             required: false,
@@ -61,4 +61,4 @@ class UserId {
   }
 }
 
-module.exports = UserId;
+module.exports = User;
