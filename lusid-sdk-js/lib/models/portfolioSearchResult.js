@@ -31,16 +31,18 @@ class PortfolioSearchResult {
    * @member {object} [id]
    * @member {string} [id.scope]
    * @member {string} [id.code]
+   * @member {string} [type] Possible values include: 'Transaction',
+   * 'Reference', 'DerivedTransaction'
    * @member {string} [href]
    * @member {string} [description]
-   * @member {string} [name]
+   * @member {string} [displayName]
    * @member {boolean} [isDerived]
    * @member {date} [created]
    * @member {object} [parentPortfolioId]
    * @member {string} [parentPortfolioId.scope]
    * @member {string} [parentPortfolioId.code]
    * @member {array} [properties]
-   * @member {array} [_links]
+   * @member {array} [links]
    */
   constructor() {
   }
@@ -61,14 +63,24 @@ class PortfolioSearchResult {
         modelProperties: {
           id: {
             required: false,
+            readOnly: true,
             serializedName: 'id',
             type: {
               name: 'Composite',
               className: 'ResourceId'
             }
           },
+          type: {
+            required: false,
+            readOnly: true,
+            serializedName: 'type',
+            type: {
+              name: 'String'
+            }
+          },
           href: {
             required: false,
+            readOnly: true,
             serializedName: 'href',
             type: {
               name: 'String'
@@ -76,20 +88,23 @@ class PortfolioSearchResult {
           },
           description: {
             required: false,
+            readOnly: true,
             serializedName: 'description',
             type: {
               name: 'String'
             }
           },
-          name: {
+          displayName: {
             required: false,
-            serializedName: 'name',
+            readOnly: true,
+            serializedName: 'displayName',
             type: {
               name: 'String'
             }
           },
           isDerived: {
             required: false,
+            readOnly: true,
             serializedName: 'isDerived',
             type: {
               name: 'Boolean'
@@ -97,6 +112,7 @@ class PortfolioSearchResult {
           },
           created: {
             required: false,
+            readOnly: true,
             serializedName: 'created',
             type: {
               name: 'DateTime'
@@ -104,6 +120,7 @@ class PortfolioSearchResult {
           },
           parentPortfolioId: {
             required: false,
+            readOnly: true,
             serializedName: 'parentPortfolioId',
             type: {
               name: 'Composite',
@@ -112,22 +129,23 @@ class PortfolioSearchResult {
           },
           properties: {
             required: false,
+            readOnly: true,
             serializedName: 'properties',
             type: {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PropertyDtoElementType',
+                  serializedName: 'PropertyElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PropertyDto'
+                    className: 'Property'
                   }
               }
             }
           },
-          _links: {
+          links: {
             required: false,
-            serializedName: '_links',
+            serializedName: 'links',
             type: {
               name: 'Sequence',
               element: {

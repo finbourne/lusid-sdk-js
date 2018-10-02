@@ -73,7 +73,6 @@ class CreateUnitDefinition {
           },
           details: {
             required: false,
-            readOnly: true,
             serializedName: 'details',
             type: {
               name: 'Dictionary',

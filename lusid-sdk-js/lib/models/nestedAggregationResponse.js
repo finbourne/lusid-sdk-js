@@ -30,15 +30,16 @@ class NestedAggregationResponse {
    * Create a NestedAggregationResponse.
    * @member {string} [href]
    * @member {object} [data]
-   * @member {string} [data.groupPropertyKey]
-   * @member {string} [data.groupPropertyValue]
-   * @member {number} [data.idx]
+   * @member {string} [data.key]
+   * @member {string} [data.value]
+   * @member {number} [data.depth]
    * @member {object} [data.properties]
    * @member {array} [data.children]
    * @member {string} [aggregationCurrency]
    * @member {object} [dataSchema]
    * @member {array} [dataSchema.nodeValueSchema]
    * @member {object} [dataSchema.propertySchema]
+   * @member {array} [links]
    */
   constructor() {
   }
@@ -69,7 +70,7 @@ class NestedAggregationResponse {
             serializedName: 'data',
             type: {
               name: 'Composite',
-              className: 'AggregationResponseNodeOfDictionaryOfStringToObject'
+              className: 'AggregationResponseNode'
             }
           },
           aggregationCurrency: {
@@ -85,6 +86,21 @@ class NestedAggregationResponse {
             type: {
               name: 'Composite',
               className: 'ResultDataSchema'
+            }
+          },
+          links: {
+            required: false,
+            serializedName: 'links',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
+                  }
+              }
             }
           }
         }

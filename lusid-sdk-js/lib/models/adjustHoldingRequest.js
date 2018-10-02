@@ -31,10 +31,10 @@
 class AdjustHoldingRequest {
   /**
    * Create a AdjustHoldingRequest.
-   * @member {string} [securityUid] Unique security identifier
-   * @member {array} [subHoldingKeys] Key fields to uniquely index the sub
-   * holdings of a security
-   * @member {array} [properties] Arbitrary properties to store with the
+   * @member {string} [instrumentUid] Unique instrument identifier
+   * @member {object} [subHoldingKeys] Key fields to uniquely index the sub
+   * holdings of a instrument
+   * @member {object} [properties] Arbitrary properties to store with the
    * holding
    * @member {array} taxLots 1 or more quantity amounts
    */
@@ -55,9 +55,9 @@ class AdjustHoldingRequest {
         name: 'Composite',
         className: 'AdjustHoldingRequest',
         modelProperties: {
-          securityUid: {
+          instrumentUid: {
             required: false,
-            serializedName: 'securityUid',
+            serializedName: 'instrumentUid',
             type: {
               name: 'String'
             }
@@ -66,8 +66,8 @@ class AdjustHoldingRequest {
             required: false,
             serializedName: 'subHoldingKeys',
             type: {
-              name: 'Sequence',
-              element: {
+              name: 'Dictionary',
+              value: {
                   required: false,
                   serializedName: 'CreatePerpetualPropertyRequestElementType',
                   type: {
@@ -81,8 +81,8 @@ class AdjustHoldingRequest {
             required: false,
             serializedName: 'properties',
             type: {
-              name: 'Sequence',
-              element: {
+              name: 'Dictionary',
+              value: {
                   required: false,
                   serializedName: 'CreatePerpetualPropertyRequestElementType',
                   type: {
@@ -99,10 +99,10 @@ class AdjustHoldingRequest {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'TargetTaxLotDtoElementType',
+                  serializedName: 'TargetTaxLotRequestElementType',
                   type: {
                     name: 'Composite',
-                    className: 'TargetTaxLotDto'
+                    className: 'TargetTaxLotRequest'
                   }
               }
             }

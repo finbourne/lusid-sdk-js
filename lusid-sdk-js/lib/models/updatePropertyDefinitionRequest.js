@@ -30,10 +30,9 @@ class UpdatePropertyDefinitionRequest {
    * Create a UpdatePropertyDefinitionRequest.
    * @member {boolean} [valueRequired]
    * @member {string} [displayName]
-   * @member {object} [dataFormatId]
-   * @member {string} [dataFormatId.scope]
-   * @member {string} [dataFormatId.code]
-   * @member {string} [sort]
+   * @member {object} [dataTypeId]
+   * @member {string} [dataTypeId.scope]
+   * @member {string} [dataTypeId.code]
    * @member {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
    * @member {string} [type] Possible values include: 'Label', 'Metric'
@@ -69,19 +68,12 @@ class UpdatePropertyDefinitionRequest {
               name: 'String'
             }
           },
-          dataFormatId: {
+          dataTypeId: {
             required: false,
-            serializedName: 'dataFormatId',
+            serializedName: 'dataTypeId',
             type: {
               name: 'Composite',
               className: 'ResourceId'
-            }
-          },
-          sort: {
-            required: false,
-            serializedName: 'sort',
-            type: {
-              name: 'String'
             }
           },
           lifeTime: {

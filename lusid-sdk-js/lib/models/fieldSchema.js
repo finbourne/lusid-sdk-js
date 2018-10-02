@@ -34,8 +34,9 @@ class FieldSchema {
    * @member {string} [type] Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'CurrencyAndAmount', 'TradePrice'
+   * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
+   * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
+   * 'UnitCreation', 'Currency', 'UserId'
    * @member {boolean} [isMetric]
    * @member {number} [displayOrder]
    * @member {object} [propertySchema]

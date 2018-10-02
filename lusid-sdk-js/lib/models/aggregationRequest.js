@@ -29,12 +29,13 @@
 class AggregationRequest {
   /**
    * Create a AggregationRequest.
-   * @member {string} [recipeScope]
-   * @member {string} [recipeKey]
+   * @member {object} recipeId
+   * @member {string} [recipeId.scope]
+   * @member {string} [recipeId.code]
    * @member {boolean} [loadReferencePortfolio]
    * @member {date} [asAt] The asAt date to use
    * @member {date} [effectiveAt]
-   * @member {array} [metrics]
+   * @member {array} metrics
    * @member {array} [groupBy]
    * @member {array} [filters]
    * @member {number} [limit]
@@ -57,18 +58,12 @@ class AggregationRequest {
         name: 'Composite',
         className: 'AggregationRequest',
         modelProperties: {
-          recipeScope: {
-            required: false,
-            serializedName: 'recipeScope',
+          recipeId: {
+            required: true,
+            serializedName: 'recipeId',
             type: {
-              name: 'String'
-            }
-          },
-          recipeKey: {
-            required: false,
-            serializedName: 'recipeKey',
-            type: {
-              name: 'String'
+              name: 'Composite',
+              className: 'ResourceId'
             }
           },
           loadReferencePortfolio: {
@@ -93,7 +88,7 @@ class AggregationRequest {
             }
           },
           metrics: {
-            required: false,
+            required: true,
             serializedName: 'metrics',
             type: {
               name: 'Sequence',

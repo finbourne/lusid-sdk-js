@@ -34,6 +34,7 @@ class ListAggregationResponse {
    * @member {object} [dataSchema]
    * @member {array} [dataSchema.nodeValueSchema]
    * @member {object} [dataSchema.propertySchema]
+   * @member {array} [links]
    */
   constructor() {
   }
@@ -93,6 +94,21 @@ class ListAggregationResponse {
             type: {
               name: 'Composite',
               className: 'ResultDataSchema'
+            }
+          },
+          links: {
+            required: false,
+            serializedName: 'links',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
+                  }
+              }
             }
           }
         }

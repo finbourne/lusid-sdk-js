@@ -49,683 +49,6 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Clears the entity caches on the instance that serves this request
-   * only.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ClearEntityCachesDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  clearEntityCachesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ClearEntityCachesDto>>;
-
-  /**
-   * @summary Clears the entity caches on the instance that serves this request
-   * only.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ClearEntityCachesDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ClearEntityCachesDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ClearEntityCachesDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  clearEntityCaches(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ClearEntityCachesDto>;
-  clearEntityCaches(callback: ServiceCallback<models.ClearEntityCachesDto>): void;
-  clearEntityCaches(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ClearEntityCachesDto>): void;
-
-
-  /**
-   * @summary Aggregate data in a group hierarchy
-   *
-   * @param {string} scope
-   *
-   * @param {string} groupCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ListAggregationResponse>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getAggregationByGroupWithHttpOperationResponse(scope: string, groupCode: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ListAggregationResponse>>;
-
-  /**
-   * @summary Aggregate data in a group hierarchy
-   *
-   * @param {string} scope
-   *
-   * @param {string} groupCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ListAggregationResponse} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ListAggregationResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ListAggregationResponse} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getAggregationByGroup(scope: string, groupCode: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.ListAggregationResponse>;
-  getAggregationByGroup(scope: string, groupCode: string, callback: ServiceCallback<models.ListAggregationResponse>): void;
-  getAggregationByGroup(scope: string, groupCode: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ListAggregationResponse>): void;
-
-
-  /**
-   * @summary Aggregation request data in a group hierarchy into a data tree
-   *
-   * @param {string} scope
-   *
-   * @param {string} groupCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<NestedAggregationResponse>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getNestedAggregationByGroupWithHttpOperationResponse(scope: string, groupCode: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.NestedAggregationResponse>>;
-
-  /**
-   * @summary Aggregation request data in a group hierarchy into a data tree
-   *
-   * @param {string} scope
-   *
-   * @param {string} groupCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {NestedAggregationResponse} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {NestedAggregationResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link NestedAggregationResponse} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getNestedAggregationByGroup(scope: string, groupCode: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.NestedAggregationResponse>;
-  getNestedAggregationByGroup(scope: string, groupCode: string, callback: ServiceCallback<models.NestedAggregationResponse>): void;
-  getNestedAggregationByGroup(scope: string, groupCode: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.NestedAggregationResponse>): void;
-
-
-  /**
-   * @summary Aggregate data in a portfolio
-   *
-   * @param {string} scope
-   *
-   * @param {string} portfolioCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ListAggregationResponse>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getAggregationByPortfolioWithHttpOperationResponse(scope: string, portfolioCode: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ListAggregationResponse>>;
-
-  /**
-   * @summary Aggregate data in a portfolio
-   *
-   * @param {string} scope
-   *
-   * @param {string} portfolioCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ListAggregationResponse} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ListAggregationResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ListAggregationResponse} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getAggregationByPortfolio(scope: string, portfolioCode: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.ListAggregationResponse>;
-  getAggregationByPortfolio(scope: string, portfolioCode: string, callback: ServiceCallback<models.ListAggregationResponse>): void;
-  getAggregationByPortfolio(scope: string, portfolioCode: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ListAggregationResponse>): void;
-
-
-  /**
-   * @summary Aggregation request data in a portfolio into a data tree
-   *
-   * @param {string} scope
-   *
-   * @param {string} portfolioCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<NestedAggregationResponse>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getNestedAggregationByPortfolioWithHttpOperationResponse(scope: string, portfolioCode: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.NestedAggregationResponse>>;
-
-  /**
-   * @summary Aggregation request data in a portfolio into a data tree
-   *
-   * @param {string} scope
-   *
-   * @param {string} portfolioCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {NestedAggregationResponse} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {NestedAggregationResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link NestedAggregationResponse} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getNestedAggregationByPortfolio(scope: string, portfolioCode: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.NestedAggregationResponse>;
-  getNestedAggregationByPortfolio(scope: string, portfolioCode: string, callback: ServiceCallback<models.NestedAggregationResponse>): void;
-  getNestedAggregationByPortfolio(scope: string, portfolioCode: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.NestedAggregationResponse>): void;
-
-
-  /**
-   * @summary Aggregate data from a result set
-   *
-   * @param {string} scope
-   *
-   * @param {string} resultsKey
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ListAggregationResponse>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getAggregationByResultSetWithHttpOperationResponse(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ListAggregationResponse>>;
-
-  /**
-   * @summary Aggregate data from a result set
-   *
-   * @param {string} scope
-   *
-   * @param {string} resultsKey
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ListAggregationResponse} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ListAggregationResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ListAggregationResponse} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getAggregationByResultSet(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.ListAggregationResponse>;
-  getAggregationByResultSet(scope: string, resultsKey: string, callback: ServiceCallback<models.ListAggregationResponse>): void;
-  getAggregationByResultSet(scope: string, resultsKey: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ListAggregationResponse>): void;
-
-
-  /**
-   * @summary Aggregate data from a result set into a nested structure
-   *
-   * @param {string} scope
-   *
-   * @param {string} resultsKey
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<NestedAggregationResponse>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getNestedAggregationByResultSetWithHttpOperationResponse(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.NestedAggregationResponse>>;
-
-  /**
-   * @summary Aggregate data from a result set into a nested structure
-   *
-   * @param {string} scope
-   *
-   * @param {string} resultsKey
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.recipeScope]
-   *
-   * @param {string} [options.request.recipeKey]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
-   * @param {date} [options.request.asAt] The asAt date to use
-   *
-   * @param {date} [options.request.effectiveAt]
-   *
-   * @param {array} [options.request.metrics]
-   *
-   * @param {array} [options.request.groupBy]
-   *
-   * @param {array} [options.request.filters]
-   *
-   * @param {number} [options.request.limit]
-   *
-   * @param {string} [options.request.sort]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {NestedAggregationResponse} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {NestedAggregationResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link NestedAggregationResponse} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getNestedAggregationByResultSet(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.NestedAggregationResponse>;
-  getNestedAggregationByResultSet(scope: string, resultsKey: string, callback: ServiceCallback<models.NestedAggregationResponse>): void;
-  getNestedAggregationByResultSet(scope: string, resultsKey: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.NestedAggregationResponse>): void;
-
-
-  /**
    * @summary List all analytic stores in client
    *
    * @param {object} [options] Optional Parameters.
@@ -745,11 +68,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfAnalyticStoreKeyDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfAnalyticStoreKey>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listAnalyticStoresWithHttpOperationResponse(options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfAnalyticStoreKeyDto>>;
+  listAnalyticStoresWithHttpOperationResponse(options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfAnalyticStoreKey>>;
 
   /**
    * @summary List all analytic stores in client
@@ -776,7 +99,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfAnalyticStoreKeyDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfAnalyticStoreKey} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -784,17 +107,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfAnalyticStoreKeyDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfAnalyticStoreKeyDto} for more
+   *                      {ResourceListOfAnalyticStoreKey} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfAnalyticStoreKey} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listAnalyticStores(options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfAnalyticStoreKeyDto>;
-  listAnalyticStores(callback: ServiceCallback<models.ResourceListOfAnalyticStoreKeyDto>): void;
-  listAnalyticStores(options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfAnalyticStoreKeyDto>): void;
+  listAnalyticStores(options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfAnalyticStoreKey>;
+  listAnalyticStores(callback: ServiceCallback<models.ResourceListOfAnalyticStoreKey>): void;
+  listAnalyticStores(options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfAnalyticStoreKey>): void;
 
 
   /**
@@ -814,11 +137,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<AnalyticStoreDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<AnalyticStore>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  createAnalyticStoreWithHttpOperationResponse(options?: { request? : models.CreateAnalyticStoreRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AnalyticStoreDto>>;
+  createAnalyticStoreWithHttpOperationResponse(options?: { request? : models.CreateAnalyticStoreRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AnalyticStore>>;
 
   /**
    * @summary Create a new analytic store for the given scope for the given date
@@ -842,7 +165,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {AnalyticStoreDto} - The deserialized result object.
+   *                      @resolve {AnalyticStore} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -850,16 +173,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {AnalyticStoreDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link AnalyticStoreDto} for more information.
+   *                      {AnalyticStore} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link AnalyticStore} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  createAnalyticStore(options?: { request? : models.CreateAnalyticStoreRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.AnalyticStoreDto>;
-  createAnalyticStore(callback: ServiceCallback<models.AnalyticStoreDto>): void;
-  createAnalyticStore(options: { request? : models.CreateAnalyticStoreRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AnalyticStoreDto>): void;
+  createAnalyticStore(options?: { request? : models.CreateAnalyticStoreRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.AnalyticStore>;
+  createAnalyticStore(callback: ServiceCallback<models.AnalyticStore>): void;
+  createAnalyticStore(options: { request? : models.CreateAnalyticStoreRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AnalyticStore>): void;
 
 
   /**
@@ -884,11 +207,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<AnalyticStoreDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<AnalyticStore>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getAnalyticStoreWithHttpOperationResponse(scope: string, year: number, month: number, day: number, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AnalyticStoreDto>>;
+  getAnalyticStoreWithHttpOperationResponse(scope: string, year: number, month: number, day: number, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AnalyticStore>>;
 
   /**
    * @summary Get an analytic store
@@ -917,7 +240,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {AnalyticStoreDto} - The deserialized result object.
+   *                      @resolve {AnalyticStore} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -925,16 +248,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {AnalyticStoreDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link AnalyticStoreDto} for more information.
+   *                      {AnalyticStore} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link AnalyticStore} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getAnalyticStore(scope: string, year: number, month: number, day: number, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.AnalyticStoreDto>;
-  getAnalyticStore(scope: string, year: number, month: number, day: number, callback: ServiceCallback<models.AnalyticStoreDto>): void;
-  getAnalyticStore(scope: string, year: number, month: number, day: number, options: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AnalyticStoreDto>): void;
+  getAnalyticStore(scope: string, year: number, month: number, day: number, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.AnalyticStore>;
+  getAnalyticStore(scope: string, year: number, month: number, day: number, callback: ServiceCallback<models.AnalyticStore>): void;
+  getAnalyticStore(scope: string, year: number, month: number, day: number, options: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AnalyticStore>): void;
 
 
   /**
@@ -1031,11 +354,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<AnalyticStoreDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<AnalyticStore>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  insertAnalyticsWithHttpOperationResponse(scope: string, year: number, month: number, day: number, options?: { data? : models.SecurityAnalyticDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AnalyticStoreDto>>;
+  insertAnalyticsWithHttpOperationResponse(scope: string, year: number, month: number, day: number, options?: { data? : models.InstrumentAnalytic[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AnalyticStore>>;
 
   /**
    * @summary Insert analytics into an existing analytic store for the given
@@ -1065,7 +388,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {AnalyticStoreDto} - The deserialized result object.
+   *                      @resolve {AnalyticStore} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1073,314 +396,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {AnalyticStoreDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link AnalyticStoreDto} for more information.
+   *                      {AnalyticStore} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link AnalyticStore} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  insertAnalytics(scope: string, year: number, month: number, day: number, options?: { data? : models.SecurityAnalyticDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<models.AnalyticStoreDto>;
-  insertAnalytics(scope: string, year: number, month: number, day: number, callback: ServiceCallback<models.AnalyticStoreDto>): void;
-  insertAnalytics(scope: string, year: number, month: number, day: number, options: { data? : models.SecurityAnalyticDataDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AnalyticStoreDto>): void;
-
-
-  /**
-   * @summary Upsert Analytics
-   *
-   * @param {string} scope Scope of the analytic
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request] A valid and fully populated analytic store
-   * creation request
-   *
-   * @param {array} [options.request.items]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<Object>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  upsertAnalyticsWithHttpOperationResponse(scope: string, options?: { request? : models.AnalyticsStorageRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<any>>;
-
-  /**
-   * @summary Upsert Analytics
-   *
-   * @param {string} scope Scope of the analytic
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request] A valid and fully populated analytic store
-   * creation request
-   *
-   * @param {array} [options.request.items]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {Object} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {Object} [result]   - The deserialized result object if an error did not occur.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  upsertAnalytics(scope: string, options?: { request? : models.AnalyticsStorageRequest, customHeaders? : { [headerName: string]: string; } }): Promise<any>;
-  upsertAnalytics(scope: string, callback: ServiceCallback<any>): void;
-  upsertAnalytics(scope: string, options: { request? : models.AnalyticsStorageRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<any>): void;
-
-
-  /**
-   * @summary Update classification data
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.classifications]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ClassificationsDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  upsertClassificationWithHttpOperationResponse(options?: { classifications? : models.SecurityClassificationDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ClassificationsDto>>;
-
-  /**
-   * @summary Update classification data
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.classifications]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ClassificationsDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ClassificationsDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ClassificationsDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  upsertClassification(options?: { classifications? : models.SecurityClassificationDto[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ClassificationsDto>;
-  upsertClassification(callback: ServiceCallback<models.ClassificationsDto>): void;
-  upsertClassification(options: { classifications? : models.SecurityClassificationDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ClassificationsDto>): void;
-
-
-  /**
-   * @summary Adds a new transaction type movement to the list of existing types
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.type]
-   *
-   * @param {array} options.type.aliases List of transaction codes that map to
-   * this specific transaction model
-   *
-   * @param {array} options.type.movements Movement data for the transaction code
-   *
-   * @param {array} [options.type.properties]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<TxnMetaDataDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  addConfigurationTransactionTypeWithHttpOperationResponse(options?: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TxnMetaDataDto>>;
-
-  /**
-   * @summary Adds a new transaction type movement to the list of existing types
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.type]
-   *
-   * @param {array} options.type.aliases List of transaction codes that map to
-   * this specific transaction model
-   *
-   * @param {array} options.type.movements Movement data for the transaction code
-   *
-   * @param {array} [options.type.properties]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {TxnMetaDataDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {TxnMetaDataDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link TxnMetaDataDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  addConfigurationTransactionType(options?: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }): Promise<models.TxnMetaDataDto>;
-  addConfigurationTransactionType(callback: ServiceCallback<models.TxnMetaDataDto>): void;
-  addConfigurationTransactionType(options: { type? : models.TxnMetaDataDto, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TxnMetaDataDto>): void;
-
-
-  /**
-   * @summary Gets the list of persisted transaction types
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfTxnMetaDataDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getConfigurationTransactionTypesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfTxnMetaDataDto>>;
-
-  /**
-   * @summary Gets the list of persisted transaction types
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfTxnMetaDataDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfTxnMetaDataDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfTxnMetaDataDto} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getConfigurationTransactionTypes(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfTxnMetaDataDto>;
-  getConfigurationTransactionTypes(callback: ServiceCallback<models.ResourceListOfTxnMetaDataDto>): void;
-  getConfigurationTransactionTypes(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfTxnMetaDataDto>): void;
-
-
-  /**
-   * @summary Uploads a list of transaction types to be used by the movements
-   * engine
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.types]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfTxnMetaDataDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  uploadConfigurationTransactionTypesWithHttpOperationResponse(options?: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfTxnMetaDataDto>>;
-
-  /**
-   * @summary Uploads a list of transaction types to be used by the movements
-   * engine
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.types]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfTxnMetaDataDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfTxnMetaDataDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfTxnMetaDataDto} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  uploadConfigurationTransactionTypes(options?: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfTxnMetaDataDto>;
-  uploadConfigurationTransactionTypes(callback: ServiceCallback<models.ResourceListOfTxnMetaDataDto>): void;
-  uploadConfigurationTransactionTypes(options: { types? : models.TxnMetaDataDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfTxnMetaDataDto>): void;
+  insertAnalytics(scope: string, year: number, month: number, day: number, options?: { data? : models.InstrumentAnalytic[], customHeaders? : { [headerName: string]: string; } }): Promise<models.AnalyticStore>;
+  insertAnalytics(scope: string, year: number, month: number, day: number, callback: ServiceCallback<models.AnalyticStore>): void;
+  insertAnalytics(scope: string, year: number, month: number, day: number, options: { data? : models.InstrumentAnalytic[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AnalyticStore>): void;
 
 
   /**
@@ -1388,13 +413,21 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope Scope
    *
-   * @param {string} corporateActionSourceCode Corporate action source id
+   * @param {string} code Corporate action source id
    *
    * @param {object} [options] Optional Parameters.
    *
    * @param {date} [options.effectiveAt] Effective Date
    *
    * @param {date} [options.asAt] AsAt Date filter
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1405,20 +438,28 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listCorporateActionsWithHttpOperationResponse(scope: string, corporateActionSourceCode: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CorporateActionEventDto[]>>;
+  getCorporateActionsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CorporateAction[]>>;
 
   /**
    * @summary Gets a corporate action based on dates
    *
    * @param {string} scope Scope
    *
-   * @param {string} corporateActionSourceCode Corporate action source id
+   * @param {string} code Corporate action source id
    *
    * @param {object} [options] Optional Parameters.
    *
    * @param {date} [options.effectiveAt] Effective Date
    *
    * @param {date} [options.asAt] AsAt Date filter
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1444,9 +485,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listCorporateActions(scope: string, corporateActionSourceCode: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.CorporateActionEventDto[]>;
-  listCorporateActions(scope: string, corporateActionSourceCode: string, callback: ServiceCallback<models.CorporateActionEventDto[]>): void;
-  listCorporateActions(scope: string, corporateActionSourceCode: string, options: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CorporateActionEventDto[]>): void;
+  getCorporateActions(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.CorporateAction[]>;
+  getCorporateActions(scope: string, code: string, callback: ServiceCallback<models.CorporateAction[]>): void;
+  getCorporateActions(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CorporateAction[]>): void;
 
 
   /**
@@ -1455,7 +496,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope The intended scope of the corporate action
    *
-   * @param {string} corporateActionSourceCode Source of the corporate action
+   * @param {string} code Source of the corporate action
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1466,11 +507,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<TryUpsertCorporateActionsDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<UpsertCorporateActionsResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  batchUpsertCorporateActionsWithHttpOperationResponse(scope: string, corporateActionSourceCode: string, options?: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TryUpsertCorporateActionsDto>>;
+  batchUpsertCorporateActionsWithHttpOperationResponse(scope: string, code: string, options?: { actions? : models.CreateCorporateAction[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertCorporateActionsResponse>>;
 
   /**
    * @summary Attempt to create/update one or more corporate action. Failed
@@ -1478,7 +519,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope The intended scope of the corporate action
    *
-   * @param {string} corporateActionSourceCode Source of the corporate action
+   * @param {string} code Source of the corporate action
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1494,7 +535,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {TryUpsertCorporateActionsDto} - The deserialized result object.
+   *                      @resolve {UpsertCorporateActionsResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1502,39 +543,95 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {TryUpsertCorporateActionsDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link TryUpsertCorporateActionsDto} for more
+   *                      {UpsertCorporateActionsResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link UpsertCorporateActionsResponse} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  batchUpsertCorporateActions(scope: string, corporateActionSourceCode: string, options?: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.TryUpsertCorporateActionsDto>;
-  batchUpsertCorporateActions(scope: string, corporateActionSourceCode: string, callback: ServiceCallback<models.TryUpsertCorporateActionsDto>): void;
-  batchUpsertCorporateActions(scope: string, corporateActionSourceCode: string, options: { actions? : models.UpsertCorporateActionRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TryUpsertCorporateActionsDto>): void;
+  batchUpsertCorporateActions(scope: string, code: string, options?: { actions? : models.CreateCorporateAction[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertCorporateActionsResponse>;
+  batchUpsertCorporateActions(scope: string, code: string, callback: ServiceCallback<models.UpsertCorporateActionsResponse>): void;
+  batchUpsertCorporateActions(scope: string, code: string, options: { actions? : models.CreateCorporateAction[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertCorporateActionsResponse>): void;
 
 
   /**
+   * @summary Create a new PropertyDataFormat. Note: Only non-default formats can
+   * be created.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.version]
+   * @param {object} [options.request] The definition of the new format
+   *
+   * @param {string} options.request.scope
+   *
+   * @param {string} options.request.code
+   *
+   * @param {string} options.request.typeValueRange Possible values include:
+   * 'Open', 'Closed'
+   *
+   * @param {string} options.request.displayName
+   *
+   * @param {string} options.request.description
+   *
+   * @param {string} options.request.valueType Possible values include: 'String',
+   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
+   * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
+   * 'Currency', 'UserId'
+   *
+   * @param {array} [options.request.acceptableValues]
+   *
+   * @param {string} [options.request.unitSchema] Possible values include:
+   * 'NoUnits', 'Basic', 'Iso4217Currency'
+   *
+   * @param {array} [options.request.acceptableUnits]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<DataType>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getDownloadUrlWithHttpOperationResponse(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
+  createDataTypeWithHttpOperationResponse(options?: { request? : models.CreateDataTypeRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DataType>>;
 
   /**
+   * @summary Create a new PropertyDataFormat. Note: Only non-default formats can
+   * be created.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.version]
+   * @param {object} [options.request] The definition of the new format
+   *
+   * @param {string} options.request.scope
+   *
+   * @param {string} options.request.code
+   *
+   * @param {string} options.request.typeValueRange Possible values include:
+   * 'Open', 'Closed'
+   *
+   * @param {string} options.request.displayName
+   *
+   * @param {string} options.request.description
+   *
+   * @param {string} options.request.valueType Possible values include: 'String',
+   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
+   * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
+   * 'Currency', 'UserId'
+   *
+   * @param {array} [options.request.acceptableValues]
+   *
+   * @param {string} [options.request.unitSchema] Possible values include:
+   * 'NoUnits', 'Basic', 'Iso4217Currency'
+   *
+   * @param {array} [options.request.acceptableUnits]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1546,7 +643,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {String} - The deserialized result object.
+   *                      @resolve {DataType} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1554,71 +651,28 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {String} [result]   - The deserialized result object if an error did not occur.
+   *                      {DataType} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DataType} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getDownloadUrl(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<string>;
-  getDownloadUrl(callback: ServiceCallback<string>): void;
-  getDownloadUrl(options: { version? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
+  createDataType(options?: { request? : models.CreateDataTypeRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.DataType>;
+  createDataType(callback: ServiceCallback<models.DataType>): void;
+  createDataType(options: { request? : models.CreateDataTypeRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DataType>): void;
 
 
   /**
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getLatestVersionWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
-
-  /**
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {String} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {String} [result]   - The deserialized result object if an error did not occur.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getLatestVersion(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<string>;
-  getLatestVersion(callback: ServiceCallback<string>): void;
-  getLatestVersion(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
-
-
-  /**
-   * @summary List all groups in a specified scope
+   * @summary Lists all property data formats in the specified scope.
    *
    * @param {string} scope
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {boolean} [options.includeDefault]
+   *
+   * @param {boolean} [options.includeSystem]
    *
    * @param {array} [options.sortBy]
    *
@@ -1626,28 +680,29 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {number} [options.limit]
    *
-   * @param {string} [options.filter] A filter expression to apply to the result
-   * set
+   * @param {string} [options.filter]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfGroupDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfDataType>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listPortfolioGroupsWithHttpOperationResponse(scope: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfGroupDto>>;
+  listDataTypesWithHttpOperationResponse(scope: string, options?: { includeDefault? : boolean, includeSystem? : boolean, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfDataType>>;
 
   /**
-   * @summary List all groups in a specified scope
+   * @summary Lists all property data formats in the specified scope.
    *
    * @param {string} scope
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {boolean} [options.includeDefault]
+   *
+   * @param {boolean} [options.includeSystem]
    *
    * @param {array} [options.sortBy]
    *
@@ -1655,8 +710,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {number} [options.limit]
    *
-   * @param {string} [options.filter] A filter expression to apply to the result
-   * set
+   * @param {string} [options.filter]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1668,7 +722,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfGroupDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfDataType} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1676,67 +730,47 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfGroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfGroupDto} for more
+   *                      {ResourceListOfDataType} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfDataType} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listPortfolioGroups(scope: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfGroupDto>;
-  listPortfolioGroups(scope: string, callback: ServiceCallback<models.ResourceListOfGroupDto>): void;
-  listPortfolioGroups(scope: string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfGroupDto>): void;
+  listDataTypes(scope: string, options?: { includeDefault? : boolean, includeSystem? : boolean, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfDataType>;
+  listDataTypes(scope: string, callback: ServiceCallback<models.ResourceListOfDataType>): void;
+  listDataTypes(scope: string, options: { includeDefault? : boolean, includeSystem? : boolean, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfDataType>): void;
 
 
   /**
-   * @summary Create a new group
+   * @summary Gets a property data format.
    *
    * @param {string} scope
    *
+   * @param {string} name
+   *
    * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} options.request.id
-   *
-   * @param {array} [options.request.values]
-   *
-   * @param {array} [options.request.subGroups]
-   *
-   * @param {string} options.request.name
-   *
-   * @param {string} [options.request.description]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<GroupDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<DataType>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  createPortfolioGroupWithHttpOperationResponse(scope: string, options?: { request? : models.CreateGroupRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GroupDto>>;
+  getDataTypeWithHttpOperationResponse(scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DataType>>;
 
   /**
-   * @summary Create a new group
+   * @summary Gets a property data format.
    *
    * @param {string} scope
    *
+   * @param {string} name
+   *
    * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} options.request.id
-   *
-   * @param {array} [options.request.values]
-   *
-   * @param {array} [options.request.subGroups]
-   *
-   * @param {string} options.request.name
-   *
-   * @param {string} [options.request.description]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1748,7 +782,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {GroupDto} - The deserialized result object.
+   *                      @resolve {DataType} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1756,50 +790,94 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {GroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link GroupDto} for more information.
+   *                      {DataType} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DataType} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  createPortfolioGroup(scope: string, options?: { request? : models.CreateGroupRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.GroupDto>;
-  createPortfolioGroup(scope: string, callback: ServiceCallback<models.GroupDto>): void;
-  createPortfolioGroup(scope: string, options: { request? : models.CreateGroupRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GroupDto>): void;
+  getDataType(scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DataType>;
+  getDataType(scope: string, name: string, callback: ServiceCallback<models.DataType>): void;
+  getDataType(scope: string, name: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DataType>): void;
 
 
   /**
-   * @summary Get an existing group
+   * @summary Update a PropertyDataFormat. Note: Only non-default formats can be
+   * updated.
    *
-   * @param {string} scope
+   * @param {string} scope The scope of the format being updated
    *
-   * @param {string} code
+   * @param {string} name The name of the format to update
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {object} [options.request] The new definition of the format
+   *
+   * @param {string} options.request.typeValueRange Possible values include:
+   * 'Open', 'Closed'
+   *
+   * @param {string} options.request.displayName
+   *
+   * @param {string} options.request.description
+   *
+   * @param {string} options.request.valueType Possible values include: 'String',
+   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
+   * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
+   * 'Currency', 'UserId'
+   *
+   * @param {array} [options.request.acceptableValues]
+   *
+   * @param {string} [options.request.unitSchema] Possible values include:
+   * 'NoUnits', 'Basic', 'Iso4217Currency'
+   *
+   * @param {array} [options.request.acceptableUnits]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<GroupDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<DataType>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPortfolioGroupWithHttpOperationResponse(scope: string, code: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GroupDto>>;
+  updateDataTypeWithHttpOperationResponse(scope: string, name: string, options?: { request? : models.UpdateDataTypeRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DataType>>;
 
   /**
-   * @summary Get an existing group
+   * @summary Update a PropertyDataFormat. Note: Only non-default formats can be
+   * updated.
    *
-   * @param {string} scope
+   * @param {string} scope The scope of the format being updated
    *
-   * @param {string} code
+   * @param {string} name The name of the format to update
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {object} [options.request] The new definition of the format
+   *
+   * @param {string} options.request.typeValueRange Possible values include:
+   * 'Open', 'Closed'
+   *
+   * @param {string} options.request.displayName
+   *
+   * @param {string} options.request.description
+   *
+   * @param {string} options.request.valueType Possible values include: 'String',
+   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+   * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
+   * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
+   * 'Currency', 'UserId'
+   *
+   * @param {array} [options.request.acceptableValues]
+   *
+   * @param {string} [options.request.unitSchema] Possible values include:
+   * 'NoUnits', 'Basic', 'Iso4217Currency'
+   *
+   * @param {array} [options.request.acceptableUnits]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1811,7 +889,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {GroupDto} - The deserialized result object.
+   *                      @resolve {DataType} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1819,26 +897,192 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {GroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link GroupDto} for more information.
+   *                      {DataType} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DataType} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPortfolioGroup(scope: string, code: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.GroupDto>;
-  getPortfolioGroup(scope: string, code: string, callback: ServiceCallback<models.GroupDto>): void;
-  getPortfolioGroup(scope: string, code: string, options: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GroupDto>): void;
+  updateDataType(scope: string, name: string, options?: { request? : models.UpdateDataTypeRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.DataType>;
+  updateDataType(scope: string, name: string, callback: ServiceCallback<models.DataType>): void;
+  updateDataType(scope: string, name: string, options: { request? : models.UpdateDataTypeRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DataType>): void;
 
 
   /**
-   * @summary Delete a group
+   * @summary Return the definitions for the specified list of units
    *
    * @param {string} scope
    *
-   * @param {string} code
+   * @param {string} name
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.units]
+   *
+   * @param {string} [options.filter]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<IUnitDefinition>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getUnitsFromDataTypeWithHttpOperationResponse(scope: string, name: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.IUnitDefinition>>;
+
+  /**
+   * @summary Return the definitions for the specified list of units
+   *
+   * @param {string} scope
+   *
+   * @param {string} name
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.units]
+   *
+   * @param {string} [options.filter]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {IUnitDefinition} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {IUnitDefinition} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link IUnitDefinition} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getUnitsFromDataType(scope: string, name: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.IUnitDefinition>;
+  getUnitsFromDataType(scope: string, name: string, callback: ServiceCallback<models.IUnitDefinition>): void;
+  getUnitsFromDataType(scope: string, name: string, options: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.IUnitDefinition>): void;
+
+
+  /**
+   * @summary Create derived portfolio
+   *
+   * Creates a portfolio that derives from an existing portfolio
+   *
+   * @param {string} scope The scope into which to create the new derived
+   * portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.portfolio] The root object of the new derived
+   * portfolio, containing a populated reference portfolio id and reference scope
+   *
+   * @param {string} options.portfolio.displayName
+   *
+   * @param {string} [options.portfolio.description]
+   *
+   * @param {string} [options.portfolio.code]
+   *
+   * @param {object} [options.portfolio.parentPortfolioId]
+   *
+   * @param {string} [options.portfolio.parentPortfolioId.scope]
+   *
+   * @param {string} [options.portfolio.parentPortfolioId.code]
+   *
+   * @param {date} [options.portfolio.created]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Portfolio>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  createDerivedPortfolioWithHttpOperationResponse(scope: string, options?: { portfolio? : models.CreateDerivedTransactionPortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Portfolio>>;
+
+  /**
+   * @summary Create derived portfolio
+   *
+   * Creates a portfolio that derives from an existing portfolio
+   *
+   * @param {string} scope The scope into which to create the new derived
+   * portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.portfolio] The root object of the new derived
+   * portfolio, containing a populated reference portfolio id and reference scope
+   *
+   * @param {string} options.portfolio.displayName
+   *
+   * @param {string} [options.portfolio.description]
+   *
+   * @param {string} [options.portfolio.code]
+   *
+   * @param {object} [options.portfolio.parentPortfolioId]
+   *
+   * @param {string} [options.portfolio.parentPortfolioId.scope]
+   *
+   * @param {string} [options.portfolio.parentPortfolioId.code]
+   *
+   * @param {date} [options.portfolio.created]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Portfolio} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Portfolio} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Portfolio} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  createDerivedPortfolio(scope: string, options?: { portfolio? : models.CreateDerivedTransactionPortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.Portfolio>;
+  createDerivedPortfolio(scope: string, callback: ServiceCallback<models.Portfolio>): void;
+  createDerivedPortfolio(scope: string, options: { portfolio? : models.CreateDerivedTransactionPortfolioRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Portfolio>): void;
+
+
+  /**
+   * @summary Delete portfolio details
+   *
+   * Deletes the portfolio details for the given code
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] The effective date of the change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1849,16 +1093,20 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deletePortfolioGroupWithHttpOperationResponse(scope: string, code: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+  deleteDerivedPortfolioDetailsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
 
   /**
-   * @summary Delete a group
+   * @summary Delete portfolio details
    *
-   * @param {string} scope
+   * Deletes the portfolio details for the given code
    *
-   * @param {string} code
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] The effective date of the change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1885,59 +1133,37 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deletePortfolioGroup(scope: string, code: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  deletePortfolioGroup(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deletePortfolioGroup(scope: string, code: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deleteDerivedPortfolioDetails(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deleteDerivedPortfolioDetails(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deleteDerivedPortfolioDetails(scope: string, code: string, options: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
 
 
   /**
-   * @summary Gets all commands that modified the portfolio groups(s) with the
-   * specified id.
-   *
-   * @param {string} scope The scope of the portfolio group
-   *
-   * @param {string} code The portfolio group id
+   * @summary Attempt to create one or more client instruments. Failed
+   * instruments will be identified in the body of the response.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromAsAt] Filters commands by those that were
-   * processed at or after this time. Null means there is no lower limit.
-   *
-   * @param {date} [options.toAsAt] Filters commands by those that were processed
-   * at or before this time. Null means there is no upper limit (latest).
-   *
-   * @param {string} [options.filter] A filter expression to apply to the result
-   * set
+   * @param {array} [options.definitions]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfProcessedCommandDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<TryAddClientInstruments>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPortfolioGroupCommandsWithHttpOperationResponse(scope: string, code: string, options?: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfProcessedCommandDto>>;
+  batchAddClientInstrumentsWithHttpOperationResponse(options?: { definitions? : models.CreateClientInstrumentRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TryAddClientInstruments>>;
 
   /**
-   * @summary Gets all commands that modified the portfolio groups(s) with the
-   * specified id.
-   *
-   * @param {string} scope The scope of the portfolio group
-   *
-   * @param {string} code The portfolio group id
+   * @summary Attempt to create one or more client instruments. Failed
+   * instruments will be identified in the body of the response.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromAsAt] Filters commands by those that were
-   * processed at or after this time. Null means there is no lower limit.
-   *
-   * @param {date} [options.toAsAt] Filters commands by those that were processed
-   * at or before this time. Null means there is no upper limit (latest).
-   *
-   * @param {string} [options.filter] A filter expression to apply to the result
-   * set
+   * @param {array} [options.definitions]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1949,7 +1175,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfProcessedCommandDto} - The deserialized result object.
+   *                      @resolve {TryAddClientInstruments} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1957,59 +1183,45 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfProcessedCommandDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfProcessedCommandDto} for more
+   *                      {TryAddClientInstruments} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link TryAddClientInstruments} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPortfolioGroupCommands(scope: string, code: string, options?: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfProcessedCommandDto>;
-  getPortfolioGroupCommands(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfProcessedCommandDto>): void;
-  getPortfolioGroupCommands(scope: string, code: string, options: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfProcessedCommandDto>): void;
+  batchAddClientInstruments(options?: { definitions? : models.CreateClientInstrumentRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.TryAddClientInstruments>;
+  batchAddClientInstruments(callback: ServiceCallback<models.TryAddClientInstruments>): void;
+  batchAddClientInstruments(options: { definitions? : models.CreateClientInstrumentRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TryAddClientInstruments>): void;
 
 
   /**
-   * @summary Get a full expansion of an existing group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
+   * @summary Attempt to delete one or more client instruments. Failed
+   * instruments will be identified in the body of the response.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.propertyFilter]
+   * @param {array} [options.uids]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ExpandedGroupDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<DeleteClientInstrumentsResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPortfolioGroupExpansionWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ExpandedGroupDto>>;
+  batchDeleteClientInstrumentsWithHttpOperationResponse(options?: { uids? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeleteClientInstrumentsResponse>>;
 
   /**
-   * @summary Get a full expansion of an existing group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
+   * @summary Attempt to delete one or more client instruments. Failed
+   * instruments will be identified in the body of the response.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.propertyFilter]
+   * @param {array} [options.uids]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -2021,7 +1233,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ExpandedGroupDto} - The deserialized result object.
+   *                      @resolve {DeleteClientInstrumentsResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -2029,461 +1241,55 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ExpandedGroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ExpandedGroupDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getPortfolioGroupExpansion(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ExpandedGroupDto>;
-  getPortfolioGroupExpansion(scope: string, code: string, callback: ServiceCallback<models.ExpandedGroupDto>): void;
-  getPortfolioGroupExpansion(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ExpandedGroupDto>): void;
-
-
-  /**
-   * @summary Add a portfolio to an existing group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.identifier]
-   *
-   * @param {string} [options.identifier.scope]
-   *
-   * @param {string} [options.identifier.code]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<GroupDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  addPortfolioToGroupWithHttpOperationResponse(scope: string, code: string, options?: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GroupDto>>;
-
-  /**
-   * @summary Add a portfolio to an existing group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.identifier]
-   *
-   * @param {string} [options.identifier.scope]
-   *
-   * @param {string} [options.identifier.code]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {GroupDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {GroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link GroupDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  addPortfolioToGroup(scope: string, code: string, options?: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }): Promise<models.GroupDto>;
-  addPortfolioToGroup(scope: string, code: string, callback: ServiceCallback<models.GroupDto>): void;
-  addPortfolioToGroup(scope: string, code: string, options: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GroupDto>): void;
-
-
-  /**
-   * @summary Remove a portfolio that is currently present within an existing
-   * group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {string} portfolioScope
-   *
-   * @param {string} portfolioCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<GroupDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  deletePortfolioFromGroupWithHttpOperationResponse(scope: string, code: string, portfolioScope: string, portfolioCode: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GroupDto>>;
-
-  /**
-   * @summary Remove a portfolio that is currently present within an existing
-   * group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {string} portfolioScope
-   *
-   * @param {string} portfolioCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {GroupDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {GroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link GroupDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  deletePortfolioFromGroup(scope: string, code: string, portfolioScope: string, portfolioCode: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GroupDto>;
-  deletePortfolioFromGroup(scope: string, code: string, portfolioScope: string, portfolioCode: string, callback: ServiceCallback<models.GroupDto>): void;
-  deletePortfolioFromGroup(scope: string, code: string, portfolioScope: string, portfolioCode: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GroupDto>): void;
-
-
-  /**
-   * @summary Add a sub group to an existing group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.identifier]
-   *
-   * @param {string} [options.identifier.scope]
-   *
-   * @param {string} [options.identifier.code]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<GroupDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  addSubGroupToGroupWithHttpOperationResponse(scope: string, code: string, options?: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GroupDto>>;
-
-  /**
-   * @summary Add a sub group to an existing group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.identifier]
-   *
-   * @param {string} [options.identifier.scope]
-   *
-   * @param {string} [options.identifier.code]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {GroupDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {GroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link GroupDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  addSubGroupToGroup(scope: string, code: string, options?: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }): Promise<models.GroupDto>;
-  addSubGroupToGroup(scope: string, code: string, callback: ServiceCallback<models.GroupDto>): void;
-  addSubGroupToGroup(scope: string, code: string, options: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GroupDto>): void;
-
-
-  /**
-   * @summary Remove a subgroup that is currently present within an existing
-   * group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {string} subgroupScope
-   *
-   * @param {string} subgroupCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<GroupDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  deleteSubGroupFromGroupWithHttpOperationResponse(scope: string, code: string, subgroupScope: string, subgroupCode: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GroupDto>>;
-
-  /**
-   * @summary Remove a subgroup that is currently present within an existing
-   * group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {string} subgroupScope
-   *
-   * @param {string} subgroupCode
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {GroupDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {GroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link GroupDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  deleteSubGroupFromGroup(scope: string, code: string, subgroupScope: string, subgroupCode: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GroupDto>;
-  deleteSubGroupFromGroup(scope: string, code: string, subgroupScope: string, subgroupCode: string, callback: ServiceCallback<models.GroupDto>): void;
-  deleteSubGroupFromGroup(scope: string, code: string, subgroupScope: string, subgroupCode: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GroupDto>): void;
-
-
-  /**
-   * @summary Update an existing group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} options.request.name
-   *
-   * @param {string} [options.request.description]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<GroupDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  updatePortfolioGroupWithHttpOperationResponse(scope: string, code: string, options?: { request? : models.UpdateGroupRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GroupDto>>;
-
-  /**
-   * @summary Update an existing group
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} options.request.name
-   *
-   * @param {string} [options.request.description]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {GroupDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {GroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link GroupDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  updatePortfolioGroup(scope: string, code: string, options?: { request? : models.UpdateGroupRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.GroupDto>;
-  updatePortfolioGroup(scope: string, code: string, callback: ServiceCallback<models.GroupDto>): void;
-  updatePortfolioGroup(scope: string, code: string, options: { request? : models.UpdateGroupRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GroupDto>): void;
-
-
-  /**
-   * @summary Search portfolio groups
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfGroupDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  portfolioGroupsSearchWithHttpOperationResponse(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfGroupDto>>;
-
-  /**
-   * @summary Search portfolio groups
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfGroupDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfGroupDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfGroupDto} for more
+   *                      {DeleteClientInstrumentsResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DeleteClientInstrumentsResponse} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  portfolioGroupsSearch(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfGroupDto>;
-  portfolioGroupsSearch(callback: ServiceCallback<models.ResourceListOfGroupDto>): void;
-  portfolioGroupsSearch(options: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfGroupDto>): void;
+  batchDeleteClientInstruments(options?: { uids? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.DeleteClientInstrumentsResponse>;
+  batchDeleteClientInstruments(callback: ServiceCallback<models.DeleteClientInstrumentsResponse>): void;
+  batchDeleteClientInstruments(options: { uids? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeleteClientInstrumentsResponse>): void;
 
 
   /**
-   * @summary Simple heartbeat method for the api
+   * @summary Get an individual instrument by the unique instrument uid.
+   * Optionally, decorate each instrument with specific properties.
+   *
+   * @param {string} uid The uid of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt] As at date
+   *
+   * @param {array} [options.instrumentPropertyKeys] Keys of the properties to be
+   * retrieved
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<Instrument>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getHealthWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
+  getInstrumentWithHttpOperationResponse(uid: string, options?: { asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Instrument>>;
 
   /**
-   * @summary Simple heartbeat method for the api
+   * @summary Get an individual instrument by the unique instrument uid.
+   * Optionally, decorate each instrument with specific properties.
+   *
+   * @param {string} uid The uid of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt] As at date
+   *
+   * @param {array} [options.instrumentPropertyKeys] Keys of the properties to be
+   * retrieved
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -2495,7 +1301,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {String} - The deserialized result object.
+   *                      @resolve {Instrument} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -2503,37 +1309,66 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {String} [result]   - The deserialized result object if an error did not occur.
+   *                      {Instrument} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Instrument} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getHealth(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<string>;
-  getHealth(callback: ServiceCallback<string>): void;
-  getHealth(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
+  getInstrument(uid: string, options?: { asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.Instrument>;
+  getInstrument(uid: string, callback: ServiceCallback<models.Instrument>): void;
+  getInstrument(uid: string, options: { asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Instrument>): void;
 
 
   /**
-   * @summary Gets the login information.
+   * @summary Lookup a large number of instruments by supplying a collection of
+   * non-Finbourne codes.  Optionally, decorate each instrument with specific
+   * properties.
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.codeType] The type of identifier. Possible values
+   * include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+   * 'Wertpapier'
+   *
+   * @param {array} [options.codes] An array of codes
+   *
+   * @param {date} [options.asAt] As at date
+   *
+   * @param {array} [options.instrumentPropertyKeys] Keys of the properties to be
+   * retrieved
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<LoginResponse>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<LookupInstrumentsFromCodesResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getLoginInfoWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.LoginResponse>>;
+  lookupInstrumentsFromCodesWithHttpOperationResponse(options?: { codeType? : string, codes? : string[], asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.LookupInstrumentsFromCodesResponse>>;
 
   /**
-   * @summary Gets the login information.
+   * @summary Lookup a large number of instruments by supplying a collection of
+   * non-Finbourne codes.  Optionally, decorate each instrument with specific
+   * properties.
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.codeType] The type of identifier. Possible values
+   * include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+   * 'Wertpapier'
+   *
+   * @param {array} [options.codes] An array of codes
+   *
+   * @param {date} [options.asAt] As at date
+   *
+   * @param {array} [options.instrumentPropertyKeys] Keys of the properties to be
+   * retrieved
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -2545,7 +1380,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {LoginResponse} - The deserialized result object.
+   *                      @resolve {LookupInstrumentsFromCodesResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -2553,16 +1388,73 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {LoginResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link LoginResponse} for more information.
+   *                      {LookupInstrumentsFromCodesResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link LookupInstrumentsFromCodesResponse} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getLoginInfo(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.LoginResponse>;
-  getLoginInfo(callback: ServiceCallback<models.LoginResponse>): void;
-  getLoginInfo(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.LoginResponse>): void;
+  lookupInstrumentsFromCodes(options?: { codeType? : string, codes? : string[], asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.LookupInstrumentsFromCodesResponse>;
+  lookupInstrumentsFromCodes(callback: ServiceCallback<models.LookupInstrumentsFromCodesResponse>): void;
+  lookupInstrumentsFromCodes(options: { codeType? : string, codes? : string[], asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.LookupInstrumentsFromCodesResponse>): void;
+
+
+  /**
+   * @summary Upsert instrument properties
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.classifications]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<UpsertInstrumentPropertiesResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  batchUpsertInstrumentPropertiesWithHttpOperationResponse(options?: { classifications? : models.InstrumentProperty[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertInstrumentPropertiesResponse>>;
+
+  /**
+   * @summary Upsert instrument properties
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.classifications]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {UpsertInstrumentPropertiesResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {UpsertInstrumentPropertiesResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link UpsertInstrumentPropertiesResponse} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  batchUpsertInstrumentProperties(options?: { classifications? : models.InstrumentProperty[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertInstrumentPropertiesResponse>;
+  batchUpsertInstrumentProperties(callback: ServiceCallback<models.UpsertInstrumentPropertiesResponse>): void;
+  batchUpsertInstrumentProperties(options: { classifications? : models.InstrumentProperty[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertInstrumentPropertiesResponse>): void;
 
 
   /**
@@ -2622,31 +1514,11 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Store a log message
+   * @summary Request an authorised url for an Excel client version
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.message]
-   *
-   * @param {string} [options.message.version] The semantic version of the remote
-   * application submitting the log
-   *
-   * @param {string} [options.message.url] The url of the resource from which the
-   * message originated
-   *
-   * @param {string} [options.message.message] The body of the message
-   *
-   * @param {string} [options.message.context] Context as to the occurance of the
-   * message
-   *
-   * @param {string} [options.message.severity] The severity of the message.
-   * Possible values include: 'Warn', 'Error'
-   *
-   * @param {string} [options.message.stacktrace] Any stacktrace that may be
-   * relavent
-   *
-   * @param {string} [options.message.browser] Any browser/user-agent/os related
-   * context
+   * @param {string} [options.version]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -2657,34 +1529,14 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  storeWebLogsWithHttpOperationResponse(options?: { message? : models.WebLogMessage, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
+  getExcelDownloadUrlWithHttpOperationResponse(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
 
   /**
-   * @summary Store a log message
+   * @summary Request an authorised url for an Excel client version
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.message]
-   *
-   * @param {string} [options.message.version] The semantic version of the remote
-   * application submitting the log
-   *
-   * @param {string} [options.message.url] The url of the resource from which the
-   * message originated
-   *
-   * @param {string} [options.message.message] The body of the message
-   *
-   * @param {string} [options.message.context] Context as to the occurance of the
-   * message
-   *
-   * @param {string} [options.message.severity] The severity of the message.
-   * Possible values include: 'Warn', 'Error'
-   *
-   * @param {string} [options.message.stacktrace] Any stacktrace that may be
-   * relavent
-   *
-   * @param {string} [options.message.browser] Any browser/user-agent/os related
-   * context
+   * @param {string} [options.version]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -2710,13 +1562,13 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  storeWebLogs(options?: { message? : models.WebLogMessage, customHeaders? : { [headerName: string]: string; } }): Promise<string>;
-  storeWebLogs(callback: ServiceCallback<string>): void;
-  storeWebLogs(options: { message? : models.WebLogMessage, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
+  getExcelDownloadUrl(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<string>;
+  getExcelDownloadUrl(callback: ServiceCallback<string>): void;
+  getExcelDownloadUrl(options: { version? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
 
 
   /**
-   * @summary Returns the current assembly version
+   * @summary Returns the current major application version
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -2725,14 +1577,14 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<VersionSummary>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getBuildVersionWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
+  getLusidVersionsWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionSummary>>;
 
   /**
-   * @summary Returns the current assembly version
+   * @summary Returns the current major application version
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -2746,7 +1598,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {String} - The deserialized result object.
+   *                      @resolve {VersionSummary} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -2754,115 +1606,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {String} [result]   - The deserialized result object if an error did not occur.
+   *                      {VersionSummary} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link VersionSummary} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getBuildVersion(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<string>;
-  getBuildVersion(callback: ServiceCallback<string>): void;
-  getBuildVersion(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
-
-
-  /**
-   * @summary Returns the current assembly version
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  verifyConnectivityWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
-
-  /**
-   * @summary Returns the current assembly version
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {String} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {String} [result]   - The deserialized result object if an error did not occur.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  verifyConnectivity(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<string>;
-  verifyConnectivity(callback: ServiceCallback<string>): void;
-  verifyConnectivity(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
-
-
-  /**
-   * @summary Returns the current assembly version
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getVersionWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
-
-  /**
-   * @summary Returns the current assembly version
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {String} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {String} [result]   - The deserialized result object if an error did not occur.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getVersion(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<string>;
-  getVersion(callback: ServiceCallback<string>): void;
-  getVersion(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
+  getLusidVersions(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionSummary>;
+  getLusidVersions(callback: ServiceCallback<models.VersionSummary>): void;
+  getLusidVersions(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionSummary>): void;
 
 
   /**
@@ -2892,11 +1645,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfPersonalisationDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPersonalisation>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPersonalisationsWithHttpOperationResponse(options?: { pattern? : string, scope? : string, recursive? : boolean, wildcards? : boolean, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPersonalisationDto>>;
+  getPersonalisationsWithHttpOperationResponse(options?: { pattern? : string, scope? : string, recursive? : boolean, wildcards? : boolean, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPersonalisation>>;
 
   /**
    * @summary Get a personalisation, recursing to get any referenced if required.
@@ -2930,7 +1683,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfPersonalisationDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPersonalisation} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -2938,17 +1691,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfPersonalisationDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfPersonalisationDto} for more
+   *                      {ResourceListOfPersonalisation} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfPersonalisation} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPersonalisations(options?: { pattern? : string, scope? : string, recursive? : boolean, wildcards? : boolean, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPersonalisationDto>;
-  getPersonalisations(callback: ServiceCallback<models.ResourceListOfPersonalisationDto>): void;
-  getPersonalisations(options: { pattern? : string, scope? : string, recursive? : boolean, wildcards? : boolean, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPersonalisationDto>): void;
+  getPersonalisations(options?: { pattern? : string, scope? : string, recursive? : boolean, wildcards? : boolean, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPersonalisation>;
+  getPersonalisations(callback: ServiceCallback<models.ResourceListOfPersonalisation>): void;
+  getPersonalisations(options: { pattern? : string, scope? : string, recursive? : boolean, wildcards? : boolean, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPersonalisation>): void;
 
 
   /**
@@ -2963,11 +1716,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<UpsertPersonalisationsResponse>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<UpsertPersonalisationResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  upsertPersonalisationsWithHttpOperationResponse(options?: { personalisations? : models.PersonalisationDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertPersonalisationsResponse>>;
+  upsertPersonalisationsWithHttpOperationResponse(options?: { personalisations? : models.Personalisation[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertPersonalisationResponse>>;
 
   /**
    * @summary Upsert one or more personalisations
@@ -2986,7 +1739,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {UpsertPersonalisationsResponse} - The deserialized result object.
+   *                      @resolve {UpsertPersonalisationResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -2994,17 +1747,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {UpsertPersonalisationsResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link UpsertPersonalisationsResponse} for more
+   *                      {UpsertPersonalisationResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link UpsertPersonalisationResponse} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertPersonalisations(options?: { personalisations? : models.PersonalisationDto[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertPersonalisationsResponse>;
-  upsertPersonalisations(callback: ServiceCallback<models.UpsertPersonalisationsResponse>): void;
-  upsertPersonalisations(options: { personalisations? : models.PersonalisationDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertPersonalisationsResponse>): void;
+  upsertPersonalisations(options?: { personalisations? : models.Personalisation[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertPersonalisationResponse>;
+  upsertPersonalisations(callback: ServiceCallback<models.UpsertPersonalisationResponse>): void;
+  upsertPersonalisations(options: { personalisations? : models.Personalisation[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertPersonalisationResponse>): void;
 
 
   /**
@@ -3079,28 +1832,1027 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary List scopes that contain portfolios
+   * @summary List all groups in a specified scope
    *
-   * Lists all scopes that have previously been used
+   * @param {string} scope
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.sortBy] How to order the returned scopes
+   * @param {date} [options.asAt]
    *
-   * @param {number} [options.start] The starting index for the returned scopes
+   * @param {array} [options.sortBy]
    *
-   * @param {number} [options.limit] The final index for the returned scopes
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter] A filter expression to apply to the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfScope>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPortfolioGroup>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listPortfolioScopesWithHttpOperationResponse(options?: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfScope>>;
+  listPortfolioGroupsWithHttpOperationResponse(scope: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioGroup>>;
+
+  /**
+   * @summary List all groups in a specified scope
+   *
+   * @param {string} scope
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter] A filter expression to apply to the result
+   * set
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfPortfolioGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfPortfolioGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfPortfolioGroup} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listPortfolioGroups(scope: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioGroup>;
+  listPortfolioGroups(scope: string, callback: ServiceCallback<models.ResourceListOfPortfolioGroup>): void;
+  listPortfolioGroups(scope: string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioGroup>): void;
+
+
+  /**
+   * @summary Create a new group
+   *
+   * @param {string} scope
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {string} options.request.id
+   *
+   * @param {array} [options.request.values]
+   *
+   * @param {array} [options.request.subGroups]
+   *
+   * @param {string} options.request.displayName
+   *
+   * @param {string} [options.request.description]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PortfolioGroup>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  createPortfolioGroupWithHttpOperationResponse(scope: string, options?: { request? : models.CreatePortfolioGroupRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioGroup>>;
+
+  /**
+   * @summary Create a new group
+   *
+   * @param {string} scope
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {string} options.request.id
+   *
+   * @param {array} [options.request.values]
+   *
+   * @param {array} [options.request.subGroups]
+   *
+   * @param {string} options.request.displayName
+   *
+   * @param {string} [options.request.description]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PortfolioGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PortfolioGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioGroup} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  createPortfolioGroup(scope: string, options?: { request? : models.CreatePortfolioGroupRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioGroup>;
+  createPortfolioGroup(scope: string, callback: ServiceCallback<models.PortfolioGroup>): void;
+  createPortfolioGroup(scope: string, options: { request? : models.CreatePortfolioGroupRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioGroup>): void;
+
+
+  /**
+   * @summary Get an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PortfolioGroup>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getPortfolioGroupWithHttpOperationResponse(scope: string, code: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioGroup>>;
+
+  /**
+   * @summary Get an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PortfolioGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PortfolioGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioGroup} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getPortfolioGroup(scope: string, code: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioGroup>;
+  getPortfolioGroup(scope: string, code: string, callback: ServiceCallback<models.PortfolioGroup>): void;
+  getPortfolioGroup(scope: string, code: string, options: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioGroup>): void;
+
+
+  /**
+   * @summary Update an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {string} options.request.displayName
+   *
+   * @param {string} [options.request.description]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PortfolioGroup>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  updatePortfolioGroupWithHttpOperationResponse(scope: string, code: string, options?: { request? : models.UpdatePortfolioGroupRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioGroup>>;
+
+  /**
+   * @summary Update an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {string} options.request.displayName
+   *
+   * @param {string} [options.request.description]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PortfolioGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PortfolioGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioGroup} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  updatePortfolioGroup(scope: string, code: string, options?: { request? : models.UpdatePortfolioGroupRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioGroup>;
+  updatePortfolioGroup(scope: string, code: string, callback: ServiceCallback<models.PortfolioGroup>): void;
+  updatePortfolioGroup(scope: string, code: string, options: { request? : models.UpdatePortfolioGroupRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioGroup>): void;
+
+
+  /**
+   * @summary Delete a group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<DeletedEntityResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  deletePortfolioGroupWithHttpOperationResponse(scope: string, code: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+
+  /**
+   * @summary Delete a group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {DeletedEntityResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {DeletedEntityResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DeletedEntityResponse} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  deletePortfolioGroup(scope: string, code: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deletePortfolioGroup(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deletePortfolioGroup(scope: string, code: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+
+
+  /**
+   * @summary Aggregate data in a group hierarchy
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.recipeId
+   *
+   * @param {string} [options.request.recipeId.scope]
+   *
+   * @param {string} [options.request.recipeId.code]
+   *
+   * @param {boolean} [options.request.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.asAt] The asAt date to use
+   *
+   * @param {date} [options.request.effectiveAt]
+   *
+   * @param {array} options.request.metrics
+   *
+   * @param {array} [options.request.groupBy]
+   *
+   * @param {array} [options.request.filters]
+   *
+   * @param {number} [options.request.limit]
+   *
+   * @param {string} [options.request.sort]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ListAggregationResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getAggregationByGroupWithHttpOperationResponse(scope: string, code: string, options?: { request? : models.AggregationRequest, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ListAggregationResponse>>;
+
+  /**
+   * @summary Aggregate data in a group hierarchy
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.recipeId
+   *
+   * @param {string} [options.request.recipeId.scope]
+   *
+   * @param {string} [options.request.recipeId.code]
+   *
+   * @param {boolean} [options.request.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.asAt] The asAt date to use
+   *
+   * @param {date} [options.request.effectiveAt]
+   *
+   * @param {array} options.request.metrics
+   *
+   * @param {array} [options.request.groupBy]
+   *
+   * @param {array} [options.request.filters]
+   *
+   * @param {number} [options.request.limit]
+   *
+   * @param {string} [options.request.sort]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ListAggregationResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ListAggregationResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ListAggregationResponse} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getAggregationByGroup(scope: string, code: string, options?: { request? : models.AggregationRequest, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ListAggregationResponse>;
+  getAggregationByGroup(scope: string, code: string, callback: ServiceCallback<models.ListAggregationResponse>): void;
+  getAggregationByGroup(scope: string, code: string, options: { request? : models.AggregationRequest, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ListAggregationResponse>): void;
+
+
+  /**
+   * @summary Obsolete - Aggregation request data in a group hierarchy into a
+   * data tree
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.recipeId
+   *
+   * @param {string} [options.request.recipeId.scope]
+   *
+   * @param {string} [options.request.recipeId.code]
+   *
+   * @param {boolean} [options.request.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.asAt] The asAt date to use
+   *
+   * @param {date} [options.request.effectiveAt]
+   *
+   * @param {array} options.request.metrics
+   *
+   * @param {array} [options.request.groupBy]
+   *
+   * @param {array} [options.request.filters]
+   *
+   * @param {number} [options.request.limit]
+   *
+   * @param {string} [options.request.sort]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<NestedAggregationResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getNestedAggregationByGroupWithHttpOperationResponse(scope: string, code: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.NestedAggregationResponse>>;
+
+  /**
+   * @summary Obsolete - Aggregation request data in a group hierarchy into a
+   * data tree
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.recipeId
+   *
+   * @param {string} [options.request.recipeId.scope]
+   *
+   * @param {string} [options.request.recipeId.code]
+   *
+   * @param {boolean} [options.request.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.asAt] The asAt date to use
+   *
+   * @param {date} [options.request.effectiveAt]
+   *
+   * @param {array} options.request.metrics
+   *
+   * @param {array} [options.request.groupBy]
+   *
+   * @param {array} [options.request.filters]
+   *
+   * @param {number} [options.request.limit]
+   *
+   * @param {string} [options.request.sort]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {NestedAggregationResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {NestedAggregationResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link NestedAggregationResponse} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getNestedAggregationByGroup(scope: string, code: string, options?: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.NestedAggregationResponse>;
+  getNestedAggregationByGroup(scope: string, code: string, callback: ServiceCallback<models.NestedAggregationResponse>): void;
+  getNestedAggregationByGroup(scope: string, code: string, options: { request? : models.AggregationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.NestedAggregationResponse>): void;
+
+
+  /**
+   * @summary Gets all commands that modified the portfolio groups(s) with the
+   * specified id.
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The portfolio group id
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromAsAt] Filters commands by those that were
+   * processed at or after this time. Null means there is no lower limit.
+   *
+   * @param {date} [options.toAsAt] Filters commands by those that were processed
+   * at or before this time. Null means there is no upper limit (latest).
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter] A filter expression to apply to the result
+   * set
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfProcessedCommand>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getPortfolioGroupCommandsWithHttpOperationResponse(scope: string, code: string, options?: { fromAsAt? : Date, toAsAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfProcessedCommand>>;
+
+  /**
+   * @summary Gets all commands that modified the portfolio groups(s) with the
+   * specified id.
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The portfolio group id
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromAsAt] Filters commands by those that were
+   * processed at or after this time. Null means there is no lower limit.
+   *
+   * @param {date} [options.toAsAt] Filters commands by those that were processed
+   * at or before this time. Null means there is no upper limit (latest).
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter] A filter expression to apply to the result
+   * set
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfProcessedCommand} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfProcessedCommand} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfProcessedCommand} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getPortfolioGroupCommands(scope: string, code: string, options?: { fromAsAt? : Date, toAsAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfProcessedCommand>;
+  getPortfolioGroupCommands(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfProcessedCommand>): void;
+  getPortfolioGroupCommands(scope: string, code: string, options: { fromAsAt? : Date, toAsAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfProcessedCommand>): void;
+
+
+  /**
+   * @summary Get a full expansion of an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.propertyFilter]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ExpandedGroup>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getPortfolioGroupExpansionWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ExpandedGroup>>;
+
+  /**
+   * @summary Get a full expansion of an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt]
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.propertyFilter]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ExpandedGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ExpandedGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ExpandedGroup} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getPortfolioGroupExpansion(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ExpandedGroup>;
+  getPortfolioGroupExpansion(scope: string, code: string, callback: ServiceCallback<models.ExpandedGroup>): void;
+  getPortfolioGroupExpansion(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ExpandedGroup>): void;
+
+
+  /**
+   * @summary Add a portfolio to an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.identifier]
+   *
+   * @param {string} [options.identifier.scope]
+   *
+   * @param {string} [options.identifier.code]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PortfolioGroup>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  addPortfolioToGroupWithHttpOperationResponse(scope: string, code: string, options?: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioGroup>>;
+
+  /**
+   * @summary Add a portfolio to an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.identifier]
+   *
+   * @param {string} [options.identifier.scope]
+   *
+   * @param {string} [options.identifier.code]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PortfolioGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PortfolioGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioGroup} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  addPortfolioToGroup(scope: string, code: string, options?: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioGroup>;
+  addPortfolioToGroup(scope: string, code: string, callback: ServiceCallback<models.PortfolioGroup>): void;
+  addPortfolioToGroup(scope: string, code: string, options: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioGroup>): void;
+
+
+  /**
+   * @summary Remove a portfolio that is currently present within an existing
+   * group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {string} portfolioScope
+   *
+   * @param {string} portfolioCode
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PortfolioGroup>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  deletePortfolioFromGroupWithHttpOperationResponse(scope: string, code: string, portfolioScope: string, portfolioCode: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioGroup>>;
+
+  /**
+   * @summary Remove a portfolio that is currently present within an existing
+   * group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {string} portfolioScope
+   *
+   * @param {string} portfolioCode
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PortfolioGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PortfolioGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioGroup} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  deletePortfolioFromGroup(scope: string, code: string, portfolioScope: string, portfolioCode: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioGroup>;
+  deletePortfolioFromGroup(scope: string, code: string, portfolioScope: string, portfolioCode: string, callback: ServiceCallback<models.PortfolioGroup>): void;
+  deletePortfolioFromGroup(scope: string, code: string, portfolioScope: string, portfolioCode: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioGroup>): void;
+
+
+  /**
+   * @summary Add a sub group to an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.identifier]
+   *
+   * @param {string} [options.identifier.scope]
+   *
+   * @param {string} [options.identifier.code]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PortfolioGroup>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  addSubGroupToGroupWithHttpOperationResponse(scope: string, code: string, options?: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioGroup>>;
+
+  /**
+   * @summary Add a sub group to an existing group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.identifier]
+   *
+   * @param {string} [options.identifier.scope]
+   *
+   * @param {string} [options.identifier.code]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PortfolioGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PortfolioGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioGroup} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  addSubGroupToGroup(scope: string, code: string, options?: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioGroup>;
+  addSubGroupToGroup(scope: string, code: string, callback: ServiceCallback<models.PortfolioGroup>): void;
+  addSubGroupToGroup(scope: string, code: string, options: { identifier? : models.ResourceId, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioGroup>): void;
+
+
+  /**
+   * @summary Remove a subgroup that is currently present within an existing
+   * group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {string} subgroupScope
+   *
+   * @param {string} subgroupCode
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PortfolioGroup>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  deleteSubGroupFromGroupWithHttpOperationResponse(scope: string, code: string, subgroupScope: string, subgroupCode: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioGroup>>;
+
+  /**
+   * @summary Remove a subgroup that is currently present within an existing
+   * group
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {string} subgroupScope
+   *
+   * @param {string} subgroupCode
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PortfolioGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PortfolioGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioGroup} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  deleteSubGroupFromGroup(scope: string, code: string, subgroupScope: string, subgroupCode: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioGroup>;
+  deleteSubGroupFromGroup(scope: string, code: string, subgroupScope: string, subgroupCode: string, callback: ServiceCallback<models.PortfolioGroup>): void;
+  deleteSubGroupFromGroup(scope: string, code: string, subgroupScope: string, subgroupCode: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioGroup>): void;
+
 
   /**
    * @summary List scopes that contain portfolios
@@ -3114,6 +2866,34 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {number} [options.start] The starting index for the returned scopes
    *
    * @param {number} [options.limit] The final index for the returned scopes
+   *
+   * @param {string} [options.filter] Filter to be applied to the list of scopes
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfScope>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  listPortfolioScopesWithHttpOperationResponse(options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfScope>>;
+
+  /**
+   * @summary List scopes that contain portfolios
+   *
+   * Lists all scopes that have previously been used
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.sortBy] How to order the returned scopes
+   *
+   * @param {number} [options.start] The starting index for the returned scopes
+   *
+   * @param {number} [options.limit] The final index for the returned scopes
+   *
+   * @param {string} [options.filter] Filter to be applied to the list of scopes
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -3140,9 +2920,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listPortfolioScopes(options?: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfScope>;
+  listPortfolioScopes(options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfScope>;
   listPortfolioScopes(callback: ServiceCallback<models.ResourceListOfScope>): void;
-  listPortfolioScopes(options: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfScope>): void;
+  listPortfolioScopes(options: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfScope>): void;
 
 
   /**
@@ -3171,11 +2951,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfPortfolioDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPortfolio>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listPortfoliosWithHttpOperationResponse(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioDto>>;
+  listPortfoliosWithHttpOperationResponse(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolio>>;
 
   /**
    * @summary Get all portfolios
@@ -3208,7 +2988,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfPortfolioDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPortfolio} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -3216,128 +2996,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfPortfolioDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfPortfolioDto} for more
+   *                      {ResourceListOfPortfolio} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfPortfolio} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listPortfolios(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioDto>;
-  listPortfolios(scope: string, callback: ServiceCallback<models.ResourceListOfPortfolioDto>): void;
-  listPortfolios(scope: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioDto>): void;
-
-
-  /**
-   * @summary Create portfolio
-   *
-   * Creates a new portfolio
-   *
-   * @param {string} scope The intended scope of the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.createRequest] The portfolio creation request
-   * object
-   *
-   * @param {string} options.createRequest.name
-   *
-   * @param {string} options.createRequest.code
-   *
-   * @param {date} [options.createRequest.created]
-   *
-   * @param {string} options.createRequest.baseCurrency
-   *
-   * @param {object} [options.createRequest.corporateActionSourceId]
-   *
-   * @param {string} [options.createRequest.corporateActionSourceId.scope]
-   *
-   * @param {string} [options.createRequest.corporateActionSourceId.code]
-   *
-   * @param {string} [options.createRequest.accountingMethod] Possible values
-   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
-   * 'HighestCostFirst', 'LowestCostFirst'
-   *
-   * @param {array} [options.createRequest.subHoldingKeys]
-   *
-   * @param {array} [options.createRequest.properties] Portfolio properties to
-   * add to the portfolio
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<PortfolioDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  createPortfolioWithHttpOperationResponse(scope: string, options?: { createRequest? : models.CreatePortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioDto>>;
-
-  /**
-   * @summary Create portfolio
-   *
-   * Creates a new portfolio
-   *
-   * @param {string} scope The intended scope of the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.createRequest] The portfolio creation request
-   * object
-   *
-   * @param {string} options.createRequest.name
-   *
-   * @param {string} options.createRequest.code
-   *
-   * @param {date} [options.createRequest.created]
-   *
-   * @param {string} options.createRequest.baseCurrency
-   *
-   * @param {object} [options.createRequest.corporateActionSourceId]
-   *
-   * @param {string} [options.createRequest.corporateActionSourceId.scope]
-   *
-   * @param {string} [options.createRequest.corporateActionSourceId.code]
-   *
-   * @param {string} [options.createRequest.accountingMethod] Possible values
-   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
-   * 'HighestCostFirst', 'LowestCostFirst'
-   *
-   * @param {array} [options.createRequest.subHoldingKeys]
-   *
-   * @param {array} [options.createRequest.properties] Portfolio properties to
-   * add to the portfolio
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {PortfolioDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {PortfolioDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PortfolioDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  createPortfolio(scope: string, options?: { createRequest? : models.CreatePortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioDto>;
-  createPortfolio(scope: string, callback: ServiceCallback<models.PortfolioDto>): void;
-  createPortfolio(scope: string, options: { createRequest? : models.CreatePortfolioRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioDto>): void;
+  listPortfolios(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolio>;
+  listPortfolios(scope: string, callback: ServiceCallback<models.ResourceListOfPortfolio>): void;
+  listPortfolios(scope: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolio>): void;
 
 
   /**
@@ -3355,18 +3024,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.asAt] The asAt date to use
    *
-   * @param {array} [options.propertyFilter] Optional property filter
-   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PortfolioDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<Portfolio>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPortfolioWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioDto>>;
+  getPortfolioWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Portfolio>>;
 
   /**
    * @summary Get portfolio
@@ -3383,8 +3050,6 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.asAt] The asAt date to use
    *
-   * @param {array} [options.propertyFilter] Optional property filter
-   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -3395,7 +3060,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PortfolioDto} - The deserialized result object.
+   *                      @resolve {Portfolio} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -3403,16 +3068,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PortfolioDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PortfolioDto} for more information.
+   *                      {Portfolio} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Portfolio} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPortfolio(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioDto>;
-  getPortfolio(scope: string, code: string, callback: ServiceCallback<models.PortfolioDto>): void;
-  getPortfolio(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioDto>): void;
+  getPortfolio(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.Portfolio>;
+  getPortfolio(scope: string, code: string, callback: ServiceCallback<models.Portfolio>): void;
+  getPortfolio(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Portfolio>): void;
 
 
   /**
@@ -3426,7 +3091,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.request] The update request
    *
-   * @param {string} options.request.name
+   * @param {string} options.request.displayName
+   *
+   * @param {string} [options.request.description]
    *
    * @param {date} [options.request.created]
    *
@@ -3437,11 +3104,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PortfolioDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<Portfolio>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  updatePortfolioWithHttpOperationResponse(scope: string, code: string, options?: { request? : models.UpdatePortfolioRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioDto>>;
+  updatePortfolioWithHttpOperationResponse(scope: string, code: string, options?: { request? : models.UpdatePortfolioRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Portfolio>>;
 
   /**
    * @summary Update portfolio
@@ -3454,7 +3121,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.request] The update request
    *
-   * @param {string} options.request.name
+   * @param {string} options.request.displayName
+   *
+   * @param {string} [options.request.description]
    *
    * @param {date} [options.request.created]
    *
@@ -3470,7 +3139,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PortfolioDto} - The deserialized result object.
+   *                      @resolve {Portfolio} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -3478,16 +3147,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PortfolioDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PortfolioDto} for more information.
+   *                      {Portfolio} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Portfolio} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  updatePortfolio(scope: string, code: string, options?: { request? : models.UpdatePortfolioRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioDto>;
-  updatePortfolio(scope: string, code: string, callback: ServiceCallback<models.PortfolioDto>): void;
-  updatePortfolio(scope: string, code: string, options: { request? : models.UpdatePortfolioRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioDto>): void;
+  updatePortfolio(scope: string, code: string, options?: { request? : models.UpdatePortfolioRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.Portfolio>;
+  updatePortfolio(scope: string, code: string, callback: ServiceCallback<models.Portfolio>): void;
+  updatePortfolio(scope: string, code: string, options: { request? : models.UpdatePortfolioRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Portfolio>): void;
 
 
   /**
@@ -3558,6 +3227,126 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Aggregate data in a portfolio
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.recipeId
+   *
+   * @param {string} [options.request.recipeId.scope]
+   *
+   * @param {string} [options.request.recipeId.code]
+   *
+   * @param {boolean} [options.request.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.asAt] The asAt date to use
+   *
+   * @param {date} [options.request.effectiveAt]
+   *
+   * @param {array} options.request.metrics
+   *
+   * @param {array} [options.request.groupBy]
+   *
+   * @param {array} [options.request.filters]
+   *
+   * @param {number} [options.request.limit]
+   *
+   * @param {string} [options.request.sort]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ListAggregationResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getAggregationByPortfolioWithHttpOperationResponse(scope: string, code: string, options?: { request? : models.AggregationRequest, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ListAggregationResponse>>;
+
+  /**
+   * @summary Aggregate data in a portfolio
+   *
+   * @param {string} scope
+   *
+   * @param {string} code
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.recipeId
+   *
+   * @param {string} [options.request.recipeId.scope]
+   *
+   * @param {string} [options.request.recipeId.code]
+   *
+   * @param {boolean} [options.request.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.asAt] The asAt date to use
+   *
+   * @param {date} [options.request.effectiveAt]
+   *
+   * @param {array} options.request.metrics
+   *
+   * @param {array} [options.request.groupBy]
+   *
+   * @param {array} [options.request.filters]
+   *
+   * @param {number} [options.request.limit]
+   *
+   * @param {string} [options.request.sort]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ListAggregationResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ListAggregationResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ListAggregationResponse} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getAggregationByPortfolio(scope: string, code: string, options?: { request? : models.AggregationRequest, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ListAggregationResponse>;
+  getAggregationByPortfolio(scope: string, code: string, callback: ServiceCallback<models.ListAggregationResponse>): void;
+  getAggregationByPortfolio(scope: string, code: string, options: { request? : models.AggregationRequest, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ListAggregationResponse>): void;
+
+
+  /**
    * @summary Get modifications
    *
    * Gets all commands that modified the portfolio
@@ -3581,11 +3370,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfProcessedCommandDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfProcessedCommand>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getCommandsWithHttpOperationResponse(scope: string, code: string, options?: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfProcessedCommandDto>>;
+  getPortfolioCommandsWithHttpOperationResponse(scope: string, code: string, options?: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfProcessedCommand>>;
 
   /**
    * @summary Get modifications
@@ -3616,7 +3405,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfProcessedCommandDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfProcessedCommand} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -3624,696 +3413,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfProcessedCommandDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfProcessedCommandDto} for more
+   *                      {ResourceListOfProcessedCommand} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfProcessedCommand} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getCommands(scope: string, code: string, options?: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfProcessedCommandDto>;
-  getCommands(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfProcessedCommandDto>): void;
-  getCommands(scope: string, code: string, options: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfProcessedCommandDto>): void;
-
-
-  /**
-   * @summary Get portfolio details
-   *
-   * Gets the details for a portfolio.  For a derived portfolio this can be
-   * the details of another reference portfolio
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt] Effective date
-   *
-   * @param {date} [options.asAt] The asAt date to use
-   *
-   * @param {array} [options.propertyFilter] Optional property filter
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<PortfolioDetailsDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getDetailsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioDetailsDto>>;
-
-  /**
-   * @summary Get portfolio details
-   *
-   * Gets the details for a portfolio.  For a derived portfolio this can be
-   * the details of another reference portfolio
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt] Effective date
-   *
-   * @param {date} [options.asAt] The asAt date to use
-   *
-   * @param {array} [options.propertyFilter] Optional property filter
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {PortfolioDetailsDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {PortfolioDetailsDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PortfolioDetailsDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getDetails(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioDetailsDto>;
-  getDetails(scope: string, code: string, callback: ServiceCallback<models.PortfolioDetailsDto>): void;
-  getDetails(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, propertyFilter? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioDetailsDto>): void;
-
-
-  /**
-   * @summary Add/update portfolio details
-   *
-   * Update the portfolio details for the given code or add if it doesn't already
-   * exist. Updates with
-   * null values will remove any existing values
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.details]
-   *
-   * @param {string} [options.details.baseCurrency]
-   *
-   * @param {date} [options.effectiveAt] The effective date of the change
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<PortfolioDetailsDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  upsertPortfolioDetailsWithHttpOperationResponse(scope: string, code: string, options?: { details? : models.PortfolioDetailsRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioDetailsDto>>;
-
-  /**
-   * @summary Add/update portfolio details
-   *
-   * Update the portfolio details for the given code or add if it doesn't already
-   * exist. Updates with
-   * null values will remove any existing values
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.details]
-   *
-   * @param {string} [options.details.baseCurrency]
-   *
-   * @param {date} [options.effectiveAt] The effective date of the change
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {PortfolioDetailsDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {PortfolioDetailsDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PortfolioDetailsDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  upsertPortfolioDetails(scope: string, code: string, options?: { details? : models.PortfolioDetailsRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioDetailsDto>;
-  upsertPortfolioDetails(scope: string, code: string, callback: ServiceCallback<models.PortfolioDetailsDto>): void;
-  upsertPortfolioDetails(scope: string, code: string, options: { details? : models.PortfolioDetailsRequest, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioDetailsDto>): void;
-
-
-  /**
-   * @summary Delete portfolio details
-   *
-   * Deletes the portfolio details for the given code
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt] The effective date of the change
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<DeletedEntityResponse>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  deletePortfolioDetailsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
-
-  /**
-   * @summary Delete portfolio details
-   *
-   * Deletes the portfolio details for the given code
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt] The effective date of the change
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {DeletedEntityResponse} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {DeletedEntityResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link DeletedEntityResponse} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  deletePortfolioDetails(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  deletePortfolioDetails(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deletePortfolioDetails(scope: string, code: string, options: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-
-
-  /**
-   * @summary Get holdings
-   *
-   * Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
-   * are supplied then values will be defaulted to the latest system time.
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt] Effective date
-   *
-   * @param {date} [options.asAt] As at date
-   *
-   * @param {array} [options.sortBy] The columns to sort the returned data by
-   *
-   * @param {number} [options.start] How many items to skip from the returned set
-   *
-   * @param {number} [options.limit] How many items to return from the set
-   *
-   * @param {string} [options.filter] A filter on the results
-   *
-   * @param {array} [options.securityPropertyKeys] Keys for the security
-   * properties to be decorated onto the holdings
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<VersionedResourceListOfHoldingDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getAggregateHoldingsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, securityPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListOfHoldingDto>>;
-
-  /**
-   * @summary Get holdings
-   *
-   * Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
-   * are supplied then values will be defaulted to the latest system time.
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt] Effective date
-   *
-   * @param {date} [options.asAt] As at date
-   *
-   * @param {array} [options.sortBy] The columns to sort the returned data by
-   *
-   * @param {number} [options.start] How many items to skip from the returned set
-   *
-   * @param {number} [options.limit] How many items to return from the set
-   *
-   * @param {string} [options.filter] A filter on the results
-   *
-   * @param {array} [options.securityPropertyKeys] Keys for the security
-   * properties to be decorated onto the holdings
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {VersionedResourceListOfHoldingDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {VersionedResourceListOfHoldingDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link VersionedResourceListOfHoldingDto} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getAggregateHoldings(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, securityPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListOfHoldingDto>;
-  getAggregateHoldings(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListOfHoldingDto>): void;
-  getAggregateHoldings(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, securityPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListOfHoldingDto>): void;
-
-
-  /**
-   * @summary Adjust holdings
-   *
-   * Create trades in a specific portfolio to bring it to the specified holdings
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {date} effectiveAt Effective date
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.holdingAdjustments]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<AdjustHoldingsDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  adjustAllHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AdjustHoldingsDto>>;
-
-  /**
-   * @summary Adjust holdings
-   *
-   * Create trades in a specific portfolio to bring it to the specified holdings
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {date} effectiveAt Effective date
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.holdingAdjustments]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {AdjustHoldingsDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {AdjustHoldingsDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link AdjustHoldingsDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  adjustAllHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.AdjustHoldingsDto>;
-  adjustAllHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.AdjustHoldingsDto>): void;
-  adjustAllHoldings(scope: string, code: string, effectiveAt: Date|string, options: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AdjustHoldingsDto>): void;
-
-
-  /**
-   * @summary Cancel adjust-holdings
-   *
-   * Cancels a previous adjust holdings request
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {date} effectiveAt Effective date
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<DeletedEntityResponse>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  cancelAdjustHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
-
-  /**
-   * @summary Cancel adjust-holdings
-   *
-   * Cancels a previous adjust holdings request
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {date} effectiveAt Effective date
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {DeletedEntityResponse} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {DeletedEntityResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link DeletedEntityResponse} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date|string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-
-
-  /**
-   * @summary Adjust holdings
-   *
-   * Create trades in a specific portfolio to bring it to the specified holdings
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {date} effectiveAt Effective date
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.holdingAdjustments]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<AdjustHoldingsDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  adjustHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AdjustHoldingsDto>>;
-
-  /**
-   * @summary Adjust holdings
-   *
-   * Create trades in a specific portfolio to bring it to the specified holdings
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {date} effectiveAt Effective date
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.holdingAdjustments]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {AdjustHoldingsDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {AdjustHoldingsDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link AdjustHoldingsDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.AdjustHoldingsDto>;
-  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.AdjustHoldingsDto>): void;
-  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, options: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AdjustHoldingsDto>): void;
-
-
-  /**
-   * @summary Gets holdings adjustments in an interval of effective time.
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
-   * and the toEffectiveAt are returned.
-   *
-   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
-   * and the fromEffectiveAt are returned.
-   *
-   * @param {date} [options.asAtTime] The as-at time for which the result is
-   * valid.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfHoldingsAdjustmentHeaderDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  listHoldingsAdjustmentsWithHttpOperationResponse(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfHoldingsAdjustmentHeaderDto>>;
-
-  /**
-   * @summary Gets holdings adjustments in an interval of effective time.
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
-   * and the toEffectiveAt are returned.
-   *
-   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
-   * and the fromEffectiveAt are returned.
-   *
-   * @param {date} [options.asAtTime] The as-at time for which the result is
-   * valid.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfHoldingsAdjustmentHeaderDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfHoldingsAdjustmentHeaderDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfHoldingsAdjustmentHeaderDto}
-   *                      for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  listHoldingsAdjustments(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfHoldingsAdjustmentHeaderDto>;
-  listHoldingsAdjustments(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfHoldingsAdjustmentHeaderDto>): void;
-  listHoldingsAdjustments(scope: string, code: string, options: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfHoldingsAdjustmentHeaderDto>): void;
-
-
-  /**
-   * @summary Get a holdings adjustment for a single portfolio at a specific
-   * effective time.
-   * If no adjustment exists at this effective time, not found is returned.
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {date} effectiveAt The effective time of the holdings adjustment.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAtTime] The as-at time for which the result is
-   * valid.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<HoldingsAdjustmentDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getHoldingsAdjustmentWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.HoldingsAdjustmentDto>>;
-
-  /**
-   * @summary Get a holdings adjustment for a single portfolio at a specific
-   * effective time.
-   * If no adjustment exists at this effective time, not found is returned.
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {date} effectiveAt The effective time of the holdings adjustment.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAtTime] The as-at time for which the result is
-   * valid.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {HoldingsAdjustmentDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {HoldingsAdjustmentDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link HoldingsAdjustmentDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.HoldingsAdjustmentDto>;
-  getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.HoldingsAdjustmentDto>): void;
-  getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date|string, options: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.HoldingsAdjustmentDto>): void;
+  getPortfolioCommands(scope: string, code: string, options?: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfProcessedCommand>;
+  getPortfolioCommands(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfProcessedCommand>): void;
+  getPortfolioCommands(scope: string, code: string, options: { fromAsAt? : Date, toAsAt? : Date, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfProcessedCommand>): void;
 
 
   /**
@@ -4343,11 +3453,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PortfolioPropertiesDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<PortfolioProperties>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioPropertiesDto>>;
+  getPortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioProperties>>;
 
   /**
    * @summary Get properties
@@ -4381,7 +3491,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PortfolioPropertiesDto} - The deserialized result object.
+   *                      @resolve {PortfolioProperties} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -4389,17 +3499,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PortfolioPropertiesDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PortfolioPropertiesDto} for more
-   *                      information.
+   *                      {PortfolioProperties} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioProperties} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getProperties(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioPropertiesDto>;
-  getProperties(scope: string, code: string, callback: ServiceCallback<models.PortfolioPropertiesDto>): void;
-  getProperties(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioPropertiesDto>): void;
+  getPortfolioProperties(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioProperties>;
+  getPortfolioProperties(scope: string, code: string, callback: ServiceCallback<models.PortfolioProperties>): void;
+  getPortfolioProperties(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioProperties>): void;
 
 
   /**
@@ -4413,7 +3522,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.properties]
+   * @param {object} [options.portfolioProperties]
    *
    * @param {date} [options.effectiveAt] The effective date for the change
    *
@@ -4422,11 +3531,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PortfolioPropertiesDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<PortfolioProperties>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  upsertPortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { properties? : models.CreatePropertyRequest[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioPropertiesDto>>;
+  upsertPortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { portfolioProperties? : { [propertyName: string]: models.CreatePropertyRequest }, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioProperties>>;
 
   /**
    * @summary Update properties
@@ -4439,7 +3548,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.properties]
+   * @param {object} [options.portfolioProperties]
    *
    * @param {date} [options.effectiveAt] The effective date for the change
    *
@@ -4453,7 +3562,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PortfolioPropertiesDto} - The deserialized result object.
+   *                      @resolve {PortfolioProperties} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -4461,23 +3570,23 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PortfolioPropertiesDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PortfolioPropertiesDto} for more
-   *                      information.
+   *                      {PortfolioProperties} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioProperties} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertPortfolioProperties(scope: string, code: string, options?: { properties? : models.CreatePropertyRequest[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioPropertiesDto>;
-  upsertPortfolioProperties(scope: string, code: string, callback: ServiceCallback<models.PortfolioPropertiesDto>): void;
-  upsertPortfolioProperties(scope: string, code: string, options: { properties? : models.CreatePropertyRequest[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioPropertiesDto>): void;
+  upsertPortfolioProperties(scope: string, code: string, options?: { portfolioProperties? : { [propertyName: string]: models.CreatePropertyRequest }, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioProperties>;
+  upsertPortfolioProperties(scope: string, code: string, callback: ServiceCallback<models.PortfolioProperties>): void;
+  upsertPortfolioProperties(scope: string, code: string, options: { portfolioProperties? : { [propertyName: string]: models.CreatePropertyRequest }, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioProperties>): void;
 
 
   /**
-   * @summary Delete property
+   * @summary Delete one, many or all properties from a portfolio for a specified
+   * effective date
    *
-   * Delete a property from a portfolio
+   * Specifying no properties will delete all properties
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -4485,9 +3594,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.property] The key of the property to be deleted
-   *
    * @param {date} [options.effectiveAt] Effective date
+   *
+   * @param {array} [options.portfolioPropertyKeys] The keys of the property to
+   * be deleted. None specified indicates the intent to delete all properties
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4498,12 +3608,13 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deletePortfolioPropertyWithHttpOperationResponse(scope: string, code: string, options?: { property? : string, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+  deletePortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, portfolioPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
 
   /**
-   * @summary Delete property
+   * @summary Delete one, many or all properties from a portfolio for a specified
+   * effective date
    *
-   * Delete a property from a portfolio
+   * Specifying no properties will delete all properties
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -4511,9 +3622,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.property] The key of the property to be deleted
-   *
    * @param {date} [options.effectiveAt] Effective date
+   *
+   * @param {array} [options.portfolioPropertyKeys] The keys of the property to
+   * be deleted. None specified indicates the intent to delete all properties
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4540,144 +3652,55 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deletePortfolioProperty(scope: string, code: string, options?: { property? : string, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  deletePortfolioProperty(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deletePortfolioProperty(scope: string, code: string, options: { property? : string, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-
-
-  /**
-   * @summary Delete properties
-   *
-   * Delete all properties from a portfolio
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt] The effective date for the change
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<DeletedEntityResponse>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  deletePortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
-
-  /**
-   * @summary Delete properties
-   *
-   * Delete all properties from a portfolio
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt] The effective date for the change
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {DeletedEntityResponse} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {DeletedEntityResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link DeletedEntityResponse} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  deletePortfolioProperties(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deletePortfolioProperties(scope: string, code: string, options?: { effectiveAt? : Date, portfolioPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
   deletePortfolioProperties(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deletePortfolioProperties(scope: string, code: string, options: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deletePortfolioProperties(scope: string, code: string, options: { effectiveAt? : Date, portfolioPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
 
 
   /**
-   * @summary Get trades
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
+   * @summary Gets multiple property definitions.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromTradeDate] Exclude trades with a trade-date less
-   * than this date. If not supplied, no lower filter is applied
-   *
-   * @param {date} [options.toTradeDate] Exclude trades with a trade-date greater
-   * than this date. If not supplied, no upper filter is applied
+   * @param {array} [options.keys]
    *
    * @param {date} [options.asAt]
    *
-   * @param {array} [options.sortBy] The columns to sort the returned data by
+   * @param {array} [options.sortBy]
    *
-   * @param {number} [options.start] How many items to skip from the returned set
+   * @param {number} [options.start]
    *
-   * @param {number} [options.limit] How many items to return from the set
+   * @param {number} [options.limit]
    *
-   * @param {array} [options.securityPropertyKeys] Keys for the security
-   * properties to be decorated onto the trades
-   *
-   * @param {string} [options.filter] Trade filter
+   * @param {string} [options.filter]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<VersionedResourceListOfTradeDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPropertyDefinition>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getTradesWithHttpOperationResponse(scope: string, code: string, options?: { fromTradeDate? : Date, toTradeDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListOfTradeDto>>;
+  getMultiplePropertyDefinitionsWithHttpOperationResponse(options?: { keys? : string[], asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyDefinition>>;
 
   /**
-   * @summary Get trades
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
+   * @summary Gets multiple property definitions.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromTradeDate] Exclude trades with a trade-date less
-   * than this date. If not supplied, no lower filter is applied
-   *
-   * @param {date} [options.toTradeDate] Exclude trades with a trade-date greater
-   * than this date. If not supplied, no upper filter is applied
+   * @param {array} [options.keys]
    *
    * @param {date} [options.asAt]
    *
-   * @param {array} [options.sortBy] The columns to sort the returned data by
+   * @param {array} [options.sortBy]
    *
-   * @param {number} [options.start] How many items to skip from the returned set
+   * @param {number} [options.start]
    *
-   * @param {number} [options.limit] How many items to return from the set
+   * @param {number} [options.limit]
    *
-   * @param {array} [options.securityPropertyKeys] Keys for the security
-   * properties to be decorated onto the trades
-   *
-   * @param {string} [options.filter] Trade filter
+   * @param {string} [options.filter]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4689,7 +3712,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {VersionedResourceListOfTradeDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPropertyDefinition} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -4697,51 +3720,89 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {VersionedResourceListOfTradeDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link VersionedResourceListOfTradeDto} for more
+   *                      {ResourceListOfPropertyDefinition} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfPropertyDefinition} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getTrades(scope: string, code: string, options?: { fromTradeDate? : Date, toTradeDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListOfTradeDto>;
-  getTrades(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListOfTradeDto>): void;
-  getTrades(scope: string, code: string, options: { fromTradeDate? : Date, toTradeDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListOfTradeDto>): void;
+  getMultiplePropertyDefinitions(options?: { keys? : string[], asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyDefinition>;
+  getMultiplePropertyDefinitions(callback: ServiceCallback<models.ResourceListOfPropertyDefinition>): void;
+  getMultiplePropertyDefinitions(options: { keys? : string[], asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyDefinition>): void;
 
 
   /**
-   * @summary Add/update trades
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
+   * @summary Creates a new property definition.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.trades] The trades to be updated
+   * @param {object} [options.definition]
+   *
+   * @param {string} [options.definition.domain] Possible values include:
+   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   *
+   * @param {string} [options.definition.scope]
+   *
+   * @param {string} [options.definition.code]
+   *
+   * @param {boolean} [options.definition.valueRequired]
+   *
+   * @param {string} [options.definition.displayName]
+   *
+   * @param {object} [options.definition.dataTypeId]
+   *
+   * @param {string} [options.definition.dataTypeId.scope]
+   *
+   * @param {string} [options.definition.dataTypeId.code]
+   *
+   * @param {string} [options.definition.lifeTime] Possible values include:
+   * 'Perpetual', 'TimeVariant'
+   *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<UpsertPortfolioTradesDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<PropertyDefinition>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  upsertTradesWithHttpOperationResponse(scope: string, code: string, options?: { trades? : models.UpsertPortfolioTradeRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertPortfolioTradesDto>>;
+  createPropertyDefinitionWithHttpOperationResponse(options?: { definition? : models.CreatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinition>>;
 
   /**
-   * @summary Add/update trades
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
+   * @summary Creates a new property definition.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.trades] The trades to be updated
+   * @param {object} [options.definition]
+   *
+   * @param {string} [options.definition.domain] Possible values include:
+   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   *
+   * @param {string} [options.definition.scope]
+   *
+   * @param {string} [options.definition.code]
+   *
+   * @param {boolean} [options.definition.valueRequired]
+   *
+   * @param {string} [options.definition.displayName]
+   *
+   * @param {object} [options.definition.dataTypeId]
+   *
+   * @param {string} [options.definition.dataTypeId.scope]
+   *
+   * @param {string} [options.definition.dataTypeId.code]
+   *
+   * @param {string} [options.definition.lifeTime] Possible values include:
+   * 'Perpetual', 'TimeVariant'
+   *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4753,7 +3814,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {UpsertPortfolioTradesDto} - The deserialized result object.
+   *                      @resolve {PropertyDefinition} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -4761,31 +3822,199 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {UpsertPortfolioTradesDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link UpsertPortfolioTradesDto} for more
-   *                      information.
+   *                      {PropertyDefinition} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PropertyDefinition} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertTrades(scope: string, code: string, options?: { trades? : models.UpsertPortfolioTradeRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertPortfolioTradesDto>;
-  upsertTrades(scope: string, code: string, callback: ServiceCallback<models.UpsertPortfolioTradesDto>): void;
-  upsertTrades(scope: string, code: string, options: { trades? : models.UpsertPortfolioTradeRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertPortfolioTradesDto>): void;
+  createPropertyDefinition(options?: { definition? : models.CreatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinition>;
+  createPropertyDefinition(callback: ServiceCallback<models.PropertyDefinition>): void;
+  createPropertyDefinition(options: { definition? : models.CreatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinition>): void;
 
 
   /**
-   * @summary Delete trades
+   * @summary Gets a property definition.
    *
-   * Delete one or more trades from a portfolio
+   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
-   * @param {string} scope The scope of the portfolio
+   * @param {string} scope
    *
-   * @param {string} code Code for the portfolio
+   * @param {string} name
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.id] Ids of trades to delete
+   * @param {date} [options.asAt]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PropertyDefinition>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getPropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, name: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinition>>;
+
+  /**
+   * @summary Gets a property definition.
+   *
+   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   *
+   * @param {string} scope
+   *
+   * @param {string} name
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PropertyDefinition} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PropertyDefinition} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PropertyDefinition} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getPropertyDefinition(domain: string, scope: string, name: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinition>;
+  getPropertyDefinition(domain: string, scope: string, name: string, callback: ServiceCallback<models.PropertyDefinition>): void;
+  getPropertyDefinition(domain: string, scope: string, name: string, options: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinition>): void;
+
+
+  /**
+   * @summary Updates the specified property definition.
+   *
+   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   *
+   * @param {string} scope
+   *
+   * @param {string} name
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.definition]
+   *
+   * @param {boolean} [options.definition.valueRequired]
+   *
+   * @param {string} [options.definition.displayName]
+   *
+   * @param {object} [options.definition.dataTypeId]
+   *
+   * @param {string} [options.definition.dataTypeId.scope]
+   *
+   * @param {string} [options.definition.dataTypeId.code]
+   *
+   * @param {string} [options.definition.lifeTime] Possible values include:
+   * 'Perpetual', 'TimeVariant'
+   *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PropertyDefinition>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  updatePropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, name: string, options?: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinition>>;
+
+  /**
+   * @summary Updates the specified property definition.
+   *
+   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   *
+   * @param {string} scope
+   *
+   * @param {string} name
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.definition]
+   *
+   * @param {boolean} [options.definition.valueRequired]
+   *
+   * @param {string} [options.definition.displayName]
+   *
+   * @param {object} [options.definition.dataTypeId]
+   *
+   * @param {string} [options.definition.dataTypeId.scope]
+   *
+   * @param {string} [options.definition.dataTypeId.code]
+   *
+   * @param {string} [options.definition.lifeTime] Possible values include:
+   * 'Perpetual', 'TimeVariant'
+   *
+   * @param {string} [options.definition.type] Possible values include: 'Label',
+   * 'Metric'
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PropertyDefinition} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PropertyDefinition} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PropertyDefinition} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  updatePropertyDefinition(domain: string, scope: string, name: string, options?: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinition>;
+  updatePropertyDefinition(domain: string, scope: string, name: string, callback: ServiceCallback<models.PropertyDefinition>): void;
+  updatePropertyDefinition(domain: string, scope: string, name: string, options: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinition>): void;
+
+
+  /**
+   * @summary Deletes the property definition.
+   *
+   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   *
+   * @param {string} scope
+   *
+   * @param {string} name
+   *
+   * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4796,20 +4025,19 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deleteTradesWithHttpOperationResponse(scope: string, code: string, options?: { id? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+  deletePropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
 
   /**
-   * @summary Delete trades
+   * @summary Deletes the property definition.
    *
-   * Delete one or more trades from a portfolio
+   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    *
-   * @param {string} scope The scope of the portfolio
+   * @param {string} scope
    *
-   * @param {string} code Code for the portfolio
+   * @param {string} name
    *
    * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.id] Ids of trades to delete
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4836,51 +4064,67 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deleteTrades(scope: string, code: string, options?: { id? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  deleteTrades(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deleteTrades(scope: string, code: string, options: { id? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deletePropertyDefinition(domain: string, scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deletePropertyDefinition(domain: string, scope: string, name: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deletePropertyDefinition(domain: string, scope: string, name: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
 
 
   /**
-   * @summary Add/update trade properties
-   *
-   * Add one or more properties to a specific trade in a portfolio
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {string} tradeId Id of trade to add properties to
+   * @summary Perform a reconciliation between two portfolios
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.properties] Trade properties to add
+   * @param {object} [options.request]
+   *
+   * @param {string} [options.request.leftScope]
+   *
+   * @param {string} [options.request.leftCode]
+   *
+   * @param {date} [options.request.leftEffectiveAt]
+   *
+   * @param {date} [options.request.leftAsAt]
+   *
+   * @param {string} [options.request.rightScope]
+   *
+   * @param {string} [options.request.rightCode]
+   *
+   * @param {date} [options.request.rightEffectiveAt]
+   *
+   * @param {date} [options.request.rightAsAt]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<AddTradePropertyDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfReconciliationBreak>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  addTradePropertyWithHttpOperationResponse(scope: string, code: string, tradeId: string, options?: { properties? : models.CreatePerpetualPropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AddTradePropertyDto>>;
+  performReconciliationWithHttpOperationResponse(options?: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReconciliationBreak>>;
 
   /**
-   * @summary Add/update trade properties
-   *
-   * Add one or more properties to a specific trade in a portfolio
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {string} tradeId Id of trade to add properties to
+   * @summary Perform a reconciliation between two portfolios
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.properties] Trade properties to add
+   * @param {object} [options.request]
+   *
+   * @param {string} [options.request.leftScope]
+   *
+   * @param {string} [options.request.leftCode]
+   *
+   * @param {date} [options.request.leftEffectiveAt]
+   *
+   * @param {date} [options.request.leftAsAt]
+   *
+   * @param {string} [options.request.rightScope]
+   *
+   * @param {string} [options.request.rightCode]
+   *
+   * @param {date} [options.request.rightEffectiveAt]
+   *
+   * @param {date} [options.request.rightAsAt]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4892,7 +4136,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {AddTradePropertyDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfReconciliationBreak} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -4900,58 +4144,65 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {AddTradePropertyDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link AddTradePropertyDto} for more information.
+   *                      {ResourceListOfReconciliationBreak} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfReconciliationBreak} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  addTradeProperty(scope: string, code: string, tradeId: string, options?: { properties? : models.CreatePerpetualPropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.AddTradePropertyDto>;
-  addTradeProperty(scope: string, code: string, tradeId: string, callback: ServiceCallback<models.AddTradePropertyDto>): void;
-  addTradeProperty(scope: string, code: string, tradeId: string, options: { properties? : models.CreatePerpetualPropertyRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AddTradePropertyDto>): void;
+  performReconciliation(options?: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReconciliationBreak>;
+  performReconciliation(callback: ServiceCallback<models.ResourceListOfReconciliationBreak>): void;
+  performReconciliation(options: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReconciliationBreak>): void;
 
 
   /**
-   * @summary Delete trade property
+   * @summary Create a new reference portfolio
    *
-   * Delete a property from a specific trade
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {string} tradeId Id of the trade to delete the property from
+   * @param {string} scope The intended scope of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.property] The key of the property to be deleted
+   * @param {object} [options.referencePortfolio] The portfolio creation request
+   * object
+   *
+   * @param {string} options.referencePortfolio.displayName
+   *
+   * @param {string} [options.referencePortfolio.description]
+   *
+   * @param {string} options.referencePortfolio.code
+   *
+   * @param {date} [options.referencePortfolio.created]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<DeletedEntityResponse>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<Portfolio>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deletePropertyFromTradeWithHttpOperationResponse(scope: string, code: string, tradeId: string, options?: { property? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+  createReferencePortfolioWithHttpOperationResponse(scope: string, options?: { referencePortfolio? : models.CreateReferencePortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Portfolio>>;
 
   /**
-   * @summary Delete trade property
+   * @summary Create a new reference portfolio
    *
-   * Delete a property from a specific trade
-   *
-   * @param {string} scope The scope of the portfolio
-   *
-   * @param {string} code Code for the portfolio
-   *
-   * @param {string} tradeId Id of the trade to delete the property from
+   * @param {string} scope The intended scope of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.property] The key of the property to be deleted
+   * @param {object} [options.referencePortfolio] The portfolio creation request
+   * object
+   *
+   * @param {string} options.referencePortfolio.displayName
+   *
+   * @param {string} [options.referencePortfolio.description]
+   *
+   * @param {string} options.referencePortfolio.code
+   *
+   * @param {date} [options.referencePortfolio.created]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4963,7 +4214,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {DeletedEntityResponse} - The deserialized result object.
+   *                      @resolve {Portfolio} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -4971,102 +4222,66 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {DeletedEntityResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link DeletedEntityResponse} for more information.
+   *                      {Portfolio} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Portfolio} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deletePropertyFromTrade(scope: string, code: string, tradeId: string, options?: { property? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  deletePropertyFromTrade(scope: string, code: string, tradeId: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deletePropertyFromTrade(scope: string, code: string, tradeId: string, options: { property? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  createReferencePortfolio(scope: string, options?: { referencePortfolio? : models.CreateReferencePortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.Portfolio>;
+  createReferencePortfolio(scope: string, callback: ServiceCallback<models.Portfolio>): void;
+  createReferencePortfolio(scope: string, options: { referencePortfolio? : models.CreateReferencePortfolioRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Portfolio>): void;
 
 
   /**
-   * @summary Get transactions
+   * @summary Get all the constituents in a reference portfolio
    *
-   * @param {string} scope The scope of the portfolio
+   * @param {string} scope
    *
-   * @param {string} code Code for the portfolio
+   * @param {string} code
+   *
+   * @param {date} effectiveAt
    *
    * @param {object} [options] Optional Parameters.
    *
    * @param {date} [options.asAt]
    *
-   * @param {array} [options.sortBy] The columns to sort the returned data by
+   * @param {array} [options.sortBy]
    *
-   * @param {number} [options.start] How many items to skip from the returned set
+   * @param {number} [options.start]
    *
-   * @param {number} [options.limit] How many items to return from the set
-   *
-   * @param {array} [options.securityPropertyKeys] Keys for the security
-   * properties to be decorated onto the trades
-   *
-   * @param {string} [options.filter] Trade filter
-   *
-   * @param {object} [options.parameters] Core query parameters
-   *
-   * @param {date} [options.parameters.startDate] The required set of
-   * transactions should begin from this date
-   *
-   * @param {date} [options.parameters.endDate] The required set of transactions
-   * should end at this date
-   *
-   * @param {string} [options.parameters.queryMode] The method for date
-   * selection. Trade date or Settlement date. Possible values include: 'None',
-   * 'TradeDate', 'SettleDate'
-   *
-   * @param {boolean} [options.parameters.showCancelledTransactions] Option to
-   * include cancelled transactions in the results
+   * @param {number} [options.limit]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<VersionedResourceListOfOutputTransactionDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfReferencePortfolioConstituent>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  buildTransactionsWithHttpOperationResponse(scope: string, code: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, parameters? : models.TransactionQueryParameters, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListOfOutputTransactionDto>>;
+  getReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReferencePortfolioConstituent>>;
 
   /**
-   * @summary Get transactions
+   * @summary Get all the constituents in a reference portfolio
    *
-   * @param {string} scope The scope of the portfolio
+   * @param {string} scope
    *
-   * @param {string} code Code for the portfolio
+   * @param {string} code
+   *
+   * @param {date} effectiveAt
    *
    * @param {object} [options] Optional Parameters.
    *
    * @param {date} [options.asAt]
    *
-   * @param {array} [options.sortBy] The columns to sort the returned data by
+   * @param {array} [options.sortBy]
    *
-   * @param {number} [options.start] How many items to skip from the returned set
+   * @param {number} [options.start]
    *
-   * @param {number} [options.limit] How many items to return from the set
-   *
-   * @param {array} [options.securityPropertyKeys] Keys for the security
-   * properties to be decorated onto the trades
-   *
-   * @param {string} [options.filter] Trade filter
-   *
-   * @param {object} [options.parameters] Core query parameters
-   *
-   * @param {date} [options.parameters.startDate] The required set of
-   * transactions should begin from this date
-   *
-   * @param {date} [options.parameters.endDate] The required set of transactions
-   * should end at this date
-   *
-   * @param {string} [options.parameters.queryMode] The method for date
-   * selection. Trade date or Settlement date. Possible values include: 'None',
-   * 'TradeDate', 'SettleDate'
-   *
-   * @param {boolean} [options.parameters.showCancelledTransactions] Option to
-   * include cancelled transactions in the results
+   * @param {number} [options.limit]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5078,7 +4293,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {VersionedResourceListOfOutputTransactionDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfReferencePortfolioConstituent} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -5086,79 +4301,55 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {VersionedResourceListOfOutputTransactionDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link VersionedResourceListOfOutputTransactionDto}
+   *                      {ResourceListOfReferencePortfolioConstituent} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfReferencePortfolioConstituent}
    *                      for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  buildTransactions(scope: string, code: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, parameters? : models.TransactionQueryParameters, customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListOfOutputTransactionDto>;
-  buildTransactions(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListOfOutputTransactionDto>): void;
-  buildTransactions(scope: string, code: string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, securityPropertyKeys? : string[], filter? : string, parameters? : models.TransactionQueryParameters, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListOfOutputTransactionDto>): void;
+  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReferencePortfolioConstituent>;
+  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituent>): void;
+  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituent>): void;
 
 
   /**
-   * @summary Create derived portfolio
+   * @summary Add constituents to a specific reference portfolio
    *
-   * Creates a portfolio that derives from an existing portfolio
+   * @param {string} scope
    *
-   * @param {string} scope The scope into which to create the new derived
-   * portfolio
+   * @param {string} code
+   *
+   * @param {date} effectiveAt
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.portfolio] The root object of the new derived
-   * portfolio, containing a populated reference portfolio id and reference scope
-   *
-   * @param {string} options.portfolio.name
-   *
-   * @param {string} [options.portfolio.id]
-   *
-   * @param {object} [options.portfolio.parentPortfolio]
-   *
-   * @param {string} [options.portfolio.parentPortfolio.scope]
-   *
-   * @param {string} [options.portfolio.parentPortfolio.code]
-   *
-   * @param {date} [options.portfolio.created]
+   * @param {array} [options.constituents]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PortfolioDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<UpsertReferencePortfolioConstituentsResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  createDerivedPortfolioWithHttpOperationResponse(scope: string, options?: { portfolio? : models.CreateDerivedPortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioDto>>;
+  upsertReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { constituents? : models.ReferencePortfolioConstituentRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertReferencePortfolioConstituentsResponse>>;
 
   /**
-   * @summary Create derived portfolio
+   * @summary Add constituents to a specific reference portfolio
    *
-   * Creates a portfolio that derives from an existing portfolio
+   * @param {string} scope
    *
-   * @param {string} scope The scope into which to create the new derived
-   * portfolio
+   * @param {string} code
+   *
+   * @param {date} effectiveAt
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.portfolio] The root object of the new derived
-   * portfolio, containing a populated reference portfolio id and reference scope
-   *
-   * @param {string} options.portfolio.name
-   *
-   * @param {string} [options.portfolio.id]
-   *
-   * @param {object} [options.portfolio.parentPortfolio]
-   *
-   * @param {string} [options.portfolio.parentPortfolio.scope]
-   *
-   * @param {string} [options.portfolio.parentPortfolio.code]
-   *
-   * @param {date} [options.portfolio.created]
+   * @param {array} [options.constituents]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5170,7 +4361,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PortfolioDto} - The deserialized result object.
+   *                      @resolve {UpsertReferencePortfolioConstituentsResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -5178,16 +4369,607 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PortfolioDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PortfolioDto} for more information.
+   *                      {UpsertReferencePortfolioConstituentsResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link
+   *                      UpsertReferencePortfolioConstituentsResponse} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  createDerivedPortfolio(scope: string, options?: { portfolio? : models.CreateDerivedPortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioDto>;
-  createDerivedPortfolio(scope: string, callback: ServiceCallback<models.PortfolioDto>): void;
-  createDerivedPortfolio(scope: string, options: { portfolio? : models.CreateDerivedPortfolioRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioDto>): void;
+  upsertReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options?: { constituents? : models.ReferencePortfolioConstituentRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertReferencePortfolioConstituentsResponse>;
+  upsertReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.UpsertReferencePortfolioConstituentsResponse>): void;
+  upsertReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options: { constituents? : models.ReferencePortfolioConstituentRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertReferencePortfolioConstituentsResponse>): void;
+
+
+  /**
+   * @summary Retrieve some previously stored results
+   *
+   * @param {string} scope The scope of the data
+   *
+   * @param {string} key The key that identifies the data
+   *
+   * @param {date} dateParameter The date for which the data was loaded
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Results>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getResultsWithHttpOperationResponse(scope: string, key: string, dateParameter: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Results>>;
+
+  /**
+   * @summary Retrieve some previously stored results
+   *
+   * @param {string} scope The scope of the data
+   *
+   * @param {string} key The key that identifies the data
+   *
+   * @param {date} dateParameter The date for which the data was loaded
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Results} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Results} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Results} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getResults(scope: string, key: string, dateParameter: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.Results>;
+  getResults(scope: string, key: string, dateParameter: Date|string, callback: ServiceCallback<models.Results>): void;
+  getResults(scope: string, key: string, dateParameter: Date|string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Results>): void;
+
+
+  /**
+   * @summary Upsert precalculated results against a specified scope/key/date
+   * combination
+   *
+   * @param {string} scope The scope of the data
+   *
+   * @param {string} key The key that identifies the data
+   *
+   * @param {date} dateParameter The date for which the data is relevant
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request] The results to upload
+   *
+   * @param {object} [options.request.data]
+   *
+   * @param {string} [options.request.scope]
+   *
+   * @param {string} [options.request.key]
+   *
+   * @param {date} [options.request.date]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Results>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  upsertResultsWithHttpOperationResponse(scope: string, key: string, dateParameter: Date|string, options?: { request? : models.CreateResults, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Results>>;
+
+  /**
+   * @summary Upsert precalculated results against a specified scope/key/date
+   * combination
+   *
+   * @param {string} scope The scope of the data
+   *
+   * @param {string} key The key that identifies the data
+   *
+   * @param {date} dateParameter The date for which the data is relevant
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request] The results to upload
+   *
+   * @param {object} [options.request.data]
+   *
+   * @param {string} [options.request.scope]
+   *
+   * @param {string} [options.request.key]
+   *
+   * @param {date} [options.request.date]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Results} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Results} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Results} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  upsertResults(scope: string, key: string, dateParameter: Date|string, options?: { request? : models.CreateResults, customHeaders? : { [headerName: string]: string; } }): Promise<models.Results>;
+  upsertResults(scope: string, key: string, dateParameter: Date|string, callback: ServiceCallback<models.Results>): void;
+  upsertResults(scope: string, key: string, dateParameter: Date|string, options: { request? : models.CreateResults, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Results>): void;
+
+
+  /**
+   * @summary Aggregate data from a result set
+   *
+   * @param {string} scope
+   *
+   * @param {string} resultsKey
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.recipeId
+   *
+   * @param {string} [options.request.recipeId.scope]
+   *
+   * @param {string} [options.request.recipeId.code]
+   *
+   * @param {boolean} [options.request.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.asAt] The asAt date to use
+   *
+   * @param {date} [options.request.effectiveAt]
+   *
+   * @param {array} options.request.metrics
+   *
+   * @param {array} [options.request.groupBy]
+   *
+   * @param {array} [options.request.filters]
+   *
+   * @param {number} [options.request.limit]
+   *
+   * @param {string} [options.request.sort]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ListAggregationResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getAggregationByResultSetWithHttpOperationResponse(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ListAggregationResponse>>;
+
+  /**
+   * @summary Aggregate data from a result set
+   *
+   * @param {string} scope
+   *
+   * @param {string} resultsKey
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.recipeId
+   *
+   * @param {string} [options.request.recipeId.scope]
+   *
+   * @param {string} [options.request.recipeId.code]
+   *
+   * @param {boolean} [options.request.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.asAt] The asAt date to use
+   *
+   * @param {date} [options.request.effectiveAt]
+   *
+   * @param {array} options.request.metrics
+   *
+   * @param {array} [options.request.groupBy]
+   *
+   * @param {array} [options.request.filters]
+   *
+   * @param {number} [options.request.limit]
+   *
+   * @param {string} [options.request.sort]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ListAggregationResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ListAggregationResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ListAggregationResponse} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getAggregationByResultSet(scope: string, resultsKey: string, options?: { request? : models.AggregationRequest, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ListAggregationResponse>;
+  getAggregationByResultSet(scope: string, resultsKey: string, callback: ServiceCallback<models.ListAggregationResponse>): void;
+  getAggregationByResultSet(scope: string, resultsKey: string, options: { request? : models.AggregationRequest, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ListAggregationResponse>): void;
+
+
+  /**
+   * @summary List all available entities
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfString>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  listEntitiesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfString>>;
+
+  /**
+   * @summary List all available entities
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfString} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfString} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfString} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listEntities(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfString>;
+  listEntities(callback: ServiceCallback<models.ResourceListOfString>): void;
+  listEntities(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfString>): void;
+
+
+  /**
+   * @summary Gets the schema for a given entity.
+   *
+   * @param {string} entity
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Schema>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getEntitySchemaWithHttpOperationResponse(entity: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Schema>>;
+
+  /**
+   * @summary Gets the schema for a given entity.
+   *
+   * @param {string} entity
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Schema} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Schema} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Schema} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getEntitySchema(entity: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Schema>;
+  getEntitySchema(entity: string, callback: ServiceCallback<models.Schema>): void;
+  getEntitySchema(entity: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Schema>): void;
+
+
+  /**
+   * @summary Get the schemas for the provided list of property keys
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.propertyKeys] A comma delimited list of property
+   * keys in string format. e.g.
+   * "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PropertySchema>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getPropertySchemaWithHttpOperationResponse(options?: { propertyKeys? : string[], asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertySchema>>;
+
+  /**
+   * @summary Get the schemas for the provided list of property keys
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.propertyKeys] A comma delimited list of property
+   * keys in string format. e.g.
+   * "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
+   *
+   * @param {date} [options.asAt]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PropertySchema} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PropertySchema} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PropertySchema} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getPropertySchema(options?: { propertyKeys? : string[], asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertySchema>;
+  getPropertySchema(callback: ServiceCallback<models.PropertySchema>): void;
+  getPropertySchema(options: { propertyKeys? : string[], asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertySchema>): void;
+
+
+  /**
+   * @summary Gets the available value types that could be returned in a schema
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfValueType>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getValueTypesWithHttpOperationResponse(options?: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfValueType>>;
+
+  /**
+   * @summary Gets the available value types that could be returned in a schema
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfValueType} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfValueType} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfValueType} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getValueTypes(options?: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfValueType>;
+  getValueTypes(callback: ServiceCallback<models.ResourceListOfValueType>): void;
+  getValueTypes(options: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfValueType>): void;
+
+
+  /**
+   * @summary Search portfolio groups
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfPortfolioGroup>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  portfolioGroupsSearchWithHttpOperationResponse(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioGroup>>;
+
+  /**
+   * @summary Search portfolio groups
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfPortfolioGroup} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfPortfolioGroup} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfPortfolioGroup} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  portfolioGroupsSearch(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioGroup>;
+  portfolioGroupsSearch(callback: ServiceCallback<models.ResourceListOfPortfolioGroup>): void;
+  portfolioGroupsSearch(options: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioGroup>): void;
 
 
   /**
@@ -5282,11 +5064,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfPropertyDefinitionDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPropertyDefinition>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  propertiesSearchWithHttpOperationResponse(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyDefinitionDto>>;
+  propertiesSearchWithHttpOperationResponse(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyDefinition>>;
 
   /**
    * @summary Search properties
@@ -5313,7 +5095,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfPropertyDefinitionDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfPropertyDefinition} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -5321,157 +5103,39 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfPropertyDefinitionDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfPropertyDefinitionDto} for
-   *                      more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  propertiesSearch(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyDefinitionDto>;
-  propertiesSearch(callback: ServiceCallback<models.ResourceListOfPropertyDefinitionDto>): void;
-  propertiesSearch(options: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyDefinitionDto>): void;
-
-
-  /**
-   * @summary Gets the available property-definition domains.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfPropertyDomain>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getPropertyDefinitionDomainsWithHttpOperationResponse(options?: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyDomain>>;
-
-  /**
-   * @summary Gets the available property-definition domains.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfPropertyDomain} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfPropertyDomain} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfPropertyDomain} for more
+   *                      {ResourceListOfPropertyDefinition} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfPropertyDefinition} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPropertyDefinitionDomains(options?: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyDomain>;
-  getPropertyDefinitionDomains(callback: ServiceCallback<models.ResourceListOfPropertyDomain>): void;
-  getPropertyDefinitionDomains(options: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyDomain>): void;
+  propertiesSearch(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyDefinition>;
+  propertiesSearch(callback: ServiceCallback<models.ResourceListOfPropertyDefinition>): void;
+  propertiesSearch(options: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyDefinition>): void;
 
 
   /**
-   * @summary Creates a new property definition.
+   * @summary Gets the list of persisted transaction types
    *
    * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.definition]
-   *
-   * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
-   *
-   * @param {string} [options.definition.scope]
-   *
-   * @param {string} [options.definition.name]
-   *
-   * @param {boolean} [options.definition.valueRequired]
-   *
-   * @param {string} [options.definition.displayName]
-   *
-   * @param {object} [options.definition.dataFormatId]
-   *
-   * @param {string} [options.definition.dataFormatId.scope]
-   *
-   * @param {string} [options.definition.dataFormatId.code]
-   *
-   * @param {string} [options.definition.sort]
-   *
-   * @param {string} [options.definition.lifeTime] Possible values include:
-   * 'Perpetual', 'TimeVariant'
-   *
-   * @param {string} [options.definition.type] Possible values include: 'Label',
-   * 'Metric'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PropertyDefinitionDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTransactionMetaData>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  createPropertyDefinitionWithHttpOperationResponse(options?: { definition? : models.CreatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinitionDto>>;
+  listConfigurationTransactionTypesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfTransactionMetaData>>;
 
   /**
-   * @summary Creates a new property definition.
+   * @summary Gets the list of persisted transaction types
    *
    * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.definition]
-   *
-   * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
-   *
-   * @param {string} [options.definition.scope]
-   *
-   * @param {string} [options.definition.name]
-   *
-   * @param {boolean} [options.definition.valueRequired]
-   *
-   * @param {string} [options.definition.displayName]
-   *
-   * @param {object} [options.definition.dataFormatId]
-   *
-   * @param {string} [options.definition.dataFormatId.scope]
-   *
-   * @param {string} [options.definition.dataFormatId.code]
-   *
-   * @param {string} [options.definition.sort]
-   *
-   * @param {string} [options.definition.lifeTime] Possible values include:
-   * 'Perpetual', 'TimeVariant'
-   *
-   * @param {string} [options.definition.type] Possible values include: 'Label',
-   * 'Metric'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5483,7 +5147,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PropertyDefinitionDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfTransactionMetaData} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -5491,216 +5155,45 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PropertyDefinitionDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PropertyDefinitionDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  createPropertyDefinition(options?: { definition? : models.CreatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinitionDto>;
-  createPropertyDefinition(callback: ServiceCallback<models.PropertyDefinitionDto>): void;
-  createPropertyDefinition(options: { definition? : models.CreatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinitionDto>): void;
-
-
-  /**
-   * @summary Gets multiple property definitions.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.keys]
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfPropertyDefinitionDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getMultiplePropertyDefinitionsWithHttpOperationResponse(options?: { keys? : string[], asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyDefinitionDto>>;
-
-  /**
-   * @summary Gets multiple property definitions.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.keys]
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfPropertyDefinitionDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfPropertyDefinitionDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfPropertyDefinitionDto} for
-   *                      more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getMultiplePropertyDefinitions(options?: { keys? : string[], asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyDefinitionDto>;
-  getMultiplePropertyDefinitions(callback: ServiceCallback<models.ResourceListOfPropertyDefinitionDto>): void;
-  getMultiplePropertyDefinitions(options: { keys? : string[], asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyDefinitionDto>): void;
-
-
-  /**
-   * @summary Gets all available property definitions.
-   *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfPropertyKey>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getAllPropertyKeysInDomainWithHttpOperationResponse(domain: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyKey>>;
-
-  /**
-   * @summary Gets all available property definitions.
-   *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfPropertyKey} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfPropertyKey} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfPropertyKey} for more
+   *                      {ResourceListOfTransactionMetaData} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfTransactionMetaData} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getAllPropertyKeysInDomain(domain: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyKey>;
-  getAllPropertyKeysInDomain(domain: string, callback: ServiceCallback<models.ResourceListOfPropertyKey>): void;
-  getAllPropertyKeysInDomain(domain: string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyKey>): void;
+  listConfigurationTransactionTypes(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfTransactionMetaData>;
+  listConfigurationTransactionTypes(callback: ServiceCallback<models.ResourceListOfTransactionMetaData>): void;
+  listConfigurationTransactionTypes(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfTransactionMetaData>): void;
 
 
   /**
-   * @summary Gets the available property-definition scopes for the specified
-   * domain.
-   *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * @summary Uploads a list of transaction types to be used by the movements
+   * engine
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
+   * @param {array} [options.types]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfScope>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTransactionMetaData>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPropertyDefinitionScopesInDomainWithHttpOperationResponse(domain: string, options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfScope>>;
+  setConfigurationTransactionTypesWithHttpOperationResponse(options?: { types? : models.TransactionConfigurationDataRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfTransactionMetaData>>;
 
   /**
-   * @summary Gets the available property-definition scopes for the specified
-   * domain.
-   *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * @summary Uploads a list of transaction types to be used by the movements
+   * engine
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
+   * @param {array} [options.types]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5712,7 +5205,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfScope} - The deserialized result object.
+   *                      @resolve {ResourceListOfTransactionMetaData} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -5720,138 +5213,53 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfScope} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfScope} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getPropertyDefinitionScopesInDomain(domain: string, options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfScope>;
-  getPropertyDefinitionScopesInDomain(domain: string, callback: ServiceCallback<models.ResourceListOfScope>): void;
-  getPropertyDefinitionScopesInDomain(domain: string, options: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfScope>): void;
-
-
-  /**
-   * @summary Gets all properties in a scope.
-   *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
-   *
-   * @param {string} scope
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfPropertyKey>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getAllPropertyKeysInScopeWithHttpOperationResponse(domain: string, scope: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyKey>>;
-
-  /**
-   * @summary Gets all properties in a scope.
-   *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
-   *
-   * @param {string} scope
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfPropertyKey} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfPropertyKey} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfPropertyKey} for more
+   *                      {ResourceListOfTransactionMetaData} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfTransactionMetaData} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getAllPropertyKeysInScope(domain: string, scope: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyKey>;
-  getAllPropertyKeysInScope(domain: string, scope: string, callback: ServiceCallback<models.ResourceListOfPropertyKey>): void;
-  getAllPropertyKeysInScope(domain: string, scope: string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyKey>): void;
+  setConfigurationTransactionTypes(options?: { types? : models.TransactionConfigurationDataRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfTransactionMetaData>;
+  setConfigurationTransactionTypes(callback: ServiceCallback<models.ResourceListOfTransactionMetaData>): void;
+  setConfigurationTransactionTypes(options: { types? : models.TransactionConfigurationDataRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfTransactionMetaData>): void;
 
 
   /**
-   * @summary Gets a property definition.
-   *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
-   *
-   * @param {string} scope
-   *
-   * @param {string} name
+   * @summary Adds a new transaction type movement to the list of existing types
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {object} [options.type]
+   *
+   * @param {array} options.type.aliases List of transaction codes that map to
+   * this specific transaction model
+   *
+   * @param {array} options.type.movements Movement data for the transaction code
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PropertyDefinitionDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<TransactionConfigurationData>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, name: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinitionDto>>;
+  createConfigurationTransactionTypeWithHttpOperationResponse(options?: { type? : models.TransactionConfigurationDataRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TransactionConfigurationData>>;
 
   /**
-   * @summary Gets a property definition.
-   *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
-   *
-   * @param {string} scope
-   *
-   * @param {string} name
+   * @summary Adds a new transaction type movement to the list of existing types
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {object} [options.type]
+   *
+   * @param {array} options.type.aliases List of transaction codes that map to
+   * this specific transaction model
+   *
+   * @param {array} options.type.movements Movement data for the transaction code
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5863,7 +5271,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PropertyDefinitionDto} - The deserialized result object.
+   *                      @resolve {TransactionConfigurationData} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -5871,92 +5279,103 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PropertyDefinitionDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PropertyDefinitionDto} for more information.
+   *                      {TransactionConfigurationData} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link TransactionConfigurationData} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPropertyDefinition(domain: string, scope: string, name: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinitionDto>;
-  getPropertyDefinition(domain: string, scope: string, name: string, callback: ServiceCallback<models.PropertyDefinitionDto>): void;
-  getPropertyDefinition(domain: string, scope: string, name: string, options: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinitionDto>): void;
+  createConfigurationTransactionType(options?: { type? : models.TransactionConfigurationDataRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.TransactionConfigurationData>;
+  createConfigurationTransactionType(callback: ServiceCallback<models.TransactionConfigurationData>): void;
+  createConfigurationTransactionType(options: { type? : models.TransactionConfigurationDataRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TransactionConfigurationData>): void;
 
 
   /**
-   * @summary Updates the specified property definition.
+   * @summary Create portfolio
    *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * Creates a new portfolio
    *
-   * @param {string} scope
-   *
-   * @param {string} name
+   * @param {string} scope The intended scope of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.definition]
+   * @param {object} [options.createRequest] The portfolio creation request
+   * object
    *
-   * @param {boolean} [options.definition.valueRequired]
+   * @param {string} options.createRequest.displayName
    *
-   * @param {string} [options.definition.displayName]
+   * @param {string} [options.createRequest.description]
    *
-   * @param {object} [options.definition.dataFormatId]
+   * @param {string} options.createRequest.code
    *
-   * @param {string} [options.definition.dataFormatId.scope]
+   * @param {date} [options.createRequest.created]
    *
-   * @param {string} [options.definition.dataFormatId.code]
+   * @param {string} [options.createRequest.baseCurrency]
    *
-   * @param {string} [options.definition.sort]
+   * @param {object} [options.createRequest.corporateActionSourceId]
    *
-   * @param {string} [options.definition.lifeTime] Possible values include:
-   * 'Perpetual', 'TimeVariant'
+   * @param {string} [options.createRequest.corporateActionSourceId.scope]
    *
-   * @param {string} [options.definition.type] Possible values include: 'Label',
-   * 'Metric'
+   * @param {string} [options.createRequest.corporateActionSourceId.code]
+   *
+   * @param {string} [options.createRequest.accountingMethod] Possible values
+   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+   * 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.createRequest.subHoldingKeys]
+   *
+   * @param {object} [options.createRequest.properties] Portfolio properties to
+   * add to the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PropertyDefinitionDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<Portfolio>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  updatePropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, name: string, options?: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinitionDto>>;
+  createPortfolioWithHttpOperationResponse(scope: string, options?: { createRequest? : models.CreateTransactionPortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Portfolio>>;
 
   /**
-   * @summary Updates the specified property definition.
+   * @summary Create portfolio
    *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * Creates a new portfolio
    *
-   * @param {string} scope
-   *
-   * @param {string} name
+   * @param {string} scope The intended scope of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.definition]
+   * @param {object} [options.createRequest] The portfolio creation request
+   * object
    *
-   * @param {boolean} [options.definition.valueRequired]
+   * @param {string} options.createRequest.displayName
    *
-   * @param {string} [options.definition.displayName]
+   * @param {string} [options.createRequest.description]
    *
-   * @param {object} [options.definition.dataFormatId]
+   * @param {string} options.createRequest.code
    *
-   * @param {string} [options.definition.dataFormatId.scope]
+   * @param {date} [options.createRequest.created]
    *
-   * @param {string} [options.definition.dataFormatId.code]
+   * @param {string} [options.createRequest.baseCurrency]
    *
-   * @param {string} [options.definition.sort]
+   * @param {object} [options.createRequest.corporateActionSourceId]
    *
-   * @param {string} [options.definition.lifeTime] Possible values include:
-   * 'Perpetual', 'TimeVariant'
+   * @param {string} [options.createRequest.corporateActionSourceId.scope]
    *
-   * @param {string} [options.definition.type] Possible values include: 'Label',
-   * 'Metric'
+   * @param {string} [options.createRequest.corporateActionSourceId.code]
+   *
+   * @param {string} [options.createRequest.accountingMethod] Possible values
+   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+   * 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.createRequest.subHoldingKeys]
+   *
+   * @param {object} [options.createRequest.properties] Portfolio properties to
+   * add to the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5968,7 +5387,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PropertyDefinitionDto} - The deserialized result object.
+   *                      @resolve {Portfolio} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -5976,27 +5395,422 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PropertyDefinitionDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PropertyDefinitionDto} for more information.
+   *                      {Portfolio} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Portfolio} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  updatePropertyDefinition(domain: string, scope: string, name: string, options?: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinitionDto>;
-  updatePropertyDefinition(domain: string, scope: string, name: string, callback: ServiceCallback<models.PropertyDefinitionDto>): void;
-  updatePropertyDefinition(domain: string, scope: string, name: string, options: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinitionDto>): void;
+  createPortfolio(scope: string, options?: { createRequest? : models.CreateTransactionPortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.Portfolio>;
+  createPortfolio(scope: string, callback: ServiceCallback<models.Portfolio>): void;
+  createPortfolio(scope: string, options: { createRequest? : models.CreateTransactionPortfolioRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Portfolio>): void;
 
 
   /**
-   * @summary Deletes the property definition.
+   * @summary Get portfolio details
    *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * Gets the details for a portfolio.  For a derived portfolio this can be
+   * the details of another reference portfolio
    *
-   * @param {string} scope
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {string} name
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Effective date
+   *
+   * @param {date} [options.asAt] The asAt date to use
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PortfolioDetails>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getDetailsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioDetails>>;
+
+  /**
+   * @summary Get portfolio details
+   *
+   * Gets the details for a portfolio.  For a derived portfolio this can be
+   * the details of another reference portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Effective date
+   *
+   * @param {date} [options.asAt] The asAt date to use
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PortfolioDetails} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PortfolioDetails} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioDetails} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getDetails(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioDetails>;
+  getDetails(scope: string, code: string, callback: ServiceCallback<models.PortfolioDetails>): void;
+  getDetails(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioDetails>): void;
+
+
+  /**
+   * @summary Add/update portfolio details
+   *
+   * Update the portfolio details for the given code or add if it doesn't already
+   * exist. Updates with
+   * null values will remove any existing values
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.details]
+   *
+   * @param {string} [options.details.baseCurrency]
+   *
+   * @param {date} [options.effectiveAt] The effective date of the change
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<PortfolioDetails>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  upsertPortfolioDetailsWithHttpOperationResponse(scope: string, code: string, options?: { details? : models.CreatePortfolioDetails, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioDetails>>;
+
+  /**
+   * @summary Add/update portfolio details
+   *
+   * Update the portfolio details for the given code or add if it doesn't already
+   * exist. Updates with
+   * null values will remove any existing values
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.details]
+   *
+   * @param {string} [options.details.baseCurrency]
+   *
+   * @param {date} [options.effectiveAt] The effective date of the change
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {PortfolioDetails} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {PortfolioDetails} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link PortfolioDetails} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  upsertPortfolioDetails(scope: string, code: string, options?: { details? : models.CreatePortfolioDetails, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioDetails>;
+  upsertPortfolioDetails(scope: string, code: string, callback: ServiceCallback<models.PortfolioDetails>): void;
+  upsertPortfolioDetails(scope: string, code: string, options: { details? : models.CreatePortfolioDetails, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioDetails>): void;
+
+
+  /**
+   * @summary Get holdings
+   *
+   * Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
+   * are supplied then values will be defaulted to the latest system time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Effective date
+   *
+   * @param {date} [options.asAt] As at date
+   *
+   * @param {array} [options.sortBy] The columns to sort the returned data by
+   *
+   * @param {number} [options.start] How many items to skip from the returned set
+   *
+   * @param {number} [options.limit] How many items to return from the set
+   *
+   * @param {string} [options.filter] A filter on the results
+   *
+   * @param {array} [options.instrumentPropertyKeys] Keys for the instrument
+   * properties to be decorated onto the holdings
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<VersionedResourceListOfHolding>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getHoldingsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListOfHolding>>;
+
+  /**
+   * @summary Get holdings
+   *
+   * Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
+   * are supplied then values will be defaulted to the latest system time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Effective date
+   *
+   * @param {date} [options.asAt] As at date
+   *
+   * @param {array} [options.sortBy] The columns to sort the returned data by
+   *
+   * @param {number} [options.start] How many items to skip from the returned set
+   *
+   * @param {number} [options.limit] How many items to return from the set
+   *
+   * @param {string} [options.filter] A filter on the results
+   *
+   * @param {array} [options.instrumentPropertyKeys] Keys for the instrument
+   * properties to be decorated onto the holdings
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {VersionedResourceListOfHolding} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {VersionedResourceListOfHolding} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link VersionedResourceListOfHolding} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getHoldings(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListOfHolding>;
+  getHoldings(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListOfHolding>): void;
+  getHoldings(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListOfHolding>): void;
+
+
+  /**
+   * @summary Adjust holdings
+   *
+   * Create transactions in a specific portfolio to bring it to the specified
+   * holdings
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.holdingAdjustments]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<AdjustHolding>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  setHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AdjustHolding>>;
+
+  /**
+   * @summary Adjust holdings
+   *
+   * Create transactions in a specific portfolio to bring it to the specified
+   * holdings
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.holdingAdjustments]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {AdjustHolding} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {AdjustHolding} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link AdjustHolding} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  setHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.AdjustHolding>;
+  setHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.AdjustHolding>): void;
+  setHoldings(scope: string, code: string, effectiveAt: Date|string, options: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AdjustHolding>): void;
+
+
+  /**
+   * @summary Adjust holdings
+   *
+   * Create transactions in a specific portfolio to bring it to the specified
+   * holdings
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.holdingAdjustments]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<AdjustHolding>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  adjustHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AdjustHolding>>;
+
+  /**
+   * @summary Adjust holdings
+   *
+   * Create transactions in a specific portfolio to bring it to the specified
+   * holdings
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.holdingAdjustments]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {AdjustHolding} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {AdjustHolding} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link AdjustHolding} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.AdjustHolding>;
+  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.AdjustHolding>): void;
+  adjustHoldings(scope: string, code: string, effectiveAt: Date|string, options: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AdjustHolding>): void;
+
+
+  /**
+   * @summary Cancel adjust-holdings
+   *
+   * Cancels a previous adjust holdings request
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6009,17 +5823,18 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deletePropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+  cancelAdjustHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
 
   /**
-   * @summary Deletes the property definition.
+   * @summary Cancel adjust-holdings
    *
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * Cancels a previous adjust holdings request
    *
-   * @param {string} scope
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {string} name
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt Effective date
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -6048,79 +5863,57 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deletePropertyDefinition(domain: string, scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  deletePropertyDefinition(domain: string, scope: string, name: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deletePropertyDefinition(domain: string, scope: string, name: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date|string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date|string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
 
 
   /**
-   * @summary Create a new PropertyDataFormat. Note: Only non-default formats can
-   * be created.
+   * @summary Gets holdings adjustments in an interval of effective time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] The definition of the new format
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
    *
-   * @param {string} options.request.scope
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
    *
-   * @param {string} options.request.code
-   *
-   * @param {string} options.request.formatType Possible values include: 'Open',
-   * 'Closed'
-   *
-   * @param {number} options.request.order
-   *
-   * @param {string} options.request.displayName
-   *
-   * @param {string} options.request.description
-   *
-   * @param {string} options.request.valueType Possible values include: 'String',
-   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'CurrencyAndAmount', 'TradePrice'
-   *
-   * @param {array} [options.request.acceptableValues]
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PropertyDataFormatDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfHoldingsAdjustmentHeader>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  createPropertyDataFormatWithHttpOperationResponse(options?: { request? : models.CreatePropertyDataFormatRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDataFormatDto>>;
+  listHoldingsAdjustmentsWithHttpOperationResponse(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfHoldingsAdjustmentHeader>>;
 
   /**
-   * @summary Create a new PropertyDataFormat. Note: Only non-default formats can
-   * be created.
+   * @summary Gets holdings adjustments in an interval of effective time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] The definition of the new format
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
    *
-   * @param {string} options.request.scope
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
    *
-   * @param {string} options.request.code
-   *
-   * @param {string} options.request.formatType Possible values include: 'Open',
-   * 'Closed'
-   *
-   * @param {number} options.request.order
-   *
-   * @param {string} options.request.displayName
-   *
-   * @param {string} options.request.description
-   *
-   * @param {string} options.request.valueType Possible values include: 'String',
-   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'CurrencyAndAmount', 'TradePrice'
-   *
-   * @param {array} [options.request.acceptableValues]
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6132,7 +5925,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PropertyDataFormatDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfHoldingsAdjustmentHeader} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -6140,126 +5933,61 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PropertyDataFormatDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PropertyDataFormatDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  createPropertyDataFormat(options?: { request? : models.CreatePropertyDataFormatRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDataFormatDto>;
-  createPropertyDataFormat(callback: ServiceCallback<models.PropertyDataFormatDto>): void;
-  createPropertyDataFormat(options: { request? : models.CreatePropertyDataFormatRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDataFormatDto>): void;
-
-
-  /**
-   * @summary Lists all property data formats in the specified scope.
-   *
-   * @param {string} scope
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {boolean} [options.includeDefault]
-   *
-   * @param {boolean} [options.includeSystem]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfPropertyDataFormatDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  listPropertyDataFormatsWithHttpOperationResponse(scope: string, options?: { includeDefault? : boolean, includeSystem? : boolean, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyDataFormatDto>>;
-
-  /**
-   * @summary Lists all property data formats in the specified scope.
-   *
-   * @param {string} scope
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {boolean} [options.includeDefault]
-   *
-   * @param {boolean} [options.includeSystem]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {string} [options.filter]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfPropertyDataFormatDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfPropertyDataFormatDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfPropertyDataFormatDto} for
+   *                      {ResourceListOfHoldingsAdjustmentHeader} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfHoldingsAdjustmentHeader} for
    *                      more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listPropertyDataFormats(scope: string, options?: { includeDefault? : boolean, includeSystem? : boolean, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyDataFormatDto>;
-  listPropertyDataFormats(scope: string, callback: ServiceCallback<models.ResourceListOfPropertyDataFormatDto>): void;
-  listPropertyDataFormats(scope: string, options: { includeDefault? : boolean, includeSystem? : boolean, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyDataFormatDto>): void;
+  listHoldingsAdjustments(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfHoldingsAdjustmentHeader>;
+  listHoldingsAdjustments(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfHoldingsAdjustmentHeader>): void;
+  listHoldingsAdjustments(scope: string, code: string, options: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfHoldingsAdjustmentHeader>): void;
 
 
   /**
-   * @summary Gets a property data format.
+   * @summary Get a holdings adjustment for a single portfolio at a specific
+   * effective time.
+   * If no adjustment exists at this effective time, not found is returned.
    *
-   * @param {string} scope
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {string} name
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt The effective time of the holdings adjustment.
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PropertyDataFormatDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<HoldingsAdjustment>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPropertyDataFormatWithHttpOperationResponse(scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDataFormatDto>>;
+  getHoldingsAdjustmentWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.HoldingsAdjustment>>;
 
   /**
-   * @summary Gets a property data format.
+   * @summary Get a holdings adjustment for a single portfolio at a specific
+   * effective time.
+   * If no adjustment exists at this effective time, not found is returned.
    *
-   * @param {string} scope
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {string} name
+   * @param {string} code Code for the portfolio
+   *
+   * @param {date} effectiveAt The effective time of the holdings adjustment.
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6271,7 +5999,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PropertyDataFormatDto} - The deserialized result object.
+   *                      @resolve {HoldingsAdjustment} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -6279,316 +6007,88 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PropertyDataFormatDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PropertyDataFormatDto} for more information.
+   *                      {HoldingsAdjustment} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link HoldingsAdjustment} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPropertyDataFormat(scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDataFormatDto>;
-  getPropertyDataFormat(scope: string, name: string, callback: ServiceCallback<models.PropertyDataFormatDto>): void;
-  getPropertyDataFormat(scope: string, name: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDataFormatDto>): void;
+  getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date|string, options?: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.HoldingsAdjustment>;
+  getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.HoldingsAdjustment>): void;
+  getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date|string, options: { asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.HoldingsAdjustment>): void;
 
 
   /**
-   * @summary Update a PropertyDataFormat. Note: Only non-default formats can be
-   * updated.
+   * @summary Get transactions
    *
-   * @param {string} scope The scope of the format being updated
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {string} name The name of the format to update
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request] The new definition of the format
-   *
-   * @param {string} options.request.formatType Possible values include: 'Open',
-   * 'Closed'
-   *
-   * @param {number} options.request.order
-   *
-   * @param {string} options.request.displayName
-   *
-   * @param {string} options.request.description
-   *
-   * @param {string} options.request.valueType Possible values include: 'String',
-   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'CurrencyAndAmount', 'TradePrice'
-   *
-   * @param {array} [options.request.acceptableValues]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<PropertyDataFormatDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  updatePropertyDataFormatWithHttpOperationResponse(scope: string, name: string, options?: { request? : models.UpdatePropertyDataFormatRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDataFormatDto>>;
-
-  /**
-   * @summary Update a PropertyDataFormat. Note: Only non-default formats can be
-   * updated.
-   *
-   * @param {string} scope The scope of the format being updated
-   *
-   * @param {string} name The name of the format to update
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] The new definition of the format
-   *
-   * @param {string} options.request.formatType Possible values include: 'Open',
-   * 'Closed'
-   *
-   * @param {number} options.request.order
-   *
-   * @param {string} options.request.displayName
-   *
-   * @param {string} options.request.description
-   *
-   * @param {string} options.request.valueType Possible values include: 'String',
-   * 'Int', 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits', 'StringArray',
-   * 'CurrencyAndAmount', 'TradePrice'
-   *
-   * @param {array} [options.request.acceptableValues]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {PropertyDataFormatDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {PropertyDataFormatDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PropertyDataFormatDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  updatePropertyDataFormat(scope: string, name: string, options?: { request? : models.UpdatePropertyDataFormatRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDataFormatDto>;
-  updatePropertyDataFormat(scope: string, name: string, callback: ServiceCallback<models.PropertyDataFormatDto>): void;
-  updatePropertyDataFormat(scope: string, name: string, options: { request? : models.UpdatePropertyDataFormatRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDataFormatDto>): void;
-
-
-  /**
-   * @summary Return the definitions for the specified list of units
-   *
-   * @param {string} scope
-   *
-   * @param {string} name
-   *
-   * @param {array} units
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<IUnitDefinitionDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getUnitsFromPropertyDataFormatWithHttpOperationResponse(scope: string, name: string, units: string[], options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.IUnitDefinitionDto>>;
-
-  /**
-   * @summary Return the definitions for the specified list of units
-   *
-   * @param {string} scope
-   *
-   * @param {string} name
-   *
-   * @param {array} units
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {IUnitDefinitionDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {IUnitDefinitionDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link IUnitDefinitionDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getUnitsFromPropertyDataFormat(scope: string, name: string, units: string[], options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.IUnitDefinitionDto>;
-  getUnitsFromPropertyDataFormat(scope: string, name: string, units: string[], callback: ServiceCallback<models.IUnitDefinitionDto>): void;
-  getUnitsFromPropertyDataFormat(scope: string, name: string, units: string[], options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.IUnitDefinitionDto>): void;
-
-
-  /**
-   * @summary Perform a reconciliation between two portfolios
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.leftScope]
-   *
-   * @param {string} [options.request.leftCode]
-   *
-   * @param {date} [options.request.leftEffectiveAt]
-   *
-   * @param {date} [options.request.leftAsAt]
-   *
-   * @param {string} [options.request.rightScope]
-   *
-   * @param {string} [options.request.rightCode]
-   *
-   * @param {date} [options.request.rightEffectiveAt]
-   *
-   * @param {date} [options.request.rightAsAt]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfReconciliationBreakDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  performReconciliationWithHttpOperationResponse(options?: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReconciliationBreakDto>>;
-
-  /**
-   * @summary Perform a reconciliation between two portfolios
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.leftScope]
-   *
-   * @param {string} [options.request.leftCode]
-   *
-   * @param {date} [options.request.leftEffectiveAt]
-   *
-   * @param {date} [options.request.leftAsAt]
-   *
-   * @param {string} [options.request.rightScope]
-   *
-   * @param {string} [options.request.rightCode]
-   *
-   * @param {date} [options.request.rightEffectiveAt]
-   *
-   * @param {date} [options.request.rightAsAt]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfReconciliationBreakDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfReconciliationBreakDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfReconciliationBreakDto} for
-   *                      more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  performReconciliation(options?: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReconciliationBreakDto>;
-  performReconciliation(callback: ServiceCallback<models.ResourceListOfReconciliationBreakDto>): void;
-  performReconciliation(options: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReconciliationBreakDto>): void;
-
-
-  /**
-   * @summary Get all reference portfolios in a scope
-   *
-   * @param {string} scope
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.fromTransactionDate] Include transactions with a
+   * transaction date equal or later than this date. If not supplied, no lower
+   * filter is applied
+   *
+   * @param {date} [options.toTransactionDate] Include transactions with a
+   * transaction date equal or before this date. If not supplied, no upper filter
+   * is applied
    *
    * @param {date} [options.asAt]
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] The columns to sort the returned data by
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] How many items to skip from the returned set
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] How many items to return from the set
    *
-   * @param {string} [options.filter]
+   * @param {array} [options.instrumentPropertyKeys] Keys for the instrument
+   * properties to be decorated onto the transactions
+   *
+   * @param {string} [options.filter] Transaction filter
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfPortfolioDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<VersionedResourceListOfTransaction>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listReferencePortfoliosWithHttpOperationResponse(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioDto>>;
+  getTransactionsWithHttpOperationResponse(scope: string, code: string, options?: { fromTransactionDate? : Date, toTransactionDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, instrumentPropertyKeys? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListOfTransaction>>;
 
   /**
-   * @summary Get all reference portfolios in a scope
+   * @summary Get transactions
    *
-   * @param {string} scope
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.fromTransactionDate] Include transactions with a
+   * transaction date equal or later than this date. If not supplied, no lower
+   * filter is applied
+   *
+   * @param {date} [options.toTransactionDate] Include transactions with a
+   * transaction date equal or before this date. If not supplied, no upper filter
+   * is applied
    *
    * @param {date} [options.asAt]
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] The columns to sort the returned data by
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] How many items to skip from the returned set
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] How many items to return from the set
    *
-   * @param {string} [options.filter]
+   * @param {array} [options.instrumentPropertyKeys] Keys for the instrument
+   * properties to be decorated onto the transactions
+   *
+   * @param {string} [options.filter] Transaction filter
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6600,7 +6100,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfPortfolioDto} - The deserialized result object.
+   *                      @resolve {VersionedResourceListOfTransaction} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -6608,95 +6108,51 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfPortfolioDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfPortfolioDto} for more
+   *                      {VersionedResourceListOfTransaction} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link VersionedResourceListOfTransaction} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listReferencePortfolios(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioDto>;
-  listReferencePortfolios(scope: string, callback: ServiceCallback<models.ResourceListOfPortfolioDto>): void;
-  listReferencePortfolios(scope: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioDto>): void;
+  getTransactions(scope: string, code: string, options?: { fromTransactionDate? : Date, toTransactionDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, instrumentPropertyKeys? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListOfTransaction>;
+  getTransactions(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListOfTransaction>): void;
+  getTransactions(scope: string, code: string, options: { fromTransactionDate? : Date, toTransactionDate? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, instrumentPropertyKeys? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListOfTransaction>): void;
 
 
   /**
-   * @summary Create a new reference portfolio
+   * @summary Upsert transactions
    *
-   * @param {string} scope The intended scope of the portfolio
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.referencePortfolio] The portfolio creation request
-   * object
-   *
-   * @param {string} options.referencePortfolio.name
-   *
-   * @param {string} options.referencePortfolio.code
-   *
-   * @param {date} [options.referencePortfolio.created]
-   *
-   * @param {string} options.referencePortfolio.baseCurrency
-   *
-   * @param {object} [options.referencePortfolio.corporateActionSourceId]
-   *
-   * @param {string} [options.referencePortfolio.corporateActionSourceId.scope]
-   *
-   * @param {string} [options.referencePortfolio.corporateActionSourceId.code]
-   *
-   * @param {string} [options.referencePortfolio.accountingMethod] Possible
-   * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
-   * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
-   *
-   * @param {array} [options.referencePortfolio.subHoldingKeys]
-   *
-   * @param {array} [options.referencePortfolio.properties] Portfolio properties
-   * to add to the portfolio
+   * @param {array} [options.transactions] The transactions to be updated
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<PortfolioDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<UpsertPortfolioTransactionsResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  createReferencePortfolioWithHttpOperationResponse(scope: string, options?: { referencePortfolio? : models.CreatePortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioDto>>;
+  upsertTransactionsWithHttpOperationResponse(scope: string, code: string, options?: { transactions? : models.TransactionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertPortfolioTransactionsResponse>>;
 
   /**
-   * @summary Create a new reference portfolio
+   * @summary Upsert transactions
    *
-   * @param {string} scope The intended scope of the portfolio
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.referencePortfolio] The portfolio creation request
-   * object
-   *
-   * @param {string} options.referencePortfolio.name
-   *
-   * @param {string} options.referencePortfolio.code
-   *
-   * @param {date} [options.referencePortfolio.created]
-   *
-   * @param {string} options.referencePortfolio.baseCurrency
-   *
-   * @param {object} [options.referencePortfolio.corporateActionSourceId]
-   *
-   * @param {string} [options.referencePortfolio.corporateActionSourceId.scope]
-   *
-   * @param {string} [options.referencePortfolio.corporateActionSourceId.code]
-   *
-   * @param {string} [options.referencePortfolio.accountingMethod] Possible
-   * values include: 'Default', 'AverageCost', 'FirstInFirstOut',
-   * 'LastInFirstOut', 'HighestCostFirst', 'LowestCostFirst'
-   *
-   * @param {array} [options.referencePortfolio.subHoldingKeys]
-   *
-   * @param {array} [options.referencePortfolio.properties] Portfolio properties
-   * to add to the portfolio
+   * @param {array} [options.transactions] The transactions to be updated
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6708,7 +6164,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {PortfolioDto} - The deserialized result object.
+   *                      @resolve {UpsertPortfolioTransactionsResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -6716,97 +6172,31 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {PortfolioDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PortfolioDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  createReferencePortfolio(scope: string, options?: { referencePortfolio? : models.CreatePortfolioRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioDto>;
-  createReferencePortfolio(scope: string, callback: ServiceCallback<models.PortfolioDto>): void;
-  createReferencePortfolio(scope: string, options: { referencePortfolio? : models.CreatePortfolioRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioDto>): void;
-
-
-  /**
-   * @summary Get a reference portfolio by name (as opposed to id)
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt]
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfReferencePortfolioConstituentDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getReferencePortfolioWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReferencePortfolioConstituentDto>>;
-
-  /**
-   * @summary Get a reference portfolio by name (as opposed to id)
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.effectiveAt]
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfReferencePortfolioConstituentDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfReferencePortfolioConstituentDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link
-   *                      ResourceListOfReferencePortfolioConstituentDto} for
+   *                      {UpsertPortfolioTransactionsResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link UpsertPortfolioTransactionsResponse} for
    *                      more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getReferencePortfolio(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReferencePortfolioConstituentDto>;
-  getReferencePortfolio(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituentDto>): void;
-  getReferencePortfolio(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituentDto>): void;
+  upsertTransactions(scope: string, code: string, options?: { transactions? : models.TransactionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertPortfolioTransactionsResponse>;
+  upsertTransactions(scope: string, code: string, callback: ServiceCallback<models.UpsertPortfolioTransactionsResponse>): void;
+  upsertTransactions(scope: string, code: string, options: { transactions? : models.TransactionRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertPortfolioTransactionsResponse>): void;
 
 
   /**
-   * @summary Delete a specific portfolio
+   * @summary Delete transactions
    *
-   * @param {string} scope
+   * Delete one or more transactions from a portfolio
    *
-   * @param {string} code
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {array} [options.id] Ids of transactions to delete
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6817,18 +6207,20 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deleteReferencePortfolioWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+  deleteTransactionsWithHttpOperationResponse(scope: string, code: string, options?: { id? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
 
   /**
-   * @summary Delete a specific portfolio
+   * @summary Delete transactions
    *
-   * @param {string} scope
+   * Delete one or more transactions from a portfolio
    *
-   * @param {string} code
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {array} [options.id] Ids of transactions to delete
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6855,63 +6247,53 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deleteReferencePortfolio(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  deleteReferencePortfolio(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deleteReferencePortfolio(scope: string, code: string, options: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deleteTransactions(scope: string, code: string, options?: { id? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deleteTransactions(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deleteTransactions(scope: string, code: string, options: { id? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
 
 
   /**
-   * @summary Get all the constituents in a reference portfolio
+   * @summary Add/update transaction properties
    *
-   * @param {string} scope
+   * Add one or more properties to a specific transaction in a portfolio
    *
-   * @param {date} effectiveAt
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {string} code
+   * @param {string} code Code for the portfolio
+   *
+   * @param {string} transactionId Id of transaction to add properties to
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.referencePortfolioId]
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
+   * @param {object} [options.transactionProperties] Transaction properties to
+   * add
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfReferencePortfolioConstituentDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<AddTransactionPropertyResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, effectiveAt: Date|string, code: string, options?: { referencePortfolioId? : string, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReferencePortfolioConstituentDto>>;
+  addTransactionPropertyWithHttpOperationResponse(scope: string, code: string, transactionId: string, options?: { transactionProperties? : { [propertyName: string]: models.CreatePerpetualPropertyRequest }, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AddTransactionPropertyResponse>>;
 
   /**
-   * @summary Get all the constituents in a reference portfolio
+   * @summary Add/update transaction properties
    *
-   * @param {string} scope
+   * Add one or more properties to a specific transaction in a portfolio
    *
-   * @param {date} effectiveAt
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {string} code
+   * @param {string} code Code for the portfolio
+   *
+   * @param {string} transactionId Id of transaction to add properties to
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.referencePortfolioId]
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
+   * @param {object} [options.transactionProperties] Transaction properties to
+   * add
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6923,7 +6305,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfReferencePortfolioConstituentDto} - The deserialized result object.
+   *                      @resolve {AddTransactionPropertyResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -6931,506 +6313,63 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfReferencePortfolioConstituentDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link
-   *                      ResourceListOfReferencePortfolioConstituentDto} for
-   *                      more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getReferencePortfolioConstituents(scope: string, effectiveAt: Date|string, code: string, options?: { referencePortfolioId? : string, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReferencePortfolioConstituentDto>;
-  getReferencePortfolioConstituents(scope: string, effectiveAt: Date|string, code: string, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituentDto>): void;
-  getReferencePortfolioConstituents(scope: string, effectiveAt: Date|string, code: string, options: { referencePortfolioId? : string, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituentDto>): void;
-
-
-  /**
-   * @summary Add constituents to a specific reference portfolio
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {date} effectiveAt
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.constituents]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<UpsertReferencePortfolioConstituentsDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  upsertReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { constituents? : models.ReferencePortfolioConstituentDto[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertReferencePortfolioConstituentsDto>>;
-
-  /**
-   * @summary Add constituents to a specific reference portfolio
-   *
-   * @param {string} scope
-   *
-   * @param {string} code
-   *
-   * @param {date} effectiveAt
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.constituents]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {UpsertReferencePortfolioConstituentsDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {UpsertReferencePortfolioConstituentsDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link UpsertReferencePortfolioConstituentsDto} for
-   *                      more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  upsertReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options?: { constituents? : models.ReferencePortfolioConstituentDto[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertReferencePortfolioConstituentsDto>;
-  upsertReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.UpsertReferencePortfolioConstituentsDto>): void;
-  upsertReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options: { constituents? : models.ReferencePortfolioConstituentDto[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertReferencePortfolioConstituentsDto>): void;
-
-
-  /**
-   * @summary Retrieve some previously stored results
-   *
-   * @param {string} scope The scope of the data
-   *
-   * @param {string} key The key that identifies the data
-   *
-   * @param {date} dateParameter The date for which the data was loaded
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResultsDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getResultsWithHttpOperationResponse(scope: string, key: string, dateParameter: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResultsDto>>;
-
-  /**
-   * @summary Retrieve some previously stored results
-   *
-   * @param {string} scope The scope of the data
-   *
-   * @param {string} key The key that identifies the data
-   *
-   * @param {date} dateParameter The date for which the data was loaded
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResultsDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResultsDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResultsDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getResults(scope: string, key: string, dateParameter: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResultsDto>;
-  getResults(scope: string, key: string, dateParameter: Date|string, callback: ServiceCallback<models.ResultsDto>): void;
-  getResults(scope: string, key: string, dateParameter: Date|string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResultsDto>): void;
-
-
-  /**
-   * @summary Upsert precalculated results against a specified scope/key/date
-   * combination
-   *
-   * @param {string} scope The scope of the data
-   *
-   * @param {string} key The key that identifies the data
-   *
-   * @param {date} dateParameter The date for which the data is relevant
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request] The results to upload
-   *
-   * @param {object} [options.request.data]
-   *
-   * @param {string} [options.request.scope]
-   *
-   * @param {string} [options.request.key]
-   *
-   * @param {date} [options.request.date]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResultsDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  upsertResultsWithHttpOperationResponse(scope: string, key: string, dateParameter: Date|string, options?: { request? : models.CreateResultsRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResultsDto>>;
-
-  /**
-   * @summary Upsert precalculated results against a specified scope/key/date
-   * combination
-   *
-   * @param {string} scope The scope of the data
-   *
-   * @param {string} key The key that identifies the data
-   *
-   * @param {date} dateParameter The date for which the data is relevant
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request] The results to upload
-   *
-   * @param {object} [options.request.data]
-   *
-   * @param {string} [options.request.scope]
-   *
-   * @param {string} [options.request.key]
-   *
-   * @param {date} [options.request.date]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResultsDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResultsDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResultsDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  upsertResults(scope: string, key: string, dateParameter: Date|string, options?: { request? : models.CreateResultsRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResultsDto>;
-  upsertResults(scope: string, key: string, dateParameter: Date|string, callback: ServiceCallback<models.ResultsDto>): void;
-  upsertResults(scope: string, key: string, dateParameter: Date|string, options: { request? : models.CreateResultsRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResultsDto>): void;
-
-
-  /**
-   * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property',
-   * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
-   * 'PerpetualProperty', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
-   * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
-   * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
-   * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
-   * 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
-   * 'UpsertPortfolioTradesRequest', 'PortfolioHolding', 'AdjustHolding',
-   * 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
-   * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
-   * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
-   * 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',
-   * 'UpdatePropertyDataFormat', 'UpdatePropertyDefinition', 'SecurityAnalytic',
-   * 'AggregationRequest', 'Aggregation', 'NestedAggregation',
-   * 'ResultDataSchema', 'Classification', 'SecurityClassification',
-   * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
-   * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
-   * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-   * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
-   * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-   * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-   * 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<SchemaDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getEntitySchemaWithHttpOperationResponse(entity: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SchemaDto>>;
-
-  /**
-   * @param {string} entity Possible values include: 'PropertyKey',
-   * 'FieldSchema', 'Personalisation', 'Security', 'Property',
-   * 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
-   * 'PerpetualProperty', 'Login', 'PropertyDefinition', 'PropertyDataFormat',
-   * 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
-   * 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
-   * 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
-   * 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
-   * 'UpsertPortfolioTradesRequest', 'PortfolioHolding', 'AdjustHolding',
-   * 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
-   * 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
-   * 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
-   * 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',
-   * 'UpdatePropertyDataFormat', 'UpdatePropertyDefinition', 'SecurityAnalytic',
-   * 'AggregationRequest', 'Aggregation', 'NestedAggregation',
-   * 'ResultDataSchema', 'Classification', 'SecurityClassification',
-   * 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
-   * 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
-   * 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-   * 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-   * 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak',
-   * 'TransactionConfigurationData', 'TransactionConfigurationMovementData',
-   * 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-   * 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-   * 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-   * 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {SchemaDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {SchemaDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link SchemaDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getEntitySchema(entity: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SchemaDto>;
-  getEntitySchema(entity: string, callback: ServiceCallback<models.SchemaDto>): void;
-  getEntitySchema(entity: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SchemaDto>): void;
-
-
-  /**
-   * @summary Get the schemas for the provided list of property keys
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.propertyKeys] A comma delimited list of property
-   * keys in string format. e.g.
-   * "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<PropertySchemaDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getPropertySchemaWithHttpOperationResponse(options?: { propertyKeys? : string[], asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertySchemaDto>>;
-
-  /**
-   * @summary Get the schemas for the provided list of property keys
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.propertyKeys] A comma delimited list of property
-   * keys in string format. e.g.
-   * "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
-   *
-   * @param {date} [options.asAt]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {PropertySchemaDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {PropertySchemaDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link PropertySchemaDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getPropertySchema(options?: { propertyKeys? : string[], asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertySchemaDto>;
-  getPropertySchema(callback: ServiceCallback<models.PropertySchemaDto>): void;
-  getPropertySchema(options: { propertyKeys? : string[], asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertySchemaDto>): void;
-
-
-  /**
-   * @summary Gets the available value types that could be returned in a schema
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfUiDataType>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getValueTypesWithHttpOperationResponse(options?: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfUiDataType>>;
-
-  /**
-   * @summary Gets the available value types that could be returned in a schema
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.sortBy]
-   *
-   * @param {number} [options.start]
-   *
-   * @param {number} [options.limit]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfUiDataType} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfUiDataType} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfUiDataType} for more
+   *                      {AddTransactionPropertyResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link AddTransactionPropertyResponse} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getValueTypes(options?: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfUiDataType>;
-  getValueTypes(callback: ServiceCallback<models.ResourceListOfUiDataType>): void;
-  getValueTypes(options: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfUiDataType>): void;
+  addTransactionProperty(scope: string, code: string, transactionId: string, options?: { transactionProperties? : { [propertyName: string]: models.CreatePerpetualPropertyRequest }, customHeaders? : { [headerName: string]: string; } }): Promise<models.AddTransactionPropertyResponse>;
+  addTransactionProperty(scope: string, code: string, transactionId: string, callback: ServiceCallback<models.AddTransactionPropertyResponse>): void;
+  addTransactionProperty(scope: string, code: string, transactionId: string, options: { transactionProperties? : { [propertyName: string]: models.CreatePerpetualPropertyRequest }, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AddTransactionPropertyResponse>): void;
 
 
   /**
-   * @summary Attempt to create one or more client securities. Failed securities
-   * will be identified in the body of the response.
+   * @summary Delete transaction property
+   *
+   * Delete a property from a specific transaction
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {string} transactionId Id of the transaction to delete the property
+   * from
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.definitions]
+   * @param {string} [options.transactionPropertyKey] The key of the property to
+   * be deleted
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<TryAddClientSecuritiesDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<DeletedEntityResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  batchAddClientSecuritiesWithHttpOperationResponse(options?: { definitions? : models.CreateClientSecurityRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TryAddClientSecuritiesDto>>;
+  deletePropertyFromTransactionWithHttpOperationResponse(scope: string, code: string, transactionId: string, options?: { transactionPropertyKey? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
 
   /**
-   * @summary Attempt to create one or more client securities. Failed securities
-   * will be identified in the body of the response.
+   * @summary Delete transaction property
+   *
+   * Delete a property from a specific transaction
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {string} transactionId Id of the transaction to delete the property
+   * from
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.definitions]
+   * @param {string} [options.transactionPropertyKey] The key of the property to
+   * be deleted
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -7442,7 +6381,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {TryAddClientSecuritiesDto} - The deserialized result object.
+   *                      @resolve {DeletedEntityResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -7450,45 +6389,102 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {TryAddClientSecuritiesDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link TryAddClientSecuritiesDto} for more
-   *                      information.
+   *                      {DeletedEntityResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DeletedEntityResponse} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  batchAddClientSecurities(options?: { definitions? : models.CreateClientSecurityRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.TryAddClientSecuritiesDto>;
-  batchAddClientSecurities(callback: ServiceCallback<models.TryAddClientSecuritiesDto>): void;
-  batchAddClientSecurities(options: { definitions? : models.CreateClientSecurityRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TryAddClientSecuritiesDto>): void;
+  deletePropertyFromTransaction(scope: string, code: string, transactionId: string, options?: { transactionPropertyKey? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deletePropertyFromTransaction(scope: string, code: string, transactionId: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deletePropertyFromTransaction(scope: string, code: string, transactionId: string, options: { transactionPropertyKey? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
 
 
   /**
-   * @summary Attempt to delete one or more client securities. Failed securities
-   * will be identified in the body of the response.
+   * @summary Get transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.uids]
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.sortBy] The columns to sort the returned data by
+   *
+   * @param {number} [options.start] How many items to skip from the returned set
+   *
+   * @param {number} [options.limit] How many items to return from the set
+   *
+   * @param {array} [options.instrumentPropertyKeys] Keys for the instrument
+   * properties to be decorated onto the trades
+   *
+   * @param {string} [options.filter] Trade filter
+   *
+   * @param {object} [options.parameters] Core query parameters
+   *
+   * @param {date} [options.parameters.startDate] The required set of
+   * transactions should begin from this date
+   *
+   * @param {date} [options.parameters.endDate] The required set of transactions
+   * should end at this date
+   *
+   * @param {string} [options.parameters.queryMode] The method for date
+   * selection. Trade date or Settlement date. Possible values include: 'None',
+   * 'TradeDate', 'SettleDate'
+   *
+   * @param {boolean} [options.parameters.showCancelledTransactions] Option to
+   * include cancelled transactions in the results
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<TryDeleteClientSecuritiesDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<VersionedResourceListOfOutputTransaction>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  batchDeleteClientSecuritiesWithHttpOperationResponse(options?: { uids? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TryDeleteClientSecuritiesDto>>;
+  buildTransactionsWithHttpOperationResponse(scope: string, code: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, instrumentPropertyKeys? : string[], filter? : string, parameters? : models.TransactionQueryParameters, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListOfOutputTransaction>>;
 
   /**
-   * @summary Attempt to delete one or more client securities. Failed securities
-   * will be identified in the body of the response.
+   * @summary Get transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.uids]
+   * @param {date} [options.asAt]
+   *
+   * @param {array} [options.sortBy] The columns to sort the returned data by
+   *
+   * @param {number} [options.start] How many items to skip from the returned set
+   *
+   * @param {number} [options.limit] How many items to return from the set
+   *
+   * @param {array} [options.instrumentPropertyKeys] Keys for the instrument
+   * properties to be decorated onto the trades
+   *
+   * @param {string} [options.filter] Trade filter
+   *
+   * @param {object} [options.parameters] Core query parameters
+   *
+   * @param {date} [options.parameters.startDate] The required set of
+   * transactions should begin from this date
+   *
+   * @param {date} [options.parameters.endDate] The required set of transactions
+   * should end at this date
+   *
+   * @param {string} [options.parameters.queryMode] The method for date
+   * selection. Trade date or Settlement date. Possible values include: 'None',
+   * 'TradeDate', 'SettleDate'
+   *
+   * @param {boolean} [options.parameters.showCancelledTransactions] Option to
+   * include cancelled transactions in the results
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -7500,7 +6496,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {TryDeleteClientSecuritiesDto} - The deserialized result object.
+   *                      @resolve {VersionedResourceListOfOutputTransaction} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -7508,234 +6504,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {TryDeleteClientSecuritiesDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link TryDeleteClientSecuritiesDto} for more
-   *                      information.
+   *                      {VersionedResourceListOfOutputTransaction} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link VersionedResourceListOfOutputTransaction}
+   *                      for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  batchDeleteClientSecurities(options?: { uids? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.TryDeleteClientSecuritiesDto>;
-  batchDeleteClientSecurities(callback: ServiceCallback<models.TryDeleteClientSecuritiesDto>): void;
-  batchDeleteClientSecurities(options: { uids? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TryDeleteClientSecuritiesDto>): void;
-
-
-  /**
-   * @summary Get an individual security by the unique security uid.  Optionally,
-   * decorate each security with specific properties.
-   *
-   * @param {string} uid The uid of the requested security
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAt] As at date
-   *
-   * @param {array} [options.propertyKeys] Keys of the properties to be retrieved
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<SecurityDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  getSecurityWithHttpOperationResponse(uid: string, options?: { asAt? : Date, propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SecurityDto>>;
-
-  /**
-   * @summary Get an individual security by the unique security uid.  Optionally,
-   * decorate each security with specific properties.
-   *
-   * @param {string} uid The uid of the requested security
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {date} [options.asAt] As at date
-   *
-   * @param {array} [options.propertyKeys] Keys of the properties to be retrieved
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {SecurityDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {SecurityDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link SecurityDto} for more information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  getSecurity(uid: string, options?: { asAt? : Date, propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.SecurityDto>;
-  getSecurity(uid: string, callback: ServiceCallback<models.SecurityDto>): void;
-  getSecurity(uid: string, options: { asAt? : Date, propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SecurityDto>): void;
-
-
-  /**
-   * @summary Lookup more than one security by supplying a collection of
-   * non-Finbourne codes.  Optionally, decorate each security with specific
-   * properties.
-   *
-   * @param {string} codeType The type of identifier. Possible values include:
-   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-   * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.codes] An array of codes
-   *
-   * @param {date} [options.asAt] As at date
-   *
-   * @param {array} [options.propertyKeys] Keys of the properties to be retrieved
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<TryLookupSecuritiesFromCodesDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  lookupSecuritiesFromCodesWithHttpOperationResponse(codeType: string, options?: { codes? : string[], asAt? : Date, propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TryLookupSecuritiesFromCodesDto>>;
-
-  /**
-   * @summary Lookup more than one security by supplying a collection of
-   * non-Finbourne codes.  Optionally, decorate each security with specific
-   * properties.
-   *
-   * @param {string} codeType The type of identifier. Possible values include:
-   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-   * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.codes] An array of codes
-   *
-   * @param {date} [options.asAt] As at date
-   *
-   * @param {array} [options.propertyKeys] Keys of the properties to be retrieved
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {TryLookupSecuritiesFromCodesDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {TryLookupSecuritiesFromCodesDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link TryLookupSecuritiesFromCodesDto} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  lookupSecuritiesFromCodes(codeType: string, options?: { codes? : string[], asAt? : Date, propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.TryLookupSecuritiesFromCodesDto>;
-  lookupSecuritiesFromCodes(codeType: string, callback: ServiceCallback<models.TryLookupSecuritiesFromCodesDto>): void;
-  lookupSecuritiesFromCodes(codeType: string, options: { codes? : string[], asAt? : Date, propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TryLookupSecuritiesFromCodesDto>): void;
-
-
-  /**
-   * @summary Lookup a large number of securities by supplying a collection of
-   * non-Finbourne codes.  Optionally, decorate each security with specific
-   * properties.
-   *
-   * @param {string} codeType The type of identifier. Possible values include:
-   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-   * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.codes] An array of codes
-   *
-   * @param {date} [options.asAt] As at date
-   *
-   * @param {array} [options.propertyKeys] Keys of the properties to be retrieved
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<TryLookupSecuritiesFromCodesDto>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  lookupSecuritiesFromCodesBulkWithHttpOperationResponse(codeType: string, options?: { codes? : string[], asAt? : Date, propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TryLookupSecuritiesFromCodesDto>>;
-
-  /**
-   * @summary Lookup a large number of securities by supplying a collection of
-   * non-Finbourne codes.  Optionally, decorate each security with specific
-   * properties.
-   *
-   * @param {string} codeType The type of identifier. Possible values include:
-   * 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-   * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.codes] An array of codes
-   *
-   * @param {date} [options.asAt] As at date
-   *
-   * @param {array} [options.propertyKeys] Keys of the properties to be retrieved
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {TryLookupSecuritiesFromCodesDto} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {TryLookupSecuritiesFromCodesDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link TryLookupSecuritiesFromCodesDto} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  lookupSecuritiesFromCodesBulk(codeType: string, options?: { codes? : string[], asAt? : Date, propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.TryLookupSecuritiesFromCodesDto>;
-  lookupSecuritiesFromCodesBulk(codeType: string, callback: ServiceCallback<models.TryLookupSecuritiesFromCodesDto>): void;
-  lookupSecuritiesFromCodesBulk(codeType: string, options: { codes? : string[], asAt? : Date, propertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TryLookupSecuritiesFromCodesDto>): void;
+  buildTransactions(scope: string, code: string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, instrumentPropertyKeys? : string[], filter? : string, parameters? : models.TransactionQueryParameters, customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListOfOutputTransaction>;
+  buildTransactions(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListOfOutputTransaction>): void;
+  buildTransactions(scope: string, code: string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, instrumentPropertyKeys? : string[], filter? : string, parameters? : models.TransactionQueryParameters, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListOfOutputTransaction>): void;
 }
 
 export { LUSIDAPI, models as LUSIDAPIModels };

@@ -28,8 +28,8 @@
 class CurrencyAndAmount {
   /**
    * Create a CurrencyAndAmount.
-   * @member {number} [value]
-   * @member {string} [unit]
+   * @member {number} [amount]
+   * @member {string} [currency]
    */
   constructor() {
   }
@@ -48,18 +48,16 @@ class CurrencyAndAmount {
         name: 'Composite',
         className: 'CurrencyAndAmount',
         modelProperties: {
-          value: {
+          amount: {
             required: false,
-            readOnly: true,
-            serializedName: 'value',
+            serializedName: 'amount',
             type: {
               name: 'Number'
             }
           },
-          unit: {
+          currency: {
             required: false,
-            readOnly: true,
-            serializedName: 'unit',
+            serializedName: 'currency',
             type: {
               name: 'String'
             }

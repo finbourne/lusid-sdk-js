@@ -28,8 +28,6 @@
 class CreatePerpetualPropertyRequest {
   /**
    * Create a CreatePerpetualPropertyRequest.
-   * @member {string} [scope]
-   * @member {string} [name]
    * @member {object} value
    * @member {string} [unit]
    */
@@ -50,20 +48,6 @@ class CreatePerpetualPropertyRequest {
         name: 'Composite',
         className: 'CreatePerpetualPropertyRequest',
         modelProperties: {
-          scope: {
-            required: false,
-            serializedName: 'scope',
-            type: {
-              name: 'String'
-            }
-          },
-          name: {
-            required: false,
-            serializedName: 'name',
-            type: {
-              name: 'String'
-            }
-          },
           value: {
             required: true,
             serializedName: 'value',
@@ -73,7 +57,6 @@ class CreatePerpetualPropertyRequest {
           },
           unit: {
             required: false,
-            readOnly: true,
             serializedName: 'unit',
             type: {
               name: 'String'

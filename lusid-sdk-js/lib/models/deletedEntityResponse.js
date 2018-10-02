@@ -29,7 +29,9 @@ class DeletedEntityResponse {
   /**
    * Create a DeletedEntityResponse.
    * @member {string} [href]
+   * @member {date} [effectiveFrom]
    * @member {date} [asAt]
+   * @member {array} [links]
    */
   constructor() {
   }
@@ -55,11 +57,33 @@ class DeletedEntityResponse {
               name: 'String'
             }
           },
+          effectiveFrom: {
+            required: false,
+            serializedName: 'effectiveFrom',
+            type: {
+              name: 'DateTime'
+            }
+          },
           asAt: {
             required: false,
             serializedName: 'asAt',
             type: {
               name: 'DateTime'
+            }
+          },
+          links: {
+            required: false,
+            serializedName: 'links',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
+                  }
+              }
             }
           }
         }

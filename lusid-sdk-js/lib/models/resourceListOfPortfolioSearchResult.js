@@ -33,7 +33,7 @@ class ResourceListOfPortfolioSearchResult {
    * original request,
    * but may include resolved as at time(s).
    * @member {number} [count] The total number of records returned in the set
-   * @member {array} [_links]
+   * @member {array} [links]
    */
   constructor() {
   }
@@ -81,9 +81,9 @@ class ResourceListOfPortfolioSearchResult {
               name: 'Number'
             }
           },
-          _links: {
+          links: {
             required: false,
-            serializedName: '_links',
+            serializedName: 'links',
             type: {
               name: 'Sequence',
               element: {

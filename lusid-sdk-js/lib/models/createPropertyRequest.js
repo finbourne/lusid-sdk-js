@@ -28,8 +28,6 @@
 class CreatePropertyRequest {
   /**
    * Create a CreatePropertyRequest.
-   * @member {string} [scope]
-   * @member {string} [name]
    * @member {object} value
    * @member {date} [effectiveFrom] Date for which the property is effective
    * from
@@ -52,20 +50,6 @@ class CreatePropertyRequest {
         name: 'Composite',
         className: 'CreatePropertyRequest',
         modelProperties: {
-          scope: {
-            required: false,
-            serializedName: 'scope',
-            type: {
-              name: 'String'
-            }
-          },
-          name: {
-            required: false,
-            serializedName: 'name',
-            type: {
-              name: 'String'
-            }
-          },
           value: {
             required: true,
             serializedName: 'value',
@@ -82,7 +66,6 @@ class CreatePropertyRequest {
           },
           unit: {
             required: false,
-            readOnly: true,
             serializedName: 'unit',
             type: {
               name: 'String'

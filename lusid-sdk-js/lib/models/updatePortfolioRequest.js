@@ -28,7 +28,8 @@
 class UpdatePortfolioRequest {
   /**
    * Create a UpdatePortfolioRequest.
-   * @member {string} name
+   * @member {string} displayName
+   * @member {string} [description]
    * @member {date} [created]
    */
   constructor() {
@@ -48,9 +49,16 @@ class UpdatePortfolioRequest {
         name: 'Composite',
         className: 'UpdatePortfolioRequest',
         modelProperties: {
-          name: {
+          displayName: {
             required: true,
-            serializedName: 'name',
+            serializedName: 'displayName',
+            type: {
+              name: 'String'
+            }
+          },
+          description: {
+            required: false,
+            serializedName: 'description',
             type: {
               name: 'String'
             }

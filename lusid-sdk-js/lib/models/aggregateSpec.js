@@ -28,7 +28,7 @@
 class AggregateSpec {
   /**
    * Create a AggregateSpec.
-   * @member {string} [key]
+   * @member {string} key
    * @member {string} [op] Possible values include: 'Sum', 'Proportion'
    */
   constructor() {
@@ -49,7 +49,7 @@ class AggregateSpec {
         className: 'AggregateSpec',
         modelProperties: {
           key: {
-            required: false,
+            required: true,
             serializedName: 'key',
             type: {
               name: 'String'

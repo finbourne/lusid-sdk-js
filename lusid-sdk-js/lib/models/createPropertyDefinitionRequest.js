@@ -31,13 +31,12 @@ class CreatePropertyDefinitionRequest {
    * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
    * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
    * @member {string} [scope]
-   * @member {string} [name]
+   * @member {string} [code]
    * @member {boolean} [valueRequired]
    * @member {string} [displayName]
-   * @member {object} [dataFormatId]
-   * @member {string} [dataFormatId.scope]
-   * @member {string} [dataFormatId.code]
-   * @member {string} [sort]
+   * @member {object} [dataTypeId]
+   * @member {string} [dataTypeId.scope]
+   * @member {string} [dataTypeId.code]
    * @member {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
    * @member {string} [type] Possible values include: 'Label', 'Metric'
@@ -73,9 +72,9 @@ class CreatePropertyDefinitionRequest {
               name: 'String'
             }
           },
-          name: {
+          code: {
             required: false,
-            serializedName: 'name',
+            serializedName: 'code',
             type: {
               name: 'String'
             }
@@ -94,19 +93,12 @@ class CreatePropertyDefinitionRequest {
               name: 'String'
             }
           },
-          dataFormatId: {
+          dataTypeId: {
             required: false,
-            serializedName: 'dataFormatId',
+            serializedName: 'dataTypeId',
             type: {
               name: 'Composite',
               className: 'ResourceId'
-            }
-          },
-          sort: {
-            required: false,
-            serializedName: 'sort',
-            type: {
-              name: 'String'
             }
           },
           lifeTime: {
