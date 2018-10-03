@@ -46,6 +46,10 @@ class PropertyDefinition {
    * @member {string} [type] Possible values include: 'Label', 'Metric'
    * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
    * 'Iso4217Currency'
+   * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * @member {string} [scope]
+   * @member {string} [code]
    * @member {array} [links]
    */
   constructor() {
@@ -125,6 +129,30 @@ class PropertyDefinition {
           unitSchema: {
             required: false,
             serializedName: 'unitSchema',
+            type: {
+              name: 'String'
+            }
+          },
+          domain: {
+            required: false,
+            readOnly: true,
+            serializedName: 'domain',
+            type: {
+              name: 'String'
+            }
+          },
+          scope: {
+            required: false,
+            readOnly: true,
+            serializedName: 'scope',
+            type: {
+              name: 'String'
+            }
+          },
+          code: {
+            required: false,
+            readOnly: true,
+            serializedName: 'code',
             type: {
               name: 'String'
             }

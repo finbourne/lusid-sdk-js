@@ -566,13 +566,17 @@ export interface Portfolio {
  * @class
  * Initializes a new instance of the InstrumentDefinition class.
  * @constructor
- * An opaque instrument definition.
- * Understood by some analytics library.
+ * Expanded instrument definition - in the case of OTC instruments
+ * this contains the definition of the non-exchange traded instrument.
+ * The format for this can be client-defined, but in order to transparently use
+ * vendor libraries it must conform to a format that LUSID understands.
  *
- * @member {string} [content]
+ * @member {string} instrumentFormat
+ * @member {string} content
  */
 export interface InstrumentDefinition {
-  content?: string;
+  instrumentFormat: string;
+  content: string;
 }
 
 /**
@@ -589,6 +593,7 @@ export interface InstrumentDefinition {
  * this contains the definition of the non-exchange traded instrument.
  * The format for this can be client-defined, but in order to transparently use
  * vendor libraries it must conform to a format that LUSID understands.
+ * @member {string} [instrument.instrumentFormat]
  * @member {string} [instrument.content]
  */
 export interface CreateClientInstrumentRequest {
@@ -1310,6 +1315,10 @@ export interface CreatePropertyDefinitionRequest {
  * @member {string} [type] Possible values include: 'Label', 'Metric'
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
+ * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+ * @member {string} [scope]
+ * @member {string} [code]
  * @member {array} [links]
  */
 export interface PropertyDefinition {
@@ -1322,6 +1331,9 @@ export interface PropertyDefinition {
   lifeTime?: string;
   type?: string;
   unitSchema?: string;
+  readonly domain?: string;
+  readonly scope?: string;
+  readonly code?: string;
   links?: Link[];
 }
 
@@ -2367,19 +2379,19 @@ export interface RealisedGainLoss {
  * @class
  * Initializes a new instance of the OutputTransaction class.
  * @constructor
- * @member {string} transactionId Unique transaction identifier
- * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
+ * @member {string} [transactionId] Unique transaction identifier
+ * @member {string} [type] LUSID transaction type code - Buy, Sell, StockIn,
  * StockOut, etc
- * @member {string} description LUSID transaction description
+ * @member {string} [description] LUSID transaction description
  * @member {string} [instrumentUid] Unique instrument identifier
  * @member {date} [transactionDate] Transaction date
  * @member {date} [settlementDate] Settlement date
  * @member {number} [units] Quantity of trade in units of the instrument
- * @member {object} transactionPrice Execution price for the transaction
+ * @member {object} [transactionPrice] Execution price for the transaction
  * @member {number} [transactionPrice.price]
  * @member {string} [transactionPrice.type] Possible values include: 'Price',
  * 'Yield', 'Spread'
- * @member {object} totalConsideration Total value of the transaction in
+ * @member {object} [totalConsideration] Total value of the transaction in
  * settlement currency
  * @member {number} [totalConsideration.amount]
  * @member {string} [totalConsideration.currency]
@@ -2402,15 +2414,15 @@ export interface RealisedGainLoss {
  * @member {array} [realisedGainLoss] Collection of gains or losses
  */
 export interface OutputTransaction {
-  readonly transactionId: string;
-  readonly type: string;
-  readonly description: string;
+  readonly transactionId?: string;
+  readonly type?: string;
+  readonly description?: string;
   readonly instrumentUid?: string;
   readonly transactionDate?: Date;
   readonly settlementDate?: Date;
   readonly units?: number;
-  readonly transactionPrice: TransactionPrice;
-  readonly totalConsideration: CurrencyAndAmount;
+  readonly transactionPrice?: TransactionPrice;
+  readonly totalConsideration?: CurrencyAndAmount;
   readonly exchangeRate?: number;
   readonly transactionToPortfolioRate?: number;
   readonly transactionCurrency?: string;

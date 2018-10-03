@@ -28,19 +28,19 @@
 class OutputTransaction {
   /**
    * Create a OutputTransaction.
-   * @member {string} transactionId Unique transaction identifier
-   * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
+   * @member {string} [transactionId] Unique transaction identifier
+   * @member {string} [type] LUSID transaction type code - Buy, Sell, StockIn,
    * StockOut, etc
-   * @member {string} description LUSID transaction description
+   * @member {string} [description] LUSID transaction description
    * @member {string} [instrumentUid] Unique instrument identifier
    * @member {date} [transactionDate] Transaction date
    * @member {date} [settlementDate] Settlement date
    * @member {number} [units] Quantity of trade in units of the instrument
-   * @member {object} transactionPrice Execution price for the transaction
+   * @member {object} [transactionPrice] Execution price for the transaction
    * @member {number} [transactionPrice.price]
    * @member {string} [transactionPrice.type] Possible values include: 'Price',
    * 'Yield', 'Spread'
-   * @member {object} totalConsideration Total value of the transaction in
+   * @member {object} [totalConsideration] Total value of the transaction in
    * settlement currency
    * @member {number} [totalConsideration.amount]
    * @member {string} [totalConsideration.currency]
@@ -80,7 +80,7 @@ class OutputTransaction {
         className: 'OutputTransaction',
         modelProperties: {
           transactionId: {
-            required: true,
+            required: false,
             readOnly: true,
             serializedName: 'transactionId',
             type: {
@@ -88,7 +88,7 @@ class OutputTransaction {
             }
           },
           type: {
-            required: true,
+            required: false,
             readOnly: true,
             serializedName: 'type',
             type: {
@@ -96,7 +96,7 @@ class OutputTransaction {
             }
           },
           description: {
-            required: true,
+            required: false,
             readOnly: true,
             serializedName: 'description',
             type: {
@@ -136,7 +136,7 @@ class OutputTransaction {
             }
           },
           transactionPrice: {
-            required: true,
+            required: false,
             readOnly: true,
             serializedName: 'transactionPrice',
             type: {
@@ -145,7 +145,7 @@ class OutputTransaction {
             }
           },
           totalConsideration: {
-            required: true,
+            required: false,
             readOnly: true,
             serializedName: 'totalConsideration',
             type: {

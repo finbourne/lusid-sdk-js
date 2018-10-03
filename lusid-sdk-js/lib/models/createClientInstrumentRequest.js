@@ -39,6 +39,7 @@ class CreateClientInstrumentRequest {
    * The format for this can be client-defined, but in order to transparently
    * use
    * vendor libraries it must conform to a format that LUSID understands.
+   * @member {string} [instrument.instrumentFormat]
    * @member {string} [instrument.content]
    */
   constructor() {
