@@ -35,6 +35,13 @@ class CreateDerivedTransactionPortfolioRequest {
    * @member {string} [parentPortfolioId.scope]
    * @member {string} [parentPortfolioId.code]
    * @member {date} [created]
+   * @member {object} [corporateActionSourceId]
+   * @member {string} [corporateActionSourceId.scope]
+   * @member {string} [corporateActionSourceId.code]
+   * @member {string} [accountingMethod] Possible values include: 'Default',
+   * 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
+   * 'LowestCostFirst'
+   * @member {array} [subHoldingKeys]
    */
   constructor() {
   }
@@ -87,6 +94,35 @@ class CreateDerivedTransactionPortfolioRequest {
             serializedName: 'created',
             type: {
               name: 'DateTime'
+            }
+          },
+          corporateActionSourceId: {
+            required: false,
+            serializedName: 'corporateActionSourceId',
+            type: {
+              name: 'Composite',
+              className: 'ResourceId'
+            }
+          },
+          accountingMethod: {
+            required: false,
+            serializedName: 'accountingMethod',
+            type: {
+              name: 'String'
+            }
+          },
+          subHoldingKeys: {
+            required: false,
+            serializedName: 'subHoldingKeys',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'StringElementType',
+                  type: {
+                    name: 'String'
+                  }
+              }
             }
           }
         }

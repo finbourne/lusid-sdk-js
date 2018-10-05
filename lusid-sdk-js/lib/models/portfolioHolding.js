@@ -28,14 +28,14 @@
 class PortfolioHolding {
   /**
    * Create a PortfolioHolding.
-   * @member {string} [instrumentUid] Unique instrument identifier
+   * @member {string} instrumentUid Unique instrument identifier
    * @member {array} [properties]
    * @member {string} holdingType Type of holding, eg Position, Balance,
    * CashCommitment, Receivable, ForwardFX
-   * @member {number} [units] Quantity of holding
-   * @member {number} [settledUnits] Settled quantity of holding
-   * @member {number} [cost] Book cost of holding in transaction currency
-   * @member {number} [costPortfolioCcy] Book cost of holding in portfolio
+   * @member {number} units Quantity of holding
+   * @member {number} settledUnits Settled quantity of holding
+   * @member {number} cost Book cost of holding in transaction currency
+   * @member {number} costPortfolioCcy Book cost of holding in portfolio
    * currency
    * @member {object} [transaction] If this is commitment-type holding, the
    * transaction behind it
@@ -83,7 +83,7 @@ class PortfolioHolding {
         className: 'PortfolioHolding',
         modelProperties: {
           instrumentUid: {
-            required: false,
+            required: true,
             serializedName: 'instrumentUid',
             type: {
               name: 'String'
@@ -112,28 +112,28 @@ class PortfolioHolding {
             }
           },
           units: {
-            required: false,
+            required: true,
             serializedName: 'units',
             type: {
               name: 'Number'
             }
           },
           settledUnits: {
-            required: false,
+            required: true,
             serializedName: 'settledUnits',
             type: {
               name: 'Number'
             }
           },
           cost: {
-            required: false,
+            required: true,
             serializedName: 'cost',
             type: {
               name: 'Number'
             }
           },
           costPortfolioCcy: {
-            required: false,
+            required: true,
             serializedName: 'costPortfolioCcy',
             type: {
               name: 'Number'

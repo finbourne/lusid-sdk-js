@@ -29,10 +29,10 @@ class CreateCorporateAction {
   /**
    * Create a CreateCorporateAction.
    * @member {string} corporateActionCode
-   * @member {date} [announcementDate]
-   * @member {date} [exDate]
-   * @member {date} [recordDate]
-   * @member {date} [paymentDate]
+   * @member {date} announcementDate
+   * @member {date} exDate
+   * @member {date} recordDate
+   * @member {date} paymentDate
    * @member {array} transitions
    */
   constructor() {
@@ -60,28 +60,28 @@ class CreateCorporateAction {
             }
           },
           announcementDate: {
-            required: false,
+            required: true,
             serializedName: 'announcementDate',
             type: {
               name: 'DateTime'
             }
           },
           exDate: {
-            required: false,
+            required: true,
             serializedName: 'exDate',
             type: {
               name: 'DateTime'
             }
           },
           recordDate: {
-            required: false,
+            required: true,
             serializedName: 'recordDate',
             type: {
               name: 'DateTime'
             }
           },
           paymentDate: {
-            required: false,
+            required: true,
             serializedName: 'paymentDate',
             type: {
               name: 'DateTime'

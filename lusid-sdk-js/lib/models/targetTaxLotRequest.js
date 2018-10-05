@@ -28,7 +28,7 @@
 class TargetTaxLotRequest {
   /**
    * Create a TargetTaxLotRequest.
-   * @member {number} [units] Quantity of holding
+   * @member {number} units Quantity of holding
    * @member {number} [cost] Book cost of holding in transaction currency
    * @member {number} [portfolioCost] Book cost of holding in portfolio
    * currency
@@ -57,7 +57,7 @@ class TargetTaxLotRequest {
         className: 'TargetTaxLotRequest',
         modelProperties: {
           units: {
-            required: false,
+            required: true,
             serializedName: 'units',
             type: {
               name: 'Number'

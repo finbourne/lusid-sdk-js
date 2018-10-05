@@ -34,7 +34,7 @@ class AggregationRequest {
    * @member {string} [recipeId.code]
    * @member {boolean} [loadReferencePortfolio]
    * @member {date} [asAt] The asAt date to use
-   * @member {date} [effectiveAt]
+   * @member {date} effectiveAt
    * @member {array} metrics
    * @member {array} [groupBy]
    * @member {array} [filters]
@@ -81,7 +81,7 @@ class AggregationRequest {
             }
           },
           effectiveAt: {
-            required: false,
+            required: true,
             serializedName: 'effectiveAt',
             type: {
               name: 'DateTime'

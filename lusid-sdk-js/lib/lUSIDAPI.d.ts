@@ -999,11 +999,19 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.portfolio.parentPortfolioId]
    *
-   * @param {string} [options.portfolio.parentPortfolioId.scope]
-   *
-   * @param {string} [options.portfolio.parentPortfolioId.code]
-   *
    * @param {date} [options.portfolio.created]
+   *
+   * @param {object} [options.portfolio.corporateActionSourceId]
+   *
+   * @param {string} [options.portfolio.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.portfolio.corporateActionSourceId.code]
+   *
+   * @param {string} [options.portfolio.accountingMethod] Possible values
+   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+   * 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.portfolio.subHoldingKeys]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1037,11 +1045,19 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.portfolio.parentPortfolioId]
    *
-   * @param {string} [options.portfolio.parentPortfolioId.scope]
-   *
-   * @param {string} [options.portfolio.parentPortfolioId.code]
-   *
    * @param {date} [options.portfolio.created]
+   *
+   * @param {object} [options.portfolio.corporateActionSourceId]
+   *
+   * @param {string} [options.portfolio.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.portfolio.corporateActionSourceId.code]
+   *
+   * @param {string} [options.portfolio.accountingMethod] Possible values
+   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+   * 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.portfolio.subHoldingKeys]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -2204,7 +2220,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -2254,7 +2270,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -2325,7 +2341,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -2370,7 +2386,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -3249,7 +3265,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -3299,7 +3315,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -4570,7 +4586,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -4620,7 +4636,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *

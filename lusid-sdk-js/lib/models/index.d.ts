@@ -207,14 +207,14 @@ export interface InstrumentAnalytic {
  * @class
  * Initializes a new instance of the CorporateActionTransitionComponent class.
  * @constructor
- * @member {string} [instrumentUid]
- * @member {number} [unitsFactor]
- * @member {number} [costFactor]
+ * @member {string} instrumentUid
+ * @member {number} unitsFactor
+ * @member {number} costFactor
  */
 export interface CorporateActionTransitionComponent {
-  instrumentUid?: string;
-  unitsFactor?: number;
-  costFactor?: number;
+  instrumentUid: string;
+  unitsFactor: number;
+  costFactor: number;
 }
 
 /**
@@ -240,18 +240,18 @@ export interface CorporateActionTransition {
  * Initializes a new instance of the CreateCorporateAction class.
  * @constructor
  * @member {string} corporateActionCode
- * @member {date} [announcementDate]
- * @member {date} [exDate]
- * @member {date} [recordDate]
- * @member {date} [paymentDate]
+ * @member {date} announcementDate
+ * @member {date} exDate
+ * @member {date} recordDate
+ * @member {date} paymentDate
  * @member {array} transitions
  */
 export interface CreateCorporateAction {
   corporateActionCode: string;
-  announcementDate?: Date;
-  exDate?: Date;
-  recordDate?: Date;
-  paymentDate?: Date;
+  announcementDate: Date;
+  exDate: Date;
+  recordDate: Date;
+  paymentDate: Date;
   transitions: CorporateActionTransition[];
 }
 
@@ -499,6 +499,13 @@ export interface ResourceListOfDataType {
  * @member {string} [parentPortfolioId.scope]
  * @member {string} [parentPortfolioId.code]
  * @member {date} [created]
+ * @member {object} [corporateActionSourceId]
+ * @member {string} [corporateActionSourceId.scope]
+ * @member {string} [corporateActionSourceId.code]
+ * @member {string} [accountingMethod] Possible values include: 'Default',
+ * 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
+ * 'LowestCostFirst'
+ * @member {array} [subHoldingKeys]
  */
 export interface CreateDerivedTransactionPortfolioRequest {
   displayName: string;
@@ -506,6 +513,9 @@ export interface CreateDerivedTransactionPortfolioRequest {
   code?: string;
   parentPortfolioId?: ResourceId;
   created?: Date;
+  corporateActionSourceId?: ResourceId;
+  accountingMethod?: string;
+  subHoldingKeys?: string[];
 }
 
 /**
@@ -895,11 +905,11 @@ export interface UpdatePortfolioGroupRequest {
  * Initializes a new instance of the AggregateSpec class.
  * @constructor
  * @member {string} key
- * @member {string} [op] Possible values include: 'Sum', 'Proportion'
+ * @member {string} op Possible values include: 'Sum', 'Proportion'
  */
 export interface AggregateSpec {
   key: string;
-  op?: string;
+  op: string;
 }
 
 /**
@@ -931,7 +941,7 @@ export interface PropertyFilter {
  * @member {string} [recipeId.code]
  * @member {boolean} [loadReferencePortfolio]
  * @member {date} [asAt] The asAt date to use
- * @member {date} [effectiveAt]
+ * @member {date} effectiveAt
  * @member {array} metrics
  * @member {array} [groupBy]
  * @member {array} [filters]
@@ -942,7 +952,7 @@ export interface AggregationRequest {
   recipeId: ResourceId;
   loadReferencePortfolio?: boolean;
   asAt?: Date;
-  effectiveAt?: Date;
+  effectiveAt: Date;
   metrics: AggregateSpec[];
   groupBy?: string[];
   filters?: PropertyFilter[];
@@ -1406,13 +1416,13 @@ export interface ReconciliationRequest {
  * @constructor
  * A reconciliation break
  *
- * @member {string} [instrumentUid] Unique instrument identifier
+ * @member {string} instrumentUid Unique instrument identifier
  * @member {array} [properties]
  * @member {number} [unitsDifference] Difference in units
  * @member {number} [costDifference] Difference in cost
  */
 export interface ReconciliationBreak {
-  instrumentUid?: string;
+  instrumentUid: string;
   properties?: Property[];
   unitsDifference?: number;
   costDifference?: number;
@@ -1719,7 +1729,7 @@ export interface ResourceListOfPortfolioSearchResult {
  * Buy/Sell, StockIn/StockOut
  * @member {string} transactionGroup Group is a set of codes related to a
  * source, or sync
- * @member {string} [transactionRoles] Transactions role within a class. E.g.
+ * @member {string} transactionRoles Transactions role within a class. E.g.
  * Increase a long position. Possible values include: 'None', 'LongLonger',
  * 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
  * 'AllRoles'
@@ -1729,7 +1739,7 @@ export interface TransactionConfigurationTypeAlias {
   description: string;
   transactionClass: string;
   transactionGroup: string;
-  transactionRoles?: string;
+  transactionRoles: string;
 }
 
 /**
@@ -1750,19 +1760,19 @@ export interface TransactionPropertyMappingRequest {
  * @class
  * Initializes a new instance of the TransactionConfigurationMovementDataRequest class.
  * @constructor
- * @member {string} [movementTypes] The Movement Types. Possible values
- * include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
+ * @member {string} movementTypes The Movement Types. Possible values include:
+ * 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
  * 'CashSettlement', 'Accrual', 'UnsettledCashTypes'
- * @member {string} [side] The Movement Side. Possible values include: 'Side1',
+ * @member {string} side The Movement Side. Possible values include: 'Side1',
  * 'Side2', 'BondInt'
- * @member {number} [direction] The Movement direction
+ * @member {number} direction The Movement direction
  * @member {object} [properties]
  * @member {array} [mappings]
  */
 export interface TransactionConfigurationMovementDataRequest {
-  movementTypes?: string;
-  side?: string;
-  direction?: number;
+  movementTypes: string;
+  side: string;
+  direction: number;
   properties?: { [propertyName: string]: CreatePropertyRequest };
   mappings?: TransactionPropertyMappingRequest[];
 }
@@ -1800,19 +1810,19 @@ export interface TransactionPropertyMapping {
  * @class
  * Initializes a new instance of the TransactionConfigurationMovementData class.
  * @constructor
- * @member {string} [movementTypes] The Movement Types. Possible values
- * include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
+ * @member {string} movementTypes The Movement Types. Possible values include:
+ * 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
  * 'CashSettlement', 'Accrual', 'UnsettledCashTypes'
- * @member {string} [side] The Movement Side. Possible values include: 'Side1',
+ * @member {string} side The Movement Side. Possible values include: 'Side1',
  * 'Side2', 'BondInt'
- * @member {number} [direction] The Movement direction
+ * @member {number} direction The Movement direction
  * @member {array} [properties]
  * @member {array} [mappings]
  */
 export interface TransactionConfigurationMovementData {
-  movementTypes?: string;
-  side?: string;
-  direction?: number;
+  movementTypes: string;
+  side: string;
+  direction: number;
   properties?: Property[];
   mappings?: TransactionPropertyMapping[];
 }
@@ -1963,10 +1973,10 @@ export interface PerpetualProperty {
  * @member {string} transactionId Unique transaction identifier
  * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
  * StockOut, etc
- * @member {string} [instrumentUid] Unique instrument identifier
- * @member {date} [transactionDate] Transaction date
- * @member {date} [settlementDate] Settlement date
- * @member {number} [units] Quantity of transaction in units of the instrument
+ * @member {string} instrumentUid Unique instrument identifier
+ * @member {date} transactionDate Transaction date
+ * @member {date} settlementDate Settlement date
+ * @member {number} units Quantity of transaction in units of the instrument
  * @member {object} transactionPrice Execution price for the transaction
  * @member {number} [transactionPrice.price]
  * @member {string} [transactionPrice.type] Possible values include: 'Price',
@@ -1978,24 +1988,24 @@ export interface PerpetualProperty {
  * @member {string} [transactionCurrency] Transaction currency
  * @member {array} [properties]
  * @member {string} [counterpartyId] Counterparty identifier
- * @member {string} [source] Where this transaction came from. Possible values
+ * @member {string} source Where this transaction came from. Possible values
  * include: 'System', 'Client'
  * @member {string} [nettingSet]
  */
 export interface Transaction {
   transactionId: string;
   type: string;
-  instrumentUid?: string;
-  transactionDate?: Date;
-  settlementDate?: Date;
-  units?: number;
+  instrumentUid: string;
+  transactionDate: Date;
+  settlementDate: Date;
+  units: number;
   transactionPrice: TransactionPrice;
   totalConsideration: CurrencyAndAmount;
   exchangeRate?: number;
   transactionCurrency?: string;
   properties?: PerpetualProperty[];
   counterpartyId?: string;
-  source?: string;
+  source: string;
   nettingSet?: string;
 }
 
@@ -2003,15 +2013,14 @@ export interface Transaction {
  * @class
  * Initializes a new instance of the PortfolioHolding class.
  * @constructor
- * @member {string} [instrumentUid] Unique instrument identifier
+ * @member {string} instrumentUid Unique instrument identifier
  * @member {array} [properties]
  * @member {string} holdingType Type of holding, eg Position, Balance,
  * CashCommitment, Receivable, ForwardFX
- * @member {number} [units] Quantity of holding
- * @member {number} [settledUnits] Settled quantity of holding
- * @member {number} [cost] Book cost of holding in transaction currency
- * @member {number} [costPortfolioCcy] Book cost of holding in portfolio
- * currency
+ * @member {number} units Quantity of holding
+ * @member {number} settledUnits Settled quantity of holding
+ * @member {number} cost Book cost of holding in transaction currency
+ * @member {number} costPortfolioCcy Book cost of holding in portfolio currency
  * @member {object} [transaction] If this is commitment-type holding, the
  * transaction behind it
  * @member {string} [transaction.transactionId] Unique transaction identifier
@@ -2041,13 +2050,13 @@ export interface Transaction {
  * @member {string} [transaction.nettingSet]
  */
 export interface PortfolioHolding {
-  instrumentUid?: string;
+  instrumentUid: string;
   properties?: Property[];
   holdingType: string;
-  units?: number;
-  settledUnits?: number;
-  cost?: number;
-  costPortfolioCcy?: number;
+  units: number;
+  settledUnits: number;
+  cost: number;
+  costPortfolioCcy: number;
   transaction?: Transaction;
 }
 
@@ -2078,7 +2087,7 @@ export interface VersionedResourceListOfHolding {
  * @class
  * Initializes a new instance of the TargetTaxLotRequest class.
  * @constructor
- * @member {number} [units] Quantity of holding
+ * @member {number} units Quantity of holding
  * @member {number} [cost] Book cost of holding in transaction currency
  * @member {number} [portfolioCost] Book cost of holding in portfolio currency
  * @member {number} [price] Purchase price. Part of the unique key required for
@@ -2089,7 +2098,7 @@ export interface VersionedResourceListOfHolding {
  * opening transaction.
  */
 export interface TargetTaxLotRequest {
-  units?: number;
+  units: number;
   cost?: number;
   portfolioCost?: number;
   price?: number;
@@ -2105,14 +2114,14 @@ export interface TargetTaxLotRequest {
  * system should match. When processed by the movement
  * engine, it will create 'true-up' adjustments on the fly.
  *
- * @member {string} [instrumentUid] Unique instrument identifier
+ * @member {string} instrumentUid Unique instrument identifier
  * @member {object} [subHoldingKeys] Key fields to uniquely index the sub
  * holdings of a instrument
  * @member {object} [properties] Arbitrary properties to store with the holding
  * @member {array} taxLots 1 or more quantity amounts
  */
 export interface AdjustHoldingRequest {
-  instrumentUid?: string;
+  instrumentUid: string;
   subHoldingKeys?: { [propertyName: string]: CreatePerpetualPropertyRequest };
   properties?: { [propertyName: string]: CreatePerpetualPropertyRequest };
   taxLots: TargetTaxLotRequest[];
@@ -2237,10 +2246,10 @@ export interface VersionedResourceListOfTransaction {
  * @member {string} transactionId Unique transaction identifier
  * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
  * StockOut, etc
- * @member {string} [instrumentUid] Unique instrument identifier
- * @member {date} [transactionDate] Transaction date
- * @member {date} [settlementDate] Settlement date
- * @member {number} [units] Quantity of transaction in units of the instrument
+ * @member {string} instrumentUid Unique instrument identifier
+ * @member {date} transactionDate Transaction date
+ * @member {date} settlementDate Settlement date
+ * @member {number} units Quantity of transaction in units of the instrument
  * @member {object} transactionPrice Execution price for the transaction
  * @member {number} [transactionPrice.price]
  * @member {string} [transactionPrice.type] Possible values include: 'Price',
@@ -2253,24 +2262,24 @@ export interface VersionedResourceListOfTransaction {
  * @member {string} [transactionCurrency] Transaction currency
  * @member {object} [properties]
  * @member {string} [counterpartyId] Counterparty identifier
- * @member {string} [source] Where this transaction came from, either Client or
+ * @member {string} source Where this transaction came from, either Client or
  * System. Possible values include: 'System', 'Client'
  * @member {string} [nettingSet]
  */
 export interface TransactionRequest {
   transactionId: string;
   type: string;
-  instrumentUid?: string;
-  transactionDate?: Date;
-  settlementDate?: Date;
-  units?: number;
+  instrumentUid: string;
+  transactionDate: Date;
+  settlementDate: Date;
+  units: number;
   transactionPrice: TransactionPrice;
   totalConsideration: CurrencyAndAmount;
   exchangeRate?: number;
   transactionCurrency?: string;
   properties?: { [propertyName: string]: CreatePerpetualPropertyRequest };
   counterpartyId?: string;
-  source?: string;
+  source: string;
   nettingSet?: string;
 }
 

@@ -1964,11 +1964,19 @@ function _getUnitsFromDataType(scope, name, options, callback) {
  *
  * @param {object} [options.portfolio.parentPortfolioId]
  *
- * @param {string} [options.portfolio.parentPortfolioId.scope]
- *
- * @param {string} [options.portfolio.parentPortfolioId.code]
- *
  * @param {date} [options.portfolio.created]
+ *
+ * @param {object} [options.portfolio.corporateActionSourceId]
+ *
+ * @param {string} [options.portfolio.corporateActionSourceId.scope]
+ *
+ * @param {string} [options.portfolio.corporateActionSourceId.code]
+ *
+ * @param {string} [options.portfolio.accountingMethod] Possible values
+ * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+ * 'HighestCostFirst', 'LowestCostFirst'
+ *
+ * @param {array} [options.portfolio.subHoldingKeys]
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3428,8 +3436,8 @@ function _getPersonalisations(options, callback) {
   }
   let pattern = (options && options.pattern !== undefined) ? options.pattern : undefined;
   let scope = (options && options.scope !== undefined) ? options.scope : undefined;
-  let recursive = (options && options.recursive !== undefined) ? options.recursive : undefined;
-  let wildcards = (options && options.wildcards !== undefined) ? options.wildcards : undefined;
+  let recursive = (options && options.recursive !== undefined) ? options.recursive : false;
+  let wildcards = (options && options.wildcards !== undefined) ? options.wildcards : false;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
@@ -4619,7 +4627,7 @@ function _deletePortfolioGroup(scope, code, options, callback) {
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
- * @param {date} [options.request.effectiveAt]
+ * @param {date} options.request.effectiveAt
  *
  * @param {array} options.request.metrics
  *
@@ -4827,7 +4835,7 @@ function _getAggregationByGroup(scope, code, options, callback) {
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
- * @param {date} [options.request.effectiveAt]
+ * @param {date} options.request.effectiveAt
  *
  * @param {array} options.request.metrics
  *
@@ -6743,7 +6751,7 @@ function _deletePortfolio(scope, code, options, callback) {
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
- * @param {date} [options.request.effectiveAt]
+ * @param {date} options.request.effectiveAt
  *
  * @param {array} options.request.metrics
  *
@@ -9403,7 +9411,7 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
- * @param {date} [options.request.effectiveAt]
+ * @param {date} options.request.effectiveAt
  *
  * @param {array} options.request.metrics
  *
@@ -13207,7 +13215,7 @@ function _addTransactionProperty(scope, code, transactionId, options, callback) 
       return callback(err);
     }
     let statusCode = response.statusCode;
-    if (statusCode !== 201) {
+    if (statusCode !== 200) {
       let error = new Error(responseBody);
       error.statusCode = response.statusCode;
       error.request = msRest.stripRequest(httpRequest);
@@ -13237,7 +13245,7 @@ function _addTransactionProperty(scope, code, transactionId, options, callback) 
     let result = null;
     if (responseBody === '') responseBody = null;
     // Deserialize Response
-    if (statusCode === 201) {
+    if (statusCode === 200) {
       let parsedResponse = null;
       try {
         parsedResponse = JSON.parse(responseBody);
@@ -15037,11 +15045,19 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.portfolio.parentPortfolioId]
    *
-   * @param {string} [options.portfolio.parentPortfolioId.scope]
-   *
-   * @param {string} [options.portfolio.parentPortfolioId.code]
-   *
    * @param {date} [options.portfolio.created]
+   *
+   * @param {object} [options.portfolio.corporateActionSourceId]
+   *
+   * @param {string} [options.portfolio.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.portfolio.corporateActionSourceId.code]
+   *
+   * @param {string} [options.portfolio.accountingMethod] Possible values
+   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+   * 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.portfolio.subHoldingKeys]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15087,11 +15103,19 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.portfolio.parentPortfolioId]
    *
-   * @param {string} [options.portfolio.parentPortfolioId.scope]
-   *
-   * @param {string} [options.portfolio.parentPortfolioId.code]
-   *
    * @param {date} [options.portfolio.created]
+   *
+   * @param {object} [options.portfolio.corporateActionSourceId]
+   *
+   * @param {string} [options.portfolio.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.portfolio.corporateActionSourceId.code]
+   *
+   * @param {string} [options.portfolio.accountingMethod] Possible values
+   * include: 'Default', 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+   * 'HighestCostFirst', 'LowestCostFirst'
+   *
+   * @param {array} [options.portfolio.subHoldingKeys]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16728,7 +16752,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -16790,7 +16814,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -16876,7 +16900,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -16933,7 +16957,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -18124,7 +18148,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -18186,7 +18210,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -19877,7 +19901,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *
@@ -19939,7 +19963,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} [options.request.effectiveAt]
+   * @param {date} options.request.effectiveAt
    *
    * @param {array} options.request.metrics
    *

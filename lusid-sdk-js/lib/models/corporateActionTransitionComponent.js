@@ -28,9 +28,9 @@
 class CorporateActionTransitionComponent {
   /**
    * Create a CorporateActionTransitionComponent.
-   * @member {string} [instrumentUid]
-   * @member {number} [unitsFactor]
-   * @member {number} [costFactor]
+   * @member {string} instrumentUid
+   * @member {number} unitsFactor
+   * @member {number} costFactor
    */
   constructor() {
   }
@@ -50,21 +50,21 @@ class CorporateActionTransitionComponent {
         className: 'CorporateActionTransitionComponent',
         modelProperties: {
           instrumentUid: {
-            required: false,
+            required: true,
             serializedName: 'instrumentUid',
             type: {
               name: 'String'
             }
           },
           unitsFactor: {
-            required: false,
+            required: true,
             serializedName: 'unitsFactor',
             type: {
               name: 'Number'
             }
           },
           costFactor: {
-            required: false,
+            required: true,
             serializedName: 'costFactor',
             type: {
               name: 'Number'

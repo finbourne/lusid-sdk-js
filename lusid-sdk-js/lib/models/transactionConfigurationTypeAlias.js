@@ -34,7 +34,7 @@ class TransactionConfigurationTypeAlias {
    * Buy/Sell, StockIn/StockOut
    * @member {string} transactionGroup Group is a set of codes related to a
    * source, or sync
-   * @member {string} [transactionRoles] Transactions role within a class. E.g.
+   * @member {string} transactionRoles Transactions role within a class. E.g.
    * Increase a long position. Possible values include: 'None', 'LongLonger',
    * 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
    * 'AllRoles'
@@ -85,7 +85,7 @@ class TransactionConfigurationTypeAlias {
             }
           },
           transactionRoles: {
-            required: false,
+            required: true,
             serializedName: 'transactionRoles',
             type: {
               name: 'String'

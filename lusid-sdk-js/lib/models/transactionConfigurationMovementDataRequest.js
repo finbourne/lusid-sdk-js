@@ -28,12 +28,12 @@
 class TransactionConfigurationMovementDataRequest {
   /**
    * Create a TransactionConfigurationMovementDataRequest.
-   * @member {string} [movementTypes] The Movement Types. Possible values
+   * @member {string} movementTypes The Movement Types. Possible values
    * include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
    * 'CashSettlement', 'Accrual', 'UnsettledCashTypes'
-   * @member {string} [side] The Movement Side. Possible values include:
-   * 'Side1', 'Side2', 'BondInt'
-   * @member {number} [direction] The Movement direction
+   * @member {string} side The Movement Side. Possible values include: 'Side1',
+   * 'Side2', 'BondInt'
+   * @member {number} direction The Movement direction
    * @member {object} [properties]
    * @member {array} [mappings]
    */
@@ -55,21 +55,21 @@ class TransactionConfigurationMovementDataRequest {
         className: 'TransactionConfigurationMovementDataRequest',
         modelProperties: {
           movementTypes: {
-            required: false,
+            required: true,
             serializedName: 'movementTypes',
             type: {
               name: 'String'
             }
           },
           side: {
-            required: false,
+            required: true,
             serializedName: 'side',
             type: {
               name: 'String'
             }
           },
           direction: {
-            required: false,
+            required: true,
             serializedName: 'direction',
             type: {
               name: 'Number'

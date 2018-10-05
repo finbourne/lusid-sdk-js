@@ -31,11 +31,10 @@ class TransactionRequest {
    * @member {string} transactionId Unique transaction identifier
    * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
    * StockOut, etc
-   * @member {string} [instrumentUid] Unique instrument identifier
-   * @member {date} [transactionDate] Transaction date
-   * @member {date} [settlementDate] Settlement date
-   * @member {number} [units] Quantity of transaction in units of the
-   * instrument
+   * @member {string} instrumentUid Unique instrument identifier
+   * @member {date} transactionDate Transaction date
+   * @member {date} settlementDate Settlement date
+   * @member {number} units Quantity of transaction in units of the instrument
    * @member {object} transactionPrice Execution price for the transaction
    * @member {number} [transactionPrice.price]
    * @member {string} [transactionPrice.type] Possible values include: 'Price',
@@ -49,8 +48,8 @@ class TransactionRequest {
    * @member {string} [transactionCurrency] Transaction currency
    * @member {object} [properties]
    * @member {string} [counterpartyId] Counterparty identifier
-   * @member {string} [source] Where this transaction came from, either Client
-   * or System. Possible values include: 'System', 'Client'
+   * @member {string} source Where this transaction came from, either Client or
+   * System. Possible values include: 'System', 'Client'
    * @member {string} [nettingSet]
    */
   constructor() {
@@ -85,28 +84,28 @@ class TransactionRequest {
             }
           },
           instrumentUid: {
-            required: false,
+            required: true,
             serializedName: 'instrumentUid',
             type: {
               name: 'String'
             }
           },
           transactionDate: {
-            required: false,
+            required: true,
             serializedName: 'transactionDate',
             type: {
               name: 'DateTime'
             }
           },
           settlementDate: {
-            required: false,
+            required: true,
             serializedName: 'settlementDate',
             type: {
               name: 'DateTime'
             }
           },
           units: {
-            required: false,
+            required: true,
             serializedName: 'units',
             type: {
               name: 'Number'
@@ -165,7 +164,7 @@ class TransactionRequest {
             }
           },
           source: {
-            required: false,
+            required: true,
             serializedName: 'source',
             type: {
               name: 'String'

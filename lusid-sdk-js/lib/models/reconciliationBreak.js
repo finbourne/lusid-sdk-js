@@ -29,7 +29,7 @@
 class ReconciliationBreak {
   /**
    * Create a ReconciliationBreak.
-   * @member {string} [instrumentUid] Unique instrument identifier
+   * @member {string} instrumentUid Unique instrument identifier
    * @member {array} [properties]
    * @member {number} [unitsDifference] Difference in units
    * @member {number} [costDifference] Difference in cost
@@ -52,7 +52,7 @@ class ReconciliationBreak {
         className: 'ReconciliationBreak',
         modelProperties: {
           instrumentUid: {
-            required: false,
+            required: true,
             serializedName: 'instrumentUid',
             type: {
               name: 'String'
