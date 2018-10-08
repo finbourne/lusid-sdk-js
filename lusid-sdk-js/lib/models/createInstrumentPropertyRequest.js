@@ -30,10 +30,12 @@ class CreateInstrumentPropertyRequest {
    * Create a CreateInstrumentPropertyRequest.
    * @member {string} [instrumentPropertyKey]
    * @member {object} [property]
-   * @member {object} [property.value]
+   * @member {string} [property.labelValue]
+   * @member {object} [property.metricValue]
+   * @member {number} [property.metricValue.value]
+   * @member {string} [property.metricValue.unit]
    * @member {date} [property.effectiveFrom] Date for which the property is
    * effective from
-   * @member {string} [property.unit]
    */
   constructor() {
   }
@@ -64,7 +66,7 @@ class CreateInstrumentPropertyRequest {
             serializedName: 'property',
             type: {
               name: 'Composite',
-              className: 'CreatePropertyRequest'
+              className: 'PropertyValue'
             }
           }
         }

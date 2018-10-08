@@ -23,36 +23,36 @@
 'use strict';
 
 /**
- * Class representing a CreatePerpetualPropertyRequest.
+ * Class representing a MetricValue.
  */
-class CreatePerpetualPropertyRequest {
+class MetricValue {
   /**
-   * Create a CreatePerpetualPropertyRequest.
-   * @member {object} value
+   * Create a MetricValue.
+   * @member {number} [value]
    * @member {string} [unit]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of CreatePerpetualPropertyRequest
+   * Defines the metadata of MetricValue
    *
-   * @returns {object} metadata of CreatePerpetualPropertyRequest
+   * @returns {object} metadata of MetricValue
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CreatePerpetualPropertyRequest',
+      serializedName: 'MetricValue',
       type: {
         name: 'Composite',
-        className: 'CreatePerpetualPropertyRequest',
+        className: 'MetricValue',
         modelProperties: {
           value: {
-            required: true,
+            required: false,
             serializedName: 'value',
             type: {
-              name: 'Object'
+              name: 'Number'
             }
           },
           unit: {
@@ -68,4 +68,4 @@ class CreatePerpetualPropertyRequest {
   }
 }
 
-module.exports = CreatePerpetualPropertyRequest;
+module.exports = MetricValue;

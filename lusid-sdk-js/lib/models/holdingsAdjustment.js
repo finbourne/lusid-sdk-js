@@ -88,10 +88,10 @@ class HoldingsAdjustment {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'AdjustHoldingRequestElementType',
+                  serializedName: 'HoldingAdjustmentElementType',
                   type: {
                     name: 'Composite',
-                    className: 'AdjustHoldingRequest'
+                    className: 'HoldingAdjustment'
                   }
               }
             }

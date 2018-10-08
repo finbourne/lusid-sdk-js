@@ -148,10 +148,10 @@ class TransactionRequest {
               name: 'Dictionary',
               value: {
                   required: false,
-                  serializedName: 'CreatePerpetualPropertyRequestElementType',
+                  serializedName: 'PerpetualPropertyValueElementType',
                   type: {
                     name: 'Composite',
-                    className: 'CreatePerpetualPropertyRequest'
+                    className: 'PerpetualPropertyValue'
                   }
               }
             }

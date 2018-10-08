@@ -82,10 +82,10 @@ class TransactionConfigurationMovementDataRequest {
               name: 'Dictionary',
               value: {
                   required: false,
-                  serializedName: 'CreatePropertyRequestElementType',
+                  serializedName: 'PropertyValueElementType',
                   type: {
                     name: 'Composite',
-                    className: 'CreatePropertyRequest'
+                    className: 'PropertyValue'
                   }
               }
             }

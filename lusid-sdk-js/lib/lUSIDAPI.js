@@ -1180,7 +1180,7 @@ function _batchUpsertCorporateActions(scope, code, options, callback) {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId'
+ * 'Currency', 'UserId', 'MetricValue'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -1645,7 +1645,7 @@ function _getDataType(scope, name, options, callback) {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId'
+ * 'Currency', 'UserId', 'MetricValue'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -7388,10 +7388,10 @@ function _upsertPortfolioProperties(scope, code, options, callback) {
           name: 'Dictionary',
           value: {
               required: false,
-              serializedName: 'CreatePropertyRequestElementType',
+              serializedName: 'PropertyValueElementType',
               type: {
                 name: 'Composite',
-                className: 'CreatePropertyRequest'
+                className: 'PropertyValue'
               }
           }
         }
@@ -7976,7 +7976,7 @@ function _createPropertyDefinition(options, callback) {
  *
  * @param {string} scope
  *
- * @param {string} name
+ * @param {string} code
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -7998,7 +7998,7 @@ function _createPropertyDefinition(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getPropertyDefinition(domain, scope, name, options, callback) {
+function _getPropertyDefinition(domain, scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -8017,8 +8017,8 @@ function _getPropertyDefinition(domain, scope, name, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (name === null || name === undefined || typeof name.valueOf() !== 'string') {
-      throw new Error('name cannot be null or undefined and it must be of type string.');
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
     }
     if (asAt && !(asAt instanceof Date ||
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
@@ -8030,10 +8030,10 @@ function _getPropertyDefinition(domain, scope, name, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/propertydefinitions/{domain}/{scope}/{name}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/propertydefinitions/{domain}/{scope}/{code}';
   requestUrl = requestUrl.replace('{domain}', encodeURIComponent(domain));
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{name}', encodeURIComponent(name));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
   let queryParameters = [];
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
@@ -8122,7 +8122,7 @@ function _getPropertyDefinition(domain, scope, name, options, callback) {
  *
  * @param {string} scope
  *
- * @param {string} name
+ * @param {string} code
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -8160,7 +8160,7 @@ function _getPropertyDefinition(domain, scope, name, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _updatePropertyDefinition(domain, scope, name, options, callback) {
+function _updatePropertyDefinition(domain, scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -8179,8 +8179,8 @@ function _updatePropertyDefinition(domain, scope, name, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (name === null || name === undefined || typeof name.valueOf() !== 'string') {
-      throw new Error('name cannot be null or undefined and it must be of type string.');
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
     }
   } catch (error) {
     return callback(error);
@@ -8188,10 +8188,10 @@ function _updatePropertyDefinition(domain, scope, name, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/propertydefinitions/{domain}/{scope}/{name}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/propertydefinitions/{domain}/{scope}/{code}';
   requestUrl = requestUrl.replace('{domain}', encodeURIComponent(domain));
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{name}', encodeURIComponent(name));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -8287,7 +8287,7 @@ function _updatePropertyDefinition(domain, scope, name, options, callback) {
  *
  * @param {string} scope
  *
- * @param {string} name
+ * @param {string} code
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -8307,7 +8307,7 @@ function _updatePropertyDefinition(domain, scope, name, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _deletePropertyDefinition(domain, scope, name, options, callback) {
+function _deletePropertyDefinition(domain, scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -8325,8 +8325,8 @@ function _deletePropertyDefinition(domain, scope, name, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (name === null || name === undefined || typeof name.valueOf() !== 'string') {
-      throw new Error('name cannot be null or undefined and it must be of type string.');
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
     }
   } catch (error) {
     return callback(error);
@@ -8334,10 +8334,10 @@ function _deletePropertyDefinition(domain, scope, name, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/propertydefinitions/{domain}/{scope}/{name}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/propertydefinitions/{domain}/{scope}/{code}';
   requestUrl = requestUrl.replace('{domain}', encodeURIComponent(domain));
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{name}', encodeURIComponent(name));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -13192,10 +13192,10 @@ function _addTransactionProperty(scope, code, transactionId, options, callback) 
           name: 'Dictionary',
           value: {
               required: false,
-              serializedName: 'CreatePerpetualPropertyRequestElementType',
+              serializedName: 'PerpetualPropertyValueElementType',
               type: {
                 name: 'Composite',
-                className: 'CreatePerpetualPropertyRequest'
+                className: 'PerpetualPropertyValue'
               }
           }
         }
@@ -14493,7 +14493,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId'
+   * 'Currency', 'UserId', 'MetricValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -14549,7 +14549,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId'
+   * 'Currency', 'UserId', 'MetricValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -14820,7 +14820,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId'
+   * 'Currency', 'UserId', 'MetricValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -14876,7 +14876,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId'
+   * 'Currency', 'UserId', 'MetricValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -18932,7 +18932,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -18947,11 +18947,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getPropertyDefinitionWithHttpOperationResponse(domain, scope, name, options) {
+  getPropertyDefinitionWithHttpOperationResponse(domain, scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getPropertyDefinition(domain, scope, name, options, (err, result, request, response) => {
+      self._getPropertyDefinition(domain, scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -18969,7 +18969,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19000,7 +19000,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPropertyDefinition(domain, scope, name, options, optionalCallback) {
+  getPropertyDefinition(domain, scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -19009,14 +19009,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getPropertyDefinition(domain, scope, name, options, (err, result, request, response) => {
+        self._getPropertyDefinition(domain, scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getPropertyDefinition(domain, scope, name, options, optionalCallback);
+      return self._getPropertyDefinition(domain, scope, code, options, optionalCallback);
     }
   }
 
@@ -19028,7 +19028,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19059,11 +19059,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  updatePropertyDefinitionWithHttpOperationResponse(domain, scope, name, options) {
+  updatePropertyDefinitionWithHttpOperationResponse(domain, scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._updatePropertyDefinition(domain, scope, name, options, (err, result, request, response) => {
+      self._updatePropertyDefinition(domain, scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -19081,7 +19081,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19128,7 +19128,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  updatePropertyDefinition(domain, scope, name, options, optionalCallback) {
+  updatePropertyDefinition(domain, scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -19137,14 +19137,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._updatePropertyDefinition(domain, scope, name, options, (err, result, request, response) => {
+        self._updatePropertyDefinition(domain, scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._updatePropertyDefinition(domain, scope, name, options, optionalCallback);
+      return self._updatePropertyDefinition(domain, scope, code, options, optionalCallback);
     }
   }
 
@@ -19156,7 +19156,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19169,11 +19169,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  deletePropertyDefinitionWithHttpOperationResponse(domain, scope, name, options) {
+  deletePropertyDefinitionWithHttpOperationResponse(domain, scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._deletePropertyDefinition(domain, scope, name, options, (err, result, request, response) => {
+      self._deletePropertyDefinition(domain, scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -19191,7 +19191,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19220,7 +19220,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  deletePropertyDefinition(domain, scope, name, options, optionalCallback) {
+  deletePropertyDefinition(domain, scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -19229,14 +19229,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._deletePropertyDefinition(domain, scope, name, options, (err, result, request, response) => {
+        self._deletePropertyDefinition(domain, scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._deletePropertyDefinition(domain, scope, name, options, optionalCallback);
+      return self._deletePropertyDefinition(domain, scope, code, options, optionalCallback);
     }
   }
 

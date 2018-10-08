@@ -23,58 +23,55 @@
 'use strict';
 
 /**
- * Class representing a KeyValuePairOfPropertyKeyToFieldSchema.
+ * Class representing a PropertyValue.
  */
-class KeyValuePairOfPropertyKeyToFieldSchema {
+class PropertyValue {
   /**
-   * Create a KeyValuePairOfPropertyKeyToFieldSchema.
-   * @member {string} [key]
-   * @member {object} [value]
-   * @member {string} [value.scope]
-   * @member {string} [value.name]
-   * @member {string} [value.displayName]
-   * @member {string} [value.type] Possible values include: 'String', 'Int',
-   * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
-   * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue'
-   * @member {boolean} [value.isMetric]
-   * @member {number} [value.displayOrder]
-   * @member {object} [value.propertySchema]
+   * Create a PropertyValue.
+   * @member {string} [labelValue]
+   * @member {object} [metricValue]
+   * @member {number} [metricValue.value]
+   * @member {string} [metricValue.unit]
+   * @member {date} [effectiveFrom] Date for which the property is effective
+   * from
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * Defines the metadata of PropertyValue
    *
-   * @returns {object} metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * @returns {object} metadata of PropertyValue
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'KeyValuePairOfPropertyKeyToFieldSchema',
+      serializedName: 'PropertyValue',
       type: {
         name: 'Composite',
-        className: 'KeyValuePairOfPropertyKeyToFieldSchema',
+        className: 'PropertyValue',
         modelProperties: {
-          key: {
+          labelValue: {
             required: false,
-            readOnly: true,
-            serializedName: 'key',
+            serializedName: 'labelValue',
             type: {
               name: 'String'
             }
           },
-          value: {
+          metricValue: {
             required: false,
-            readOnly: true,
-            serializedName: 'value',
+            serializedName: 'metricValue',
             type: {
               name: 'Composite',
-              className: 'FieldSchema'
+              className: 'MetricValue'
+            }
+          },
+          effectiveFrom: {
+            required: false,
+            serializedName: 'effectiveFrom',
+            type: {
+              name: 'DateTime'
             }
           }
         }
@@ -83,4 +80,4 @@ class KeyValuePairOfPropertyKeyToFieldSchema {
   }
 }
 
-module.exports = KeyValuePairOfPropertyKeyToFieldSchema;
+module.exports = PropertyValue;

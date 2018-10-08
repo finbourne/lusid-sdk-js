@@ -23,52 +23,80 @@
 'use strict';
 
 /**
- * Class representing a CreatePropertyRequest.
+ * Used to specify holdings target amounts at the tax-lot level
+ *
  */
-class CreatePropertyRequest {
+class TargetTaxLot {
   /**
-   * Create a CreatePropertyRequest.
-   * @member {object} value
-   * @member {date} [effectiveFrom] Date for which the property is effective
-   * from
-   * @member {string} [unit]
+   * Create a TargetTaxLot.
+   * @member {number} units Quantity of holding
+   * @member {number} [cost] Book cost of holding in transaction currency
+   * @member {number} [portfolioCost] Book cost of holding in portfolio
+   * currency
+   * @member {number} [price] Purchase price. Part of the unique key required
+   * for multiple taxlots
+   * @member {date} [purchaseDate] Purchase Date. Part of the unique key
+   * required for multiple taxlots
+   * @member {date} [settlementDate] Original settlement date of the tax-lot's
+   * opening transaction.
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of CreatePropertyRequest
+   * Defines the metadata of TargetTaxLot
    *
-   * @returns {object} metadata of CreatePropertyRequest
+   * @returns {object} metadata of TargetTaxLot
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CreatePropertyRequest',
+      serializedName: 'TargetTaxLot',
       type: {
         name: 'Composite',
-        className: 'CreatePropertyRequest',
+        className: 'TargetTaxLot',
         modelProperties: {
-          value: {
+          units: {
             required: true,
-            serializedName: 'value',
+            serializedName: 'units',
             type: {
-              name: 'Object'
+              name: 'Number'
             }
           },
-          effectiveFrom: {
+          cost: {
             required: false,
-            serializedName: 'effectiveFrom',
+            serializedName: 'cost',
+            type: {
+              name: 'Number'
+            }
+          },
+          portfolioCost: {
+            required: false,
+            serializedName: 'portfolioCost',
+            type: {
+              name: 'Number'
+            }
+          },
+          price: {
+            required: false,
+            serializedName: 'price',
+            type: {
+              name: 'Number'
+            }
+          },
+          purchaseDate: {
+            required: false,
+            serializedName: 'purchaseDate',
             type: {
               name: 'DateTime'
             }
           },
-          unit: {
+          settlementDate: {
             required: false,
-            serializedName: 'unit',
+            serializedName: 'settlementDate',
             type: {
-              name: 'String'
+              name: 'DateTime'
             }
           }
         }
@@ -77,4 +105,4 @@ class CreatePropertyRequest {
   }
 }
 
-module.exports = CreatePropertyRequest;
+module.exports = TargetTaxLot;

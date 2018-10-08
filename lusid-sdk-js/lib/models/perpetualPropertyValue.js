@@ -23,58 +23,46 @@
 'use strict';
 
 /**
- * Class representing a KeyValuePairOfPropertyKeyToFieldSchema.
+ * Class representing a PerpetualPropertyValue.
  */
-class KeyValuePairOfPropertyKeyToFieldSchema {
+class PerpetualPropertyValue {
   /**
-   * Create a KeyValuePairOfPropertyKeyToFieldSchema.
-   * @member {string} [key]
-   * @member {object} [value]
-   * @member {string} [value.scope]
-   * @member {string} [value.name]
-   * @member {string} [value.displayName]
-   * @member {string} [value.type] Possible values include: 'String', 'Int',
-   * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
-   * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue'
-   * @member {boolean} [value.isMetric]
-   * @member {number} [value.displayOrder]
-   * @member {object} [value.propertySchema]
+   * Create a PerpetualPropertyValue.
+   * @member {string} [labelValue]
+   * @member {object} [metricValue]
+   * @member {number} [metricValue.value]
+   * @member {string} [metricValue.unit]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * Defines the metadata of PerpetualPropertyValue
    *
-   * @returns {object} metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * @returns {object} metadata of PerpetualPropertyValue
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'KeyValuePairOfPropertyKeyToFieldSchema',
+      serializedName: 'PerpetualPropertyValue',
       type: {
         name: 'Composite',
-        className: 'KeyValuePairOfPropertyKeyToFieldSchema',
+        className: 'PerpetualPropertyValue',
         modelProperties: {
-          key: {
+          labelValue: {
             required: false,
-            readOnly: true,
-            serializedName: 'key',
+            serializedName: 'labelValue',
             type: {
               name: 'String'
             }
           },
-          value: {
+          metricValue: {
             required: false,
-            readOnly: true,
-            serializedName: 'value',
+            serializedName: 'metricValue',
             type: {
               name: 'Composite',
-              className: 'FieldSchema'
+              className: 'MetricValue'
             }
           }
         }
@@ -83,4 +71,4 @@ class KeyValuePairOfPropertyKeyToFieldSchema {
   }
 }
 
-module.exports = KeyValuePairOfPropertyKeyToFieldSchema;
+module.exports = PerpetualPropertyValue;

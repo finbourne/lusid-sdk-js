@@ -23,18 +23,18 @@
 'use strict';
 
 /**
- * This request specifies target holdings. i.e. holding data that the
+ * This 'dto' contains target holdings. i.e. holding data that the
  * system should match. When processed by the movement
  * engine, it will create 'true-up' adjustments on the fly.
  *
  */
-class AdjustHoldingRequest {
+class HoldingAdjustment {
   /**
-   * Create a AdjustHoldingRequest.
+   * Create a HoldingAdjustment.
    * @member {string} instrumentUid Unique instrument identifier
-   * @member {object} [subHoldingKeys] Key fields to uniquely index the sub
+   * @member {array} [subHoldingKeys] Key fields to uniquely index the sub
    * holdings of a instrument
-   * @member {object} [properties] Arbitrary properties to store with the
+   * @member {array} [properties] Arbitrary properties to store with the
    * holding
    * @member {array} taxLots 1 or more quantity amounts
    */
@@ -42,18 +42,18 @@ class AdjustHoldingRequest {
   }
 
   /**
-   * Defines the metadata of AdjustHoldingRequest
+   * Defines the metadata of HoldingAdjustment
    *
-   * @returns {object} metadata of AdjustHoldingRequest
+   * @returns {object} metadata of HoldingAdjustment
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'AdjustHoldingRequest',
+      serializedName: 'HoldingAdjustment',
       type: {
         name: 'Composite',
-        className: 'AdjustHoldingRequest',
+        className: 'HoldingAdjustment',
         modelProperties: {
           instrumentUid: {
             required: true,
@@ -66,13 +66,13 @@ class AdjustHoldingRequest {
             required: false,
             serializedName: 'subHoldingKeys',
             type: {
-              name: 'Dictionary',
-              value: {
+              name: 'Sequence',
+              element: {
                   required: false,
-                  serializedName: 'PerpetualPropertyValueElementType',
+                  serializedName: 'PerpetualPropertyElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PerpetualPropertyValue'
+                    className: 'PerpetualProperty'
                   }
               }
             }
@@ -81,13 +81,13 @@ class AdjustHoldingRequest {
             required: false,
             serializedName: 'properties',
             type: {
-              name: 'Dictionary',
-              value: {
+              name: 'Sequence',
+              element: {
                   required: false,
-                  serializedName: 'PerpetualPropertyValueElementType',
+                  serializedName: 'PerpetualPropertyElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PerpetualPropertyValue'
+                    className: 'PerpetualProperty'
                   }
               }
             }
@@ -99,10 +99,10 @@ class AdjustHoldingRequest {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'TargetTaxLotRequestElementType',
+                  serializedName: 'TargetTaxLotElementType',
                   type: {
                     name: 'Composite',
-                    className: 'TargetTaxLotRequest'
+                    className: 'TargetTaxLot'
                   }
               }
             }
@@ -113,4 +113,4 @@ class AdjustHoldingRequest {
   }
 }
 
-module.exports = AdjustHoldingRequest;
+module.exports = HoldingAdjustment;

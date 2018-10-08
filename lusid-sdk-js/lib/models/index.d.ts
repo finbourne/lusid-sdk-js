@@ -371,7 +371,7 @@ export interface CreateUnitDefinition {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId'
+ * 'Currency', 'UserId', 'MetricValue'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
@@ -422,7 +422,7 @@ export interface IUnitDefinition {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId'
+ * 'Currency', 'UserId', 'MetricValue'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
@@ -444,34 +444,6 @@ export interface DataType {
 
 /**
  * @class
- * Initializes a new instance of the UpdateDataTypeRequest class.
- * @constructor
- * @member {string} typeValueRange Possible values include: 'Open', 'Closed'
- * @member {string} displayName
- * @member {string} description
- * @member {string} valueType Possible values include: 'String', 'Int',
- * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
- * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
- * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
- * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId'
- * @member {array} [acceptableValues]
- * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
- * 'Iso4217Currency'
- * @member {array} [acceptableUnits]
- */
-export interface UpdateDataTypeRequest {
-  typeValueRange: string;
-  displayName: string;
-  description: string;
-  valueType: string;
-  acceptableValues?: any[];
-  unitSchema?: string;
-  acceptableUnits?: CreateUnitDefinition[];
-}
-
-/**
- * @class
  * Initializes a new instance of the ResourceListOfDataType class.
  * @constructor
  * @member {array} [values]
@@ -486,6 +458,34 @@ export interface ResourceListOfDataType {
   href?: string;
   count?: number;
   links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the UpdateDataTypeRequest class.
+ * @constructor
+ * @member {string} typeValueRange Possible values include: 'Open', 'Closed'
+ * @member {string} displayName
+ * @member {string} description
+ * @member {string} valueType Possible values include: 'String', 'Int',
+ * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+ * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+ * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
+ * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
+ * 'Currency', 'UserId', 'MetricValue'
+ * @member {array} [acceptableValues]
+ * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
+ * 'Iso4217Currency'
+ * @member {array} [acceptableUnits]
+ */
+export interface UpdateDataTypeRequest {
+  typeValueRange: string;
+  displayName: string;
+  description: string;
+  valueType: string;
+  acceptableValues?: any[];
+  unitSchema?: string;
+  acceptableUnits?: CreateUnitDefinition[];
 }
 
 /**
@@ -704,16 +704,30 @@ export interface LookupInstrumentsFromCodesResponse {
 
 /**
  * @class
- * Initializes a new instance of the CreatePropertyRequest class.
+ * Initializes a new instance of the MetricValue class.
  * @constructor
- * @member {object} value
- * @member {date} [effectiveFrom] Date for which the property is effective from
+ * @member {number} [value]
  * @member {string} [unit]
  */
-export interface CreatePropertyRequest {
-  value: any;
-  effectiveFrom?: Date;
+export interface MetricValue {
+  value?: number;
   unit?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the PropertyValue class.
+ * @constructor
+ * @member {string} [labelValue]
+ * @member {object} [metricValue]
+ * @member {number} [metricValue.value]
+ * @member {string} [metricValue.unit]
+ * @member {date} [effectiveFrom] Date for which the property is effective from
+ */
+export interface PropertyValue {
+  labelValue?: string;
+  metricValue?: MetricValue;
+  effectiveFrom?: Date;
 }
 
 /**
@@ -722,14 +736,16 @@ export interface CreatePropertyRequest {
  * @constructor
  * @member {string} [instrumentPropertyKey]
  * @member {object} [property]
- * @member {object} [property.value]
+ * @member {string} [property.labelValue]
+ * @member {object} [property.metricValue]
+ * @member {number} [property.metricValue.value]
+ * @member {string} [property.metricValue.unit]
  * @member {date} [property.effectiveFrom] Date for which the property is
  * effective from
- * @member {string} [property.unit]
  */
 export interface CreateInstrumentPropertyRequest {
   instrumentPropertyKey?: string;
-  property?: CreatePropertyRequest;
+  property?: PropertyValue;
 }
 
 /**
@@ -972,7 +988,7 @@ export interface AggregationRequest {
  * 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId'
+ * 'Currency', 'UserId', 'MetricValue'
  * @member {boolean} [isMetric]
  * @member {number} [displayOrder]
  * @member {object} [propertySchema]
@@ -1001,7 +1017,7 @@ export interface FieldSchema {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId'
+ * 'Currency', 'UserId', 'MetricValue'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -1314,7 +1330,7 @@ export interface CreatePropertyDefinitionRequest {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId'
+ * 'Currency', 'UserId', 'MetricValue'
  * @member {boolean} [valueRequired]
  * @member {string} [displayName]
  * @member {object} [dataTypeId]
@@ -1464,14 +1480,16 @@ export interface CreateReferencePortfolioRequest {
 
 /**
  * @class
- * Initializes a new instance of the CreatePerpetualPropertyRequest class.
+ * Initializes a new instance of the PerpetualPropertyValue class.
  * @constructor
- * @member {object} value
- * @member {string} [unit]
+ * @member {string} [labelValue]
+ * @member {object} [metricValue]
+ * @member {number} [metricValue.value]
+ * @member {string} [metricValue.unit]
  */
-export interface CreatePerpetualPropertyRequest {
-  value: any;
-  unit?: string;
+export interface PerpetualPropertyValue {
+  labelValue?: string;
+  metricValue?: MetricValue;
 }
 
 /**
@@ -1486,7 +1504,7 @@ export interface CreatePerpetualPropertyRequest {
  */
 export interface ReferencePortfolioConstituentRequest {
   instrumentUid?: string;
-  properties?: { [propertyName: string]: CreatePerpetualPropertyRequest };
+  properties?: { [propertyName: string]: PerpetualPropertyValue };
   weight?: number;
   type?: string;
 }
@@ -1610,7 +1628,7 @@ export interface ResourceListOfString {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId'
+ * 'Currency', 'UserId', 'MetricValue'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -1773,7 +1791,7 @@ export interface TransactionConfigurationMovementDataRequest {
   movementTypes: string;
   side: string;
   direction: number;
-  properties?: { [propertyName: string]: CreatePropertyRequest };
+  properties?: { [propertyName: string]: PropertyValue };
   mappings?: TransactionPropertyMappingRequest[];
 }
 
@@ -1789,7 +1807,7 @@ export interface TransactionConfigurationMovementDataRequest {
 export interface TransactionConfigurationDataRequest {
   aliases: TransactionConfigurationTypeAlias[];
   movements: TransactionConfigurationMovementDataRequest[];
-  readonly properties?: { [propertyName: string]: CreatePropertyRequest };
+  readonly properties?: { [propertyName: string]: PropertyValue };
 }
 
 /**
@@ -1887,7 +1905,7 @@ export interface CreateTransactionPortfolioRequest {
   corporateActionSourceId?: ResourceId;
   accountingMethod?: string;
   subHoldingKeys?: string[];
-  properties?: { [propertyName: string]: CreatePropertyRequest };
+  properties?: { [propertyName: string]: PropertyValue };
 }
 
 /**
@@ -2110,7 +2128,7 @@ export interface TargetTaxLotRequest {
  * @class
  * Initializes a new instance of the AdjustHoldingRequest class.
  * @constructor
- * This 'dto' contains target holdings. i.e. holding data that the
+ * This request specifies target holdings. i.e. holding data that the
  * system should match. When processed by the movement
  * engine, it will create 'true-up' adjustments on the fly.
  *
@@ -2122,8 +2140,8 @@ export interface TargetTaxLotRequest {
  */
 export interface AdjustHoldingRequest {
   instrumentUid: string;
-  subHoldingKeys?: { [propertyName: string]: CreatePerpetualPropertyRequest };
-  properties?: { [propertyName: string]: CreatePerpetualPropertyRequest };
+  subHoldingKeys?: { [propertyName: string]: PerpetualPropertyValue };
+  properties?: { [propertyName: string]: PerpetualPropertyValue };
   taxLots: TargetTaxLotRequest[];
 }
 
@@ -2191,6 +2209,52 @@ export interface ResourceListOfHoldingsAdjustmentHeader {
 
 /**
  * @class
+ * Initializes a new instance of the TargetTaxLot class.
+ * @constructor
+ * Used to specify holdings target amounts at the tax-lot level
+ *
+ * @member {number} units Quantity of holding
+ * @member {number} [cost] Book cost of holding in transaction currency
+ * @member {number} [portfolioCost] Book cost of holding in portfolio currency
+ * @member {number} [price] Purchase price. Part of the unique key required for
+ * multiple taxlots
+ * @member {date} [purchaseDate] Purchase Date. Part of the unique key required
+ * for multiple taxlots
+ * @member {date} [settlementDate] Original settlement date of the tax-lot's
+ * opening transaction.
+ */
+export interface TargetTaxLot {
+  units: number;
+  cost?: number;
+  portfolioCost?: number;
+  price?: number;
+  purchaseDate?: Date;
+  settlementDate?: Date;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the HoldingAdjustment class.
+ * @constructor
+ * This 'dto' contains target holdings. i.e. holding data that the
+ * system should match. When processed by the movement
+ * engine, it will create 'true-up' adjustments on the fly.
+ *
+ * @member {string} instrumentUid Unique instrument identifier
+ * @member {array} [subHoldingKeys] Key fields to uniquely index the sub
+ * holdings of a instrument
+ * @member {array} [properties] Arbitrary properties to store with the holding
+ * @member {array} taxLots 1 or more quantity amounts
+ */
+export interface HoldingAdjustment {
+  instrumentUid: string;
+  subHoldingKeys?: PerpetualProperty[];
+  properties?: PerpetualProperty[];
+  taxLots: TargetTaxLot[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the HoldingsAdjustment class.
  * @constructor
  * Full content of a holdings adjustment for a single portfolio and effective
@@ -2212,7 +2276,7 @@ export interface HoldingsAdjustment {
   effectiveAt?: Date;
   version?: Version;
   unmatchedHoldingMethod?: string;
-  adjustments?: AdjustHoldingRequest[];
+  adjustments?: HoldingAdjustment[];
   links?: Link[];
 }
 
@@ -2277,7 +2341,7 @@ export interface TransactionRequest {
   totalConsideration: CurrencyAndAmount;
   exchangeRate?: number;
   transactionCurrency?: string;
-  properties?: { [propertyName: string]: CreatePerpetualPropertyRequest };
+  properties?: { [propertyName: string]: PerpetualPropertyValue };
   counterpartyId?: string;
   source: string;
   nettingSet?: string;

@@ -36,7 +36,7 @@ class FieldSchema {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-   * 'UnitCreation', 'Currency', 'UserId'
+   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue'
    * @member {boolean} [isMetric]
    * @member {number} [displayOrder]
    * @member {object} [propertySchema]

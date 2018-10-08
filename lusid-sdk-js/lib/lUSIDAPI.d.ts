@@ -582,7 +582,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId'
+   * 'Currency', 'UserId', 'MetricValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -626,7 +626,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId'
+   * 'Currency', 'UserId', 'MetricValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -828,7 +828,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId'
+   * 'Currency', 'UserId', 'MetricValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -872,7 +872,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId'
+   * 'Currency', 'UserId', 'MetricValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -3553,7 +3553,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  upsertPortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { portfolioProperties? : { [propertyName: string]: models.CreatePropertyRequest }, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioProperties>>;
+  upsertPortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { portfolioProperties? : { [propertyName: string]: models.PropertyValue }, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PortfolioProperties>>;
 
   /**
    * @summary Update properties
@@ -3595,9 +3595,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertPortfolioProperties(scope: string, code: string, options?: { portfolioProperties? : { [propertyName: string]: models.CreatePropertyRequest }, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioProperties>;
+  upsertPortfolioProperties(scope: string, code: string, options?: { portfolioProperties? : { [propertyName: string]: models.PropertyValue }, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PortfolioProperties>;
   upsertPortfolioProperties(scope: string, code: string, callback: ServiceCallback<models.PortfolioProperties>): void;
-  upsertPortfolioProperties(scope: string, code: string, options: { portfolioProperties? : { [propertyName: string]: models.CreatePropertyRequest }, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioProperties>): void;
+  upsertPortfolioProperties(scope: string, code: string, options: { portfolioProperties? : { [propertyName: string]: models.PropertyValue }, effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PortfolioProperties>): void;
 
 
   /**
@@ -3860,7 +3860,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -3875,7 +3875,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getPropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, name: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinition>>;
+  getPropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, code: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinition>>;
 
   /**
    * @summary Gets a property definition.
@@ -3885,7 +3885,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -3916,9 +3916,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getPropertyDefinition(domain: string, scope: string, name: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinition>;
-  getPropertyDefinition(domain: string, scope: string, name: string, callback: ServiceCallback<models.PropertyDefinition>): void;
-  getPropertyDefinition(domain: string, scope: string, name: string, options: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinition>): void;
+  getPropertyDefinition(domain: string, scope: string, code: string, options?: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinition>;
+  getPropertyDefinition(domain: string, scope: string, code: string, callback: ServiceCallback<models.PropertyDefinition>): void;
+  getPropertyDefinition(domain: string, scope: string, code: string, options: { asAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinition>): void;
 
 
   /**
@@ -3929,7 +3929,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -3960,7 +3960,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  updatePropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, name: string, options?: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinition>>;
+  updatePropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, code: string, options?: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.PropertyDefinition>>;
 
   /**
    * @summary Updates the specified property definition.
@@ -3970,7 +3970,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -4017,9 +4017,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  updatePropertyDefinition(domain: string, scope: string, name: string, options?: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinition>;
-  updatePropertyDefinition(domain: string, scope: string, name: string, callback: ServiceCallback<models.PropertyDefinition>): void;
-  updatePropertyDefinition(domain: string, scope: string, name: string, options: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinition>): void;
+  updatePropertyDefinition(domain: string, scope: string, code: string, options?: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.PropertyDefinition>;
+  updatePropertyDefinition(domain: string, scope: string, code: string, callback: ServiceCallback<models.PropertyDefinition>): void;
+  updatePropertyDefinition(domain: string, scope: string, code: string, options: { definition? : models.UpdatePropertyDefinitionRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.PropertyDefinition>): void;
 
 
   /**
@@ -4030,7 +4030,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -4043,7 +4043,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deletePropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+  deletePropertyDefinitionWithHttpOperationResponse(domain: string, scope: string, code: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
 
   /**
    * @summary Deletes the property definition.
@@ -4053,7 +4053,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope
    *
-   * @param {string} name
+   * @param {string} code
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -4082,9 +4082,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deletePropertyDefinition(domain: string, scope: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
-  deletePropertyDefinition(domain: string, scope: string, name: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-  deletePropertyDefinition(domain: string, scope: string, name: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deletePropertyDefinition(domain: string, scope: string, code: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deletePropertyDefinition(domain: string, scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deletePropertyDefinition(domain: string, scope: string, code: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
 
 
   /**
@@ -6295,7 +6295,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  addTransactionPropertyWithHttpOperationResponse(scope: string, code: string, transactionId: string, options?: { transactionProperties? : { [propertyName: string]: models.CreatePerpetualPropertyRequest }, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AddTransactionPropertyResponse>>;
+  addTransactionPropertyWithHttpOperationResponse(scope: string, code: string, transactionId: string, options?: { transactionProperties? : { [propertyName: string]: models.PerpetualPropertyValue }, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AddTransactionPropertyResponse>>;
 
   /**
    * @summary Add/update transaction properties
@@ -6339,9 +6339,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  addTransactionProperty(scope: string, code: string, transactionId: string, options?: { transactionProperties? : { [propertyName: string]: models.CreatePerpetualPropertyRequest }, customHeaders? : { [headerName: string]: string; } }): Promise<models.AddTransactionPropertyResponse>;
+  addTransactionProperty(scope: string, code: string, transactionId: string, options?: { transactionProperties? : { [propertyName: string]: models.PerpetualPropertyValue }, customHeaders? : { [headerName: string]: string; } }): Promise<models.AddTransactionPropertyResponse>;
   addTransactionProperty(scope: string, code: string, transactionId: string, callback: ServiceCallback<models.AddTransactionPropertyResponse>): void;
-  addTransactionProperty(scope: string, code: string, transactionId: string, options: { transactionProperties? : { [propertyName: string]: models.CreatePerpetualPropertyRequest }, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AddTransactionPropertyResponse>): void;
+  addTransactionProperty(scope: string, code: string, transactionId: string, options: { transactionProperties? : { [propertyName: string]: models.PerpetualPropertyValue }, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.AddTransactionPropertyResponse>): void;
 
 
   /**
