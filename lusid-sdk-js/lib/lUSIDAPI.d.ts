@@ -5674,10 +5674,10 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Adjust holdings
+   * @summary Set All Holdings
    *
-   * Create transactions in a specific portfolio to bring it to the specified
-   * holdings
+   * Create transactions in a specific portfolio to bring all holdings to the
+   * specified targets
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -5701,10 +5701,10 @@ export default class LUSIDAPI extends ServiceClient {
   setHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AdjustHolding>>;
 
   /**
-   * @summary Adjust holdings
+   * @summary Set All Holdings
    *
-   * Create transactions in a specific portfolio to bring it to the specified
-   * holdings
+   * Create transactions in a specific portfolio to bring all holdings to the
+   * specified targets
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -5747,10 +5747,10 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Adjust holdings
+   * @summary Adjust Selected Holdings
    *
-   * Create transactions in a specific portfolio to bring it to the specified
-   * holdings
+   * Create transactions in a specific portfolio to bring the selected holdings
+   * up to the specified targets
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -5774,10 +5774,10 @@ export default class LUSIDAPI extends ServiceClient {
   adjustHoldingsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { holdingAdjustments? : models.AdjustHoldingRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.AdjustHolding>>;
 
   /**
-   * @summary Adjust holdings
+   * @summary Adjust Selected Holdings
    *
-   * Create transactions in a specific portfolio to bring it to the specified
-   * holdings
+   * Create transactions in a specific portfolio to bring the selected holdings
+   * up to the specified targets
    *
    * @param {string} scope The scope of the portfolio
    *

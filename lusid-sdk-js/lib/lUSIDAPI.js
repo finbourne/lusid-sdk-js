@@ -11783,10 +11783,10 @@ function _getHoldings(scope, code, options, callback) {
 }
 
 /**
- * @summary Adjust holdings
+ * @summary Set All Holdings
  *
- * Create transactions in a specific portfolio to bring it to the specified
- * holdings
+ * Create transactions in a specific portfolio to bring all holdings to the
+ * specified targets
  *
  * @param {string} scope The scope of the portfolio
  *
@@ -11949,10 +11949,10 @@ function _setHoldings(scope, code, effectiveAt, options, callback) {
 }
 
 /**
- * @summary Adjust holdings
+ * @summary Adjust Selected Holdings
  *
- * Create transactions in a specific portfolio to bring it to the specified
- * holdings
+ * Create transactions in a specific portfolio to bring the selected holdings
+ * up to the specified targets
  *
  * @param {string} scope The scope of the portfolio
  *
@@ -21394,10 +21394,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Adjust holdings
+   * @summary Set All Holdings
    *
-   * Create transactions in a specific portfolio to bring it to the specified
-   * holdings
+   * Create transactions in a specific portfolio to bring all holdings to the
+   * specified targets
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -21433,10 +21433,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Adjust holdings
+   * @summary Set All Holdings
    *
-   * Create transactions in a specific portfolio to bring it to the specified
-   * holdings
+   * Create transactions in a specific portfolio to bring all holdings to the
+   * specified targets
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -21494,10 +21494,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Adjust holdings
+   * @summary Adjust Selected Holdings
    *
-   * Create transactions in a specific portfolio to bring it to the specified
-   * holdings
+   * Create transactions in a specific portfolio to bring the selected holdings
+   * up to the specified targets
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -21533,10 +21533,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Adjust holdings
+   * @summary Adjust Selected Holdings
    *
-   * Create transactions in a specific portfolio to bring it to the specified
-   * holdings
+   * Create transactions in a specific portfolio to bring the selected holdings
+   * up to the specified targets
    *
    * @param {string} scope The scope of the portfolio
    *
