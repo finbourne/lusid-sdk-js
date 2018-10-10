@@ -30,9 +30,21 @@ class ReconciliationBreak {
   /**
    * Create a ReconciliationBreak.
    * @member {string} instrumentUid Unique instrument identifier
-   * @member {array} [properties]
-   * @member {number} [unitsDifference] Difference in units
-   * @member {number} [costDifference] Difference in cost
+   * @member {array} subHoldingKeys
+   * @member {number} leftUnits Units from the left hand side
+   * @member {number} rightUnits Units from the right hand side
+   * @member {number} differenceUnits Difference in units
+   * @member {object} leftCost Cost from the left hand side
+   * @member {number} [leftCost.amount]
+   * @member {string} [leftCost.currency]
+   * @member {object} rightCost Cost from the right hand side
+   * @member {number} [rightCost.amount]
+   * @member {string} [rightCost.currency]
+   * @member {object} differenceCost Difference in cost
+   * @member {number} [differenceCost.amount]
+   * @member {string} [differenceCost.currency]
+   * @member {array} instrumentProperties Additional features relating to the
+   * security
    */
   constructor() {
   }
@@ -58,9 +70,9 @@ class ReconciliationBreak {
               name: 'String'
             }
           },
-          properties: {
-            required: false,
-            serializedName: 'properties',
+          subHoldingKeys: {
+            required: true,
+            serializedName: 'subHoldingKeys',
             type: {
               name: 'Sequence',
               element: {
@@ -73,18 +85,64 @@ class ReconciliationBreak {
               }
             }
           },
-          unitsDifference: {
-            required: false,
-            serializedName: 'unitsDifference',
+          leftUnits: {
+            required: true,
+            serializedName: 'leftUnits',
             type: {
               name: 'Number'
             }
           },
-          costDifference: {
-            required: false,
-            serializedName: 'costDifference',
+          rightUnits: {
+            required: true,
+            serializedName: 'rightUnits',
             type: {
               name: 'Number'
+            }
+          },
+          differenceUnits: {
+            required: true,
+            serializedName: 'differenceUnits',
+            type: {
+              name: 'Number'
+            }
+          },
+          leftCost: {
+            required: true,
+            serializedName: 'leftCost',
+            type: {
+              name: 'Composite',
+              className: 'CurrencyAndAmount'
+            }
+          },
+          rightCost: {
+            required: true,
+            serializedName: 'rightCost',
+            type: {
+              name: 'Composite',
+              className: 'CurrencyAndAmount'
+            }
+          },
+          differenceCost: {
+            required: true,
+            serializedName: 'differenceCost',
+            type: {
+              name: 'Composite',
+              className: 'CurrencyAndAmount'
+            }
+          },
+          instrumentProperties: {
+            required: true,
+            serializedName: 'instrumentProperties',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'PropertyElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Property'
+                  }
+              }
             }
           }
         }

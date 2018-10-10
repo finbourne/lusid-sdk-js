@@ -1293,6 +1293,111 @@ export interface PortfolioProperties {
 
 /**
  * @class
+ * Initializes a new instance of the PortfolioReconciliationRequest class.
+ * @constructor
+ * @member {object} portfolioId
+ * @member {string} [portfolioId.scope]
+ * @member {string} [portfolioId.code]
+ * @member {date} effectiveAt
+ * @member {date} [asAt]
+ */
+export interface PortfolioReconciliationRequest {
+  portfolioId: ResourceId;
+  effectiveAt: Date;
+  asAt?: Date;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the PortfoliosReconciliationRequest class.
+ * @constructor
+ * @member {object} left
+ * @member {object} [left.portfolioId]
+ * @member {string} [left.portfolioId.scope]
+ * @member {string} [left.portfolioId.code]
+ * @member {date} [left.effectiveAt]
+ * @member {date} [left.asAt]
+ * @member {object} right
+ * @member {object} [right.portfolioId]
+ * @member {string} [right.portfolioId.scope]
+ * @member {string} [right.portfolioId.code]
+ * @member {date} [right.effectiveAt]
+ * @member {date} [right.asAt]
+ * @member {array} instrumentPropertyKeys
+ */
+export interface PortfoliosReconciliationRequest {
+  left: PortfolioReconciliationRequest;
+  right: PortfolioReconciliationRequest;
+  instrumentPropertyKeys: string[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the CurrencyAndAmount class.
+ * @constructor
+ * @member {number} [amount]
+ * @member {string} [currency]
+ */
+export interface CurrencyAndAmount {
+  amount?: number;
+  currency?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ReconciliationBreak class.
+ * @constructor
+ * A reconciliation break
+ *
+ * @member {string} instrumentUid Unique instrument identifier
+ * @member {array} subHoldingKeys
+ * @member {number} leftUnits Units from the left hand side
+ * @member {number} rightUnits Units from the right hand side
+ * @member {number} differenceUnits Difference in units
+ * @member {object} leftCost Cost from the left hand side
+ * @member {number} [leftCost.amount]
+ * @member {string} [leftCost.currency]
+ * @member {object} rightCost Cost from the right hand side
+ * @member {number} [rightCost.amount]
+ * @member {string} [rightCost.currency]
+ * @member {object} differenceCost Difference in cost
+ * @member {number} [differenceCost.amount]
+ * @member {string} [differenceCost.currency]
+ * @member {array} instrumentProperties Additional features relating to the
+ * security
+ */
+export interface ReconciliationBreak {
+  instrumentUid: string;
+  subHoldingKeys: Property[];
+  leftUnits: number;
+  rightUnits: number;
+  differenceUnits: number;
+  leftCost: CurrencyAndAmount;
+  rightCost: CurrencyAndAmount;
+  differenceCost: CurrencyAndAmount;
+  instrumentProperties: Property[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfReconciliationBreak class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [links]
+ */
+export interface ResourceListOfReconciliationBreak {
+  values?: ReconciliationBreak[];
+  href?: string;
+  count?: number;
+  links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreatePropertyDefinitionRequest class.
  * @constructor
  * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
@@ -1400,66 +1505,6 @@ export interface UpdatePropertyDefinitionRequest {
   dataTypeId?: ResourceId;
   lifeTime?: string;
   type?: string;
-}
-
-/**
- * @class
- * Initializes a new instance of the ReconciliationRequest class.
- * @constructor
- * @member {string} [leftScope]
- * @member {string} [leftCode]
- * @member {date} [leftEffectiveAt]
- * @member {date} [leftAsAt]
- * @member {string} [rightScope]
- * @member {string} [rightCode]
- * @member {date} [rightEffectiveAt]
- * @member {date} [rightAsAt]
- */
-export interface ReconciliationRequest {
-  leftScope?: string;
-  leftCode?: string;
-  leftEffectiveAt?: Date;
-  leftAsAt?: Date;
-  rightScope?: string;
-  rightCode?: string;
-  rightEffectiveAt?: Date;
-  rightAsAt?: Date;
-}
-
-/**
- * @class
- * Initializes a new instance of the ReconciliationBreak class.
- * @constructor
- * A reconciliation break
- *
- * @member {string} instrumentUid Unique instrument identifier
- * @member {array} [properties]
- * @member {number} [unitsDifference] Difference in units
- * @member {number} [costDifference] Difference in cost
- */
-export interface ReconciliationBreak {
-  instrumentUid: string;
-  properties?: Property[];
-  unitsDifference?: number;
-  costDifference?: number;
-}
-
-/**
- * @class
- * Initializes a new instance of the ResourceListOfReconciliationBreak class.
- * @constructor
- * @member {array} [values]
- * @member {string} [href] The Uri that returns the same result as the original
- * request,
- * but may include resolved as at time(s).
- * @member {number} [count] The total number of records returned in the set
- * @member {array} [links]
- */
-export interface ResourceListOfReconciliationBreak {
-  values?: ReconciliationBreak[];
-  href?: string;
-  count?: number;
-  links?: Link[];
 }
 
 /**
@@ -1953,18 +1998,6 @@ export interface CreatePortfolioDetails {
 export interface TransactionPrice {
   price?: number;
   type?: string;
-}
-
-/**
- * @class
- * Initializes a new instance of the CurrencyAndAmount class.
- * @constructor
- * @member {number} [amount]
- * @member {string} [currency]
- */
-export interface CurrencyAndAmount {
-  amount?: number;
-  currency?: string;
 }
 
 /**

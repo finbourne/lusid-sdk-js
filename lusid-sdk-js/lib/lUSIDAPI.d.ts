@@ -3676,6 +3676,110 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Perform a reconciliation between two portfolios
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.left
+   *
+   * @param {object} options.request.right
+   *
+   * @param {object} options.request.right.portfolioId
+   *
+   * @param {string} [options.request.right.portfolioId.scope]
+   *
+   * @param {string} [options.request.right.portfolioId.code]
+   *
+   * @param {date} options.request.right.effectiveAt
+   *
+   * @param {date} [options.request.right.asAt]
+   *
+   * @param {array} options.request.instrumentPropertyKeys
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfReconciliationBreak>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  reconcileHoldingsWithHttpOperationResponse(options?: { request? : models.PortfoliosReconciliationRequest, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReconciliationBreak>>;
+
+  /**
+   * @summary Perform a reconciliation between two portfolios
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request]
+   *
+   * @param {object} options.request.left
+   *
+   * @param {object} options.request.right
+   *
+   * @param {object} options.request.right.portfolioId
+   *
+   * @param {string} [options.request.right.portfolioId.scope]
+   *
+   * @param {string} [options.request.right.portfolioId.code]
+   *
+   * @param {date} options.request.right.effectiveAt
+   *
+   * @param {date} [options.request.right.asAt]
+   *
+   * @param {array} options.request.instrumentPropertyKeys
+   *
+   * @param {array} [options.sortBy]
+   *
+   * @param {number} [options.start]
+   *
+   * @param {number} [options.limit]
+   *
+   * @param {string} [options.filter]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfReconciliationBreak} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfReconciliationBreak} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfReconciliationBreak} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  reconcileHoldings(options?: { request? : models.PortfoliosReconciliationRequest, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReconciliationBreak>;
+  reconcileHoldings(callback: ServiceCallback<models.ResourceListOfReconciliationBreak>): void;
+  reconcileHoldings(options: { request? : models.PortfoliosReconciliationRequest, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReconciliationBreak>): void;
+
+
+  /**
    * @summary Gets multiple property definitions.
    *
    * @param {object} [options] Optional Parameters.
@@ -4085,94 +4189,6 @@ export default class LUSIDAPI extends ServiceClient {
   deletePropertyDefinition(domain: string, scope: string, code: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
   deletePropertyDefinition(domain: string, scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
   deletePropertyDefinition(domain: string, scope: string, code: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
-
-
-  /**
-   * @summary Perform a reconciliation between two portfolios
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.leftScope]
-   *
-   * @param {string} [options.request.leftCode]
-   *
-   * @param {date} [options.request.leftEffectiveAt]
-   *
-   * @param {date} [options.request.leftAsAt]
-   *
-   * @param {string} [options.request.rightScope]
-   *
-   * @param {string} [options.request.rightCode]
-   *
-   * @param {date} [options.request.rightEffectiveAt]
-   *
-   * @param {date} [options.request.rightAsAt]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<ResourceListOfReconciliationBreak>} - The deserialized result object.
-   *
-   * @reject {Error|ServiceError} - The error object.
-   */
-  performReconciliationWithHttpOperationResponse(options?: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReconciliationBreak>>;
-
-  /**
-   * @summary Perform a reconciliation between two portfolios
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.request]
-   *
-   * @param {string} [options.request.leftScope]
-   *
-   * @param {string} [options.request.leftCode]
-   *
-   * @param {date} [options.request.leftEffectiveAt]
-   *
-   * @param {date} [options.request.leftAsAt]
-   *
-   * @param {string} [options.request.rightScope]
-   *
-   * @param {string} [options.request.rightCode]
-   *
-   * @param {date} [options.request.rightEffectiveAt]
-   *
-   * @param {date} [options.request.rightAsAt]
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {ServiceCallback} [optionalCallback] - The optional callback.
-   *
-   * @returns {ServiceCallback|Promise} If a callback was passed as the last
-   * parameter then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned.
-   *
-   *                      @resolve {ResourceListOfReconciliationBreak} - The deserialized result object.
-   *
-   *                      @reject {Error|ServiceError} - The error object.
-   *
-   * {ServiceCallback} optionalCallback(err, result, request, response)
-   *
-   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {ResourceListOfReconciliationBreak} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfReconciliationBreak} for more
-   *                      information.
-   *
-   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-   */
-  performReconciliation(options?: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReconciliationBreak>;
-  performReconciliation(callback: ServiceCallback<models.ResourceListOfReconciliationBreak>): void;
-  performReconciliation(options: { request? : models.ReconciliationRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReconciliationBreak>): void;
 
 
   /**
