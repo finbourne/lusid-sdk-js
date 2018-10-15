@@ -139,7 +139,8 @@ export interface ErrorDetailBase {
  * 'InvalidInstrumentIdentifierUnit', 'HoldingsAdjustmentDoesNotExist',
  * 'CouldNotBuildExcelUrl', 'CouldNotGetExcelVersion',
  * 'InstrumentByCodeNotFound', 'EntitySchemaDoesNotExist',
- * 'FeatureNotSupportedOnPortfolioType'
+ * 'FeatureNotSupportedOnPortfolioType', 'QuotePublishFailure',
+ * 'QuoteQueryFailure'
  * @member {string} [message]
  * @member {string} [detailedMessage]
  * @member {array} [items]
