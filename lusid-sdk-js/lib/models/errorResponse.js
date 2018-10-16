@@ -69,7 +69,8 @@ class ErrorResponse {
    * 'CouldNotBuildExcelUrl', 'CouldNotGetExcelVersion',
    * 'InstrumentByCodeNotFound', 'EntitySchemaDoesNotExist',
    * 'FeatureNotSupportedOnPortfolioType', 'QuotePublishFailure',
-   * 'QuoteQueryFailure'
+   * 'QuoteQueryFailure', 'ReferencePortfolioRequestNotSupported',
+   * 'TransactionPortfolioRequestNotSupported'
    * @member {string} [message]
    * @member {string} [detailedMessage]
    * @member {array} [items]
