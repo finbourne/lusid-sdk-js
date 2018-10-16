@@ -645,6 +645,9 @@ export interface Property {
  * @member {object} [aliases]
  * @member {array} [properties]
  * @member {string} [marketIdentifierCode]
+ * @member {object} [lookthroughPortfolio]
+ * @member {string} [lookthroughPortfolio.scope]
+ * @member {string} [lookthroughPortfolio.code]
  * @member {array} [links]
  */
 export interface Instrument {
@@ -655,6 +658,7 @@ export interface Instrument {
   aliases?: { [propertyName: string]: string };
   properties?: Property[];
   marketIdentifierCode?: string;
+  lookthroughPortfolio?: ResourceId;
   links?: Link[];
 }
 

@@ -38,6 +38,9 @@ class Instrument {
    * @member {object} [aliases]
    * @member {array} [properties]
    * @member {string} [marketIdentifierCode]
+   * @member {object} [lookthroughPortfolio]
+   * @member {string} [lookthroughPortfolio.scope]
+   * @member {string} [lookthroughPortfolio.code]
    * @member {array} [links]
    */
   constructor() {
@@ -120,6 +123,14 @@ class Instrument {
             serializedName: 'marketIdentifierCode',
             type: {
               name: 'String'
+            }
+          },
+          lookthroughPortfolio: {
+            required: false,
+            serializedName: 'lookthroughPortfolio',
+            type: {
+              name: 'Composite',
+              className: 'ResourceId'
             }
           },
           links: {
