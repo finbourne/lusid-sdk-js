@@ -70,7 +70,8 @@ class ErrorResponse {
    * 'InstrumentByCodeNotFound', 'EntitySchemaDoesNotExist',
    * 'FeatureNotSupportedOnPortfolioType', 'QuotePublishFailure',
    * 'QuoteQueryFailure', 'ReferencePortfolioRequestNotSupported',
-   * 'TransactionPortfolioRequestNotSupported'
+   * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
+   * 'InstrumentUpsertFailure'
    * @member {string} [message]
    * @member {string} [detailedMessage]
    * @member {array} [items]

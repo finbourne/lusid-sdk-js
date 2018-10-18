@@ -141,7 +141,8 @@ export interface ErrorDetailBase {
  * 'InstrumentByCodeNotFound', 'EntitySchemaDoesNotExist',
  * 'FeatureNotSupportedOnPortfolioType', 'QuotePublishFailure',
  * 'QuoteQueryFailure', 'ReferencePortfolioRequestNotSupported',
- * 'TransactionPortfolioRequestNotSupported'
+ * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
+ * 'InstrumentUpsertFailure'
  * @member {string} [message]
  * @member {string} [detailedMessage]
  * @member {array} [items]
@@ -1301,11 +1302,11 @@ export interface PortfolioProperties {
  * @class
  * Initializes a new instance of the PortfolioReconciliationRequest class.
  * @constructor
- * @member {object} portfolioId
+ * @member {object} portfolioId The id of the portfolio to be reconciled
  * @member {string} [portfolioId.scope]
  * @member {string} [portfolioId.code]
- * @member {date} effectiveAt
- * @member {date} [asAt]
+ * @member {date} effectiveAt The effective date of the portfolio
+ * @member {date} [asAt] Optional. The AsAt date of the portfolio
  */
 export interface PortfolioReconciliationRequest {
   portfolioId: ResourceId;
@@ -1317,19 +1318,24 @@ export interface PortfolioReconciliationRequest {
  * @class
  * Initializes a new instance of the PortfoliosReconciliationRequest class.
  * @constructor
- * @member {object} left
- * @member {object} [left.portfolioId]
+ * @member {object} left The specification of the left hand side of the
+ * portfolio reconciliation
+ * @member {object} [left.portfolioId] The id of the portfolio to be reconciled
  * @member {string} [left.portfolioId.scope]
  * @member {string} [left.portfolioId.code]
- * @member {date} [left.effectiveAt]
- * @member {date} [left.asAt]
- * @member {object} right
- * @member {object} [right.portfolioId]
+ * @member {date} [left.effectiveAt] The effective date of the portfolio
+ * @member {date} [left.asAt] Optional. The AsAt date of the portfolio
+ * @member {object} right The specification of the right hand side of the
+ * portfolio reconciliation
+ * @member {object} [right.portfolioId] The id of the portfolio to be
+ * reconciled
  * @member {string} [right.portfolioId.scope]
  * @member {string} [right.portfolioId.code]
- * @member {date} [right.effectiveAt]
- * @member {date} [right.asAt]
- * @member {array} instrumentPropertyKeys
+ * @member {date} [right.effectiveAt] The effective date of the portfolio
+ * @member {date} [right.asAt] Optional. The AsAt date of the portfolio
+ * @member {array} instrumentPropertyKeys Instrument properties to be included
+ * with any identified breaks. These properties will be in the effective and
+ * AsAt dates of the left portfolio
  */
 export interface PortfoliosReconciliationRequest {
   left: PortfolioReconciliationRequest;
@@ -1356,7 +1362,8 @@ export interface CurrencyAndAmount {
  * A reconciliation break
  *
  * @member {string} instrumentUid Unique instrument identifier
- * @member {array} subHoldingKeys
+ * @member {array} subHoldingKeys Any other properties that comprise the
+ * Sub-Holding Key
  * @member {number} leftUnits Units from the left hand side
  * @member {number} rightUnits Units from the right hand side
  * @member {number} differenceUnits Difference in units
@@ -1994,20 +2001,6 @@ export interface CreatePortfolioDetails {
 
 /**
  * @class
- * Initializes a new instance of the TransactionPrice class.
- * @constructor
- * A price with its associated type
- *
- * @member {number} [price]
- * @member {string} [type] Possible values include: 'Price', 'Yield', 'Spread'
- */
-export interface TransactionPrice {
-  price?: number;
-  type?: string;
-}
-
-/**
- * @class
  * Initializes a new instance of the PerpetualProperty class.
  * @constructor
  * This is intended to be the external facing unitemporal property
@@ -2021,6 +2014,20 @@ export interface PerpetualProperty {
   key: string;
   value: any;
   readonly unit?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the TransactionPrice class.
+ * @constructor
+ * A price with its associated type
+ *
+ * @member {number} [price]
+ * @member {string} [type] Possible values include: 'Price', 'Yield', 'Spread'
+ */
+export interface TransactionPrice {
+  price?: number;
+  type?: string;
 }
 
 /**
@@ -2071,13 +2078,18 @@ export interface Transaction {
  * Initializes a new instance of the PortfolioHolding class.
  * @constructor
  * @member {string} instrumentUid Unique instrument identifier
+ * @member {array} [subHoldingKeys]
  * @member {array} [properties]
  * @member {string} holdingType Type of holding, eg Position, Balance,
  * CashCommitment, Receivable, ForwardFX
  * @member {number} units Quantity of holding
  * @member {number} settledUnits Settled quantity of holding
- * @member {number} cost Book cost of holding in transaction currency
- * @member {number} costPortfolioCcy Book cost of holding in portfolio currency
+ * @member {object} cost Book cost of holding in transaction currency
+ * @member {number} [cost.amount]
+ * @member {string} [cost.currency]
+ * @member {object} costPortfolioCcy Book cost of holding in portfolio currency
+ * @member {number} [costPortfolioCcy.amount]
+ * @member {string} [costPortfolioCcy.currency]
  * @member {object} [transaction] If this is commitment-type holding, the
  * transaction behind it
  * @member {string} [transaction.transactionId] Unique transaction identifier
@@ -2108,12 +2120,13 @@ export interface Transaction {
  */
 export interface PortfolioHolding {
   instrumentUid: string;
+  subHoldingKeys?: PerpetualProperty[];
   properties?: Property[];
   holdingType: string;
   units: number;
   settledUnits: number;
-  cost: number;
-  costPortfolioCcy: number;
+  cost: CurrencyAndAmount;
+  costPortfolioCcy: CurrencyAndAmount;
   transaction?: Transaction;
 }
 

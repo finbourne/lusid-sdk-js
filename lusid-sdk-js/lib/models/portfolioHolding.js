@@ -29,14 +29,19 @@ class PortfolioHolding {
   /**
    * Create a PortfolioHolding.
    * @member {string} instrumentUid Unique instrument identifier
+   * @member {array} [subHoldingKeys]
    * @member {array} [properties]
    * @member {string} holdingType Type of holding, eg Position, Balance,
    * CashCommitment, Receivable, ForwardFX
    * @member {number} units Quantity of holding
    * @member {number} settledUnits Settled quantity of holding
-   * @member {number} cost Book cost of holding in transaction currency
-   * @member {number} costPortfolioCcy Book cost of holding in portfolio
+   * @member {object} cost Book cost of holding in transaction currency
+   * @member {number} [cost.amount]
+   * @member {string} [cost.currency]
+   * @member {object} costPortfolioCcy Book cost of holding in portfolio
    * currency
+   * @member {number} [costPortfolioCcy.amount]
+   * @member {string} [costPortfolioCcy.currency]
    * @member {object} [transaction] If this is commitment-type holding, the
    * transaction behind it
    * @member {string} [transaction.transactionId] Unique transaction identifier
@@ -89,6 +94,21 @@ class PortfolioHolding {
               name: 'String'
             }
           },
+          subHoldingKeys: {
+            required: false,
+            serializedName: 'subHoldingKeys',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'PerpetualPropertyElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'PerpetualProperty'
+                  }
+              }
+            }
+          },
           properties: {
             required: false,
             serializedName: 'properties',
@@ -129,14 +149,16 @@ class PortfolioHolding {
             required: true,
             serializedName: 'cost',
             type: {
-              name: 'Number'
+              name: 'Composite',
+              className: 'CurrencyAndAmount'
             }
           },
           costPortfolioCcy: {
             required: true,
             serializedName: 'costPortfolioCcy',
             type: {
-              name: 'Number'
+              name: 'Composite',
+              className: 'CurrencyAndAmount'
             }
           },
           transaction: {

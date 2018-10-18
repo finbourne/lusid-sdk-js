@@ -28,11 +28,11 @@
 class PortfolioReconciliationRequest {
   /**
    * Create a PortfolioReconciliationRequest.
-   * @member {object} portfolioId
+   * @member {object} portfolioId The id of the portfolio to be reconciled
    * @member {string} [portfolioId.scope]
    * @member {string} [portfolioId.code]
-   * @member {date} effectiveAt
-   * @member {date} [asAt]
+   * @member {date} effectiveAt The effective date of the portfolio
+   * @member {date} [asAt] Optional. The AsAt date of the portfolio
    */
   constructor() {
   }

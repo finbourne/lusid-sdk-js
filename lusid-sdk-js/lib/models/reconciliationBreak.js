@@ -30,7 +30,8 @@ class ReconciliationBreak {
   /**
    * Create a ReconciliationBreak.
    * @member {string} instrumentUid Unique instrument identifier
-   * @member {array} subHoldingKeys
+   * @member {array} subHoldingKeys Any other properties that comprise the
+   * Sub-Holding Key
    * @member {number} leftUnits Units from the left hand side
    * @member {number} rightUnits Units from the right hand side
    * @member {number} differenceUnits Difference in units

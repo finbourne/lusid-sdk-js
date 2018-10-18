@@ -34,17 +34,25 @@ const models = require('./models');
 
 
 /**
+ * @summary List analytic stores
+ *
+ * List all defined analytic stores
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -207,9 +215,13 @@ function _listAnalyticStores(options, callback) {
 }
 
 /**
+ * @summary Create analytic store
+ *
+ * Create a new analytic store for the specified scope and date
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] A populated analytic store definition
  *
  * @param {string} [options.request.scope]
  *
@@ -334,17 +346,24 @@ function _createAnalyticStore(options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get analytic store
  *
- * @param {number} year
+ * Get the meta data associated with a specified scope and date combination
+ * (analytic store)
  *
- * @param {number} month
+ * @param {string} scope The analytics data scope
  *
- * @param {number} day
+ * @param {number} year The year component of the date for the data in the
+ * scope
+ *
+ * @param {number} month The month component of the date for the data in the
+ * scope
+ *
+ * @param {number} day The day component of the date for the data in the scope
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -483,13 +502,17 @@ function _getAnalyticStore(scope, year, month, day, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Delete analytic store
  *
- * @param {number} year
+ * Delete stored analytic data in the specified scope for the specified date
  *
- * @param {number} month
+ * @param {string} scope The analytics data scope
  *
- * @param {number} day
+ * @param {number} year The year component of the date
+ *
+ * @param {number} month The month component of the date
+ *
+ * @param {number} day The day component of the date
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -618,17 +641,22 @@ function _deleteAnalyticStore(scope, year, month, day, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Set analytic data
  *
- * @param {number} year
+ * Store the complete set of analytics for an existing analytic store for the
+ * specified scope and date
  *
- * @param {number} month
+ * @param {string} scope The scope of the data being stored
  *
- * @param {number} day
+ * @param {number} year The year component of the date for the data
+ *
+ * @param {number} month The month component of the date for the data
+ *
+ * @param {number} day The day component of the date for the data
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.data]
+ * @param {array} [options.data] The analytic data being inserted
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -646,7 +674,7 @@ function _deleteAnalyticStore(scope, year, month, day, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _insertAnalytics(scope, year, month, day, options, callback) {
+function _setAnalytics(scope, year, month, day, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -685,7 +713,7 @@ function _insertAnalytics(scope, year, month, day, options, callback) {
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
-  httpRequest.method = 'POST';
+  httpRequest.method = 'PUT';
   httpRequest.url = requestUrl;
   httpRequest.headers = {};
   // Set Headers
@@ -784,23 +812,31 @@ function _insertAnalytics(scope, year, month, day, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get corporate actions
  *
- * @param {string} code
+ * Gets corporate actions from a specific corporate action source
+ *
+ * @param {string} scope The scope of the corporate action source
+ *
+ * @param {string} code The code of the corporate action source
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the data
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -979,13 +1015,19 @@ function _getCorporateActions(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Upsert corporate actions
  *
- * @param {string} code
+ * Attempt to create/update one or more corporate action in a specified
+ * corporate action source. Failed actions will be identified in the body of
+ * the response.
+ *
+ * @param {string} scope The scope of corporate action source
+ *
+ * @param {string} code The code of the corporate action source
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.actions]
+ * @param {array} [options.actions] The corporate action definitions
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -1134,9 +1176,15 @@ function _batchUpsertCorporateActions(scope, code, options, callback) {
 }
 
 /**
+ * @summary Create data type definition
+ *
+ * Create a new data type definition
+ *
+ * Data types cannot be created in either the "default" or "system" scopes.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The definition of the new data type
  *
  * @param {string} options.request.scope
  *
@@ -1282,21 +1330,31 @@ function _createDataType(options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary List data types
+ *
+ * List all data types in a specified scope
+ *
+ * @param {string} scope The requested scope of the data types
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {boolean} [options.includeDefault]
+ * @param {boolean} [options.includeDefault] Whether to additionally include
+ * those data types in the "default" scope
  *
- * @param {boolean} [options.includeSystem]
+ * @param {boolean} [options.includeSystem] Whether to additionally include
+ * those data types in the "system" scope
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -1469,9 +1527,13 @@ function _listDataTypes(scope, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get data type definition
  *
- * @param {string} name
+ * Get the definition of a specified data type
+ *
+ * @param {string} scope The scope of the data type
+ *
+ * @param {string} code The code of the data type
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -1491,7 +1553,7 @@ function _listDataTypes(scope, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getDataType(scope, name, options, callback) {
+function _getDataType(scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -1506,8 +1568,8 @@ function _getDataType(scope, name, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (name === null || name === undefined || typeof name.valueOf() !== 'string') {
-      throw new Error('name cannot be null or undefined and it must be of type string.');
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
     }
   } catch (error) {
     return callback(error);
@@ -1515,9 +1577,9 @@ function _getDataType(scope, name, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/datatypes/{scope}/{name}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/datatypes/{scope}/{code}';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{name}', encodeURIComponent(name));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -1592,13 +1654,21 @@ function _getDataType(scope, name, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Update data type definition
  *
- * @param {string} name
+ * Update the definition of the specified existing data type
+ *
+ * Not all elements within a data type definition are modifiable due to the
+ * potential implications for data
+ * already stored against the types
+ *
+ * @param {string} scope The scope of the data type
+ *
+ * @param {string} code The code of the data type
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The updated definition of the data type
  *
  * @param {string} options.request.typeValueRange Possible values include:
  * 'Open', 'Closed'
@@ -1637,7 +1707,7 @@ function _getDataType(scope, name, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _updateDataType(scope, name, options, callback) {
+function _updateDataType(scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -1653,8 +1723,8 @@ function _updateDataType(scope, name, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (name === null || name === undefined || typeof name.valueOf() !== 'string') {
-      throw new Error('name cannot be null or undefined and it must be of type string.');
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
     }
   } catch (error) {
     return callback(error);
@@ -1662,9 +1732,9 @@ function _updateDataType(scope, name, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/datatypes/{scope}/{name}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/datatypes/{scope}/{code}';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{name}', encodeURIComponent(name));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -1753,15 +1823,22 @@ function _updateDataType(scope, name, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get units from data type
  *
- * @param {string} name
+ * Get the definitions of the specified units associated bound to a specific
+ * data type
+ *
+ * @param {string} scope The scope of the data type
+ *
+ * @param {string} code The code of the data type
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.units]
+ * @param {array} [options.units] One or more unit identifiers for which the
+ * definition is being requested
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -1779,7 +1856,7 @@ function _updateDataType(scope, name, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getUnitsFromDataType(scope, name, options, callback) {
+function _getUnitsFromDataType(scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -1796,8 +1873,8 @@ function _getUnitsFromDataType(scope, name, options, callback) {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (name === null || name === undefined || typeof name.valueOf() !== 'string') {
-      throw new Error('name cannot be null or undefined and it must be of type string.');
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
     }
     if (Array.isArray(units)) {
       for (let i = 0; i < units.length; i++) {
@@ -1815,9 +1892,9 @@ function _getUnitsFromDataType(scope, name, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/datatypes/{scope}/{name}/units';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/datatypes/{scope}/{code}/units';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  requestUrl = requestUrl.replace('{name}', encodeURIComponent(name));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
   let queryParameters = [];
   if (units !== null && units !== undefined) {
     if (units.length == 0) {
@@ -1909,11 +1986,26 @@ function _getUnitsFromDataType(scope, name, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Create derived transaction portfolio
+ *
+ * Creates a transaction portfolio that derives from an existing transaction
+ * portfolio. In a derived portfolio, parts of the portfolio can either be
+ * specific to this portfolio, or can be inherited from a "parent". Different
+ * parts of the portfolio (e.g. transactions or properties) are combined in
+ * different ways. The portfolio details are either overridden in entirety, or
+ * not at all. The same is true for properties. Transactions on a derived
+ * portfolio are merged with its parent portfolio's transactions. If the parent
+ * portfolio is itself a derived portfolio, transactions from that parent are
+ * also merged (and that parent's portfolio's, if it is also a derived
+ * portfolio, and so on).
+ *
+ * @param {string} scope The scope into which to create the new derived
+ * portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.portfolio]
+ * @param {object} [options.portfolio] The root object of the new derived
+ * portfolio, containing a populated reference portfolio id and reference scope
  *
  * @param {string} options.portfolio.displayName
  *
@@ -2065,13 +2157,18 @@ function _createDerivedPortfolio(scope, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Delete portfolio details
  *
- * @param {string} code
+ * Deletes the portfolio details for the specified derived transaction
+ * portfolio
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] The effective date of the change
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2202,9 +2299,20 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
 }
 
 /**
+ * @summary Create instrument
+ *
+ * Attempt to create one or more "client" instruments.
+ *
+ * The response will return both the collection of successfully created
+ * instruments, as well as those that were rejected and why their creation
+ * failed.
+ *
+ * It is important to always check the 'Failed' set for any unsuccessful
+ * results.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.definitions]
+ * @param {array} [options.definitions] The client instrument definitions
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2340,9 +2448,20 @@ function _batchAddClientInstruments(options, callback) {
 }
 
 /**
+ * @summary Delete instrument
+ *
+ * Attempt to delete one or more "client" instruments.
+ *
+ * The response will include those instruments that could not be deleted (as
+ * well as any available details).
+ *
+ * It is important to always check the 'Failed' set for any unsuccessful
+ * results.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.uids]
+ * @param {array} [options.uids] The unique identifiers of the instruments to
+ * delete
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2476,13 +2595,20 @@ function _batchDeleteClientInstruments(options, callback) {
 }
 
 /**
- * @param {string} uid
+ * @summary Get instrument definition
+ *
+ * Get an individual instrument by the one of its unique instrument
+ * identifiers. Optionally, it is possible to decorate each instrument with
+ * specified property data.
+ *
+ * @param {string} uid The uid of the requested instrument
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.instrumentPropertyKeys]
+ * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+ * properties to be decorated on to the instrument
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2627,17 +2753,33 @@ function _getInstrument(uid, options, callback) {
 }
 
 /**
+ * @summary Lookup instrument definition
+ *
+ * Lookup one or more instrument definitions by specifying non-LUSID
+ * identifiers. Optionally, it is possible to decorate each instrument with
+ * specified property data.
+ *
+ * The response will return both the collection of found instruments for each
+ * identifier, as well as a collection of all identifiers for which no
+ * instruments could be found (as well as any available details).
+ *
+ * It is important to always check the 'Failed' set for any unsuccessful
+ * results.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.codeType] Possible values include: 'Undefined',
- * 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
- * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+ * @param {string} [options.codeType] The type of identifiers. Possible values
+ * include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+ * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+ * 'Wertpapier'
  *
- * @param {array} [options.codes]
+ * @param {array} [options.codes] One or more identifiers of the type specified
+ * in the codeType
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.instrumentPropertyKeys]
+ * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+ * properties to be decorated on to the instrument
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2821,9 +2963,20 @@ function _lookupInstrumentsFromCodes(options, callback) {
 }
 
 /**
+ * @summary Upsert instrument properties
+ *
+ * Attempt to upsert property data for one or more instruments, properties, and
+ * effective dates.
+ *
+ * The response will include the details of any failures that occurred during
+ * data storage.
+ *
+ * It is important to always check the 'Failed' collection for any unsuccessful
+ * results.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.classifications]
+ * @param {array} [options.instrumentProperties] The instrument property data
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2852,7 +3005,7 @@ function _batchUpsertInstrumentProperties(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let classifications = (options && options.classifications !== undefined) ? options.classifications : undefined;
+  let instrumentProperties = (options && options.instrumentProperties !== undefined) ? options.instrumentProperties : undefined;
 
   // Construct URL
   let baseUrl = this.baseUri;
@@ -2876,10 +3029,10 @@ function _batchUpsertInstrumentProperties(options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (classifications !== null && classifications !== undefined) {
+    if (instrumentProperties !== null && instrumentProperties !== undefined) {
       let requestModelMapper = {
         required: false,
-        serializedName: 'classifications',
+        serializedName: 'instrumentProperties',
         type: {
           name: 'Sequence',
           element: {
@@ -2892,12 +3045,12 @@ function _batchUpsertInstrumentProperties(options, callback) {
           }
         }
       };
-      requestModel = client.serialize(requestModelMapper, classifications, 'classifications');
+      requestModel = client.serialize(requestModelMapper, instrumentProperties, 'instrumentProperties');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(classifications, null, 2)}.`);
+        `payload - ${JSON.stringify(instrumentProperties, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -2959,7 +3112,12 @@ function _batchUpsertInstrumentProperties(options, callback) {
 }
 
 /**
- * @param {string} domain
+ * @summary Get SAML Identity Provider
+ *
+ * Get the unique identifier for the SAML 2.0 Identity Provider to be used for
+ * domain.
+ *
+ * @param {string} domain The domain that the user will be logging in to
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -3081,9 +3239,13 @@ function _getSamlIdentityProviderId(domain, options, callback) {
 }
 
 /**
+ * @summary Get Excel download url
+ *
+ * Request an authorised url for an Excel client version
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.version]
+ * @param {string} [options.version] The requested version of the Excel plugin
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3210,6 +3372,10 @@ function _getExcelDownloadUrl(options, callback) {
 }
 
 /**
+ * @summary Get LUSID versions
+ *
+ * Get the semantic versions associated with LUSID and its ecosystem
+ *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
@@ -3316,22 +3482,31 @@ function _getLusidVersions(options, callback) {
 }
 
 /**
+ * @summary Get personalisation
+ *
+ * Get a personalisation, recursing to get any referenced if required.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.pattern]
+ * @param {string} [options.pattern] The search pattern or specific key
  *
- * @param {string} [options.scope] Possible values include: 'User', 'Group',
- * 'Default', 'All'
+ * @param {string} [options.scope] Optional. The scope level to request for.
+ * Possible values include: 'User', 'Group', 'Default', 'All'
  *
- * @param {boolean} [options.recursive]
+ * @param {boolean} [options.recursive] Optional. Whether to recurse into
+ * dereference recursive settings
  *
- * @param {boolean} [options.wildcards]
+ * @param {boolean} [options.wildcards] Optional. Whether to apply wildcards to
+ * the provided pattern and pull back any matching
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3507,6 +3682,10 @@ function _getPersonalisations(options, callback) {
 }
 
 /**
+ * @summary Upsert personalisations
+ *
+ * Upsert one or more personalisations
+ *
  * @param {object} [options] Optional Parameters.
  *
  * @param {array} [options.personalisations]
@@ -3645,14 +3824,21 @@ function _upsertPersonalisations(options, callback) {
 }
 
 /**
+ * @summary Delete a personalisation
+ *
+ * Delete a personalisation at a specific scope (or use scope ALL to purge the
+ * setting entirely)
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.key]
+ * @param {string} [options.key] The key of the setting to be deleted
  *
- * @param {string} [options.scope] Possible values include: 'User', 'Group',
- * 'Default', 'All'
+ * @param {string} [options.scope] The scope to delete at (use ALL to purge the
+ * setting entirely). Possible values include: 'User', 'Group', 'Default',
+ * 'All'
  *
- * @param {string} [options.group]
+ * @param {string} [options.group] Optional. If deleting a setting at group
+ * level, specify the group here
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3788,19 +3974,27 @@ function _deletePersonalisation(options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary List groups in scope
+ *
+ * Lists all portfolio groups in a specified scope
+ *
+ * @param {string} scope The scope
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3967,11 +4161,16 @@ function _listPortfolioGroups(scope, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Create group
+ *
+ * Create a new portfolio group.
+ *
+ * @param {string} scope The scope into which the portfolio group will be
+ * created
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The definition of the new portfolio group
  *
  * @param {string} options.request.id
  *
@@ -4111,13 +4310,17 @@ function _createPortfolioGroup(scope, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get portfolio group
  *
- * @param {string} code
+ * Get the definition of the specified portfolio group
+ *
+ * @param {string} scope The scope of the portfolio group
+ *
+ * @param {string} code The code of the portfolio group
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -4248,13 +4451,21 @@ function _getPortfolioGroup(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Update group
  *
- * @param {string} code
+ * Update the definition of the specified existing portfolio group.
+ *
+ * Not all elements within a portfolio group definition are modifiable after
+ * creation.
+ *
+ * @param {string} scope The scope of the portfolio group
+ *
+ * @param {string} code The code of the portfolio group
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The updated definition of the portfolio
+ * group
  *
  * @param {string} options.request.displayName
  *
@@ -4392,9 +4603,13 @@ function _updatePortfolioGroup(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Delete group
  *
- * @param {string} code
+ * Deletes the definition of the specified portfolio group
+ *
+ * @param {string} scope The scope of the portfolio group
+ *
+ * @param {string} code The code of the portfolio group
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -4515,13 +4730,18 @@ function _deletePortfolioGroup(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Aggregate data in a portfolio group
  *
- * @param {string} code
+ * Aggregate data sourced from the specified portfolio group
+ *
+ * @param {string} scope The scope of the portfolio group
+ *
+ * @param {string} code The code of the portfolio group
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The request specifying the parameters of
+ * the aggregation
  *
  * @param {object} options.request.recipeId
  *
@@ -4545,11 +4765,14 @@ function _deletePortfolioGroup(scope, code, options, callback) {
  *
  * @param {string} [options.request.sort]
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -4720,13 +4943,19 @@ function _getAggregationByGroup(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Aggregate data in a portfolio group, as nested
  *
- * @param {string} code
+ * Obsolete - Aggregate data sourced from the specified portfolio group into a
+ * nested structure. Data is nested following the group-by specifications.
+ *
+ * @param {string} scope The scope of the portfolio group
+ *
+ * @param {string} code The code of the portfolio group
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The request specifying the parameters of
+ * the aggregation
  *
  * @param {object} options.request.recipeId
  *
@@ -4883,23 +5112,33 @@ function _getNestedAggregationByGroup(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get commands
  *
- * @param {string} code
+ * Gets all commands that modified a specific portfolio group
+ *
+ * @param {string} scope The scope of the portfolio group
+ *
+ * @param {string} code The code of the portfolio group
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.fromAsAt]
+ * @param {date} [options.fromAsAt] Optional. Filters commands by those that
+ * were processed at or after this date and time
  *
- * @param {date} [options.toAsAt]
+ * @param {date} [options.toAsAt] Optional. Filters commands by those that were
+ * processed at or before this date and time
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -5078,17 +5317,23 @@ function _getPortfolioGroupCommands(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get a full expansion of a portfolio group
  *
- * @param {string} code
+ * Lists all portfolios in a group, and all sub groups. Portfolios are
+ * decorated with their properties.
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the data
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.propertyFilter]
+ * @param {array} [options.propertyFilter] Optional. The restricted set of
+ * properties that should be returned
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -5245,17 +5490,23 @@ function _getPortfolioGroupExpansion(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Add portfolio to group
  *
- * @param {string} code
+ * Adds a portfolio to a previously defined portfolio group
+ *
+ * @param {string} scope The scope of the portfolio group to which a portfolio
+ * is being added
+ *
+ * @param {string} code The code of the portfolio group to which a portfolio is
+ * being added
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.identifier]
+ * @param {object} [options.portfolioId] The id of the portfolio
  *
- * @param {string} [options.identifier.scope]
+ * @param {string} [options.portfolioId.scope]
  *
- * @param {string} [options.identifier.code]
+ * @param {string} [options.portfolioId.code]
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -5283,7 +5534,7 @@ function _addPortfolioToGroup(scope, code, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let identifier = (options && options.identifier !== undefined) ? options.identifier : undefined;
+  let portfolioId = (options && options.portfolioId !== undefined) ? options.portfolioId : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
@@ -5320,14 +5571,14 @@ function _addPortfolioToGroup(scope, code, options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (identifier !== null && identifier !== undefined) {
+    if (portfolioId !== null && portfolioId !== undefined) {
       let requestModelMapper = new client.models['ResourceId']().mapper();
-      requestModel = client.serialize(requestModelMapper, identifier, 'identifier');
+      requestModel = client.serialize(requestModelMapper, portfolioId, 'portfolioId');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(identifier, null, 2)}.`);
+        `payload - ${JSON.stringify(portfolioId, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -5389,13 +5640,17 @@ function _addPortfolioToGroup(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Remove portfolio from group
  *
- * @param {string} code
+ * Removes a portfolio from a portfolio group
  *
- * @param {string} portfolioScope
+ * @param {string} scope The scope of the portfolio group
  *
- * @param {string} portfolioCode
+ * @param {string} code The code of the portfolio group
+ *
+ * @param {string} portfolioScope The scope of the portfolio being removed
+ *
+ * @param {string} portfolioCode The code of the portfolio being removed
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -5524,17 +5779,24 @@ function _deletePortfolioFromGroup(scope, code, portfolioScope, portfolioCode, o
 }
 
 /**
- * @param {string} scope
+ * @summary Add group to group
  *
- * @param {string} code
+ * Adds a portfolio group, as a sub-group, to an existing portfolio group
+ *
+ * @param {string} scope The scope of the portfolio group to which a sub-group
+ * is being added
+ *
+ * @param {string} code The code of the portfolio group to which a sub-group is
+ * being added
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.identifier]
+ * @param {object} [options.portfolioGroupId] The id of the portfolio group
+ * being added as a sub-group
  *
- * @param {string} [options.identifier.scope]
+ * @param {string} [options.portfolioGroupId.scope]
  *
- * @param {string} [options.identifier.code]
+ * @param {string} [options.portfolioGroupId.code]
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -5562,7 +5824,7 @@ function _addSubGroupToGroup(scope, code, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let identifier = (options && options.identifier !== undefined) ? options.identifier : undefined;
+  let portfolioGroupId = (options && options.portfolioGroupId !== undefined) ? options.portfolioGroupId : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
@@ -5599,14 +5861,14 @@ function _addSubGroupToGroup(scope, code, options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (identifier !== null && identifier !== undefined) {
+    if (portfolioGroupId !== null && portfolioGroupId !== undefined) {
       let requestModelMapper = new client.models['ResourceId']().mapper();
-      requestModel = client.serialize(requestModelMapper, identifier, 'identifier');
+      requestModel = client.serialize(requestModelMapper, portfolioGroupId, 'portfolioGroupId');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(identifier, null, 2)}.`);
+        `payload - ${JSON.stringify(portfolioGroupId, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -5668,13 +5930,17 @@ function _addSubGroupToGroup(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Remove group from group
  *
- * @param {string} code
+ * Remove a portfolio group (sub-group) from a parent portfolio group
  *
- * @param {string} subgroupScope
+ * @param {string} scope The scope of the portfolio group
  *
- * @param {string} subgroupCode
+ * @param {string} code The code of the portfolio group
+ *
+ * @param {string} subgroupScope The scope of the sub-group being removed
+ *
+ * @param {string} subgroupCode The code of the sub-group being removed
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -5803,15 +6069,23 @@ function _deleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode, opti
 }
 
 /**
+ * @summary List portfolio scopes
+ *
+ * Lists all scopes that are either currently or have previously had portfolios
+ * in them
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Filter to be applied to the list of scopes
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -5965,21 +6239,29 @@ function _listPortfolioScopes(options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary List portfolios
+ *
+ * List all the portfolios in the specified scope
+ *
+ * @param {string} scope The scope
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the data
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -6154,15 +6436,20 @@ function _listPortfolios(scope, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get portfolio definition
  *
- * @param {string} code
+ * Retrieves the basic set of information about a portfolio using the specified
+ * scope and code.
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the data
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -6301,13 +6588,19 @@ function _getPortfolio(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Update portfolio definition
  *
- * @param {string} code
+ * Update the definition of a specific portfolio. Note, some parts of a
+ * portfolio definition are not available for modification after the initial
+ * creation.
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The updated portfolio definition
  *
  * @param {string} options.request.displayName
  *
@@ -6315,7 +6608,8 @@ function _getPortfolio(scope, code, options, callback) {
  *
  * @param {date} [options.request.created]
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date for the
+ * change
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -6461,13 +6755,18 @@ function _updatePortfolio(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Delete portfolio
  *
- * @param {string} code
+ * Delete a portfolio at the specified effectiveAt
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * deletion
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -6598,13 +6897,18 @@ function _deletePortfolio(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Aggregate data in a portfolio
  *
- * @param {string} code
+ * Aggregate data sourced from the specified portfolio
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The request specifying the parameters of
+ * the aggregation
  *
  * @param {object} options.request.recipeId
  *
@@ -6628,11 +6932,14 @@ function _deletePortfolio(scope, code, options, callback) {
  *
  * @param {string} [options.request.sort]
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -6803,17 +7110,33 @@ function _getAggregationByPortfolio(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get commands
  *
- * @param {string} code
+ * Gets all commands that modified a specific portfolio
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.fromAsAt]
+ * @param {date} [options.fromAsAt] Optional. Filters commands by those that
+ * were processed at or after this date and time
  *
- * @param {date} [options.toAsAt]
+ * @param {date} [options.toAsAt] Optional. Filters commands by those that were
+ * processed at or before this date and time
  *
- * @param {string} [options.filter]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
+ *
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
+ *
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
+ *
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -6844,6 +7167,9 @@ function _getPortfolioCommands(scope, code, options, callback) {
   }
   let fromAsAt = (options && options.fromAsAt !== undefined) ? options.fromAsAt : undefined;
   let toAsAt = (options && options.toAsAt !== undefined) ? options.toAsAt : undefined;
+  let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
+  let start = (options && options.start !== undefined) ? options.start : undefined;
+  let limit = (options && options.limit !== undefined) ? options.limit : undefined;
   let filter = (options && options.filter !== undefined) ? options.filter : undefined;
   // Validate
   try {
@@ -6861,6 +7187,19 @@ function _getPortfolioCommands(scope, code, options, callback) {
         (typeof toAsAt.valueOf() === 'string' && !isNaN(Date.parse(toAsAt))))) {
           throw new Error('toAsAt must be of type date.');
         }
+    if (Array.isArray(sortBy)) {
+      for (let i = 0; i < sortBy.length; i++) {
+        if (sortBy[i] !== null && sortBy[i] !== undefined && typeof sortBy[i].valueOf() !== 'string') {
+          throw new Error('sortBy[i] must be of type string.');
+        }
+      }
+    }
+    if (start !== null && start !== undefined && typeof start !== 'number') {
+      throw new Error('start must be of type number.');
+    }
+    if (limit !== null && limit !== undefined && typeof limit !== 'number') {
+      throw new Error('limit must be of type number.');
+    }
     if (filter !== null && filter !== undefined && typeof filter.valueOf() !== 'string') {
       throw new Error('filter must be of type string.');
     }
@@ -6879,6 +7218,22 @@ function _getPortfolioCommands(scope, code, options, callback) {
   }
   if (toAsAt !== null && toAsAt !== undefined) {
     queryParameters.push('toAsAt=' + encodeURIComponent(client.serializeObject(toAsAt)));
+  }
+  if (sortBy !== null && sortBy !== undefined) {
+    if (sortBy.length == 0) {
+      queryParameters.push('sortBy=' + encodeURIComponent(''));
+    } else {
+      for (let item of sortBy) {
+        item = (item === null || item === undefined) ? '' : item;
+        queryParameters.push('sortBy=' + encodeURIComponent('' + item));
+      }
+    }
+  }
+  if (start !== null && start !== undefined) {
+    queryParameters.push('start=' + encodeURIComponent(start.toString()));
+  }
+  if (limit !== null && limit !== undefined) {
+    queryParameters.push('limit=' + encodeURIComponent(limit.toString()));
   }
   if (filter !== null && filter !== undefined) {
     queryParameters.push('filter=' + encodeURIComponent(filter));
@@ -6960,21 +7315,28 @@ function _getPortfolioCommands(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get portfolio properties
  *
- * @param {string} code
+ * Get the properties of a portfolio
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the data
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -7145,15 +7507,22 @@ function _getPortfolioProperties(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Upsert properties
  *
- * @param {string} code
+ * Upsert one or more property values to a portfolio for the specified
+ * effectiveAt. All properties must be of the domain Portfolio.
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.portfolioProperties]
+ * @param {object} [options.portfolioProperties] The property values to be
+ * upserted to the portfolio
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * change
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -7313,15 +7682,25 @@ function _upsertPortfolioProperties(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Delete portfolios
  *
- * @param {string} code
+ * Delete one, many or all property values from a portfolio for the specified
+ * effectiveAt
+ *
+ * Specifying no effectiveAt will delete all properties
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code Code for the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * deletion
  *
- * @param {array} [options.portfolioPropertyKeys]
+ * @param {array} [options.portfolioPropertyKeys] Optional. The keys of the
+ * properties to be deleted. None specified indicates the intention to delete
+ * all properties from the portfolio
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -7470,33 +7849,49 @@ function _deletePortfolioProperties(scope, code, options, callback) {
 }
 
 /**
+ * @summary Reconcile portfolio holdings
+ *
+ * Reconcile the holdings of two portfolios.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The specifications of the inputs to the
+ * reconciliation
  *
- * @param {object} options.request.left
+ * @param {object} options.request.left The specification of the left hand side
+ * of the portfolio reconciliation
  *
- * @param {object} options.request.right
+ * @param {object} options.request.right The specification of the right hand
+ * side of the portfolio reconciliation
  *
- * @param {object} options.request.right.portfolioId
+ * @param {object} options.request.right.portfolioId The id of the portfolio to
+ * be reconciled
  *
  * @param {string} [options.request.right.portfolioId.scope]
  *
  * @param {string} [options.request.right.portfolioId.code]
  *
- * @param {date} options.request.right.effectiveAt
+ * @param {date} options.request.right.effectiveAt The effective date of the
+ * portfolio
  *
- * @param {date} [options.request.right.asAt]
+ * @param {date} [options.request.right.asAt] Optional. The AsAt date of the
+ * portfolio
  *
- * @param {array} options.request.instrumentPropertyKeys
+ * @param {array} options.request.instrumentPropertyKeys Instrument properties
+ * to be included with any identified breaks. These properties will be in the
+ * effective and AsAt dates of the left portfolio
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -7666,19 +8061,26 @@ function _reconcileHoldings(options, callback) {
 }
 
 /**
+ * @summary Get one or more property definitions
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.keys]
+ * @param {array} [options.propertyKeys] One or more keys for properties for
+ * which the schema should be returned
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -7707,7 +8109,7 @@ function _getMultiplePropertyDefinitions(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let keys = (options && options.keys !== undefined) ? options.keys : undefined;
+  let propertyKeys = (options && options.propertyKeys !== undefined) ? options.propertyKeys : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
@@ -7715,10 +8117,10 @@ function _getMultiplePropertyDefinitions(options, callback) {
   let filter = (options && options.filter !== undefined) ? options.filter : undefined;
   // Validate
   try {
-    if (Array.isArray(keys)) {
-      for (let i = 0; i < keys.length; i++) {
-        if (keys[i] !== null && keys[i] !== undefined && typeof keys[i].valueOf() !== 'string') {
-          throw new Error('keys[i] must be of type string.');
+    if (Array.isArray(propertyKeys)) {
+      for (let i = 0; i < propertyKeys.length; i++) {
+        if (propertyKeys[i] !== null && propertyKeys[i] !== undefined && typeof propertyKeys[i].valueOf() !== 'string') {
+          throw new Error('propertyKeys[i] must be of type string.');
         }
       }
     }
@@ -7750,13 +8152,13 @@ function _getMultiplePropertyDefinitions(options, callback) {
   let baseUrl = this.baseUri;
   let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/propertydefinitions';
   let queryParameters = [];
-  if (keys !== null && keys !== undefined) {
-    if (keys.length == 0) {
-      queryParameters.push('keys=' + encodeURIComponent(''));
+  if (propertyKeys !== null && propertyKeys !== undefined) {
+    if (propertyKeys.length == 0) {
+      queryParameters.push('propertyKeys=' + encodeURIComponent(''));
     } else {
-      for (let item of keys) {
+      for (let item of propertyKeys) {
         item = (item === null || item === undefined) ? '' : item;
-        queryParameters.push('keys=' + encodeURIComponent('' + item));
+        queryParameters.push('propertyKeys=' + encodeURIComponent('' + item));
       }
     }
   }
@@ -7859,9 +8261,11 @@ function _getMultiplePropertyDefinitions(options, callback) {
 }
 
 /**
+ * @summary Define a new property
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.definition]
+ * @param {object} [options.definition] The definition of the new property
  *
  * @param {string} [options.definition.domain] Possible values include:
  * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
@@ -8005,16 +8409,19 @@ function _createPropertyDefinition(options, callback) {
 }
 
 /**
- * @param {string} domain Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+ * @summary Retrieve the definition for the identified property
  *
- * @param {string} scope
+ * @param {string} domain The Property Domain of the requested property.
+ * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+ * 'ReferenceHolding', 'TxnType'
  *
- * @param {string} code
+ * @param {string} scope The scope of the requested property
+ *
+ * @param {string} code The code of the requested property
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -8149,16 +8556,23 @@ function _getPropertyDefinition(domain, scope, code, options, callback) {
 }
 
 /**
- * @param {string} domain Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+ * @summary Update the definition of the specified existing property
  *
- * @param {string} scope
+ * Not all elements within a property definition are modifiable due to the
+ * potential implications for data
+ * already stored against these properties
  *
- * @param {string} code
+ * @param {string} domain The Property Domain of the property being updated.
+ * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+ * 'ReferenceHolding', 'TxnType'
+ *
+ * @param {string} scope The scope of the property to be updated
+ *
+ * @param {string} code The code of the property to be updated
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.definition]
+ * @param {object} [options.definition] The updated definition of the property
  *
  * @param {boolean} [options.definition.valueRequired]
  *
@@ -8312,12 +8726,15 @@ function _updatePropertyDefinition(domain, scope, code, options, callback) {
 }
 
 /**
- * @param {string} domain Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+ * @summary Delete the definition of the specified property
  *
- * @param {string} scope
+ * @param {string} domain The Property Domain of the property to be deleted.
+ * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+ * 'ReferenceHolding', 'TxnType'
  *
- * @param {string} code
+ * @param {string} scope The scope of the property to be deleted
+ *
+ * @param {string} code The code of the property to be deleted
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -8442,11 +8859,16 @@ function _deletePropertyDefinition(domain, scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Create reference portfolio
+ *
+ * Create a new reference portfolio.
+ *
+ * @param {string} scope The intended scope of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.referencePortfolio]
+ * @param {object} [options.referencePortfolio] The portfolio creation request
+ * object
  *
  * @param {string} options.referencePortfolio.displayName
  *
@@ -8584,6 +9006,8 @@ function _createReferencePortfolio(scope, options, callback) {
 }
 
 /**
+ * Get constituents
+ *
  * @param {string} scope
  *
  * @param {string} code
@@ -8767,6 +9191,10 @@ function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, c
 }
 
 /**
+ * @summary Add constituents
+ *
+ * Add constituents to the specified reference portfolio.
+ *
  * @param {string} scope
  *
  * @param {string} code
@@ -8930,21 +9358,28 @@ function _upsertReferencePortfolioConstituents(scope, code, effectiveAt, options
 }
 
 /**
- * @param {string} scope
+ * @summary Get results
  *
- * @param {string} key
+ * Retrieve some previously stored results
  *
- * @param {date} dateParameter
+ * @param {string} scope The scope of the data
+ *
+ * @param {string} key The key that identifies the data
+ *
+ * @param {date} dateParameter The date for which the data was loaded
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -9112,15 +9547,19 @@ function _getResults(scope, key, dateParameter, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Upsert results
  *
- * @param {string} key
+ * Upsert pre-calculated results against a specified scope/key/date combination
  *
- * @param {date} dateParameter
+ * @param {string} scope The scope of the data
+ *
+ * @param {string} key The key that identifies the data
+ *
+ * @param {date} dateParameter The date for which the data is relevant
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The results to upload
  *
  * @param {object} [options.request.data]
  *
@@ -9267,13 +9706,19 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Aggregate using result data
  *
- * @param {string} resultsKey
+ * Aggregate data from a previously-run Result data set into a flat row of
+ * results
+ *
+ * @param {string} scope The scope of the Result data set
+ *
+ * @param {string} resultsKey The key of the Result data set
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] The request specifying the parameters of
+ * the aggregation
  *
  * @param {object} options.request.recipeId
  *
@@ -9297,11 +9742,14 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  *
  * @param {string} [options.request.sort]
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -9472,6 +9920,10 @@ function _getAggregationByResultSet(scope, resultsKey, options, callback) {
 }
 
 /**
+ * @summary List entities
+ *
+ * List all available entities for which schema information is available.
+ *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
@@ -9578,7 +10030,11 @@ function _listEntities(options, callback) {
 }
 
 /**
- * @param {string} entity
+ * @summary Get schema
+ *
+ * Gets the schema and meta-data for a given entity
+ *
+ * @param {string} entity The name of a valid entity
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -9695,11 +10151,16 @@ function _getEntitySchema(entity, options, callback) {
 }
 
 /**
+ * @summary Get property schema
+ *
+ * Get the schemas for the provided list of property keys.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.propertyKeys]
+ * @param {array} [options.propertyKeys] One or more property keys for which
+ * the schema is requested
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -9840,13 +10301,20 @@ function _getPropertySchema(options, callback) {
 }
 
 /**
+ * @summary Get value types
+ *
+ * Gets the available value types for which a schema is available.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -9994,17 +10462,23 @@ function _getValueTypes(options, callback) {
 }
 
 /**
+ * @summary Search portfolio groups
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] A valid Elasticsearch 5.x request
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -10183,17 +10657,23 @@ function _portfolioGroupsSearch(options, callback) {
 }
 
 /**
+ * @summary Search portfolios
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] A valid Elasticsearch 5.x request
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -10372,17 +10852,23 @@ function _portfoliosSearch(options, callback) {
 }
 
 /**
+ * @summary Search property definitions
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request]
+ * @param {object} [options.request] A valid Elasticsearch 5.x request
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -10561,6 +11047,10 @@ function _propertiesSearch(options, callback) {
 }
 
 /**
+ * @summary List transaction types
+ *
+ * Get the list of persisted transaction types
+ *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
@@ -10668,9 +11158,20 @@ function _listConfigurationTransactionTypes(options, callback) {
 }
 
 /**
+ * @summary Set transaction types
+ *
+ * Set all transaction types to be used by the movements engine, for the
+ * organisation
+ *
+ * WARNING! Changing these mappings will have a material impact on how data,
+ * new and old, is processed and aggregated by LUSID. This will affect your
+ * whole organisation. Only change if you are fully aware of the implications
+ * of the change.
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.types]
+ * @param {array} [options.types] The complete set of transaction type
+ * definitions
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -10806,9 +11307,14 @@ function _setConfigurationTransactionTypes(options, callback) {
 }
 
 /**
+ * @summary Create transaction type
+ *
+ * Create a new transaction type by specifying a definition and the mappings to
+ * movements
+ *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.type]
+ * @param {object} [options.type] A transaction type definition
  *
  * @param {array} options.type.aliases List of transaction codes that map to
  * this specific transaction model
@@ -10935,11 +11441,16 @@ function _createConfigurationTransactionType(options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Create transaction portfolio
+ *
+ * Create a transaction portfolio in a specific scope
+ *
+ * @param {string} scope The scope into which the transaction portfolio will be
+ * created
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.createRequest]
+ * @param {object} [options.createRequest] The transaction portfolio definition
  *
  * @param {string} options.createRequest.displayName
  *
@@ -11094,15 +11605,22 @@ function _createPortfolio(scope, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get portfolio details
  *
- * @param {string} code
+ * Get the details document associated with a transaction portfolio
+ *
+ * When requesting details from a derived transaction portfolio, the returned
+ * set of details could come from a different transaction portfolio
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the data
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -11241,17 +11759,24 @@ function _getDetails(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Upsert details
  *
- * @param {string} code
+ * Update the portfolio details for the specified transaction portfolios or add
+ * if it doesn't already exist (in the case of a derived transaction
+ * portfolio).
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.details]
+ * @param {object} [options.details] The set of details for the portfolio
  *
  * @param {string} [options.details.baseCurrency]
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * change
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -11397,27 +11922,40 @@ function _upsertPortfolioDetails(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get holdings
  *
- * @param {string} code
+ * Get the aggregate holdings of a transaction portfolio.  If no effectiveAt or
+ * asAt
+ * are supplied then values will be defaulted to the latest system time.
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {boolean} [options.byTaxlots]
+ * @param {boolean} [options.byTaxlots] Option to expand holdings to return the
+ * underlying tax-lots
  *
- * @param {date} [options.effectiveAt]
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * portfolio
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
- * @param {array} [options.instrumentPropertyKeys]
+ * @param {array} [options.instrumentPropertyKeys] Optional. Keys for the
+ * instrument property values to be decorated onto the holdings
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -11621,15 +12159,21 @@ function _getHoldings(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Set all holdings on a transaction portfolio
  *
- * @param {string} code
+ * Prompt the creation of transactions in a specific transaction portfolio to
+ * bring all holdings to the specified targets
  *
- * @param {date} effectiveAt
+ * @param {string} scope The scope of the transaction portfolio
+ *
+ * @param {string} code The code of the transaction portfolio
+ *
+ * @param {date} effectiveAt The effective date of the change
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.holdingAdjustments]
+ * @param {array} [options.holdingAdjustments] The complete set of holdings
+ * adjustments for the portfolio
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -11782,15 +12326,23 @@ function _setHoldings(scope, code, effectiveAt, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Adjust holdings
  *
- * @param {string} code
+ * Adjust one or more holdings in a transaction portfolio
  *
- * @param {date} effectiveAt
+ * Prompt the creation of transactions in a specific transaction portfolio to
+ * bring selected holdings to the specified targets
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
+ *
+ * @param {date} effectiveAt The effective date of the change
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.holdingAdjustments]
+ * @param {array} [options.holdingAdjustments] The selected set of holdings
+ * adjustments
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -11943,11 +12495,15 @@ function _adjustHoldings(scope, code, effectiveAt, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Cancel holdings adjustments
  *
- * @param {string} code
+ * Cancel previous adjust-holdings for the portfolio for a specific date
  *
- * @param {date} effectiveAt
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
+ *
+ * @param {date} effectiveAt The effective date of the change
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -12073,17 +12629,24 @@ function _cancelAdjustHoldings(scope, code, effectiveAt, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary List holdings adjustments
  *
- * @param {string} code
+ * Get holdings adjustments from a transaction portfolio in an interval of
+ * effective time.
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code Code for the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.fromEffectiveAt]
+ * @param {date} [options.fromEffectiveAt] Holdings adjustments between this
+ * time (inclusive) and the toEffectiveAt are returned.
  *
- * @param {date} [options.toEffectiveAt]
+ * @param {date} [options.toEffectiveAt] Holdings adjustments between this time
+ * (inclusive) and the fromEffectiveAt are returned.
  *
- * @param {date} [options.asAtTime]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -12114,7 +12677,7 @@ function _listHoldingsAdjustments(scope, code, options, callback) {
   }
   let fromEffectiveAt = (options && options.fromEffectiveAt !== undefined) ? options.fromEffectiveAt : undefined;
   let toEffectiveAt = (options && options.toEffectiveAt !== undefined) ? options.toEffectiveAt : undefined;
-  let asAtTime = (options && options.asAtTime !== undefined) ? options.asAtTime : undefined;
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
@@ -12131,9 +12694,9 @@ function _listHoldingsAdjustments(scope, code, options, callback) {
         (typeof toEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(toEffectiveAt))))) {
           throw new Error('toEffectiveAt must be of type date.');
         }
-    if (asAtTime && !(asAtTime instanceof Date ||
-        (typeof asAtTime.valueOf() === 'string' && !isNaN(Date.parse(asAtTime))))) {
-          throw new Error('asAtTime must be of type date.');
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
         }
   } catch (error) {
     return callback(error);
@@ -12151,8 +12714,8 @@ function _listHoldingsAdjustments(scope, code, options, callback) {
   if (toEffectiveAt !== null && toEffectiveAt !== undefined) {
     queryParameters.push('toEffectiveAt=' + encodeURIComponent(client.serializeObject(toEffectiveAt)));
   }
-  if (asAtTime !== null && asAtTime !== undefined) {
-    queryParameters.push('asAtTime=' + encodeURIComponent(client.serializeObject(asAtTime)));
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -12231,15 +12794,23 @@ function _listHoldingsAdjustments(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get holding adjustment
  *
- * @param {string} code
+ * Get a holdings adjustment for a transaction portfolio at a specific
+ * effective time.
  *
- * @param {date} effectiveAt
+ * A holdings adjustment definition will only be returned if one exists for the
+ * specified effective time
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
+ *
+ * @param {date} effectiveAt The effective time of the holdings adjustment
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAtTime]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -12267,7 +12838,7 @@ function _getHoldingsAdjustment(scope, code, effectiveAt, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let asAtTime = (options && options.asAtTime !== undefined) ? options.asAtTime : undefined;
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
@@ -12280,9 +12851,9 @@ function _getHoldingsAdjustment(scope, code, effectiveAt, options, callback) {
         (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
           throw new Error('effectiveAt cannot be null or undefined and it must be of type date.');
         }
-    if (asAtTime && !(asAtTime instanceof Date ||
-        (typeof asAtTime.valueOf() === 'string' && !isNaN(Date.parse(asAtTime))))) {
-          throw new Error('asAtTime must be of type date.');
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
         }
   } catch (error) {
     return callback(error);
@@ -12295,8 +12866,8 @@ function _getHoldingsAdjustment(scope, code, effectiveAt, options, callback) {
   requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
   requestUrl = requestUrl.replace('{effectiveAt}', encodeURIComponent(client.serializeObject(effectiveAt)));
   let queryParameters = [];
-  if (asAtTime !== null && asAtTime !== undefined) {
-    queryParameters.push('asAtTime=' + encodeURIComponent(client.serializeObject(asAtTime)));
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -12375,27 +12946,42 @@ function _getHoldingsAdjustment(scope, code, effectiveAt, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Get transactions
  *
- * @param {string} code
+ * Get the transactions from a transaction portfolio
+ *
+ * When the requested portfolio is a derived transaction portfolio, the
+ * returned set of transactions is the union set of all transactions of the
+ * parent (and ancestors) and the specified portfolio.
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.fromTransactionDate]
+ * @param {date} [options.fromTransactionDate] Optional. Limit the returned
+ * transactions to those with a transaction date equal or later than this date
  *
- * @param {date} [options.toTransactionDate]
+ * @param {date} [options.toTransactionDate] Optional. Limit the returned
+ * transactions to those with a transaction date equal or before this date
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {array} [options.instrumentPropertyKeys]
+ * @param {array} [options.instrumentPropertyKeys] Optional. Keys for the
+ * instrument property values that will be decorated onto the transactions
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -12600,13 +13186,17 @@ function _getTransactions(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Upsert transactions into the specified transaction portfolio
  *
- * @param {string} code
+ * Upsert transactions
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code for the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.transactions]
+ * @param {array} [options.transactions] The transactions to be upserted
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -12755,13 +13345,17 @@ function _upsertTransactions(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Delete transactions
  *
- * @param {string} code
+ * Delete one or more transactions from a transaction portfolio
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.id]
+ * @param {array} [options.transactionIds] Ids of transactions to delete
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -12789,7 +13383,7 @@ function _deleteTransactions(scope, code, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let id = (options && options.id !== undefined) ? options.id : undefined;
+  let transactionIds = (options && options.transactionIds !== undefined) ? options.transactionIds : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
@@ -12798,10 +13392,10 @@ function _deleteTransactions(scope, code, options, callback) {
     if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
       throw new Error('code cannot be null or undefined and it must be of type string.');
     }
-    if (Array.isArray(id)) {
-      for (let i = 0; i < id.length; i++) {
-        if (id[i] !== null && id[i] !== undefined && typeof id[i].valueOf() !== 'string') {
-          throw new Error('id[i] must be of type string.');
+    if (Array.isArray(transactionIds)) {
+      for (let i = 0; i < transactionIds.length; i++) {
+        if (transactionIds[i] !== null && transactionIds[i] !== undefined && typeof transactionIds[i].valueOf() !== 'string') {
+          throw new Error('transactionIds[i] must be of type string.');
         }
       }
     }
@@ -12815,13 +13409,13 @@ function _deleteTransactions(scope, code, options, callback) {
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
   let queryParameters = [];
-  if (id !== null && id !== undefined) {
-    if (id.length == 0) {
-      queryParameters.push('id=' + encodeURIComponent(''));
+  if (transactionIds !== null && transactionIds !== undefined) {
+    if (transactionIds.length == 0) {
+      queryParameters.push('transactionIds=' + encodeURIComponent(''));
     } else {
-      for (let item of id) {
+      for (let item of transactionIds) {
         item = (item === null || item === undefined) ? '' : item;
-        queryParameters.push('id=' + encodeURIComponent('' + item));
+        queryParameters.push('transactionIds=' + encodeURIComponent('' + item));
       }
     }
   }
@@ -12902,15 +13496,21 @@ function _deleteTransactions(scope, code, options, callback) {
 }
 
 /**
- * @param {string} scope
+ * @summary Add transaction properties
  *
- * @param {string} code
+ * Upsert one or more transaction properties to a single transaction in a
+ * portfolio
  *
- * @param {string} transactionId
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
+ *
+ * @param {string} transactionId Id of transaction
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.transactionProperties]
+ * @param {object} [options.transactionProperties] Transaction properties
+ * values
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -13063,15 +13663,21 @@ function _addTransactionProperty(scope, code, transactionId, options, callback) 
 }
 
 /**
- * @param {string} scope
+ * @summary Delete transaction property
  *
- * @param {string} code
+ * Delete a property value from a single transaction in a portfolio
  *
- * @param {string} transactionId
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code Code for the portfolio
+ *
+ * @param {string} transactionId Id of the transaction to delete the property
+ * from
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.transactionPropertyKey]
+ * @param {string} [options.transactionPropertyKey] The key of the property to
+ * be deleted
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -13205,25 +13811,35 @@ function _deletePropertyFromTransaction(scope, code, transactionId, options, cal
 }
 
 /**
- * @param {string} scope
+ * @summary Build output transactions
  *
- * @param {string} code
+ * Builds and returns the collection of all types of transactions that affect
+ * the holdings of a portfolio in to a set of output transactions
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
  *
- * @param {array} [options.instrumentPropertyKeys]
+ * @param {array} [options.instrumentPropertyKeys] Optional. Keys for the
+ * instrument property values to be decorated onto the transactions
  *
- * @param {string} [options.filter]
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
- * @param {object} [options.parameters]
+ * @param {object} [options.parameters] Optional. Transaction query parameters
  *
  * @param {date} [options.parameters.startDate] The required set of
  * transactions should begin from this date
@@ -13473,7 +14089,7 @@ class LUSIDAPI extends ServiceClient {
     this._createAnalyticStore = _createAnalyticStore;
     this._getAnalyticStore = _getAnalyticStore;
     this._deleteAnalyticStore = _deleteAnalyticStore;
-    this._insertAnalytics = _insertAnalytics;
+    this._setAnalytics = _setAnalytics;
     this._getCorporateActions = _getCorporateActions;
     this._batchUpsertCorporateActions = _batchUpsertCorporateActions;
     this._createDataType = _createDataType;
@@ -13558,17 +14174,25 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary List analytic stores
+   *
+   * List all defined analytic stores
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -13594,17 +14218,25 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary List analytic stores
+   *
+   * List all defined analytic stores
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -13653,9 +14285,13 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Create analytic store
+   *
+   * Create a new analytic store for the specified scope and date
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] A populated analytic store definition
    *
    * @param {string} [options.request.scope]
    *
@@ -13685,9 +14321,13 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Create analytic store
+   *
+   * Create a new analytic store for the specified scope and date
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] A populated analytic store definition
    *
    * @param {string} [options.request.scope]
    *
@@ -13739,17 +14379,24 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get analytic store
    *
-   * @param {number} year
+   * Get the meta data associated with a specified scope and date combination
+   * (analytic store)
    *
-   * @param {number} month
+   * @param {string} scope The analytics data scope
    *
-   * @param {number} day
+   * @param {number} year The year component of the date for the data in the
+   * scope
+   *
+   * @param {number} month The month component of the date for the data in the
+   * scope
+   *
+   * @param {number} day The day component of the date for the data in the scope
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -13775,17 +14422,24 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get analytic store
    *
-   * @param {number} year
+   * Get the meta data associated with a specified scope and date combination
+   * (analytic store)
    *
-   * @param {number} month
+   * @param {string} scope The analytics data scope
    *
-   * @param {number} day
+   * @param {number} year The year component of the date for the data in the
+   * scope
+   *
+   * @param {number} month The month component of the date for the data in the
+   * scope
+   *
+   * @param {number} day The day component of the date for the data in the scope
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -13833,13 +14487,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete analytic store
    *
-   * @param {number} year
+   * Delete stored analytic data in the specified scope for the specified date
    *
-   * @param {number} month
+   * @param {string} scope The analytics data scope
    *
-   * @param {number} day
+   * @param {number} year The year component of the date
+   *
+   * @param {number} month The month component of the date
+   *
+   * @param {number} day The day component of the date
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -13867,13 +14525,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete analytic store
    *
-   * @param {number} year
+   * Delete stored analytic data in the specified scope for the specified date
    *
-   * @param {number} month
+   * @param {string} scope The analytics data scope
    *
-   * @param {number} day
+   * @param {number} year The year component of the date
+   *
+   * @param {number} month The month component of the date
+   *
+   * @param {number} day The day component of the date
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -13923,17 +14585,22 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Set analytic data
    *
-   * @param {number} year
+   * Store the complete set of analytics for an existing analytic store for the
+   * specified scope and date
    *
-   * @param {number} month
+   * @param {string} scope The scope of the data being stored
    *
-   * @param {number} day
+   * @param {number} year The year component of the date for the data
+   *
+   * @param {number} month The month component of the date for the data
+   *
+   * @param {number} day The day component of the date for the data
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.data]
+   * @param {array} [options.data] The analytic data being inserted
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -13944,11 +14611,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  insertAnalyticsWithHttpOperationResponse(scope, year, month, day, options) {
+  setAnalyticsWithHttpOperationResponse(scope, year, month, day, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._insertAnalytics(scope, year, month, day, options, (err, result, request, response) => {
+      self._setAnalytics(scope, year, month, day, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -13959,17 +14626,22 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Set analytic data
    *
-   * @param {number} year
+   * Store the complete set of analytics for an existing analytic store for the
+   * specified scope and date
    *
-   * @param {number} month
+   * @param {string} scope The scope of the data being stored
    *
-   * @param {number} day
+   * @param {number} year The year component of the date for the data
+   *
+   * @param {number} month The month component of the date for the data
+   *
+   * @param {number} day The day component of the date for the data
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.data]
+   * @param {array} [options.data] The analytic data being inserted
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -13996,7 +14668,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  insertAnalytics(scope, year, month, day, options, optionalCallback) {
+  setAnalytics(scope, year, month, day, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -14005,35 +14677,43 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._insertAnalytics(scope, year, month, day, options, (err, result, request, response) => {
+        self._setAnalytics(scope, year, month, day, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._insertAnalytics(scope, year, month, day, options, optionalCallback);
+      return self._setAnalytics(scope, year, month, day, options, optionalCallback);
     }
   }
 
   /**
-   * @param {string} scope
+   * @summary Get corporate actions
    *
-   * @param {string} code
+   * Gets corporate actions from a specific corporate action source
+   *
+   * @param {string} scope The scope of the corporate action source
+   *
+   * @param {string} code The code of the corporate action source
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14059,23 +14739,31 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get corporate actions
    *
-   * @param {string} code
+   * Gets corporate actions from a specific corporate action source
+   *
+   * @param {string} scope The scope of the corporate action source
+   *
+   * @param {string} code The code of the corporate action source
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14124,13 +14812,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert corporate actions
    *
-   * @param {string} code
+   * Attempt to create/update one or more corporate action in a specified
+   * corporate action source. Failed actions will be identified in the body of
+   * the response.
+   *
+   * @param {string} scope The scope of corporate action source
+   *
+   * @param {string} code The code of the corporate action source
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.actions]
+   * @param {array} [options.actions] The corporate action definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14156,13 +14850,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert corporate actions
    *
-   * @param {string} code
+   * Attempt to create/update one or more corporate action in a specified
+   * corporate action source. Failed actions will be identified in the body of
+   * the response.
+   *
+   * @param {string} scope The scope of corporate action source
+   *
+   * @param {string} code The code of the corporate action source
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.actions]
+   * @param {array} [options.actions] The corporate action definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14211,9 +14911,15 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Create data type definition
+   *
+   * Create a new data type definition
+   *
+   * Data types cannot be created in either the "default" or "system" scopes.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The definition of the new data type
    *
    * @param {string} options.request.scope
    *
@@ -14264,9 +14970,15 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Create data type definition
+   *
+   * Create a new data type definition
+   *
+   * Data types cannot be created in either the "default" or "system" scopes.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The definition of the new data type
    *
    * @param {string} options.request.scope
    *
@@ -14339,21 +15051,31 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary List data types
+   *
+   * List all data types in a specified scope
+   *
+   * @param {string} scope The requested scope of the data types
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {boolean} [options.includeDefault]
+   * @param {boolean} [options.includeDefault] Whether to additionally include
+   * those data types in the "default" scope
    *
-   * @param {boolean} [options.includeSystem]
+   * @param {boolean} [options.includeSystem] Whether to additionally include
+   * those data types in the "system" scope
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14379,21 +15101,31 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary List data types
+   *
+   * List all data types in a specified scope
+   *
+   * @param {string} scope The requested scope of the data types
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {boolean} [options.includeDefault]
+   * @param {boolean} [options.includeDefault] Whether to additionally include
+   * those data types in the "default" scope
    *
-   * @param {boolean} [options.includeSystem]
+   * @param {boolean} [options.includeSystem] Whether to additionally include
+   * those data types in the "system" scope
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14442,9 +15174,13 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get data type definition
    *
-   * @param {string} name
+   * Get the definition of a specified data type
+   *
+   * @param {string} scope The scope of the data type
+   *
+   * @param {string} code The code of the data type
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -14457,11 +15193,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getDataTypeWithHttpOperationResponse(scope, name, options) {
+  getDataTypeWithHttpOperationResponse(scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getDataType(scope, name, options, (err, result, request, response) => {
+      self._getDataType(scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -14472,9 +15208,13 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get data type definition
    *
-   * @param {string} name
+   * Get the definition of a specified data type
+   *
+   * @param {string} scope The scope of the data type
+   *
+   * @param {string} code The code of the data type
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -14503,7 +15243,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getDataType(scope, name, options, optionalCallback) {
+  getDataType(scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -14512,25 +15252,33 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getDataType(scope, name, options, (err, result, request, response) => {
+        self._getDataType(scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getDataType(scope, name, options, optionalCallback);
+      return self._getDataType(scope, code, options, optionalCallback);
     }
   }
 
   /**
-   * @param {string} scope
+   * @summary Update data type definition
    *
-   * @param {string} name
+   * Update the definition of the specified existing data type
+   *
+   * Not all elements within a data type definition are modifiable due to the
+   * potential implications for data
+   * already stored against the types
+   *
+   * @param {string} scope The scope of the data type
+   *
+   * @param {string} code The code of the data type
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The updated definition of the data type
    *
    * @param {string} options.request.typeValueRange Possible values include:
    * 'Open', 'Closed'
@@ -14562,11 +15310,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  updateDataTypeWithHttpOperationResponse(scope, name, options) {
+  updateDataTypeWithHttpOperationResponse(scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._updateDataType(scope, name, options, (err, result, request, response) => {
+      self._updateDataType(scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -14577,13 +15325,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Update data type definition
    *
-   * @param {string} name
+   * Update the definition of the specified existing data type
+   *
+   * Not all elements within a data type definition are modifiable due to the
+   * potential implications for data
+   * already stored against the types
+   *
+   * @param {string} scope The scope of the data type
+   *
+   * @param {string} code The code of the data type
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The updated definition of the data type
    *
    * @param {string} options.request.typeValueRange Possible values include:
    * 'Open', 'Closed'
@@ -14631,7 +15387,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  updateDataType(scope, name, options, optionalCallback) {
+  updateDataType(scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -14640,27 +15396,34 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._updateDataType(scope, name, options, (err, result, request, response) => {
+        self._updateDataType(scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._updateDataType(scope, name, options, optionalCallback);
+      return self._updateDataType(scope, code, options, optionalCallback);
     }
   }
 
   /**
-   * @param {string} scope
+   * @summary Get units from data type
    *
-   * @param {string} name
+   * Get the definitions of the specified units associated bound to a specific
+   * data type
+   *
+   * @param {string} scope The scope of the data type
+   *
+   * @param {string} code The code of the data type
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.units]
+   * @param {array} [options.units] One or more unit identifiers for which the
+   * definition is being requested
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14671,11 +15434,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getUnitsFromDataTypeWithHttpOperationResponse(scope, name, options) {
+  getUnitsFromDataTypeWithHttpOperationResponse(scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getUnitsFromDataType(scope, name, options, (err, result, request, response) => {
+      self._getUnitsFromDataType(scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -14686,15 +15449,22 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get units from data type
    *
-   * @param {string} name
+   * Get the definitions of the specified units associated bound to a specific
+   * data type
+   *
+   * @param {string} scope The scope of the data type
+   *
+   * @param {string} code The code of the data type
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.units]
+   * @param {array} [options.units] One or more unit identifiers for which the
+   * definition is being requested
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14721,7 +15491,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getUnitsFromDataType(scope, name, options, optionalCallback) {
+  getUnitsFromDataType(scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -14730,23 +15500,38 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getUnitsFromDataType(scope, name, options, (err, result, request, response) => {
+        self._getUnitsFromDataType(scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getUnitsFromDataType(scope, name, options, optionalCallback);
+      return self._getUnitsFromDataType(scope, code, options, optionalCallback);
     }
   }
 
   /**
-   * @param {string} scope
+   * @summary Create derived transaction portfolio
+   *
+   * Creates a transaction portfolio that derives from an existing transaction
+   * portfolio. In a derived portfolio, parts of the portfolio can either be
+   * specific to this portfolio, or can be inherited from a "parent". Different
+   * parts of the portfolio (e.g. transactions or properties) are combined in
+   * different ways. The portfolio details are either overridden in entirety, or
+   * not at all. The same is true for properties. Transactions on a derived
+   * portfolio are merged with its parent portfolio's transactions. If the parent
+   * portfolio is itself a derived portfolio, transactions from that parent are
+   * also merged (and that parent's portfolio's, if it is also a derived
+   * portfolio, and so on).
+   *
+   * @param {string} scope The scope into which to create the new derived
+   * portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.portfolio]
+   * @param {object} [options.portfolio] The root object of the new derived
+   * portfolio, containing a populated reference portfolio id and reference scope
    *
    * @param {string} options.portfolio.displayName
    *
@@ -14794,11 +15579,26 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Create derived transaction portfolio
+   *
+   * Creates a transaction portfolio that derives from an existing transaction
+   * portfolio. In a derived portfolio, parts of the portfolio can either be
+   * specific to this portfolio, or can be inherited from a "parent". Different
+   * parts of the portfolio (e.g. transactions or properties) are combined in
+   * different ways. The portfolio details are either overridden in entirety, or
+   * not at all. The same is true for properties. Transactions on a derived
+   * portfolio are merged with its parent portfolio's transactions. If the parent
+   * portfolio is itself a derived portfolio, transactions from that parent are
+   * also merged (and that parent's portfolio's, if it is also a derived
+   * portfolio, and so on).
+   *
+   * @param {string} scope The scope into which to create the new derived
+   * portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.portfolio]
+   * @param {object} [options.portfolio] The root object of the new derived
+   * portfolio, containing a populated reference portfolio id and reference scope
    *
    * @param {string} options.portfolio.displayName
    *
@@ -14868,13 +15668,18 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete portfolio details
    *
-   * @param {string} code
+   * Deletes the portfolio details for the specified derived transaction
+   * portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] The effective date of the change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14900,13 +15705,18 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete portfolio details
    *
-   * @param {string} code
+   * Deletes the portfolio details for the specified derived transaction
+   * portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] The effective date of the change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14954,9 +15764,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Create instrument
+   *
+   * Attempt to create one or more "client" instruments.
+   *
+   * The response will return both the collection of successfully created
+   * instruments, as well as those that were rejected and why their creation
+   * failed.
+   *
+   * It is important to always check the 'Failed' set for any unsuccessful
+   * results.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.definitions]
+   * @param {array} [options.definitions] The client instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -14982,9 +15803,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Create instrument
+   *
+   * Attempt to create one or more "client" instruments.
+   *
+   * The response will return both the collection of successfully created
+   * instruments, as well as those that were rejected and why their creation
+   * failed.
+   *
+   * It is important to always check the 'Failed' set for any unsuccessful
+   * results.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.definitions]
+   * @param {array} [options.definitions] The client instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15033,9 +15865,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Delete instrument
+   *
+   * Attempt to delete one or more "client" instruments.
+   *
+   * The response will include those instruments that could not be deleted (as
+   * well as any available details).
+   *
+   * It is important to always check the 'Failed' set for any unsuccessful
+   * results.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.uids]
+   * @param {array} [options.uids] The unique identifiers of the instruments to
+   * delete
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15061,9 +15904,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Delete instrument
+   *
+   * Attempt to delete one or more "client" instruments.
+   *
+   * The response will include those instruments that could not be deleted (as
+   * well as any available details).
+   *
+   * It is important to always check the 'Failed' set for any unsuccessful
+   * results.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.uids]
+   * @param {array} [options.uids] The unique identifiers of the instruments to
+   * delete
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15112,13 +15966,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} uid
+   * @summary Get instrument definition
+   *
+   * Get an individual instrument by the one of its unique instrument
+   * identifiers. Optionally, it is possible to decorate each instrument with
+   * specified property data.
+   *
+   * @param {string} uid The uid of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15144,13 +16005,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} uid
+   * @summary Get instrument definition
+   *
+   * Get an individual instrument by the one of its unique instrument
+   * identifiers. Optionally, it is possible to decorate each instrument with
+   * specified property data.
+   *
+   * @param {string} uid The uid of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15198,17 +16066,33 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Lookup instrument definition
+   *
+   * Lookup one or more instrument definitions by specifying non-LUSID
+   * identifiers. Optionally, it is possible to decorate each instrument with
+   * specified property data.
+   *
+   * The response will return both the collection of found instruments for each
+   * identifier, as well as a collection of all identifiers for which no
+   * instruments could be found (as well as any available details).
+   *
+   * It is important to always check the 'Failed' set for any unsuccessful
+   * results.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] Possible values include: 'Undefined',
-   * 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-   * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   * @param {string} [options.codeType] The type of identifiers. Possible values
+   * include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+   * 'Wertpapier'
    *
-   * @param {array} [options.codes]
+   * @param {array} [options.codes] One or more identifiers of the type specified
+   * in the codeType
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15234,17 +16118,33 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Lookup instrument definition
+   *
+   * Lookup one or more instrument definitions by specifying non-LUSID
+   * identifiers. Optionally, it is possible to decorate each instrument with
+   * specified property data.
+   *
+   * The response will return both the collection of found instruments for each
+   * identifier, as well as a collection of all identifiers for which no
+   * instruments could be found (as well as any available details).
+   *
+   * It is important to always check the 'Failed' set for any unsuccessful
+   * results.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] Possible values include: 'Undefined',
-   * 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-   * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   * @param {string} [options.codeType] The type of identifiers. Possible values
+   * include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+   * 'Wertpapier'
    *
-   * @param {array} [options.codes]
+   * @param {array} [options.codes] One or more identifiers of the type specified
+   * in the codeType
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15293,9 +16193,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Upsert instrument properties
+   *
+   * Attempt to upsert property data for one or more instruments, properties, and
+   * effective dates.
+   *
+   * The response will include the details of any failures that occurred during
+   * data storage.
+   *
+   * It is important to always check the 'Failed' collection for any unsuccessful
+   * results.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.classifications]
+   * @param {array} [options.instrumentProperties] The instrument property data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15321,9 +16232,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Upsert instrument properties
+   *
+   * Attempt to upsert property data for one or more instruments, properties, and
+   * effective dates.
+   *
+   * The response will include the details of any failures that occurred during
+   * data storage.
+   *
+   * It is important to always check the 'Failed' collection for any unsuccessful
+   * results.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.classifications]
+   * @param {array} [options.instrumentProperties] The instrument property data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15372,7 +16294,12 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} domain
+   * @summary Get SAML Identity Provider
+   *
+   * Get the unique identifier for the SAML 2.0 Identity Provider to be used for
+   * domain.
+   *
+   * @param {string} domain The domain that the user will be logging in to
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -15400,7 +16327,12 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} domain
+   * @summary Get SAML Identity Provider
+   *
+   * Get the unique identifier for the SAML 2.0 Identity Provider to be used for
+   * domain.
+   *
+   * @param {string} domain The domain that the user will be logging in to
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -15449,9 +16381,13 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get Excel download url
+   *
+   * Request an authorised url for an Excel client version
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.version]
+   * @param {string} [options.version] The requested version of the Excel plugin
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15477,9 +16413,13 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get Excel download url
+   *
+   * Request an authorised url for an Excel client version
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.version]
+   * @param {string} [options.version] The requested version of the Excel plugin
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15526,6 +16466,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get LUSID versions
+   *
+   * Get the semantic versions associated with LUSID and its ecosystem
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -15552,6 +16496,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get LUSID versions
+   *
+   * Get the semantic versions associated with LUSID and its ecosystem
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -15600,22 +16548,31 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get personalisation
+   *
+   * Get a personalisation, recursing to get any referenced if required.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.pattern]
+   * @param {string} [options.pattern] The search pattern or specific key
    *
-   * @param {string} [options.scope] Possible values include: 'User', 'Group',
-   * 'Default', 'All'
+   * @param {string} [options.scope] Optional. The scope level to request for.
+   * Possible values include: 'User', 'Group', 'Default', 'All'
    *
-   * @param {boolean} [options.recursive]
+   * @param {boolean} [options.recursive] Optional. Whether to recurse into
+   * dereference recursive settings
    *
-   * @param {boolean} [options.wildcards]
+   * @param {boolean} [options.wildcards] Optional. Whether to apply wildcards to
+   * the provided pattern and pull back any matching
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15641,22 +16598,31 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get personalisation
+   *
+   * Get a personalisation, recursing to get any referenced if required.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.pattern]
+   * @param {string} [options.pattern] The search pattern or specific key
    *
-   * @param {string} [options.scope] Possible values include: 'User', 'Group',
-   * 'Default', 'All'
+   * @param {string} [options.scope] Optional. The scope level to request for.
+   * Possible values include: 'User', 'Group', 'Default', 'All'
    *
-   * @param {boolean} [options.recursive]
+   * @param {boolean} [options.recursive] Optional. Whether to recurse into
+   * dereference recursive settings
    *
-   * @param {boolean} [options.wildcards]
+   * @param {boolean} [options.wildcards] Optional. Whether to apply wildcards to
+   * the provided pattern and pull back any matching
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15705,6 +16671,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Upsert personalisations
+   *
+   * Upsert one or more personalisations
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {array} [options.personalisations]
@@ -15733,6 +16703,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Upsert personalisations
+   *
+   * Upsert one or more personalisations
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {array} [options.personalisations]
@@ -15784,14 +16758,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Delete a personalisation
+   *
+   * Delete a personalisation at a specific scope (or use scope ALL to purge the
+   * setting entirely)
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.key]
+   * @param {string} [options.key] The key of the setting to be deleted
    *
-   * @param {string} [options.scope] Possible values include: 'User', 'Group',
-   * 'Default', 'All'
+   * @param {string} [options.scope] The scope to delete at (use ALL to purge the
+   * setting entirely). Possible values include: 'User', 'Group', 'Default',
+   * 'All'
    *
-   * @param {string} [options.group]
+   * @param {string} [options.group] Optional. If deleting a setting at group
+   * level, specify the group here
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15817,14 +16798,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Delete a personalisation
+   *
+   * Delete a personalisation at a specific scope (or use scope ALL to purge the
+   * setting entirely)
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.key]
+   * @param {string} [options.key] The key of the setting to be deleted
    *
-   * @param {string} [options.scope] Possible values include: 'User', 'Group',
-   * 'Default', 'All'
+   * @param {string} [options.scope] The scope to delete at (use ALL to purge the
+   * setting entirely). Possible values include: 'User', 'Group', 'Default',
+   * 'All'
    *
-   * @param {string} [options.group]
+   * @param {string} [options.group] Optional. If deleting a setting at group
+   * level, specify the group here
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15872,19 +16860,27 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary List groups in scope
+   *
+   * Lists all portfolio groups in a specified scope
+   *
+   * @param {string} scope The scope
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15910,19 +16906,27 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary List groups in scope
+   *
+   * Lists all portfolio groups in a specified scope
+   *
+   * @param {string} scope The scope
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15971,11 +16975,16 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Create group
+   *
+   * Create a new portfolio group.
+   *
+   * @param {string} scope The scope into which the portfolio group will be
+   * created
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The definition of the new portfolio group
    *
    * @param {string} options.request.id
    *
@@ -16011,11 +17020,16 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Create group
+   *
+   * Create a new portfolio group.
+   *
+   * @param {string} scope The scope into which the portfolio group will be
+   * created
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The definition of the new portfolio group
    *
    * @param {string} options.request.id
    *
@@ -16073,13 +17087,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get portfolio group
    *
-   * @param {string} code
+   * Get the definition of the specified portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16105,13 +17123,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get portfolio group
    *
-   * @param {string} code
+   * Get the definition of the specified portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16159,13 +17181,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Update group
    *
-   * @param {string} code
+   * Update the definition of the specified existing portfolio group.
+   *
+   * Not all elements within a portfolio group definition are modifiable after
+   * creation.
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The updated definition of the portfolio
+   * group
    *
    * @param {string} options.request.displayName
    *
@@ -16195,13 +17225,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Update group
    *
-   * @param {string} code
+   * Update the definition of the specified existing portfolio group.
+   *
+   * Not all elements within a portfolio group definition are modifiable after
+   * creation.
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The updated definition of the portfolio
+   * group
    *
    * @param {string} options.request.displayName
    *
@@ -16253,9 +17291,13 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete group
    *
-   * @param {string} code
+   * Deletes the definition of the specified portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -16283,9 +17325,13 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete group
    *
-   * @param {string} code
+   * Deletes the definition of the specified portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -16335,13 +17381,18 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Aggregate data in a portfolio group
    *
-   * @param {string} code
+   * Aggregate data sourced from the specified portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The request specifying the parameters of
+   * the aggregation
    *
    * @param {object} options.request.recipeId
    *
@@ -16365,11 +17416,14 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.sort]
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16395,13 +17449,18 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Aggregate data in a portfolio group
    *
-   * @param {string} code
+   * Aggregate data sourced from the specified portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The request specifying the parameters of
+   * the aggregation
    *
    * @param {object} options.request.recipeId
    *
@@ -16425,11 +17484,14 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.sort]
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16478,13 +17540,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Aggregate data in a portfolio group, as nested
    *
-   * @param {string} code
+   * Obsolete - Aggregate data sourced from the specified portfolio group into a
+   * nested structure. Data is nested following the group-by specifications.
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The request specifying the parameters of
+   * the aggregation
    *
    * @param {object} options.request.recipeId
    *
@@ -16532,13 +17600,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Aggregate data in a portfolio group, as nested
    *
-   * @param {string} code
+   * Obsolete - Aggregate data sourced from the specified portfolio group into a
+   * nested structure. Data is nested following the group-by specifications.
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The request specifying the parameters of
+   * the aggregation
    *
    * @param {object} options.request.recipeId
    *
@@ -16609,23 +17683,33 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get commands
    *
-   * @param {string} code
+   * Gets all commands that modified a specific portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromAsAt]
+   * @param {date} [options.fromAsAt] Optional. Filters commands by those that
+   * were processed at or after this date and time
    *
-   * @param {date} [options.toAsAt]
+   * @param {date} [options.toAsAt] Optional. Filters commands by those that were
+   * processed at or before this date and time
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16651,23 +17735,33 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get commands
    *
-   * @param {string} code
+   * Gets all commands that modified a specific portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group
+   *
+   * @param {string} code The code of the portfolio group
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromAsAt]
+   * @param {date} [options.fromAsAt] Optional. Filters commands by those that
+   * were processed at or after this date and time
    *
-   * @param {date} [options.toAsAt]
+   * @param {date} [options.toAsAt] Optional. Filters commands by those that were
+   * processed at or before this date and time
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16716,17 +17810,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get a full expansion of a portfolio group
    *
-   * @param {string} code
+   * Lists all portfolios in a group, and all sub groups. Portfolios are
+   * decorated with their properties.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.propertyFilter]
+   * @param {array} [options.propertyFilter] Optional. The restricted set of
+   * properties that should be returned
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16752,17 +17852,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get a full expansion of a portfolio group
    *
-   * @param {string} code
+   * Lists all portfolios in a group, and all sub groups. Portfolios are
+   * decorated with their properties.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.propertyFilter]
+   * @param {array} [options.propertyFilter] Optional. The restricted set of
+   * properties that should be returned
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16810,17 +17916,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Add portfolio to group
    *
-   * @param {string} code
+   * Adds a portfolio to a previously defined portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group to which a portfolio
+   * is being added
+   *
+   * @param {string} code The code of the portfolio group to which a portfolio is
+   * being added
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.identifier]
+   * @param {object} [options.portfolioId] The id of the portfolio
    *
-   * @param {string} [options.identifier.scope]
+   * @param {string} [options.portfolioId.scope]
    *
-   * @param {string} [options.identifier.code]
+   * @param {string} [options.portfolioId.code]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16846,17 +17958,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Add portfolio to group
    *
-   * @param {string} code
+   * Adds a portfolio to a previously defined portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group to which a portfolio
+   * is being added
+   *
+   * @param {string} code The code of the portfolio group to which a portfolio is
+   * being added
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.identifier]
+   * @param {object} [options.portfolioId] The id of the portfolio
    *
-   * @param {string} [options.identifier.scope]
+   * @param {string} [options.portfolioId.scope]
    *
-   * @param {string} [options.identifier.code]
+   * @param {string} [options.portfolioId.code]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16904,13 +18022,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Remove portfolio from group
    *
-   * @param {string} code
+   * Removes a portfolio from a portfolio group
    *
-   * @param {string} portfolioScope
+   * @param {string} scope The scope of the portfolio group
    *
-   * @param {string} portfolioCode
+   * @param {string} code The code of the portfolio group
+   *
+   * @param {string} portfolioScope The scope of the portfolio being removed
+   *
+   * @param {string} portfolioCode The code of the portfolio being removed
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -16938,13 +18060,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Remove portfolio from group
    *
-   * @param {string} code
+   * Removes a portfolio from a portfolio group
    *
-   * @param {string} portfolioScope
+   * @param {string} scope The scope of the portfolio group
    *
-   * @param {string} portfolioCode
+   * @param {string} code The code of the portfolio group
+   *
+   * @param {string} portfolioScope The scope of the portfolio being removed
+   *
+   * @param {string} portfolioCode The code of the portfolio being removed
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -16994,17 +18120,24 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Add group to group
    *
-   * @param {string} code
+   * Adds a portfolio group, as a sub-group, to an existing portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group to which a sub-group
+   * is being added
+   *
+   * @param {string} code The code of the portfolio group to which a sub-group is
+   * being added
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.identifier]
+   * @param {object} [options.portfolioGroupId] The id of the portfolio group
+   * being added as a sub-group
    *
-   * @param {string} [options.identifier.scope]
+   * @param {string} [options.portfolioGroupId.scope]
    *
-   * @param {string} [options.identifier.code]
+   * @param {string} [options.portfolioGroupId.code]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17030,17 +18163,24 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Add group to group
    *
-   * @param {string} code
+   * Adds a portfolio group, as a sub-group, to an existing portfolio group
+   *
+   * @param {string} scope The scope of the portfolio group to which a sub-group
+   * is being added
+   *
+   * @param {string} code The code of the portfolio group to which a sub-group is
+   * being added
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.identifier]
+   * @param {object} [options.portfolioGroupId] The id of the portfolio group
+   * being added as a sub-group
    *
-   * @param {string} [options.identifier.scope]
+   * @param {string} [options.portfolioGroupId.scope]
    *
-   * @param {string} [options.identifier.code]
+   * @param {string} [options.portfolioGroupId.code]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17088,13 +18228,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Remove group from group
    *
-   * @param {string} code
+   * Remove a portfolio group (sub-group) from a parent portfolio group
    *
-   * @param {string} subgroupScope
+   * @param {string} scope The scope of the portfolio group
    *
-   * @param {string} subgroupCode
+   * @param {string} code The code of the portfolio group
+   *
+   * @param {string} subgroupScope The scope of the sub-group being removed
+   *
+   * @param {string} subgroupCode The code of the sub-group being removed
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -17122,13 +18266,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Remove group from group
    *
-   * @param {string} code
+   * Remove a portfolio group (sub-group) from a parent portfolio group
    *
-   * @param {string} subgroupScope
+   * @param {string} scope The scope of the portfolio group
    *
-   * @param {string} subgroupCode
+   * @param {string} code The code of the portfolio group
+   *
+   * @param {string} subgroupScope The scope of the sub-group being removed
+   *
+   * @param {string} subgroupCode The code of the sub-group being removed
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -17178,15 +18326,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary List portfolio scopes
+   *
+   * Lists all scopes that are either currently or have previously had portfolios
+   * in them
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Filter to be applied to the list of scopes
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17212,15 +18368,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary List portfolio scopes
+   *
+   * Lists all scopes that are either currently or have previously had portfolios
+   * in them
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Filter to be applied to the list of scopes
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17268,21 +18432,29 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary List portfolios
+   *
+   * List all the portfolios in the specified scope
+   *
+   * @param {string} scope The scope
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17308,21 +18480,29 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary List portfolios
+   *
+   * List all the portfolios in the specified scope
+   *
+   * @param {string} scope The scope
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17371,15 +18551,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get portfolio definition
    *
-   * @param {string} code
+   * Retrieves the basic set of information about a portfolio using the specified
+   * scope and code.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17405,15 +18590,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get portfolio definition
    *
-   * @param {string} code
+   * Retrieves the basic set of information about a portfolio using the specified
+   * scope and code.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17461,13 +18651,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Update portfolio definition
    *
-   * @param {string} code
+   * Update the definition of a specific portfolio. Note, some parts of a
+   * portfolio definition are not available for modification after the initial
+   * creation.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The updated portfolio definition
    *
    * @param {string} options.request.displayName
    *
@@ -17475,7 +18671,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.created]
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date for the
+   * change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17501,13 +18698,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Update portfolio definition
    *
-   * @param {string} code
+   * Update the definition of a specific portfolio. Note, some parts of a
+   * portfolio definition are not available for modification after the initial
+   * creation.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The updated portfolio definition
    *
    * @param {string} options.request.displayName
    *
@@ -17515,7 +18718,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.created]
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date for the
+   * change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17563,13 +18767,18 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete portfolio
    *
-   * @param {string} code
+   * Delete a portfolio at the specified effectiveAt
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * deletion
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17595,13 +18804,18 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete portfolio
    *
-   * @param {string} code
+   * Delete a portfolio at the specified effectiveAt
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * deletion
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17649,13 +18863,18 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Aggregate data in a portfolio
    *
-   * @param {string} code
+   * Aggregate data sourced from the specified portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The request specifying the parameters of
+   * the aggregation
    *
    * @param {object} options.request.recipeId
    *
@@ -17679,11 +18898,14 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.sort]
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17709,13 +18931,18 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Aggregate data in a portfolio
    *
-   * @param {string} code
+   * Aggregate data sourced from the specified portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The request specifying the parameters of
+   * the aggregation
    *
    * @param {object} options.request.recipeId
    *
@@ -17739,11 +18966,14 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.sort]
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17792,17 +19022,33 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get commands
    *
-   * @param {string} code
+   * Gets all commands that modified a specific portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromAsAt]
+   * @param {date} [options.fromAsAt] Optional. Filters commands by those that
+   * were processed at or after this date and time
    *
-   * @param {date} [options.toAsAt]
+   * @param {date} [options.toAsAt] Optional. Filters commands by those that were
+   * processed at or before this date and time
    *
-   * @param {string} [options.filter]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17828,17 +19074,33 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get commands
    *
-   * @param {string} code
+   * Gets all commands that modified a specific portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromAsAt]
+   * @param {date} [options.fromAsAt] Optional. Filters commands by those that
+   * were processed at or after this date and time
    *
-   * @param {date} [options.toAsAt]
+   * @param {date} [options.toAsAt] Optional. Filters commands by those that were
+   * processed at or before this date and time
    *
-   * @param {string} [options.filter]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17887,21 +19149,28 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get portfolio properties
    *
-   * @param {string} code
+   * Get the properties of a portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17927,21 +19196,28 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get portfolio properties
    *
-   * @param {string} code
+   * Get the properties of a portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17989,15 +19265,22 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert properties
    *
-   * @param {string} code
+   * Upsert one or more property values to a portfolio for the specified
+   * effectiveAt. All properties must be of the domain Portfolio.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.portfolioProperties]
+   * @param {object} [options.portfolioProperties] The property values to be
+   * upserted to the portfolio
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18023,15 +19306,22 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert properties
    *
-   * @param {string} code
+   * Upsert one or more property values to a portfolio for the specified
+   * effectiveAt. All properties must be of the domain Portfolio.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.portfolioProperties]
+   * @param {object} [options.portfolioProperties] The property values to be
+   * upserted to the portfolio
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18079,15 +19369,25 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete portfolios
    *
-   * @param {string} code
+   * Delete one, many or all property values from a portfolio for the specified
+   * effectiveAt
+   *
+   * Specifying no effectiveAt will delete all properties
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * deletion
    *
-   * @param {array} [options.portfolioPropertyKeys]
+   * @param {array} [options.portfolioPropertyKeys] Optional. The keys of the
+   * properties to be deleted. None specified indicates the intention to delete
+   * all properties from the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18113,15 +19413,25 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete portfolios
    *
-   * @param {string} code
+   * Delete one, many or all property values from a portfolio for the specified
+   * effectiveAt
+   *
+   * Specifying no effectiveAt will delete all properties
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * deletion
    *
-   * @param {array} [options.portfolioPropertyKeys]
+   * @param {array} [options.portfolioPropertyKeys] Optional. The keys of the
+   * properties to be deleted. None specified indicates the intention to delete
+   * all properties from the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18169,33 +19479,49 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Reconcile portfolio holdings
+   *
+   * Reconcile the holdings of two portfolios.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The specifications of the inputs to the
+   * reconciliation
    *
-   * @param {object} options.request.left
+   * @param {object} options.request.left The specification of the left hand side
+   * of the portfolio reconciliation
    *
-   * @param {object} options.request.right
+   * @param {object} options.request.right The specification of the right hand
+   * side of the portfolio reconciliation
    *
-   * @param {object} options.request.right.portfolioId
+   * @param {object} options.request.right.portfolioId The id of the portfolio to
+   * be reconciled
    *
    * @param {string} [options.request.right.portfolioId.scope]
    *
    * @param {string} [options.request.right.portfolioId.code]
    *
-   * @param {date} options.request.right.effectiveAt
+   * @param {date} options.request.right.effectiveAt The effective date of the
+   * portfolio
    *
-   * @param {date} [options.request.right.asAt]
+   * @param {date} [options.request.right.asAt] Optional. The AsAt date of the
+   * portfolio
    *
-   * @param {array} options.request.instrumentPropertyKeys
+   * @param {array} options.request.instrumentPropertyKeys Instrument properties
+   * to be included with any identified breaks. These properties will be in the
+   * effective and AsAt dates of the left portfolio
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18221,33 +19547,49 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Reconcile portfolio holdings
+   *
+   * Reconcile the holdings of two portfolios.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The specifications of the inputs to the
+   * reconciliation
    *
-   * @param {object} options.request.left
+   * @param {object} options.request.left The specification of the left hand side
+   * of the portfolio reconciliation
    *
-   * @param {object} options.request.right
+   * @param {object} options.request.right The specification of the right hand
+   * side of the portfolio reconciliation
    *
-   * @param {object} options.request.right.portfolioId
+   * @param {object} options.request.right.portfolioId The id of the portfolio to
+   * be reconciled
    *
    * @param {string} [options.request.right.portfolioId.scope]
    *
    * @param {string} [options.request.right.portfolioId.code]
    *
-   * @param {date} options.request.right.effectiveAt
+   * @param {date} options.request.right.effectiveAt The effective date of the
+   * portfolio
    *
-   * @param {date} [options.request.right.asAt]
+   * @param {date} [options.request.right.asAt] Optional. The AsAt date of the
+   * portfolio
    *
-   * @param {array} options.request.instrumentPropertyKeys
+   * @param {array} options.request.instrumentPropertyKeys Instrument properties
+   * to be included with any identified breaks. These properties will be in the
+   * effective and AsAt dates of the left portfolio
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18296,19 +19638,26 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get one or more property definitions
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.keys]
+   * @param {array} [options.propertyKeys] One or more keys for properties for
+   * which the schema should be returned
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18334,19 +19683,26 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get one or more property definitions
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.keys]
+   * @param {array} [options.propertyKeys] One or more keys for properties for
+   * which the schema should be returned
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18395,9 +19751,11 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Define a new property
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.definition]
+   * @param {object} [options.definition] The definition of the new property
    *
    * @param {string} [options.definition.domain] Possible values include:
    * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
@@ -18446,9 +19804,11 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Define a new property
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.definition]
+   * @param {object} [options.definition] The definition of the new property
    *
    * @param {string} [options.definition.domain] Possible values include:
    * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
@@ -18519,16 +19879,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * @summary Retrieve the definition for the identified property
    *
-   * @param {string} scope
+   * @param {string} domain The Property Domain of the requested property.
+   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * 'ReferenceHolding', 'TxnType'
    *
-   * @param {string} code
+   * @param {string} scope The scope of the requested property
+   *
+   * @param {string} code The code of the requested property
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18554,16 +19917,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * @summary Retrieve the definition for the identified property
    *
-   * @param {string} scope
+   * @param {string} domain The Property Domain of the requested property.
+   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * 'ReferenceHolding', 'TxnType'
    *
-   * @param {string} code
+   * @param {string} scope The scope of the requested property
+   *
+   * @param {string} code The code of the requested property
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18611,16 +19977,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * @summary Update the definition of the specified existing property
    *
-   * @param {string} scope
+   * Not all elements within a property definition are modifiable due to the
+   * potential implications for data
+   * already stored against these properties
    *
-   * @param {string} code
+   * @param {string} domain The Property Domain of the property being updated.
+   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * 'ReferenceHolding', 'TxnType'
+   *
+   * @param {string} scope The scope of the property to be updated
+   *
+   * @param {string} code The code of the property to be updated
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.definition]
+   * @param {object} [options.definition] The updated definition of the property
    *
    * @param {boolean} [options.definition.valueRequired]
    *
@@ -18662,16 +20035,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * @summary Update the definition of the specified existing property
    *
-   * @param {string} scope
+   * Not all elements within a property definition are modifiable due to the
+   * potential implications for data
+   * already stored against these properties
    *
-   * @param {string} code
+   * @param {string} domain The Property Domain of the property being updated.
+   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * 'ReferenceHolding', 'TxnType'
+   *
+   * @param {string} scope The scope of the property to be updated
+   *
+   * @param {string} code The code of the property to be updated
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.definition]
+   * @param {object} [options.definition] The updated definition of the property
    *
    * @param {boolean} [options.definition.valueRequired]
    *
@@ -18735,12 +20115,15 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * @summary Delete the definition of the specified property
    *
-   * @param {string} scope
+   * @param {string} domain The Property Domain of the property to be deleted.
+   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * 'ReferenceHolding', 'TxnType'
    *
-   * @param {string} code
+   * @param {string} scope The scope of the property to be deleted
+   *
+   * @param {string} code The code of the property to be deleted
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -18768,12 +20151,15 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} domain Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * @summary Delete the definition of the specified property
    *
-   * @param {string} scope
+   * @param {string} domain The Property Domain of the property to be deleted.
+   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * 'ReferenceHolding', 'TxnType'
    *
-   * @param {string} code
+   * @param {string} scope The scope of the property to be deleted
+   *
+   * @param {string} code The code of the property to be deleted
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -18823,11 +20209,16 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Create reference portfolio
+   *
+   * Create a new reference portfolio.
+   *
+   * @param {string} scope The intended scope of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.referencePortfolio]
+   * @param {object} [options.referencePortfolio] The portfolio creation request
+   * object
    *
    * @param {string} options.referencePortfolio.displayName
    *
@@ -18861,11 +20252,16 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Create reference portfolio
+   *
+   * Create a new reference portfolio.
+   *
+   * @param {string} scope The intended scope of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.referencePortfolio]
+   * @param {object} [options.referencePortfolio] The portfolio creation request
+   * object
    *
    * @param {string} options.referencePortfolio.displayName
    *
@@ -18921,6 +20317,8 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * Get constituents
+   *
    * @param {string} scope
    *
    * @param {string} code
@@ -18961,6 +20359,8 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * Get constituents
+   *
    * @param {string} scope
    *
    * @param {string} code
@@ -19024,6 +20424,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Add constituents
+   *
+   * Add constituents to the specified reference portfolio.
+   *
    * @param {string} scope
    *
    * @param {string} code
@@ -19058,6 +20462,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Add constituents
+   *
+   * Add constituents to the specified reference portfolio.
+   *
    * @param {string} scope
    *
    * @param {string} code
@@ -19116,21 +20524,28 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get results
    *
-   * @param {string} key
+   * Retrieve some previously stored results
    *
-   * @param {date} dateParameter
+   * @param {string} scope The scope of the data
+   *
+   * @param {string} key The key that identifies the data
+   *
+   * @param {date} dateParameter The date for which the data was loaded
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19156,21 +20571,28 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get results
    *
-   * @param {string} key
+   * Retrieve some previously stored results
    *
-   * @param {date} dateParameter
+   * @param {string} scope The scope of the data
+   *
+   * @param {string} key The key that identifies the data
+   *
+   * @param {date} dateParameter The date for which the data was loaded
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19218,15 +20640,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert results
    *
-   * @param {string} key
+   * Upsert pre-calculated results against a specified scope/key/date combination
    *
-   * @param {date} dateParameter
+   * @param {string} scope The scope of the data
+   *
+   * @param {string} key The key that identifies the data
+   *
+   * @param {date} dateParameter The date for which the data is relevant
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The results to upload
    *
    * @param {object} [options.request.data]
    *
@@ -19260,15 +20686,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert results
    *
-   * @param {string} key
+   * Upsert pre-calculated results against a specified scope/key/date combination
    *
-   * @param {date} dateParameter
+   * @param {string} scope The scope of the data
+   *
+   * @param {string} key The key that identifies the data
+   *
+   * @param {date} dateParameter The date for which the data is relevant
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The results to upload
    *
    * @param {object} [options.request.data]
    *
@@ -19324,13 +20754,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Aggregate using result data
    *
-   * @param {string} resultsKey
+   * Aggregate data from a previously-run Result data set into a flat row of
+   * results
+   *
+   * @param {string} scope The scope of the Result data set
+   *
+   * @param {string} resultsKey The key of the Result data set
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The request specifying the parameters of
+   * the aggregation
    *
    * @param {object} options.request.recipeId
    *
@@ -19354,11 +20790,14 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.sort]
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19384,13 +20823,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Aggregate using result data
    *
-   * @param {string} resultsKey
+   * Aggregate data from a previously-run Result data set into a flat row of
+   * results
+   *
+   * @param {string} scope The scope of the Result data set
+   *
+   * @param {string} resultsKey The key of the Result data set
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] The request specifying the parameters of
+   * the aggregation
    *
    * @param {object} options.request.recipeId
    *
@@ -19414,11 +20859,14 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.sort]
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19467,6 +20915,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary List entities
+   *
+   * List all available entities for which schema information is available.
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -19493,6 +20945,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary List entities
+   *
+   * List all available entities for which schema information is available.
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -19541,7 +20997,11 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} entity
+   * @summary Get schema
+   *
+   * Gets the schema and meta-data for a given entity
+   *
+   * @param {string} entity The name of a valid entity
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19569,7 +21029,11 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} entity
+   * @summary Get schema
+   *
+   * Gets the schema and meta-data for a given entity
+   *
+   * @param {string} entity The name of a valid entity
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19619,11 +21083,16 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get property schema
+   *
+   * Get the schemas for the provided list of property keys.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.propertyKeys]
+   * @param {array} [options.propertyKeys] One or more property keys for which
+   * the schema is requested
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19649,11 +21118,16 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get property schema
+   *
+   * Get the schemas for the provided list of property keys.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.propertyKeys]
+   * @param {array} [options.propertyKeys] One or more property keys for which
+   * the schema is requested
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19701,13 +21175,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get value types
+   *
+   * Gets the available value types for which a schema is available.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19733,13 +21214,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Get value types
+   *
+   * Gets the available value types for which a schema is available.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19788,17 +21276,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Search portfolio groups
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] A valid Elasticsearch 5.x request
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19824,17 +21318,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Search portfolio groups
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] A valid Elasticsearch 5.x request
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19883,17 +21383,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Search portfolios
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] A valid Elasticsearch 5.x request
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19919,17 +21425,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Search portfolios
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] A valid Elasticsearch 5.x request
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19978,17 +21490,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Search property definitions
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] A valid Elasticsearch 5.x request
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20014,17 +21532,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Search property definitions
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request]
+   * @param {object} [options.request] A valid Elasticsearch 5.x request
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20073,6 +21597,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary List transaction types
+   *
+   * Get the list of persisted transaction types
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -20099,6 +21627,10 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary List transaction types
+   *
+   * Get the list of persisted transaction types
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -20148,9 +21680,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Set transaction types
+   *
+   * Set all transaction types to be used by the movements engine, for the
+   * organisation
+   *
+   * WARNING! Changing these mappings will have a material impact on how data,
+   * new and old, is processed and aggregated by LUSID. This will affect your
+   * whole organisation. Only change if you are fully aware of the implications
+   * of the change.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.types]
+   * @param {array} [options.types] The complete set of transaction type
+   * definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20176,9 +21719,20 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Set transaction types
+   *
+   * Set all transaction types to be used by the movements engine, for the
+   * organisation
+   *
+   * WARNING! Changing these mappings will have a material impact on how data,
+   * new and old, is processed and aggregated by LUSID. This will affect your
+   * whole organisation. Only change if you are fully aware of the implications
+   * of the change.
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.types]
+   * @param {array} [options.types] The complete set of transaction type
+   * definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20227,9 +21781,14 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Create transaction type
+   *
+   * Create a new transaction type by specifying a definition and the mappings to
+   * movements
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.type]
+   * @param {object} [options.type] A transaction type definition
    *
    * @param {array} options.type.aliases List of transaction codes that map to
    * this specific transaction model
@@ -20260,9 +21819,14 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Create transaction type
+   *
+   * Create a new transaction type by specifying a definition and the mappings to
+   * movements
+   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.type]
+   * @param {object} [options.type] A transaction type definition
    *
    * @param {array} options.type.aliases List of transaction codes that map to
    * this specific transaction model
@@ -20316,11 +21880,16 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Create transaction portfolio
+   *
+   * Create a transaction portfolio in a specific scope
+   *
+   * @param {string} scope The scope into which the transaction portfolio will be
+   * created
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.createRequest]
+   * @param {object} [options.createRequest] The transaction portfolio definition
    *
    * @param {string} options.createRequest.displayName
    *
@@ -20371,11 +21940,16 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Create transaction portfolio
+   *
+   * Create a transaction portfolio in a specific scope
+   *
+   * @param {string} scope The scope into which the transaction portfolio will be
+   * created
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.createRequest]
+   * @param {object} [options.createRequest] The transaction portfolio definition
    *
    * @param {string} options.createRequest.displayName
    *
@@ -20448,15 +22022,22 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get portfolio details
    *
-   * @param {string} code
+   * Get the details document associated with a transaction portfolio
+   *
+   * When requesting details from a derived transaction portfolio, the returned
+   * set of details could come from a different transaction portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20482,15 +22063,22 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get portfolio details
    *
-   * @param {string} code
+   * Get the details document associated with a transaction portfolio
+   *
+   * When requesting details from a derived transaction portfolio, the returned
+   * set of details could come from a different transaction portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20538,17 +22126,24 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert details
    *
-   * @param {string} code
+   * Update the portfolio details for the specified transaction portfolios or add
+   * if it doesn't already exist (in the case of a derived transaction
+   * portfolio).
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.details]
+   * @param {object} [options.details] The set of details for the portfolio
    *
    * @param {string} [options.details.baseCurrency]
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20574,17 +22169,24 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert details
    *
-   * @param {string} code
+   * Update the portfolio details for the specified transaction portfolios or add
+   * if it doesn't already exist (in the case of a derived transaction
+   * portfolio).
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.details]
+   * @param {object} [options.details] The set of details for the portfolio
    *
    * @param {string} [options.details.baseCurrency]
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * change
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20632,27 +22234,40 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get holdings
    *
-   * @param {string} code
+   * Get the aggregate holdings of a transaction portfolio.  If no effectiveAt or
+   * asAt
+   * are supplied then values will be defaulted to the latest system time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {boolean} [options.byTaxlots]
+   * @param {boolean} [options.byTaxlots] Option to expand holdings to return the
+   * underlying tax-lots
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * portfolio
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys for the
+   * instrument property values to be decorated onto the holdings
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20678,27 +22293,40 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get holdings
    *
-   * @param {string} code
+   * Get the aggregate holdings of a transaction portfolio.  If no effectiveAt or
+   * asAt
+   * are supplied then values will be defaulted to the latest system time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {boolean} [options.byTaxlots]
+   * @param {boolean} [options.byTaxlots] Option to expand holdings to return the
+   * underlying tax-lots
    *
-   * @param {date} [options.effectiveAt]
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * portfolio
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys for the
+   * instrument property values to be decorated onto the holdings
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20747,15 +22375,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Set all holdings on a transaction portfolio
    *
-   * @param {string} code
+   * Prompt the creation of transactions in a specific transaction portfolio to
+   * bring all holdings to the specified targets
    *
-   * @param {date} effectiveAt
+   * @param {string} scope The scope of the transaction portfolio
+   *
+   * @param {string} code The code of the transaction portfolio
+   *
+   * @param {date} effectiveAt The effective date of the change
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.holdingAdjustments]
+   * @param {array} [options.holdingAdjustments] The complete set of holdings
+   * adjustments for the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20781,15 +22415,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Set all holdings on a transaction portfolio
    *
-   * @param {string} code
+   * Prompt the creation of transactions in a specific transaction portfolio to
+   * bring all holdings to the specified targets
    *
-   * @param {date} effectiveAt
+   * @param {string} scope The scope of the transaction portfolio
+   *
+   * @param {string} code The code of the transaction portfolio
+   *
+   * @param {date} effectiveAt The effective date of the change
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.holdingAdjustments]
+   * @param {array} [options.holdingAdjustments] The complete set of holdings
+   * adjustments for the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20837,15 +22477,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Adjust holdings
    *
-   * @param {string} code
+   * Adjust one or more holdings in a transaction portfolio
    *
-   * @param {date} effectiveAt
+   * Prompt the creation of transactions in a specific transaction portfolio to
+   * bring selected holdings to the specified targets
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {date} effectiveAt The effective date of the change
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.holdingAdjustments]
+   * @param {array} [options.holdingAdjustments] The selected set of holdings
+   * adjustments
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20871,15 +22519,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Adjust holdings
    *
-   * @param {string} code
+   * Adjust one or more holdings in a transaction portfolio
    *
-   * @param {date} effectiveAt
+   * Prompt the creation of transactions in a specific transaction portfolio to
+   * bring selected holdings to the specified targets
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {date} effectiveAt The effective date of the change
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.holdingAdjustments]
+   * @param {array} [options.holdingAdjustments] The selected set of holdings
+   * adjustments
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20927,11 +22583,15 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Cancel holdings adjustments
    *
-   * @param {string} code
+   * Cancel previous adjust-holdings for the portfolio for a specific date
    *
-   * @param {date} effectiveAt
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {date} effectiveAt The effective date of the change
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -20959,11 +22619,15 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Cancel holdings adjustments
    *
-   * @param {string} code
+   * Cancel previous adjust-holdings for the portfolio for a specific date
    *
-   * @param {date} effectiveAt
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {date} effectiveAt The effective date of the change
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -21013,17 +22677,24 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary List holdings adjustments
    *
-   * @param {string} code
+   * Get holdings adjustments from a transaction portfolio in an interval of
+   * effective time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromEffectiveAt]
+   * @param {date} [options.fromEffectiveAt] Holdings adjustments between this
+   * time (inclusive) and the toEffectiveAt are returned.
    *
-   * @param {date} [options.toEffectiveAt]
+   * @param {date} [options.toEffectiveAt] Holdings adjustments between this time
+   * (inclusive) and the fromEffectiveAt are returned.
    *
-   * @param {date} [options.asAtTime]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21049,17 +22720,24 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary List holdings adjustments
    *
-   * @param {string} code
+   * Get holdings adjustments from a transaction portfolio in an interval of
+   * effective time.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromEffectiveAt]
+   * @param {date} [options.fromEffectiveAt] Holdings adjustments between this
+   * time (inclusive) and the toEffectiveAt are returned.
    *
-   * @param {date} [options.toEffectiveAt]
+   * @param {date} [options.toEffectiveAt] Holdings adjustments between this time
+   * (inclusive) and the fromEffectiveAt are returned.
    *
-   * @param {date} [options.asAtTime]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21108,15 +22786,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get holding adjustment
    *
-   * @param {string} code
+   * Get a holdings adjustment for a transaction portfolio at a specific
+   * effective time.
    *
-   * @param {date} effectiveAt
+   * A holdings adjustment definition will only be returned if one exists for the
+   * specified effective time
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {date} effectiveAt The effective time of the holdings adjustment
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAtTime]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21142,15 +22828,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get holding adjustment
    *
-   * @param {string} code
+   * Get a holdings adjustment for a transaction portfolio at a specific
+   * effective time.
    *
-   * @param {date} effectiveAt
+   * A holdings adjustment definition will only be returned if one exists for the
+   * specified effective time
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {date} effectiveAt The effective time of the holdings adjustment
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAtTime]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21198,27 +22892,42 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get transactions
    *
-   * @param {string} code
+   * Get the transactions from a transaction portfolio
+   *
+   * When the requested portfolio is a derived transaction portfolio, the
+   * returned set of transactions is the union set of all transactions of the
+   * parent (and ancestors) and the specified portfolio.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromTransactionDate]
+   * @param {date} [options.fromTransactionDate] Optional. Limit the returned
+   * transactions to those with a transaction date equal or later than this date
    *
-   * @param {date} [options.toTransactionDate]
+   * @param {date} [options.toTransactionDate] Optional. Limit the returned
+   * transactions to those with a transaction date equal or before this date
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys for the
+   * instrument property values that will be decorated onto the transactions
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21244,27 +22953,42 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Get transactions
    *
-   * @param {string} code
+   * Get the transactions from a transaction portfolio
+   *
+   * When the requested portfolio is a derived transaction portfolio, the
+   * returned set of transactions is the union set of all transactions of the
+   * parent (and ancestors) and the specified portfolio.
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.fromTransactionDate]
+   * @param {date} [options.fromTransactionDate] Optional. Limit the returned
+   * transactions to those with a transaction date equal or later than this date
    *
-   * @param {date} [options.toTransactionDate]
+   * @param {date} [options.toTransactionDate] Optional. Limit the returned
+   * transactions to those with a transaction date equal or before this date
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys for the
+   * instrument property values that will be decorated onto the transactions
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21313,13 +23037,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert transactions into the specified transaction portfolio
    *
-   * @param {string} code
+   * Upsert transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.transactions]
+   * @param {array} [options.transactions] The transactions to be upserted
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21345,13 +23073,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Upsert transactions into the specified transaction portfolio
    *
-   * @param {string} code
+   * Upsert transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code for the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.transactions]
+   * @param {array} [options.transactions] The transactions to be upserted
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21400,13 +23132,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete transactions
    *
-   * @param {string} code
+   * Delete one or more transactions from a transaction portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.id]
+   * @param {array} [options.transactionIds] Ids of transactions to delete
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21432,13 +23168,17 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete transactions
    *
-   * @param {string} code
+   * Delete one or more transactions from a transaction portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.id]
+   * @param {array} [options.transactionIds] Ids of transactions to delete
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21486,15 +23226,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Add transaction properties
    *
-   * @param {string} code
+   * Upsert one or more transaction properties to a single transaction in a
+   * portfolio
    *
-   * @param {string} transactionId
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {string} transactionId Id of transaction
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.transactionProperties]
+   * @param {object} [options.transactionProperties] Transaction properties
+   * values
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21520,15 +23266,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Add transaction properties
    *
-   * @param {string} code
+   * Upsert one or more transaction properties to a single transaction in a
+   * portfolio
    *
-   * @param {string} transactionId
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {string} transactionId Id of transaction
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.transactionProperties]
+   * @param {object} [options.transactionProperties] Transaction properties
+   * values
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21577,15 +23329,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete transaction property
    *
-   * @param {string} code
+   * Delete a property value from a single transaction in a portfolio
    *
-   * @param {string} transactionId
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {string} transactionId Id of the transaction to delete the property
+   * from
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.transactionPropertyKey]
+   * @param {string} [options.transactionPropertyKey] The key of the property to
+   * be deleted
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21611,15 +23369,21 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Delete transaction property
    *
-   * @param {string} code
+   * Delete a property value from a single transaction in a portfolio
    *
-   * @param {string} transactionId
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {string} transactionId Id of the transaction to delete the property
+   * from
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.transactionPropertyKey]
+   * @param {string} [options.transactionPropertyKey] The key of the property to
+   * be deleted
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21667,25 +23431,35 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Build output transactions
    *
-   * @param {string} code
+   * Builds and returns the collection of all types of transactions that affect
+   * the holdings of a portfolio in to a set of output transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys for the
+   * instrument property values to be decorated onto the transactions
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
-   * @param {object} [options.parameters]
+   * @param {object} [options.parameters] Optional. Transaction query parameters
    *
    * @param {date} [options.parameters.startDate] The required set of
    * transactions should begin from this date
@@ -21724,25 +23498,35 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @param {string} scope
+   * @summary Build output transactions
    *
-   * @param {string} code
+   * Builds and returns the collection of all types of transactions that affect
+   * the holdings of a portfolio in to a set of output transactions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
    *
-   * @param {array} [options.instrumentPropertyKeys]
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys for the
+   * instrument property values to be decorated onto the transactions
    *
-   * @param {string} [options.filter]
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
-   * @param {object} [options.parameters]
+   * @param {object} [options.parameters] Optional. Transaction query parameters
    *
    * @param {date} [options.parameters.startDate] The required set of
    * transactions should begin from this date

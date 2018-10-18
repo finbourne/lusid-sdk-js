@@ -28,19 +28,25 @@
 class PortfoliosReconciliationRequest {
   /**
    * Create a PortfoliosReconciliationRequest.
-   * @member {object} left
-   * @member {object} [left.portfolioId]
+   * @member {object} left The specification of the left hand side of the
+   * portfolio reconciliation
+   * @member {object} [left.portfolioId] The id of the portfolio to be
+   * reconciled
    * @member {string} [left.portfolioId.scope]
    * @member {string} [left.portfolioId.code]
-   * @member {date} [left.effectiveAt]
-   * @member {date} [left.asAt]
-   * @member {object} right
-   * @member {object} [right.portfolioId]
+   * @member {date} [left.effectiveAt] The effective date of the portfolio
+   * @member {date} [left.asAt] Optional. The AsAt date of the portfolio
+   * @member {object} right The specification of the right hand side of the
+   * portfolio reconciliation
+   * @member {object} [right.portfolioId] The id of the portfolio to be
+   * reconciled
    * @member {string} [right.portfolioId.scope]
    * @member {string} [right.portfolioId.code]
-   * @member {date} [right.effectiveAt]
-   * @member {date} [right.asAt]
-   * @member {array} instrumentPropertyKeys
+   * @member {date} [right.effectiveAt] The effective date of the portfolio
+   * @member {date} [right.asAt] Optional. The AsAt date of the portfolio
+   * @member {array} instrumentPropertyKeys Instrument properties to be
+   * included with any identified breaks. These properties will be in the
+   * effective and AsAt dates of the left portfolio
    */
   constructor() {
   }
