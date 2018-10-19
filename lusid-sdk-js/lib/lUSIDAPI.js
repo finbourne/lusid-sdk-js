@@ -2301,18 +2301,21 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
 /**
  * @summary Create instrument
  *
- * Attempt to create one or more "client" instruments.
+ * Attempt to create one or more "client" instruments. Each instrument is keyed
+ * by some unique key. This key is unimportant, and serves only as a method to
+ * identify created instruments in the response.
  *
  * The response will return both the collection of successfully created
  * instruments, as well as those that were rejected and why their creation
- * failed.
+ * failed. They will be keyed against the key supplied in the
+ * request.
  *
  * It is important to always check the 'Failed' set for any unsuccessful
  * results.
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.definitions] The client instrument definitions
+ * @param {object} [options.definitions] The client instrument definitions
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2370,8 +2373,8 @@ function _batchAddClientInstruments(options, callback) {
         required: false,
         serializedName: 'definitions',
         type: {
-          name: 'Sequence',
-          element: {
+          name: 'Dictionary',
+          value: {
               required: false,
               serializedName: 'CreateClientInstrumentRequestElementType',
               type: {
@@ -15766,18 +15769,21 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Create instrument
    *
-   * Attempt to create one or more "client" instruments.
+   * Attempt to create one or more "client" instruments. Each instrument is keyed
+   * by some unique key. This key is unimportant, and serves only as a method to
+   * identify created instruments in the response.
    *
    * The response will return both the collection of successfully created
    * instruments, as well as those that were rejected and why their creation
-   * failed.
+   * failed. They will be keyed against the key supplied in the
+   * request.
    *
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.definitions] The client instrument definitions
+   * @param {object} [options.definitions] The client instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -15805,18 +15811,21 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Create instrument
    *
-   * Attempt to create one or more "client" instruments.
+   * Attempt to create one or more "client" instruments. Each instrument is keyed
+   * by some unique key. This key is unimportant, and serves only as a method to
+   * identify created instruments in the response.
    *
    * The response will return both the collection of successfully created
    * instruments, as well as those that were rejected and why their creation
-   * failed.
+   * failed. They will be keyed against the key supplied in the
+   * request.
    *
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.definitions] The client instrument definitions
+   * @param {object} [options.definitions] The client instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

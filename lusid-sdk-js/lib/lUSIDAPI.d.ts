@@ -1263,18 +1263,21 @@ export default class LUSIDAPI extends ServiceClient {
   /**
    * @summary Create instrument
    *
-   * Attempt to create one or more "client" instruments.
+   * Attempt to create one or more "client" instruments. Each instrument is keyed
+   * by some unique key. This key is unimportant, and serves only as a method to
+   * identify created instruments in the response.
    *
    * The response will return both the collection of successfully created
    * instruments, as well as those that were rejected and why their creation
-   * failed.
+   * failed. They will be keyed against the key supplied in the
+   * request.
    *
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.definitions] The client instrument definitions
+   * @param {object} [options.definitions] The client instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1285,23 +1288,26 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  batchAddClientInstrumentsWithHttpOperationResponse(options?: { definitions? : models.CreateClientInstrumentRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TryAddClientInstruments>>;
+  batchAddClientInstrumentsWithHttpOperationResponse(options?: { definitions? : { [propertyName: string]: models.CreateClientInstrumentRequest }, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TryAddClientInstruments>>;
 
   /**
    * @summary Create instrument
    *
-   * Attempt to create one or more "client" instruments.
+   * Attempt to create one or more "client" instruments. Each instrument is keyed
+   * by some unique key. This key is unimportant, and serves only as a method to
+   * identify created instruments in the response.
    *
    * The response will return both the collection of successfully created
    * instruments, as well as those that were rejected and why their creation
-   * failed.
+   * failed. They will be keyed against the key supplied in the
+   * request.
    *
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.definitions] The client instrument definitions
+   * @param {object} [options.definitions] The client instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1329,9 +1335,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  batchAddClientInstruments(options?: { definitions? : models.CreateClientInstrumentRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.TryAddClientInstruments>;
+  batchAddClientInstruments(options?: { definitions? : { [propertyName: string]: models.CreateClientInstrumentRequest }, customHeaders? : { [headerName: string]: string; } }): Promise<models.TryAddClientInstruments>;
   batchAddClientInstruments(callback: ServiceCallback<models.TryAddClientInstruments>): void;
-  batchAddClientInstruments(options: { definitions? : models.CreateClientInstrumentRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TryAddClientInstruments>): void;
+  batchAddClientInstruments(options: { definitions? : { [propertyName: string]: models.CreateClientInstrumentRequest }, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TryAddClientInstruments>): void;
 
 
   /**
