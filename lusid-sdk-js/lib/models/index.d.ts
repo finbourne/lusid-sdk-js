@@ -142,7 +142,8 @@ export interface ErrorDetailBase {
  * 'FeatureNotSupportedOnPortfolioType', 'QuoteNotFoundFailure',
  * 'ReferencePortfolioRequestNotSupported',
  * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
- * 'InstrumentUpsertFailure'
+ * 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
+ * 'TransactionTypeDuplication'
  * @member {string} [message]
  * @member {string} [detailedMessage]
  * @member {array} [items]
@@ -1345,6 +1346,23 @@ export interface PortfoliosReconciliationRequest {
 
 /**
  * @class
+ * Initializes a new instance of the PerpetualProperty class.
+ * @constructor
+ * This is intended to be the external facing unitemporal property
+ * specification data type.
+ *
+ * @member {string} key
+ * @member {object} value
+ * @member {string} [unit]
+ */
+export interface PerpetualProperty {
+  key: string;
+  value: any;
+  readonly unit?: string;
+}
+
+/**
+ * @class
  * Initializes a new instance of the CurrencyAndAmount class.
  * @constructor
  * @member {number} [amount]
@@ -1381,7 +1399,7 @@ export interface CurrencyAndAmount {
  */
 export interface ReconciliationBreak {
   instrumentUid: string;
-  subHoldingKeys: Property[];
+  subHoldingKeys: PerpetualProperty[];
   leftUnits: number;
   rightUnits: number;
   differenceUnits: number;
@@ -2082,23 +2100,6 @@ export interface PortfolioDetails {
  */
 export interface CreatePortfolioDetails {
   baseCurrency?: string;
-}
-
-/**
- * @class
- * Initializes a new instance of the PerpetualProperty class.
- * @constructor
- * This is intended to be the external facing unitemporal property
- * specification data type.
- *
- * @member {string} key
- * @member {object} value
- * @member {string} [unit]
- */
-export interface PerpetualProperty {
-  key: string;
-  value: any;
-  readonly unit?: string;
 }
 
 /**

@@ -71,7 +71,8 @@ class ErrorResponse {
    * 'FeatureNotSupportedOnPortfolioType', 'QuoteNotFoundFailure',
    * 'ReferencePortfolioRequestNotSupported',
    * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
-   * 'InstrumentUpsertFailure'
+   * 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
+   * 'TransactionTypeDuplication'
    * @member {string} [message]
    * @member {string} [detailedMessage]
    * @member {array} [items]
