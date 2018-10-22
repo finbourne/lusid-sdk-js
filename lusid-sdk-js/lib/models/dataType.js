@@ -41,7 +41,7 @@ class DataType {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue'
+   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
    * @member {array} [acceptableValues]
    * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
    * 'Iso4217Currency'

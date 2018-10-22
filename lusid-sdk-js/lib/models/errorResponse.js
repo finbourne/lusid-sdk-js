@@ -68,8 +68,8 @@ class ErrorResponse {
    * 'InvalidInstrumentIdentifierUnit', 'HoldingsAdjustmentDoesNotExist',
    * 'CouldNotBuildExcelUrl', 'CouldNotGetExcelVersion',
    * 'InstrumentByCodeNotFound', 'EntitySchemaDoesNotExist',
-   * 'FeatureNotSupportedOnPortfolioType', 'QuotePublishFailure',
-   * 'QuoteQueryFailure', 'ReferencePortfolioRequestNotSupported',
+   * 'FeatureNotSupportedOnPortfolioType', 'QuoteNotFoundFailure',
+   * 'ReferencePortfolioRequestNotSupported',
    * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
    * 'InstrumentUpsertFailure'
    * @member {string} [message]

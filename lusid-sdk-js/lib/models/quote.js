@@ -23,58 +23,58 @@
 'use strict';
 
 /**
- * Class representing a KeyValuePairOfPropertyKeyToFieldSchema.
+ * Class representing a Quote.
  */
-class KeyValuePairOfPropertyKeyToFieldSchema {
+class Quote {
   /**
-   * Create a KeyValuePairOfPropertyKeyToFieldSchema.
-   * @member {string} [key]
-   * @member {object} [value]
-   * @member {string} [value.scope]
-   * @member {string} [value.name]
-   * @member {string} [value.displayName]
-   * @member {string} [value.type] Possible values include: 'String', 'Int',
-   * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
-   * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
-   * @member {boolean} [value.isMetric]
-   * @member {number} [value.displayOrder]
-   * @member {object} [value.propertySchema]
+   * Create a Quote.
+   * @member {string} id
+   * @member {object} metricValue
+   * @member {number} [metricValue.value]
+   * @member {string} [metricValue.unit]
+   * @member {object} [version]
+   * @member {date} [version.effectiveFrom]
+   * @member {date} [version.asAtDate]
+   * @member {string} [version.href]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * Defines the metadata of Quote
    *
-   * @returns {object} metadata of KeyValuePairOfPropertyKeyToFieldSchema
+   * @returns {object} metadata of Quote
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'KeyValuePairOfPropertyKeyToFieldSchema',
+      serializedName: 'Quote',
       type: {
         name: 'Composite',
-        className: 'KeyValuePairOfPropertyKeyToFieldSchema',
+        className: 'Quote',
         modelProperties: {
-          key: {
-            required: false,
-            readOnly: true,
-            serializedName: 'key',
+          id: {
+            required: true,
+            serializedName: 'id',
             type: {
               name: 'String'
             }
           },
-          value: {
-            required: false,
-            readOnly: true,
-            serializedName: 'value',
+          metricValue: {
+            required: true,
+            serializedName: 'metricValue',
             type: {
               name: 'Composite',
-              className: 'FieldSchema'
+              className: 'MetricValue'
+            }
+          },
+          version: {
+            required: false,
+            serializedName: 'version',
+            type: {
+              name: 'Composite',
+              className: 'Version'
             }
           }
         }
@@ -83,4 +83,4 @@ class KeyValuePairOfPropertyKeyToFieldSchema {
   }
 }
 
-module.exports = KeyValuePairOfPropertyKeyToFieldSchema;
+module.exports = Quote;

@@ -53,7 +53,7 @@ export interface AnalyticStoreKey {
  * @constructor
  * @member {string} relation Possible values include: 'Root', 'Properties',
  * 'Transactions', 'Details', 'Constituents', 'Holdings', 'Commands',
- * 'HoldingsAdjustments', 'Parent', 'PropertySchema', 'EntitySchema'
+ * 'HoldingsAdjustments', 'Parent', 'PropertySchema', 'EntitySchema', 'Quote'
  * @member {string} href
  * @member {string} [description]
  * @member {string} method Possible values include: 'POST', 'GET', 'PATCH',
@@ -139,8 +139,8 @@ export interface ErrorDetailBase {
  * 'InvalidInstrumentIdentifierUnit', 'HoldingsAdjustmentDoesNotExist',
  * 'CouldNotBuildExcelUrl', 'CouldNotGetExcelVersion',
  * 'InstrumentByCodeNotFound', 'EntitySchemaDoesNotExist',
- * 'FeatureNotSupportedOnPortfolioType', 'QuotePublishFailure',
- * 'QuoteQueryFailure', 'ReferencePortfolioRequestNotSupported',
+ * 'FeatureNotSupportedOnPortfolioType', 'QuoteNotFoundFailure',
+ * 'ReferencePortfolioRequestNotSupported',
  * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
  * 'InstrumentUpsertFailure'
  * @member {string} [message]
@@ -374,7 +374,7 @@ export interface CreateUnitDefinition {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue'
+ * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
@@ -425,7 +425,7 @@ export interface IUnitDefinition {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue'
+ * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
@@ -475,7 +475,7 @@ export interface ResourceListOfDataType {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue'
+ * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
  * @member {array} [acceptableValues]
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
@@ -995,7 +995,7 @@ export interface AggregationRequest {
  * 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue'
+ * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
  * @member {boolean} [isMetric]
  * @member {number} [displayOrder]
  * @member {object} [propertySchema]
@@ -1024,7 +1024,7 @@ export interface FieldSchema {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue'
+ * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]
@@ -1448,7 +1448,7 @@ export interface CreatePropertyDefinitionRequest {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue'
+ * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
  * @member {boolean} [valueRequired]
  * @member {string} [displayName]
  * @member {object} [dataTypeId]
@@ -1518,6 +1518,91 @@ export interface UpdatePropertyDefinitionRequest {
   dataTypeId?: ResourceId;
   lifeTime?: string;
   type?: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the Quote class.
+ * @constructor
+ * @member {string} id
+ * @member {object} metricValue
+ * @member {number} [metricValue.value]
+ * @member {string} [metricValue.unit]
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.href]
+ */
+export interface Quote {
+  id: string;
+  metricValue: MetricValue;
+  version?: Version;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the ResourceListOfQuote class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [links]
+ */
+export interface ResourceListOfQuote {
+  values?: Quote[];
+  href?: string;
+  count?: number;
+  links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the UpsertQuoteRequest class.
+ * @constructor
+ * @member {string} id
+ * @member {object} metricValue
+ * @member {number} [metricValue.value]
+ * @member {string} [metricValue.unit]
+ */
+export interface UpsertQuoteRequest {
+  id: string;
+  metricValue: MetricValue;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the UpsertQuotesResponse class.
+ * @constructor
+ * The response given from the UpsertQuotes Api call
+ *
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.href]
+ * @member {array} [links]
+ */
+export interface UpsertQuotesResponse {
+  version?: Version;
+  links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the DeleteQuotesResponse class.
+ * @constructor
+ * The response given from the DeleteQuotes Api call
+ *
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.href]
+ * @member {array} [links]
+ */
+export interface DeleteQuotesResponse {
+  version?: Version;
+  links?: Link[];
 }
 
 /**
@@ -1686,7 +1771,7 @@ export interface ResourceListOfString {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue'
+ * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
  * @member {boolean} [value.isMetric]
  * @member {number} [value.displayOrder]
  * @member {object} [value.propertySchema]

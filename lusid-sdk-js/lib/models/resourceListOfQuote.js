@@ -23,94 +23,75 @@
 'use strict';
 
 /**
- * Class representing a FieldSchema.
+ * Class representing a ResourceListOfQuote.
  */
-class FieldSchema {
+class ResourceListOfQuote {
   /**
-   * Create a FieldSchema.
-   * @member {string} [scope]
-   * @member {string} [name]
-   * @member {string} [displayName]
-   * @member {string} [type] Possible values include: 'String', 'Int',
-   * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-   * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-   * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
-   * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
-   * @member {boolean} [isMetric]
-   * @member {number} [displayOrder]
-   * @member {object} [propertySchema]
+   * Create a ResourceListOfQuote.
+   * @member {array} [values]
+   * @member {string} [href] The Uri that returns the same result as the
+   * original request,
+   * but may include resolved as at time(s).
+   * @member {number} [count] The total number of records returned in the set
+   * @member {array} [links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of FieldSchema
+   * Defines the metadata of ResourceListOfQuote
    *
-   * @returns {object} metadata of FieldSchema
+   * @returns {object} metadata of ResourceListOfQuote
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'FieldSchema',
+      serializedName: 'ResourceListOfQuote',
       type: {
         name: 'Composite',
-        className: 'FieldSchema',
+        className: 'ResourceListOfQuote',
         modelProperties: {
-          scope: {
+          values: {
             required: false,
-            serializedName: 'scope',
+            serializedName: 'values',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'QuoteElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Quote'
+                  }
+              }
+            }
+          },
+          href: {
+            required: false,
+            serializedName: 'href',
             type: {
               name: 'String'
             }
           },
-          name: {
+          count: {
             required: false,
-            serializedName: 'name',
-            type: {
-              name: 'String'
-            }
-          },
-          displayName: {
-            required: false,
-            serializedName: 'displayName',
-            type: {
-              name: 'String'
-            }
-          },
-          type: {
-            required: false,
-            serializedName: 'type',
-            type: {
-              name: 'String'
-            }
-          },
-          isMetric: {
-            required: false,
-            serializedName: 'isMetric',
-            type: {
-              name: 'Boolean'
-            }
-          },
-          displayOrder: {
-            required: false,
-            serializedName: 'displayOrder',
+            serializedName: 'count',
             type: {
               name: 'Number'
             }
           },
-          propertySchema: {
+          links: {
             required: false,
-            serializedName: 'propertySchema',
+            serializedName: 'links',
             type: {
-              name: 'Dictionary',
-              value: {
+              name: 'Sequence',
+              element: {
                   required: false,
-                  serializedName: 'FieldSchemaElementType',
+                  serializedName: 'LinkElementType',
                   type: {
                     name: 'Composite',
-                    className: 'FieldSchema'
+                    className: 'Link'
                   }
               }
             }
@@ -121,4 +102,4 @@ class FieldSchema {
   }
 }
 
-module.exports = FieldSchema;
+module.exports = ResourceListOfQuote;

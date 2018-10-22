@@ -38,7 +38,7 @@ class KeyValuePairOfStringToFieldSchema {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue'
+   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
    * @member {boolean} [value.isMetric]
    * @member {number} [value.displayOrder]
    * @member {object} [value.propertySchema]

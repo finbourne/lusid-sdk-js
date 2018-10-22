@@ -623,7 +623,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue'
+   * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -670,7 +670,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue'
+   * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -897,7 +897,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue'
+   * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -946,7 +946,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue'
+   * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -4683,6 +4683,249 @@ export default class LUSIDAPI extends ServiceClient {
   deletePropertyDefinition(domain: string, scope: string, code: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
   deletePropertyDefinition(domain: string, scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
   deletePropertyDefinition(domain: string, scope: string, code: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+
+
+  /**
+   * @summary Get quotes
+   *
+   * Get quotes effective at the specified date/time (if any). An optional
+   * maximum age of quotes can be specified, and is infinite by default.
+   * Quotes which are older than this at the time of the effective date/time will
+   * not be returned.
+   * MaxAge is a duration of time represented in an ISO8601 format, eg.
+   * P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).
+   * The results are paged, and by default the 1st page of results is returned
+   * with a limit of 100 results per page
+   *
+   * @param {string} scope The scope of the quotes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.quoteIds] The ids of the quotes
+   *
+   * @param {date} [options.effectiveAt] Optional. The date/time from which the
+   * quotes are effective
+   *
+   * @param {date} [options.asAt] Optional. The 'AsAt' date/time
+   *
+   * @param {string} [options.maxAge] Optional. The quote staleness tolerance
+   *
+   * @param {number} [options.page] Optional. The page of results to return
+   *
+   * @param {number} [options.limit] Optional. The number of results per page
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfQuote>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getQuotesWithHttpOperationResponse(scope: string, options?: { quoteIds? : string[], effectiveAt? : Date, asAt? : Date, maxAge? : string, page? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfQuote>>;
+
+  /**
+   * @summary Get quotes
+   *
+   * Get quotes effective at the specified date/time (if any). An optional
+   * maximum age of quotes can be specified, and is infinite by default.
+   * Quotes which are older than this at the time of the effective date/time will
+   * not be returned.
+   * MaxAge is a duration of time represented in an ISO8601 format, eg.
+   * P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).
+   * The results are paged, and by default the 1st page of results is returned
+   * with a limit of 100 results per page
+   *
+   * @param {string} scope The scope of the quotes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.quoteIds] The ids of the quotes
+   *
+   * @param {date} [options.effectiveAt] Optional. The date/time from which the
+   * quotes are effective
+   *
+   * @param {date} [options.asAt] Optional. The 'AsAt' date/time
+   *
+   * @param {string} [options.maxAge] Optional. The quote staleness tolerance
+   *
+   * @param {number} [options.page] Optional. The page of results to return
+   *
+   * @param {number} [options.limit] Optional. The number of results per page
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfQuote} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfQuote} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfQuote} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getQuotes(scope: string, options?: { quoteIds? : string[], effectiveAt? : Date, asAt? : Date, maxAge? : string, page? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfQuote>;
+  getQuotes(scope: string, callback: ServiceCallback<models.ResourceListOfQuote>): void;
+  getQuotes(scope: string, options: { quoteIds? : string[], effectiveAt? : Date, asAt? : Date, maxAge? : string, page? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfQuote>): void;
+
+
+  /**
+   * @summary Add quotes
+   *
+   * Add quotes effective at the specified time. If a quote is added with the
+   * same id (and is effective at the same time) as an existing quote, then the
+   * more recently added quote will be returned when queried
+   *
+   * @param {string} scope The scope of the quotes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.quotes] The quotes to add
+   *
+   * @param {date} [options.effectiveAt] Optional. The date/time from which the
+   * quotes are effective
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<UpsertQuotesResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  upsertQuotesWithHttpOperationResponse(scope: string, options?: { quotes? : models.UpsertQuoteRequest[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertQuotesResponse>>;
+
+  /**
+   * @summary Add quotes
+   *
+   * Add quotes effective at the specified time. If a quote is added with the
+   * same id (and is effective at the same time) as an existing quote, then the
+   * more recently added quote will be returned when queried
+   *
+   * @param {string} scope The scope of the quotes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.quotes] The quotes to add
+   *
+   * @param {date} [options.effectiveAt] Optional. The date/time from which the
+   * quotes are effective
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {UpsertQuotesResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {UpsertQuotesResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link UpsertQuotesResponse} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  upsertQuotes(scope: string, options?: { quotes? : models.UpsertQuoteRequest[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertQuotesResponse>;
+  upsertQuotes(scope: string, callback: ServiceCallback<models.UpsertQuotesResponse>): void;
+  upsertQuotes(scope: string, options: { quotes? : models.UpsertQuoteRequest[], effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertQuotesResponse>): void;
+
+
+  /**
+   * @summary Delete a quote
+   *
+   * Delete the specified quote. In order for a quote to be deleted the id and
+   * effectiveFrom date must exactly match.
+   *
+   * @param {string} scope The scope of the quote
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.id] The quote id
+   *
+   * @param {date} [options.effectiveFrom] The date/time from which the quote is
+   * effective
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<DeleteQuotesResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  deleteQuoteWithHttpOperationResponse(scope: string, options?: { id? : string, effectiveFrom? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeleteQuotesResponse>>;
+
+  /**
+   * @summary Delete a quote
+   *
+   * Delete the specified quote. In order for a quote to be deleted the id and
+   * effectiveFrom date must exactly match.
+   *
+   * @param {string} scope The scope of the quote
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.id] The quote id
+   *
+   * @param {date} [options.effectiveFrom] The date/time from which the quote is
+   * effective
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {DeleteQuotesResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {DeleteQuotesResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DeleteQuotesResponse} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  deleteQuote(scope: string, options?: { id? : string, effectiveFrom? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeleteQuotesResponse>;
+  deleteQuote(scope: string, callback: ServiceCallback<models.DeleteQuotesResponse>): void;
+  deleteQuote(scope: string, options: { id? : string, effectiveFrom? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeleteQuotesResponse>): void;
 
 
   /**
