@@ -1780,6 +1780,60 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Download the LUSID Excel Addin
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.version]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  getExcelAddinWithHttpOperationResponse(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
+
+  /**
+   * @summary Download the LUSID Excel Addin
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.version]
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {String} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {String} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getExcelAddin(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<string>;
+  getExcelAddin(callback: ServiceCallback<string>): void;
+  getExcelAddin(options: { version? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
+
+
+  /**
    * @summary Get LUSID versions
    *
    * Get the semantic versions associated with LUSID and its ecosystem
