@@ -31,8 +31,6 @@ class ReferencePortfolioConstituentRequest {
    * @member {string} [instrumentUid]
    * @member {object} [properties]
    * @member {number} [weight]
-   * @member {string} [type] Possible values include: 'Shares', 'Weight',
-   * 'Nominal'
    */
   constructor() {
   }
@@ -78,13 +76,6 @@ class ReferencePortfolioConstituentRequest {
             serializedName: 'weight',
             type: {
               name: 'Number'
-            }
-          },
-          type: {
-            required: false,
-            serializedName: 'type',
-            type: {
-              name: 'String'
             }
           }
         }

@@ -1504,9 +1504,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.codeType] The type of identifiers. Possible values
-   * include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-   * 'Wertpapier'
+   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+   * 'ShareClassFigi', 'Wertpapier'
    *
    * @param {array} [options.codes] One or more identifiers of the type specified
    * in the codeType
@@ -1544,9 +1544,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options] Optional Parameters.
    *
    * @param {string} [options.codeType] The type of identifiers. Possible values
-   * include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-   * 'Wertpapier'
+   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+   * 'ShareClassFigi', 'Wertpapier'
    *
    * @param {array} [options.codes] One or more identifiers of the type specified
    * in the codeType

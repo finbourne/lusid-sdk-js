@@ -1660,14 +1660,11 @@ export interface PerpetualPropertyValue {
  * @member {string} [instrumentUid]
  * @member {object} [properties]
  * @member {number} [weight]
- * @member {string} [type] Possible values include: 'Shares', 'Weight',
- * 'Nominal'
  */
 export interface ReferencePortfolioConstituentRequest {
   instrumentUid?: string;
   properties?: { [propertyName: string]: PerpetualPropertyValue };
   weight?: number;
-  type?: string;
 }
 
 /**
@@ -1694,14 +1691,11 @@ export interface UpsertReferencePortfolioConstituentsResponse {
  * @member {string} [instrumentUid]
  * @member {array} [properties]
  * @member {number} [weight]
- * @member {string} [type] Possible values include: 'Shares', 'Weight',
- * 'Nominal'
  */
 export interface ReferencePortfolioConstituent {
   instrumentUid?: string;
   properties?: Property[];
   weight?: number;
-  type?: string;
 }
 
 /**
