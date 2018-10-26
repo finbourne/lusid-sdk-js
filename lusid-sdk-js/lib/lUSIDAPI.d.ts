@@ -4343,7 +4343,8 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition] The definition of the new property
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
+   * 'Instrument'
    *
    * @param {string} [options.definition.scope]
    *
@@ -4384,7 +4385,8 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition] The definition of the new property
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
+   * 'Instrument'
    *
    * @param {string} [options.definition.scope]
    *
@@ -4441,7 +4443,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType'
+   * 'ReferenceHolding', 'TxnType', 'Instrument'
    *
    * @param {string} scope The scope of the requested property
    *
@@ -4467,7 +4469,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType'
+   * 'ReferenceHolding', 'TxnType', 'Instrument'
    *
    * @param {string} scope The scope of the requested property
    *
@@ -4516,7 +4518,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property being updated.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType'
+   * 'ReferenceHolding', 'TxnType', 'Instrument'
    *
    * @param {string} scope The scope of the property to be updated
    *
@@ -4562,7 +4564,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property being updated.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType'
+   * 'ReferenceHolding', 'TxnType', 'Instrument'
    *
    * @param {string} scope The scope of the property to be updated
    *
@@ -4623,7 +4625,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType'
+   * 'ReferenceHolding', 'TxnType', 'Instrument'
    *
    * @param {string} scope The scope of the property to be deleted
    *
@@ -4647,7 +4649,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType'
+   * 'ReferenceHolding', 'TxnType', 'Instrument'
    *
    * @param {string} scope The scope of the property to be deleted
    *

@@ -47,7 +47,7 @@ class PropertyDefinition {
    * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
    * 'Iso4217Currency'
    * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument'
    * @member {string} [scope]
    * @member {string} [code]
    * @member {array} [links]

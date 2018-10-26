@@ -130,7 +130,8 @@ export interface ErrorDetailBase {
  * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
  * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
  * 'InvalidRequestHeaders', 'PriceNotFound', 'InvalidSubHoldingKeysProvided',
- * 'DuplicateSubHoldingKeysProvided', 'ServerConfigurationError',
+ * 'DuplicateSubHoldingKeysProvided', 'CutDefinitionNotFound',
+ * 'CutDefinitionInvalid', 'ServerConfigurationError',
  * 'InvalidUnitForDataType', 'InvalidTypeForDataType',
  * 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
  * 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
@@ -143,7 +144,7 @@ export interface ErrorDetailBase {
  * 'ReferencePortfolioRequestNotSupported',
  * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
  * 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
- * 'TransactionTypeDuplication'
+ * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment'
  * @member {string} [message]
  * @member {string} [detailedMessage]
  * @member {array} [items]
@@ -1432,7 +1433,7 @@ export interface ResourceListOfReconciliationBreak {
  * Initializes a new instance of the CreatePropertyDefinitionRequest class.
  * @constructor
  * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument'
  * @member {string} [scope]
  * @member {string} [code]
  * @member {boolean} [valueRequired]
@@ -1478,7 +1479,7 @@ export interface CreatePropertyDefinitionRequest {
  * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
  * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
- * 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+ * 'Security', 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument'
  * @member {string} [scope]
  * @member {string} [code]
  * @member {array} [links]

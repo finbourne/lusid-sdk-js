@@ -59,7 +59,8 @@ class ErrorResponse {
    * 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
    * 'AccrualSourceNotFound', 'EntitlementsFailure', 'InvalidIdentityToken',
    * 'InvalidRequestHeaders', 'PriceNotFound', 'InvalidSubHoldingKeysProvided',
-   * 'DuplicateSubHoldingKeysProvided', 'ServerConfigurationError',
+   * 'DuplicateSubHoldingKeysProvided', 'CutDefinitionNotFound',
+   * 'CutDefinitionInvalid', 'ServerConfigurationError',
    * 'InvalidUnitForDataType', 'InvalidTypeForDataType',
    * 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
    * 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
@@ -72,7 +73,7 @@ class ErrorResponse {
    * 'ReferencePortfolioRequestNotSupported',
    * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
    * 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
-   * 'TransactionTypeDuplication'
+   * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment'
    * @member {string} [message]
    * @member {string} [detailedMessage]
    * @member {array} [items]
