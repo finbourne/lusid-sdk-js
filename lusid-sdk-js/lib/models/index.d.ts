@@ -2099,6 +2099,46 @@ export interface CreatePortfolioDetails {
 
 /**
  * @class
+ * Initializes a new instance of the ExecutionRequest class.
+ * @constructor
+ * @member {string} executionId FIX Field 17.  Unique execution identifier.
+ * @member {string} side FIX Field 54.
+ * @member {string} instrumentUid Unique instrument identifier.
+ * @member {date} transactTime FIX field 60.  Time the transaction represented
+ * by this ExecutionReport occurred.
+ * @member {number} orderQty FIX field 38.  Order quantity.
+ * @member {number} price FIX field 44.
+ * @member {string} currency FIX field 15.
+ */
+export interface ExecutionRequest {
+  executionId: string;
+  side: string;
+  instrumentUid: string;
+  transactTime: Date;
+  orderQty: number;
+  price: number;
+  currency: string;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the UpsertPortfolioExecutionsResponse class.
+ * @constructor
+ * @member {object} [version]
+ * @member {date} [version.effectiveFrom]
+ * @member {date} [version.asAtDate]
+ * @member {string} [version.href]
+ * @member {string} [href]
+ * @member {array} [links]
+ */
+export interface UpsertPortfolioExecutionsResponse {
+  version?: Version;
+  href?: string;
+  links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the TransactionPrice class.
  * @constructor
  * A price with its associated type

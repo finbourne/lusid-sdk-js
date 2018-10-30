@@ -6443,6 +6443,70 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Upsert executions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.executions] The executions to be updated
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<UpsertPortfolioExecutionsResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  upsertExecutionsWithHttpOperationResponse(scope: string, code: string, options?: { executions? : models.ExecutionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertPortfolioExecutionsResponse>>;
+
+  /**
+   * @summary Upsert executions
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.executions] The executions to be updated
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {UpsertPortfolioExecutionsResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {UpsertPortfolioExecutionsResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link UpsertPortfolioExecutionsResponse} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  upsertExecutions(scope: string, code: string, options?: { executions? : models.ExecutionRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertPortfolioExecutionsResponse>;
+  upsertExecutions(scope: string, code: string, callback: ServiceCallback<models.UpsertPortfolioExecutionsResponse>): void;
+  upsertExecutions(scope: string, code: string, options: { executions? : models.ExecutionRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertPortfolioExecutionsResponse>): void;
+
+
+  /**
    * @summary Get holdings
    *
    * Get the aggregate holdings of a transaction portfolio.  If no effectiveAt or
