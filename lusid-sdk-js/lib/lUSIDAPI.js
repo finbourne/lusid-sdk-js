@@ -3375,11 +3375,14 @@ function _getExcelDownloadUrl(options, callback) {
 }
 
 /**
- * @summary Download the LUSID Excel Addin
+ * @summary Download Excel Addin
+ *
+ * Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific
+ * value will return the latest version being returned
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.version]
+ * @param {string} [options.version] The requested version of the Excel plugin
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3822,7 +3825,8 @@ function _getPersonalisations(options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.personalisations]
+ * @param {array} [options.personalisations] The set of personalisations to
+ * persist
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -8195,7 +8199,9 @@ function _reconcileHoldings(options, callback) {
 }
 
 /**
- * @summary Get one or more property definitions
+ * @summary Get multiple property definitions
+ *
+ * Get one or more property definitions
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -8397,6 +8403,8 @@ function _getMultiplePropertyDefinitions(options, callback) {
 /**
  * @summary Define a new property
  *
+ * Create a new property definition
+ *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.definition] The definition of the new property
@@ -8544,7 +8552,9 @@ function _createPropertyDefinition(options, callback) {
 }
 
 /**
- * @summary Retrieve the definition for the identified property
+ * @summary Get property definition
+ *
+ * Retrieve the definition for the identified property
  *
  * @param {string} domain The Property Domain of the requested property.
  * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
@@ -8861,7 +8871,9 @@ function _updatePropertyDefinition(domain, scope, code, options, callback) {
 }
 
 /**
- * @summary Delete the definition of the specified property
+ * @summary Delete property definition
+ *
+ * Delete the definition of the specified property
  *
  * @param {string} domain The Property Domain of the property to be deleted.
  * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
@@ -9656,23 +9668,28 @@ function _createReferencePortfolio(scope, options, callback) {
 }
 
 /**
- * Get constituents
+ * @summary Get constituents
  *
- * @param {string} scope
+ * Get all the constituents in the specified reference portfolio
  *
- * @param {string} code
+ * @param {string} scope The scope of the portfolio
  *
- * @param {date} effectiveAt
+ * @param {string} code The scope of the portfolio
+ *
+ * @param {date} effectiveAt Optional. The effective date of the data
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt]
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
- * @param {array} [options.sortBy]
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
- * @param {number} [options.start]
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
  *
- * @param {number} [options.limit]
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -9845,15 +9862,16 @@ function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, c
  *
  * Add constituents to the specified reference portfolio.
  *
- * @param {string} scope
+ * @param {string} scope The scope of the portfolio
  *
- * @param {string} code
+ * @param {string} code The code of the portfolio
  *
- * @param {date} effectiveAt
+ * @param {date} effectiveAt Optional. The effective date of the data
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.constituents]
+ * @param {array} [options.constituents] The constituents to upload to the
+ * portfolio
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -11114,6 +11132,8 @@ function _getValueTypes(options, callback) {
 /**
  * @summary Search portfolio groups
  *
+ * Search through all portfolio groups
+ *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.request] A valid Elasticsearch 5.x request
@@ -11309,6 +11329,8 @@ function _portfolioGroupsSearch(options, callback) {
 /**
  * @summary Search portfolios
  *
+ * Search through all portfolios
+ *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.request] A valid Elasticsearch 5.x request
@@ -11503,6 +11525,8 @@ function _portfoliosSearch(options, callback) {
 
 /**
  * @summary Search property definitions
+ *
+ * Search through all property definitions
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -12574,9 +12598,11 @@ function _upsertPortfolioDetails(scope, code, options, callback) {
 /**
  * @summary Upsert executions
  *
+ * Inserts new executions, or updates those already present
+ *
  * @param {string} scope The scope of the portfolio
  *
- * @param {string} code Code for the portfolio
+ * @param {string} code The code of the portfolio
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -17284,11 +17310,14 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Download the LUSID Excel Addin
+   * @summary Download Excel Addin
+   *
+   * Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific
+   * value will return the latest version being returned
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.version]
+   * @param {string} [options.version] The requested version of the Excel plugin
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17314,11 +17343,14 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Download the LUSID Excel Addin
+   * @summary Download Excel Addin
+   *
+   * Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific
+   * value will return the latest version being returned
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.version]
+   * @param {string} [options.version] The requested version of the Excel plugin
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17576,7 +17608,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.personalisations]
+   * @param {array} [options.personalisations] The set of personalisations to
+   * persist
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17608,7 +17641,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.personalisations]
+   * @param {array} [options.personalisations] The set of personalisations to
+   * persist
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -20537,7 +20571,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Get one or more property definitions
+   * @summary Get multiple property definitions
+   *
+   * Get one or more property definitions
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -20582,7 +20618,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Get one or more property definitions
+   * @summary Get multiple property definitions
+   *
+   * Get one or more property definitions
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -20652,6 +20690,8 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Define a new property
    *
+   * Create a new property definition
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.definition] The definition of the new property
@@ -20705,6 +20745,8 @@ class LUSIDAPI extends ServiceClient {
 
   /**
    * @summary Define a new property
+   *
+   * Create a new property definition
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -20780,7 +20822,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Retrieve the definition for the identified property
+   * @summary Get property definition
+   *
+   * Retrieve the definition for the identified property
    *
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
@@ -20818,7 +20862,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Retrieve the definition for the identified property
+   * @summary Get property definition
+   *
+   * Retrieve the definition for the identified property
    *
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
@@ -21016,7 +21062,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Delete the definition of the specified property
+   * @summary Delete property definition
+   *
+   * Delete the definition of the specified property
    *
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
@@ -21052,7 +21100,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Delete the definition of the specified property
+   * @summary Delete property definition
+   *
+   * Delete the definition of the specified property
    *
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
@@ -21542,23 +21592,28 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * Get constituents
+   * @summary Get constituents
    *
-   * @param {string} scope
+   * Get all the constituents in the specified reference portfolio
    *
-   * @param {string} code
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {date} effectiveAt
+   * @param {string} code The scope of the portfolio
+   *
+   * @param {date} effectiveAt Optional. The effective date of the data
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21584,23 +21639,28 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * Get constituents
+   * @summary Get constituents
    *
-   * @param {string} scope
+   * Get all the constituents in the specified reference portfolio
    *
-   * @param {string} code
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {date} effectiveAt
+   * @param {string} code The scope of the portfolio
+   *
+   * @param {date} effectiveAt Optional. The effective date of the data
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt]
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
-   * @param {array} [options.sortBy]
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
-   * @param {number} [options.start]
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
    *
-   * @param {number} [options.limit]
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21653,15 +21713,16 @@ class LUSIDAPI extends ServiceClient {
    *
    * Add constituents to the specified reference portfolio.
    *
-   * @param {string} scope
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {string} code
+   * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt
+   * @param {date} effectiveAt Optional. The effective date of the data
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.constituents]
+   * @param {array} [options.constituents] The constituents to upload to the
+   * portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21691,15 +21752,16 @@ class LUSIDAPI extends ServiceClient {
    *
    * Add constituents to the specified reference portfolio.
    *
-   * @param {string} scope
+   * @param {string} scope The scope of the portfolio
    *
-   * @param {string} code
+   * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt
+   * @param {date} effectiveAt Optional. The effective date of the data
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.constituents]
+   * @param {array} [options.constituents] The constituents to upload to the
+   * portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -22503,6 +22565,8 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Search portfolio groups
    *
+   * Search through all portfolio groups
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.request] A valid Elasticsearch 5.x request
@@ -22544,6 +22608,8 @@ class LUSIDAPI extends ServiceClient {
 
   /**
    * @summary Search portfolio groups
+   *
+   * Search through all portfolio groups
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -22610,6 +22676,8 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Search portfolios
    *
+   * Search through all portfolios
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.request] A valid Elasticsearch 5.x request
@@ -22651,6 +22719,8 @@ class LUSIDAPI extends ServiceClient {
 
   /**
    * @summary Search portfolios
+   *
+   * Search through all portfolios
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -22717,6 +22787,8 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Search property definitions
    *
+   * Search through all property definitions
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.request] A valid Elasticsearch 5.x request
@@ -22758,6 +22830,8 @@ class LUSIDAPI extends ServiceClient {
 
   /**
    * @summary Search property definitions
+   *
+   * Search through all property definitions
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -23461,9 +23535,11 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Upsert executions
    *
+   * Inserts new executions, or updates those already present
+   *
    * @param {string} scope The scope of the portfolio
    *
-   * @param {string} code Code for the portfolio
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -23495,9 +23571,11 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Upsert executions
    *
+   * Inserts new executions, or updates those already present
+   *
    * @param {string} scope The scope of the portfolio
    *
-   * @param {string} code Code for the portfolio
+   * @param {string} code The code of the portfolio
    *
    * @param {object} [options] Optional Parameters.
    *
