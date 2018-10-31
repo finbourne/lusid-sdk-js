@@ -2279,7 +2279,9 @@ export interface VersionedResourceListOfHolding {
  * Initializes a new instance of the TargetTaxLotRequest class.
  * @constructor
  * @member {number} units Quantity of holding
- * @member {number} [cost] Book cost of holding in transaction currency
+ * @member {object} [cost] Book cost of holding in transaction currency
+ * @member {number} [cost.amount]
+ * @member {string} [cost.currency]
  * @member {number} [portfolioCost] Book cost of holding in portfolio currency
  * @member {number} [price] Purchase price. Part of the unique key required for
  * multiple taxlots
@@ -2290,7 +2292,7 @@ export interface VersionedResourceListOfHolding {
  */
 export interface TargetTaxLotRequest {
   units: number;
-  cost?: number;
+  cost?: CurrencyAndAmount;
   portfolioCost?: number;
   price?: number;
   purchaseDate?: Date;
@@ -2387,7 +2389,9 @@ export interface ResourceListOfHoldingsAdjustmentHeader {
  * Used to specify holdings target amounts at the tax-lot level
  *
  * @member {number} units Quantity of holding
- * @member {number} [cost] Book cost of holding in transaction currency
+ * @member {object} [cost] Book cost of holding in transaction currency
+ * @member {number} [cost.amount]
+ * @member {string} [cost.currency]
  * @member {number} [portfolioCost] Book cost of holding in portfolio currency
  * @member {number} [price] Purchase price. Part of the unique key required for
  * multiple taxlots
@@ -2398,7 +2402,7 @@ export interface ResourceListOfHoldingsAdjustmentHeader {
  */
 export interface TargetTaxLot {
   units: number;
-  cost?: number;
+  cost?: CurrencyAndAmount;
   portfolioCost?: number;
   price?: number;
   purchaseDate?: Date;

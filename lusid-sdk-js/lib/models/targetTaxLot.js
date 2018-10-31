@@ -30,7 +30,9 @@ class TargetTaxLot {
   /**
    * Create a TargetTaxLot.
    * @member {number} units Quantity of holding
-   * @member {number} [cost] Book cost of holding in transaction currency
+   * @member {object} [cost] Book cost of holding in transaction currency
+   * @member {number} [cost.amount]
+   * @member {string} [cost.currency]
    * @member {number} [portfolioCost] Book cost of holding in portfolio
    * currency
    * @member {number} [price] Purchase price. Part of the unique key required
@@ -68,7 +70,8 @@ class TargetTaxLot {
             required: false,
             serializedName: 'cost',
             type: {
-              name: 'Number'
+              name: 'Composite',
+              className: 'CurrencyAndAmount'
             }
           },
           portfolioCost: {
