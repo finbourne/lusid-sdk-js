@@ -4043,7 +4043,7 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Delete portfolios
+   * @summary Delete portfolio properties
    *
    * Delete one, many or all property values from a portfolio for the specified
    * effectiveAt
@@ -4075,7 +4075,7 @@ export default class LUSIDAPI extends ServiceClient {
   deletePortfolioPropertiesWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, portfolioPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
 
   /**
-   * @summary Delete portfolios
+   * @summary Delete portfolio properties
    *
    * Delete one, many or all property values from a portfolio for the specified
    * effectiveAt
@@ -4974,6 +4974,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.referencePortfolio.created]
    *
+   * @param {object} [options.referencePortfolio.properties] Portfolio properties
+   * to add to the portfolio
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -5004,6 +5007,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} options.referencePortfolio.code
    *
    * @param {date} [options.referencePortfolio.created]
+   *
+   * @param {object} [options.referencePortfolio.properties] Portfolio properties
+   * to add to the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

@@ -1626,22 +1626,6 @@ export interface DeleteQuotesResponse {
 
 /**
  * @class
- * Initializes a new instance of the CreateReferencePortfolioRequest class.
- * @constructor
- * @member {string} displayName
- * @member {string} [description]
- * @member {string} code
- * @member {date} [created]
- */
-export interface CreateReferencePortfolioRequest {
-  displayName: string;
-  description?: string;
-  code: string;
-  created?: Date;
-}
-
-/**
- * @class
  * Initializes a new instance of the PerpetualPropertyValue class.
  * @constructor
  * @member {string} [labelValue]
@@ -1656,16 +1640,36 @@ export interface PerpetualPropertyValue {
 
 /**
  * @class
+ * Initializes a new instance of the CreateReferencePortfolioRequest class.
+ * @constructor
+ * @member {string} displayName
+ * @member {string} [description]
+ * @member {string} code
+ * @member {date} [created]
+ * @member {object} [properties] Portfolio properties to add to the portfolio
+ */
+export interface CreateReferencePortfolioRequest {
+  displayName: string;
+  description?: string;
+  code: string;
+  created?: Date;
+  properties?: { [propertyName: string]: PerpetualPropertyValue };
+}
+
+/**
+ * @class
  * Initializes a new instance of the ReferencePortfolioConstituentRequest class.
  * @constructor
  * @member {string} [instrumentUid]
  * @member {object} [properties]
  * @member {number} [weight]
+ * @member {string} [currency]
  */
 export interface ReferencePortfolioConstituentRequest {
   instrumentUid?: string;
   properties?: { [propertyName: string]: PerpetualPropertyValue };
   weight?: number;
+  currency?: string;
 }
 
 /**
@@ -1692,11 +1696,13 @@ export interface UpsertReferencePortfolioConstituentsResponse {
  * @member {string} [instrumentUid]
  * @member {array} [properties]
  * @member {number} [weight]
+ * @member {string} [currency]
  */
 export interface ReferencePortfolioConstituent {
   instrumentUid?: string;
   properties?: Property[];
   weight?: number;
+  currency?: string;
 }
 
 /**

@@ -31,6 +31,7 @@ class ReferencePortfolioConstituent {
    * @member {string} [instrumentUid]
    * @member {array} [properties]
    * @member {number} [weight]
+   * @member {string} [currency]
    */
   constructor() {
   }
@@ -76,6 +77,13 @@ class ReferencePortfolioConstituent {
             serializedName: 'weight',
             type: {
               name: 'Number'
+            }
+          },
+          currency: {
+            required: false,
+            serializedName: 'currency',
+            type: {
+              name: 'String'
             }
           }
         }

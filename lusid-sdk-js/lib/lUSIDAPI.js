@@ -7820,7 +7820,7 @@ function _upsertPortfolioProperties(scope, code, options, callback) {
 }
 
 /**
- * @summary Delete portfolios
+ * @summary Delete portfolio properties
  *
  * Delete one, many or all property values from a portfolio for the specified
  * effectiveAt
@@ -9539,6 +9539,9 @@ function _deleteQuote(scope, options, callback) {
  * @param {string} options.referencePortfolio.code
  *
  * @param {date} [options.referencePortfolio.created]
+ *
+ * @param {object} [options.referencePortfolio.properties] Portfolio properties
+ * to add to the portfolio
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -20302,7 +20305,7 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Delete portfolios
+   * @summary Delete portfolio properties
    *
    * Delete one, many or all property values from a portfolio for the specified
    * effectiveAt
@@ -20346,7 +20349,7 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Delete portfolios
+   * @summary Delete portfolio properties
    *
    * Delete one, many or all property values from a portfolio for the specified
    * effectiveAt
@@ -21503,6 +21506,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.referencePortfolio.created]
    *
+   * @param {object} [options.referencePortfolio.properties] Portfolio properties
+   * to add to the portfolio
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -21545,6 +21551,9 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} options.referencePortfolio.code
    *
    * @param {date} [options.referencePortfolio.created]
+   *
+   * @param {object} [options.referencePortfolio.properties] Portfolio properties
+   * to add to the portfolio
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

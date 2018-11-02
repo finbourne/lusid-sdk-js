@@ -32,6 +32,7 @@ class CreateReferencePortfolioRequest {
    * @member {string} [description]
    * @member {string} code
    * @member {date} [created]
+   * @member {object} [properties] Portfolio properties to add to the portfolio
    */
   constructor() {
   }
@@ -76,6 +77,21 @@ class CreateReferencePortfolioRequest {
             serializedName: 'created',
             type: {
               name: 'DateTime'
+            }
+          },
+          properties: {
+            required: false,
+            serializedName: 'properties',
+            type: {
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'PerpetualPropertyValueElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'PerpetualPropertyValue'
+                  }
+              }
             }
           }
         }
