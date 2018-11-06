@@ -848,7 +848,7 @@ function _setAnalytics(scope, year, month, day, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListOfCorporateActionEvent} for more
+ *                      See {@link ResourceListOfCorporateAction} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -999,7 +999,7 @@ function _getCorporateActions(scope, code, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListOfCorporateActionEvent']().mapper();
+          let resultMapper = new client.models['ResourceListOfCorporateAction']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -11740,8 +11740,8 @@ function _propertiesSearch(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListOfTransactionMetaData} for more
- *                      information.
+ *                      See {@link ResourceListOfTransactionConfigurationData}
+ *                      for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -11819,7 +11819,7 @@ function _listConfigurationTransactionTypes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListOfTransactionMetaData']().mapper();
+          let resultMapper = new client.models['ResourceListOfTransactionConfigurationData']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -11860,8 +11860,8 @@ function _listConfigurationTransactionTypes(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListOfTransactionMetaData} for more
- *                      information.
+ *                      See {@link ResourceListOfTransactionConfigurationData}
+ *                      for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -11968,7 +11968,7 @@ function _setConfigurationTransactionTypes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListOfTransactionMetaData']().mapper();
+          let resultMapper = new client.models['ResourceListOfTransactionConfigurationData']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -15561,7 +15561,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfCorporateActionEvent>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfCorporateAction>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -15616,7 +15616,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListOfCorporateActionEvent} - The deserialized result object.
+   *                      @resolve {ResourceListOfCorporateAction} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -15625,7 +15625,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfCorporateActionEvent} for more
+   *                      See {@link ResourceListOfCorporateAction} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -22916,7 +22916,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfTransactionMetaData>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTransactionConfigurationData>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -22951,7 +22951,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListOfTransactionMetaData} - The deserialized result object.
+   *                      @resolve {ResourceListOfTransactionConfigurationData} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -22960,8 +22960,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfTransactionMetaData} for more
-   *                      information.
+   *                      See {@link ResourceListOfTransactionConfigurationData}
+   *                      for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -23008,7 +23008,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfTransactionMetaData>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTransactionConfigurationData>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -23052,7 +23052,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListOfTransactionMetaData} - The deserialized result object.
+   *                      @resolve {ResourceListOfTransactionConfigurationData} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -23061,8 +23061,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfTransactionMetaData} for more
-   *                      information.
+   *                      See {@link ResourceListOfTransactionConfigurationData}
+   *                      for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *

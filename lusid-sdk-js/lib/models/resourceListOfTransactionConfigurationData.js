@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListOfTransactionMetaData.
+ * Class representing a ResourceListOfTransactionConfigurationData.
  */
-class ResourceListOfTransactionMetaData {
+class ResourceListOfTransactionConfigurationData {
   /**
-   * Create a ResourceListOfTransactionMetaData.
+   * Create a ResourceListOfTransactionConfigurationData.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListOfTransactionMetaData {
   }
 
   /**
-   * Defines the metadata of ResourceListOfTransactionMetaData
+   * Defines the metadata of ResourceListOfTransactionConfigurationData
    *
-   * @returns {object} metadata of ResourceListOfTransactionMetaData
+   * @returns {object} metadata of ResourceListOfTransactionConfigurationData
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceListOfTransactionMetaData',
+      serializedName: 'ResourceListOfTransactionConfigurationData',
       type: {
         name: 'Composite',
-        className: 'ResourceListOfTransactionMetaData',
+        className: 'ResourceListOfTransactionConfigurationData',
         modelProperties: {
           values: {
             required: false,
@@ -102,4 +102,4 @@ class ResourceListOfTransactionMetaData {
   }
 }
 
-module.exports = ResourceListOfTransactionMetaData;
+module.exports = ResourceListOfTransactionConfigurationData;

@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ResourceListOfCorporateActionEvent.
+ * Class representing a ResourceListOfCorporateAction.
  */
-class ResourceListOfCorporateActionEvent {
+class ResourceListOfCorporateAction {
   /**
-   * Create a ResourceListOfCorporateActionEvent.
+   * Create a ResourceListOfCorporateAction.
    * @member {array} [values]
    * @member {string} [href] The Uri that returns the same result as the
    * original request,
@@ -39,18 +39,18 @@ class ResourceListOfCorporateActionEvent {
   }
 
   /**
-   * Defines the metadata of ResourceListOfCorporateActionEvent
+   * Defines the metadata of ResourceListOfCorporateAction
    *
-   * @returns {object} metadata of ResourceListOfCorporateActionEvent
+   * @returns {object} metadata of ResourceListOfCorporateAction
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceListOfCorporateActionEvent',
+      serializedName: 'ResourceListOfCorporateAction',
       type: {
         name: 'Composite',
-        className: 'ResourceListOfCorporateActionEvent',
+        className: 'ResourceListOfCorporateAction',
         modelProperties: {
           values: {
             required: false,
@@ -102,4 +102,4 @@ class ResourceListOfCorporateActionEvent {
   }
 }
 
-module.exports = ResourceListOfCorporateActionEvent;
+module.exports = ResourceListOfCorporateAction;

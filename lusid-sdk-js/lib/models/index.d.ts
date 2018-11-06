@@ -144,7 +144,8 @@ export interface ErrorDetailBase {
  * 'ReferencePortfolioRequestNotSupported',
  * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
  * 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
- * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment'
+ * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
+ * 'PortfolioDoesNotExistAtGivenDate'
  * @member {string} [message]
  * @member {string} [detailedMessage]
  * @member {array} [items]
@@ -330,7 +331,7 @@ export interface UpsertCorporateActionsResponse {
 
 /**
  * @class
- * Initializes a new instance of the ResourceListOfCorporateActionEvent class.
+ * Initializes a new instance of the ResourceListOfCorporateAction class.
  * @constructor
  * @member {array} [values]
  * @member {string} [href] The Uri that returns the same result as the original
@@ -339,7 +340,7 @@ export interface UpsertCorporateActionsResponse {
  * @member {number} [count] The total number of records returned in the set
  * @member {array} [links]
  */
-export interface ResourceListOfCorporateActionEvent {
+export interface ResourceListOfCorporateAction {
   values?: CorporateAction[];
   href?: string;
   count?: number;
@@ -2024,7 +2025,7 @@ export interface TransactionConfigurationData {
 
 /**
  * @class
- * Initializes a new instance of the ResourceListOfTransactionMetaData class.
+ * Initializes a new instance of the ResourceListOfTransactionConfigurationData class.
  * @constructor
  * @member {array} [values]
  * @member {string} [href] The Uri that returns the same result as the original
@@ -2033,7 +2034,7 @@ export interface TransactionConfigurationData {
  * @member {number} [count] The total number of records returned in the set
  * @member {array} [links]
  */
-export interface ResourceListOfTransactionMetaData {
+export interface ResourceListOfTransactionConfigurationData {
   values?: TransactionConfigurationData[];
   href?: string;
   count?: number;

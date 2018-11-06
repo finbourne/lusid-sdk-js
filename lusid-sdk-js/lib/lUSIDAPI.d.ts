@@ -460,11 +460,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfCorporateActionEvent>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfCorporateAction>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getCorporateActionsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfCorporateActionEvent>>;
+  getCorporateActionsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfCorporateAction>>;
 
   /**
    * @summary Get corporate actions
@@ -503,7 +503,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfCorporateActionEvent} - The deserialized result object.
+   *                      @resolve {ResourceListOfCorporateAction} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -511,17 +511,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfCorporateActionEvent} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfCorporateActionEvent} for more
+   *                      {ResourceListOfCorporateAction} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfCorporateAction} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getCorporateActions(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfCorporateActionEvent>;
-  getCorporateActions(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfCorporateActionEvent>): void;
-  getCorporateActions(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfCorporateActionEvent>): void;
+  getCorporateActions(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfCorporateAction>;
+  getCorporateActions(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfCorporateAction>): void;
+  getCorporateActions(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfCorporateAction>): void;
 
 
   /**
@@ -6033,11 +6033,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfTransactionMetaData>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTransactionConfigurationData>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listConfigurationTransactionTypesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfTransactionMetaData>>;
+  listConfigurationTransactionTypesWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfTransactionConfigurationData>>;
 
   /**
    * @summary List transaction types
@@ -6056,7 +6056,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfTransactionMetaData} - The deserialized result object.
+   *                      @resolve {ResourceListOfTransactionConfigurationData} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -6064,17 +6064,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfTransactionMetaData} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfTransactionMetaData} for more
-   *                      information.
+   *                      {ResourceListOfTransactionConfigurationData} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfTransactionConfigurationData}
+   *                      for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listConfigurationTransactionTypes(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfTransactionMetaData>;
-  listConfigurationTransactionTypes(callback: ServiceCallback<models.ResourceListOfTransactionMetaData>): void;
-  listConfigurationTransactionTypes(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfTransactionMetaData>): void;
+  listConfigurationTransactionTypes(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfTransactionConfigurationData>;
+  listConfigurationTransactionTypes(callback: ServiceCallback<models.ResourceListOfTransactionConfigurationData>): void;
+  listConfigurationTransactionTypes(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfTransactionConfigurationData>): void;
 
 
   /**
@@ -6098,11 +6098,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfTransactionMetaData>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTransactionConfigurationData>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  setConfigurationTransactionTypesWithHttpOperationResponse(options?: { types? : models.TransactionConfigurationDataRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfTransactionMetaData>>;
+  setConfigurationTransactionTypesWithHttpOperationResponse(options?: { types? : models.TransactionConfigurationDataRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfTransactionConfigurationData>>;
 
   /**
    * @summary Set transaction types
@@ -6130,7 +6130,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfTransactionMetaData} - The deserialized result object.
+   *                      @resolve {ResourceListOfTransactionConfigurationData} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -6138,17 +6138,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfTransactionMetaData} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfTransactionMetaData} for more
-   *                      information.
+   *                      {ResourceListOfTransactionConfigurationData} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfTransactionConfigurationData}
+   *                      for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  setConfigurationTransactionTypes(options?: { types? : models.TransactionConfigurationDataRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfTransactionMetaData>;
-  setConfigurationTransactionTypes(callback: ServiceCallback<models.ResourceListOfTransactionMetaData>): void;
-  setConfigurationTransactionTypes(options: { types? : models.TransactionConfigurationDataRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfTransactionMetaData>): void;
+  setConfigurationTransactionTypes(options?: { types? : models.TransactionConfigurationDataRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfTransactionConfigurationData>;
+  setConfigurationTransactionTypes(callback: ServiceCallback<models.ResourceListOfTransactionConfigurationData>): void;
+  setConfigurationTransactionTypes(options: { types? : models.TransactionConfigurationDataRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfTransactionConfigurationData>): void;
 
 
   /**

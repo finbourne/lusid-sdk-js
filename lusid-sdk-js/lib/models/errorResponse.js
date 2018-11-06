@@ -73,7 +73,8 @@ class ErrorResponse {
    * 'ReferencePortfolioRequestNotSupported',
    * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
    * 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
-   * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment'
+   * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
+   * 'PortfolioDoesNotExistAtGivenDate'
    * @member {string} [message]
    * @member {string} [detailedMessage]
    * @member {array} [items]
