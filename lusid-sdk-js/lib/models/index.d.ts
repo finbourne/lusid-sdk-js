@@ -397,7 +397,7 @@ export interface CreateDataTypeRequest {
 
 /**
  * @class
- * Initializes a new instance of the IUnitDefinition class.
+ * Initializes a new instance of the IUnitDefinitionDto class.
  * @constructor
  * @member {string} [schema] Possible values include: 'NoUnits', 'Basic',
  * 'Iso4217Currency'
@@ -405,7 +405,7 @@ export interface CreateDataTypeRequest {
  * @member {string} [displayName]
  * @member {string} [description]
  */
-export interface IUnitDefinition {
+export interface IUnitDefinitionDto {
   readonly schema?: string;
   readonly code?: string;
   readonly displayName?: string;
@@ -444,7 +444,7 @@ export interface DataType {
   valueType?: string;
   acceptableValues?: any[];
   unitSchema?: string;
-  acceptableUnits?: IUnitDefinition[];
+  acceptableUnits?: IUnitDefinitionDto[];
   links?: Link[];
 }
 
@@ -784,14 +784,14 @@ export interface UpsertInstrumentPropertiesResponse {
 
 /**
  * @class
- * Initializes a new instance of the VersionSummary class.
+ * Initializes a new instance of the VersionSummaryDto class.
  * @constructor
  * @member {string} [apiVersion]
  * @member {string} [buildVersion]
  * @member {string} [excelVersion]
  * @member {array} [links]
  */
-export interface VersionSummary {
+export interface VersionSummaryDto {
   readonly apiVersion?: string;
   readonly buildVersion?: string;
   readonly excelVersion?: string;
@@ -2260,7 +2260,7 @@ export interface PortfolioHolding {
 
 /**
  * @class
- * Initializes a new instance of the VersionedResourceListOfHolding class.
+ * Initializes a new instance of the VersionedResourceListOfPortfolioHolding class.
  * @constructor
  * @member {object} [version]
  * @member {date} [version.effectiveFrom]
@@ -2273,7 +2273,7 @@ export interface PortfolioHolding {
  * @member {number} [count] The total number of records returned in the set
  * @member {array} [links]
  */
-export interface VersionedResourceListOfHolding {
+export interface VersionedResourceListOfPortfolioHolding {
   version?: Version;
   values?: PortfolioHolding[];
   href?: string;

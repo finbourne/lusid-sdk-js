@@ -136,10 +136,10 @@ class DataType {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'IUnitDefinitionElementType',
+                  serializedName: 'IUnitDefinitionDtoElementType',
                   type: {
                     name: 'Composite',
-                    className: 'IUnitDefinition'
+                    className: 'IUnitDefinitionDto'
                   }
               }
             }

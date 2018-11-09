@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a IUnitDefinition.
+ * Class representing a IUnitDefinitionDto.
  */
-class IUnitDefinition {
+class IUnitDefinitionDto {
   /**
-   * Create a IUnitDefinition.
+   * Create a IUnitDefinitionDto.
    * @member {string} [schema] Possible values include: 'NoUnits', 'Basic',
    * 'Iso4217Currency'
    * @member {string} [code]
@@ -38,18 +38,18 @@ class IUnitDefinition {
   }
 
   /**
-   * Defines the metadata of IUnitDefinition
+   * Defines the metadata of IUnitDefinitionDto
    *
-   * @returns {object} metadata of IUnitDefinition
+   * @returns {object} metadata of IUnitDefinitionDto
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'IUnitDefinition',
+      serializedName: 'IUnitDefinitionDto',
       type: {
         name: 'Composite',
-        className: 'IUnitDefinition',
+        className: 'IUnitDefinitionDto',
         modelProperties: {
           schema: {
             required: false,
@@ -89,4 +89,4 @@ class IUnitDefinition {
   }
 }
 
-module.exports = IUnitDefinition;
+module.exports = IUnitDefinitionDto;

@@ -23,55 +23,74 @@
 'use strict';
 
 /**
- * Class representing a VersionSummary.
+ * Class representing a VersionedResourceListOfPortfolioHolding.
  */
-class VersionSummary {
+class VersionedResourceListOfPortfolioHolding {
   /**
-   * Create a VersionSummary.
-   * @member {string} [apiVersion]
-   * @member {string} [buildVersion]
-   * @member {string} [excelVersion]
+   * Create a VersionedResourceListOfPortfolioHolding.
+   * @member {object} [version]
+   * @member {date} [version.effectiveFrom]
+   * @member {date} [version.asAtDate]
+   * @member {string} [version.href]
+   * @member {array} [values]
+   * @member {string} [href] The Uri that returns the same result as the
+   * original request,
+   * but may include resolved as at time(s).
+   * @member {number} [count] The total number of records returned in the set
    * @member {array} [links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of VersionSummary
+   * Defines the metadata of VersionedResourceListOfPortfolioHolding
    *
-   * @returns {object} metadata of VersionSummary
+   * @returns {object} metadata of VersionedResourceListOfPortfolioHolding
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'VersionSummary',
+      serializedName: 'VersionedResourceListOfPortfolioHolding',
       type: {
         name: 'Composite',
-        className: 'VersionSummary',
+        className: 'VersionedResourceListOfPortfolioHolding',
         modelProperties: {
-          apiVersion: {
+          version: {
             required: false,
-            readOnly: true,
-            serializedName: 'apiVersion',
+            serializedName: 'version',
+            type: {
+              name: 'Composite',
+              className: 'Version'
+            }
+          },
+          values: {
+            required: false,
+            serializedName: 'values',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'PortfolioHoldingElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'PortfolioHolding'
+                  }
+              }
+            }
+          },
+          href: {
+            required: false,
+            serializedName: 'href',
             type: {
               name: 'String'
             }
           },
-          buildVersion: {
+          count: {
             required: false,
-            readOnly: true,
-            serializedName: 'buildVersion',
+            serializedName: 'count',
             type: {
-              name: 'String'
-            }
-          },
-          excelVersion: {
-            required: false,
-            readOnly: true,
-            serializedName: 'excelVersion',
-            type: {
-              name: 'String'
+              name: 'Number'
             }
           },
           links: {
@@ -95,4 +114,4 @@ class VersionSummary {
   }
 }
 
-module.exports = VersionSummary;
+module.exports = VersionedResourceListOfPortfolioHolding;

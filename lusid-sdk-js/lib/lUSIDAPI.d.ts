@@ -1008,11 +1008,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<IUnitDefinition>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<IUnitDefinitionDto>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getUnitsFromDataTypeWithHttpOperationResponse(scope: string, code: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.IUnitDefinition>>;
+  getUnitsFromDataTypeWithHttpOperationResponse(scope: string, code: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.IUnitDefinitionDto>>;
 
   /**
    * @summary Get units from data type
@@ -1042,7 +1042,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {IUnitDefinition} - The deserialized result object.
+   *                      @resolve {IUnitDefinitionDto} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1050,16 +1050,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {IUnitDefinition} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link IUnitDefinition} for more information.
+   *                      {IUnitDefinitionDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link IUnitDefinitionDto} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getUnitsFromDataType(scope: string, code: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.IUnitDefinition>;
-  getUnitsFromDataType(scope: string, code: string, callback: ServiceCallback<models.IUnitDefinition>): void;
-  getUnitsFromDataType(scope: string, code: string, options: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.IUnitDefinition>): void;
+  getUnitsFromDataType(scope: string, code: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.IUnitDefinitionDto>;
+  getUnitsFromDataType(scope: string, code: string, callback: ServiceCallback<models.IUnitDefinitionDto>): void;
+  getUnitsFromDataType(scope: string, code: string, options: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.IUnitDefinitionDto>): void;
 
 
   /**
@@ -1851,11 +1851,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<VersionSummary>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<VersionSummaryDto>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getLusidVersionsWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionSummary>>;
+  getLusidVersionsWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionSummaryDto>>;
 
   /**
    * @summary Get LUSID versions
@@ -1874,7 +1874,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {VersionSummary} - The deserialized result object.
+   *                      @resolve {VersionSummaryDto} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1882,16 +1882,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {VersionSummary} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link VersionSummary} for more information.
+   *                      {VersionSummaryDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link VersionSummaryDto} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getLusidVersions(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionSummary>;
-  getLusidVersions(callback: ServiceCallback<models.VersionSummary>): void;
-  getLusidVersions(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionSummary>): void;
+  getLusidVersions(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionSummaryDto>;
+  getLusidVersions(callback: ServiceCallback<models.VersionSummaryDto>): void;
+  getLusidVersions(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionSummaryDto>): void;
 
 
   /**
@@ -6605,11 +6605,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<VersionedResourceListOfHolding>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<VersionedResourceListOfPortfolioHolding>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getHoldingsWithHttpOperationResponse(scope: string, code: string, options?: { byTaxlots? : boolean, effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListOfHolding>>;
+  getHoldingsWithHttpOperationResponse(scope: string, code: string, options?: { byTaxlots? : boolean, effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.VersionedResourceListOfPortfolioHolding>>;
 
   /**
    * @summary Get holdings
@@ -6657,7 +6657,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {VersionedResourceListOfHolding} - The deserialized result object.
+   *                      @resolve {VersionedResourceListOfPortfolioHolding} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -6665,17 +6665,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {VersionedResourceListOfHolding} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link VersionedResourceListOfHolding} for more
-   *                      information.
+   *                      {VersionedResourceListOfPortfolioHolding} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link VersionedResourceListOfPortfolioHolding} for
+   *                      more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getHoldings(scope: string, code: string, options?: { byTaxlots? : boolean, effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListOfHolding>;
-  getHoldings(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListOfHolding>): void;
-  getHoldings(scope: string, code: string, options: { byTaxlots? : boolean, effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListOfHolding>): void;
+  getHoldings(scope: string, code: string, options?: { byTaxlots? : boolean, effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.VersionedResourceListOfPortfolioHolding>;
+  getHoldings(scope: string, code: string, callback: ServiceCallback<models.VersionedResourceListOfPortfolioHolding>): void;
+  getHoldings(scope: string, code: string, options: { byTaxlots? : boolean, effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.VersionedResourceListOfPortfolioHolding>): void;
 
 
   /**
