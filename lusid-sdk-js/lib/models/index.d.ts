@@ -496,6 +496,24 @@ export interface UpdateDataTypeRequest {
 
 /**
  * @class
+ * Initializes a new instance of the ResourceListOfIUnitDefinitionDto class.
+ * @constructor
+ * @member {array} [values]
+ * @member {string} [href] The Uri that returns the same result as the original
+ * request,
+ * but may include resolved as at time(s).
+ * @member {number} [count] The total number of records returned in the set
+ * @member {array} [links]
+ */
+export interface ResourceListOfIUnitDefinitionDto {
+  values?: IUnitDefinitionDto[];
+  href?: string;
+  count?: number;
+  links?: Link[];
+}
+
+/**
+ * @class
  * Initializes a new instance of the CreateDerivedTransactionPortfolioRequest class.
  * @constructor
  * @member {string} displayName
@@ -780,6 +798,54 @@ export interface InstrumentProperty {
 export interface UpsertInstrumentPropertiesResponse {
   href?: string;
   links?: Link[];
+}
+
+/**
+ * @class
+ * Initializes a new instance of the Stream class.
+ * @constructor
+ * @member {boolean} [canRead]
+ * @member {boolean} [canSeek]
+ * @member {boolean} [canTimeout]
+ * @member {boolean} [canWrite]
+ * @member {number} [length]
+ * @member {number} [position]
+ * @member {number} [readTimeout]
+ * @member {number} [writeTimeout]
+ */
+export interface Stream {
+  readonly canRead?: boolean;
+  readonly canSeek?: boolean;
+  readonly canTimeout?: boolean;
+  readonly canWrite?: boolean;
+  readonly length?: number;
+  position?: number;
+  readTimeout?: number;
+  writeTimeout?: number;
+}
+
+/**
+ * @class
+ * Initializes a new instance of the FileResponse class.
+ * @constructor
+ * Allows a file (represented as a stream) to be returned from an Api call
+ *
+ * @member {object} [fileStream]
+ * @member {boolean} [fileStream.canRead]
+ * @member {boolean} [fileStream.canSeek]
+ * @member {boolean} [fileStream.canTimeout]
+ * @member {boolean} [fileStream.canWrite]
+ * @member {number} [fileStream.length]
+ * @member {number} [fileStream.position]
+ * @member {number} [fileStream.readTimeout]
+ * @member {number} [fileStream.writeTimeout]
+ * @member {string} [contentType]
+ * @member {string} [downloadedFilename]
+ */
+export interface FileResponse {
+  readonly fileStream?: Stream;
+  readonly contentType?: string;
+  readonly downloadedFilename?: string;
 }
 
 /**

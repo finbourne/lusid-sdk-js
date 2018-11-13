@@ -1850,7 +1850,8 @@ function _updateDataType(scope, code, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link IUnitDefinitionDto} for more information.
+ *                      See {@link ResourceListOfIUnitDefinitionDto} for more
+ *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -1970,7 +1971,7 @@ function _getUnitsFromDataType(scope, code, options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['IUnitDefinitionDto']().mapper();
+          let resultMapper = new client.models['ResourceListOfIUnitDefinitionDto']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -3393,7 +3394,8 @@ function _getExcelDownloadUrl(options, callback) {
  *
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
- *                      {string} [result]   - The deserialized result object if an error did not occur.
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link FileResponse} for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -3487,13 +3489,7 @@ function _getExcelAddin(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = {
-            required: false,
-            serializedName: 'parsedResponse',
-            type: {
-              name: 'String'
-            }
-          };
+          let resultMapper = new client.models['FileResponse']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -12008,8 +12004,8 @@ function _setConfigurationTransactionTypes(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link TransactionConfigurationData} for more
- *                      information.
+ *                      See {@link ResourceListOfTransactionConfigurationData}
+ *                      for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -12102,7 +12098,7 @@ function _createConfigurationTransactionType(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['TransactionConfigurationData']().mapper();
+          let resultMapper = new client.models['ResourceListOfTransactionConfigurationData']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -16271,7 +16267,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<IUnitDefinitionDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfIUnitDefinitionDto>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -16317,7 +16313,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {IUnitDefinitionDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfIUnitDefinitionDto} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -16326,7 +16322,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link IUnitDefinitionDto} for more information.
+   *                      See {@link ResourceListOfIUnitDefinitionDto} for more
+   *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -17327,7 +17324,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<FileResponse>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -17365,7 +17362,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {String} - The deserialized result object.
+   *                      @resolve {FileResponse} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -17373,7 +17370,8 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {string} [result]   - The deserialized result object if an error did not occur.
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link FileResponse} for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -23108,7 +23106,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<TransactionConfigurationData>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTransactionConfigurationData>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -23151,7 +23149,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {TransactionConfigurationData} - The deserialized result object.
+   *                      @resolve {ResourceListOfTransactionConfigurationData} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -23160,8 +23158,8 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link TransactionConfigurationData} for more
-   *                      information.
+   *                      See {@link ResourceListOfTransactionConfigurationData}
+   *                      for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *

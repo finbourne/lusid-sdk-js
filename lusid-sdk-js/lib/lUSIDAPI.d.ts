@@ -1008,11 +1008,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<IUnitDefinitionDto>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfIUnitDefinitionDto>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getUnitsFromDataTypeWithHttpOperationResponse(scope: string, code: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.IUnitDefinitionDto>>;
+  getUnitsFromDataTypeWithHttpOperationResponse(scope: string, code: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfIUnitDefinitionDto>>;
 
   /**
    * @summary Get units from data type
@@ -1042,7 +1042,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {IUnitDefinitionDto} - The deserialized result object.
+   *                      @resolve {ResourceListOfIUnitDefinitionDto} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1050,16 +1050,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {IUnitDefinitionDto} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link IUnitDefinitionDto} for more information.
+   *                      {ResourceListOfIUnitDefinitionDto} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfIUnitDefinitionDto} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getUnitsFromDataType(scope: string, code: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.IUnitDefinitionDto>;
-  getUnitsFromDataType(scope: string, code: string, callback: ServiceCallback<models.IUnitDefinitionDto>): void;
-  getUnitsFromDataType(scope: string, code: string, options: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.IUnitDefinitionDto>): void;
+  getUnitsFromDataType(scope: string, code: string, options?: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfIUnitDefinitionDto>;
+  getUnitsFromDataType(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfIUnitDefinitionDto>): void;
+  getUnitsFromDataType(scope: string, code: string, options: { units? : string[], filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfIUnitDefinitionDto>): void;
 
 
   /**
@@ -1794,11 +1795,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<String>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<FileResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getExcelAddinWithHttpOperationResponse(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
+  getExcelAddinWithHttpOperationResponse(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.FileResponse>>;
 
   /**
    * @summary Download Excel Addin
@@ -1820,7 +1821,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {String} - The deserialized result object.
+   *                      @resolve {FileResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1828,15 +1829,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {String} [result]   - The deserialized result object if an error did not occur.
+   *                      {FileResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link FileResponse} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getExcelAddin(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<string>;
-  getExcelAddin(callback: ServiceCallback<string>): void;
-  getExcelAddin(options: { version? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
+  getExcelAddin(options?: { version? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.FileResponse>;
+  getExcelAddin(callback: ServiceCallback<models.FileResponse>): void;
+  getExcelAddin(options: { version? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.FileResponse>): void;
 
 
   /**
@@ -6171,11 +6173,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<TransactionConfigurationData>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfTransactionConfigurationData>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  createConfigurationTransactionTypeWithHttpOperationResponse(options?: { type? : models.TransactionConfigurationDataRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TransactionConfigurationData>>;
+  createConfigurationTransactionTypeWithHttpOperationResponse(options?: { type? : models.TransactionConfigurationDataRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfTransactionConfigurationData>>;
 
   /**
    * @summary Create transaction type
@@ -6202,7 +6204,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {TransactionConfigurationData} - The deserialized result object.
+   *                      @resolve {ResourceListOfTransactionConfigurationData} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -6210,17 +6212,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {TransactionConfigurationData} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link TransactionConfigurationData} for more
-   *                      information.
+   *                      {ResourceListOfTransactionConfigurationData} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfTransactionConfigurationData}
+   *                      for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  createConfigurationTransactionType(options?: { type? : models.TransactionConfigurationDataRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.TransactionConfigurationData>;
-  createConfigurationTransactionType(callback: ServiceCallback<models.TransactionConfigurationData>): void;
-  createConfigurationTransactionType(options: { type? : models.TransactionConfigurationDataRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TransactionConfigurationData>): void;
+  createConfigurationTransactionType(options?: { type? : models.TransactionConfigurationDataRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfTransactionConfigurationData>;
+  createConfigurationTransactionType(callback: ServiceCallback<models.ResourceListOfTransactionConfigurationData>): void;
+  createConfigurationTransactionType(options: { type? : models.TransactionConfigurationDataRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfTransactionConfigurationData>): void;
 
 
   /**
