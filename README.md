@@ -2,7 +2,7 @@
 
 This repository enables the generation of a JavaScript SDK from the FINBOURNE OpenAPI specification using the [autorest](https://github.com/Azure/autorest) tool.
 
-A generated version of the SDK is included in the `lusid-sdk-js` folder based on the OpenAPI specification named `lusid.json` in the root folder.  The most up to date version of the OpenAPI specification can be downloaded from http://api.finbourne.com/swagger/v0/swagger.json
+A generated version of the SDK is included in the `lusid-sdk-js` folder based on the OpenAPI specification named `lusid.json` in the root folder.  The most up to date version of the OpenAPI specification can be downloaded from https://api.lusid.com/swagger/v0/swagger.json
 
 The SDK can also be installed using `npm`:
 
