@@ -23,70 +23,76 @@
 'use strict';
 
 /**
- * Class representing a CreateClientInstrumentRequest.
+ * Class representing a ResourceListOfCodeType.
  */
-class CreateClientInstrumentRequest {
+class ResourceListOfCodeType {
   /**
-   * Create a CreateClientInstrumentRequest.
-   * @member {string} clientInstrumentId
-   * @member {string} name
-   * @member {object} [lookThroughPortfolioId]
-   * @member {string} [lookThroughPortfolioId.scope]
-   * @member {string} [lookThroughPortfolioId.code]
-   * @member {object} [instrument] Expanded instrument definition - in the case
-   * of OTC instruments
-   * this contains the definition of the non-exchange traded instrument.
-   * The format for this can be client-defined, but in order to transparently
-   * use
-   * vendor libraries it must conform to a format that LUSID understands.
-   * @member {string} [instrument.instrumentFormat]
-   * @member {string} [instrument.content]
+   * Create a ResourceListOfCodeType.
+   * @property {array} [values]
+   * @property {string} [href] The Uri that returns the same result as the
+   * original request,
+   * but may include resolved as at time(s).
+   * @property {number} [count] The total number of records returned in the set
+   * @property {array} [links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of CreateClientInstrumentRequest
+   * Defines the metadata of ResourceListOfCodeType
    *
-   * @returns {object} metadata of CreateClientInstrumentRequest
+   * @returns {object} metadata of ResourceListOfCodeType
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CreateClientInstrumentRequest',
+      serializedName: 'ResourceListOfCodeType',
       type: {
         name: 'Composite',
-        className: 'CreateClientInstrumentRequest',
+        className: 'ResourceListOfCodeType',
         modelProperties: {
-          clientInstrumentId: {
-            required: true,
-            serializedName: 'clientInstrumentId',
+          values: {
+            required: false,
+            serializedName: 'values',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'StringElementType',
+                  type: {
+                    name: 'String'
+                  }
+              }
+            }
+          },
+          href: {
+            required: false,
+            serializedName: 'href',
             type: {
               name: 'String'
             }
           },
-          name: {
-            required: true,
-            serializedName: 'name',
+          count: {
+            required: false,
+            serializedName: 'count',
             type: {
-              name: 'String'
+              name: 'Number'
             }
           },
-          lookThroughPortfolioId: {
+          links: {
             required: false,
-            serializedName: 'lookThroughPortfolioId',
+            serializedName: 'links',
             type: {
-              name: 'Composite',
-              className: 'ResourceId'
-            }
-          },
-          instrument: {
-            required: false,
-            serializedName: 'instrument',
-            type: {
-              name: 'Composite',
-              className: 'InstrumentDefinition'
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
+                  }
+              }
             }
           }
         }
@@ -95,4 +101,4 @@ class CreateClientInstrumentRequest {
   }
 }
 
-module.exports = CreateClientInstrumentRequest;
+module.exports = ResourceListOfCodeType;

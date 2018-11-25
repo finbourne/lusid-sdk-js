@@ -28,7 +28,7 @@
 class User {
   /**
    * Create a User.
-   * @member {string} [id]
+   * @property {string} [id]
    */
   constructor() {
   }

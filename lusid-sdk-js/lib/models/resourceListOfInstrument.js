@@ -23,15 +23,11 @@
 'use strict';
 
 /**
- * Class representing a VersionedResourceListOfTransaction.
+ * Class representing a ResourceListOfInstrument.
  */
-class VersionedResourceListOfTransaction {
+class ResourceListOfInstrument {
   /**
-   * Create a VersionedResourceListOfTransaction.
-   * @property {object} [version]
-   * @property {date} [version.effectiveFrom]
-   * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
+   * Create a ResourceListOfInstrument.
    * @property {array} [values]
    * @property {string} [href] The Uri that returns the same result as the
    * original request,
@@ -43,27 +39,19 @@ class VersionedResourceListOfTransaction {
   }
 
   /**
-   * Defines the metadata of VersionedResourceListOfTransaction
+   * Defines the metadata of ResourceListOfInstrument
    *
-   * @returns {object} metadata of VersionedResourceListOfTransaction
+   * @returns {object} metadata of ResourceListOfInstrument
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'VersionedResourceListOfTransaction',
+      serializedName: 'ResourceListOfInstrument',
       type: {
         name: 'Composite',
-        className: 'VersionedResourceListOfTransaction',
+        className: 'ResourceListOfInstrument',
         modelProperties: {
-          version: {
-            required: false,
-            serializedName: 'version',
-            type: {
-              name: 'Composite',
-              className: 'Version'
-            }
-          },
           values: {
             required: false,
             serializedName: 'values',
@@ -71,10 +59,10 @@ class VersionedResourceListOfTransaction {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'TransactionElementType',
+                  serializedName: 'InstrumentElementType',
                   type: {
                     name: 'Composite',
-                    className: 'Transaction'
+                    className: 'Instrument'
                   }
               }
             }
@@ -114,4 +102,4 @@ class VersionedResourceListOfTransaction {
   }
 }
 
-module.exports = VersionedResourceListOfTransaction;
+module.exports = ResourceListOfInstrument;

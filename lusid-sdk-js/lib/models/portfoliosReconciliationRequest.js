@@ -28,23 +28,23 @@
 class PortfoliosReconciliationRequest {
   /**
    * Create a PortfoliosReconciliationRequest.
-   * @member {object} left The specification of the left hand side of the
+   * @property {object} left The specification of the left hand side of the
    * portfolio reconciliation
-   * @member {object} [left.portfolioId] The id of the portfolio to be
+   * @property {object} [left.portfolioId] The id of the portfolio to be
    * reconciled
-   * @member {string} [left.portfolioId.scope]
-   * @member {string} [left.portfolioId.code]
-   * @member {date} [left.effectiveAt] The effective date of the portfolio
-   * @member {date} [left.asAt] Optional. The AsAt date of the portfolio
-   * @member {object} right The specification of the right hand side of the
+   * @property {string} [left.portfolioId.scope]
+   * @property {string} [left.portfolioId.code]
+   * @property {date} [left.effectiveAt] The effective date of the portfolio
+   * @property {date} [left.asAt] Optional. The AsAt date of the portfolio
+   * @property {object} right The specification of the right hand side of the
    * portfolio reconciliation
-   * @member {object} [right.portfolioId] The id of the portfolio to be
+   * @property {object} [right.portfolioId] The id of the portfolio to be
    * reconciled
-   * @member {string} [right.portfolioId.scope]
-   * @member {string} [right.portfolioId.code]
-   * @member {date} [right.effectiveAt] The effective date of the portfolio
-   * @member {date} [right.asAt] Optional. The AsAt date of the portfolio
-   * @member {array} instrumentPropertyKeys Instrument properties to be
+   * @property {string} [right.portfolioId.scope]
+   * @property {string} [right.portfolioId.code]
+   * @property {date} [right.effectiveAt] The effective date of the portfolio
+   * @property {date} [right.asAt] Optional. The AsAt date of the portfolio
+   * @property {array} instrumentPropertyKeys Instrument properties to be
    * included with any identified breaks. These properties will be in the
    * effective and AsAt dates of the left portfolio
    */

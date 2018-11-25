@@ -28,8 +28,8 @@
 class ErrorResponse {
   /**
    * Create a ErrorResponse.
-   * @member {number} [status]
-   * @member {string} [code] Possible values include: 'Unknown',
+   * @property {number} [status]
+   * @property {string} [code] Possible values include: 'Unknown',
    * 'PersonalisationNotFound', 'NonRecursivePersonalisation',
    * 'VersionNotFound', 'InstrumentNotFound', 'PropertyNotFound',
    * 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
@@ -75,10 +75,10 @@ class ErrorResponse {
    * 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
    * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
    * 'PortfolioDoesNotExistAtGivenDate'
-   * @member {string} [message]
-   * @member {string} [detailedMessage]
-   * @member {array} [items]
-   * @member {string} [moreInfo]
+   * @property {string} [message]
+   * @property {string} [detailedMessage]
+   * @property {array} [items]
+   * @property {string} [moreInfo]
    */
   constructor() {
   }

@@ -30,11 +30,11 @@
 class CorporateActionTransition {
   /**
    * Create a CorporateActionTransition.
-   * @member {object} [inputTransition]
-   * @member {string} [inputTransition.instrumentUid]
-   * @member {number} [inputTransition.unitsFactor]
-   * @member {number} [inputTransition.costFactor]
-   * @member {array} [outputTransitions]
+   * @property {object} [inputTransition]
+   * @property {string} [inputTransition.instrumentUid]
+   * @property {number} [inputTransition.unitsFactor]
+   * @property {number} [inputTransition.costFactor]
+   * @property {array} [outputTransitions]
    */
   constructor() {
   }

@@ -28,15 +28,15 @@
 class TransactionQueryParameters {
   /**
    * Create a TransactionQueryParameters.
-   * @member {date} [startDate] The required set of transactions should begin
+   * @property {date} [startDate] The required set of transactions should begin
    * from this date
-   * @member {date} [endDate] The required set of transactions should end at
+   * @property {date} [endDate] The required set of transactions should end at
    * this date
-   * @member {string} [queryMode] The method for date selection. Trade date or
-   * Settlement date. Possible values include: 'None', 'TradeDate',
+   * @property {string} [queryMode] The method for date selection. Trade date
+   * or Settlement date. Possible values include: 'None', 'TradeDate',
    * 'SettleDate'
-   * @member {boolean} [showCancelledTransactions] Option to include cancelled
-   * transactions in the results
+   * @property {boolean} [showCancelledTransactions] Option to include
+   * cancelled transactions in the results
    */
   constructor() {
   }

@@ -23,43 +23,45 @@
 'use strict';
 
 /**
- * Class representing a CurrencyAndAmount.
+ * Class representing a DeleteInstrumentPropertyRequest.
  */
-class CurrencyAndAmount {
+class DeleteInstrumentPropertyRequest {
   /**
-   * Create a CurrencyAndAmount.
-   * @property {number} [amount]
-   * @property {string} [currency]
+   * Create a DeleteInstrumentPropertyRequest.
+   * @property {string} [instrumentPropertyKey] The property key of the
+   * property to be removed from the instrument, e.g 'Instrument/default/Cusip`
+   * @property {date} [effectiveFrom] The date at which the property removal
+   * should be effective from. If no value is set, then 'now' is used.
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of CurrencyAndAmount
+   * Defines the metadata of DeleteInstrumentPropertyRequest
    *
-   * @returns {object} metadata of CurrencyAndAmount
+   * @returns {object} metadata of DeleteInstrumentPropertyRequest
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CurrencyAndAmount',
+      serializedName: 'DeleteInstrumentPropertyRequest',
       type: {
         name: 'Composite',
-        className: 'CurrencyAndAmount',
+        className: 'DeleteInstrumentPropertyRequest',
         modelProperties: {
-          amount: {
+          instrumentPropertyKey: {
             required: false,
-            serializedName: 'amount',
-            type: {
-              name: 'Number'
-            }
-          },
-          currency: {
-            required: false,
-            serializedName: 'currency',
+            serializedName: 'instrumentPropertyKey',
             type: {
               name: 'String'
+            }
+          },
+          effectiveFrom: {
+            required: false,
+            serializedName: 'effectiveFrom',
+            type: {
+              name: 'DateTime'
             }
           }
         }
@@ -68,4 +70,4 @@ class CurrencyAndAmount {
   }
 }
 
-module.exports = CurrencyAndAmount;
+module.exports = DeleteInstrumentPropertyRequest;

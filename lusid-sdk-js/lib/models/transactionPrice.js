@@ -29,8 +29,8 @@
 class TransactionPrice {
   /**
    * Create a TransactionPrice.
-   * @member {number} [price]
-   * @member {string} [type] Possible values include: 'Price', 'Yield',
+   * @property {number} [price]
+   * @property {string} [type] Possible values include: 'Price', 'Yield',
    * 'Spread'
    */
   constructor() {

@@ -28,21 +28,22 @@
 class CreateDataTypeRequest {
   /**
    * Create a CreateDataTypeRequest.
-   * @member {string} scope
-   * @member {string} code
-   * @member {string} typeValueRange Possible values include: 'Open', 'Closed'
-   * @member {string} displayName
-   * @member {string} description
-   * @member {string} valueType Possible values include: 'String', 'Int',
+   * @property {string} scope
+   * @property {string} code
+   * @property {string} typeValueRange Possible values include: 'Open',
+   * 'Closed'
+   * @property {string} displayName
+   * @property {string} description
+   * @property {string} valueType Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
-   * @member {array} [acceptableValues]
-   * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
-   * 'Iso4217Currency'
-   * @member {array} [acceptableUnits]
+   * @property {array} [acceptableValues]
+   * @property {string} [unitSchema] Possible values include: 'NoUnits',
+   * 'Basic', 'Iso4217Currency'
+   * @property {array} [acceptableUnits]
    */
   constructor() {
   }

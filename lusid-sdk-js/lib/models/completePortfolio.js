@@ -28,26 +28,26 @@
 class CompletePortfolio {
   /**
    * Create a CompletePortfolio.
-   * @member {object} [id]
-   * @member {string} [id.scope]
-   * @member {string} [id.code]
-   * @member {string} [href]
-   * @member {string} [description]
-   * @member {string} [displayName]
-   * @member {date} [created]
-   * @member {object} [parentPortfolioId]
-   * @member {string} [parentPortfolioId.scope]
-   * @member {string} [parentPortfolioId.code]
-   * @member {boolean} [isDerived]
-   * @member {string} [type] Possible values include: 'Transaction',
+   * @property {object} [id]
+   * @property {string} [id.scope]
+   * @property {string} [id.code]
+   * @property {string} [href]
+   * @property {string} [description]
+   * @property {string} [displayName]
+   * @property {date} [created]
+   * @property {object} [parentPortfolioId]
+   * @property {string} [parentPortfolioId.scope]
+   * @property {string} [parentPortfolioId.code]
+   * @property {boolean} [isDerived]
+   * @property {string} [type] Possible values include: 'Transaction',
    * 'Reference', 'DerivedTransaction'
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {array} [properties]
-   * @member {string} [baseCurrency]
-   * @member {array} [links]
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {array} [properties]
+   * @property {string} [baseCurrency]
+   * @property {array} [links]
    */
   constructor() {
   }

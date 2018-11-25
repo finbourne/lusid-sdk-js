@@ -28,8 +28,8 @@
 class ResourceId {
   /**
    * Create a ResourceId.
-   * @member {string} [scope]
-   * @member {string} [code]
+   * @property {string} [scope]
+   * @property {string} [code]
    */
   constructor() {
   }

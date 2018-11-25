@@ -23,67 +23,47 @@
 'use strict';
 
 /**
- * Class representing a DeleteClientInstrumentsResponse.
+ * Expanded instrument definition - in the case of OTC instruments
+ * this contains the definition of the non-exchange traded instrument.
+ * The format for this can be client-defined, but in order to transparently use
+ * vendor libraries it must conform to a format that LUSID understands.
+ *
  */
-class DeleteClientInstrumentsResponse {
+class InstrumentEconomicDefinition {
   /**
-   * Create a DeleteClientInstrumentsResponse.
-   * @member {string} [href]
-   * @member {object} [failed]
-   * @member {array} [links]
+   * Create a InstrumentEconomicDefinition.
+   * @property {string} instrumentFormat
+   * @property {string} content
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of DeleteClientInstrumentsResponse
+   * Defines the metadata of InstrumentEconomicDefinition
    *
-   * @returns {object} metadata of DeleteClientInstrumentsResponse
+   * @returns {object} metadata of InstrumentEconomicDefinition
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'DeleteClientInstrumentsResponse',
+      serializedName: 'InstrumentEconomicDefinition',
       type: {
         name: 'Composite',
-        className: 'DeleteClientInstrumentsResponse',
+        className: 'InstrumentEconomicDefinition',
         modelProperties: {
-          href: {
-            required: false,
-            serializedName: 'href',
+          instrumentFormat: {
+            required: true,
+            serializedName: 'instrumentFormat',
             type: {
               name: 'String'
             }
           },
-          failed: {
-            required: false,
-            serializedName: 'failed',
+          content: {
+            required: true,
+            serializedName: 'content',
             type: {
-              name: 'Dictionary',
-              value: {
-                  required: false,
-                  serializedName: 'ErrorDetailElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'ErrorDetail'
-                  }
-              }
-            }
-          },
-          links: {
-            required: false,
-            serializedName: 'links',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'LinkElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'Link'
-                  }
-              }
+              name: 'String'
             }
           }
         }
@@ -92,4 +72,4 @@ class DeleteClientInstrumentsResponse {
   }
 }
 
-module.exports = DeleteClientInstrumentsResponse;
+module.exports = InstrumentEconomicDefinition;

@@ -28,10 +28,10 @@
 class TransactionConfigurationData {
   /**
    * Create a TransactionConfigurationData.
-   * @member {array} aliases List of transaction codes that map to this
+   * @property {array} aliases List of transaction codes that map to this
    * specific transaction model
-   * @member {array} movements Movement data for the transaction code
-   * @member {array} [properties]
+   * @property {array} movements Movement data for the transaction code
+   * @property {array} [properties]
    */
   constructor() {
   }

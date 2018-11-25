@@ -28,13 +28,15 @@
 class CreateInstrumentPropertyRequest {
   /**
    * Create a CreateInstrumentPropertyRequest.
-   * @member {string} [instrumentPropertyKey]
-   * @member {object} [property]
-   * @member {string} [property.labelValue]
-   * @member {object} [property.metricValue]
-   * @member {number} [property.metricValue.value]
-   * @member {string} [property.metricValue.unit]
-   * @member {date} [property.effectiveFrom] Date for which the property is
+   * @property {string} [instrumentPropertyKey] The property key of the
+   * property, e.g, 'Instrument/default/Isin'
+   * @property {object} [property] The value of the property, which must not be
+   * empty or null. e.g, 'US0378331005'
+   * @property {string} [property.labelValue]
+   * @property {object} [property.metricValue]
+   * @property {number} [property.metricValue.value]
+   * @property {string} [property.metricValue.unit]
+   * @property {date} [property.effectiveFrom] Date for which the property is
    * effective from
    */
   constructor() {

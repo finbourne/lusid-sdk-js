@@ -28,18 +28,18 @@
 class TargetTaxLotRequest {
   /**
    * Create a TargetTaxLotRequest.
-   * @member {number} units Quantity of holding
-   * @member {object} [cost] Book cost of holding in transaction currency
-   * @member {number} [cost.amount]
-   * @member {string} [cost.currency]
-   * @member {number} [portfolioCost] Book cost of holding in portfolio
+   * @property {number} units Quantity of holding
+   * @property {object} [cost] Book cost of holding in transaction currency
+   * @property {number} [cost.amount]
+   * @property {string} [cost.currency]
+   * @property {number} [portfolioCost] Book cost of holding in portfolio
    * currency
-   * @member {number} [price] Purchase price. Part of the unique key required
+   * @property {number} [price] Purchase price. Part of the unique key required
    * for multiple taxlots
-   * @member {date} [purchaseDate] Purchase Date. Part of the unique key
+   * @property {date} [purchaseDate] Purchase Date. Part of the unique key
    * required for multiple taxlots
-   * @member {date} [settlementDate] Original settlement date of the tax-lot's
-   * opening transaction.
+   * @property {date} [settlementDate] Original settlement date of the
+   * tax-lot's opening transaction.
    */
   constructor() {
   }

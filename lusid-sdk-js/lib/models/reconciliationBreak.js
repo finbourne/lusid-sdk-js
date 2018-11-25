@@ -29,22 +29,22 @@
 class ReconciliationBreak {
   /**
    * Create a ReconciliationBreak.
-   * @member {string} instrumentUid Unique instrument identifier
-   * @member {array} subHoldingKeys Any other properties that comprise the
+   * @property {string} instrumentUid Unique instrument identifier
+   * @property {array} subHoldingKeys Any other properties that comprise the
    * Sub-Holding Key
-   * @member {number} leftUnits Units from the left hand side
-   * @member {number} rightUnits Units from the right hand side
-   * @member {number} differenceUnits Difference in units
-   * @member {object} leftCost Cost from the left hand side
-   * @member {number} [leftCost.amount]
-   * @member {string} [leftCost.currency]
-   * @member {object} rightCost Cost from the right hand side
-   * @member {number} [rightCost.amount]
-   * @member {string} [rightCost.currency]
-   * @member {object} differenceCost Difference in cost
-   * @member {number} [differenceCost.amount]
-   * @member {string} [differenceCost.currency]
-   * @member {array} instrumentProperties Additional features relating to the
+   * @property {number} leftUnits Units from the left hand side
+   * @property {number} rightUnits Units from the right hand side
+   * @property {number} differenceUnits Difference in units
+   * @property {object} leftCost Cost from the left hand side
+   * @property {number} [leftCost.amount]
+   * @property {string} [leftCost.currency]
+   * @property {object} rightCost Cost from the right hand side
+   * @property {number} [rightCost.amount]
+   * @property {string} [rightCost.currency]
+   * @property {object} differenceCost Difference in cost
+   * @property {number} [differenceCost.amount]
+   * @property {string} [differenceCost.currency]
+   * @property {array} instrumentProperties Additional features relating to the
    * security
    */
   constructor() {

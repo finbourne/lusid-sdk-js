@@ -28,11 +28,11 @@
 class AnalyticStore {
   /**
    * Create a AnalyticStore.
-   * @member {object} [key]
-   * @member {string} [key.scope]
-   * @member {date} [key.date]
-   * @member {string} [href]
-   * @member {array} [links]
+   * @property {object} [key]
+   * @property {string} [key.scope]
+   * @property {date} [key.date]
+   * @property {string} [href]
+   * @property {array} [links]
    */
   constructor() {
   }

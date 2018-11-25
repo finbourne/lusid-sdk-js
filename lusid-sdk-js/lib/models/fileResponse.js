@@ -29,17 +29,17 @@
 class FileResponse {
   /**
    * Create a FileResponse.
-   * @member {object} [fileStream]
-   * @member {boolean} [fileStream.canRead]
-   * @member {boolean} [fileStream.canSeek]
-   * @member {boolean} [fileStream.canTimeout]
-   * @member {boolean} [fileStream.canWrite]
-   * @member {number} [fileStream.length]
-   * @member {number} [fileStream.position]
-   * @member {number} [fileStream.readTimeout]
-   * @member {number} [fileStream.writeTimeout]
-   * @member {string} [contentType]
-   * @member {string} [downloadedFilename]
+   * @property {object} [fileStream]
+   * @property {boolean} [fileStream.canRead]
+   * @property {boolean} [fileStream.canSeek]
+   * @property {boolean} [fileStream.canTimeout]
+   * @property {boolean} [fileStream.canWrite]
+   * @property {number} [fileStream.length]
+   * @property {number} [fileStream.position]
+   * @property {number} [fileStream.readTimeout]
+   * @property {number} [fileStream.writeTimeout]
+   * @property {string} [contentType]
+   * @property {string} [downloadedFilename]
    */
   constructor() {
   }

@@ -28,10 +28,10 @@
 class CreateUnitDefinition {
   /**
    * Create a CreateUnitDefinition.
-   * @member {string} code
-   * @member {string} displayName
-   * @member {string} description
-   * @member {object} [details]
+   * @property {string} code
+   * @property {string} displayName
+   * @property {string} description
+   * @property {object} [details]
    */
   constructor() {
   }

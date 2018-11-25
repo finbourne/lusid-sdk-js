@@ -28,9 +28,9 @@
 class ErrorDetailBase {
   /**
    * Create a ErrorDetailBase.
-   * @member {string} [id]
-   * @member {string} [type]
-   * @member {string} [detail]
+   * @property {string} [id]
+   * @property {string} [type]
+   * @property {string} [detail]
    */
   constructor() {
   }

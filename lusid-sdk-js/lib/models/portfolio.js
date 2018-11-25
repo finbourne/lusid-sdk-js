@@ -28,26 +28,26 @@
 class Portfolio {
   /**
    * Create a Portfolio.
-   * @member {string} [href] Link to retrieve the current entity
-   * @member {object} [id] Identifier for the portfolio
-   * @member {string} [id.scope]
-   * @member {string} [id.code]
-   * @member {string} [type] The type of portfolio this is (e.g. Transaction
+   * @property {string} [href] Link to retrieve the current entity
+   * @property {object} [id] Identifier for the portfolio
+   * @property {string} [id.scope]
+   * @property {string} [id.code]
+   * @property {string} [type] The type of portfolio this is (e.g. Transaction
    * Portfolio, Reference  Portfolio). Possible values include: 'Transaction',
    * 'Reference', 'DerivedTransaction'
-   * @member {string} [displayName] Display name of the portfolio
-   * @member {string} [description] Description of the portfolio
-   * @member {date} [created] Portfolio creation time in UTC
-   * @member {object} [parentPortfolioId] If this is a derived portfolio, the
+   * @property {string} [displayName] Display name of the portfolio
+   * @property {string} [description] Description of the portfolio
+   * @property {date} [created] Portfolio creation time in UTC
+   * @property {object} [parentPortfolioId] If this is a derived portfolio, the
    * identifier of the portfolio from which it is derived
-   * @member {string} [parentPortfolioId.scope]
-   * @member {string} [parentPortfolioId.code]
-   * @member {object} [version] The version of the portfolio
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {boolean} [isDerived]
-   * @member {array} [links]
+   * @property {string} [parentPortfolioId.scope]
+   * @property {string} [parentPortfolioId.code]
+   * @property {object} [version] The version of the portfolio
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {boolean} [isDerived]
+   * @property {array} [links]
    */
   constructor() {
   }

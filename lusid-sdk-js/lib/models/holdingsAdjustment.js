@@ -30,17 +30,17 @@
 class HoldingsAdjustment {
   /**
    * Create a HoldingsAdjustment.
-   * @member {date} [effectiveAt] There can be at most one holdings adjustment
-   * for a portfolio at a
+   * @property {date} [effectiveAt] There can be at most one holdings
+   * adjustment for a portfolio at a
    * specific effective time so this uniquely identifies the adjustment.
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {string} [unmatchedHoldingMethod] Possible values include:
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {string} [unmatchedHoldingMethod] Possible values include:
    * 'PositionToZero', 'KeepTheSame'
-   * @member {array} [adjustments]
-   * @member {array} [links]
+   * @property {array} [adjustments]
+   * @property {array} [links]
    */
   constructor() {
   }

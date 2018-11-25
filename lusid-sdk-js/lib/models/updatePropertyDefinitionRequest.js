@@ -28,14 +28,14 @@
 class UpdatePropertyDefinitionRequest {
   /**
    * Create a UpdatePropertyDefinitionRequest.
-   * @member {boolean} [valueRequired]
-   * @member {string} [displayName]
-   * @member {object} [dataTypeId]
-   * @member {string} [dataTypeId.scope]
-   * @member {string} [dataTypeId.code]
-   * @member {string} [lifeTime] Possible values include: 'Perpetual',
+   * @property {boolean} [valueRequired]
+   * @property {string} [displayName]
+   * @property {object} [dataTypeId]
+   * @property {string} [dataTypeId.scope]
+   * @property {string} [dataTypeId.code]
+   * @property {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
-   * @member {string} [type] Possible values include: 'Label', 'Metric'
+   * @property {string} [type] Possible values include: 'Label', 'Metric'
    */
   constructor() {
   }

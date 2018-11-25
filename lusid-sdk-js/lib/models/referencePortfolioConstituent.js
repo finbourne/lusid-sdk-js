@@ -28,10 +28,10 @@
 class ReferencePortfolioConstituent {
   /**
    * Create a ReferencePortfolioConstituent.
-   * @member {string} [instrumentUid]
-   * @member {array} [properties]
-   * @member {number} [weight]
-   * @member {string} [currency]
+   * @property {string} [instrumentUid]
+   * @property {array} [properties]
+   * @property {number} [weight]
+   * @property {string} [currency]
    */
   constructor() {
   }

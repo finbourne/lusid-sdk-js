@@ -28,12 +28,12 @@
 class ResourceListOfCorporateAction {
   /**
    * Create a ResourceListOfCorporateAction.
-   * @member {array} [values]
-   * @member {string} [href] The Uri that returns the same result as the
+   * @property {array} [values]
+   * @property {string} [href] The Uri that returns the same result as the
    * original request,
    * but may include resolved as at time(s).
-   * @member {number} [count] The total number of records returned in the set
-   * @member {array} [links]
+   * @property {number} [count] The total number of records returned in the set
+   * @property {array} [links]
    */
   constructor() {
   }

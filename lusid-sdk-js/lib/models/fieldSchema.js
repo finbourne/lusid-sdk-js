@@ -28,18 +28,18 @@
 class FieldSchema {
   /**
    * Create a FieldSchema.
-   * @member {string} [scope]
-   * @member {string} [name]
-   * @member {string} [displayName]
-   * @member {string} [type] Possible values include: 'String', 'Int',
+   * @property {string} [scope]
+   * @property {string} [name]
+   * @property {string} [displayName]
+   * @property {string} [type] Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
-   * @member {boolean} [isMetric]
-   * @member {number} [displayOrder]
-   * @member {object} [propertySchema]
+   * @property {boolean} [isMetric]
+   * @property {number} [displayOrder]
+   * @property {object} [propertySchema]
    */
   constructor() {
   }

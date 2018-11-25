@@ -28,9 +28,9 @@
 class InstrumentAnalytic {
   /**
    * Create a InstrumentAnalytic.
-   * @member {string} [instrumentUid] Unique instrument identifier
-   * @member {number} [value] Value of the analytic, eg price
-   * @member {string} [denomination] Underlying unit of the analytic, eg
+   * @property {string} [instrumentUid] Unique instrument identifier
+   * @property {number} [value] Value of the analytic, eg price
+   * @property {string} [denomination] Underlying unit of the analytic, eg
    * currency, EPS etc.
    */
   constructor() {

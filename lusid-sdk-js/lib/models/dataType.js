@@ -28,25 +28,25 @@
 class DataType {
   /**
    * Create a DataType.
-   * @member {string} [href]
-   * @member {string} [typeValueRange] Possible values include: 'Open',
+   * @property {string} [href]
+   * @property {string} [typeValueRange] Possible values include: 'Open',
    * 'Closed'
-   * @member {object} [id]
-   * @member {string} [id.scope]
-   * @member {string} [id.code]
-   * @member {string} [displayName]
-   * @member {string} [description]
-   * @member {string} [valueType] Possible values include: 'String', 'Int',
+   * @property {object} [id]
+   * @property {string} [id.scope]
+   * @property {string} [id.code]
+   * @property {string} [displayName]
+   * @property {string} [description]
+   * @property {string} [valueType] Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
-   * @member {array} [acceptableValues]
-   * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
-   * 'Iso4217Currency'
-   * @member {array} [acceptableUnits]
-   * @member {array} [links]
+   * @property {array} [acceptableValues]
+   * @property {string} [unitSchema] Possible values include: 'NoUnits',
+   * 'Basic', 'Iso4217Currency'
+   * @property {array} [acceptableUnits]
+   * @property {array} [links]
    */
   constructor() {
   }

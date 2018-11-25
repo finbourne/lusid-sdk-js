@@ -29,15 +29,15 @@
 class CorporateAction {
   /**
    * Create a CorporateAction.
-   * @member {object} sourceId
-   * @member {string} [sourceId.scope]
-   * @member {string} [sourceId.code]
-   * @member {string} corporateActionCode
-   * @member {date} [announcementDate]
-   * @member {date} [exDate]
-   * @member {date} [recordDate]
-   * @member {date} [paymentDate]
-   * @member {array} [transitions]
+   * @property {object} sourceId
+   * @property {string} [sourceId.scope]
+   * @property {string} [sourceId.code]
+   * @property {string} corporateActionCode
+   * @property {date} [announcementDate]
+   * @property {date} [exDate]
+   * @property {date} [recordDate]
+   * @property {date} [paymentDate]
+   * @property {array} [transitions]
    */
   constructor() {
   }

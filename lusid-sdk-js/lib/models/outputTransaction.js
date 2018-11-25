@@ -28,39 +28,39 @@
 class OutputTransaction {
   /**
    * Create a OutputTransaction.
-   * @member {string} [transactionId] Unique transaction identifier
-   * @member {string} [type] LUSID transaction type code - Buy, Sell, StockIn,
-   * StockOut, etc
-   * @member {string} [description] LUSID transaction description
-   * @member {string} [instrumentUid] Unique instrument identifier
-   * @member {date} [transactionDate] Transaction date
-   * @member {date} [settlementDate] Settlement date
-   * @member {number} [units] Quantity of trade in units of the instrument
-   * @member {object} [transactionPrice] Execution price for the transaction
-   * @member {number} [transactionPrice.price]
-   * @member {string} [transactionPrice.type] Possible values include: 'Price',
-   * 'Yield', 'Spread'
-   * @member {object} [totalConsideration] Total value of the transaction in
+   * @property {string} [transactionId] Unique transaction identifier
+   * @property {string} [type] LUSID transaction type code - Buy, Sell,
+   * StockIn, StockOut, etc
+   * @property {string} [description] LUSID transaction description
+   * @property {string} [instrumentUid] Unique instrument identifier
+   * @property {date} [transactionDate] Transaction date
+   * @property {date} [settlementDate] Settlement date
+   * @property {number} [units] Quantity of trade in units of the instrument
+   * @property {object} [transactionPrice] Execution price for the transaction
+   * @property {number} [transactionPrice.price]
+   * @property {string} [transactionPrice.type] Possible values include:
+   * 'Price', 'Yield', 'Spread'
+   * @property {object} [totalConsideration] Total value of the transaction in
    * settlement currency
-   * @member {number} [totalConsideration.amount]
-   * @member {string} [totalConsideration.currency]
-   * @member {number} [exchangeRate] Rate between transaction and settlement
+   * @property {number} [totalConsideration.amount]
+   * @property {string} [totalConsideration.currency]
+   * @property {number} [exchangeRate] Rate between transaction and settlement
    * currency
-   * @member {number} [transactionToPortfolioRate] Rate between transaction and
-   * portfolio currency
-   * @member {string} [transactionCurrency] Transaction currency
-   * @member {array} [properties]
-   * @member {string} [counterpartyId] Counterparty identifier
-   * @member {string} [source] Where this transaction came from, either Client
-   * or System. Possible values include: 'System', 'Client'
-   * @member {string} [nettingSet]
-   * @member {string} [transactionStatus] Transaction status (active, amended
+   * @property {number} [transactionToPortfolioRate] Rate between transaction
+   * and portfolio currency
+   * @property {string} [transactionCurrency] Transaction currency
+   * @property {array} [properties]
+   * @property {string} [counterpartyId] Counterparty identifier
+   * @property {string} [source] Where this transaction came from, either
+   * Client or System. Possible values include: 'System', 'Client'
+   * @property {string} [nettingSet]
+   * @property {string} [transactionStatus] Transaction status (active, amended
    * or cancelled). Possible values include: 'Active', 'Amended', 'Cancelled'
-   * @member {date} [entryDateTime] Date/Time the transaction was booked into
+   * @property {date} [entryDateTime] Date/Time the transaction was booked into
    * LUSID
-   * @member {date} [cancelDateTime] Date/Time the cancellation was booked into
-   * LUSID
-   * @member {array} [realisedGainLoss] Collection of gains or losses
+   * @property {date} [cancelDateTime] Date/Time the cancellation was booked
+   * into LUSID
+   * @property {array} [realisedGainLoss] Collection of gains or losses
    */
   constructor() {
   }

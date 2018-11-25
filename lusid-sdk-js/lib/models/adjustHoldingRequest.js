@@ -31,12 +31,12 @@
 class AdjustHoldingRequest {
   /**
    * Create a AdjustHoldingRequest.
-   * @member {string} instrumentUid Unique instrument identifier
-   * @member {object} [subHoldingKeys] Key fields to uniquely index the sub
+   * @property {string} instrumentUid Unique instrument identifier
+   * @property {object} [subHoldingKeys] Key fields to uniquely index the sub
    * holdings of a instrument
-   * @member {object} [properties] Arbitrary properties to store with the
+   * @property {object} [properties] Arbitrary properties to store with the
    * holding
-   * @member {array} taxLots 1 or more quantity amounts
+   * @property {array} taxLots 1 or more quantity amounts
    */
   constructor() {
   }

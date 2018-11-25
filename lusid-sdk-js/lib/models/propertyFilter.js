@@ -28,12 +28,12 @@
 class PropertyFilter {
   /**
    * Create a PropertyFilter.
-   * @member {string} [left]
-   * @member {string} [operator] Possible values include: 'Equals',
+   * @property {string} [left]
+   * @property {string} [operator] Possible values include: 'Equals',
    * 'NotEquals', 'GreaterThan', 'GreaterThanOrEqualTo', 'LessThan',
    * 'LessThanOrEqualTo', 'In'
-   * @member {object} [right]
-   * @member {string} [rightOperandType] Possible values include: 'Absolute',
+   * @property {object} [right]
+   * @property {string} [rightOperandType] Possible values include: 'Absolute',
    * 'Property'
    */
   constructor() {

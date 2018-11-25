@@ -28,9 +28,9 @@
 class ErrorDetail {
   /**
    * Create a ErrorDetail.
-   * @member {string} [id]
-   * @member {string} [type]
-   * @member {string} [detail]
+   * @property {string} [id]
+   * @property {string} [type]
+   * @property {string} [detail]
    */
   constructor() {
   }

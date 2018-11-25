@@ -28,35 +28,36 @@
 class RealisedGainLoss {
   /**
    * Create a RealisedGainLoss.
-   * @member {string} [instrumentUid] Unique instrument identifier
-   * @member {number} [units] Quantity against which gain has been made in
+   * @property {string} [instrumentUid] Unique instrument identifier
+   * @property {number} [units] Quantity against which gain has been made in
    * units of the instrument
-   * @member {date} [purchaseTradeDate] Date the position was originally
+   * @property {date} [purchaseTradeDate] Date the position was originally
    * purchased
-   * @member {date} [purchaseSettlementDate] Date the position originally
+   * @property {date} [purchaseSettlementDate] Date the position originally
    * settled
-   * @member {number} [purchasePrice] Price the instrument was purchased at
-   * @member {object} [costTradeCcy] Purchase cost in the trade currency
-   * @member {number} [costTradeCcy.amount]
-   * @member {string} [costTradeCcy.currency]
-   * @member {object} [costPortfolioCcy] Purchase cost in the trade currency
-   * @member {number} [costPortfolioCcy.amount]
-   * @member {string} [costPortfolioCcy.currency]
-   * @member {object} [realisedTradeCcy] Gains or losses in the trade currency
-   * @member {number} [realisedTradeCcy.amount]
-   * @member {string} [realisedTradeCcy.currency]
-   * @member {object} [realisedTotal] Total gains or losses in the portfolio
+   * @property {number} [purchasePrice] Price the instrument was purchased at
+   * @property {object} [costTradeCcy] Purchase cost in the trade currency
+   * @property {number} [costTradeCcy.amount]
+   * @property {string} [costTradeCcy.currency]
+   * @property {object} [costPortfolioCcy] Purchase cost in the trade currency
+   * @property {number} [costPortfolioCcy.amount]
+   * @property {string} [costPortfolioCcy.currency]
+   * @property {object} [realisedTradeCcy] Gains or losses in the trade
    * currency
-   * @member {number} [realisedTotal.amount]
-   * @member {string} [realisedTotal.currency]
-   * @member {object} [realisedMarket] Market gains or losses in the portfolio
+   * @property {number} [realisedTradeCcy.amount]
+   * @property {string} [realisedTradeCcy.currency]
+   * @property {object} [realisedTotal] Total gains or losses in the portfolio
    * currency
-   * @member {number} [realisedMarket.amount]
-   * @member {string} [realisedMarket.currency]
-   * @member {object} [realisedCurrency] Currency gains or losses in the
+   * @property {number} [realisedTotal.amount]
+   * @property {string} [realisedTotal.currency]
+   * @property {object} [realisedMarket] Market gains or losses in the
    * portfolio currency
-   * @member {number} [realisedCurrency.amount]
-   * @member {string} [realisedCurrency.currency]
+   * @property {number} [realisedMarket.amount]
+   * @property {string} [realisedMarket.currency]
+   * @property {object} [realisedCurrency] Currency gains or losses in the
+   * portfolio currency
+   * @property {number} [realisedCurrency.amount]
+   * @property {string} [realisedCurrency.currency]
    */
   constructor() {
   }

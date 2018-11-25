@@ -28,8 +28,8 @@
 class CreateAnalyticStoreRequest {
   /**
    * Create a CreateAnalyticStoreRequest.
-   * @member {string} [scope]
-   * @member {date} [date]
+   * @property {string} [scope]
+   * @property {date} [date]
    */
   constructor() {
   }

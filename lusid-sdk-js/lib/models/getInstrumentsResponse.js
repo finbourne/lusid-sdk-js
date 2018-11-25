@@ -23,32 +23,36 @@
 'use strict';
 
 /**
- * Class representing a TryAddClientInstruments.
+ * Class representing a GetInstrumentsResponse.
  */
-class TryAddClientInstruments {
+class GetInstrumentsResponse {
   /**
-   * Create a TryAddClientInstruments.
-   * @member {string} [href]
-   * @member {object} [values]
-   * @member {object} [failed]
-   * @member {array} [links]
+   * Create a GetInstrumentsResponse.
+   * @property {string} [href]
+   * @property {object} [values] The instruments, keyed by their requested
+   * identifier. Only instruments that were found
+   * will be contained in this collection.
+   * @property {object} [failed] If any instruments were not found, then they
+   * will be listed in as 'Failed', along with the nature
+   * of their failure.
+   * @property {array} [links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of TryAddClientInstruments
+   * Defines the metadata of GetInstrumentsResponse
    *
-   * @returns {object} metadata of TryAddClientInstruments
+   * @returns {object} metadata of GetInstrumentsResponse
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'TryAddClientInstruments',
+      serializedName: 'GetInstrumentsResponse',
       type: {
         name: 'Composite',
-        className: 'TryAddClientInstruments',
+        className: 'GetInstrumentsResponse',
         modelProperties: {
           href: {
             required: false,
@@ -108,4 +112,4 @@ class TryAddClientInstruments {
   }
 }
 
-module.exports = TryAddClientInstruments;
+module.exports = GetInstrumentsResponse;

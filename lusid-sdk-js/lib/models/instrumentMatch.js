@@ -23,88 +23,67 @@
 'use strict';
 
 /**
- * Class representing a LookupInstrumentsFromCodesResponse.
+ * Class representing a InstrumentMatch.
  */
-class LookupInstrumentsFromCodesResponse {
+class InstrumentMatch {
   /**
-   * Create a LookupInstrumentsFromCodesResponse.
-   * @member {string} [href]
-   * @member {object} [values]
-   * @member {object} [failed]
-   * @member {array} [links]
+   * Create a InstrumentMatch.
+   * @property {string} [name] The name of the instrument
+   * @property {object} [identifiers] The set of identifiers that uniquely
+   * identify this instrument
+   * @property {array} [properties] Any requested properties are decorated on
+   * the instrument, and will have a value of
+   * 'Unknown', if no value was found for this instrument.
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of LookupInstrumentsFromCodesResponse
+   * Defines the metadata of InstrumentMatch
    *
-   * @returns {object} metadata of LookupInstrumentsFromCodesResponse
+   * @returns {object} metadata of InstrumentMatch
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'LookupInstrumentsFromCodesResponse',
+      serializedName: 'InstrumentMatch',
       type: {
         name: 'Composite',
-        className: 'LookupInstrumentsFromCodesResponse',
+        className: 'InstrumentMatch',
         modelProperties: {
-          href: {
+          name: {
             required: false,
-            serializedName: 'href',
+            serializedName: 'name',
             type: {
               name: 'String'
             }
           },
-          values: {
+          identifiers: {
             required: false,
-            serializedName: 'values',
+            serializedName: 'identifiers',
             type: {
               name: 'Dictionary',
               value: {
                   required: false,
-                  serializedName: 'ArrayElementType',
+                  serializedName: 'StringElementType',
                   type: {
-                    name: 'Sequence',
-                    element: {
-                        required: false,
-                        serializedName: 'InstrumentElementType',
-                        type: {
-                          name: 'Composite',
-                          className: 'Instrument'
-                        }
-                    }
+                    name: 'String'
                   }
               }
             }
           },
-          failed: {
+          properties: {
             required: false,
-            serializedName: 'failed',
-            type: {
-              name: 'Dictionary',
-              value: {
-                  required: false,
-                  serializedName: 'ErrorDetailElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'ErrorDetail'
-                  }
-              }
-            }
-          },
-          links: {
-            required: false,
-            serializedName: 'links',
+            serializedName: 'properties',
             type: {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'LinkElementType',
+                  serializedName: 'PropertyElementType',
                   type: {
                     name: 'Composite',
-                    className: 'Link'
+                    className: 'Property'
                   }
               }
             }
@@ -115,4 +94,4 @@ class LookupInstrumentsFromCodesResponse {
   }
 }
 
-module.exports = LookupInstrumentsFromCodesResponse;
+module.exports = InstrumentMatch;

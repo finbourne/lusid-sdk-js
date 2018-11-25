@@ -28,10 +28,10 @@
 class UpsertQuoteRequest {
   /**
    * Create a UpsertQuoteRequest.
-   * @member {string} id
-   * @member {object} metricValue
-   * @member {number} [metricValue.value]
-   * @member {string} [metricValue.unit]
+   * @property {string} id
+   * @property {object} metricValue
+   * @property {number} [metricValue.value]
+   * @property {string} [metricValue.unit]
    */
   constructor() {
   }

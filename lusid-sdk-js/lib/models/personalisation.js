@@ -28,13 +28,13 @@
 class Personalisation {
   /**
    * Create a Personalisation.
-   * @member {string} [scope] Possible values include: 'User', 'Group',
+   * @property {string} [scope] Possible values include: 'User', 'Group',
    * 'Default', 'All'
-   * @member {string} [scopeValue]
-   * @member {string} [settingKey]
-   * @member {string} [settingValue]
-   * @member {string} [dataType]
-   * @member {string} [href]
+   * @property {string} [scopeValue]
+   * @property {string} [settingKey]
+   * @property {string} [settingValue]
+   * @property {string} [dataType]
+   * @property {string} [href]
    */
   constructor() {
   }

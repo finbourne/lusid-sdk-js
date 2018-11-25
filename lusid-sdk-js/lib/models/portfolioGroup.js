@@ -28,19 +28,19 @@
 class PortfolioGroup {
   /**
    * Create a PortfolioGroup.
-   * @member {string} [href]
-   * @member {object} [id]
-   * @member {string} [id.scope]
-   * @member {string} [id.code]
-   * @member {string} [displayName]
-   * @member {string} [description]
-   * @member {array} [portfolios]
-   * @member {array} [subGroups]
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {object} [id]
+   * @property {string} [id.scope]
+   * @property {string} [id.code]
+   * @property {string} [displayName]
+   * @property {string} [description]
+   * @property {array} [portfolios]
+   * @property {array} [subGroups]
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {array} [links]
    */
   constructor() {
   }

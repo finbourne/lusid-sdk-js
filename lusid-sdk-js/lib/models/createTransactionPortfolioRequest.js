@@ -28,19 +28,20 @@
 class CreateTransactionPortfolioRequest {
   /**
    * Create a CreateTransactionPortfolioRequest.
-   * @member {string} displayName
-   * @member {string} [description]
-   * @member {string} code
-   * @member {date} [created]
-   * @member {string} baseCurrency
-   * @member {object} [corporateActionSourceId]
-   * @member {string} [corporateActionSourceId.scope]
-   * @member {string} [corporateActionSourceId.code]
-   * @member {string} [accountingMethod] Possible values include: 'Default',
+   * @property {string} displayName
+   * @property {string} [description]
+   * @property {string} code
+   * @property {date} [created]
+   * @property {string} baseCurrency
+   * @property {object} [corporateActionSourceId]
+   * @property {string} [corporateActionSourceId.scope]
+   * @property {string} [corporateActionSourceId.code]
+   * @property {string} [accountingMethod] Possible values include: 'Default',
    * 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
    * 'LowestCostFirst'
-   * @member {array} [subHoldingKeys]
-   * @member {object} [properties] Portfolio properties to add to the portfolio
+   * @property {array} [subHoldingKeys]
+   * @property {object} [properties] Portfolio properties to add to the
+   * portfolio
    */
   constructor() {
   }

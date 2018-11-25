@@ -28,8 +28,11 @@
 class InstrumentProperty {
   /**
    * Create a InstrumentProperty.
-   * @member {string} [instrumentUid] Unique instrument identifier
-   * @member {array} [properties]
+   * @property {string} [lusidInstrumentId] Unique instrument identifier
+   * @property {array} [properties] A collection of properties to create or
+   * update
+   * @property {array} [deletedProperties] A collection of property keys to
+   * remove property values from, if any are set for the instrument
    */
   constructor() {
   }
@@ -48,9 +51,9 @@ class InstrumentProperty {
         name: 'Composite',
         className: 'InstrumentProperty',
         modelProperties: {
-          instrumentUid: {
+          lusidInstrumentId: {
             required: false,
-            serializedName: 'instrumentUid',
+            serializedName: 'lusidInstrumentId',
             type: {
               name: 'String'
             }
@@ -66,6 +69,21 @@ class InstrumentProperty {
                   type: {
                     name: 'Composite',
                     className: 'CreateInstrumentPropertyRequest'
+                  }
+              }
+            }
+          },
+          deletedProperties: {
+            required: false,
+            serializedName: 'deletedProperties',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'DeleteInstrumentPropertyRequestElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'DeleteInstrumentPropertyRequest'
                   }
               }
             }

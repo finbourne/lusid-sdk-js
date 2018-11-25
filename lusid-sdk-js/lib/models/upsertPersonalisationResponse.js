@@ -28,8 +28,8 @@
 class UpsertPersonalisationResponse {
   /**
    * Create a UpsertPersonalisationResponse.
-   * @member {string} [href]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {array} [links]
    */
   constructor() {
   }

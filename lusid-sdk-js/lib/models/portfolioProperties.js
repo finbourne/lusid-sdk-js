@@ -28,16 +28,16 @@
 class PortfolioProperties {
   /**
    * Create a PortfolioProperties.
-   * @member {string} [href]
-   * @member {object} [originPortfolioId]
-   * @member {string} [originPortfolioId.scope]
-   * @member {string} [originPortfolioId.code]
-   * @member {array} [properties]
-   * @member {object} [version] The version of the portfolio
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {object} [originPortfolioId]
+   * @property {string} [originPortfolioId.scope]
+   * @property {string} [originPortfolioId.code]
+   * @property {array} [properties]
+   * @property {object} [version] The version of the portfolio
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {array} [links]
    */
   constructor() {
   }

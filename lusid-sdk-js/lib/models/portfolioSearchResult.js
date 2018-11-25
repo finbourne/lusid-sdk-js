@@ -28,21 +28,21 @@
 class PortfolioSearchResult {
   /**
    * Create a PortfolioSearchResult.
-   * @member {object} [id]
-   * @member {string} [id.scope]
-   * @member {string} [id.code]
-   * @member {string} [type] Possible values include: 'Transaction',
+   * @property {object} [id]
+   * @property {string} [id.scope]
+   * @property {string} [id.code]
+   * @property {string} [type] Possible values include: 'Transaction',
    * 'Reference', 'DerivedTransaction'
-   * @member {string} [href]
-   * @member {string} [description]
-   * @member {string} [displayName]
-   * @member {boolean} [isDerived]
-   * @member {date} [created]
-   * @member {object} [parentPortfolioId]
-   * @member {string} [parentPortfolioId.scope]
-   * @member {string} [parentPortfolioId.code]
-   * @member {array} [properties]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {string} [description]
+   * @property {string} [displayName]
+   * @property {boolean} [isDerived]
+   * @property {date} [created]
+   * @property {object} [parentPortfolioId]
+   * @property {string} [parentPortfolioId.scope]
+   * @property {string} [parentPortfolioId.code]
+   * @property {array} [properties]
+   * @property {array} [links]
    */
   constructor() {
   }

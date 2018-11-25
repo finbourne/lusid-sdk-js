@@ -23,47 +23,61 @@
 'use strict';
 
 /**
- * Expanded instrument definition - in the case of OTC instruments
- * this contains the definition of the non-exchange traded instrument.
- * The format for this can be client-defined, but in order to transparently use
- * vendor libraries it must conform to a format that LUSID understands.
- *
+ * Class representing a DeleteInstrumentResponse.
  */
-class InstrumentDefinition {
+class DeleteInstrumentResponse {
   /**
-   * Create a InstrumentDefinition.
-   * @member {string} instrumentFormat
-   * @member {string} content
+   * Create a DeleteInstrumentResponse.
+   * @property {string} [href]
+   * @property {date} [asAt] The 'as at' time that the instrument was deleted
+   * at. As at times preceding this can
+   * still be used to query the instrument.
+   * @property {array} [links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of InstrumentDefinition
+   * Defines the metadata of DeleteInstrumentResponse
    *
-   * @returns {object} metadata of InstrumentDefinition
+   * @returns {object} metadata of DeleteInstrumentResponse
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'InstrumentDefinition',
+      serializedName: 'DeleteInstrumentResponse',
       type: {
         name: 'Composite',
-        className: 'InstrumentDefinition',
+        className: 'DeleteInstrumentResponse',
         modelProperties: {
-          instrumentFormat: {
-            required: true,
-            serializedName: 'instrumentFormat',
+          href: {
+            required: false,
+            serializedName: 'href',
             type: {
               name: 'String'
             }
           },
-          content: {
-            required: true,
-            serializedName: 'content',
+          asAt: {
+            required: false,
+            serializedName: 'asAt',
             type: {
-              name: 'String'
+              name: 'DateTime'
+            }
+          },
+          links: {
+            required: false,
+            serializedName: 'links',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
+                  }
+              }
             }
           }
         }
@@ -72,4 +86,4 @@ class InstrumentDefinition {
   }
 }
 
-module.exports = InstrumentDefinition;
+module.exports = DeleteInstrumentResponse;

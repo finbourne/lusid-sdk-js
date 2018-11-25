@@ -28,9 +28,9 @@
 class PropertySchema {
   /**
    * Create a PropertySchema.
-   * @member {string} [href]
-   * @member {array} [values]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {array} [values]
+   * @property {array} [links]
    */
   constructor() {
   }

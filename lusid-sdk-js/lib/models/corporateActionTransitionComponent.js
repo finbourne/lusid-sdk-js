@@ -28,9 +28,9 @@
 class CorporateActionTransitionComponent {
   /**
    * Create a CorporateActionTransitionComponent.
-   * @member {string} instrumentUid
-   * @member {number} unitsFactor
-   * @member {number} costFactor
+   * @property {string} instrumentUid
+   * @property {number} unitsFactor
+   * @property {number} costFactor
    */
   constructor() {
   }

@@ -28,13 +28,13 @@
 class TransactionConfigurationTypeAlias {
   /**
    * Create a TransactionConfigurationTypeAlias.
-   * @member {string} type The transaction type
-   * @member {string} description Brief description of the transaction
-   * @member {string} transactionClass Relates types of a similar class. E.g.
+   * @property {string} type The transaction type
+   * @property {string} description Brief description of the transaction
+   * @property {string} transactionClass Relates types of a similar class. E.g.
    * Buy/Sell, StockIn/StockOut
-   * @member {string} transactionGroup Group is a set of codes related to a
+   * @property {string} transactionGroup Group is a set of codes related to a
    * source, or sync
-   * @member {string} transactionRoles Transactions role within a class. E.g.
+   * @property {string} transactionRoles Transactions role within a class. E.g.
    * Increase a long position. Possible values include: 'None', 'LongLonger',
    * 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
    * 'AllRoles'

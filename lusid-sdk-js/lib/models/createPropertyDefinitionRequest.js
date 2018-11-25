@@ -28,18 +28,18 @@
 class CreatePropertyDefinitionRequest {
   /**
    * Create a CreatePropertyDefinitionRequest.
-   * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
+   * @property {string} [domain] Possible values include: 'Trade', 'Portfolio',
    * 'Security', 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument'
-   * @member {string} [scope]
-   * @member {string} [code]
-   * @member {boolean} [valueRequired]
-   * @member {string} [displayName]
-   * @member {object} [dataTypeId]
-   * @member {string} [dataTypeId.scope]
-   * @member {string} [dataTypeId.code]
-   * @member {string} [lifeTime] Possible values include: 'Perpetual',
+   * @property {string} [scope]
+   * @property {string} [code]
+   * @property {boolean} [valueRequired]
+   * @property {string} [displayName]
+   * @property {object} [dataTypeId]
+   * @property {string} [dataTypeId.scope]
+   * @property {string} [dataTypeId.code]
+   * @property {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
-   * @member {string} [type] Possible values include: 'Label', 'Metric'
+   * @property {string} [type] Possible values include: 'Label', 'Metric'
    */
   constructor() {
   }

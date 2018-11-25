@@ -28,14 +28,14 @@
 class ExecutionRequest {
   /**
    * Create a ExecutionRequest.
-   * @member {string} executionId FIX Field 17.  Unique execution identifier.
-   * @member {string} side FIX Field 54.
-   * @member {string} instrumentUid Unique instrument identifier.
-   * @member {date} transactionTime FIX field 60.  Time the transaction
+   * @property {string} executionId FIX Field 17.  Unique execution identifier.
+   * @property {string} side FIX Field 54.
+   * @property {string} instrumentUid Unique instrument identifier.
+   * @property {date} transactionTime FIX field 60.  Time the transaction
    * represented by this ExecutionReport occurred.
-   * @member {number} orderQty FIX field 38.  Order quantity.
-   * @member {number} price FIX field 44.
-   * @member {string} currency FIX field 15.
+   * @property {number} orderQty FIX field 38.  Order quantity.
+   * @property {number} price FIX field 44.
+   * @property {string} currency FIX field 15.
    */
   constructor() {
   }

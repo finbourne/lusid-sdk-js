@@ -29,17 +29,17 @@
 class AggregationRequest {
   /**
    * Create a AggregationRequest.
-   * @member {object} recipeId
-   * @member {string} [recipeId.scope]
-   * @member {string} [recipeId.code]
-   * @member {boolean} [loadReferencePortfolio]
-   * @member {date} [asAt] The asAt date to use
-   * @member {date} effectiveAt
-   * @member {array} metrics
-   * @member {array} [groupBy]
-   * @member {array} [filters]
-   * @member {number} [limit]
-   * @member {string} [sort]
+   * @property {object} recipeId
+   * @property {string} [recipeId.scope]
+   * @property {string} [recipeId.code]
+   * @property {boolean} [loadReferencePortfolio]
+   * @property {date} [asAt] The asAt date to use
+   * @property {date} effectiveAt
+   * @property {array} metrics
+   * @property {array} [groupBy]
+   * @property {array} [filters]
+   * @property {number} [limit]
+   * @property {string} [sort]
    */
   constructor() {
   }

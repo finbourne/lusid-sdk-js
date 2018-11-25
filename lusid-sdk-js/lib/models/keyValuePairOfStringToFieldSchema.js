@@ -28,20 +28,20 @@
 class KeyValuePairOfStringToFieldSchema {
   /**
    * Create a KeyValuePairOfStringToFieldSchema.
-   * @member {string} [key]
-   * @member {object} [value]
-   * @member {string} [value.scope]
-   * @member {string} [value.name]
-   * @member {string} [value.displayName]
-   * @member {string} [value.type] Possible values include: 'String', 'Int',
+   * @property {string} [key]
+   * @property {object} [value]
+   * @property {string} [value.scope]
+   * @property {string} [value.name]
+   * @property {string} [value.displayName]
+   * @property {string} [value.type] Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
-   * @member {boolean} [value.isMetric]
-   * @member {number} [value.displayOrder]
-   * @member {object} [value.propertySchema]
+   * @property {boolean} [value.isMetric]
+   * @property {number} [value.displayOrder]
+   * @property {object} [value.propertySchema]
    */
   constructor() {
   }

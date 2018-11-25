@@ -28,11 +28,11 @@
 class AggregationResponseNode {
   /**
    * Create a AggregationResponseNode.
-   * @member {string} [key]
-   * @member {string} [value]
-   * @member {number} [depth]
-   * @member {object} [properties]
-   * @member {array} [children]
+   * @property {string} [key]
+   * @property {string} [value]
+   * @property {number} [depth]
+   * @property {object} [properties]
+   * @property {array} [children]
    */
   constructor() {
   }

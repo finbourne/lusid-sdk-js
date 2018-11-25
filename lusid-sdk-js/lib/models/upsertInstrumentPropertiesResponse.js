@@ -28,8 +28,10 @@
 class UpsertInstrumentPropertiesResponse {
   /**
    * Create a UpsertInstrumentPropertiesResponse.
-   * @member {string} [href]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {array} [failed] A list of any values that failed to be
+   * upserted.
+   * @property {array} [links]
    */
   constructor() {
   }
@@ -53,6 +55,22 @@ class UpsertInstrumentPropertiesResponse {
             serializedName: 'href',
             type: {
               name: 'String'
+            }
+          },
+          failed: {
+            required: false,
+            readOnly: true,
+            serializedName: 'failed',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'ErrorDetailElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'ErrorDetail'
+                  }
+              }
             }
           },
           links: {

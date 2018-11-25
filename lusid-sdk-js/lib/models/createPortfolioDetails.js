@@ -28,7 +28,7 @@
 class CreatePortfolioDetails {
   /**
    * Create a CreatePortfolioDetails.
-   * @member {string} [baseCurrency]
+   * @property {string} [baseCurrency]
    */
   constructor() {
   }

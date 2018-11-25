@@ -28,8 +28,8 @@
 class UpdatePortfolioGroupRequest {
   /**
    * Create a UpdatePortfolioGroupRequest.
-   * @member {string} displayName
-   * @member {string} [description]
+   * @property {string} displayName
+   * @property {string} [description]
    */
   constructor() {
   }

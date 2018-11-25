@@ -28,9 +28,9 @@
 class TransactionPropertyMappingRequest {
   /**
    * Create a TransactionPropertyMappingRequest.
-   * @member {string} propertyKey The Side
-   * @member {string} [mapFrom] The Side
-   * @member {object} [setTo] The Side
+   * @property {string} propertyKey The Side
+   * @property {string} [mapFrom] The Side
+   * @property {object} [setTo] The Side
    */
   constructor() {
   }

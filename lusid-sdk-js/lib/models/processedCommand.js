@@ -28,12 +28,12 @@
 class ProcessedCommand {
   /**
    * Create a ProcessedCommand.
-   * @member {string} [description]
-   * @member {string} [path]
-   * @member {object} [userId] The user that issued the command.
-   * @member {string} [userId.id]
-   * @member {object} [processedTime] The as at time of the events published by
-   * the processing of
+   * @property {string} [description]
+   * @property {string} [path]
+   * @property {object} [userId] The user that issued the command.
+   * @property {string} [userId.id]
+   * @property {object} [processedTime] The as at time of the events published
+   * by the processing of
    * this command.
    */
   constructor() {

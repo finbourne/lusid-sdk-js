@@ -28,8 +28,8 @@
 class ResultDataSchema {
   /**
    * Create a ResultDataSchema.
-   * @member {array} [nodeValueSchema]
-   * @member {object} [propertySchema]
+   * @property {array} [nodeValueSchema]
+   * @property {object} [propertySchema]
    */
   constructor() {
   }

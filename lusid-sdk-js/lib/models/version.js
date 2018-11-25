@@ -29,9 +29,9 @@
 class Version {
   /**
    * Create a Version.
-   * @member {date} [effectiveFrom]
-   * @member {date} [asAtDate]
-   * @member {string} [href]
+   * @property {date} [effectiveFrom]
+   * @property {date} [asAtDate]
+   * @property {string} [href]
    */
   constructor() {
   }

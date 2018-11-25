@@ -28,11 +28,11 @@
 class PropertyValue {
   /**
    * Create a PropertyValue.
-   * @member {string} [labelValue]
-   * @member {object} [metricValue]
-   * @member {number} [metricValue.value]
-   * @member {string} [metricValue.unit]
-   * @member {date} [effectiveFrom] Date for which the property is effective
+   * @property {string} [labelValue]
+   * @property {object} [metricValue]
+   * @property {number} [metricValue.value]
+   * @property {string} [metricValue.unit]
+   * @property {date} [effectiveFrom] Date for which the property is effective
    * from
    */
   constructor() {

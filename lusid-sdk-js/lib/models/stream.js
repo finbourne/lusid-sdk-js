@@ -28,14 +28,14 @@
 class Stream {
   /**
    * Create a Stream.
-   * @member {boolean} [canRead]
-   * @member {boolean} [canSeek]
-   * @member {boolean} [canTimeout]
-   * @member {boolean} [canWrite]
-   * @member {number} [length]
-   * @member {number} [position]
-   * @member {number} [readTimeout]
-   * @member {number} [writeTimeout]
+   * @property {boolean} [canRead]
+   * @property {boolean} [canSeek]
+   * @property {boolean} [canTimeout]
+   * @property {boolean} [canWrite]
+   * @property {number} [length]
+   * @property {number} [position]
+   * @property {number} [readTimeout]
+   * @property {number} [writeTimeout]
    */
   constructor() {
   }

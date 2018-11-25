@@ -28,11 +28,11 @@
 class CreatePortfolioGroupRequest {
   /**
    * Create a CreatePortfolioGroupRequest.
-   * @member {string} id
-   * @member {array} [values]
-   * @member {array} [subGroups]
-   * @member {string} displayName
-   * @member {string} [description]
+   * @property {string} id
+   * @property {array} [values]
+   * @property {array} [subGroups]
+   * @property {string} displayName
+   * @property {string} [description]
    */
   constructor() {
   }

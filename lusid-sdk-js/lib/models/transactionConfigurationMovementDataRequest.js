@@ -28,14 +28,14 @@
 class TransactionConfigurationMovementDataRequest {
   /**
    * Create a TransactionConfigurationMovementDataRequest.
-   * @member {string} movementTypes The Movement Types. Possible values
+   * @property {string} movementTypes The Movement Types. Possible values
    * include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
    * 'CashSettlement', 'Accrual', 'UnsettledCashTypes'
-   * @member {string} side The Movement Side. Possible values include: 'Side1',
-   * 'Side2', 'BondInt'
-   * @member {number} direction The Movement direction
-   * @member {object} [properties]
-   * @member {array} [mappings]
+   * @property {string} side The Movement Side. Possible values include:
+   * 'Side1', 'Side2', 'BondInt'
+   * @property {number} direction The Movement direction
+   * @property {object} [properties]
+   * @property {array} [mappings]
    */
   constructor() {
   }

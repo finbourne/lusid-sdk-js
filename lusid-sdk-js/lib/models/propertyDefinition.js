@@ -28,29 +28,29 @@
 class PropertyDefinition {
   /**
    * Create a PropertyDefinition.
-   * @member {string} [href]
-   * @member {string} [key]
-   * @member {string} [valueType] Possible values include: 'String', 'Int',
+   * @property {string} [href]
+   * @property {string} [key]
+   * @property {string} [valueType] Possible values include: 'String', 'Int',
    * 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
-   * @member {boolean} [valueRequired]
-   * @member {string} [displayName]
-   * @member {object} [dataTypeId]
-   * @member {string} [dataTypeId.scope]
-   * @member {string} [dataTypeId.code]
-   * @member {string} [lifeTime] Possible values include: 'Perpetual',
+   * @property {boolean} [valueRequired]
+   * @property {string} [displayName]
+   * @property {object} [dataTypeId]
+   * @property {string} [dataTypeId.scope]
+   * @property {string} [dataTypeId.code]
+   * @property {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
-   * @member {string} [type] Possible values include: 'Label', 'Metric'
-   * @member {string} [unitSchema] Possible values include: 'NoUnits', 'Basic',
-   * 'Iso4217Currency'
-   * @member {string} [domain] Possible values include: 'Trade', 'Portfolio',
+   * @property {string} [type] Possible values include: 'Label', 'Metric'
+   * @property {string} [unitSchema] Possible values include: 'NoUnits',
+   * 'Basic', 'Iso4217Currency'
+   * @property {string} [domain] Possible values include: 'Trade', 'Portfolio',
    * 'Security', 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument'
-   * @member {string} [scope]
-   * @member {string} [code]
-   * @member {array} [links]
+   * @property {string} [scope]
+   * @property {string} [code]
+   * @property {array} [links]
    */
   constructor() {
   }

@@ -28,20 +28,26 @@
 class Instrument {
   /**
    * Create a Instrument.
-   * @member {string} [href]
-   * @member {string} [uid]
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {string} [commonName]
-   * @member {object} [aliases]
-   * @member {array} [properties]
-   * @member {string} [marketIdentifierCode]
-   * @member {object} [lookthroughPortfolio]
-   * @member {string} [lookthroughPortfolio.scope]
-   * @member {string} [lookthroughPortfolio.code]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {string} [lusidInstrumentId] The lusid instrument id (LUID) of
+   * the instrument
+   * @property {object} [version] The version of the instrument
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {string} [name] The name of the instrument
+   * @property {object} [identifiers] The set of identifiers that can be used
+   * to uniquely identify the instrument
+   * @property {array} [properties] Any requested instrument properties. If no
+   * property can be found for the instrument, then
+   * a value of 'Unknown' will be returned
+   * @property {string} [marketIdentifierCode] The market identifier of the
+   * instrument (if any).
+   * @property {object} [lookthroughPortfolio] The lookthrough portfolio of the
+   * instrument (if any).
+   * @property {string} [lookthroughPortfolio.scope]
+   * @property {string} [lookthroughPortfolio.code]
+   * @property {array} [links]
    */
   constructor() {
   }
@@ -67,9 +73,9 @@ class Instrument {
               name: 'String'
             }
           },
-          uid: {
+          lusidInstrumentId: {
             required: false,
-            serializedName: 'uid',
+            serializedName: 'lusidInstrumentId',
             type: {
               name: 'String'
             }
@@ -82,16 +88,16 @@ class Instrument {
               className: 'Version'
             }
           },
-          commonName: {
+          name: {
             required: false,
-            serializedName: 'commonName',
+            serializedName: 'name',
             type: {
               name: 'String'
             }
           },
-          aliases: {
+          identifiers: {
             required: false,
-            serializedName: 'aliases',
+            serializedName: 'identifiers',
             type: {
               name: 'Dictionary',
               value: {

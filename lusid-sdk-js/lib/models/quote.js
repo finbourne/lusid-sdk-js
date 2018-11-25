@@ -28,14 +28,14 @@
 class Quote {
   /**
    * Create a Quote.
-   * @member {string} id
-   * @member {object} metricValue
-   * @member {number} [metricValue.value]
-   * @member {string} [metricValue.unit]
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
+   * @property {string} id
+   * @property {object} metricValue
+   * @property {number} [metricValue.value]
+   * @property {string} [metricValue.unit]
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
    */
   constructor() {
   }

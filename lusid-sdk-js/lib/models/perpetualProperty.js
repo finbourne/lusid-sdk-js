@@ -30,9 +30,9 @@
 class PerpetualProperty {
   /**
    * Create a PerpetualProperty.
-   * @member {string} key
-   * @member {object} value
-   * @member {string} [unit]
+   * @property {string} key
+   * @property {object} value
+   * @property {string} [unit]
    */
   constructor() {
   }

@@ -28,16 +28,16 @@
 class VersionedResourceListOfOutputTransaction {
   /**
    * Create a VersionedResourceListOfOutputTransaction.
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {array} [values]
-   * @member {string} [href] The Uri that returns the same result as the
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {array} [values]
+   * @property {string} [href] The Uri that returns the same result as the
    * original request,
    * but may include resolved as at time(s).
-   * @member {number} [count] The total number of records returned in the set
-   * @member {array} [links]
+   * @property {number} [count] The total number of records returned in the set
+   * @property {array} [links]
    */
   constructor() {
   }

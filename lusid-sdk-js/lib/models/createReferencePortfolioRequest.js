@@ -28,11 +28,12 @@
 class CreateReferencePortfolioRequest {
   /**
    * Create a CreateReferencePortfolioRequest.
-   * @member {string} displayName
-   * @member {string} [description]
-   * @member {string} code
-   * @member {date} [created]
-   * @member {object} [properties] Portfolio properties to add to the portfolio
+   * @property {string} displayName
+   * @property {string} [description]
+   * @property {string} code
+   * @property {date} [created]
+   * @property {object} [properties] Portfolio properties to add to the
+   * portfolio
    */
   constructor() {
   }

@@ -28,12 +28,12 @@
 class UpsertPortfolioExecutionsResponse {
   /**
    * Create a UpsertPortfolioExecutionsResponse.
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {string} [href]
-   * @member {array} [links]
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {string} [href]
+   * @property {array} [links]
    */
   constructor() {
   }

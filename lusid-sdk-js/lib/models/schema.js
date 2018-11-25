@@ -28,10 +28,10 @@
 class Schema {
   /**
    * Create a Schema.
-   * @member {string} [entity]
-   * @member {string} [href]
-   * @member {array} [values]
-   * @member {array} [links]
+   * @property {string} [entity]
+   * @property {string} [href]
+   * @property {array} [values]
+   * @property {array} [links]
    */
   constructor() {
   }

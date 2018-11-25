@@ -29,11 +29,11 @@
 class DeleteQuotesResponse {
   /**
    * Create a DeleteQuotesResponse.
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {array} [links]
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {array} [links]
    */
   constructor() {
   }

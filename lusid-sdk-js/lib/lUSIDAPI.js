@@ -2300,23 +2300,15 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
 }
 
 /**
- * @summary Create instrument
+ * @summary Get allowable instrument identifiers
  *
- * Attempt to create one or more "client" instruments. Each instrument is keyed
- * by some unique key. This key is unimportant, and serves only as a method to
- * identify created instruments in the response.
+ * Gets the set of identifiers that have been configured as unique identifiers
+ * for instruments.
  *
- * The response will return both the collection of successfully created
- * instruments, as well as those that were rejected and why their creation
- * failed. They will be keyed against the key supplied in the
- * request.
- *
- * It is important to always check the 'Failed' set for any unsuccessful
- * results.
+ * Only CodeTypes returned from this end point can be used as identifiers for
+ * instruments.
  *
  * @param {object} [options] Optional Parameters.
- *
- * @param {object} [options.definitions] The client instrument definitions
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2328,14 +2320,14 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link TryAddClientInstruments} for more
+ *                      See {@link ResourceListOfCodeType} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _batchAddClientInstruments(options, callback) {
+function _getInstrumentIdentifiers(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -2345,7 +2337,6 @@ function _batchAddClientInstruments(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let definitions = (options && options.definitions !== undefined) ? options.definitions : undefined;
 
   // Construct URL
   let baseUrl = this.baseUri;
@@ -2353,182 +2344,7 @@ function _batchAddClientInstruments(options, callback) {
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
-  httpRequest.method = 'POST';
-  httpRequest.url = requestUrl;
-  httpRequest.headers = {};
-  // Set Headers
-  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
-  if(options) {
-    for(let headerName in options['customHeaders']) {
-      if (options['customHeaders'].hasOwnProperty(headerName)) {
-        httpRequest.headers[headerName] = options['customHeaders'][headerName];
-      }
-    }
-  }
-  // Serialize Request
-  let requestContent = null;
-  let requestModel = null;
-  try {
-    if (definitions !== null && definitions !== undefined) {
-      let requestModelMapper = {
-        required: false,
-        serializedName: 'definitions',
-        type: {
-          name: 'Dictionary',
-          value: {
-              required: false,
-              serializedName: 'CreateClientInstrumentRequestElementType',
-              type: {
-                name: 'Composite',
-                className: 'CreateClientInstrumentRequest'
-              }
-          }
-        }
-      };
-      requestModel = client.serialize(requestModelMapper, definitions, 'definitions');
-      requestContent = JSON.stringify(requestModel);
-    }
-  } catch (error) {
-    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(definitions, null, 2)}.`);
-    return callback(serializationError);
-  }
-  httpRequest.body = requestContent;
-  // Send Request
-  return client.pipeline(httpRequest, (err, response, responseBody) => {
-    if (err) {
-      return callback(err);
-    }
-    let statusCode = response.statusCode;
-    if (statusCode !== 201) {
-      let error = new Error(responseBody);
-      error.statusCode = response.statusCode;
-      error.request = msRest.stripRequest(httpRequest);
-      error.response = msRest.stripResponse(response);
-      if (responseBody === '') responseBody = null;
-      let parsedErrorResponse;
-      try {
-        parsedErrorResponse = JSON.parse(responseBody);
-        if (parsedErrorResponse) {
-          let internalError = null;
-          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
-          error.code = internalError ? internalError.code : parsedErrorResponse.code;
-          error.message = internalError ? internalError.message : parsedErrorResponse.message;
-        }
-        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
-          let resultMapper = new client.models['ErrorResponse']().mapper();
-          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
-        }
-      } catch (defaultError) {
-        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
-                         `- "${responseBody}" for the default response.`;
-        return callback(error);
-      }
-      return callback(error);
-    }
-    // Create Result
-    let result = null;
-    if (responseBody === '') responseBody = null;
-    // Deserialize Response
-    if (statusCode === 201) {
-      let parsedResponse = null;
-      try {
-        parsedResponse = JSON.parse(responseBody);
-        result = JSON.parse(responseBody);
-        if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['TryAddClientInstruments']().mapper();
-          result = client.deserialize(resultMapper, parsedResponse, 'result');
-        }
-      } catch (error) {
-        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
-        deserializationError.request = msRest.stripRequest(httpRequest);
-        deserializationError.response = msRest.stripResponse(response);
-        return callback(deserializationError);
-      }
-    }
-
-    return callback(null, result, httpRequest, response);
-  });
-}
-
-/**
- * @summary Delete instrument
- *
- * Attempt to delete one or more "client" instruments.
- *
- * The response will include those instruments that could not be deleted (as
- * well as any available details).
- *
- * It is important to always check the 'Failed' set for any unsuccessful
- * results.
- *
- * @param {object} [options] Optional Parameters.
- *
- * @param {array} [options.uids] The unique identifiers of the instruments to
- * delete
- *
- * @param {object} [options.customHeaders] Headers that will be added to the
- * request
- *
- * @param {function} callback - The callback.
- *
- * @returns {function} callback(err, result, request, response)
- *
- *                      {Error}  err        - The Error object if an error occurred, null otherwise.
- *
- *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link DeleteClientInstrumentsResponse} for more
- *                      information.
- *
- *                      {object} [request]  - The HTTP Request object if an error did not occur.
- *
- *                      {stream} [response] - The HTTP Response stream if an error did not occur.
- */
-function _batchDeleteClientInstruments(options, callback) {
-   /* jshint validthis: true */
-  let client = this;
-  if(!callback && typeof options === 'function') {
-    callback = options;
-    options = null;
-  }
-  if (!callback) {
-    throw new Error('callback cannot be null.');
-  }
-  let uids = (options && options.uids !== undefined) ? options.uids : undefined;
-  // Validate
-  try {
-    if (Array.isArray(uids)) {
-      for (let i = 0; i < uids.length; i++) {
-        if (uids[i] !== null && uids[i] !== undefined && typeof uids[i].valueOf() !== 'string') {
-          throw new Error('uids[i] must be of type string.');
-        }
-      }
-    }
-  } catch (error) {
-    return callback(error);
-  }
-
-  // Construct URL
-  let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments';
-  let queryParameters = [];
-  if (uids !== null && uids !== undefined) {
-    if (uids.length == 0) {
-      queryParameters.push('uids=' + encodeURIComponent(''));
-    } else {
-      for (let item of uids) {
-        item = (item === null || item === undefined) ? '' : item;
-        queryParameters.push('uids=' + encodeURIComponent('' + item));
-      }
-    }
-  }
-  if (queryParameters.length > 0) {
-    requestUrl += '?' + queryParameters.join('&');
-  }
-
-  // Create HTTP transport objects
-  let httpRequest = new WebResource();
-  httpRequest.method = 'DELETE';
+  httpRequest.method = 'GET';
   httpRequest.url = requestUrl;
   httpRequest.headers = {};
   // Set Headers
@@ -2583,7 +2399,159 @@ function _batchDeleteClientInstruments(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['DeleteClientInstrumentsResponse']().mapper();
+          let resultMapper = new client.models['ResourceListOfCodeType']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Upsert instruments
+ *
+ * Attempt to master one or more instruments in LUSID's instrument master. Each
+ * instrument is keyed by some unique key. This key is unimportant, and serves
+ * only as a method to identify created instruments in the response.
+ *
+ * The response will return both the collection of successfully created
+ * instruments, as well as those that were rejected and why their creation
+ * failed. They will be keyed against the key supplied in the
+ * request.
+ *
+ * It is important to always check the 'Failed' set for any unsuccessful
+ * results.
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {object} [options.requests] The instrument definitions
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link UpsertInstrumentsResponse} for more
+ *                      information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _upsertInstruments(options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let requests = (options && options.requests !== undefined) ? options.requests : undefined;
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments';
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (requests !== null && requests !== undefined) {
+      let requestModelMapper = {
+        required: false,
+        serializedName: 'requests',
+        type: {
+          name: 'Dictionary',
+          value: {
+              required: false,
+              serializedName: 'UpsertInstrumentRequestElementType',
+              type: {
+                name: 'Composite',
+                className: 'UpsertInstrumentRequest'
+              }
+          }
+        }
+      };
+      requestModel = client.serialize(requestModelMapper, requests, 'requests');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(requests, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 201) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 201) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['UpsertInstrumentsResponse']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -2605,11 +2573,19 @@ function _batchDeleteClientInstruments(options, callback) {
  * identifiers. Optionally, it is possible to decorate each instrument with
  * specified property data.
  *
- * @param {string} uid The uid of the requested instrument
+ * @param {string} type The type of identifier being supplied. Possible values
+ * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+ * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+ * 'ShareClassFigi', 'Wertpapier'
+ *
+ * @param {string} id The identifier of the requested instrument
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt] Optional. The AsAt date of the data
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * query
+ *
+ * @param {date} [options.asAt] Optional. The AsAt date of the query
  *
  * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
  * properties to be decorated on to the instrument
@@ -2630,7 +2606,7 @@ function _batchDeleteClientInstruments(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getInstrument(uid, options, callback) {
+function _getInstrument(type, id, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -2640,13 +2616,21 @@ function _getInstrument(uid, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let instrumentPropertyKeys = (options && options.instrumentPropertyKeys !== undefined) ? options.instrumentPropertyKeys : undefined;
   // Validate
   try {
-    if (uid === null || uid === undefined || typeof uid.valueOf() !== 'string') {
-      throw new Error('uid cannot be null or undefined and it must be of type string.');
+    if (type === null || type === undefined || typeof type.valueOf() !== 'string') {
+      throw new Error('type cannot be null or undefined and it must be of type string.');
     }
+    if (id === null || id === undefined || typeof id.valueOf() !== 'string') {
+      throw new Error('id cannot be null or undefined and it must be of type string.');
+    }
+    if (effectiveAt && !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt must be of type date.');
+        }
     if (asAt && !(asAt instanceof Date ||
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
           throw new Error('asAt must be of type date.');
@@ -2664,9 +2648,13 @@ function _getInstrument(uid, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{uid}';
-  requestUrl = requestUrl.replace('{uid}', encodeURIComponent(uid));
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{type}/{id}';
+  requestUrl = requestUrl.replace('{type}', encodeURIComponent(type));
+  requestUrl = requestUrl.replace('{id}', encodeURIComponent(id));
   let queryParameters = [];
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  }
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
   }
@@ -2757,30 +2745,494 @@ function _getInstrument(uid, options, callback) {
 }
 
 /**
- * @summary Lookup instrument definition
+ * @summary Update instrument identifier
  *
- * Lookup one or more instrument definitions by specifying non-LUSID
- * identifiers. Optionally, it is possible to decorate each instrument with
- * specified property data.
+ * Adds, updates, or removes an identifier on an instrument
  *
- * The response will return both the collection of found instruments for each
- * identifier, as well as a collection of all identifiers for which no
- * instruments could be found (as well as any available details).
- *
- * It is important to always check the 'Failed' set for any unsuccessful
- * results.
- *
- * @param {object} [options] Optional Parameters.
- *
- * @param {string} [options.codeType] The type of identifiers. Possible values
+ * @param {string} type The type of identifier being supplied. Possible values
  * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
  * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
  * 'ShareClassFigi', 'Wertpapier'
  *
- * @param {array} [options.codes] One or more identifiers of the type specified
- * in the codeType
+ * @param {string} id The instrument identifier
  *
- * @param {date} [options.asAt] Optional. The AsAt date of the data
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {object} [options.request] The identifier to add, update, or remove
+ *
+ * @param {string} [options.request.type] The type of the identifier to upsert.
+ * This must be one of the code types marked as
+ * allowable for instrument identifiers. Possible values include: 'Undefined',
+ * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+ * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+ * 'Wertpapier'
+ *
+ * @param {string} [options.request.value] The value of the identifier. If set
+ * to `null`, this will remove the identifier completely.
+ * Note that, if an instrument only has one identifier, it is an error to
+ * remove this.
+ *
+ * @param {date} [options.request.effectiveFrom] The date at which the
+ * identifier modification is to be effective from. If unset, will
+ * default to `now`.
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link Instrument} for more information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _updateInstrumentIdentifier(type, id, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let request = (options && options.request !== undefined) ? options.request : undefined;
+  // Validate
+  try {
+    if (type === null || type === undefined || typeof type.valueOf() !== 'string') {
+      throw new Error('type cannot be null or undefined and it must be of type string.');
+    }
+    if (id === null || id === undefined || typeof id.valueOf() !== 'string') {
+      throw new Error('id cannot be null or undefined and it must be of type string.');
+    }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{type}/{id}';
+  requestUrl = requestUrl.replace('{type}', encodeURIComponent(type));
+  requestUrl = requestUrl.replace('{id}', encodeURIComponent(id));
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (request !== null && request !== undefined) {
+      let requestModelMapper = new client.models['UpdateInstrumentIdentifierRequest']().mapper();
+      requestModel = client.serialize(requestModelMapper, request, 'request');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(request, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 201) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 201) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['Instrument']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Delete instrument
+ *
+ * Attempt to delete one or more "client" instruments.
+ *
+ * The response will include those instruments that could not be deleted (as
+ * well as any available details).
+ *
+ * It is important to always check the 'Failed' set for any unsuccessful
+ * results.
+ *
+ * @param {string} type The type of identifier being supplied. Possible values
+ * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+ * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+ * 'ShareClassFigi', 'Wertpapier'
+ *
+ * @param {string} id The instrument identifier
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link DeleteInstrumentResponse} for more
+ *                      information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _deleteInstrument(type, id, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  // Validate
+  try {
+    if (type === null || type === undefined || typeof type.valueOf() !== 'string') {
+      throw new Error('type cannot be null or undefined and it must be of type string.');
+    }
+    if (id === null || id === undefined || typeof id.valueOf() !== 'string') {
+      throw new Error('id cannot be null or undefined and it must be of type string.');
+    }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{type}/{id}';
+  requestUrl = requestUrl.replace('{type}', encodeURIComponent(type));
+  requestUrl = requestUrl.replace('{id}', encodeURIComponent(id));
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'DELETE';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  httpRequest.body = null;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['DeleteInstrumentResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Find externally mastered instruments
+ *
+ * Search for a set of instruments from an external instrument mastering
+ * service
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {string} [options.codeType] The type of codes to search for. Possible
+ * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
+ * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+ * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+ *
+ * @param {array} [options.codes] The collection of instruments to search for
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link FindInstrumentsResponse} for more
+ *                      information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _findExternalInstruments(options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let codeType = (options && options.codeType !== undefined) ? options.codeType : undefined;
+  let codes = (options && options.codes !== undefined) ? options.codes : undefined;
+  // Validate
+  try {
+    if (codeType !== null && codeType !== undefined && typeof codeType.valueOf() !== 'string') {
+      throw new Error('codeType must be of type string.');
+    }
+    if (Array.isArray(codes)) {
+      for (let i = 0; i < codes.length; i++) {
+        if (codes[i] !== null && codes[i] !== undefined && typeof codes[i].valueOf() !== 'string') {
+          throw new Error('codes[i] must be of type string.');
+        }
+      }
+    }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/$find';
+  let queryParameters = [];
+  if (codeType !== null && codeType !== undefined) {
+    queryParameters.push('codeType=' + encodeURIComponent(codeType));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (codes !== null && codes !== undefined) {
+      let requestModelMapper = {
+        required: false,
+        serializedName: 'codes',
+        type: {
+          name: 'Sequence',
+          element: {
+              required: false,
+              serializedName: 'StringElementType',
+              type: {
+                name: 'String'
+              }
+          }
+        }
+      };
+      requestModel = client.serialize(requestModelMapper, codes, 'codes');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(codes, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['FindInstrumentsResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Get instrument definition
+ *
+ * Get a collection of instruments by a set of identifiers. Optionally, it is
+ * possible to decorate each instrument with specified property data.
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {string} [options.codeType] the type of codes being specified.
+ * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
+ * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+ * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+ *
+ * @param {array} [options.codes] The identifiers of the instruments to get
+ *
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * request
+ *
+ * @param {date} [options.asAt] Optional. The as at date of the request
  *
  * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
  * properties to be decorated on to the instrument
@@ -2795,14 +3247,14 @@ function _getInstrument(uid, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link LookupInstrumentsFromCodesResponse} for more
+ *                      See {@link GetInstrumentsResponse} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _lookupInstrumentsFromCodes(options, callback) {
+function _getInstruments(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -2814,6 +3266,7 @@ function _lookupInstrumentsFromCodes(options, callback) {
   }
   let codeType = (options && options.codeType !== undefined) ? options.codeType : undefined;
   let codes = (options && options.codes !== undefined) ? options.codes : undefined;
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let instrumentPropertyKeys = (options && options.instrumentPropertyKeys !== undefined) ? options.instrumentPropertyKeys : undefined;
   // Validate
@@ -2828,6 +3281,10 @@ function _lookupInstrumentsFromCodes(options, callback) {
         }
       }
     }
+    if (effectiveAt && !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt must be of type date.');
+        }
     if (asAt && !(asAt instanceof Date ||
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
           throw new Error('asAt must be of type date.');
@@ -2845,10 +3302,13 @@ function _lookupInstrumentsFromCodes(options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/$lookup';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/$get';
   let queryParameters = [];
   if (codeType !== null && codeType !== undefined) {
     queryParameters.push('codeType=' + encodeURIComponent(codeType));
+  }
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
   }
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
@@ -2951,7 +3411,202 @@ function _lookupInstrumentsFromCodes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['LookupInstrumentsFromCodesResponse']().mapper();
+          let resultMapper = new client.models['GetInstrumentsResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Search instrument definition
+ *
+ * Get a collection of instruments by a set of identifiers. Optionally, it is
+ * possible to decorate each instrument with specified property data.
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
+ * Ticker) to find instruments by.
+ *
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * query
+ *
+ * @param {date} [options.asAt] Optional. The AsAt date of the query
+ *
+ * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+ * properties to be decorated on to the instrument
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link ResourceListOfInstrument} for more
+ *                      information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _findInstruments(options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let aliases = (options && options.aliases !== undefined) ? options.aliases : undefined;
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
+  let instrumentPropertyKeys = (options && options.instrumentPropertyKeys !== undefined) ? options.instrumentPropertyKeys : undefined;
+  // Validate
+  try {
+    if (effectiveAt && !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt must be of type date.');
+        }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
+    if (Array.isArray(instrumentPropertyKeys)) {
+      for (let i1 = 0; i1 < instrumentPropertyKeys.length; i1++) {
+        if (instrumentPropertyKeys[i1] !== null && instrumentPropertyKeys[i1] !== undefined && typeof instrumentPropertyKeys[i1].valueOf() !== 'string') {
+          throw new Error('instrumentPropertyKeys[i1] must be of type string.');
+        }
+      }
+    }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/$query';
+  let queryParameters = [];
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  }
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
+  if (instrumentPropertyKeys !== null && instrumentPropertyKeys !== undefined) {
+    if (instrumentPropertyKeys.length == 0) {
+      queryParameters.push('instrumentPropertyKeys=' + encodeURIComponent(''));
+    } else {
+      for (let item of instrumentPropertyKeys) {
+        item = (item === null || item === undefined) ? '' : item;
+        queryParameters.push('instrumentPropertyKeys=' + encodeURIComponent('' + item));
+      }
+    }
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (aliases !== null && aliases !== undefined) {
+      let requestModelMapper = {
+        required: false,
+        serializedName: 'aliases',
+        type: {
+          name: 'Sequence',
+          element: {
+              required: false,
+              serializedName: 'PropertyElementType',
+              type: {
+                name: 'Composite',
+                className: 'Property'
+              }
+          }
+        }
+      };
+      requestModel = client.serialize(requestModelMapper, aliases, 'aliases');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(aliases, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ResourceListOfInstrument']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -2999,7 +3654,7 @@ function _lookupInstrumentsFromCodes(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _batchUpsertInstrumentProperties(options, callback) {
+function _upsertInstrumentsProperties(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -9673,9 +10328,9 @@ function _createReferencePortfolio(scope, options, callback) {
  *
  * @param {string} scope The scope of the portfolio
  *
- * @param {string} code The scope of the portfolio
+ * @param {string} code The code of the portfolio
  *
- * @param {date} effectiveAt Optional. The effective date of the data
+ * @param {date} effectiveAt The effective date of the constituents to retrieve
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -9865,7 +10520,7 @@ function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, c
  *
  * @param {string} code The code of the portfolio
  *
- * @param {date} effectiveAt Optional. The effective date of the data
+ * @param {date} effectiveAt The effective date of the constituents
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -14931,11 +15586,15 @@ class LUSIDAPI extends ServiceClient {
     this._getUnitsFromDataType = _getUnitsFromDataType;
     this._createDerivedPortfolio = _createDerivedPortfolio;
     this._deleteDerivedPortfolioDetails = _deleteDerivedPortfolioDetails;
-    this._batchAddClientInstruments = _batchAddClientInstruments;
-    this._batchDeleteClientInstruments = _batchDeleteClientInstruments;
+    this._getInstrumentIdentifiers = _getInstrumentIdentifiers;
+    this._upsertInstruments = _upsertInstruments;
     this._getInstrument = _getInstrument;
-    this._lookupInstrumentsFromCodes = _lookupInstrumentsFromCodes;
-    this._batchUpsertInstrumentProperties = _batchUpsertInstrumentProperties;
+    this._updateInstrumentIdentifier = _updateInstrumentIdentifier;
+    this._deleteInstrument = _deleteInstrument;
+    this._findExternalInstruments = _findExternalInstruments;
+    this._getInstruments = _getInstruments;
+    this._findInstruments = _findInstruments;
+    this._upsertInstrumentsProperties = _upsertInstrumentsProperties;
     this._getSamlIdentityProviderId = _getSamlIdentityProviderId;
     this._getExcelDownloadUrl = _getExcelDownloadUrl;
     this._getExcelAddin = _getExcelAddin;
@@ -16602,38 +17261,30 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Create instrument
+   * @summary Get allowable instrument identifiers
    *
-   * Attempt to create one or more "client" instruments. Each instrument is keyed
-   * by some unique key. This key is unimportant, and serves only as a method to
-   * identify created instruments in the response.
+   * Gets the set of identifiers that have been configured as unique identifiers
+   * for instruments.
    *
-   * The response will return both the collection of successfully created
-   * instruments, as well as those that were rejected and why their creation
-   * failed. They will be keyed against the key supplied in the
-   * request.
-   *
-   * It is important to always check the 'Failed' set for any unsuccessful
-   * results.
+   * Only CodeTypes returned from this end point can be used as identifiers for
+   * instruments.
    *
    * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.definitions] The client instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<TryAddClientInstruments>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfCodeType>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
-  batchAddClientInstrumentsWithHttpOperationResponse(options) {
+  getInstrumentIdentifiersWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._batchAddClientInstruments(options, (err, result, request, response) => {
+      self._getInstrumentIdentifiers(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -16644,23 +17295,15 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Create instrument
+   * @summary Get allowable instrument identifiers
    *
-   * Attempt to create one or more "client" instruments. Each instrument is keyed
-   * by some unique key. This key is unimportant, and serves only as a method to
-   * identify created instruments in the response.
+   * Gets the set of identifiers that have been configured as unique identifiers
+   * for instruments.
    *
-   * The response will return both the collection of successfully created
-   * instruments, as well as those that were rejected and why their creation
-   * failed. They will be keyed against the key supplied in the
-   * request.
-   *
-   * It is important to always check the 'Failed' set for any unsuccessful
-   * results.
+   * Only CodeTypes returned from this end point can be used as identifiers for
+   * instruments.
    *
    * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.definitions] The client instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16672,7 +17315,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {TryAddClientInstruments} - The deserialized result object.
+   *                      @resolve {ResourceListOfCodeType} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -16681,14 +17324,14 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link TryAddClientInstruments} for more
+   *                      See {@link ResourceListOfCodeType} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  batchAddClientInstruments(options, optionalCallback) {
+  getInstrumentIdentifiers(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -16697,47 +17340,50 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._batchAddClientInstruments(options, (err, result, request, response) => {
+        self._getInstrumentIdentifiers(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._batchAddClientInstruments(options, optionalCallback);
+      return self._getInstrumentIdentifiers(options, optionalCallback);
     }
   }
 
   /**
-   * @summary Delete instrument
+   * @summary Upsert instruments
    *
-   * Attempt to delete one or more "client" instruments.
+   * Attempt to master one or more instruments in LUSID's instrument master. Each
+   * instrument is keyed by some unique key. This key is unimportant, and serves
+   * only as a method to identify created instruments in the response.
    *
-   * The response will include those instruments that could not be deleted (as
-   * well as any available details).
+   * The response will return both the collection of successfully created
+   * instruments, as well as those that were rejected and why their creation
+   * failed. They will be keyed against the key supplied in the
+   * request.
    *
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.uids] The unique identifiers of the instruments to
-   * delete
+   * @param {object} [options.requests] The instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<DeleteClientInstrumentsResponse>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<UpsertInstrumentsResponse>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
-  batchDeleteClientInstrumentsWithHttpOperationResponse(options) {
+  upsertInstrumentsWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._batchDeleteClientInstruments(options, (err, result, request, response) => {
+      self._upsertInstruments(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -16748,20 +17394,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Delete instrument
+   * @summary Upsert instruments
    *
-   * Attempt to delete one or more "client" instruments.
+   * Attempt to master one or more instruments in LUSID's instrument master. Each
+   * instrument is keyed by some unique key. This key is unimportant, and serves
+   * only as a method to identify created instruments in the response.
    *
-   * The response will include those instruments that could not be deleted (as
-   * well as any available details).
+   * The response will return both the collection of successfully created
+   * instruments, as well as those that were rejected and why their creation
+   * failed. They will be keyed against the key supplied in the
+   * request.
    *
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.uids] The unique identifiers of the instruments to
-   * delete
+   * @param {object} [options.requests] The instrument definitions
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -16773,7 +17422,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {DeleteClientInstrumentsResponse} - The deserialized result object.
+   *                      @resolve {UpsertInstrumentsResponse} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -16782,14 +17431,14 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link DeleteClientInstrumentsResponse} for more
+   *                      See {@link UpsertInstrumentsResponse} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  batchDeleteClientInstruments(options, optionalCallback) {
+  upsertInstruments(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -16798,14 +17447,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._batchDeleteClientInstruments(options, (err, result, request, response) => {
+        self._upsertInstruments(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._batchDeleteClientInstruments(options, optionalCallback);
+      return self._upsertInstruments(options, optionalCallback);
     }
   }
 
@@ -16816,11 +17465,19 @@ class LUSIDAPI extends ServiceClient {
    * identifiers. Optionally, it is possible to decorate each instrument with
    * specified property data.
    *
-   * @param {string} uid The uid of the requested instrument
+   * @param {string} type The type of identifier being supplied. Possible values
+   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+   * 'ShareClassFigi', 'Wertpapier'
+   *
+   * @param {string} id The identifier of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt] Optional. The AsAt date of the data
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the query
    *
    * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
    * properties to be decorated on to the instrument
@@ -16834,11 +17491,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getInstrumentWithHttpOperationResponse(uid, options) {
+  getInstrumentWithHttpOperationResponse(type, id, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getInstrument(uid, options, (err, result, request, response) => {
+      self._getInstrument(type, id, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -16855,11 +17512,19 @@ class LUSIDAPI extends ServiceClient {
    * identifiers. Optionally, it is possible to decorate each instrument with
    * specified property data.
    *
-   * @param {string} uid The uid of the requested instrument
+   * @param {string} type The type of identifier being supplied. Possible values
+   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+   * 'ShareClassFigi', 'Wertpapier'
+   *
+   * @param {string} id The identifier of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt] Optional. The AsAt date of the data
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the query
    *
    * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
    * properties to be decorated on to the instrument
@@ -16889,7 +17554,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getInstrument(uid, options, optionalCallback) {
+  getInstrument(type, id, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -16898,60 +17563,63 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getInstrument(uid, options, (err, result, request, response) => {
+        self._getInstrument(type, id, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getInstrument(uid, options, optionalCallback);
+      return self._getInstrument(type, id, options, optionalCallback);
     }
   }
 
   /**
-   * @summary Lookup instrument definition
+   * @summary Update instrument identifier
    *
-   * Lookup one or more instrument definitions by specifying non-LUSID
-   * identifiers. Optionally, it is possible to decorate each instrument with
-   * specified property data.
+   * Adds, updates, or removes an identifier on an instrument
    *
-   * The response will return both the collection of found instruments for each
-   * identifier, as well as a collection of all identifiers for which no
-   * instruments could be found (as well as any available details).
-   *
-   * It is important to always check the 'Failed' set for any unsuccessful
-   * results.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {string} [options.codeType] The type of identifiers. Possible values
+   * @param {string} type The type of identifier being supplied. Possible values
    * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
    * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
    * 'ShareClassFigi', 'Wertpapier'
    *
-   * @param {array} [options.codes] One or more identifiers of the type specified
-   * in the codeType
+   * @param {string} id The instrument identifier
    *
-   * @param {date} [options.asAt] Optional. The AsAt date of the data
+   * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
-   * properties to be decorated on to the instrument
+   * @param {object} [options.request] The identifier to add, update, or remove
+   *
+   * @param {string} [options.request.type] The type of the identifier to upsert.
+   * This must be one of the code types marked as
+   * allowable for instrument identifiers. Possible values include: 'Undefined',
+   * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+   * 'Wertpapier'
+   *
+   * @param {string} [options.request.value] The value of the identifier. If set
+   * to `null`, this will remove the identifier completely.
+   * Note that, if an instrument only has one identifier, it is an error to
+   * remove this.
+   *
+   * @param {date} [options.request.effectiveFrom] The date at which the
+   * identifier modification is to be effective from. If unset, will
+   * default to `now`.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<LookupInstrumentsFromCodesResponse>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<Instrument>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
-  lookupInstrumentsFromCodesWithHttpOperationResponse(options) {
+  updateInstrumentIdentifierWithHttpOperationResponse(type, id, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._lookupInstrumentsFromCodes(options, (err, result, request, response) => {
+      self._updateInstrumentIdentifier(type, id, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -16962,30 +17630,355 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Lookup instrument definition
+   * @summary Update instrument identifier
    *
-   * Lookup one or more instrument definitions by specifying non-LUSID
-   * identifiers. Optionally, it is possible to decorate each instrument with
-   * specified property data.
+   * Adds, updates, or removes an identifier on an instrument
    *
-   * The response will return both the collection of found instruments for each
-   * identifier, as well as a collection of all identifiers for which no
-   * instruments could be found (as well as any available details).
-   *
-   * It is important to always check the 'Failed' set for any unsuccessful
-   * results.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {string} [options.codeType] The type of identifiers. Possible values
+   * @param {string} type The type of identifier being supplied. Possible values
    * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
    * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
    * 'ShareClassFigi', 'Wertpapier'
    *
-   * @param {array} [options.codes] One or more identifiers of the type specified
-   * in the codeType
+   * @param {string} id The instrument identifier
    *
-   * @param {date} [options.asAt] Optional. The AsAt date of the data
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request] The identifier to add, update, or remove
+   *
+   * @param {string} [options.request.type] The type of the identifier to upsert.
+   * This must be one of the code types marked as
+   * allowable for instrument identifiers. Possible values include: 'Undefined',
+   * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+   * 'Wertpapier'
+   *
+   * @param {string} [options.request.value] The value of the identifier. If set
+   * to `null`, this will remove the identifier completely.
+   * Note that, if an instrument only has one identifier, it is an error to
+   * remove this.
+   *
+   * @param {date} [options.request.effectiveFrom] The date at which the
+   * identifier modification is to be effective from. If unset, will
+   * default to `now`.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {Instrument} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Instrument} for more information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  updateInstrumentIdentifier(type, id, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._updateInstrumentIdentifier(type, id, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._updateInstrumentIdentifier(type, id, options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Delete instrument
+   *
+   * Attempt to delete one or more "client" instruments.
+   *
+   * The response will include those instruments that could not be deleted (as
+   * well as any available details).
+   *
+   * It is important to always check the 'Failed' set for any unsuccessful
+   * results.
+   *
+   * @param {string} type The type of identifier being supplied. Possible values
+   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+   * 'ShareClassFigi', 'Wertpapier'
+   *
+   * @param {string} id The instrument identifier
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<DeleteInstrumentResponse>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  deleteInstrumentWithHttpOperationResponse(type, id, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._deleteInstrument(type, id, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Delete instrument
+   *
+   * Attempt to delete one or more "client" instruments.
+   *
+   * The response will include those instruments that could not be deleted (as
+   * well as any available details).
+   *
+   * It is important to always check the 'Failed' set for any unsuccessful
+   * results.
+   *
+   * @param {string} type The type of identifier being supplied. Possible values
+   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+   * 'ShareClassFigi', 'Wertpapier'
+   *
+   * @param {string} id The instrument identifier
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {DeleteInstrumentResponse} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DeleteInstrumentResponse} for more
+   *                      information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  deleteInstrument(type, id, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._deleteInstrument(type, id, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._deleteInstrument(type, id, options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Find externally mastered instruments
+   *
+   * Search for a set of instruments from an external instrument mastering
+   * service
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.codeType] The type of codes to search for. Possible
+   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
+   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   *
+   * @param {array} [options.codes] The collection of instruments to search for
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<FindInstrumentsResponse>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  findExternalInstrumentsWithHttpOperationResponse(options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._findExternalInstruments(options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Find externally mastered instruments
+   *
+   * Search for a set of instruments from an external instrument mastering
+   * service
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.codeType] The type of codes to search for. Possible
+   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
+   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   *
+   * @param {array} [options.codes] The collection of instruments to search for
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {FindInstrumentsResponse} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link FindInstrumentsResponse} for more
+   *                      information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  findExternalInstruments(options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._findExternalInstruments(options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._findExternalInstruments(options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Get instrument definition
+   *
+   * Get a collection of instruments by a set of identifiers. Optionally, it is
+   * possible to decorate each instrument with specified property data.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.codeType] the type of codes being specified.
+   * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
+   * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   *
+   * @param {array} [options.codes] The identifiers of the instruments to get
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * request
+   *
+   * @param {date} [options.asAt] Optional. The as at date of the request
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<GetInstrumentsResponse>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  getInstrumentsWithHttpOperationResponse(options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._getInstruments(options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Get instrument definition
+   *
+   * Get a collection of instruments by a set of identifiers. Optionally, it is
+   * possible to decorate each instrument with specified property data.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {string} [options.codeType] the type of codes being specified.
+   * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
+   * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   *
+   * @param {array} [options.codes] The identifiers of the instruments to get
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * request
+   *
+   * @param {date} [options.asAt] Optional. The as at date of the request
    *
    * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
    * properties to be decorated on to the instrument
@@ -17000,7 +17993,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {LookupInstrumentsFromCodesResponse} - The deserialized result object.
+   *                      @resolve {GetInstrumentsResponse} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -17009,14 +18002,14 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link LookupInstrumentsFromCodesResponse} for more
+   *                      See {@link GetInstrumentsResponse} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  lookupInstrumentsFromCodes(options, optionalCallback) {
+  getInstruments(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -17025,14 +18018,121 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._lookupInstrumentsFromCodes(options, (err, result, request, response) => {
+        self._getInstruments(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._lookupInstrumentsFromCodes(options, optionalCallback);
+      return self._getInstruments(options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Search instrument definition
+   *
+   * Get a collection of instruments by a set of identifiers. Optionally, it is
+   * possible to decorate each instrument with specified property data.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
+   * Ticker) to find instruments by.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the query
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfInstrument>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  findInstrumentsWithHttpOperationResponse(options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._findInstruments(options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Search instrument definition
+   *
+   * Get a collection of instruments by a set of identifiers. Optionally, it is
+   * possible to decorate each instrument with specified property data.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
+   * Ticker) to find instruments by.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the query
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {ResourceListOfInstrument} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfInstrument} for more
+   *                      information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  findInstruments(options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._findInstruments(options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._findInstruments(options, optionalCallback);
     }
   }
 
@@ -17061,11 +18161,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  batchUpsertInstrumentPropertiesWithHttpOperationResponse(options) {
+  upsertInstrumentsPropertiesWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._batchUpsertInstrumentProperties(options, (err, result, request, response) => {
+      self._upsertInstrumentsProperties(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -17117,7 +18217,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  batchUpsertInstrumentProperties(options, optionalCallback) {
+  upsertInstrumentsProperties(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -17126,14 +18226,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._batchUpsertInstrumentProperties(options, (err, result, request, response) => {
+        self._upsertInstrumentsProperties(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._batchUpsertInstrumentProperties(options, optionalCallback);
+      return self._upsertInstrumentsProperties(options, optionalCallback);
     }
   }
 
@@ -21605,9 +22705,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope The scope of the portfolio
    *
-   * @param {string} code The scope of the portfolio
+   * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt Optional. The effective date of the data
+   * @param {date} effectiveAt The effective date of the constituents to retrieve
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -21652,9 +22752,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} scope The scope of the portfolio
    *
-   * @param {string} code The scope of the portfolio
+   * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt Optional. The effective date of the data
+   * @param {date} effectiveAt The effective date of the constituents to retrieve
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -21724,7 +22824,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt Optional. The effective date of the data
+   * @param {date} effectiveAt The effective date of the constituents
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -21763,7 +22863,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt Optional. The effective date of the data
+   * @param {date} effectiveAt The effective date of the constituents
    *
    * @param {object} [options] Optional Parameters.
    *

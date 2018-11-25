@@ -28,9 +28,9 @@
 class UpdatePortfolioRequest {
   /**
    * Create a UpdatePortfolioRequest.
-   * @member {string} displayName
-   * @member {string} [description]
-   * @member {date} [created]
+   * @property {string} displayName
+   * @property {string} [description]
+   * @property {date} [created]
    */
   constructor() {
   }

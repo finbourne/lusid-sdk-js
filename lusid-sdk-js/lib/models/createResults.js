@@ -28,10 +28,10 @@
 class CreateResults {
   /**
    * Create a CreateResults.
-   * @member {object} [data]
-   * @member {string} [scope]
-   * @member {string} [key]
-   * @member {date} [date]
+   * @property {object} [data]
+   * @property {string} [scope]
+   * @property {string} [key]
+   * @property {date} [date]
    */
   constructor() {
   }

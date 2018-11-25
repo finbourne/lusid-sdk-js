@@ -28,10 +28,10 @@
 class Property {
   /**
    * Create a Property.
-   * @member {string} key
-   * @member {object} value
-   * @member {string} [unit]
-   * @member {date} [effectiveFrom] Date for which the property is effective
+   * @property {string} key
+   * @property {object} value
+   * @property {string} [unit]
+   * @property {date} [effectiveFrom] Date for which the property is effective
    * from
    */
   constructor() {

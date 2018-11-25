@@ -28,10 +28,10 @@
 class UpsertCorporateActionsResponse {
   /**
    * Create a UpsertCorporateActionsResponse.
-   * @member {string} [href]
-   * @member {object} [values]
-   * @member {object} [failed]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {object} [values]
+   * @property {object} [failed]
+   * @property {array} [links]
    */
   constructor() {
   }

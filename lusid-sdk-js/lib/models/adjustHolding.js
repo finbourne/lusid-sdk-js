@@ -29,12 +29,12 @@
 class AdjustHolding {
   /**
    * Create a AdjustHolding.
-   * @member {string} [href]
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {array} [links]
    */
   constructor() {
   }

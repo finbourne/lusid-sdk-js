@@ -28,10 +28,10 @@
 class DeletedEntityResponse {
   /**
    * Create a DeletedEntityResponse.
-   * @member {string} [href]
-   * @member {date} [effectiveFrom]
-   * @member {date} [asAt]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {date} [effectiveFrom]
+   * @property {date} [asAt]
+   * @property {array} [links]
    */
   constructor() {
   }

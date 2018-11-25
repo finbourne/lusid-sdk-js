@@ -28,13 +28,13 @@
 class Results {
   /**
    * Create a Results.
-   * @member {object} [version]
-   * @member {date} [version.effectiveFrom]
-   * @member {date} [version.asAtDate]
-   * @member {string} [version.href]
-   * @member {string} [href]
-   * @member {object} [values]
-   * @member {array} [links]
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {string} [href]
+   * @property {object} [values]
+   * @property {array} [links]
    */
   constructor() {
   }

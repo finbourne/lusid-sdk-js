@@ -28,13 +28,13 @@
 class ListAggregationResponse {
   /**
    * Create a ListAggregationResponse.
-   * @member {string} [href]
-   * @member {array} [data]
-   * @member {string} [aggregationCurrency]
-   * @member {object} [dataSchema]
-   * @member {array} [dataSchema.nodeValueSchema]
-   * @member {object} [dataSchema.propertySchema]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {array} [data]
+   * @property {string} [aggregationCurrency]
+   * @property {object} [dataSchema]
+   * @property {array} [dataSchema.nodeValueSchema]
+   * @property {object} [dataSchema.propertySchema]
+   * @property {array} [links]
    */
   constructor() {
   }

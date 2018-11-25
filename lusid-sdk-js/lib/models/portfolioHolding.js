@@ -28,47 +28,49 @@
 class PortfolioHolding {
   /**
    * Create a PortfolioHolding.
-   * @member {string} instrumentUid Unique instrument identifier
-   * @member {array} [subHoldingKeys]
-   * @member {array} [properties]
-   * @member {string} holdingType Type of holding, eg Position, Balance,
+   * @property {string} instrumentUid Unique instrument identifier
+   * @property {array} [subHoldingKeys]
+   * @property {array} [properties]
+   * @property {string} holdingType Type of holding, eg Position, Balance,
    * CashCommitment, Receivable, ForwardFX
-   * @member {number} units Quantity of holding
-   * @member {number} settledUnits Settled quantity of holding
-   * @member {object} cost Book cost of holding in transaction currency
-   * @member {number} [cost.amount]
-   * @member {string} [cost.currency]
-   * @member {object} costPortfolioCcy Book cost of holding in portfolio
+   * @property {number} units Quantity of holding
+   * @property {number} settledUnits Settled quantity of holding
+   * @property {object} cost Book cost of holding in transaction currency
+   * @property {number} [cost.amount]
+   * @property {string} [cost.currency]
+   * @property {object} costPortfolioCcy Book cost of holding in portfolio
    * currency
-   * @member {number} [costPortfolioCcy.amount]
-   * @member {string} [costPortfolioCcy.currency]
-   * @member {object} [transaction] If this is commitment-type holding, the
+   * @property {number} [costPortfolioCcy.amount]
+   * @property {string} [costPortfolioCcy.currency]
+   * @property {object} [transaction] If this is commitment-type holding, the
    * transaction behind it
-   * @member {string} [transaction.transactionId] Unique transaction identifier
-   * @member {string} [transaction.type] LUSID transaction type code - Buy,
+   * @property {string} [transaction.transactionId] Unique transaction
+   * identifier
+   * @property {string} [transaction.type] LUSID transaction type code - Buy,
    * Sell, StockIn, StockOut, etc
-   * @member {string} [transaction.instrumentUid] Unique instrument identifier
-   * @member {date} [transaction.transactionDate] Transaction date
-   * @member {date} [transaction.settlementDate] Settlement date
-   * @member {number} [transaction.units] Quantity of transaction in units of
+   * @property {string} [transaction.instrumentUid] Unique instrument
+   * identifier
+   * @property {date} [transaction.transactionDate] Transaction date
+   * @property {date} [transaction.settlementDate] Settlement date
+   * @property {number} [transaction.units] Quantity of transaction in units of
    * the instrument
-   * @member {object} [transaction.transactionPrice] Execution price for the
+   * @property {object} [transaction.transactionPrice] Execution price for the
    * transaction
-   * @member {number} [transaction.transactionPrice.price]
-   * @member {string} [transaction.transactionPrice.type] Possible values
+   * @property {number} [transaction.transactionPrice.price]
+   * @property {string} [transaction.transactionPrice.type] Possible values
    * include: 'Price', 'Yield', 'Spread'
-   * @member {object} [transaction.totalConsideration] Total value of the
-   * transaction
-   * @member {number} [transaction.totalConsideration.amount]
-   * @member {string} [transaction.totalConsideration.currency]
-   * @member {number} [transaction.exchangeRate] Rate between transaction and
+   * @property {object} [transaction.totalConsideration] Total value of the
+   * transaction in settlement currency
+   * @property {number} [transaction.totalConsideration.amount]
+   * @property {string} [transaction.totalConsideration.currency]
+   * @property {number} [transaction.exchangeRate] Rate between transaction and
    * settle currency
-   * @member {string} [transaction.transactionCurrency] Transaction currency
-   * @member {array} [transaction.properties]
-   * @member {string} [transaction.counterpartyId] Counterparty identifier
-   * @member {string} [transaction.source] Where this transaction came from.
+   * @property {string} [transaction.transactionCurrency] Transaction currency
+   * @property {array} [transaction.properties]
+   * @property {string} [transaction.counterpartyId] Counterparty identifier
+   * @property {string} [transaction.source] Where this transaction came from.
    * Possible values include: 'System', 'Client'
-   * @member {string} [transaction.nettingSet]
+   * @property {string} [transaction.nettingSet]
    */
   constructor() {
   }

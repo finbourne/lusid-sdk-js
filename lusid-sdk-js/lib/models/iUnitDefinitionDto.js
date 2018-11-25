@@ -28,11 +28,11 @@
 class IUnitDefinitionDto {
   /**
    * Create a IUnitDefinitionDto.
-   * @member {string} [schema] Possible values include: 'NoUnits', 'Basic',
+   * @property {string} [schema] Possible values include: 'NoUnits', 'Basic',
    * 'Iso4217Currency'
-   * @member {string} [code]
-   * @member {string} [displayName]
-   * @member {string} [description]
+   * @property {string} [code]
+   * @property {string} [displayName]
+   * @property {string} [description]
    */
   constructor() {
   }

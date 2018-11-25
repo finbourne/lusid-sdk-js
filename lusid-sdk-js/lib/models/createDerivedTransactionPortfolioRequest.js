@@ -28,20 +28,20 @@
 class CreateDerivedTransactionPortfolioRequest {
   /**
    * Create a CreateDerivedTransactionPortfolioRequest.
-   * @member {string} displayName
-   * @member {string} [description]
-   * @member {string} [code]
-   * @member {object} [parentPortfolioId]
-   * @member {string} [parentPortfolioId.scope]
-   * @member {string} [parentPortfolioId.code]
-   * @member {date} [created]
-   * @member {object} [corporateActionSourceId]
-   * @member {string} [corporateActionSourceId.scope]
-   * @member {string} [corporateActionSourceId.code]
-   * @member {string} [accountingMethod] Possible values include: 'Default',
+   * @property {string} displayName
+   * @property {string} [description]
+   * @property {string} [code]
+   * @property {object} [parentPortfolioId]
+   * @property {string} [parentPortfolioId.scope]
+   * @property {string} [parentPortfolioId.code]
+   * @property {date} [created]
+   * @property {object} [corporateActionSourceId]
+   * @property {string} [corporateActionSourceId.scope]
+   * @property {string} [corporateActionSourceId.code]
+   * @property {string} [accountingMethod] Possible values include: 'Default',
    * 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
    * 'LowestCostFirst'
-   * @member {array} [subHoldingKeys]
+   * @property {array} [subHoldingKeys]
    */
   constructor() {
   }

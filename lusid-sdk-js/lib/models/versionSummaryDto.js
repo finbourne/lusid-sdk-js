@@ -28,10 +28,10 @@
 class VersionSummaryDto {
   /**
    * Create a VersionSummaryDto.
-   * @member {string} [apiVersion]
-   * @member {string} [buildVersion]
-   * @member {string} [excelVersion]
-   * @member {array} [links]
+   * @property {string} [apiVersion]
+   * @property {string} [buildVersion]
+   * @property {string} [excelVersion]
+   * @property {array} [links]
    */
   constructor() {
   }

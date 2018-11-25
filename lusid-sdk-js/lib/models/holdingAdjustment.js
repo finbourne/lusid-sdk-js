@@ -31,12 +31,12 @@
 class HoldingAdjustment {
   /**
    * Create a HoldingAdjustment.
-   * @member {string} instrumentUid Unique instrument identifier
-   * @member {array} [subHoldingKeys] Key fields to uniquely index the sub
+   * @property {string} instrumentUid Unique instrument identifier
+   * @property {array} [subHoldingKeys] Key fields to uniquely index the sub
    * holdings of a instrument
-   * @member {array} [properties] Arbitrary properties to store with the
+   * @property {array} [properties] Arbitrary properties to store with the
    * holding
-   * @member {array} taxLots 1 or more quantity amounts
+   * @property {array} taxLots 1 or more quantity amounts
    */
   constructor() {
   }

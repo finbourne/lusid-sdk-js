@@ -28,8 +28,8 @@
 class AnalyticStoreKey {
   /**
    * Create a AnalyticStoreKey.
-   * @member {string} [scope]
-   * @member {date} [date]
+   * @property {string} [scope]
+   * @property {date} [date]
    */
   constructor() {
   }

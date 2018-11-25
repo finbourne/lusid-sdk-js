@@ -28,18 +28,18 @@
 class NestedAggregationResponse {
   /**
    * Create a NestedAggregationResponse.
-   * @member {string} [href]
-   * @member {object} [data]
-   * @member {string} [data.key]
-   * @member {string} [data.value]
-   * @member {number} [data.depth]
-   * @member {object} [data.properties]
-   * @member {array} [data.children]
-   * @member {string} [aggregationCurrency]
-   * @member {object} [dataSchema]
-   * @member {array} [dataSchema.nodeValueSchema]
-   * @member {object} [dataSchema.propertySchema]
-   * @member {array} [links]
+   * @property {string} [href]
+   * @property {object} [data]
+   * @property {string} [data.key]
+   * @property {string} [data.value]
+   * @property {number} [data.depth]
+   * @property {object} [data.properties]
+   * @property {array} [data.children]
+   * @property {string} [aggregationCurrency]
+   * @property {object} [dataSchema]
+   * @property {array} [dataSchema.nodeValueSchema]
+   * @property {object} [dataSchema.propertySchema]
+   * @property {array} [links]
    */
   constructor() {
   }

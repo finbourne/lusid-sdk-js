@@ -28,28 +28,30 @@
 class Transaction {
   /**
    * Create a Transaction.
-   * @member {string} transactionId Unique transaction identifier
-   * @member {string} type LUSID transaction type code - Buy, Sell, StockIn,
+   * @property {string} transactionId Unique transaction identifier
+   * @property {string} type LUSID transaction type code - Buy, Sell, StockIn,
    * StockOut, etc
-   * @member {string} instrumentUid Unique instrument identifier
-   * @member {date} transactionDate Transaction date
-   * @member {date} settlementDate Settlement date
-   * @member {number} units Quantity of transaction in units of the instrument
-   * @member {object} transactionPrice Execution price for the transaction
-   * @member {number} [transactionPrice.price]
-   * @member {string} [transactionPrice.type] Possible values include: 'Price',
-   * 'Yield', 'Spread'
-   * @member {object} totalConsideration Total value of the transaction
-   * @member {number} [totalConsideration.amount]
-   * @member {string} [totalConsideration.currency]
-   * @member {number} [exchangeRate] Rate between transaction and settle
+   * @property {string} instrumentUid Unique instrument identifier
+   * @property {date} transactionDate Transaction date
+   * @property {date} settlementDate Settlement date
+   * @property {number} units Quantity of transaction in units of the
+   * instrument
+   * @property {object} transactionPrice Execution price for the transaction
+   * @property {number} [transactionPrice.price]
+   * @property {string} [transactionPrice.type] Possible values include:
+   * 'Price', 'Yield', 'Spread'
+   * @property {object} totalConsideration Total value of the transaction in
+   * settlement currency
+   * @property {number} [totalConsideration.amount]
+   * @property {string} [totalConsideration.currency]
+   * @property {number} [exchangeRate] Rate between transaction and settle
    * currency
-   * @member {string} [transactionCurrency] Transaction currency
-   * @member {array} [properties]
-   * @member {string} [counterpartyId] Counterparty identifier
-   * @member {string} source Where this transaction came from. Possible values
-   * include: 'System', 'Client'
-   * @member {string} [nettingSet]
+   * @property {string} [transactionCurrency] Transaction currency
+   * @property {array} [properties]
+   * @property {string} [counterpartyId] Counterparty identifier
+   * @property {string} source Where this transaction came from. Possible
+   * values include: 'System', 'Client'
+   * @property {string} [nettingSet]
    */
   constructor() {
   }

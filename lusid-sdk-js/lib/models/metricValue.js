@@ -28,8 +28,8 @@
 class MetricValue {
   /**
    * Create a MetricValue.
-   * @member {number} [value]
-   * @member {string} [unit]
+   * @property {number} [value]
+   * @property {string} [unit]
    */
   constructor() {
   }

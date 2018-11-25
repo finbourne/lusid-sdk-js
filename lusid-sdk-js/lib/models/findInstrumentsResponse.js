@@ -23,62 +23,36 @@
 'use strict';
 
 /**
- * Class representing a VersionedResourceListOfTransaction.
+ * Class representing a FindInstrumentsResponse.
  */
-class VersionedResourceListOfTransaction {
+class FindInstrumentsResponse {
   /**
-   * Create a VersionedResourceListOfTransaction.
-   * @property {object} [version]
-   * @property {date} [version.effectiveFrom]
-   * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
-   * @property {array} [values]
-   * @property {string} [href] The Uri that returns the same result as the
-   * original request,
-   * but may include resolved as at time(s).
-   * @property {number} [count] The total number of records returned in the set
+   * Create a FindInstrumentsResponse.
+   * @property {string} [href]
+   * @property {object} [values] A dictionary of instruments that are keyed by
+   * the search criteria supplied in the
+   * matching request. If no match was found, then there will be no values in
+   * the collection
+   * for that key.
    * @property {array} [links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of VersionedResourceListOfTransaction
+   * Defines the metadata of FindInstrumentsResponse
    *
-   * @returns {object} metadata of VersionedResourceListOfTransaction
+   * @returns {object} metadata of FindInstrumentsResponse
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'VersionedResourceListOfTransaction',
+      serializedName: 'FindInstrumentsResponse',
       type: {
         name: 'Composite',
-        className: 'VersionedResourceListOfTransaction',
+        className: 'FindInstrumentsResponse',
         modelProperties: {
-          version: {
-            required: false,
-            serializedName: 'version',
-            type: {
-              name: 'Composite',
-              className: 'Version'
-            }
-          },
-          values: {
-            required: false,
-            serializedName: 'values',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'TransactionElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'Transaction'
-                  }
-              }
-            }
-          },
           href: {
             required: false,
             serializedName: 'href',
@@ -86,11 +60,26 @@ class VersionedResourceListOfTransaction {
               name: 'String'
             }
           },
-          count: {
+          values: {
             required: false,
-            serializedName: 'count',
+            serializedName: 'values',
             type: {
-              name: 'Number'
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'ArrayElementType',
+                  type: {
+                    name: 'Sequence',
+                    element: {
+                        required: false,
+                        serializedName: 'InstrumentMatchElementType',
+                        type: {
+                          name: 'Composite',
+                          className: 'InstrumentMatch'
+                        }
+                    }
+                  }
+              }
             }
           },
           links: {
@@ -114,4 +103,4 @@ class VersionedResourceListOfTransaction {
   }
 }
 
-module.exports = VersionedResourceListOfTransaction;
+module.exports = FindInstrumentsResponse;

@@ -23,43 +23,61 @@
 'use strict';
 
 /**
- * Class representing a CurrencyAndAmount.
+ * Class representing a UpdateInstrumentIdentifierRequest.
  */
-class CurrencyAndAmount {
+class UpdateInstrumentIdentifierRequest {
   /**
-   * Create a CurrencyAndAmount.
-   * @property {number} [amount]
-   * @property {string} [currency]
+   * Create a UpdateInstrumentIdentifierRequest.
+   * @property {string} [type] The type of the identifier to upsert. This must
+   * be one of the code types marked as
+   * allowable for instrument identifiers. Possible values include:
+   * 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+   * 'ShareClassFigi', 'Wertpapier'
+   * @property {string} [value] The value of the identifier. If set to `null`,
+   * this will remove the identifier completely.
+   * Note that, if an instrument only has one identifier, it is an error to
+   * remove this.
+   * @property {date} [effectiveFrom] The date at which the identifier
+   * modification is to be effective from. If unset, will
+   * default to `now`.
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of CurrencyAndAmount
+   * Defines the metadata of UpdateInstrumentIdentifierRequest
    *
-   * @returns {object} metadata of CurrencyAndAmount
+   * @returns {object} metadata of UpdateInstrumentIdentifierRequest
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CurrencyAndAmount',
+      serializedName: 'UpdateInstrumentIdentifierRequest',
       type: {
         name: 'Composite',
-        className: 'CurrencyAndAmount',
+        className: 'UpdateInstrumentIdentifierRequest',
         modelProperties: {
-          amount: {
+          type: {
             required: false,
-            serializedName: 'amount',
-            type: {
-              name: 'Number'
-            }
-          },
-          currency: {
-            required: false,
-            serializedName: 'currency',
+            serializedName: 'type',
             type: {
               name: 'String'
+            }
+          },
+          value: {
+            required: false,
+            serializedName: 'value',
+            type: {
+              name: 'String'
+            }
+          },
+          effectiveFrom: {
+            required: false,
+            serializedName: 'effectiveFrom',
+            type: {
+              name: 'DateTime'
             }
           }
         }
@@ -68,4 +86,4 @@ class CurrencyAndAmount {
   }
 }
 
-module.exports = CurrencyAndAmount;
+module.exports = UpdateInstrumentIdentifierRequest;

@@ -23,62 +23,36 @@
 'use strict';
 
 /**
- * Class representing a VersionedResourceListOfTransaction.
+ * Class representing a UpsertInstrumentsResponse.
  */
-class VersionedResourceListOfTransaction {
+class UpsertInstrumentsResponse {
   /**
-   * Create a VersionedResourceListOfTransaction.
-   * @property {object} [version]
-   * @property {date} [version.effectiveFrom]
-   * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
-   * @property {array} [values]
-   * @property {string} [href] The Uri that returns the same result as the
-   * original request,
-   * but may include resolved as at time(s).
-   * @property {number} [count] The total number of records returned in the set
+   * Create a UpsertInstrumentsResponse.
+   * @property {string} [href]
+   * @property {object} [values] The collection of upserted instruments with
+   * their latest parameters.
+   * @property {object} [failed] If any instruments failed to be upserted, they
+   * will be listed in 'Failed', along
+   * with a reason why.
    * @property {array} [links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of VersionedResourceListOfTransaction
+   * Defines the metadata of UpsertInstrumentsResponse
    *
-   * @returns {object} metadata of VersionedResourceListOfTransaction
+   * @returns {object} metadata of UpsertInstrumentsResponse
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'VersionedResourceListOfTransaction',
+      serializedName: 'UpsertInstrumentsResponse',
       type: {
         name: 'Composite',
-        className: 'VersionedResourceListOfTransaction',
+        className: 'UpsertInstrumentsResponse',
         modelProperties: {
-          version: {
-            required: false,
-            serializedName: 'version',
-            type: {
-              name: 'Composite',
-              className: 'Version'
-            }
-          },
-          values: {
-            required: false,
-            serializedName: 'values',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'TransactionElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'Transaction'
-                  }
-              }
-            }
-          },
           href: {
             required: false,
             serializedName: 'href',
@@ -86,11 +60,34 @@ class VersionedResourceListOfTransaction {
               name: 'String'
             }
           },
-          count: {
+          values: {
             required: false,
-            serializedName: 'count',
+            serializedName: 'values',
             type: {
-              name: 'Number'
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'InstrumentElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Instrument'
+                  }
+              }
+            }
+          },
+          failed: {
+            required: false,
+            serializedName: 'failed',
+            type: {
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'ErrorDetailElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'ErrorDetail'
+                  }
+              }
             }
           },
           links: {
@@ -114,4 +111,4 @@ class VersionedResourceListOfTransaction {
   }
 }
 
-module.exports = VersionedResourceListOfTransaction;
+module.exports = UpsertInstrumentsResponse;

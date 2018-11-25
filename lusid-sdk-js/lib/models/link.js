@@ -28,12 +28,12 @@
 class Link {
   /**
    * Create a Link.
-   * @member {string} relation Possible values include: 'Root', 'Properties',
+   * @property {string} relation Possible values include: 'Root', 'Properties',
    * 'Transactions', 'Details', 'Constituents', 'Holdings', 'Commands',
    * 'HoldingsAdjustments', 'Parent', 'PropertySchema', 'EntitySchema', 'Quote'
-   * @member {string} href
-   * @member {string} [description]
-   * @member {string} method Possible values include: 'POST', 'GET', 'PATCH',
+   * @property {string} href
+   * @property {string} [description]
+   * @property {string} method Possible values include: 'POST', 'GET', 'PATCH',
    * 'DELETE'
    */
   constructor() {
