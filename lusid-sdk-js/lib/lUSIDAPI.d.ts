@@ -5392,7 +5392,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
-   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   * Use the '-' sign to denote descending order e.g. -MyFieldName
    *
    * @param {number} [options.start] Optional. When paginating, skip this number
    * of results
@@ -5405,11 +5405,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfReferencePortfolioConstituent>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<GetReferencePortfolioConstituentsResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReferencePortfolioConstituent>>;
+  getReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GetReferencePortfolioConstituentsResponse>>;
 
   /**
    * @summary Get constituents
@@ -5427,7 +5427,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
-   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   * Use the '-' sign to denote descending order e.g. -MyFieldName
    *
    * @param {number} [options.start] Optional. When paginating, skip this number
    * of results
@@ -5445,7 +5445,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfReferencePortfolioConstituent} - The deserialized result object.
+   *                      @resolve {GetReferencePortfolioConstituentsResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -5453,17 +5453,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfReferencePortfolioConstituent} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfReferencePortfolioConstituent}
+   *                      {GetReferencePortfolioConstituentsResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link GetReferencePortfolioConstituentsResponse}
    *                      for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReferencePortfolioConstituent>;
-  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituent>): void;
-  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReferencePortfolioConstituent>): void;
+  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.GetReferencePortfolioConstituentsResponse>;
+  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.GetReferencePortfolioConstituentsResponse>): void;
+  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GetReferencePortfolioConstituentsResponse>): void;
 
 
   /**
@@ -5475,12 +5475,23 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt The effective date of the constituents
-   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.constituents] The constituents to upload to the
+   * @param {object} [options.constituents] The constituents to upload to the
    * portfolio
+   *
+   * @param {date} options.constituents.effectiveFrom
+   *
+   * @param {string} options.constituents.weightType Possible values include:
+   * 'Static', 'Floating', 'Periodical'
+   *
+   * @param {string} [options.constituents.periodType] Possible values include:
+   * 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'
+   *
+   * @param {number} [options.constituents.periodCount]
+   *
+   * @param {array} options.constituents.constituents Set of constituents
+   * (instrument/weight pairings)
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5491,7 +5502,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  upsertReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { constituents? : models.ReferencePortfolioConstituentRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertReferencePortfolioConstituentsResponse>>;
+  upsertReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, code: string, options?: { constituents? : models.UpsertReferencePortfolioConstituentsRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertReferencePortfolioConstituentsResponse>>;
 
   /**
    * @summary Add constituents
@@ -5502,12 +5513,23 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt The effective date of the constituents
-   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.constituents] The constituents to upload to the
+   * @param {object} [options.constituents] The constituents to upload to the
    * portfolio
+   *
+   * @param {date} options.constituents.effectiveFrom
+   *
+   * @param {string} options.constituents.weightType Possible values include:
+   * 'Static', 'Floating', 'Periodical'
+   *
+   * @param {string} [options.constituents.periodType] Possible values include:
+   * 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'
+   *
+   * @param {number} [options.constituents.periodCount]
+   *
+   * @param {array} options.constituents.constituents Set of constituents
+   * (instrument/weight pairings)
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5536,9 +5558,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options?: { constituents? : models.ReferencePortfolioConstituentRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertReferencePortfolioConstituentsResponse>;
-  upsertReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.UpsertReferencePortfolioConstituentsResponse>): void;
-  upsertReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options: { constituents? : models.ReferencePortfolioConstituentRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertReferencePortfolioConstituentsResponse>): void;
+  upsertReferencePortfolioConstituents(scope: string, code: string, options?: { constituents? : models.UpsertReferencePortfolioConstituentsRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertReferencePortfolioConstituentsResponse>;
+  upsertReferencePortfolioConstituents(scope: string, code: string, callback: ServiceCallback<models.UpsertReferencePortfolioConstituentsResponse>): void;
+  upsertReferencePortfolioConstituents(scope: string, code: string, options: { constituents? : models.UpsertReferencePortfolioConstituentsRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertReferencePortfolioConstituentsResponse>): void;
 
 
   /**

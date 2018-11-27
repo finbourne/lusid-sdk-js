@@ -10337,7 +10337,7 @@ function _createReferencePortfolio(scope, options, callback) {
  * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {array} [options.sortBy] Optional. Order the results by these fields.
- * Use use the '-' sign to denote descending order e.g. -MyFieldName
+ * Use the '-' sign to denote descending order e.g. -MyFieldName
  *
  * @param {number} [options.start] Optional. When paginating, skip this number
  * of results
@@ -10355,7 +10355,7 @@ function _createReferencePortfolio(scope, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListOfReferencePortfolioConstituent}
+ *                      See {@link GetReferencePortfolioConstituentsResponse}
  *                      for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -10496,7 +10496,7 @@ function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, c
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListOfReferencePortfolioConstituent']().mapper();
+          let resultMapper = new client.models['GetReferencePortfolioConstituentsResponse']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -10520,12 +10520,23 @@ function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, c
  *
  * @param {string} code The code of the portfolio
  *
- * @param {date} effectiveAt The effective date of the constituents
- *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.constituents] The constituents to upload to the
+ * @param {object} [options.constituents] The constituents to upload to the
  * portfolio
+ *
+ * @param {date} options.constituents.effectiveFrom
+ *
+ * @param {string} options.constituents.weightType Possible values include:
+ * 'Static', 'Floating', 'Periodical'
+ *
+ * @param {string} [options.constituents.periodType] Possible values include:
+ * 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'
+ *
+ * @param {number} [options.constituents.periodCount]
+ *
+ * @param {array} options.constituents.constituents Set of constituents
+ * (instrument/weight pairings)
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -10545,7 +10556,7 @@ function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, c
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _upsertReferencePortfolioConstituents(scope, code, effectiveAt, options, callback) {
+function _upsertReferencePortfolioConstituents(scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -10564,20 +10575,15 @@ function _upsertReferencePortfolioConstituents(scope, code, effectiveAt, options
     if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
       throw new Error('code cannot be null or undefined and it must be of type string.');
     }
-    if(!effectiveAt || !(effectiveAt instanceof Date ||
-        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
-          throw new Error('effectiveAt cannot be null or undefined and it must be of type date.');
-        }
   } catch (error) {
     return callback(error);
   }
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/referenceportfolios/{scope}/{code}/{effectiveAt}/constituents';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/referenceportfolios/{scope}/{code}/constituents';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
-  requestUrl = requestUrl.replace('{effectiveAt}', encodeURIComponent(client.serializeObject(effectiveAt)));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -10598,21 +10604,7 @@ function _upsertReferencePortfolioConstituents(scope, code, effectiveAt, options
   let requestModel = null;
   try {
     if (constituents !== null && constituents !== undefined) {
-      let requestModelMapper = {
-        required: false,
-        serializedName: 'constituents',
-        type: {
-          name: 'Sequence',
-          element: {
-              required: false,
-              serializedName: 'ReferencePortfolioConstituentRequestElementType',
-              type: {
-                name: 'Composite',
-                className: 'ReferencePortfolioConstituentRequest'
-              }
-          }
-        }
-      };
+      let requestModelMapper = new client.models['UpsertReferencePortfolioConstituentsRequest']().mapper();
       requestModel = client.serialize(requestModelMapper, constituents, 'constituents');
       requestContent = JSON.stringify(requestModel);
     }
@@ -22714,7 +22706,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
-   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   * Use the '-' sign to denote descending order e.g. -MyFieldName
    *
    * @param {number} [options.start] Optional. When paginating, skip this number
    * of results
@@ -22727,7 +22719,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfReferencePortfolioConstituent>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<GetReferencePortfolioConstituentsResponse>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -22761,7 +22753,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
-   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   * Use the '-' sign to denote descending order e.g. -MyFieldName
    *
    * @param {number} [options.start] Optional. When paginating, skip this number
    * of results
@@ -22779,7 +22771,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListOfReferencePortfolioConstituent} - The deserialized result object.
+   *                      @resolve {GetReferencePortfolioConstituentsResponse} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -22788,7 +22780,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfReferencePortfolioConstituent}
+   *                      See {@link GetReferencePortfolioConstituentsResponse}
    *                      for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
@@ -22824,12 +22816,23 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt The effective date of the constituents
-   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.constituents] The constituents to upload to the
+   * @param {object} [options.constituents] The constituents to upload to the
    * portfolio
+   *
+   * @param {date} options.constituents.effectiveFrom
+   *
+   * @param {string} options.constituents.weightType Possible values include:
+   * 'Static', 'Floating', 'Periodical'
+   *
+   * @param {string} [options.constituents.periodType] Possible values include:
+   * 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'
+   *
+   * @param {number} [options.constituents.periodCount]
+   *
+   * @param {array} options.constituents.constituents Set of constituents
+   * (instrument/weight pairings)
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -22840,11 +22843,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  upsertReferencePortfolioConstituentsWithHttpOperationResponse(scope, code, effectiveAt, options) {
+  upsertReferencePortfolioConstituentsWithHttpOperationResponse(scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._upsertReferencePortfolioConstituents(scope, code, effectiveAt, options, (err, result, request, response) => {
+      self._upsertReferencePortfolioConstituents(scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -22863,12 +22866,23 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt The effective date of the constituents
-   *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.constituents] The constituents to upload to the
+   * @param {object} [options.constituents] The constituents to upload to the
    * portfolio
+   *
+   * @param {date} options.constituents.effectiveFrom
+   *
+   * @param {string} options.constituents.weightType Possible values include:
+   * 'Static', 'Floating', 'Periodical'
+   *
+   * @param {string} [options.constituents.periodType] Possible values include:
+   * 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'
+   *
+   * @param {number} [options.constituents.periodCount]
+   *
+   * @param {array} options.constituents.constituents Set of constituents
+   * (instrument/weight pairings)
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -22897,7 +22911,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertReferencePortfolioConstituents(scope, code, effectiveAt, options, optionalCallback) {
+  upsertReferencePortfolioConstituents(scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -22906,14 +22920,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._upsertReferencePortfolioConstituents(scope, code, effectiveAt, options, (err, result, request, response) => {
+        self._upsertReferencePortfolioConstituents(scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._upsertReferencePortfolioConstituents(scope, code, effectiveAt, options, optionalCallback);
+      return self._upsertReferencePortfolioConstituents(scope, code, options, optionalCallback);
     }
   }
 

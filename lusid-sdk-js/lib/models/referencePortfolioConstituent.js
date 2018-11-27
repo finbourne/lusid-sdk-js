@@ -28,10 +28,11 @@
 class ReferencePortfolioConstituent {
   /**
    * Create a ReferencePortfolioConstituent.
-   * @property {string} [instrumentUid]
-   * @property {array} [properties]
-   * @property {number} [weight]
-   * @property {string} [currency]
+   * @property {string} instrumentUid
+   * @property {string} currency
+   * @property {array} [properties] Properties associated with the constituent
+   * @property {number} weight
+   * @property {number} [floatingWeight]
    */
   constructor() {
   }
@@ -51,8 +52,15 @@ class ReferencePortfolioConstituent {
         className: 'ReferencePortfolioConstituent',
         modelProperties: {
           instrumentUid: {
-            required: false,
+            required: true,
             serializedName: 'instrumentUid',
+            type: {
+              name: 'String'
+            }
+          },
+          currency: {
+            required: true,
+            serializedName: 'currency',
             type: {
               name: 'String'
             }
@@ -73,17 +81,17 @@ class ReferencePortfolioConstituent {
             }
           },
           weight: {
-            required: false,
+            required: true,
             serializedName: 'weight',
             type: {
               name: 'Number'
             }
           },
-          currency: {
+          floatingWeight: {
             required: false,
-            serializedName: 'currency',
+            serializedName: 'floatingWeight',
             type: {
-              name: 'String'
+              name: 'Number'
             }
           }
         }

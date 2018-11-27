@@ -1178,6 +1178,40 @@ export interface CreateReferencePortfolioRequest {
   properties?: { [propertyName: string]: PerpetualPropertyValue };
 }
 
+export interface ReferencePortfolioConstituent {
+  instrumentUid: string;
+  currency: string;
+  /**
+   * Properties associated with the constituent
+  */
+  properties?: Property[];
+  weight: number;
+  floatingWeight?: number;
+}
+
+export interface GetReferencePortfolioConstituentsResponse {
+  effectiveFrom: Date;
+  /**
+   * Possible values include: 'Static', 'Floating', 'Periodical'
+  */
+  weightType: string;
+  /**
+   * Possible values include: 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'
+  */
+  periodType?: string;
+  periodCount?: number;
+  /**
+   * Set of constituents (instrument/weight pairings)
+  */
+  constituents: ReferencePortfolioConstituent[];
+  /**
+   * The Uri that returns the same result as the original request,
+   * but may include resolved as at time(s).
+  */
+  href?: string;
+  links?: Link[];
+}
+
 export interface ReferencePortfolioConstituentRequest {
   instrumentUid?: string;
   properties?: { [propertyName: string]: PerpetualPropertyValue };
@@ -1185,30 +1219,26 @@ export interface ReferencePortfolioConstituentRequest {
   currency?: string;
 }
 
+export interface UpsertReferencePortfolioConstituentsRequest {
+  effectiveFrom: Date;
+  /**
+   * Possible values include: 'Static', 'Floating', 'Periodical'
+  */
+  weightType: string;
+  /**
+   * Possible values include: 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'
+  */
+  periodType?: string;
+  periodCount?: number;
+  /**
+   * Set of constituents (instrument/weight pairings)
+  */
+  constituents: ReferencePortfolioConstituentRequest[];
+}
+
 export interface UpsertReferencePortfolioConstituentsResponse {
   href?: string;
   version?: Version;
-  links?: Link[];
-}
-
-export interface ReferencePortfolioConstituent {
-  instrumentUid?: string;
-  properties?: Property[];
-  weight?: number;
-  currency?: string;
-}
-
-export interface ResourceListOfReferencePortfolioConstituent {
-  values?: ReferencePortfolioConstituent[];
-  /**
-   * The Uri that returns the same result as the original request,
-   * but may include resolved as at time(s).
-  */
-  href?: string;
-  /**
-   * The total number of records returned in the set
-  */
-  count?: number;
   links?: Link[];
 }
 

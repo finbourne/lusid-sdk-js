@@ -23,75 +23,76 @@
 'use strict';
 
 /**
- * Class representing a ResourceListOfReferencePortfolioConstituent.
+ * Class representing a UpsertReferencePortfolioConstituentsRequest.
  */
-class ResourceListOfReferencePortfolioConstituent {
+class UpsertReferencePortfolioConstituentsRequest {
   /**
-   * Create a ResourceListOfReferencePortfolioConstituent.
-   * @property {array} [values]
-   * @property {string} [href] The Uri that returns the same result as the
-   * original request,
-   * but may include resolved as at time(s).
-   * @property {number} [count] The total number of records returned in the set
-   * @property {array} [links]
+   * Create a UpsertReferencePortfolioConstituentsRequest.
+   * @property {date} effectiveFrom
+   * @property {string} weightType Possible values include: 'Static',
+   * 'Floating', 'Periodical'
+   * @property {string} [periodType] Possible values include: 'Daily',
+   * 'Weekly', 'Monthly', 'Quarterly', 'Annually'
+   * @property {number} [periodCount]
+   * @property {array} constituents Set of constituents (instrument/weight
+   * pairings)
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of ResourceListOfReferencePortfolioConstituent
+   * Defines the metadata of UpsertReferencePortfolioConstituentsRequest
    *
-   * @returns {object} metadata of ResourceListOfReferencePortfolioConstituent
+   * @returns {object} metadata of UpsertReferencePortfolioConstituentsRequest
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceListOfReferencePortfolioConstituent',
+      serializedName: 'UpsertReferencePortfolioConstituentsRequest',
       type: {
         name: 'Composite',
-        className: 'ResourceListOfReferencePortfolioConstituent',
+        className: 'UpsertReferencePortfolioConstituentsRequest',
         modelProperties: {
-          values: {
-            required: false,
-            serializedName: 'values',
+          effectiveFrom: {
+            required: true,
+            serializedName: 'effectiveFrom',
             type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'ReferencePortfolioConstituentElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'ReferencePortfolioConstituent'
-                  }
-              }
+              name: 'DateTime'
             }
           },
-          href: {
-            required: false,
-            serializedName: 'href',
+          weightType: {
+            required: true,
+            serializedName: 'weightType',
             type: {
               name: 'String'
             }
           },
-          count: {
+          periodType: {
             required: false,
-            serializedName: 'count',
+            serializedName: 'periodType',
+            type: {
+              name: 'String'
+            }
+          },
+          periodCount: {
+            required: false,
+            serializedName: 'periodCount',
             type: {
               name: 'Number'
             }
           },
-          links: {
-            required: false,
-            serializedName: 'links',
+          constituents: {
+            required: true,
+            serializedName: 'constituents',
             type: {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'LinkElementType',
+                  serializedName: 'ReferencePortfolioConstituentRequestElementType',
                   type: {
                     name: 'Composite',
-                    className: 'Link'
+                    className: 'ReferencePortfolioConstituentRequest'
                   }
               }
             }
@@ -102,4 +103,4 @@ class ResourceListOfReferencePortfolioConstituent {
   }
 }
 
-module.exports = ResourceListOfReferencePortfolioConstituent;
+module.exports = UpsertReferencePortfolioConstituentsRequest;
