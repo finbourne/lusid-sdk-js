@@ -2576,7 +2576,7 @@ function _upsertInstruments(options, callback) {
  * @param {string} type The type of identifier being supplied. Possible values
  * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
  * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
- * 'ShareClassFigi', 'Wertpapier'
+ * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
  *
  * @param {string} id The identifier of the requested instrument
  *
@@ -2752,7 +2752,7 @@ function _getInstrument(type, id, options, callback) {
  * @param {string} type The type of identifier being supplied. Possible values
  * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
  * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
- * 'ShareClassFigi', 'Wertpapier'
+ * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
  *
  * @param {string} id The instrument identifier
  *
@@ -2765,7 +2765,7 @@ function _getInstrument(type, id, options, callback) {
  * allowable for instrument identifiers. Possible values include: 'Undefined',
  * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
  * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
- * 'Wertpapier'
+ * 'Wertpapier', 'RIC', 'QuotePermId'
  *
  * @param {string} [options.request.value] The value of the identifier. If set
  * to `null`, this will remove the identifier completely.
@@ -2921,7 +2921,7 @@ function _updateInstrumentIdentifier(type, id, options, callback) {
  * @param {string} type The type of identifier being supplied. Possible values
  * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
  * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
- * 'ShareClassFigi', 'Wertpapier'
+ * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
  *
  * @param {string} id The instrument identifier
  *
@@ -3055,7 +3055,7 @@ function _deleteInstrument(type, id, options, callback) {
  * @param {string} [options.codeType] The type of codes to search for. Possible
  * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
  * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
- * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+ * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
  *
  * @param {array} [options.codes] The collection of instruments to search for
  *
@@ -3225,7 +3225,7 @@ function _findExternalInstruments(options, callback) {
  * @param {string} [options.codeType] the type of codes being specified.
  * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
  * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
- * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+ * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
  *
  * @param {array} [options.codes] The identifiers of the instruments to get
  *
@@ -17460,7 +17460,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} type The type of identifier being supplied. Possible values
    * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
    * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier'
+   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {string} id The identifier of the requested instrument
    *
@@ -17507,7 +17507,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} type The type of identifier being supplied. Possible values
    * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
    * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier'
+   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {string} id The identifier of the requested instrument
    *
@@ -17574,7 +17574,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} type The type of identifier being supplied. Possible values
    * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
    * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier'
+   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {string} id The instrument identifier
    *
@@ -17587,7 +17587,7 @@ class LUSIDAPI extends ServiceClient {
    * allowable for instrument identifiers. Possible values include: 'Undefined',
    * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
    * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-   * 'Wertpapier'
+   * 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {string} [options.request.value] The value of the identifier. If set
    * to `null`, this will remove the identifier completely.
@@ -17629,7 +17629,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} type The type of identifier being supplied. Possible values
    * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
    * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier'
+   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {string} id The instrument identifier
    *
@@ -17642,7 +17642,7 @@ class LUSIDAPI extends ServiceClient {
    * allowable for instrument identifiers. Possible values include: 'Undefined',
    * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
    * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-   * 'Wertpapier'
+   * 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {string} [options.request.value] The value of the identifier. If set
    * to `null`, this will remove the identifier completely.
@@ -17712,7 +17712,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} type The type of identifier being supplied. Possible values
    * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
    * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier'
+   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {string} id The instrument identifier
    *
@@ -17755,7 +17755,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} type The type of identifier being supplied. Possible values
    * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
    * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier'
+   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {string} id The instrument identifier
    *
@@ -17818,7 +17818,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.codeType] The type of codes to search for. Possible
    * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
    * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {array} [options.codes] The collection of instruments to search for
    *
@@ -17856,7 +17856,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.codeType] The type of codes to search for. Possible
    * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
    * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {array} [options.codes] The collection of instruments to search for
    *
@@ -17917,7 +17917,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.codeType] the type of codes being specified.
    * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
    * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {array} [options.codes] The identifiers of the instruments to get
    *
@@ -17963,7 +17963,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.codeType] the type of codes being specified.
    * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
    * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
    * @param {array} [options.codes] The identifiers of the instruments to get
    *

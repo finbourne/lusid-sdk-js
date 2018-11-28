@@ -33,7 +33,7 @@ class UpdateInstrumentIdentifierRequest {
    * allowable for instrument identifiers. Possible values include:
    * 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
    * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier'
+   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    * @property {string} [value] The value of the identifier. If set to `null`,
    * this will remove the identifier completely.
    * Note that, if an instrument only has one identifier, it is an error to
