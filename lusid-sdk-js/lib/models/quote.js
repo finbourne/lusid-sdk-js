@@ -28,14 +28,17 @@
 class Quote {
   /**
    * Create a Quote.
-   * @property {string} id
+   * @property {object} quoteId
+   * @property {string} [quoteId.instrumentId]
+   * @property {string} [quoteId.instrumentIdType]
+   * @property {string} [quoteId.quoteConvention]
+   * @property {string} [quoteId.quoteType]
+   * @property {string} [quoteId.priceSource]
    * @property {object} metricValue
    * @property {number} [metricValue.value]
    * @property {string} [metricValue.unit]
-   * @property {object} [version]
-   * @property {date} [version.effectiveFrom]
-   * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
+   * @property {date} [effectiveAtDate]
+   * @property {date} [asAtDate]
    */
   constructor() {
   }
@@ -54,11 +57,12 @@ class Quote {
         name: 'Composite',
         className: 'Quote',
         modelProperties: {
-          id: {
+          quoteId: {
             required: true,
-            serializedName: 'id',
+            serializedName: 'quoteId',
             type: {
-              name: 'String'
+              name: 'Composite',
+              className: 'QuoteId'
             }
           },
           metricValue: {
@@ -69,12 +73,18 @@ class Quote {
               className: 'MetricValue'
             }
           },
-          version: {
+          effectiveAtDate: {
             required: false,
-            serializedName: 'version',
+            serializedName: 'effectiveAtDate',
             type: {
-              name: 'Composite',
-              className: 'Version'
+              name: 'DateTime'
+            }
+          },
+          asAtDate: {
+            required: false,
+            serializedName: 'asAtDate',
+            type: {
+              name: 'DateTime'
             }
           }
         }

@@ -1202,7 +1202,7 @@ function _batchUpsertCorporateActions(scope, code, options, callback) {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
+ * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -1682,7 +1682,7 @@ function _getDataType(scope, code, options, callback) {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
+ * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -2300,15 +2300,25 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
 }
 
 /**
- * @summary Get allowable instrument identifiers
+ * @summary Get all of the currently mastered instruments in LUSID
  *
- * Gets the set of identifiers that have been configured as unique identifiers
- * for instruments.
- *
- * Only CodeTypes returned from this end point can be used as identifiers for
- * instruments.
+ * Lists all instruments that have been mastered within LUSID.
  *
  * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.asAt] The AsAt time
+ *
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
+ *
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
+ *
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
+ *
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2320,14 +2330,14 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListOfCodeType} for more
+ *                      See {@link ResourceListOfInstrument} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getInstrumentIdentifiers(options, callback) {
+function _listInstruments(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -2337,10 +2347,66 @@ function _getInstrumentIdentifiers(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
+  let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
+  let start = (options && options.start !== undefined) ? options.start : undefined;
+  let limit = (options && options.limit !== undefined) ? options.limit : undefined;
+  let filter = (options && options.filter !== undefined) ? options.filter : undefined;
+  // Validate
+  try {
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
+    if (Array.isArray(sortBy)) {
+      for (let i = 0; i < sortBy.length; i++) {
+        if (sortBy[i] !== null && sortBy[i] !== undefined && typeof sortBy[i].valueOf() !== 'string') {
+          throw new Error('sortBy[i] must be of type string.');
+        }
+      }
+    }
+    if (start !== null && start !== undefined && typeof start !== 'number') {
+      throw new Error('start must be of type number.');
+    }
+    if (limit !== null && limit !== undefined && typeof limit !== 'number') {
+      throw new Error('limit must be of type number.');
+    }
+    if (filter !== null && filter !== undefined && typeof filter.valueOf() !== 'string') {
+      throw new Error('filter must be of type string.');
+    }
+  } catch (error) {
+    return callback(error);
+  }
 
   // Construct URL
   let baseUrl = this.baseUri;
   let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments';
+  let queryParameters = [];
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
+  if (sortBy !== null && sortBy !== undefined) {
+    if (sortBy.length == 0) {
+      queryParameters.push('sortBy=' + encodeURIComponent(''));
+    } else {
+      for (let item of sortBy) {
+        item = (item === null || item === undefined) ? '' : item;
+        queryParameters.push('sortBy=' + encodeURIComponent('' + item));
+      }
+    }
+  }
+  if (start !== null && start !== undefined) {
+    queryParameters.push('start=' + encodeURIComponent(start.toString()));
+  }
+  if (limit !== null && limit !== undefined) {
+    queryParameters.push('limit=' + encodeURIComponent(limit.toString()));
+  }
+  if (filter !== null && filter !== undefined) {
+    queryParameters.push('filter=' + encodeURIComponent(filter));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -2399,7 +2465,7 @@ function _getInstrumentIdentifiers(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListOfCodeType']().mapper();
+          let resultMapper = new client.models['ResourceListOfInstrument']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -3756,6 +3822,121 @@ function _upsertInstrumentsProperties(options, callback) {
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
           let resultMapper = new client.models['UpsertInstrumentPropertiesResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Get allowable instrument identifiers
+ *
+ * Gets the set of identifiers that have been configured as unique identifiers
+ * for instruments.
+ *
+ * Only CodeTypes returned from this end point can be used as identifiers for
+ * instruments.
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link ResourceListOfCodeType} for more
+ *                      information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _getInstrumentIdentifiers(options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/identifiers';
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'GET';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  httpRequest.body = null;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ResourceListOfCodeType']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -7901,7 +8082,8 @@ function _getAggregationByPortfolio(scope, code, options, callback) {
 /**
  * @summary Get commands
  *
- * Gets all commands that modified a specific portfolio
+ * Gets all commands that modified a specific portfolio, including any input
+ * transactions.
  *
  * @param {string} scope The scope of the portfolio
  *
@@ -9657,206 +9839,6 @@ function _deletePropertyDefinition(domain, scope, code, options, callback) {
 }
 
 /**
- * @summary Get quotes
- *
- * Get quotes effective at the specified date/time (if any). An optional
- * maximum age of quotes can be specified, and is infinite by default.
- * Quotes which are older than this at the time of the effective date/time will
- * not be returned.
- * MaxAge is a duration of time represented in an ISO8601 format, eg.
- * P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).
- * The results are paged, and by default the 1st page of results is returned
- * with a limit of 100 results per page
- *
- * @param {string} scope The scope of the quotes
- *
- * @param {object} [options] Optional Parameters.
- *
- * @param {array} [options.quoteIds] The ids of the quotes
- *
- * @param {date} [options.effectiveAt] Optional. The date/time from which the
- * quotes are effective
- *
- * @param {date} [options.asAt] Optional. The 'AsAt' date/time
- *
- * @param {string} [options.maxAge] Optional. The quote staleness tolerance
- *
- * @param {number} [options.page] Optional. The page of results to return
- *
- * @param {number} [options.limit] Optional. The number of results per page
- *
- * @param {object} [options.customHeaders] Headers that will be added to the
- * request
- *
- * @param {function} callback - The callback.
- *
- * @returns {function} callback(err, result, request, response)
- *
- *                      {Error}  err        - The Error object if an error occurred, null otherwise.
- *
- *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListOfQuote} for more information.
- *
- *                      {object} [request]  - The HTTP Request object if an error did not occur.
- *
- *                      {stream} [response] - The HTTP Response stream if an error did not occur.
- */
-function _getQuotes(scope, options, callback) {
-   /* jshint validthis: true */
-  let client = this;
-  if(!callback && typeof options === 'function') {
-    callback = options;
-    options = null;
-  }
-  if (!callback) {
-    throw new Error('callback cannot be null.');
-  }
-  let quoteIds = (options && options.quoteIds !== undefined) ? options.quoteIds : undefined;
-  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
-  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
-  let maxAge = (options && options.maxAge !== undefined) ? options.maxAge : undefined;
-  let page = (options && options.page !== undefined) ? options.page : undefined;
-  let limit = (options && options.limit !== undefined) ? options.limit : undefined;
-  // Validate
-  try {
-    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
-      throw new Error('scope cannot be null or undefined and it must be of type string.');
-    }
-    if (Array.isArray(quoteIds)) {
-      for (let i = 0; i < quoteIds.length; i++) {
-        if (quoteIds[i] !== null && quoteIds[i] !== undefined && typeof quoteIds[i].valueOf() !== 'string') {
-          throw new Error('quoteIds[i] must be of type string.');
-        }
-      }
-    }
-    if (effectiveAt && !(effectiveAt instanceof Date ||
-        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
-          throw new Error('effectiveAt must be of type date.');
-        }
-    if (asAt && !(asAt instanceof Date ||
-        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
-          throw new Error('asAt must be of type date.');
-        }
-    if (maxAge !== null && maxAge !== undefined && typeof maxAge.valueOf() !== 'string') {
-      throw new Error('maxAge must be of type string.');
-    }
-    if (page !== null && page !== undefined && typeof page !== 'number') {
-      throw new Error('page must be of type number.');
-    }
-    if (limit !== null && limit !== undefined && typeof limit !== 'number') {
-      throw new Error('limit must be of type number.');
-    }
-  } catch (error) {
-    return callback(error);
-  }
-
-  // Construct URL
-  let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/quotes/{scope}';
-  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  let queryParameters = [];
-  if (quoteIds !== null && quoteIds !== undefined) {
-    if (quoteIds.length == 0) {
-      queryParameters.push('quoteIds=' + encodeURIComponent(''));
-    } else {
-      for (let item of quoteIds) {
-        item = (item === null || item === undefined) ? '' : item;
-        queryParameters.push('quoteIds=' + encodeURIComponent('' + item));
-      }
-    }
-  }
-  if (effectiveAt !== null && effectiveAt !== undefined) {
-    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
-  }
-  if (asAt !== null && asAt !== undefined) {
-    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
-  }
-  if (maxAge !== null && maxAge !== undefined) {
-    queryParameters.push('maxAge=' + encodeURIComponent(maxAge));
-  }
-  if (page !== null && page !== undefined) {
-    queryParameters.push('page=' + encodeURIComponent(page.toString()));
-  }
-  if (limit !== null && limit !== undefined) {
-    queryParameters.push('limit=' + encodeURIComponent(limit.toString()));
-  }
-  if (queryParameters.length > 0) {
-    requestUrl += '?' + queryParameters.join('&');
-  }
-
-  // Create HTTP transport objects
-  let httpRequest = new WebResource();
-  httpRequest.method = 'GET';
-  httpRequest.url = requestUrl;
-  httpRequest.headers = {};
-  // Set Headers
-  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
-  if(options) {
-    for(let headerName in options['customHeaders']) {
-      if (options['customHeaders'].hasOwnProperty(headerName)) {
-        httpRequest.headers[headerName] = options['customHeaders'][headerName];
-      }
-    }
-  }
-  httpRequest.body = null;
-  // Send Request
-  return client.pipeline(httpRequest, (err, response, responseBody) => {
-    if (err) {
-      return callback(err);
-    }
-    let statusCode = response.statusCode;
-    if (statusCode !== 200) {
-      let error = new Error(responseBody);
-      error.statusCode = response.statusCode;
-      error.request = msRest.stripRequest(httpRequest);
-      error.response = msRest.stripResponse(response);
-      if (responseBody === '') responseBody = null;
-      let parsedErrorResponse;
-      try {
-        parsedErrorResponse = JSON.parse(responseBody);
-        if (parsedErrorResponse) {
-          let internalError = null;
-          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
-          error.code = internalError ? internalError.code : parsedErrorResponse.code;
-          error.message = internalError ? internalError.message : parsedErrorResponse.message;
-        }
-        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
-          let resultMapper = new client.models['ErrorResponse']().mapper();
-          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
-        }
-      } catch (defaultError) {
-        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
-                         `- "${responseBody}" for the default response.`;
-        return callback(error);
-      }
-      return callback(error);
-    }
-    // Create Result
-    let result = null;
-    if (responseBody === '') responseBody = null;
-    // Deserialize Response
-    if (statusCode === 200) {
-      let parsedResponse = null;
-      try {
-        parsedResponse = JSON.parse(responseBody);
-        result = JSON.parse(responseBody);
-        if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListOfQuote']().mapper();
-          result = client.deserialize(resultMapper, parsedResponse, 'result');
-        }
-      } catch (error) {
-        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
-        deserializationError.request = msRest.stripRequest(httpRequest);
-        deserializationError.response = msRest.stripResponse(response);
-        return callback(deserializationError);
-      }
-    }
-
-    return callback(null, result, httpRequest, response);
-  });
-}
-
-/**
  * @summary Add quotes
  *
  * Add quotes effective at the specified time. If a quote is added with the
@@ -9868,9 +9850,6 @@ function _getQuotes(scope, options, callback) {
  * @param {object} [options] Optional Parameters.
  *
  * @param {array} [options.quotes] The quotes to add
- *
- * @param {date} [options.effectiveAt] Optional. The date/time from which the
- * quotes are effective
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -9899,16 +9878,11 @@ function _upsertQuotes(scope, options, callback) {
     throw new Error('callback cannot be null.');
   }
   let quotes = (options && options.quotes !== undefined) ? options.quotes : undefined;
-  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (effectiveAt && !(effectiveAt instanceof Date ||
-        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
-          throw new Error('effectiveAt must be of type date.');
-        }
   } catch (error) {
     return callback(error);
   }
@@ -9917,13 +9891,6 @@ function _upsertQuotes(scope, options, callback) {
   let baseUrl = this.baseUri;
   let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/quotes/{scope}';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  let queryParameters = [];
-  if (effectiveAt !== null && effectiveAt !== undefined) {
-    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
-  }
-  if (queryParameters.length > 0) {
-    requestUrl += '?' + queryParameters.join('&');
-  }
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -10028,17 +9995,14 @@ function _upsertQuotes(scope, options, callback) {
 /**
  * @summary Delete a quote
  *
- * Delete the specified quote. In order for a quote to be deleted the id and
+ * Delete the specified quotes. In order for a quote to be deleted the id and
  * effectiveFrom date must exactly match.
  *
  * @param {string} scope The scope of the quote
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.id] The quote id
- *
- * @param {date} [options.effectiveFrom] The date/time from which the quote is
- * effective
+ * @param {array} [options.quotes] The quotes to delete
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -10066,46 +10030,28 @@ function _deleteQuote(scope, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let id = (options && options.id !== undefined) ? options.id : undefined;
-  let effectiveFrom = (options && options.effectiveFrom !== undefined) ? options.effectiveFrom : undefined;
+  let quotes = (options && options.quotes !== undefined) ? options.quotes : undefined;
   // Validate
   try {
     if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
       throw new Error('scope cannot be null or undefined and it must be of type string.');
     }
-    if (id !== null && id !== undefined && typeof id.valueOf() !== 'string') {
-      throw new Error('id must be of type string.');
-    }
-    if (effectiveFrom && !(effectiveFrom instanceof Date ||
-        (typeof effectiveFrom.valueOf() === 'string' && !isNaN(Date.parse(effectiveFrom))))) {
-          throw new Error('effectiveFrom must be of type date.');
-        }
   } catch (error) {
     return callback(error);
   }
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/quotes/{scope}';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/quotes/{scope}/$delete';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
-  let queryParameters = [];
-  if (id !== null && id !== undefined) {
-    queryParameters.push('id=' + encodeURIComponent(id));
-  }
-  if (effectiveFrom !== null && effectiveFrom !== undefined) {
-    queryParameters.push('effectiveFrom=' + encodeURIComponent(client.serializeObject(effectiveFrom)));
-  }
-  if (queryParameters.length > 0) {
-    requestUrl += '?' + queryParameters.join('&');
-  }
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
-  httpRequest.method = 'DELETE';
+  httpRequest.method = 'POST';
   httpRequest.url = requestUrl;
   httpRequest.headers = {};
   // Set Headers
-  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
   if(options) {
     for(let headerName in options['customHeaders']) {
       if (options['customHeaders'].hasOwnProperty(headerName)) {
@@ -10113,7 +10059,35 @@ function _deleteQuote(scope, options, callback) {
       }
     }
   }
-  httpRequest.body = null;
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (quotes !== null && quotes !== undefined) {
+      let requestModelMapper = {
+        required: false,
+        serializedName: 'quotes',
+        type: {
+          name: 'Sequence',
+          element: {
+              required: false,
+              serializedName: 'DeleteQuoteRequestElementType',
+              type: {
+                name: 'Composite',
+                className: 'DeleteQuoteRequest'
+              }
+          }
+        }
+      };
+      requestModel = client.serialize(requestModelMapper, quotes, 'quotes');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(quotes, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
   // Send Request
   return client.pipeline(httpRequest, (err, response, responseBody) => {
     if (err) {
@@ -10157,6 +10131,217 @@ function _deleteQuote(scope, options, callback) {
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
           let resultMapper = new client.models['DeleteQuotesResponse']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
+ * @summary Get quotes
+ *
+ * Get quotes effective at the specified date/time (if any). An optional
+ * maximum age of quotes can be specified, and is infinite by default.
+ * Quotes which are older than this at the time of the effective date/time will
+ * not be returned.
+ * MaxAge is a duration of time represented in an ISO8601 format, eg.
+ * P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).
+ * The results are paged, and by default the 1st page of results is returned
+ * with a limit of 100 results per page
+ *
+ * @param {string} scope The scope of the quotes
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {array} [options.quoteIds] The ids of the quotes
+ *
+ * @param {date} [options.effectiveAt] Optional. The date/time from which the
+ * quotes are effective
+ *
+ * @param {date} [options.asAt] Optional. The 'AsAt' date/time
+ *
+ * @param {string} [options.maxAge] Optional. The quote staleness tolerance
+ *
+ * @param {number} [options.page] Optional. The page of results to return
+ *
+ * @param {number} [options.limit] Optional. The number of results per page
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link GetQuotesResponse} for more information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _getQuotes(scope, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let quoteIds = (options && options.quoteIds !== undefined) ? options.quoteIds : undefined;
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
+  let maxAge = (options && options.maxAge !== undefined) ? options.maxAge : undefined;
+  let page = (options && options.page !== undefined) ? options.page : undefined;
+  let limit = (options && options.limit !== undefined) ? options.limit : undefined;
+  // Validate
+  try {
+    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
+      throw new Error('scope cannot be null or undefined and it must be of type string.');
+    }
+    if (effectiveAt && !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt must be of type date.');
+        }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
+    if (maxAge !== null && maxAge !== undefined && typeof maxAge.valueOf() !== 'string') {
+      throw new Error('maxAge must be of type string.');
+    }
+    if (page !== null && page !== undefined && typeof page !== 'number') {
+      throw new Error('page must be of type number.');
+    }
+    if (limit !== null && limit !== undefined && typeof limit !== 'number') {
+      throw new Error('limit must be of type number.');
+    }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/quotes/{scope}/$get';
+  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
+  let queryParameters = [];
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  }
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
+  if (maxAge !== null && maxAge !== undefined) {
+    queryParameters.push('maxAge=' + encodeURIComponent(maxAge));
+  }
+  if (page !== null && page !== undefined) {
+    queryParameters.push('page=' + encodeURIComponent(page.toString()));
+  }
+  if (limit !== null && limit !== undefined) {
+    queryParameters.push('limit=' + encodeURIComponent(limit.toString()));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (quoteIds !== null && quoteIds !== undefined) {
+      let requestModelMapper = {
+        required: false,
+        serializedName: 'quoteIds',
+        type: {
+          name: 'Sequence',
+          element: {
+              required: false,
+              serializedName: 'QuoteIdElementType',
+              type: {
+                name: 'Composite',
+                className: 'QuoteId'
+              }
+          }
+        }
+      };
+      requestModel = client.serialize(requestModelMapper, quoteIds, 'quoteIds');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(quoteIds, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['GetQuotesResponse']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -15578,7 +15763,7 @@ class LUSIDAPI extends ServiceClient {
     this._getUnitsFromDataType = _getUnitsFromDataType;
     this._createDerivedPortfolio = _createDerivedPortfolio;
     this._deleteDerivedPortfolioDetails = _deleteDerivedPortfolioDetails;
-    this._getInstrumentIdentifiers = _getInstrumentIdentifiers;
+    this._listInstruments = _listInstruments;
     this._upsertInstruments = _upsertInstruments;
     this._getInstrument = _getInstrument;
     this._updateInstrumentIdentifier = _updateInstrumentIdentifier;
@@ -15587,6 +15772,7 @@ class LUSIDAPI extends ServiceClient {
     this._getInstruments = _getInstruments;
     this._findInstruments = _findInstruments;
     this._upsertInstrumentsProperties = _upsertInstrumentsProperties;
+    this._getInstrumentIdentifiers = _getInstrumentIdentifiers;
     this._getSamlIdentityProviderId = _getSamlIdentityProviderId;
     this._getExcelDownloadUrl = _getExcelDownloadUrl;
     this._getExcelAddin = _getExcelAddin;
@@ -15623,9 +15809,9 @@ class LUSIDAPI extends ServiceClient {
     this._getPropertyDefinition = _getPropertyDefinition;
     this._updatePropertyDefinition = _updatePropertyDefinition;
     this._deletePropertyDefinition = _deletePropertyDefinition;
-    this._getQuotes = _getQuotes;
     this._upsertQuotes = _upsertQuotes;
     this._deleteQuote = _deleteQuote;
+    this._getQuotes = _getQuotes;
     this._createReferencePortfolio = _createReferencePortfolio;
     this._getReferencePortfolioConstituents = _getReferencePortfolioConstituents;
     this._upsertReferencePortfolioConstituents = _upsertReferencePortfolioConstituents;
@@ -16425,7 +16611,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -16484,7 +16670,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -16780,7 +16966,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -16841,7 +17027,7 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -17253,30 +17439,40 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Get allowable instrument identifiers
+   * @summary Get all of the currently mastered instruments in LUSID
    *
-   * Gets the set of identifiers that have been configured as unique identifiers
-   * for instruments.
-   *
-   * Only CodeTypes returned from this end point can be used as identifiers for
-   * instruments.
+   * Lists all instruments that have been mastered within LUSID.
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt] The AsAt time
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfCodeType>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfInstrument>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
-  getInstrumentIdentifiersWithHttpOperationResponse(options) {
+  listInstrumentsWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getInstrumentIdentifiers(options, (err, result, request, response) => {
+      self._listInstruments(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -17287,15 +17483,25 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Get allowable instrument identifiers
+   * @summary Get all of the currently mastered instruments in LUSID
    *
-   * Gets the set of identifiers that have been configured as unique identifiers
-   * for instruments.
-   *
-   * Only CodeTypes returned from this end point can be used as identifiers for
-   * instruments.
+   * Lists all instruments that have been mastered within LUSID.
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.asAt] The AsAt time
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -17307,7 +17513,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListOfCodeType} - The deserialized result object.
+   *                      @resolve {ResourceListOfInstrument} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -17316,14 +17522,14 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfCodeType} for more
+   *                      See {@link ResourceListOfInstrument} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getInstrumentIdentifiers(options, optionalCallback) {
+  listInstruments(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -17332,14 +17538,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getInstrumentIdentifiers(options, (err, result, request, response) => {
+        self._listInstruments(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getInstrumentIdentifiers(options, optionalCallback);
+      return self._listInstruments(options, optionalCallback);
     }
   }
 
@@ -18226,6 +18432,97 @@ class LUSIDAPI extends ServiceClient {
       });
     } else {
       return self._upsertInstrumentsProperties(options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Get allowable instrument identifiers
+   *
+   * Gets the set of identifiers that have been configured as unique identifiers
+   * for instruments.
+   *
+   * Only CodeTypes returned from this end point can be used as identifiers for
+   * instruments.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfCodeType>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  getInstrumentIdentifiersWithHttpOperationResponse(options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._getInstrumentIdentifiers(options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Get allowable instrument identifiers
+   *
+   * Gets the set of identifiers that have been configured as unique identifiers
+   * for instruments.
+   *
+   * Only CodeTypes returned from this end point can be used as identifiers for
+   * instruments.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {ResourceListOfCodeType} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfCodeType} for more
+   *                      information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  getInstrumentIdentifiers(options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._getInstrumentIdentifiers(options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._getInstrumentIdentifiers(options, optionalCallback);
     }
   }
 
@@ -21050,7 +21347,8 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Get commands
    *
-   * Gets all commands that modified a specific portfolio
+   * Gets all commands that modified a specific portfolio, including any input
+   * transactions.
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -21102,7 +21400,8 @@ class LUSIDAPI extends ServiceClient {
   /**
    * @summary Get commands
    *
-   * Gets all commands that modified a specific portfolio
+   * Gets all commands that modified a specific portfolio, including any input
+   * transactions.
    *
    * @param {string} scope The scope of the portfolio
    *
@@ -22253,6 +22552,192 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
+   * @summary Add quotes
+   *
+   * Add quotes effective at the specified time. If a quote is added with the
+   * same id (and is effective at the same time) as an existing quote, then the
+   * more recently added quote will be returned when queried
+   *
+   * @param {string} scope The scope of the quotes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.quotes] The quotes to add
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<UpsertQuotesResponse>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  upsertQuotesWithHttpOperationResponse(scope, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._upsertQuotes(scope, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Add quotes
+   *
+   * Add quotes effective at the specified time. If a quote is added with the
+   * same id (and is effective at the same time) as an existing quote, then the
+   * more recently added quote will be returned when queried
+   *
+   * @param {string} scope The scope of the quotes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.quotes] The quotes to add
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {UpsertQuotesResponse} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link UpsertQuotesResponse} for more information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  upsertQuotes(scope, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._upsertQuotes(scope, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._upsertQuotes(scope, options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Delete a quote
+   *
+   * Delete the specified quotes. In order for a quote to be deleted the id and
+   * effectiveFrom date must exactly match.
+   *
+   * @param {string} scope The scope of the quote
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.quotes] The quotes to delete
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<DeleteQuotesResponse>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  deleteQuoteWithHttpOperationResponse(scope, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._deleteQuote(scope, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Delete a quote
+   *
+   * Delete the specified quotes. In order for a quote to be deleted the id and
+   * effectiveFrom date must exactly match.
+   *
+   * @param {string} scope The scope of the quote
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.quotes] The quotes to delete
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {DeleteQuotesResponse} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DeleteQuotesResponse} for more information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  deleteQuote(scope, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._deleteQuote(scope, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._deleteQuote(scope, options, optionalCallback);
+    }
+  }
+
+  /**
    * @summary Get quotes
    *
    * Get quotes effective at the specified date/time (if any). An optional
@@ -22286,7 +22771,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfQuote>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<GetQuotesResponse>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -22343,7 +22828,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListOfQuote} - The deserialized result object.
+   *                      @resolve {GetQuotesResponse} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -22352,7 +22837,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfQuote} for more information.
+   *                      See {@link GetQuotesResponse} for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -22375,204 +22860,6 @@ class LUSIDAPI extends ServiceClient {
       });
     } else {
       return self._getQuotes(scope, options, optionalCallback);
-    }
-  }
-
-  /**
-   * @summary Add quotes
-   *
-   * Add quotes effective at the specified time. If a quote is added with the
-   * same id (and is effective at the same time) as an existing quote, then the
-   * more recently added quote will be returned when queried
-   *
-   * @param {string} scope The scope of the quotes
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.quotes] The quotes to add
-   *
-   * @param {date} [options.effectiveAt] Optional. The date/time from which the
-   * quotes are effective
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<UpsertQuotesResponse>} - The deserialized result object.
-   *
-   * @reject {Error} - The error object.
-   */
-  upsertQuotesWithHttpOperationResponse(scope, options) {
-    let client = this;
-    let self = this;
-    return new Promise((resolve, reject) => {
-      self._upsertQuotes(scope, options, (err, result, request, response) => {
-        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
-        httpOperationResponse.body = result;
-        if (err) { reject(err); }
-        else { resolve(httpOperationResponse); }
-        return;
-      });
-    });
-  }
-
-  /**
-   * @summary Add quotes
-   *
-   * Add quotes effective at the specified time. If a quote is added with the
-   * same id (and is effective at the same time) as an existing quote, then the
-   * more recently added quote will be returned when queried
-   *
-   * @param {string} scope The scope of the quotes
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {array} [options.quotes] The quotes to add
-   *
-   * @param {date} [options.effectiveAt] Optional. The date/time from which the
-   * quotes are effective
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {function} [optionalCallback] - The optional callback.
-   *
-   * @returns {function|Promise} If a callback was passed as the last parameter
-   * then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned
-   *
-   *                      @resolve {UpsertQuotesResponse} - The deserialized result object.
-   *
-   *                      @reject {Error} - The error object.
-   *
-   * {function} optionalCallback(err, result, request, response)
-   *
-   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link UpsertQuotesResponse} for more information.
-   *
-   *                      {object} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
-   */
-  upsertQuotes(scope, options, optionalCallback) {
-    let client = this;
-    let self = this;
-    if (!optionalCallback && typeof options === 'function') {
-      optionalCallback = options;
-      options = null;
-    }
-    if (!optionalCallback) {
-      return new Promise((resolve, reject) => {
-        self._upsertQuotes(scope, options, (err, result, request, response) => {
-          if (err) { reject(err); }
-          else { resolve(result); }
-          return;
-        });
-      });
-    } else {
-      return self._upsertQuotes(scope, options, optionalCallback);
-    }
-  }
-
-  /**
-   * @summary Delete a quote
-   *
-   * Delete the specified quote. In order for a quote to be deleted the id and
-   * effectiveFrom date must exactly match.
-   *
-   * @param {string} scope The scope of the quote
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {string} [options.id] The quote id
-   *
-   * @param {date} [options.effectiveFrom] The date/time from which the quote is
-   * effective
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @returns {Promise} A promise is returned
-   *
-   * @resolve {HttpOperationResponse<DeleteQuotesResponse>} - The deserialized result object.
-   *
-   * @reject {Error} - The error object.
-   */
-  deleteQuoteWithHttpOperationResponse(scope, options) {
-    let client = this;
-    let self = this;
-    return new Promise((resolve, reject) => {
-      self._deleteQuote(scope, options, (err, result, request, response) => {
-        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
-        httpOperationResponse.body = result;
-        if (err) { reject(err); }
-        else { resolve(httpOperationResponse); }
-        return;
-      });
-    });
-  }
-
-  /**
-   * @summary Delete a quote
-   *
-   * Delete the specified quote. In order for a quote to be deleted the id and
-   * effectiveFrom date must exactly match.
-   *
-   * @param {string} scope The scope of the quote
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {string} [options.id] The quote id
-   *
-   * @param {date} [options.effectiveFrom] The date/time from which the quote is
-   * effective
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {function} [optionalCallback] - The optional callback.
-   *
-   * @returns {function|Promise} If a callback was passed as the last parameter
-   * then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned
-   *
-   *                      @resolve {DeleteQuotesResponse} - The deserialized result object.
-   *
-   *                      @reject {Error} - The error object.
-   *
-   * {function} optionalCallback(err, result, request, response)
-   *
-   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link DeleteQuotesResponse} for more information.
-   *
-   *                      {object} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
-   */
-  deleteQuote(scope, options, optionalCallback) {
-    let client = this;
-    let self = this;
-    if (!optionalCallback && typeof options === 'function') {
-      optionalCallback = options;
-      options = null;
-    }
-    if (!optionalCallback) {
-      return new Promise((resolve, reject) => {
-        self._deleteQuote(scope, options, (err, result, request, response) => {
-          if (err) { reject(err); }
-          else { resolve(result); }
-          return;
-        });
-      });
-    } else {
-      return self._deleteQuote(scope, options, optionalCallback);
     }
   }
 

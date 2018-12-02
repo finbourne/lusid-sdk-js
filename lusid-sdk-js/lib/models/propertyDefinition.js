@@ -35,7 +35,8 @@ class PropertyDefinition {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'ArrayOfQuotes'
+   * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
+   * 'ArrayOfQuoteIds'
    * @property {boolean} [valueRequired]
    * @property {string} [displayName]
    * @property {object} [dataTypeId]

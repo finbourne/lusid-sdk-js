@@ -227,7 +227,7 @@ export interface CreateDataTypeRequest {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'ArrayOfQuotes'
+   * 'QuoteId', 'ArrayOfQuoteIds'
   */
   valueType: string;
   acceptableValues?: any[];
@@ -262,7 +262,7 @@ export interface DataType {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'ArrayOfQuotes'
+   * 'QuoteId', 'ArrayOfQuoteIds'
   */
   valueType?: string;
   acceptableValues?: any[];
@@ -300,7 +300,7 @@ export interface UpdateDataTypeRequest {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'ArrayOfQuotes'
+   * 'QuoteId', 'ArrayOfQuoteIds'
   */
   valueType: string;
   acceptableValues?: any[];
@@ -384,20 +384,6 @@ export interface Portfolio {
   */
   readonly version?: Version;
   readonly isDerived?: boolean;
-  links?: Link[];
-}
-
-export interface ResourceListOfCodeType {
-  values?: string[];
-  /**
-   * The Uri that returns the same result as the original request,
-   * but may include resolved as at time(s).
-  */
-  href?: string;
-  /**
-   * The total number of records returned in the set
-  */
-  count?: number;
   links?: Link[];
 }
 
@@ -492,6 +478,20 @@ export interface UpsertInstrumentsResponse {
   links?: Link[];
 }
 
+export interface ResourceListOfInstrument {
+  values?: Instrument[];
+  /**
+   * The Uri that returns the same result as the original request,
+   * but may include resolved as at time(s).
+  */
+  href?: string;
+  /**
+   * The total number of records returned in the set
+  */
+  count?: number;
+  links?: Link[];
+}
+
 export interface UpdateInstrumentIdentifierRequest {
   /**
    * The type of the identifier to upsert. This must be one of the code types marked as
@@ -566,20 +566,6 @@ export interface GetInstrumentsResponse {
   links?: Link[];
 }
 
-export interface ResourceListOfInstrument {
-  values?: Instrument[];
-  /**
-   * The Uri that returns the same result as the original request,
-   * but may include resolved as at time(s).
-  */
-  href?: string;
-  /**
-   * The total number of records returned in the set
-  */
-  count?: number;
-  links?: Link[];
-}
-
 export interface MetricValue {
   value?: number;
   unit?: string;
@@ -640,6 +626,20 @@ export interface UpsertInstrumentPropertiesResponse {
    * A list of any values that failed to be upserted.
   */
   readonly failed?: ErrorDetail[];
+  links?: Link[];
+}
+
+export interface ResourceListOfCodeType {
+  values?: string[];
+  /**
+   * The Uri that returns the same result as the original request,
+   * but may include resolved as at time(s).
+  */
+  href?: string;
+  /**
+   * The total number of records returned in the set
+  */
+  count?: number;
   links?: Link[];
 }
 
@@ -788,7 +788,7 @@ export interface FieldSchema {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'ArrayOfQuotes'
+   * 'QuoteId', 'ArrayOfQuoteIds'
   */
   type?: string;
   isMetric?: boolean;
@@ -1066,7 +1066,7 @@ export interface PropertyDefinition {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'ArrayOfQuotes'
+   * 'QuoteId', 'ArrayOfQuoteIds'
   */
   valueType?: string;
   valueRequired?: boolean;
@@ -1122,45 +1122,51 @@ export interface UpdatePropertyDefinitionRequest {
   type?: string;
 }
 
-export interface Quote {
-  id: string;
-  metricValue: MetricValue;
-  version?: Version;
-}
-
-export interface ResourceListOfQuote {
-  values?: Quote[];
-  /**
-   * The Uri that returns the same result as the original request,
-   * but may include resolved as at time(s).
-  */
-  href?: string;
-  /**
-   * The total number of records returned in the set
-  */
-  count?: number;
-  links?: Link[];
+export interface QuoteId {
+  instrumentId: string;
+  instrumentIdType: string;
+  quoteConvention: string;
+  quoteType: string;
+  priceSource?: string;
 }
 
 export interface UpsertQuoteRequest {
-  id: string;
+  quoteId: QuoteId;
   metricValue: MetricValue;
+  effectiveAt?: Date;
 }
 
 /**
  * The response given from the UpsertQuotes Api call
 */
 export interface UpsertQuotesResponse {
-  version?: Version;
+  asAtDate: Date;
   links?: Link[];
+}
+
+export interface DeleteQuoteRequest {
+  quoteId: QuoteId;
+  effectiveAt: Date;
 }
 
 /**
  * The response given from the DeleteQuotes Api call
 */
 export interface DeleteQuotesResponse {
-  version?: Version;
+  asAtDate: Date;
   links?: Link[];
+}
+
+export interface Quote {
+  quoteId: QuoteId;
+  metricValue: MetricValue;
+  effectiveAtDate?: Date;
+  asAtDate?: Date;
+}
+
+export interface GetQuotesResponse {
+  found?: Quote[];
+  notFound?: QuoteId[];
 }
 
 export interface PerpetualPropertyValue {

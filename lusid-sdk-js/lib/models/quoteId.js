@@ -23,77 +23,67 @@
 'use strict';
 
 /**
- * Class representing a ResourceListOfQuote.
+ * Class representing a QuoteId.
  */
-class ResourceListOfQuote {
+class QuoteId {
   /**
-   * Create a ResourceListOfQuote.
-   * @property {array} [values]
-   * @property {string} [href] The Uri that returns the same result as the
-   * original request,
-   * but may include resolved as at time(s).
-   * @property {number} [count] The total number of records returned in the set
-   * @property {array} [links]
+   * Create a QuoteId.
+   * @property {string} instrumentId
+   * @property {string} instrumentIdType
+   * @property {string} quoteConvention
+   * @property {string} quoteType
+   * @property {string} [priceSource]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of ResourceListOfQuote
+   * Defines the metadata of QuoteId
    *
-   * @returns {object} metadata of ResourceListOfQuote
+   * @returns {object} metadata of QuoteId
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'ResourceListOfQuote',
+      serializedName: 'QuoteId',
       type: {
         name: 'Composite',
-        className: 'ResourceListOfQuote',
+        className: 'QuoteId',
         modelProperties: {
-          values: {
-            required: false,
-            serializedName: 'values',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'QuoteElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'Quote'
-                  }
-              }
-            }
-          },
-          href: {
-            required: false,
-            serializedName: 'href',
+          instrumentId: {
+            required: true,
+            serializedName: 'instrumentId',
             type: {
               name: 'String'
             }
           },
-          count: {
-            required: false,
-            serializedName: 'count',
+          instrumentIdType: {
+            required: true,
+            serializedName: 'instrumentIdType',
             type: {
-              name: 'Number'
+              name: 'String'
             }
           },
-          links: {
-            required: false,
-            serializedName: 'links',
+          quoteConvention: {
+            required: true,
+            serializedName: 'quoteConvention',
             type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'LinkElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'Link'
-                  }
-              }
+              name: 'String'
+            }
+          },
+          quoteType: {
+            required: true,
+            serializedName: 'quoteType',
+            type: {
+              name: 'String'
+            }
+          },
+          priceSource: {
+            required: false,
+            serializedName: 'priceSource',
+            type: {
+              name: 'String'
             }
           }
         }
@@ -102,4 +92,4 @@ class ResourceListOfQuote {
   }
 }
 
-module.exports = ResourceListOfQuote;
+module.exports = QuoteId;

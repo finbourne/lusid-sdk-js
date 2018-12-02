@@ -23,60 +23,59 @@
 'use strict';
 
 /**
- * Class representing a UpsertQuoteRequest.
+ * Class representing a GetQuotesResponse.
  */
-class UpsertQuoteRequest {
+class GetQuotesResponse {
   /**
-   * Create a UpsertQuoteRequest.
-   * @property {object} quoteId
-   * @property {string} [quoteId.instrumentId]
-   * @property {string} [quoteId.instrumentIdType]
-   * @property {string} [quoteId.quoteConvention]
-   * @property {string} [quoteId.quoteType]
-   * @property {string} [quoteId.priceSource]
-   * @property {object} metricValue
-   * @property {number} [metricValue.value]
-   * @property {string} [metricValue.unit]
-   * @property {date} [effectiveAt]
+   * Create a GetQuotesResponse.
+   * @property {array} [found]
+   * @property {array} [notFound]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of UpsertQuoteRequest
+   * Defines the metadata of GetQuotesResponse
    *
-   * @returns {object} metadata of UpsertQuoteRequest
+   * @returns {object} metadata of GetQuotesResponse
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'UpsertQuoteRequest',
+      serializedName: 'GetQuotesResponse',
       type: {
         name: 'Composite',
-        className: 'UpsertQuoteRequest',
+        className: 'GetQuotesResponse',
         modelProperties: {
-          quoteId: {
-            required: true,
-            serializedName: 'quoteId',
-            type: {
-              name: 'Composite',
-              className: 'QuoteId'
-            }
-          },
-          metricValue: {
-            required: true,
-            serializedName: 'metricValue',
-            type: {
-              name: 'Composite',
-              className: 'MetricValue'
-            }
-          },
-          effectiveAt: {
+          found: {
             required: false,
-            serializedName: 'effectiveAt',
+            serializedName: 'found',
             type: {
-              name: 'DateTime'
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'QuoteElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Quote'
+                  }
+              }
+            }
+          },
+          notFound: {
+            required: false,
+            serializedName: 'notFound',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'QuoteIdElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'QuoteId'
+                  }
+              }
             }
           }
         }
@@ -85,4 +84,4 @@ class UpsertQuoteRequest {
   }
 }
 
-module.exports = UpsertQuoteRequest;
+module.exports = GetQuotesResponse;

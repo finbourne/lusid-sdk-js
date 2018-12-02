@@ -29,10 +29,7 @@
 class UpsertQuotesResponse {
   /**
    * Create a UpsertQuotesResponse.
-   * @property {object} [version]
-   * @property {date} [version.effectiveFrom]
-   * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
+   * @property {date} asAtDate
    * @property {array} [links]
    */
   constructor() {
@@ -52,12 +49,11 @@ class UpsertQuotesResponse {
         name: 'Composite',
         className: 'UpsertQuotesResponse',
         modelProperties: {
-          version: {
-            required: false,
-            serializedName: 'version',
+          asAtDate: {
+            required: true,
+            serializedName: 'asAtDate',
             type: {
-              name: 'Composite',
-              className: 'Version'
+              name: 'DateTime'
             }
           },
           links: {

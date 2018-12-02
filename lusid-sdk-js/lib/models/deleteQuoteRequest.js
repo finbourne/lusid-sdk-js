@@ -23,38 +23,35 @@
 'use strict';
 
 /**
- * Class representing a UpsertQuoteRequest.
+ * Class representing a DeleteQuoteRequest.
  */
-class UpsertQuoteRequest {
+class DeleteQuoteRequest {
   /**
-   * Create a UpsertQuoteRequest.
+   * Create a DeleteQuoteRequest.
    * @property {object} quoteId
    * @property {string} [quoteId.instrumentId]
    * @property {string} [quoteId.instrumentIdType]
    * @property {string} [quoteId.quoteConvention]
    * @property {string} [quoteId.quoteType]
    * @property {string} [quoteId.priceSource]
-   * @property {object} metricValue
-   * @property {number} [metricValue.value]
-   * @property {string} [metricValue.unit]
-   * @property {date} [effectiveAt]
+   * @property {date} effectiveAt
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of UpsertQuoteRequest
+   * Defines the metadata of DeleteQuoteRequest
    *
-   * @returns {object} metadata of UpsertQuoteRequest
+   * @returns {object} metadata of DeleteQuoteRequest
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'UpsertQuoteRequest',
+      serializedName: 'DeleteQuoteRequest',
       type: {
         name: 'Composite',
-        className: 'UpsertQuoteRequest',
+        className: 'DeleteQuoteRequest',
         modelProperties: {
           quoteId: {
             required: true,
@@ -64,16 +61,8 @@ class UpsertQuoteRequest {
               className: 'QuoteId'
             }
           },
-          metricValue: {
-            required: true,
-            serializedName: 'metricValue',
-            type: {
-              name: 'Composite',
-              className: 'MetricValue'
-            }
-          },
           effectiveAt: {
-            required: false,
+            required: true,
             serializedName: 'effectiveAt',
             type: {
               name: 'DateTime'
@@ -85,4 +74,4 @@ class UpsertQuoteRequest {
   }
 }
 
-module.exports = UpsertQuoteRequest;
+module.exports = DeleteQuoteRequest;
