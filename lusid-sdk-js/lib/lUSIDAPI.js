@@ -822,7 +822,11 @@ function _setAnalytics(scope, year, month, day, options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.effectiveAt] Optional. The effective date of the data
+ * @param {date} [options.fromEffectiveAt] Optional. The start effective date
+ * of the data range
+ *
+ * @param {date} [options.toEffectiveAt] Optional. The end effective date of
+ * the data range
  *
  * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
@@ -865,7 +869,8 @@ function _getCorporateActions(scope, code, options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
+  let fromEffectiveAt = (options && options.fromEffectiveAt !== undefined) ? options.fromEffectiveAt : undefined;
+  let toEffectiveAt = (options && options.toEffectiveAt !== undefined) ? options.toEffectiveAt : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
@@ -879,9 +884,13 @@ function _getCorporateActions(scope, code, options, callback) {
     if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
       throw new Error('code cannot be null or undefined and it must be of type string.');
     }
-    if (effectiveAt && !(effectiveAt instanceof Date ||
-        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
-          throw new Error('effectiveAt must be of type date.');
+    if (fromEffectiveAt && !(fromEffectiveAt instanceof Date ||
+        (typeof fromEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(fromEffectiveAt))))) {
+          throw new Error('fromEffectiveAt must be of type date.');
+        }
+    if (toEffectiveAt && !(toEffectiveAt instanceof Date ||
+        (typeof toEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(toEffectiveAt))))) {
+          throw new Error('toEffectiveAt must be of type date.');
         }
     if (asAt && !(asAt instanceof Date ||
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
@@ -913,8 +922,11 @@ function _getCorporateActions(scope, code, options, callback) {
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
   let queryParameters = [];
-  if (effectiveAt !== null && effectiveAt !== undefined) {
-    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  if (fromEffectiveAt !== null && fromEffectiveAt !== undefined) {
+    queryParameters.push('fromEffectiveAt=' + encodeURIComponent(client.serializeObject(fromEffectiveAt)));
+  }
+  if (toEffectiveAt !== null && toEffectiveAt !== undefined) {
+    queryParameters.push('toEffectiveAt=' + encodeURIComponent(client.serializeObject(toEffectiveAt)));
   }
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
@@ -16373,7 +16385,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt] Optional. The effective date of the data
+   * @param {date} [options.fromEffectiveAt] Optional. The start effective date
+   * of the data range
+   *
+   * @param {date} [options.toEffectiveAt] Optional. The end effective date of
+   * the data range
    *
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
@@ -16423,7 +16439,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt] Optional. The effective date of the data
+   * @param {date} [options.fromEffectiveAt] Optional. The start effective date
+   * of the data range
+   *
+   * @param {date} [options.toEffectiveAt] Optional. The end effective date of
+   * the data range
    *
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *

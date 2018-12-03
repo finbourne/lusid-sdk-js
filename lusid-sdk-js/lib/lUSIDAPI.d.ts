@@ -439,7 +439,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt] Optional. The effective date of the data
+   * @param {date} [options.fromEffectiveAt] Optional. The start effective date
+   * of the data range
+   *
+   * @param {date} [options.toEffectiveAt] Optional. The end effective date of
+   * the data range
    *
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
@@ -464,7 +468,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getCorporateActionsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfCorporateAction>>;
+  getCorporateActionsWithHttpOperationResponse(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfCorporateAction>>;
 
   /**
    * @summary Get corporate actions
@@ -477,7 +481,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.effectiveAt] Optional. The effective date of the data
+   * @param {date} [options.fromEffectiveAt] Optional. The start effective date
+   * of the data range
+   *
+   * @param {date} [options.toEffectiveAt] Optional. The end effective date of
+   * the data range
    *
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
@@ -519,9 +527,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getCorporateActions(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfCorporateAction>;
+  getCorporateActions(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfCorporateAction>;
   getCorporateActions(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfCorporateAction>): void;
-  getCorporateActions(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfCorporateAction>): void;
+  getCorporateActions(scope: string, code: string, options: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfCorporateAction>): void;
 
 
   /**
