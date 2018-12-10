@@ -38,7 +38,7 @@ class UpdateInstrumentIdentifierRequest {
    * this will remove the identifier completely.
    * Note that, if an instrument only has one identifier, it is an error to
    * remove this.
-   * @property {date} [effectiveFrom] The date at which the identifier
+   * @property {date} [effectiveAt] The date at which the identifier
    * modification is to be effective from. If unset, will
    * default to `now`.
    */
@@ -73,9 +73,9 @@ class UpdateInstrumentIdentifierRequest {
               name: 'String'
             }
           },
-          effectiveFrom: {
+          effectiveAt: {
             required: false,
-            serializedName: 'effectiveFrom',
+            serializedName: 'effectiveAt',
             type: {
               name: 'DateTime'
             }

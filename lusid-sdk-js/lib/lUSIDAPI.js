@@ -2570,10 +2570,10 @@ function _upsertInstruments(options, callback) {
           name: 'Dictionary',
           value: {
               required: false,
-              serializedName: 'UpsertInstrumentRequestElementType',
+              serializedName: 'InstrumentDefinitionElementType',
               type: {
                 name: 'Composite',
-                className: 'UpsertInstrumentRequest'
+                className: 'InstrumentDefinition'
               }
           }
         }
@@ -2850,8 +2850,8 @@ function _getInstrument(type, id, options, callback) {
  * Note that, if an instrument only has one identifier, it is an error to
  * remove this.
  *
- * @param {date} [options.request.effectiveFrom] The date at which the
- * identifier modification is to be effective from. If unset, will
+ * @param {date} [options.request.effectiveAt] The date at which the identifier
+ * modification is to be effective from. If unset, will
  * default to `now`.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
@@ -2934,7 +2934,7 @@ function _updateInstrumentIdentifier(type, id, options, callback) {
       return callback(err);
     }
     let statusCode = response.statusCode;
-    if (statusCode !== 201) {
+    if (statusCode !== 200) {
       let error = new Error(responseBody);
       error.statusCode = response.statusCode;
       error.request = msRest.stripRequest(httpRequest);
@@ -2964,7 +2964,7 @@ function _updateInstrumentIdentifier(type, id, options, callback) {
     let result = null;
     if (responseBody === '') responseBody = null;
     // Deserialize Response
-    if (statusCode === 201) {
+    if (statusCode === 200) {
       let parsedResponse = null;
       try {
         parsedResponse = JSON.parse(responseBody);
@@ -3123,19 +3123,23 @@ function _deleteInstrument(type, id, options, callback) {
 }
 
 /**
- * @summary Find externally mastered instruments
+ * @summary Search instrument definition
  *
- * Search for a set of instruments from an external instrument mastering
- * service
+ * Get a collection of instruments by a set of identifiers. Optionally, it is
+ * possible to decorate each instrument with specified property data.
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.codeType] The type of codes to search for. Possible
- * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
- * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
- * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+ * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
+ * Ticker) to find instruments by.
  *
- * @param {array} [options.codes] The collection of instruments to search for
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * query
+ *
+ * @param {date} [options.asAt] Optional. The AsAt date of the query
+ *
+ * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+ * properties to be decorated on to the instrument
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3147,14 +3151,14 @@ function _deleteInstrument(type, id, options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link FindInstrumentsResponse} for more
+ *                      See {@link ResourceListOfInstrument} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _findExternalInstruments(options, callback) {
+function _findInstruments(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -3164,17 +3168,24 @@ function _findExternalInstruments(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let codeType = (options && options.codeType !== undefined) ? options.codeType : undefined;
-  let codes = (options && options.codes !== undefined) ? options.codes : undefined;
+  let aliases = (options && options.aliases !== undefined) ? options.aliases : undefined;
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
+  let instrumentPropertyKeys = (options && options.instrumentPropertyKeys !== undefined) ? options.instrumentPropertyKeys : undefined;
   // Validate
   try {
-    if (codeType !== null && codeType !== undefined && typeof codeType.valueOf() !== 'string') {
-      throw new Error('codeType must be of type string.');
-    }
-    if (Array.isArray(codes)) {
-      for (let i = 0; i < codes.length; i++) {
-        if (codes[i] !== null && codes[i] !== undefined && typeof codes[i].valueOf() !== 'string') {
-          throw new Error('codes[i] must be of type string.');
+    if (effectiveAt && !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt must be of type date.');
+        }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
+    if (Array.isArray(instrumentPropertyKeys)) {
+      for (let i1 = 0; i1 < instrumentPropertyKeys.length; i1++) {
+        if (instrumentPropertyKeys[i1] !== null && instrumentPropertyKeys[i1] !== undefined && typeof instrumentPropertyKeys[i1].valueOf() !== 'string') {
+          throw new Error('instrumentPropertyKeys[i1] must be of type string.');
         }
       }
     }
@@ -3186,8 +3197,21 @@ function _findExternalInstruments(options, callback) {
   let baseUrl = this.baseUri;
   let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/$find';
   let queryParameters = [];
-  if (codeType !== null && codeType !== undefined) {
-    queryParameters.push('codeType=' + encodeURIComponent(codeType));
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  }
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
+  if (instrumentPropertyKeys !== null && instrumentPropertyKeys !== undefined) {
+    if (instrumentPropertyKeys.length == 0) {
+      queryParameters.push('instrumentPropertyKeys=' + encodeURIComponent(''));
+    } else {
+      for (let item of instrumentPropertyKeys) {
+        item = (item === null || item === undefined) ? '' : item;
+        queryParameters.push('instrumentPropertyKeys=' + encodeURIComponent('' + item));
+      }
+    }
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -3211,27 +3235,28 @@ function _findExternalInstruments(options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (codes !== null && codes !== undefined) {
+    if (aliases !== null && aliases !== undefined) {
       let requestModelMapper = {
         required: false,
-        serializedName: 'codes',
+        serializedName: 'aliases',
         type: {
           name: 'Sequence',
           element: {
               required: false,
-              serializedName: 'StringElementType',
+              serializedName: 'PropertyElementType',
               type: {
-                name: 'String'
+                name: 'Composite',
+                className: 'Property'
               }
           }
         }
       };
-      requestModel = client.serialize(requestModelMapper, codes, 'codes');
+      requestModel = client.serialize(requestModelMapper, aliases, 'aliases');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(codes, null, 2)}.`);
+        `payload - ${JSON.stringify(aliases, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -3277,7 +3302,7 @@ function _findExternalInstruments(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['FindInstrumentsResponse']().mapper();
+          let resultMapper = new client.models['ResourceListOfInstrument']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -3505,23 +3530,19 @@ function _getInstruments(options, callback) {
 }
 
 /**
- * @summary Search instrument definition
+ * @summary Find externally mastered instruments
  *
- * Get a collection of instruments by a set of identifiers. Optionally, it is
- * possible to decorate each instrument with specified property data.
+ * Search for a set of instruments from an external instrument mastering
+ * service
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
- * Ticker) to find instruments by.
+ * @param {string} [options.codeType] The type of codes to search for. Possible
+ * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
+ * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+ * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
  *
- * @param {date} [options.effectiveAt] Optional. The effective date of the
- * query
- *
- * @param {date} [options.asAt] Optional. The AsAt date of the query
- *
- * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
- * properties to be decorated on to the instrument
+ * @param {array} [options.codes] The collection of instruments to search for
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -3533,14 +3554,14 @@ function _getInstruments(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListOfInstrument} for more
+ *                      See {@link MatchInstrumentsResponse} for more
  *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _findInstruments(options, callback) {
+function _matchInstruments(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -3550,24 +3571,17 @@ function _findInstruments(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let aliases = (options && options.aliases !== undefined) ? options.aliases : undefined;
-  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
-  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
-  let instrumentPropertyKeys = (options && options.instrumentPropertyKeys !== undefined) ? options.instrumentPropertyKeys : undefined;
+  let codeType = (options && options.codeType !== undefined) ? options.codeType : undefined;
+  let codes = (options && options.codes !== undefined) ? options.codes : undefined;
   // Validate
   try {
-    if (effectiveAt && !(effectiveAt instanceof Date ||
-        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
-          throw new Error('effectiveAt must be of type date.');
-        }
-    if (asAt && !(asAt instanceof Date ||
-        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
-          throw new Error('asAt must be of type date.');
-        }
-    if (Array.isArray(instrumentPropertyKeys)) {
-      for (let i1 = 0; i1 < instrumentPropertyKeys.length; i1++) {
-        if (instrumentPropertyKeys[i1] !== null && instrumentPropertyKeys[i1] !== undefined && typeof instrumentPropertyKeys[i1].valueOf() !== 'string') {
-          throw new Error('instrumentPropertyKeys[i1] must be of type string.');
+    if (codeType !== null && codeType !== undefined && typeof codeType.valueOf() !== 'string') {
+      throw new Error('codeType must be of type string.');
+    }
+    if (Array.isArray(codes)) {
+      for (let i = 0; i < codes.length; i++) {
+        if (codes[i] !== null && codes[i] !== undefined && typeof codes[i].valueOf() !== 'string') {
+          throw new Error('codes[i] must be of type string.');
         }
       }
     }
@@ -3577,23 +3591,10 @@ function _findInstruments(options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/$query';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/$match';
   let queryParameters = [];
-  if (effectiveAt !== null && effectiveAt !== undefined) {
-    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
-  }
-  if (asAt !== null && asAt !== undefined) {
-    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
-  }
-  if (instrumentPropertyKeys !== null && instrumentPropertyKeys !== undefined) {
-    if (instrumentPropertyKeys.length == 0) {
-      queryParameters.push('instrumentPropertyKeys=' + encodeURIComponent(''));
-    } else {
-      for (let item of instrumentPropertyKeys) {
-        item = (item === null || item === undefined) ? '' : item;
-        queryParameters.push('instrumentPropertyKeys=' + encodeURIComponent('' + item));
-      }
-    }
+  if (codeType !== null && codeType !== undefined) {
+    queryParameters.push('codeType=' + encodeURIComponent(codeType));
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -3617,28 +3618,27 @@ function _findInstruments(options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (aliases !== null && aliases !== undefined) {
+    if (codes !== null && codes !== undefined) {
       let requestModelMapper = {
         required: false,
-        serializedName: 'aliases',
+        serializedName: 'codes',
         type: {
           name: 'Sequence',
           element: {
               required: false,
-              serializedName: 'PropertyElementType',
+              serializedName: 'StringElementType',
               type: {
-                name: 'Composite',
-                className: 'Property'
+                name: 'String'
               }
           }
         }
       };
-      requestModel = client.serialize(requestModelMapper, aliases, 'aliases');
+      requestModel = client.serialize(requestModelMapper, codes, 'codes');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(aliases, null, 2)}.`);
+        `payload - ${JSON.stringify(codes, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -3684,7 +3684,7 @@ function _findInstruments(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListOfInstrument']().mapper();
+          let resultMapper = new client.models['MatchInstrumentsResponse']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -9256,7 +9256,7 @@ function _getMultiplePropertyDefinitions(options, callback) {
  *
  * @param {string} [options.definition.domain] Possible values include:
  * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
- * 'Instrument'
+ * 'Instrument', 'CutDefinition'
  *
  * @param {string} [options.definition.scope]
  *
@@ -9403,7 +9403,7 @@ function _createPropertyDefinition(options, callback) {
  *
  * @param {string} domain The Property Domain of the requested property.
  * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
- * 'ReferenceHolding', 'TxnType', 'Instrument'
+ * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
  *
  * @param {string} scope The scope of the requested property
  *
@@ -9554,7 +9554,7 @@ function _getPropertyDefinition(domain, scope, code, options, callback) {
  *
  * @param {string} domain The Property Domain of the property being updated.
  * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
- * 'ReferenceHolding', 'TxnType', 'Instrument'
+ * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
  *
  * @param {string} scope The scope of the property to be updated
  *
@@ -9722,7 +9722,7 @@ function _updatePropertyDefinition(domain, scope, code, options, callback) {
  *
  * @param {string} domain The Property Domain of the property to be deleted.
  * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
- * 'ReferenceHolding', 'TxnType', 'Instrument'
+ * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
  *
  * @param {string} scope The scope of the property to be deleted
  *
@@ -15780,9 +15780,9 @@ class LUSIDAPI extends ServiceClient {
     this._getInstrument = _getInstrument;
     this._updateInstrumentIdentifier = _updateInstrumentIdentifier;
     this._deleteInstrument = _deleteInstrument;
-    this._findExternalInstruments = _findExternalInstruments;
-    this._getInstruments = _getInstruments;
     this._findInstruments = _findInstruments;
+    this._getInstruments = _getInstruments;
+    this._matchInstruments = _matchInstruments;
     this._upsertInstrumentsProperties = _upsertInstrumentsProperties;
     this._getInstrumentIdentifiers = _getInstrumentIdentifiers;
     this._getSamlIdentityProviderId = _getSamlIdentityProviderId;
@@ -17820,8 +17820,8 @@ class LUSIDAPI extends ServiceClient {
    * Note that, if an instrument only has one identifier, it is an error to
    * remove this.
    *
-   * @param {date} [options.request.effectiveFrom] The date at which the
-   * identifier modification is to be effective from. If unset, will
+   * @param {date} [options.request.effectiveAt] The date at which the identifier
+   * modification is to be effective from. If unset, will
    * default to `now`.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -17875,8 +17875,8 @@ class LUSIDAPI extends ServiceClient {
    * Note that, if an instrument only has one identifier, it is an error to
    * remove this.
    *
-   * @param {date} [options.request.effectiveFrom] The date at which the
-   * identifier modification is to be effective from. If unset, will
+   * @param {date} [options.request.effectiveAt] The date at which the identifier
+   * modification is to be effective from. If unset, will
    * default to `now`.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -18034,34 +18034,38 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Find externally mastered instruments
+   * @summary Search instrument definition
    *
-   * Search for a set of instruments from an external instrument mastering
-   * service
+   * Get a collection of instruments by a set of identifiers. Optionally, it is
+   * possible to decorate each instrument with specified property data.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] The type of codes to search for. Possible
-   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
-   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
+   * Ticker) to find instruments by.
    *
-   * @param {array} [options.codes] The collection of instruments to search for
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the query
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<FindInstrumentsResponse>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfInstrument>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
-  findExternalInstrumentsWithHttpOperationResponse(options) {
+  findInstrumentsWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._findExternalInstruments(options, (err, result, request, response) => {
+      self._findInstruments(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -18072,19 +18076,23 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Find externally mastered instruments
+   * @summary Search instrument definition
    *
-   * Search for a set of instruments from an external instrument mastering
-   * service
+   * Get a collection of instruments by a set of identifiers. Optionally, it is
+   * possible to decorate each instrument with specified property data.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] The type of codes to search for. Possible
-   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
-   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
+   * Ticker) to find instruments by.
    *
-   * @param {array} [options.codes] The collection of instruments to search for
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the query
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18096,7 +18104,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {FindInstrumentsResponse} - The deserialized result object.
+   *                      @resolve {ResourceListOfInstrument} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -18105,14 +18113,14 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link FindInstrumentsResponse} for more
+   *                      See {@link ResourceListOfInstrument} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  findExternalInstruments(options, optionalCallback) {
+  findInstruments(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -18121,14 +18129,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._findExternalInstruments(options, (err, result, request, response) => {
+        self._findInstruments(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._findExternalInstruments(options, optionalCallback);
+      return self._findInstruments(options, optionalCallback);
     }
   }
 
@@ -18248,38 +18256,34 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Search instrument definition
+   * @summary Find externally mastered instruments
    *
-   * Get a collection of instruments by a set of identifiers. Optionally, it is
-   * possible to decorate each instrument with specified property data.
+   * Search for a set of instruments from an external instrument mastering
+   * service
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
-   * Ticker) to find instruments by.
+   * @param {string} [options.codeType] The type of codes to search for. Possible
+   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
+   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
-   * @param {date} [options.effectiveAt] Optional. The effective date of the
-   * query
-   *
-   * @param {date} [options.asAt] Optional. The AsAt date of the query
-   *
-   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
-   * properties to be decorated on to the instrument
+   * @param {array} [options.codes] The collection of instruments to search for
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfInstrument>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<MatchInstrumentsResponse>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
-  findInstrumentsWithHttpOperationResponse(options) {
+  matchInstrumentsWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._findInstruments(options, (err, result, request, response) => {
+      self._matchInstruments(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -18290,23 +18294,19 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Search instrument definition
+   * @summary Find externally mastered instruments
    *
-   * Get a collection of instruments by a set of identifiers. Optionally, it is
-   * possible to decorate each instrument with specified property data.
+   * Search for a set of instruments from an external instrument mastering
+   * service
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
-   * Ticker) to find instruments by.
+   * @param {string} [options.codeType] The type of codes to search for. Possible
+   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
+   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
-   * @param {date} [options.effectiveAt] Optional. The effective date of the
-   * query
-   *
-   * @param {date} [options.asAt] Optional. The AsAt date of the query
-   *
-   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
-   * properties to be decorated on to the instrument
+   * @param {array} [options.codes] The collection of instruments to search for
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18318,7 +18318,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListOfInstrument} - The deserialized result object.
+   *                      @resolve {MatchInstrumentsResponse} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -18327,14 +18327,14 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfInstrument} for more
+   *                      See {@link MatchInstrumentsResponse} for more
    *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  findInstruments(options, optionalCallback) {
+  matchInstruments(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -18343,14 +18343,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._findInstruments(options, (err, result, request, response) => {
+        self._matchInstruments(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._findInstruments(options, optionalCallback);
+      return self._matchInstruments(options, optionalCallback);
     }
   }
 
@@ -22110,7 +22110,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.domain] Possible values include:
    * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-   * 'Instrument'
+   * 'Instrument', 'CutDefinition'
    *
    * @param {string} [options.definition.scope]
    *
@@ -22166,7 +22166,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.domain] Possible values include:
    * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-   * 'Instrument'
+   * 'Instrument', 'CutDefinition'
    *
    * @param {string} [options.definition.scope]
    *
@@ -22240,7 +22240,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the requested property
    *
@@ -22280,7 +22280,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the requested property
    *
@@ -22344,7 +22344,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property being updated.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the property to be updated
    *
@@ -22402,7 +22402,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property being updated.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the property to be updated
    *
@@ -22480,7 +22480,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the property to be deleted
    *
@@ -22518,7 +22518,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the property to be deleted
    *

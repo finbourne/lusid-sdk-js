@@ -23,44 +23,55 @@
 'use strict';
 
 /**
- * Class representing a InstrumentMatch.
+ * Class representing a InstrumentDefinition.
  */
-class InstrumentMatch {
+class InstrumentDefinition {
   /**
-   * Create a InstrumentMatch.
-   * @property {string} [name] The name of the instrument
-   * @property {object} [identifiers] The set of identifiers that uniquely
-   * identify this instrument
-   * @property {array} [properties] Any requested properties are decorated on
-   * the instrument, and will have a value of
-   * 'Unknown', if no value was found for this instrument.
+   * Create a InstrumentDefinition.
+   * @property {string} name Required. The name of the instrument
+   * @property {object} identifiers Required. A set of identifiers that
+   * uniquely identify this instrument (e.g FIGI, RIC)
+   * @property {array} [properties] Optional. A collection of properties to
+   * upsert on the instrument.
+   * @property {object} [lookThroughPortfolioId] Optional. The identifier of
+   * the portfolio that represents this instrument
+   * @property {string} [lookThroughPortfolioId.scope]
+   * @property {string} [lookThroughPortfolioId.code]
+   * @property {object} [definition] Expanded instrument definition - in the
+   * case of OTC instruments
+   * this contains the definition of the non-exchange traded instrument.
+   * The format for this can be client-defined, but in order to transparently
+   * use
+   * vendor libraries it must conform to a format that LUSID understands.
+   * @property {string} [definition.instrumentFormat]
+   * @property {string} [definition.content]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of InstrumentMatch
+   * Defines the metadata of InstrumentDefinition
    *
-   * @returns {object} metadata of InstrumentMatch
+   * @returns {object} metadata of InstrumentDefinition
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'InstrumentMatch',
+      serializedName: 'InstrumentDefinition',
       type: {
         name: 'Composite',
-        className: 'InstrumentMatch',
+        className: 'InstrumentDefinition',
         modelProperties: {
           name: {
-            required: false,
+            required: true,
             serializedName: 'name',
             type: {
               name: 'String'
             }
           },
           identifiers: {
-            required: false,
+            required: true,
             serializedName: 'identifiers',
             type: {
               name: 'Dictionary',
@@ -75,17 +86,34 @@ class InstrumentMatch {
           },
           properties: {
             required: false,
+            readOnly: true,
             serializedName: 'properties',
             type: {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PropertyElementType',
+                  serializedName: 'UpsertInstrumentPropertyRequestElementType',
                   type: {
                     name: 'Composite',
-                    className: 'Property'
+                    className: 'UpsertInstrumentPropertyRequest'
                   }
               }
+            }
+          },
+          lookThroughPortfolioId: {
+            required: false,
+            serializedName: 'lookThroughPortfolioId',
+            type: {
+              name: 'Composite',
+              className: 'ResourceId'
+            }
+          },
+          definition: {
+            required: false,
+            serializedName: 'definition',
+            type: {
+              name: 'Composite',
+              className: 'InstrumentEconomicDefinition'
             }
           }
         }
@@ -94,4 +122,4 @@ class InstrumentMatch {
   }
 }
 
-module.exports = InstrumentMatch;
+module.exports = InstrumentDefinition;

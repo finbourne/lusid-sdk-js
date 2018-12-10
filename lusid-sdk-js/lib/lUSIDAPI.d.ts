@@ -1381,7 +1381,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  upsertInstrumentsWithHttpOperationResponse(options?: { requests? : { [propertyName: string]: models.UpsertInstrumentRequest }, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertInstrumentsResponse>>;
+  upsertInstrumentsWithHttpOperationResponse(options?: { requests? : { [propertyName: string]: models.InstrumentDefinition }, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertInstrumentsResponse>>;
 
   /**
    * @summary Upsert instruments
@@ -1428,9 +1428,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertInstruments(options?: { requests? : { [propertyName: string]: models.UpsertInstrumentRequest }, customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertInstrumentsResponse>;
+  upsertInstruments(options?: { requests? : { [propertyName: string]: models.InstrumentDefinition }, customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertInstrumentsResponse>;
   upsertInstruments(callback: ServiceCallback<models.UpsertInstrumentsResponse>): void;
-  upsertInstruments(options: { requests? : { [propertyName: string]: models.UpsertInstrumentRequest }, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertInstrumentsResponse>): void;
+  upsertInstruments(options: { requests? : { [propertyName: string]: models.InstrumentDefinition }, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertInstrumentsResponse>): void;
 
 
   /**
@@ -1550,8 +1550,8 @@ export default class LUSIDAPI extends ServiceClient {
    * Note that, if an instrument only has one identifier, it is an error to
    * remove this.
    *
-   * @param {date} [options.request.effectiveFrom] The date at which the
-   * identifier modification is to be effective from. If unset, will
+   * @param {date} [options.request.effectiveAt] The date at which the identifier
+   * modification is to be effective from. If unset, will
    * default to `now`.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -1593,8 +1593,8 @@ export default class LUSIDAPI extends ServiceClient {
    * Note that, if an instrument only has one identifier, it is an error to
    * remove this.
    *
-   * @param {date} [options.request.effectiveFrom] The date at which the
-   * identifier modification is to be effective from. If unset, will
+   * @param {date} [options.request.effectiveAt] The date at which the identifier
+   * modification is to be effective from. If unset, will
    * default to `now`.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -1710,45 +1710,53 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Find externally mastered instruments
+   * @summary Search instrument definition
    *
-   * Search for a set of instruments from an external instrument mastering
-   * service
+   * Get a collection of instruments by a set of identifiers. Optionally, it is
+   * possible to decorate each instrument with specified property data.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] The type of codes to search for. Possible
-   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
-   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
+   * Ticker) to find instruments by.
    *
-   * @param {array} [options.codes] The collection of instruments to search for
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the query
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<FindInstrumentsResponse>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfInstrument>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  findExternalInstrumentsWithHttpOperationResponse(options?: { codeType? : string, codes? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.FindInstrumentsResponse>>;
+  findInstrumentsWithHttpOperationResponse(options?: { aliases? : models.Property[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfInstrument>>;
 
   /**
-   * @summary Find externally mastered instruments
+   * @summary Search instrument definition
    *
-   * Search for a set of instruments from an external instrument mastering
-   * service
+   * Get a collection of instruments by a set of identifiers. Optionally, it is
+   * possible to decorate each instrument with specified property data.
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] The type of codes to search for. Possible
-   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
-   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
+   * Ticker) to find instruments by.
    *
-   * @param {array} [options.codes] The collection of instruments to search for
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the query
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1760,7 +1768,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {FindInstrumentsResponse} - The deserialized result object.
+   *                      @resolve {ResourceListOfInstrument} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1768,17 +1776,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {FindInstrumentsResponse} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link FindInstrumentsResponse} for more
+   *                      {ResourceListOfInstrument} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfInstrument} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  findExternalInstruments(options?: { codeType? : string, codes? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.FindInstrumentsResponse>;
-  findExternalInstruments(callback: ServiceCallback<models.FindInstrumentsResponse>): void;
-  findExternalInstruments(options: { codeType? : string, codes? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.FindInstrumentsResponse>): void;
+  findInstruments(options?: { aliases? : models.Property[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfInstrument>;
+  findInstruments(callback: ServiceCallback<models.ResourceListOfInstrument>): void;
+  findInstruments(options: { aliases? : models.Property[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfInstrument>): void;
 
 
   /**
@@ -1870,53 +1878,45 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary Search instrument definition
+   * @summary Find externally mastered instruments
    *
-   * Get a collection of instruments by a set of identifiers. Optionally, it is
-   * possible to decorate each instrument with specified property data.
+   * Search for a set of instruments from an external instrument mastering
+   * service
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
-   * Ticker) to find instruments by.
+   * @param {string} [options.codeType] The type of codes to search for. Possible
+   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
+   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
-   * @param {date} [options.effectiveAt] Optional. The effective date of the
-   * query
-   *
-   * @param {date} [options.asAt] Optional. The AsAt date of the query
-   *
-   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
-   * properties to be decorated on to the instrument
+   * @param {array} [options.codes] The collection of instruments to search for
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfInstrument>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<MatchInstrumentsResponse>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  findInstrumentsWithHttpOperationResponse(options?: { aliases? : models.Property[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfInstrument>>;
+  matchInstrumentsWithHttpOperationResponse(options?: { codeType? : string, codes? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MatchInstrumentsResponse>>;
 
   /**
-   * @summary Search instrument definition
+   * @summary Find externally mastered instruments
    *
-   * Get a collection of instruments by a set of identifiers. Optionally, it is
-   * possible to decorate each instrument with specified property data.
+   * Search for a set of instruments from an external instrument mastering
+   * service
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.aliases] The list of market aliases (e.g ISIN,
-   * Ticker) to find instruments by.
+   * @param {string} [options.codeType] The type of codes to search for. Possible
+   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
+   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
    *
-   * @param {date} [options.effectiveAt] Optional. The effective date of the
-   * query
-   *
-   * @param {date} [options.asAt] Optional. The AsAt date of the query
-   *
-   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
-   * properties to be decorated on to the instrument
+   * @param {array} [options.codes] The collection of instruments to search for
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1928,7 +1928,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfInstrument} - The deserialized result object.
+   *                      @resolve {MatchInstrumentsResponse} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -1936,17 +1936,17 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfInstrument} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfInstrument} for more
+   *                      {MatchInstrumentsResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link MatchInstrumentsResponse} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  findInstruments(options?: { aliases? : models.Property[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfInstrument>;
-  findInstruments(callback: ServiceCallback<models.ResourceListOfInstrument>): void;
-  findInstruments(options: { aliases? : models.Property[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfInstrument>): void;
+  matchInstruments(options?: { codeType? : string, codes? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.MatchInstrumentsResponse>;
+  matchInstruments(callback: ServiceCallback<models.MatchInstrumentsResponse>): void;
+  matchInstruments(options: { codeType? : string, codes? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MatchInstrumentsResponse>): void;
 
 
   /**
@@ -4787,7 +4787,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.domain] Possible values include:
    * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-   * 'Instrument'
+   * 'Instrument', 'CutDefinition'
    *
    * @param {string} [options.definition.scope]
    *
@@ -4831,7 +4831,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.domain] Possible values include:
    * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-   * 'Instrument'
+   * 'Instrument', 'CutDefinition'
    *
    * @param {string} [options.definition.scope]
    *
@@ -4890,7 +4890,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the requested property
    *
@@ -4918,7 +4918,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the requested property
    *
@@ -4967,7 +4967,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property being updated.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the property to be updated
    *
@@ -5013,7 +5013,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property being updated.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the property to be updated
    *
@@ -5076,7 +5076,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the property to be deleted
    *
@@ -5102,7 +5102,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-   * 'ReferenceHolding', 'TxnType', 'Instrument'
+   * 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
    *
    * @param {string} scope The scope of the property to be deleted
    *

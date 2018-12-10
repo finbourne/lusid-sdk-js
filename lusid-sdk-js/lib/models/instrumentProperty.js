@@ -65,10 +65,10 @@ class InstrumentProperty {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'CreateInstrumentPropertyRequestElementType',
+                  serializedName: 'UpsertInstrumentPropertyRequestElementType',
                   type: {
                     name: 'Composite',
-                    className: 'CreateInstrumentPropertyRequest'
+                    className: 'UpsertInstrumentPropertyRequest'
                   }
               }
             }

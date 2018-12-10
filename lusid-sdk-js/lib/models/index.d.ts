@@ -387,6 +387,31 @@ export interface Portfolio {
   links?: Link[];
 }
 
+export interface MetricValue {
+  value?: number;
+  unit?: string;
+}
+
+export interface PropertyValue {
+  labelValue?: string;
+  metricValue?: MetricValue;
+  /**
+   * Date for which the property is effective from
+  */
+  effectiveFrom?: Date;
+}
+
+export interface UpsertInstrumentPropertyRequest {
+  /**
+   * The property key of the property, e.g, 'Instrument/default/Isin'
+  */
+  instrumentPropertyKey?: string;
+  /**
+   * The value of the property, which must not be empty or null. e.g, 'US0378331005'
+  */
+  property?: PropertyValue;
+}
+
 /**
  * Expanded instrument definition - in the case of OTC instruments
  * this contains the definition of the non-exchange traded instrument.
@@ -398,7 +423,7 @@ export interface InstrumentEconomicDefinition {
   content: string;
 }
 
-export interface UpsertInstrumentRequest {
+export interface InstrumentDefinition {
   /**
    * Required. The name of the instrument
   */
@@ -407,6 +432,10 @@ export interface UpsertInstrumentRequest {
    * Required. A set of identifiers that uniquely identify this instrument (e.g FIGI, RIC)
   */
   identifiers: { [propertyName: string]: string };
+  /**
+   * Optional. A collection of properties to upsert on the instrument.
+  */
+  readonly properties?: UpsertInstrumentPropertyRequest[];
   /**
    * Optional. The identifier of the portfolio that represents this instrument
   */
@@ -510,7 +539,7 @@ export interface UpdateInstrumentIdentifierRequest {
    * The date at which the identifier modification is to be effective from. If unset, will
    * default to `now`.
   */
-  effectiveFrom?: Date;
+  effectiveAt?: Date;
 }
 
 export interface DeleteInstrumentResponse {
@@ -520,33 +549,6 @@ export interface DeleteInstrumentResponse {
    * still be used to query the instrument.
   */
   asAt?: Date;
-  links?: Link[];
-}
-
-export interface InstrumentMatch {
-  /**
-   * The name of the instrument
-  */
-  name?: string;
-  /**
-   * The set of identifiers that uniquely identify this instrument
-  */
-  identifiers?: { [propertyName: string]: string };
-  /**
-   * Any requested properties are decorated on the instrument, and will have a value of
-   * 'Unknown', if no value was found for this instrument.
-  */
-  properties?: Property[];
-}
-
-export interface FindInstrumentsResponse {
-  href?: string;
-  /**
-   * A dictionary of instruments that are keyed by the search criteria supplied in the
-   * matching request. If no match was found, then there will be no values in the collection
-   * for that key.
-  */
-  values?: { [propertyName: string]: InstrumentMatch[] };
   links?: Link[];
 }
 
@@ -566,29 +568,15 @@ export interface GetInstrumentsResponse {
   links?: Link[];
 }
 
-export interface MetricValue {
-  value?: number;
-  unit?: string;
-}
-
-export interface PropertyValue {
-  labelValue?: string;
-  metricValue?: MetricValue;
+export interface MatchInstrumentsResponse {
+  href?: string;
   /**
-   * Date for which the property is effective from
+   * A dictionary of instruments that are keyed by the search criteria supplied in the
+   * matching request. If no match was found, then there will be no values in the collection
+   * for that key.
   */
-  effectiveFrom?: Date;
-}
-
-export interface CreateInstrumentPropertyRequest {
-  /**
-   * The property key of the property, e.g, 'Instrument/default/Isin'
-  */
-  instrumentPropertyKey?: string;
-  /**
-   * The value of the property, which must not be empty or null. e.g, 'US0378331005'
-  */
-  property?: PropertyValue;
+  values?: { [propertyName: string]: InstrumentDefinition[] };
+  links?: Link[];
 }
 
 export interface DeleteInstrumentPropertyRequest {
@@ -612,7 +600,7 @@ export interface InstrumentProperty {
   /**
    * A collection of properties to create or update
   */
-  properties?: CreateInstrumentPropertyRequest[];
+  properties?: UpsertInstrumentPropertyRequest[];
   /**
    * A collection of property keys to remove property values from, if any are set for the
    * instrument
@@ -1040,7 +1028,7 @@ export interface ResourceListOfReconciliationBreak {
 export interface CreatePropertyDefinitionRequest {
   /**
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
-   * 'TxnType', 'Instrument'
+   * 'TxnType', 'Instrument', 'CutDefinition'
   */
   domain?: string;
   scope?: string;
@@ -1086,7 +1074,7 @@ export interface PropertyDefinition {
   unitSchema?: string;
   /**
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
-   * 'TxnType', 'Instrument'
+   * 'TxnType', 'Instrument', 'CutDefinition'
   */
   readonly domain?: string;
   readonly scope?: string;

@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a CreateInstrumentPropertyRequest.
+ * Class representing a UpsertInstrumentPropertyRequest.
  */
-class CreateInstrumentPropertyRequest {
+class UpsertInstrumentPropertyRequest {
   /**
-   * Create a CreateInstrumentPropertyRequest.
+   * Create a UpsertInstrumentPropertyRequest.
    * @property {string} [instrumentPropertyKey] The property key of the
    * property, e.g, 'Instrument/default/Isin'
    * @property {object} [property] The value of the property, which must not be
@@ -43,18 +43,18 @@ class CreateInstrumentPropertyRequest {
   }
 
   /**
-   * Defines the metadata of CreateInstrumentPropertyRequest
+   * Defines the metadata of UpsertInstrumentPropertyRequest
    *
-   * @returns {object} metadata of CreateInstrumentPropertyRequest
+   * @returns {object} metadata of UpsertInstrumentPropertyRequest
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CreateInstrumentPropertyRequest',
+      serializedName: 'UpsertInstrumentPropertyRequest',
       type: {
         name: 'Composite',
-        className: 'CreateInstrumentPropertyRequest',
+        className: 'UpsertInstrumentPropertyRequest',
         modelProperties: {
           instrumentPropertyKey: {
             required: false,
@@ -77,4 +77,4 @@ class CreateInstrumentPropertyRequest {
   }
 }
 
-module.exports = CreateInstrumentPropertyRequest;
+module.exports = UpsertInstrumentPropertyRequest;

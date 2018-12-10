@@ -23,11 +23,11 @@
 'use strict';
 
 /**
- * Class representing a FindInstrumentsResponse.
+ * Class representing a MatchInstrumentsResponse.
  */
-class FindInstrumentsResponse {
+class MatchInstrumentsResponse {
   /**
-   * Create a FindInstrumentsResponse.
+   * Create a MatchInstrumentsResponse.
    * @property {string} [href]
    * @property {object} [values] A dictionary of instruments that are keyed by
    * the search criteria supplied in the
@@ -40,18 +40,18 @@ class FindInstrumentsResponse {
   }
 
   /**
-   * Defines the metadata of FindInstrumentsResponse
+   * Defines the metadata of MatchInstrumentsResponse
    *
-   * @returns {object} metadata of FindInstrumentsResponse
+   * @returns {object} metadata of MatchInstrumentsResponse
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'FindInstrumentsResponse',
+      serializedName: 'MatchInstrumentsResponse',
       type: {
         name: 'Composite',
-        className: 'FindInstrumentsResponse',
+        className: 'MatchInstrumentsResponse',
         modelProperties: {
           href: {
             required: false,
@@ -72,10 +72,10 @@ class FindInstrumentsResponse {
                     name: 'Sequence',
                     element: {
                         required: false,
-                        serializedName: 'InstrumentMatchElementType',
+                        serializedName: 'InstrumentDefinitionElementType',
                         type: {
                           name: 'Composite',
-                          className: 'InstrumentMatch'
+                          className: 'InstrumentDefinition'
                         }
                     }
                   }
@@ -103,4 +103,4 @@ class FindInstrumentsResponse {
   }
 }
 
-module.exports = FindInstrumentsResponse;
+module.exports = MatchInstrumentsResponse;
