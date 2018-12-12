@@ -74,7 +74,11 @@ class ErrorResponse {
    * 'TransactionPortfolioRequestNotSupported', 'InvalidInstrumentDefinition',
    * 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
    * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
-   * 'PortfolioDoesNotExistAtGivenDate'
+   * 'PortfolioDoesNotExistAtGivenDate', 'DependenciesFailure',
+   * 'PortfolioPreprocessFailure', 'ValuationEngineFailure',
+   * 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
+   * 'CashFlowsFailure', 'ResultRetrievalFailure', 'ResultProcessingFailure',
+   * 'VendorResultProcessingFailure'
    * @property {string} [message]
    * @property {string} [detailedMessage]
    * @property {array} [items]

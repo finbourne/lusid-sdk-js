@@ -4687,6 +4687,174 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Reconcile valuations performed on one or two sets of holdings using
+   * one or two configuration recipes.
+   *
+   * Perform valuation of one or two set of holdings using different one or two
+   * configuration recipes. Produce a breakdown of the resulting differences in
+   * valuation.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request] The specifications of the inputs to the
+   * reconciliation
+   *
+   * @param {object} options.request.left The specification of the left hand side
+   * of the valuation (risk) reconciliation
+   *
+   * @param {object} options.request.right The specification of the right hand
+   * side of the valuation (risk) reconciliation
+   *
+   * @param {object} options.request.right.portfolioId The id of the portfolio on
+   * which to run the aggregation request
+   *
+   * @param {object} options.request.right.aggregation The specification of the
+   * aggregation request to be used to obtain the risk
+   *
+   * @param {object} options.request.right.aggregation.recipeId
+   *
+   * @param {string} [options.request.right.aggregation.recipeId.scope]
+   *
+   * @param {string} [options.request.right.aggregation.recipeId.code]
+   *
+   * @param {boolean} [options.request.right.aggregation.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
+   *
+   * @param {date} options.request.right.aggregation.effectiveAt
+   *
+   * @param {array} options.request.right.aggregation.metrics
+   *
+   * @param {array} [options.request.right.aggregation.groupBy]
+   *
+   * @param {array} [options.request.right.aggregation.filters]
+   *
+   * @param {number} [options.request.right.aggregation.limit]
+   *
+   * @param {string} [options.request.right.aggregation.sort]
+   *
+   * @param {array} options.request.instrumentPropertyKeys Instrument properties
+   * to be included with any identified breaks. These properties will be in the
+   * effective and AsAt dates of the left portfolio
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfReconciliationBreak>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  reconcileValuationWithHttpOperationResponse(options?: { request? : models.ValuationsReconciliationRequest, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfReconciliationBreak>>;
+
+  /**
+   * @summary Reconcile valuations performed on one or two sets of holdings using
+   * one or two configuration recipes.
+   *
+   * Perform valuation of one or two set of holdings using different one or two
+   * configuration recipes. Produce a breakdown of the resulting differences in
+   * valuation.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.request] The specifications of the inputs to the
+   * reconciliation
+   *
+   * @param {object} options.request.left The specification of the left hand side
+   * of the valuation (risk) reconciliation
+   *
+   * @param {object} options.request.right The specification of the right hand
+   * side of the valuation (risk) reconciliation
+   *
+   * @param {object} options.request.right.portfolioId The id of the portfolio on
+   * which to run the aggregation request
+   *
+   * @param {object} options.request.right.aggregation The specification of the
+   * aggregation request to be used to obtain the risk
+   *
+   * @param {object} options.request.right.aggregation.recipeId
+   *
+   * @param {string} [options.request.right.aggregation.recipeId.scope]
+   *
+   * @param {string} [options.request.right.aggregation.recipeId.code]
+   *
+   * @param {boolean} [options.request.right.aggregation.loadReferencePortfolio]
+   *
+   * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
+   *
+   * @param {date} options.request.right.aggregation.effectiveAt
+   *
+   * @param {array} options.request.right.aggregation.metrics
+   *
+   * @param {array} [options.request.right.aggregation.groupBy]
+   *
+   * @param {array} [options.request.right.aggregation.filters]
+   *
+   * @param {number} [options.request.right.aggregation.limit]
+   *
+   * @param {string} [options.request.right.aggregation.sort]
+   *
+   * @param {array} options.request.instrumentPropertyKeys Instrument properties
+   * to be included with any identified breaks. These properties will be in the
+   * effective and AsAt dates of the left portfolio
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfReconciliationBreak} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfReconciliationBreak} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfReconciliationBreak} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  reconcileValuation(options?: { request? : models.ValuationsReconciliationRequest, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfReconciliationBreak>;
+  reconcileValuation(callback: ServiceCallback<models.ResourceListOfReconciliationBreak>): void;
+  reconcileValuation(options: { request? : models.ValuationsReconciliationRequest, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfReconciliationBreak>): void;
+
+
+  /**
    * @summary Get multiple property definitions
    *
    * Get one or more property definitions
@@ -5749,13 +5917,24 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.request] The results to upload
    *
-   * @param {object} [options.request.data]
+   * @param {string} [options.request.data]
    *
    * @param {string} [options.request.scope]
    *
-   * @param {string} [options.request.key]
+   * @param {string} [options.request.key] The key is a unique point in 'run'
+   * space. For a given scope and time point, one would wish to
+   * identify a unique result set for a given recipe. In essence, this key is the
+   * unique identifier for the tuple (recipe,portfolios)
+   * However, that only matters when one is trying to use it automatically to
+   * retrieve them.
+   * A question becomes whether we would wish to store groups of protfolio
+   * results together, or only single ones.
+   * Also, whether we would accept uploading of groups and then split them apart.
    *
    * @param {date} [options.request.date]
+   *
+   * @param {string} [options.request.format] Possible values include:
+   * 'DataReader', 'Portfolio'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5783,13 +5962,24 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.request] The results to upload
    *
-   * @param {object} [options.request.data]
+   * @param {string} [options.request.data]
    *
    * @param {string} [options.request.scope]
    *
-   * @param {string} [options.request.key]
+   * @param {string} [options.request.key] The key is a unique point in 'run'
+   * space. For a given scope and time point, one would wish to
+   * identify a unique result set for a given recipe. In essence, this key is the
+   * unique identifier for the tuple (recipe,portfolios)
+   * However, that only matters when one is trying to use it automatically to
+   * retrieve them.
+   * A question becomes whether we would wish to store groups of protfolio
+   * results together, or only single ones.
+   * Also, whether we would accept uploading of groups and then split them apart.
    *
    * @param {date} [options.request.date]
+   *
+   * @param {string} [options.request.format] Possible values include:
+   * 'DataReader', 'Portfolio'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

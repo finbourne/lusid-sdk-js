@@ -28,10 +28,21 @@
 class CreateResults {
   /**
    * Create a CreateResults.
-   * @property {object} [data]
+   * @property {string} [data]
    * @property {string} [scope]
-   * @property {string} [key]
+   * @property {string} [key] The key is a unique point in 'run' space. For a
+   * given scope and time point, one would wish to
+   * identify a unique result set for a given recipe. In essence, this key is
+   * the unique identifier for the tuple (recipe,portfolios)
+   * However, that only matters when one is trying to use it automatically to
+   * retrieve them.
+   * A question becomes whether we would wish to store groups of protfolio
+   * results together, or only single ones.
+   * Also, whether we would accept uploading of groups and then split them
+   * apart.
    * @property {date} [date]
+   * @property {string} [format] Possible values include: 'DataReader',
+   * 'Portfolio'
    */
   constructor() {
   }
@@ -54,7 +65,7 @@ class CreateResults {
             required: false,
             serializedName: 'data',
             type: {
-              name: 'Object'
+              name: 'String'
             }
           },
           scope: {
@@ -76,6 +87,13 @@ class CreateResults {
             serializedName: 'date',
             type: {
               name: 'DateTime'
+            }
+          },
+          format: {
+            required: false,
+            serializedName: 'format',
+            type: {
+              name: 'String'
             }
           }
         }

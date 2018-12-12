@@ -33,7 +33,9 @@ class Results {
    * @property {date} [version.asAtDate]
    * @property {string} [version.href]
    * @property {string} [href]
-   * @property {object} [values]
+   * @property {string} [values]
+   * @property {string} [format] Possible values include: 'DataReader',
+   * 'Portfolio'
    * @property {array} [links]
    */
   constructor() {
@@ -72,7 +74,14 @@ class Results {
             required: false,
             serializedName: 'values',
             type: {
-              name: 'Object'
+              name: 'String'
+            }
+          },
+          format: {
+            required: false,
+            serializedName: 'format',
+            type: {
+              name: 'String'
             }
           },
           links: {

@@ -92,7 +92,10 @@ export interface ErrorResponse {
    * 'ReferencePortfolioRequestNotSupported', 'TransactionPortfolioRequestNotSupported',
    * 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
    * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
-   * 'PortfolioDoesNotExistAtGivenDate'
+   * 'PortfolioDoesNotExistAtGivenDate', 'DependenciesFailure', 'PortfolioPreprocessFailure',
+   * 'ValuationEngineFailure', 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
+   * 'CashFlowsFailure', 'ResultRetrievalFailure', 'ResultProcessingFailure',
+   * 'VendorResultProcessingFailure'
   */
   readonly code?: string;
   readonly message?: string;
@@ -1025,6 +1028,33 @@ export interface ResourceListOfReconciliationBreak {
   links?: Link[];
 }
 
+export interface ValuationReconciliationRequest {
+  /**
+   * The id of the portfolio on which to run the aggregation request
+  */
+  portfolioId: ResourceId;
+  /**
+   * The specification of the aggregation request to be used to obtain the risk
+  */
+  aggregation: AggregationRequest;
+}
+
+export interface ValuationsReconciliationRequest {
+  /**
+   * The specification of the left hand side of the valuation (risk) reconciliation
+  */
+  left: ValuationReconciliationRequest;
+  /**
+   * The specification of the right hand side of the valuation (risk) reconciliation
+  */
+  right: ValuationReconciliationRequest;
+  /**
+   * Instrument properties to be included with any identified breaks. These properties will be in
+   * the effective and AsAt dates of the left portfolio
+  */
+  instrumentPropertyKeys: string[];
+}
+
 export interface CreatePropertyDefinitionRequest {
   /**
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
@@ -1238,16 +1268,33 @@ export interface UpsertReferencePortfolioConstituentsResponse {
 }
 
 export interface CreateResults {
-  data?: any;
+  data?: string;
   scope?: string;
+  /**
+   * The key is a unique point in 'run' space. For a given scope and time point, one would wish to
+   * identify a unique result set for a given recipe. In essence, this key is the unique identifier
+   * for the tuple (recipe,portfolios)
+   * However, that only matters when one is trying to use it automatically to retrieve them.
+   * A question becomes whether we would wish to store groups of protfolio results together, or
+   * only single ones.
+   * Also, whether we would accept uploading of groups and then split them apart.
+  */
   key?: string;
   date?: Date;
+  /**
+   * Possible values include: 'DataReader', 'Portfolio'
+  */
+  format?: string;
 }
 
 export interface Results {
   version?: Version;
   href?: string;
-  values?: any;
+  values?: string;
+  /**
+   * Possible values include: 'DataReader', 'Portfolio'
+  */
+  format?: string;
   links?: Link[];
 }
 
