@@ -32,7 +32,11 @@ class ResourceListOfPropertyDefinition {
    * @property {string} [href] The Uri that returns the same result as the
    * original request,
    * but may include resolved as at time(s).
-   * @property {number} [count] The total number of records returned in the set
+   * @property {number} [count] The total number of records returned in the
+   * set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero
+   * until the values
+   * are evaluated. This is due to lazy evaluation.
    * @property {array} [links]
    */
   constructor() {

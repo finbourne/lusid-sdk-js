@@ -112,7 +112,9 @@ export interface ResourceListOfAnalyticStoreKey {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -203,7 +205,9 @@ export interface ResourceListOfCorporateAction {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -285,7 +289,9 @@ export interface ResourceListOfDataType {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -322,7 +328,9 @@ export interface ResourceListOfIUnitDefinitionDto {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -518,7 +526,9 @@ export interface ResourceListOfInstrument {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -628,7 +638,9 @@ export interface ResourceListOfCodeType {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -681,7 +693,9 @@ export interface ResourceListOfPersonalisation {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -719,7 +733,9 @@ export interface ResourceListOfPortfolioGroup {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -847,7 +863,9 @@ export interface ResourceListOfProcessedCommand {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -890,7 +908,9 @@ export interface ResourceListOfScope {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -904,7 +924,9 @@ export interface ResourceListOfPortfolio {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -1022,7 +1044,9 @@ export interface ResourceListOfReconciliationBreak {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -1120,7 +1144,9 @@ export interface ResourceListOfPropertyDefinition {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -1306,7 +1332,9 @@ export interface ResourceListOfString {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -1338,7 +1366,9 @@ export interface ResourceListOfValueType {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -1368,7 +1398,9 @@ export interface ResourceListOfPortfolioSearchResult {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -1497,7 +1529,9 @@ export interface ResourceListOfTransactionConfigurationData {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -1680,7 +1714,9 @@ export interface VersionedResourceListOfPortfolioHolding {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -1771,7 +1807,9 @@ export interface ResourceListOfHoldingsAdjustmentHeader {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -1858,7 +1896,9 @@ export interface VersionedResourceListOfTransaction {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
@@ -2085,7 +2125,9 @@ export interface VersionedResourceListOfOutputTransaction {
   */
   href?: string;
   /**
-   * The total number of records returned in the set
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
   */
   count?: number;
   links?: Link[];
