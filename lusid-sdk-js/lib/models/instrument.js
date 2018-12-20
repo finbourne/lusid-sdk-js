@@ -41,8 +41,6 @@ class Instrument {
    * @property {array} [properties] Any requested instrument properties. If no
    * property can be found for the instrument, then
    * a value of 'Unknown' will be returned
-   * @property {string} [marketIdentifierCode] The market identifier of the
-   * instrument (if any).
    * @property {object} [lookthroughPortfolio] The lookthrough portfolio of the
    * instrument (if any).
    * @property {string} [lookthroughPortfolio.scope]
@@ -122,13 +120,6 @@ class Instrument {
                     className: 'Property'
                   }
               }
-            }
-          },
-          marketIdentifierCode: {
-            required: false,
-            serializedName: 'marketIdentifierCode',
-            type: {
-              name: 'String'
             }
           },
           lookthroughPortfolio: {

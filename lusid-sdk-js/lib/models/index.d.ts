@@ -494,10 +494,6 @@ export interface Instrument {
   */
   properties?: Property[];
   /**
-   * The market identifier of the instrument (if any).
-  */
-  marketIdentifierCode?: string;
-  /**
    * The lookthrough portfolio of the instrument (if any).
   */
   lookthroughPortfolio?: ResourceId;
