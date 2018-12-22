@@ -23,52 +23,64 @@
 'use strict';
 
 /**
- * Class representing a InstrumentProperty.
+ * A collection of instrument search results
+ *
  */
-class InstrumentProperty {
+class InstrumentMatch {
   /**
-   * Create a InstrumentProperty.
-   * @property {string} [key] The property key of the property, e.g,
-   * 'Instrument/default/Isin'
-   * @property {object} [value] The value of the property, which must not be
-   * empty or null. e.g, 'US0378331005'
-   * @property {string} [value.labelValue]
-   * @property {object} [value.metricValue]
-   * @property {number} [value.metricValue.value]
-   * @property {string} [value.metricValue.unit]
-   * @property {date} [value.effectiveFrom] Date for which the property is
-   * effective from
+   * Create a InstrumentMatch.
+   * @property {array} [masteredInstruments] A collection of instruments that
+   * have met some criteria that have been previously
+   * mastered within LUSID
+   * @property {array} [externalInstruments] A collection of instruments that
+   * have met some criteria, but that have not been
+   * mastered within LUSID.
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of InstrumentProperty
+   * Defines the metadata of InstrumentMatch
    *
-   * @returns {object} metadata of InstrumentProperty
+   * @returns {object} metadata of InstrumentMatch
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'InstrumentProperty',
+      serializedName: 'InstrumentMatch',
       type: {
         name: 'Composite',
-        className: 'InstrumentProperty',
+        className: 'InstrumentMatch',
         modelProperties: {
-          key: {
+          masteredInstruments: {
             required: false,
-            serializedName: 'key',
+            serializedName: 'masteredInstruments',
             type: {
-              name: 'String'
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'InstrumentDefinitionElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'InstrumentDefinition'
+                  }
+              }
             }
           },
-          value: {
+          externalInstruments: {
             required: false,
-            serializedName: 'value',
+            serializedName: 'externalInstruments',
             type: {
-              name: 'Composite',
-              className: 'PropertyValue'
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'InstrumentDefinitionElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'InstrumentDefinition'
+                  }
+              }
             }
           }
         }
@@ -77,4 +89,4 @@ class InstrumentProperty {
   }
 }
 
-module.exports = InstrumentProperty;
+module.exports = InstrumentMatch;

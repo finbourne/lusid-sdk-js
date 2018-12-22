@@ -28,16 +28,11 @@
 class UpsertInstrumentPropertyRequest {
   /**
    * Create a UpsertInstrumentPropertyRequest.
-   * @property {string} [instrumentPropertyKey] The property key of the
-   * property, e.g, 'Instrument/default/Isin'
-   * @property {object} [property] The value of the property, which must not be
-   * empty or null. e.g, 'US0378331005'
-   * @property {string} [property.labelValue]
-   * @property {object} [property.metricValue]
-   * @property {number} [property.metricValue.value]
-   * @property {string} [property.metricValue.unit]
-   * @property {date} [property.effectiveFrom] Date for which the property is
-   * effective from
+   * @property {string} [lusidInstrumentId] Unique instrument identifier
+   * @property {array} [properties] A collection of properties to create or
+   * update
+   * @property {array} [deletedProperties] A collection of property keys to
+   * remove property values from, if any are set for the instrument
    */
   constructor() {
   }
@@ -56,19 +51,41 @@ class UpsertInstrumentPropertyRequest {
         name: 'Composite',
         className: 'UpsertInstrumentPropertyRequest',
         modelProperties: {
-          instrumentPropertyKey: {
+          lusidInstrumentId: {
             required: false,
-            serializedName: 'instrumentPropertyKey',
+            serializedName: 'lusidInstrumentId',
             type: {
               name: 'String'
             }
           },
-          property: {
+          properties: {
             required: false,
-            serializedName: 'property',
+            serializedName: 'properties',
             type: {
-              name: 'Composite',
-              className: 'PropertyValue'
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'InstrumentPropertyElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'InstrumentProperty'
+                  }
+              }
+            }
+          },
+          deletedProperties: {
+            required: false,
+            serializedName: 'deletedProperties',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'DeleteInstrumentPropertyRequestElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'DeleteInstrumentPropertyRequest'
+                  }
+              }
             }
           }
         }

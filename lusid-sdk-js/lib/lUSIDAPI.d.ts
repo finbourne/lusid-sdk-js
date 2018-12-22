@@ -1974,7 +1974,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  upsertInstrumentsPropertiesWithHttpOperationResponse(options?: { instrumentProperties? : models.InstrumentProperty[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertInstrumentPropertiesResponse>>;
+  upsertInstrumentsPropertiesWithHttpOperationResponse(options?: { instrumentProperties? : models.UpsertInstrumentPropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.UpsertInstrumentPropertiesResponse>>;
 
   /**
    * @summary Upsert instrument properties
@@ -2018,9 +2018,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  upsertInstrumentsProperties(options?: { instrumentProperties? : models.InstrumentProperty[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertInstrumentPropertiesResponse>;
+  upsertInstrumentsProperties(options?: { instrumentProperties? : models.UpsertInstrumentPropertyRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.UpsertInstrumentPropertiesResponse>;
   upsertInstrumentsProperties(callback: ServiceCallback<models.UpsertInstrumentPropertiesResponse>): void;
-  upsertInstrumentsProperties(options: { instrumentProperties? : models.InstrumentProperty[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertInstrumentPropertiesResponse>): void;
+  upsertInstrumentsProperties(options: { instrumentProperties? : models.UpsertInstrumentPropertyRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.UpsertInstrumentPropertiesResponse>): void;
 
 
   /**
@@ -6396,6 +6396,88 @@ export default class LUSIDAPI extends ServiceClient {
   getValueTypes(options?: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfValueType>;
   getValueTypes(callback: ServiceCallback<models.ResourceListOfValueType>): void;
   getValueTypes(options: { sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfValueType>): void;
+
+
+  /**
+   * @summary Search instruments
+   *
+   * Search through instruments that have been mastered in LUSID, and optionally
+   * augment results with instruments from a symbology service
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.symbols] A collection of instrument symbols to
+   * search for
+   *
+   * @param {date} [options.masteredEffectiveAt] Optional. The effective date for
+   * searching mastered instruments. If this is not set, then the current date is
+   * taken.
+   * This parameter has no effect on instruments that have not been mastered
+   * within LUSID.
+   *
+   * @param {boolean} [options.masteredOnly] Optional. If set to true, only
+   * search over instruments that have been mastered within LUSID. Default to
+   * false
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Array>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  instrumentsSearchWithHttpOperationResponse(options?: { symbols? : models.InstrumentSearchProperty[], masteredEffectiveAt? : Date, masteredOnly? : boolean, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.InstrumentMatch[]>>;
+
+  /**
+   * @summary Search instruments
+   *
+   * Search through instruments that have been mastered in LUSID, and optionally
+   * augment results with instruments from a symbology service
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.symbols] A collection of instrument symbols to
+   * search for
+   *
+   * @param {date} [options.masteredEffectiveAt] Optional. The effective date for
+   * searching mastered instruments. If this is not set, then the current date is
+   * taken.
+   * This parameter has no effect on instruments that have not been mastered
+   * within LUSID.
+   *
+   * @param {boolean} [options.masteredOnly] Optional. If set to true, only
+   * search over instruments that have been mastered within LUSID. Default to
+   * false
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {Array} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {Array} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  instrumentsSearch(options?: { symbols? : models.InstrumentSearchProperty[], masteredEffectiveAt? : Date, masteredOnly? : boolean, customHeaders? : { [headerName: string]: string; } }): Promise<models.InstrumentMatch[]>;
+  instrumentsSearch(callback: ServiceCallback<models.InstrumentMatch[]>): void;
+  instrumentsSearch(options: { symbols? : models.InstrumentSearchProperty[], masteredEffectiveAt? : Date, masteredOnly? : boolean, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.InstrumentMatch[]>): void;
 
 
   /**

@@ -23,38 +23,32 @@
 'use strict';
 
 /**
- * Class representing a InstrumentProperty.
+ * Class representing a InstrumentSearchProperty.
  */
-class InstrumentProperty {
+class InstrumentSearchProperty {
   /**
-   * Create a InstrumentProperty.
+   * Create a InstrumentSearchProperty.
    * @property {string} [key] The property key of the property, e.g,
    * 'Instrument/default/Isin'
-   * @property {object} [value] The value of the property, which must not be
+   * @property {string} [value] The value of the property, which must not be
    * empty or null. e.g, 'US0378331005'
-   * @property {string} [value.labelValue]
-   * @property {object} [value.metricValue]
-   * @property {number} [value.metricValue.value]
-   * @property {string} [value.metricValue.unit]
-   * @property {date} [value.effectiveFrom] Date for which the property is
-   * effective from
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of InstrumentProperty
+   * Defines the metadata of InstrumentSearchProperty
    *
-   * @returns {object} metadata of InstrumentProperty
+   * @returns {object} metadata of InstrumentSearchProperty
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'InstrumentProperty',
+      serializedName: 'InstrumentSearchProperty',
       type: {
         name: 'Composite',
-        className: 'InstrumentProperty',
+        className: 'InstrumentSearchProperty',
         modelProperties: {
           key: {
             required: false,
@@ -67,8 +61,7 @@ class InstrumentProperty {
             required: false,
             serializedName: 'value',
             type: {
-              name: 'Composite',
-              className: 'PropertyValue'
+              name: 'String'
             }
           }
         }
@@ -77,4 +70,4 @@ class InstrumentProperty {
   }
 }
 
-module.exports = InstrumentProperty;
+module.exports = InstrumentSearchProperty;

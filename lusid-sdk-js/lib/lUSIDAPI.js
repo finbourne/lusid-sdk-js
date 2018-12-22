@@ -3774,10 +3774,10 @@ function _upsertInstrumentsProperties(options, callback) {
           name: 'Sequence',
           element: {
               required: false,
-              serializedName: 'InstrumentPropertyElementType',
+              serializedName: 'UpsertInstrumentPropertyRequestElementType',
               type: {
                 name: 'Composite',
-                className: 'InstrumentProperty'
+                className: 'UpsertInstrumentPropertyRequest'
               }
           }
         }
@@ -12214,6 +12214,196 @@ function _getValueTypes(options, callback) {
 }
 
 /**
+ * @summary Search instruments
+ *
+ * Search through instruments that have been mastered in LUSID, and optionally
+ * augment results with instruments from a symbology service
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {array} [options.symbols] A collection of instrument symbols to
+ * search for
+ *
+ * @param {date} [options.masteredEffectiveAt] Optional. The effective date for
+ * searching mastered instruments. If this is not set, then the current date is
+ * taken.
+ * This parameter has no effect on instruments that have not been mastered
+ * within LUSID.
+ *
+ * @param {boolean} [options.masteredOnly] Optional. If set to true, only
+ * search over instruments that have been mastered within LUSID. Default to
+ * false
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {array} [result]   - The deserialized result object if an error did not occur.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _instrumentsSearch(options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let symbols = (options && options.symbols !== undefined) ? options.symbols : undefined;
+  let masteredEffectiveAt = (options && options.masteredEffectiveAt !== undefined) ? options.masteredEffectiveAt : undefined;
+  let masteredOnly = (options && options.masteredOnly !== undefined) ? options.masteredOnly : false;
+  // Validate
+  try {
+    if (masteredEffectiveAt && !(masteredEffectiveAt instanceof Date ||
+        (typeof masteredEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(masteredEffectiveAt))))) {
+          throw new Error('masteredEffectiveAt must be of type date.');
+        }
+    if (masteredOnly !== null && masteredOnly !== undefined && typeof masteredOnly !== 'boolean') {
+      throw new Error('masteredOnly must be of type boolean.');
+    }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/search/instruments';
+  let queryParameters = [];
+  if (masteredEffectiveAt !== null && masteredEffectiveAt !== undefined) {
+    queryParameters.push('masteredEffectiveAt=' + encodeURIComponent(client.serializeObject(masteredEffectiveAt)));
+  }
+  if (masteredOnly !== null && masteredOnly !== undefined) {
+    queryParameters.push('masteredOnly=' + encodeURIComponent(masteredOnly.toString()));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'POST';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  // Serialize Request
+  let requestContent = null;
+  let requestModel = null;
+  try {
+    if (symbols !== null && symbols !== undefined) {
+      let requestModelMapper = {
+        required: false,
+        serializedName: 'symbols',
+        type: {
+          name: 'Sequence',
+          element: {
+              required: false,
+              serializedName: 'InstrumentSearchPropertyElementType',
+              type: {
+                name: 'Composite',
+                className: 'InstrumentSearchProperty'
+              }
+          }
+        }
+      };
+      requestModel = client.serialize(requestModelMapper, symbols, 'symbols');
+      requestContent = JSON.stringify(requestModel);
+    }
+  } catch (error) {
+    let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
+        `payload - ${JSON.stringify(symbols, null, 2)}.`);
+    return callback(serializationError);
+  }
+  httpRequest.body = requestContent;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = {
+            required: false,
+            serializedName: 'parsedResponse',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'InstrumentMatchElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'InstrumentMatch'
+                  }
+              }
+            }
+          };
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
  * @summary Search portfolio groups
  *
  * Search through all portfolio groups
@@ -16076,6 +16266,7 @@ class LUSIDAPI extends ServiceClient {
     this._getEntitySchema = _getEntitySchema;
     this._getPropertySchema = _getPropertySchema;
     this._getValueTypes = _getValueTypes;
+    this._instrumentsSearch = _instrumentsSearch;
     this._portfolioGroupsSearch = _portfolioGroupsSearch;
     this._portfoliosSearch = _portfoliosSearch;
     this._propertiesSearch = _propertiesSearch;
@@ -24446,6 +24637,115 @@ class LUSIDAPI extends ServiceClient {
       });
     } else {
       return self._getValueTypes(options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Search instruments
+   *
+   * Search through instruments that have been mastered in LUSID, and optionally
+   * augment results with instruments from a symbology service
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.symbols] A collection of instrument symbols to
+   * search for
+   *
+   * @param {date} [options.masteredEffectiveAt] Optional. The effective date for
+   * searching mastered instruments. If this is not set, then the current date is
+   * taken.
+   * This parameter has no effect on instruments that have not been mastered
+   * within LUSID.
+   *
+   * @param {boolean} [options.masteredOnly] Optional. If set to true, only
+   * search over instruments that have been mastered within LUSID. Default to
+   * false
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<Array>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  instrumentsSearchWithHttpOperationResponse(options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._instrumentsSearch(options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Search instruments
+   *
+   * Search through instruments that have been mastered in LUSID, and optionally
+   * augment results with instruments from a symbology service
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.symbols] A collection of instrument symbols to
+   * search for
+   *
+   * @param {date} [options.masteredEffectiveAt] Optional. The effective date for
+   * searching mastered instruments. If this is not set, then the current date is
+   * taken.
+   * This parameter has no effect on instruments that have not been mastered
+   * within LUSID.
+   *
+   * @param {boolean} [options.masteredOnly] Optional. If set to true, only
+   * search over instruments that have been mastered within LUSID. Default to
+   * false
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {Array} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {array} [result]   - The deserialized result object if an error did not occur.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  instrumentsSearch(options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._instrumentsSearch(options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._instrumentsSearch(options, optionalCallback);
     }
   }
 

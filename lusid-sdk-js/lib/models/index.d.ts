@@ -412,15 +412,15 @@ export interface PropertyValue {
   effectiveFrom?: Date;
 }
 
-export interface UpsertInstrumentPropertyRequest {
+export interface InstrumentProperty {
   /**
    * The property key of the property, e.g, 'Instrument/default/Isin'
   */
-  instrumentPropertyKey?: string;
+  key?: string;
   /**
    * The value of the property, which must not be empty or null. e.g, 'US0378331005'
   */
-  property?: PropertyValue;
+  value?: PropertyValue;
 }
 
 /**
@@ -446,7 +446,7 @@ export interface InstrumentDefinition {
   /**
    * Optional. A collection of properties to upsert on the instrument.
   */
-  readonly properties?: UpsertInstrumentPropertyRequest[];
+  readonly properties?: InstrumentProperty[];
   /**
    * Optional. The identifier of the portfolio that represents this instrument
   */
@@ -601,7 +601,7 @@ export interface DeleteInstrumentPropertyRequest {
   effectiveFrom?: Date;
 }
 
-export interface InstrumentProperty {
+export interface UpsertInstrumentPropertyRequest {
   /**
    * Unique instrument identifier
   */
@@ -609,7 +609,7 @@ export interface InstrumentProperty {
   /**
    * A collection of properties to create or update
   */
-  properties?: UpsertInstrumentPropertyRequest[];
+  properties?: InstrumentProperty[];
   /**
    * A collection of property keys to remove property values from, if any are set for the
    * instrument
@@ -1368,6 +1368,33 @@ export interface ResourceListOfValueType {
   */
   count?: number;
   links?: Link[];
+}
+
+export interface InstrumentSearchProperty {
+  /**
+   * The property key of the property, e.g, 'Instrument/default/Isin'
+  */
+  key?: string;
+  /**
+   * The value of the property, which must not be empty or null. e.g, 'US0378331005'
+  */
+  value?: string;
+}
+
+/**
+ * A collection of instrument search results
+*/
+export interface InstrumentMatch {
+  /**
+   * A collection of instruments that have met some criteria that have been previously
+   * mastered within LUSID
+  */
+  masteredInstruments?: InstrumentDefinition[];
+  /**
+   * A collection of instruments that have met some criteria, but that have not been
+   * mastered within LUSID.
+  */
+  externalInstruments?: InstrumentDefinition[];
 }
 
 export interface PortfolioSearchResult {
