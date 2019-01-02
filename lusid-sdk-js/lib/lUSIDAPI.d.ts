@@ -429,6 +429,220 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Get corporate action sources
+   *
+   * Gets a list of all corporate action sources
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The start effective date of
+   * the data range
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfCorporateActionSource>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  listCorporateActionSourcesWithHttpOperationResponse(options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfCorporateActionSource>>;
+
+  /**
+   * @summary Get corporate action sources
+   *
+   * Gets a list of all corporate action sources
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The start effective date of
+   * the data range
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfCorporateActionSource} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfCorporateActionSource} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfCorporateActionSource} for
+   *                      more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listCorporateActionSources(options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfCorporateActionSource>;
+  listCorporateActionSources(callback: ServiceCallback<models.ResourceListOfCorporateActionSource>): void;
+  listCorporateActionSources(options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfCorporateActionSource>): void;
+
+
+  /**
+   * @summary Create Corporate Action Source
+   *
+   * Attempt to create a corporate action source.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<CorporateActionSource>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  createCorporateActionSourceWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CorporateActionSource>>;
+
+  /**
+   * @summary Create Corporate Action Source
+   *
+   * Attempt to create a corporate action source.
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {CorporateActionSource} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {CorporateActionSource} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link CorporateActionSource} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  createCorporateActionSource(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CorporateActionSource>;
+  createCorporateActionSource(callback: ServiceCallback<models.CorporateActionSource>): void;
+  createCorporateActionSource(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CorporateActionSource>): void;
+
+
+  /**
+   * @summary Delete a corporate action source
+   *
+   * Deletes a single corporate action source
+   *
+   * @param {string} scope The Scope of the Corporate Action Source to be deleted
+   *
+   * @param {string} code The Code of the Corporate Action Source to be deleted
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The start effective date of
+   * the data
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<DeletedEntityResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  deleteCorporateActionSourceWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+
+  /**
+   * @summary Delete a corporate action source
+   *
+   * Deletes a single corporate action source
+   *
+   * @param {string} scope The Scope of the Corporate Action Source to be deleted
+   *
+   * @param {string} code The Code of the Corporate Action Source to be deleted
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The start effective date of
+   * the data
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {DeletedEntityResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {DeletedEntityResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DeletedEntityResponse} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  deleteCorporateActionSource(scope: string, code: string, options?: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deleteCorporateActionSource(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deleteCorporateActionSource(scope: string, code: string, options: { effectiveAt? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+
+
+  /**
    * @summary Get corporate actions
    *
    * Gets corporate actions from a specific corporate action source

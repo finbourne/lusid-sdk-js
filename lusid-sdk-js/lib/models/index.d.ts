@@ -142,6 +142,54 @@ export interface InstrumentAnalytic {
   denomination?: string;
 }
 
+export interface CreateCorporateActionSourceRequest {
+  /**
+   * Scope of Corporate Action Source
+  */
+  readonly scope?: string;
+  /**
+   * Code of Corporate Action Source
+  */
+  readonly code?: string;
+}
+
+export interface ResourceId {
+  scope?: string;
+  code?: string;
+}
+
+/**
+ * Describes the version metadata of an entity.
+*/
+export interface Version {
+  readonly effectiveFrom?: Date;
+  readonly asAtDate?: Date;
+  readonly href?: string;
+}
+
+export interface CorporateActionSource {
+  href?: string;
+  id?: ResourceId;
+  version?: Version;
+  links?: Link[];
+}
+
+export interface ResourceListOfCorporateActionSource {
+  values?: CorporateActionSource[];
+  /**
+   * The Uri that returns the same result as the original request,
+   * but may include resolved as at time(s).
+  */
+  href?: string;
+  /**
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
+  */
+  count?: number;
+  links?: Link[];
+}
+
 export interface CorporateActionTransitionComponent {
   instrumentUid: string;
   unitsFactor: number;
@@ -164,11 +212,6 @@ export interface CreateCorporateAction {
   recordDate: Date;
   paymentDate: Date;
   transitions: CorporateActionTransition[];
-}
-
-export interface ResourceId {
-  scope?: string;
-  code?: string;
 }
 
 /**
@@ -349,15 +392,6 @@ export interface CreateDerivedTransactionPortfolioRequest {
   */
   accountingMethod?: string;
   subHoldingKeys?: string[];
-}
-
-/**
- * Describes the version metadata of an entity.
-*/
-export interface Version {
-  readonly effectiveFrom?: Date;
-  readonly asAtDate?: Date;
-  readonly href?: string;
 }
 
 export interface Portfolio {
