@@ -92,10 +92,11 @@ export interface ErrorResponse {
    * 'ReferencePortfolioRequestNotSupported', 'TransactionPortfolioRequestNotSupported',
    * 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
    * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
-   * 'PortfolioDoesNotExistAtGivenDate', 'DependenciesFailure', 'PortfolioPreprocessFailure',
-   * 'ValuationEngineFailure', 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
-   * 'CashFlowsFailure', 'ResultRetrievalFailure', 'ResultProcessingFailure',
-   * 'VendorResultProcessingFailure'
+   * 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure', 'DependenciesFailure',
+   * 'PortfolioPreprocessFailure', 'ValuationEngineFailure', 'TaskFactoryFailure',
+   * 'TaskEvaluationFailure', 'InstrumentFailure', 'CashFlowsFailure', 'ResultRetrievalFailure',
+   * 'ResultProcessingFailure', 'VendorResultProcessingFailure',
+   * 'CannotSupplyTimesWithPortfoliosQuery'
   */
   readonly code?: string;
   readonly message?: string;
@@ -927,22 +928,6 @@ export interface ExpandedGroup {
   values?: CompletePortfolio[];
   subGroups?: ExpandedGroup[];
   version?: Version;
-  links?: Link[];
-}
-
-export interface ResourceListOfScope {
-  values?: string[];
-  /**
-   * The Uri that returns the same result as the original request,
-   * but may include resolved as at time(s).
-  */
-  href?: string;
-  /**
-   * The total number of records returned in the set.
-   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
-   * are evaluated. This is due to lazy evaluation.
-  */
-  count?: number;
   links?: Link[];
 }
 

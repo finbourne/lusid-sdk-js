@@ -7517,12 +7517,28 @@ function _deleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode, opti
 }
 
 /**
- * @summary List portfolio scopes
+ * @summary List portfolios
  *
- * Lists all scopes that are either currently or have previously had portfolios
- * in them
+ * List all portfolios matching the specified criteria.
+ *
+ * Example query syntax for the query parameter:
+ *
+ * - To see which portfolios have holdings in the specified instruments:
+ *
+ * instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+ * 'BBG000BLNNH6'))
+ *
+ * * Note that if a query is specified then it is executed for the current
+ * EffectiveAt and AsAt
+ * Specifying EffectiveAt or AsAt in addition to the query is not supported
+ * Also note that copy/pasting above examples results in incorrect single quote
+ * character
  *
  * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.effectiveAt] Optional. The effective date of the data
+ *
+ * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
  * @param {array} [options.sortBy] Optional. Order the results by these fields.
  * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -7533,7 +7549,11 @@ function _deleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode, opti
  * @param {number} [options.limit] Optional. When paginating, limit the number
  * of returned results to this many.
  *
- * @param {string} [options.filter] Filter to be applied to the list of scopes
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
+ *
+ * @param {string} [options.query] Optional. Expression specifying the criteria
+ * that the returned portfolios must meet
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -7545,13 +7565,14 @@ function _deleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode, opti
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListOfScope} for more information.
+ *                      See {@link ResourceListOfPortfolio} for more
+ *                      information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _listPortfolioScopes(options, callback) {
+function _listPortfolios(options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -7561,12 +7582,23 @@ function _listPortfolioScopes(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
+  let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
   let filter = (options && options.filter !== undefined) ? options.filter : undefined;
+  let query = (options && options.query !== undefined) ? options.query : undefined;
   // Validate
   try {
+    if (effectiveAt && !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt must be of type date.');
+        }
+    if (asAt && !(asAt instanceof Date ||
+        (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
+          throw new Error('asAt must be of type date.');
+        }
     if (Array.isArray(sortBy)) {
       for (let i = 0; i < sortBy.length; i++) {
         if (sortBy[i] !== null && sortBy[i] !== undefined && typeof sortBy[i].valueOf() !== 'string') {
@@ -7583,6 +7615,9 @@ function _listPortfolioScopes(options, callback) {
     if (filter !== null && filter !== undefined && typeof filter.valueOf() !== 'string') {
       throw new Error('filter must be of type string.');
     }
+    if (query !== null && query !== undefined && typeof query.valueOf() !== 'string') {
+      throw new Error('query must be of type string.');
+    }
   } catch (error) {
     return callback(error);
   }
@@ -7591,6 +7626,12 @@ function _listPortfolioScopes(options, callback) {
   let baseUrl = this.baseUri;
   let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/portfolios';
   let queryParameters = [];
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  }
+  if (asAt !== null && asAt !== undefined) {
+    queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
   if (sortBy !== null && sortBy !== undefined) {
     if (sortBy.length == 0) {
       queryParameters.push('sortBy=' + encodeURIComponent(''));
@@ -7609,6 +7650,9 @@ function _listPortfolioScopes(options, callback) {
   }
   if (filter !== null && filter !== undefined) {
     queryParameters.push('filter=' + encodeURIComponent(filter));
+  }
+  if (query !== null && query !== undefined) {
+    queryParameters.push('query=' + encodeURIComponent(query));
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -7671,7 +7715,7 @@ function _listPortfolioScopes(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListOfScope']().mapper();
+          let resultMapper = new client.models['ResourceListOfPortfolio']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -7687,7 +7731,7 @@ function _listPortfolioScopes(options, callback) {
 }
 
 /**
- * @summary List portfolios
+ * @summary List portfolios for scope
  *
  * List all the portfolios in the specified scope
  *
@@ -7728,7 +7772,7 @@ function _listPortfolioScopes(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _listPortfolios(scope, options, callback) {
+function _listPortfoliosForScope(scope, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -16705,8 +16749,8 @@ class LUSIDAPI extends ServiceClient {
     this._deletePortfolioFromGroup = _deletePortfolioFromGroup;
     this._addSubGroupToGroup = _addSubGroupToGroup;
     this._deleteSubGroupFromGroup = _deleteSubGroupFromGroup;
-    this._listPortfolioScopes = _listPortfolioScopes;
     this._listPortfolios = _listPortfolios;
+    this._listPortfoliosForScope = _listPortfoliosForScope;
     this._getPortfolio = _getPortfolio;
     this._updatePortfolio = _updatePortfolio;
     this._deletePortfolio = _deletePortfolio;
@@ -21866,12 +21910,28 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary List portfolio scopes
+   * @summary List portfolios
    *
-   * Lists all scopes that are either currently or have previously had portfolios
-   * in them
+   * List all portfolios matching the specified criteria.
+   *
+   * Example query syntax for the query parameter:
+   *
+   * - To see which portfolios have holdings in the specified instruments:
+   *
+   * instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+   * 'BBG000BLNNH6'))
+   *
+   * * Note that if a query is specified then it is executed for the current
+   * EffectiveAt and AsAt
+   * Specifying EffectiveAt or AsAt in addition to the query is not supported
+   * Also note that copy/pasting above examples results in incorrect single quote
+   * character
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -21882,22 +21942,26 @@ class LUSIDAPI extends ServiceClient {
    * @param {number} [options.limit] Optional. When paginating, limit the number
    * of returned results to this many.
    *
-   * @param {string} [options.filter] Filter to be applied to the list of scopes
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {string} [options.query] Optional. Expression specifying the criteria
+   * that the returned portfolios must meet
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfScope>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPortfolio>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
-  listPortfolioScopesWithHttpOperationResponse(options) {
+  listPortfoliosWithHttpOperationResponse(options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._listPortfolioScopes(options, (err, result, request, response) => {
+      self._listPortfolios(options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -21908,12 +21972,28 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary List portfolio scopes
+   * @summary List portfolios
    *
-   * Lists all scopes that are either currently or have previously had portfolios
-   * in them
+   * List all portfolios matching the specified criteria.
+   *
+   * Example query syntax for the query parameter:
+   *
+   * - To see which portfolios have holdings in the specified instruments:
+   *
+   * instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+   * 'BBG000BLNNH6'))
+   *
+   * * Note that if a query is specified then it is executed for the current
+   * EffectiveAt and AsAt
+   * Specifying EffectiveAt or AsAt in addition to the query is not supported
+   * Also note that copy/pasting above examples results in incorrect single quote
+   * character
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -21924,7 +22004,11 @@ class LUSIDAPI extends ServiceClient {
    * @param {number} [options.limit] Optional. When paginating, limit the number
    * of returned results to this many.
    *
-   * @param {string} [options.filter] Filter to be applied to the list of scopes
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {string} [options.query] Optional. Expression specifying the criteria
+   * that the returned portfolios must meet
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -21936,7 +22020,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListOfScope} - The deserialized result object.
+   *                      @resolve {ResourceListOfPortfolio} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -21945,13 +22029,14 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfScope} for more information.
+   *                      See {@link ResourceListOfPortfolio} for more
+   *                      information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  listPortfolioScopes(options, optionalCallback) {
+  listPortfolios(options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -21960,19 +22045,19 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._listPortfolioScopes(options, (err, result, request, response) => {
+        self._listPortfolios(options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._listPortfolioScopes(options, optionalCallback);
+      return self._listPortfolios(options, optionalCallback);
     }
   }
 
   /**
-   * @summary List portfolios
+   * @summary List portfolios for scope
    *
    * List all the portfolios in the specified scope
    *
@@ -22005,11 +22090,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  listPortfoliosWithHttpOperationResponse(scope, options) {
+  listPortfoliosForScopeWithHttpOperationResponse(scope, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._listPortfolios(scope, options, (err, result, request, response) => {
+      self._listPortfoliosForScope(scope, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -22020,7 +22105,7 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary List portfolios
+   * @summary List portfolios for scope
    *
    * List all the portfolios in the specified scope
    *
@@ -22070,7 +22155,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  listPortfolios(scope, options, optionalCallback) {
+  listPortfoliosForScope(scope, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -22079,14 +22164,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._listPortfolios(scope, options, (err, result, request, response) => {
+        self._listPortfoliosForScope(scope, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._listPortfolios(scope, options, optionalCallback);
+      return self._listPortfoliosForScope(scope, options, optionalCallback);
     }
   }
 

@@ -97,7 +97,6 @@ exports.ProcessedCommand = require('./processedCommand');
 exports.ResourceListOfProcessedCommand = require('./resourceListOfProcessedCommand');
 exports.CompletePortfolio = require('./completePortfolio');
 exports.ExpandedGroup = require('./expandedGroup');
-exports.ResourceListOfScope = require('./resourceListOfScope');
 exports.ResourceListOfPortfolio = require('./resourceListOfPortfolio');
 exports.UpdatePortfolioRequest = require('./updatePortfolioRequest');
 exports.PortfolioProperties = require('./portfolioProperties');

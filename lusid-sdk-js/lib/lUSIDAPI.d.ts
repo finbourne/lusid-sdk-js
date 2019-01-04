@@ -3884,12 +3884,28 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
-   * @summary List portfolio scopes
+   * @summary List portfolios
    *
-   * Lists all scopes that are either currently or have previously had portfolios
-   * in them
+   * List all portfolios matching the specified criteria.
+   *
+   * Example query syntax for the query parameter:
+   *
+   * - To see which portfolios have holdings in the specified instruments:
+   *
+   * instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+   * 'BBG000BLNNH6'))
+   *
+   * * Note that if a query is specified then it is executed for the current
+   * EffectiveAt and AsAt
+   * Specifying EffectiveAt or AsAt in addition to the query is not supported
+   * Also note that copy/pasting above examples results in incorrect single quote
+   * character
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -3900,26 +3916,46 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {number} [options.limit] Optional. When paginating, limit the number
    * of returned results to this many.
    *
-   * @param {string} [options.filter] Filter to be applied to the list of scopes
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {string} [options.query] Optional. Expression specifying the criteria
+   * that the returned portfolios must meet
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfScope>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfPortfolio>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listPortfolioScopesWithHttpOperationResponse(options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfScope>>;
+  listPortfoliosWithHttpOperationResponse(options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, query? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolio>>;
 
   /**
-   * @summary List portfolio scopes
+   * @summary List portfolios
    *
-   * Lists all scopes that are either currently or have previously had portfolios
-   * in them
+   * List all portfolios matching the specified criteria.
+   *
+   * Example query syntax for the query parameter:
+   *
+   * - To see which portfolios have holdings in the specified instruments:
+   *
+   * instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+   * 'BBG000BLNNH6'))
+   *
+   * * Note that if a query is specified then it is executed for the current
+   * EffectiveAt and AsAt
+   * Specifying EffectiveAt or AsAt in addition to the query is not supported
+   * Also note that copy/pasting above examples results in incorrect single quote
+   * character
    *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the data
+   *
+   * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -3930,7 +3966,11 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {number} [options.limit] Optional. When paginating, limit the number
    * of returned results to this many.
    *
-   * @param {string} [options.filter] Filter to be applied to the list of scopes
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {string} [options.query] Optional. Expression specifying the criteria
+   * that the returned portfolios must meet
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -3942,7 +3982,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfScope} - The deserialized result object.
+   *                      @resolve {ResourceListOfPortfolio} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -3950,20 +3990,21 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfScope} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfScope} for more information.
+   *                      {ResourceListOfPortfolio} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfPortfolio} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listPortfolioScopes(options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfScope>;
-  listPortfolioScopes(callback: ServiceCallback<models.ResourceListOfScope>): void;
-  listPortfolioScopes(options: { sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfScope>): void;
+  listPortfolios(options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, query? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolio>;
+  listPortfolios(callback: ServiceCallback<models.ResourceListOfPortfolio>): void;
+  listPortfolios(options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, query? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolio>): void;
 
 
   /**
-   * @summary List portfolios
+   * @summary List portfolios for scope
    *
    * List all the portfolios in the specified scope
    *
@@ -3996,10 +4037,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listPortfoliosWithHttpOperationResponse(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolio>>;
+  listPortfoliosForScopeWithHttpOperationResponse(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolio>>;
 
   /**
-   * @summary List portfolios
+   * @summary List portfolios for scope
    *
    * List all the portfolios in the specified scope
    *
@@ -4049,9 +4090,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listPortfolios(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolio>;
-  listPortfolios(scope: string, callback: ServiceCallback<models.ResourceListOfPortfolio>): void;
-  listPortfolios(scope: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolio>): void;
+  listPortfoliosForScope(scope: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolio>;
+  listPortfoliosForScope(scope: string, callback: ServiceCallback<models.ResourceListOfPortfolio>): void;
+  listPortfoliosForScope(scope: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolio>): void;
 
 
   /**
