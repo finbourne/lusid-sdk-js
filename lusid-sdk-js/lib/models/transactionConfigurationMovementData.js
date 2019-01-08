@@ -82,10 +82,10 @@ class TransactionConfigurationMovementData {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'PropertyElementType',
+                  serializedName: 'PerpetualPropertyElementType',
                   type: {
                     name: 'Composite',
-                    className: 'Property'
+                    className: 'PerpetualProperty'
                   }
               }
             }

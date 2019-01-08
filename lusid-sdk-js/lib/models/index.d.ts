@@ -1097,7 +1097,7 @@ export interface ValuationsReconciliationRequest {
 export interface CreatePropertyDefinitionRequest {
   /**
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
-   * 'TxnType', 'Instrument', 'CutDefinition'
+   * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
   */
   domain?: string;
   scope?: string;
@@ -1143,7 +1143,7 @@ export interface PropertyDefinition {
   unitSchema?: string;
   /**
    * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
-   * 'TxnType', 'Instrument', 'CutDefinition'
+   * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
   */
   readonly domain?: string;
   readonly scope?: string;
@@ -1502,7 +1502,7 @@ export interface TransactionConfigurationMovementDataRequest {
    * The Movement direction
   */
   direction: number;
-  properties?: { [propertyName: string]: PropertyValue };
+  properties?: { [propertyName: string]: PerpetualPropertyValue };
   mappings?: TransactionPropertyMappingRequest[];
 }
 
@@ -1515,7 +1515,7 @@ export interface TransactionConfigurationDataRequest {
    * Movement data for the transaction code
   */
   movements: TransactionConfigurationMovementDataRequest[];
-  readonly properties?: { [propertyName: string]: PropertyValue };
+  readonly properties?: { [propertyName: string]: PerpetualPropertyValue };
 }
 
 export interface TransactionPropertyMapping {
@@ -1547,7 +1547,7 @@ export interface TransactionConfigurationMovementData {
    * The Movement direction
   */
   direction: number;
-  properties?: Property[];
+  properties?: PerpetualProperty[];
   mappings?: TransactionPropertyMapping[];
 }
 
@@ -1560,7 +1560,7 @@ export interface TransactionConfigurationData {
    * Movement data for the transaction code
   */
   movements: TransactionConfigurationMovementData[];
-  properties?: Property[];
+  properties?: PerpetualProperty[];
 }
 
 export interface ResourceListOfTransactionConfigurationData {

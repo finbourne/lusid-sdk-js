@@ -88,10 +88,10 @@ class TransactionConfigurationDataRequest {
               name: 'Dictionary',
               value: {
                   required: false,
-                  serializedName: 'PropertyValueElementType',
+                  serializedName: 'PerpetualPropertyValueElementType',
                   type: {
                     name: 'Composite',
-                    className: 'PropertyValue'
+                    className: 'PerpetualPropertyValue'
                   }
               }
             }

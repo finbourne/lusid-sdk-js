@@ -48,8 +48,8 @@ class PropertyDefinition {
    * @property {string} [unitSchema] Possible values include: 'NoUnits',
    * 'Basic', 'Iso4217Currency'
    * @property {string} [domain] Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument',
-   * 'CutDefinition'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TransactionConfiguration',
+   * 'Instrument', 'CutDefinition'
    * @property {string} [scope]
    * @property {string} [code]
    * @property {array} [links]

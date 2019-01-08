@@ -29,8 +29,8 @@ class CreatePropertyDefinitionRequest {
   /**
    * Create a CreatePropertyDefinitionRequest.
    * @property {string} [domain] Possible values include: 'Trade', 'Portfolio',
-   * 'Security', 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument',
-   * 'CutDefinition'
+   * 'Security', 'Holding', 'ReferenceHolding', 'TransactionConfiguration',
+   * 'Instrument', 'CutDefinition'
    * @property {string} [scope]
    * @property {string} [code]
    * @property {boolean} [valueRequired]
