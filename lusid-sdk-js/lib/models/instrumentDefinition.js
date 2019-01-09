@@ -86,7 +86,6 @@ class InstrumentDefinition {
           },
           properties: {
             required: false,
-            readOnly: true,
             serializedName: 'properties',
             type: {
               name: 'Sequence',

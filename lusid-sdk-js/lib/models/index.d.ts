@@ -480,7 +480,7 @@ export interface InstrumentDefinition {
   /**
    * Optional. A collection of properties to upsert on the instrument.
   */
-  readonly properties?: InstrumentProperty[];
+  properties?: InstrumentProperty[];
   /**
    * Optional. The identifier of the portfolio that represents this instrument
   */
@@ -1433,7 +1433,7 @@ export interface TransactionConfigurationTypeAlias {
   transactionGroup: string;
   /**
    * Transactions role within a class. E.g. Increase a long position. Possible values include:
-   * 'None', 'LongLonger', 'LongShorter', 'ShortShorter', 'Shorter', 'ShortLonger', 'Longer',
+   * 'None', 'LongLonger', 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
    * 'AllRoles'
   */
   transactionRoles: string;
