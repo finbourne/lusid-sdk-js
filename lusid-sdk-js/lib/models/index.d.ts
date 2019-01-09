@@ -59,19 +59,18 @@ export interface ErrorDetailBase {
 export interface ErrorResponse {
   readonly status?: number;
   /**
-   * Possible values include: 'Unknown', 'PersonalisationNotFound', 'NonRecursivePersonalisation',
-   * 'VersionNotFound', 'InstrumentNotFound', 'PropertyNotFound', 'PortfolioRecursionDepth',
-   * 'GroupNotFound', 'PortfolioNotFound', 'PropertySchemaNotFound', 'PortfolioAncestryNotFound',
-   * 'PortfolioWithIdAlreadyExists', 'OrphanedPortfolio', 'MissingBaseClaims',
-   * 'PropertyNotDefined', 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
-   * 'PropertyAlreadyExists', 'InvalidPropertyLifeTime', 'CannotModifyDefaultDataType',
-   * 'GroupAlreadyExists', 'NoSuchDataType', 'ValidationError', 'LoopDetectedInGroupHierarchy',
-   * 'SubGroupAlreadyExists', 'PriceSourceNotFound', 'AnalyticStoreNotFound',
-   * 'AnalyticStoreAlreadyExists', 'ClientInstrumentAlreadyExists', 'DuplicateInParameterSet',
-   * 'ResultsNotFound', 'OrderFieldNotInResultSet', 'OperationFailed', 'ElasticSearchError',
-   * 'InvalidParameterValue', 'CommandProcessingFailure', 'EntityStateConstructionFailure',
-   * 'EntityTimelineDoesNotExist', 'EventPublishFailure', 'InvalidRequestFailure',
-   * 'EventPublishUnknown', 'EventQueryFailure', 'BlobDidNotExistFailure',
+   * Possible values include: 'Unknown', 'VersionNotFound', 'InstrumentNotFound',
+   * 'PropertyNotFound', 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
+   * 'PropertySchemaNotFound', 'PortfolioAncestryNotFound', 'PortfolioWithIdAlreadyExists',
+   * 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined', 'CannotDeleteSystemProperty',
+   * 'CannotModifyImmutablePropertyField', 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
+   * 'CannotModifyDefaultDataType', 'GroupAlreadyExists', 'NoSuchDataType', 'ValidationError',
+   * 'LoopDetectedInGroupHierarchy', 'SubGroupAlreadyExists', 'PriceSourceNotFound',
+   * 'AnalyticStoreNotFound', 'AnalyticStoreAlreadyExists', 'ClientInstrumentAlreadyExists',
+   * 'DuplicateInParameterSet', 'ResultsNotFound', 'OrderFieldNotInResultSet', 'OperationFailed',
+   * 'ElasticSearchError', 'InvalidParameterValue', 'CommandProcessingFailure',
+   * 'EntityStateConstructionFailure', 'EntityTimelineDoesNotExist', 'EventPublishFailure',
+   * 'InvalidRequestFailure', 'EventPublishUnknown', 'EventQueryFailure', 'BlobDidNotExistFailure',
    * 'SubSystemRequestFailure', 'SubSystemConfigurationFailure', 'FailedToDelete',
    * 'UpsertClientInstrumentFailure', 'IllegalAsAtInterval', 'IllegalBitemporalQuery',
    * 'InvalidAlternateId', 'CannotAddSourcePortfolioPropertyExplicitly',
@@ -701,39 +700,6 @@ export interface VersionSummaryDto {
   readonly apiVersion?: string;
   readonly buildVersion?: string;
   readonly excelVersion?: string;
-  links?: Link[];
-}
-
-export interface Personalisation {
-  /**
-   * Possible values include: 'User', 'Group', 'Default', 'All'
-  */
-  scope?: string;
-  scopeValue?: string;
-  settingKey?: string;
-  settingValue?: string;
-  dataType?: string;
-  href?: string;
-}
-
-export interface ResourceListOfPersonalisation {
-  values?: Personalisation[];
-  /**
-   * The Uri that returns the same result as the original request,
-   * but may include resolved as at time(s).
-  */
-  href?: string;
-  /**
-   * The total number of records returned in the set.
-   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
-   * are evaluated. This is due to lazy evaluation.
-  */
-  count?: number;
-  links?: Link[];
-}
-
-export interface UpsertPersonalisationResponse {
-  href?: string;
   links?: Link[];
 }
 
@@ -1467,7 +1433,7 @@ export interface TransactionConfigurationTypeAlias {
   transactionGroup: string;
   /**
    * Transactions role within a class. E.g. Increase a long position. Possible values include:
-   * 'None', 'LongLonger', 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
+   * 'None', 'LongLonger', 'LongShorter', 'ShortShorter', 'Shorter', 'ShortLonger', 'Longer',
    * 'AllRoles'
   */
   transactionRoles: string;

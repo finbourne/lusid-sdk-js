@@ -30,7 +30,6 @@ class ErrorResponse {
    * Create a ErrorResponse.
    * @property {number} [status]
    * @property {string} [code] Possible values include: 'Unknown',
-   * 'PersonalisationNotFound', 'NonRecursivePersonalisation',
    * 'VersionNotFound', 'InstrumentNotFound', 'PropertyNotFound',
    * 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
    * 'PropertySchemaNotFound', 'PortfolioAncestryNotFound',
