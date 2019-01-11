@@ -1355,6 +1355,29 @@ export interface ResourceListOfValueType {
   links?: Link[];
 }
 
+/**
+ * Defines a scope
+*/
+export interface ScopeDefinition {
+  scope: string;
+}
+
+export interface ResourceListOfScopeDefinition {
+  values?: ScopeDefinition[];
+  /**
+   * The Uri that returns the same result as the original request,
+   * but may include resolved as at time(s).
+  */
+  href?: string;
+  /**
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
+  */
+  count?: number;
+  links?: Link[];
+}
+
 export interface InstrumentSearchProperty {
   /**
    * The property key of the property, e.g, 'Instrument/default/Isin'

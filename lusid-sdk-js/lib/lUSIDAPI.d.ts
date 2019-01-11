@@ -6427,6 +6427,92 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary List scopes
+   *
+   * List all the scopes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {string} [options.query] Optional. Expression specifying the criteria
+   * that the returned portfolios must meet
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfScopeDefinition>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  listScopesWithHttpOperationResponse(options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, query? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfScopeDefinition>>;
+
+  /**
+   * @summary List scopes
+   *
+   * List all the scopes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {string} [options.query] Optional. Expression specifying the criteria
+   * that the returned portfolios must meet
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfScopeDefinition} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfScopeDefinition} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfScopeDefinition} for more
+   *                      information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listScopes(options?: { sortBy? : string[], start? : number, limit? : number, filter? : string, query? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfScopeDefinition>;
+  listScopes(callback: ServiceCallback<models.ResourceListOfScopeDefinition>): void;
+  listScopes(options: { sortBy? : string[], start? : number, limit? : number, filter? : string, query? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfScopeDefinition>): void;
+
+
+  /**
    * @summary Search instruments
    *
    * Search through instruments that have been mastered in LUSID, and optionally

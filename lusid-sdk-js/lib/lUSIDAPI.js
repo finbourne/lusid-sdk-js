@@ -12234,6 +12234,187 @@ function _getValueTypes(options, callback) {
 }
 
 /**
+ * @summary List scopes
+ *
+ * List all the scopes
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {array} [options.sortBy] Optional. Order the results by these fields.
+ * Use use the '-' sign to denote descending order e.g. -MyFieldName
+ *
+ * @param {number} [options.start] Optional. When paginating, skip this number
+ * of results
+ *
+ * @param {number} [options.limit] Optional. When paginating, limit the number
+ * of returned results to this many.
+ *
+ * @param {string} [options.filter] Optional. Expression to filter the result
+ * set
+ *
+ * @param {string} [options.query] Optional. Expression specifying the criteria
+ * that the returned portfolios must meet
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link ResourceListOfScopeDefinition} for more
+ *                      information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _listScopes(options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
+  let start = (options && options.start !== undefined) ? options.start : undefined;
+  let limit = (options && options.limit !== undefined) ? options.limit : undefined;
+  let filter = (options && options.filter !== undefined) ? options.filter : undefined;
+  let query = (options && options.query !== undefined) ? options.query : undefined;
+  // Validate
+  try {
+    if (Array.isArray(sortBy)) {
+      for (let i = 0; i < sortBy.length; i++) {
+        if (sortBy[i] !== null && sortBy[i] !== undefined && typeof sortBy[i].valueOf() !== 'string') {
+          throw new Error('sortBy[i] must be of type string.');
+        }
+      }
+    }
+    if (start !== null && start !== undefined && typeof start !== 'number') {
+      throw new Error('start must be of type number.');
+    }
+    if (limit !== null && limit !== undefined && typeof limit !== 'number') {
+      throw new Error('limit must be of type number.');
+    }
+    if (filter !== null && filter !== undefined && typeof filter.valueOf() !== 'string') {
+      throw new Error('filter must be of type string.');
+    }
+    if (query !== null && query !== undefined && typeof query.valueOf() !== 'string') {
+      throw new Error('query must be of type string.');
+    }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/scopes';
+  let queryParameters = [];
+  if (sortBy !== null && sortBy !== undefined) {
+    if (sortBy.length == 0) {
+      queryParameters.push('sortBy=' + encodeURIComponent(''));
+    } else {
+      for (let item of sortBy) {
+        item = (item === null || item === undefined) ? '' : item;
+        queryParameters.push('sortBy=' + encodeURIComponent('' + item));
+      }
+    }
+  }
+  if (start !== null && start !== undefined) {
+    queryParameters.push('start=' + encodeURIComponent(start.toString()));
+  }
+  if (limit !== null && limit !== undefined) {
+    queryParameters.push('limit=' + encodeURIComponent(limit.toString()));
+  }
+  if (filter !== null && filter !== undefined) {
+    queryParameters.push('filter=' + encodeURIComponent(filter));
+  }
+  if (query !== null && query !== undefined) {
+    queryParameters.push('query=' + encodeURIComponent(query));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'GET';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  httpRequest.body = null;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ResourceListOfScopeDefinition']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
  * @summary Search instruments
  *
  * Search through instruments that have been mastered in LUSID, and optionally
@@ -16286,6 +16467,7 @@ class LUSIDAPI extends ServiceClient {
     this._getEntitySchema = _getEntitySchema;
     this._getPropertySchema = _getPropertySchema;
     this._getValueTypes = _getValueTypes;
+    this._listScopes = _listScopes;
     this._instrumentsSearch = _instrumentsSearch;
     this._portfolioGroupsSearch = _portfolioGroupsSearch;
     this._portfoliosSearch = _portfoliosSearch;
@@ -24685,6 +24867,119 @@ class LUSIDAPI extends ServiceClient {
       });
     } else {
       return self._getValueTypes(options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary List scopes
+   *
+   * List all the scopes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {string} [options.query] Optional. Expression specifying the criteria
+   * that the returned portfolios must meet
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfScopeDefinition>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  listScopesWithHttpOperationResponse(options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._listScopes(options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary List scopes
+   *
+   * List all the scopes
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.sortBy] Optional. Order the results by these fields.
+   * Use use the '-' sign to denote descending order e.g. -MyFieldName
+   *
+   * @param {number} [options.start] Optional. When paginating, skip this number
+   * of results
+   *
+   * @param {number} [options.limit] Optional. When paginating, limit the number
+   * of returned results to this many.
+   *
+   * @param {string} [options.filter] Optional. Expression to filter the result
+   * set
+   *
+   * @param {string} [options.query] Optional. Expression specifying the criteria
+   * that the returned portfolios must meet
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {ResourceListOfScopeDefinition} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfScopeDefinition} for more
+   *                      information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listScopes(options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._listScopes(options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._listScopes(options, optionalCallback);
     }
   }
 
