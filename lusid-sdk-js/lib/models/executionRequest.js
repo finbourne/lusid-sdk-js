@@ -30,7 +30,7 @@ class ExecutionRequest {
    * Create a ExecutionRequest.
    * @property {string} executionId FIX Field 17.  Unique execution identifier.
    * @property {string} side FIX Field 54.
-   * @property {string} instrumentUid Unique instrument identifier.
+   * @property {object} instrumentIdentifiers Unique instrument identifiers.
    * @property {date} transactionTime FIX field 60.  Time the transaction
    * represented by this ExecutionReport occurred.
    * @property {number} orderQty FIX field 38.  Order quantity.
@@ -68,11 +68,18 @@ class ExecutionRequest {
               name: 'String'
             }
           },
-          instrumentUid: {
+          instrumentIdentifiers: {
             required: true,
-            serializedName: 'instrumentUid',
+            serializedName: 'instrumentIdentifiers',
             type: {
-              name: 'String'
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'StringElementType',
+                  type: {
+                    name: 'String'
+                  }
+              }
             }
           },
           transactionTime: {

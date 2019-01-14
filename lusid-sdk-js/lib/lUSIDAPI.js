@@ -1037,13 +1037,6 @@ function _createCorporateActionSource(options, callback) {
     throw new Error('callback cannot be null.');
   }
 let request;
-try {
-  if ()
-  {
-  }
-} catch (error) {
-  return callback(error);
-}
 
   // Construct URL
   let baseUrl = this.baseUri;

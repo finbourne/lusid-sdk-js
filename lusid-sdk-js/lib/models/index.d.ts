@@ -1612,9 +1612,9 @@ export interface ExecutionRequest {
   */
   side: string;
   /**
-   * Unique instrument identifier.
+   * Unique instrument identifiers.
   */
-  instrumentUid: string;
+  instrumentIdentifiers: { [propertyName: string]: string };
   /**
    * FIX field 60.  Time the transaction represented by this ExecutionReport occurred.
   */
