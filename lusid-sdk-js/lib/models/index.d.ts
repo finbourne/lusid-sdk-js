@@ -33,7 +33,7 @@ export interface Link {
   /**
    * Possible values include: 'Root', 'Properties', 'Transactions', 'Details', 'Constituents',
    * 'Holdings', 'Commands', 'HoldingsAdjustments', 'Parent', 'PropertySchema', 'EntitySchema',
-   * 'Quote'
+   * 'Quote', 'ConstituentsAdjustments'
   */
   relation: string;
   href: string;
@@ -1271,6 +1271,32 @@ export interface UpsertReferencePortfolioConstituentsRequest {
 export interface UpsertReferencePortfolioConstituentsResponse {
   href?: string;
   version?: Version;
+  links?: Link[];
+}
+
+export interface ConstituentsAdjustmentHeader {
+  /**
+   * There can be at most one holdings adjustment for a portfolio at a
+   * specific effective time so this uniquely identifies the adjustment.
+  */
+  effectiveAt?: Date;
+  version?: Version;
+  links?: Link[];
+}
+
+export interface ResourceListOfConstituentsAdjustmentHeader {
+  values?: ConstituentsAdjustmentHeader[];
+  /**
+   * The Uri that returns the same result as the original request,
+   * but may include resolved as at time(s).
+  */
+  href?: string;
+  /**
+   * The total number of records returned in the set.
+   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
+   * are evaluated. This is due to lazy evaluation.
+  */
+  count?: number;
   links?: Link[];
 }
 

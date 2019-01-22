@@ -23,63 +23,65 @@
 'use strict';
 
 /**
- * Class representing a Link.
+ * Class representing a ConstituentsAdjustmentHeader.
  */
-class Link {
+class ConstituentsAdjustmentHeader {
   /**
-   * Create a Link.
-   * @property {string} relation Possible values include: 'Root', 'Properties',
-   * 'Transactions', 'Details', 'Constituents', 'Holdings', 'Commands',
-   * 'HoldingsAdjustments', 'Parent', 'PropertySchema', 'EntitySchema',
-   * 'Quote', 'ConstituentsAdjustments'
-   * @property {string} href
-   * @property {string} [description]
-   * @property {string} method Possible values include: 'POST', 'GET', 'PATCH',
-   * 'DELETE'
+   * Create a ConstituentsAdjustmentHeader.
+   * @property {date} [effectiveAt] There can be at most one holdings
+   * adjustment for a portfolio at a
+   * specific effective time so this uniquely identifies the adjustment.
+   * @property {object} [version]
+   * @property {date} [version.effectiveFrom]
+   * @property {date} [version.asAtDate]
+   * @property {string} [version.href]
+   * @property {array} [links]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of Link
+   * Defines the metadata of ConstituentsAdjustmentHeader
    *
-   * @returns {object} metadata of Link
+   * @returns {object} metadata of ConstituentsAdjustmentHeader
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'Link',
+      serializedName: 'ConstituentsAdjustmentHeader',
       type: {
         name: 'Composite',
-        className: 'Link',
+        className: 'ConstituentsAdjustmentHeader',
         modelProperties: {
-          relation: {
-            required: true,
-            serializedName: 'relation',
-            type: {
-              name: 'String'
-            }
-          },
-          href: {
-            required: true,
-            serializedName: 'href',
-            type: {
-              name: 'String'
-            }
-          },
-          description: {
+          effectiveAt: {
             required: false,
-            serializedName: 'description',
+            serializedName: 'effectiveAt',
             type: {
-              name: 'String'
+              name: 'DateTime'
             }
           },
-          method: {
-            required: true,
-            serializedName: 'method',
+          version: {
+            required: false,
+            serializedName: 'version',
             type: {
-              name: 'String'
+              name: 'Composite',
+              className: 'Version'
+            }
+          },
+          links: {
+            required: false,
+            serializedName: 'links',
+            type: {
+              name: 'Sequence',
+              element: {
+                  required: false,
+                  serializedName: 'LinkElementType',
+                  type: {
+                    name: 'Composite',
+                    className: 'Link'
+                  }
+              }
             }
           }
         }
@@ -88,4 +90,4 @@ class Link {
   }
 }
 
-module.exports = Link;
+module.exports = ConstituentsAdjustmentHeader;

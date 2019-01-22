@@ -11112,6 +11112,172 @@ function _upsertReferencePortfolioConstituents(scope, code, options, callback) {
 }
 
 /**
+ * @summary Gets constituents adjustments in an interval of effective time.
+ *
+ * Specify a time period in which you'd like to see the list of times that
+ * adjustments where made to this portfolio
+ *
+ * @param {string} scope The scope of the portfolio
+ *
+ * @param {string} code Code for the portfolio
+ *
+ * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+ * and the toEffectiveAt are returned.
+ *
+ * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+ * and the fromEffectiveAt are returned.
+ *
+ * @param {date} [options.asAtTime] The as-at time for which the result is
+ * valid.
+ *
+ * @param {object} [options.customHeaders] Headers that will be added to the
+ * request
+ *
+ * @param {function} callback - The callback.
+ *
+ * @returns {function} callback(err, result, request, response)
+ *
+ *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+ *
+ *                      {object} [result]   - The deserialized result object if an error did not occur.
+ *                      See {@link ResourceListOfConstituentsAdjustmentHeader}
+ *                      for more information.
+ *
+ *                      {object} [request]  - The HTTP Request object if an error did not occur.
+ *
+ *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+ */
+function _listConstituentsAdjustments(scope, code, options, callback) {
+   /* jshint validthis: true */
+  let client = this;
+  if(!callback && typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  if (!callback) {
+    throw new Error('callback cannot be null.');
+  }
+  let fromEffectiveAt = (options && options.fromEffectiveAt !== undefined) ? options.fromEffectiveAt : undefined;
+  let toEffectiveAt = (options && options.toEffectiveAt !== undefined) ? options.toEffectiveAt : undefined;
+  let asAtTime = (options && options.asAtTime !== undefined) ? options.asAtTime : undefined;
+  // Validate
+  try {
+    if (scope === null || scope === undefined || typeof scope.valueOf() !== 'string') {
+      throw new Error('scope cannot be null or undefined and it must be of type string.');
+    }
+    if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
+      throw new Error('code cannot be null or undefined and it must be of type string.');
+    }
+    if (fromEffectiveAt && !(fromEffectiveAt instanceof Date ||
+        (typeof fromEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(fromEffectiveAt))))) {
+          throw new Error('fromEffectiveAt must be of type date.');
+        }
+    if (toEffectiveAt && !(toEffectiveAt instanceof Date ||
+        (typeof toEffectiveAt.valueOf() === 'string' && !isNaN(Date.parse(toEffectiveAt))))) {
+          throw new Error('toEffectiveAt must be of type date.');
+        }
+    if (asAtTime && !(asAtTime instanceof Date ||
+        (typeof asAtTime.valueOf() === 'string' && !isNaN(Date.parse(asAtTime))))) {
+          throw new Error('asAtTime must be of type date.');
+        }
+  } catch (error) {
+    return callback(error);
+  }
+
+  // Construct URL
+  let baseUrl = this.baseUri;
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/referenceportfolios/{scope}/{code}/constituentsadjustments';
+  requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
+  requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
+  let queryParameters = [];
+  if (fromEffectiveAt !== null && fromEffectiveAt !== undefined) {
+    queryParameters.push('fromEffectiveAt=' + encodeURIComponent(client.serializeObject(fromEffectiveAt)));
+  }
+  if (toEffectiveAt !== null && toEffectiveAt !== undefined) {
+    queryParameters.push('toEffectiveAt=' + encodeURIComponent(client.serializeObject(toEffectiveAt)));
+  }
+  if (asAtTime !== null && asAtTime !== undefined) {
+    queryParameters.push('asAtTime=' + encodeURIComponent(client.serializeObject(asAtTime)));
+  }
+  if (queryParameters.length > 0) {
+    requestUrl += '?' + queryParameters.join('&');
+  }
+
+  // Create HTTP transport objects
+  let httpRequest = new WebResource();
+  httpRequest.method = 'GET';
+  httpRequest.url = requestUrl;
+  httpRequest.headers = {};
+  // Set Headers
+  httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
+  if(options) {
+    for(let headerName in options['customHeaders']) {
+      if (options['customHeaders'].hasOwnProperty(headerName)) {
+        httpRequest.headers[headerName] = options['customHeaders'][headerName];
+      }
+    }
+  }
+  httpRequest.body = null;
+  // Send Request
+  return client.pipeline(httpRequest, (err, response, responseBody) => {
+    if (err) {
+      return callback(err);
+    }
+    let statusCode = response.statusCode;
+    if (statusCode !== 200) {
+      let error = new Error(responseBody);
+      error.statusCode = response.statusCode;
+      error.request = msRest.stripRequest(httpRequest);
+      error.response = msRest.stripResponse(response);
+      if (responseBody === '') responseBody = null;
+      let parsedErrorResponse;
+      try {
+        parsedErrorResponse = JSON.parse(responseBody);
+        if (parsedErrorResponse) {
+          let internalError = null;
+          if (parsedErrorResponse.error) internalError = parsedErrorResponse.error;
+          error.code = internalError ? internalError.code : parsedErrorResponse.code;
+          error.message = internalError ? internalError.message : parsedErrorResponse.message;
+        }
+        if (parsedErrorResponse !== null && parsedErrorResponse !== undefined) {
+          let resultMapper = new client.models['ErrorResponse']().mapper();
+          error.body = client.deserialize(resultMapper, parsedErrorResponse, 'error.body');
+        }
+      } catch (defaultError) {
+        error.message = `Error "${defaultError.message}" occurred in deserializing the responseBody ` +
+                         `- "${responseBody}" for the default response.`;
+        return callback(error);
+      }
+      return callback(error);
+    }
+    // Create Result
+    let result = null;
+    if (responseBody === '') responseBody = null;
+    // Deserialize Response
+    if (statusCode === 200) {
+      let parsedResponse = null;
+      try {
+        parsedResponse = JSON.parse(responseBody);
+        result = JSON.parse(responseBody);
+        if (parsedResponse !== null && parsedResponse !== undefined) {
+          let resultMapper = new client.models['ResourceListOfConstituentsAdjustmentHeader']().mapper();
+          result = client.deserialize(resultMapper, parsedResponse, 'result');
+        }
+      } catch (error) {
+        let deserializationError = new Error(`Error ${error} occurred in deserializing the responseBody - ${responseBody}`);
+        deserializationError.request = msRest.stripRequest(httpRequest);
+        deserializationError.response = msRest.stripResponse(response);
+        return callback(deserializationError);
+      }
+    }
+
+    return callback(null, result, httpRequest, response);
+  });
+}
+
+/**
  * @summary Get results
  *
  * Retrieve some previously stored results
@@ -16453,6 +16619,7 @@ class LUSIDAPI extends ServiceClient {
     this._createReferencePortfolio = _createReferencePortfolio;
     this._getReferencePortfolioConstituents = _getReferencePortfolioConstituents;
     this._upsertReferencePortfolioConstituents = _upsertReferencePortfolioConstituents;
+    this._listConstituentsAdjustments = _listConstituentsAdjustments;
     this._getResults = _getResults;
     this._upsertResults = _upsertResults;
     this._getAggregationByResultSet = _getAggregationByResultSet;
@@ -24086,6 +24253,117 @@ class LUSIDAPI extends ServiceClient {
       });
     } else {
       return self._upsertReferencePortfolioConstituents(scope, code, options, optionalCallback);
+    }
+  }
+
+  /**
+   * @summary Gets constituents adjustments in an interval of effective time.
+   *
+   * Specify a time period in which you'd like to see the list of times that
+   * adjustments where made to this portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
+   *
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfConstituentsAdjustmentHeader>} - The deserialized result object.
+   *
+   * @reject {Error} - The error object.
+   */
+  listConstituentsAdjustmentsWithHttpOperationResponse(scope, code, options) {
+    let client = this;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._listConstituentsAdjustments(scope, code, options, (err, result, request, response) => {
+        let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
+        httpOperationResponse.body = result;
+        if (err) { reject(err); }
+        else { resolve(httpOperationResponse); }
+        return;
+      });
+    });
+  }
+
+  /**
+   * @summary Gets constituents adjustments in an interval of effective time.
+   *
+   * Specify a time period in which you'd like to see the list of times that
+   * adjustments where made to this portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
+   *
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {function} [optionalCallback] - The optional callback.
+   *
+   * @returns {function|Promise} If a callback was passed as the last parameter
+   * then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned
+   *
+   *                      @resolve {ResourceListOfConstituentsAdjustmentHeader} - The deserialized result object.
+   *
+   *                      @reject {Error} - The error object.
+   *
+   * {function} optionalCallback(err, result, request, response)
+   *
+   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {object} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfConstituentsAdjustmentHeader}
+   *                      for more information.
+   *
+   *                      {object} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listConstituentsAdjustments(scope, code, options, optionalCallback) {
+    let client = this;
+    let self = this;
+    if (!optionalCallback && typeof options === 'function') {
+      optionalCallback = options;
+      options = null;
+    }
+    if (!optionalCallback) {
+      return new Promise((resolve, reject) => {
+        self._listConstituentsAdjustments(scope, code, options, (err, result, request, response) => {
+          if (err) { reject(err); }
+          else { resolve(result); }
+          return;
+        });
+      });
+    } else {
+      return self._listConstituentsAdjustments(scope, code, options, optionalCallback);
     }
   }
 

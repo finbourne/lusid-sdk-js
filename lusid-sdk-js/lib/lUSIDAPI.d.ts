@@ -5842,6 +5842,90 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Gets constituents adjustments in an interval of effective time.
+   *
+   * Specify a time period in which you'd like to see the list of times that
+   * adjustments where made to this portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
+   *
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<ResourceListOfConstituentsAdjustmentHeader>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  listConstituentsAdjustmentsWithHttpOperationResponse(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfConstituentsAdjustmentHeader>>;
+
+  /**
+   * @summary Gets constituents adjustments in an interval of effective time.
+   *
+   * Specify a time period in which you'd like to see the list of times that
+   * adjustments where made to this portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code Code for the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.fromEffectiveAt] Events between this time (inclusive)
+   * and the toEffectiveAt are returned.
+   *
+   * @param {date} [options.toEffectiveAt] Events between this time (inclusive)
+   * and the fromEffectiveAt are returned.
+   *
+   * @param {date} [options.asAtTime] The as-at time for which the result is
+   * valid.
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {ResourceListOfConstituentsAdjustmentHeader} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {ResourceListOfConstituentsAdjustmentHeader} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfConstituentsAdjustmentHeader}
+   *                      for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  listConstituentsAdjustments(scope: string, code: string, options?: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfConstituentsAdjustmentHeader>;
+  listConstituentsAdjustments(scope: string, code: string, callback: ServiceCallback<models.ResourceListOfConstituentsAdjustmentHeader>): void;
+  listConstituentsAdjustments(scope: string, code: string, options: { fromEffectiveAt? : Date, toEffectiveAt? : Date, asAtTime? : Date, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfConstituentsAdjustmentHeader>): void;
+
+
+  /**
    * @summary Get results
    *
    * Retrieve some previously stored results
