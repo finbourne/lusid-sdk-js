@@ -5697,8 +5697,6 @@ function _deletePortfolioGroup(scope, code, options, callback) {
  *
  * @param {string} [options.request.recipeId.code]
  *
- * @param {boolean} [options.request.loadReferencePortfolio]
- *
  * @param {date} [options.request.asAt] The asAt date to use
  *
  * @param {date} options.request.effectiveAt
@@ -5910,8 +5908,6 @@ function _getAggregationByGroup(scope, code, options, callback) {
  * @param {string} [options.request.recipeId.scope]
  *
  * @param {string} [options.request.recipeId.code]
- *
- * @param {boolean} [options.request.loadReferencePortfolio]
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
@@ -7908,8 +7904,6 @@ function _deletePortfolio(scope, code, options, callback) {
  *
  * @param {string} [options.request.recipeId.code]
  *
- * @param {boolean} [options.request.loadReferencePortfolio]
- *
  * @param {date} [options.request.asAt] The asAt date to use
  *
  * @param {date} options.request.effectiveAt
@@ -9084,8 +9078,6 @@ function _reconcileHoldings(options, callback) {
  *
  * @param {string} [options.request.right.aggregation.recipeId.code]
  *
- * @param {boolean} [options.request.right.aggregation.loadReferencePortfolio]
- *
  * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
  *
  * @param {date} options.request.right.aggregation.effectiveAt
@@ -10094,9 +10086,9 @@ function _deletePropertyDefinition(domain, scope, code, options, callback) {
 }
 
 /**
- * @summary Add quotes
+ * @summary Upsert quotes
  *
- * Add quotes effective at the specified time. If a quote is added with the
+ * Upsert quotes effective at the specified time. If a quote is added with the
  * same id (and is effective at the same time) as an existing quote, then the
  * more recently added quote will be returned when queried
  *
@@ -10104,7 +10096,7 @@ function _deletePropertyDefinition(domain, scope, code, options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {array} [options.quotes] The quotes to add
+ * @param {array} [options.quotes] The quotes to upsert
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -11656,8 +11648,6 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * @param {string} [options.request.recipeId.scope]
  *
  * @param {string} [options.request.recipeId.code]
- *
- * @param {boolean} [options.request.loadReferencePortfolio]
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
@@ -20519,8 +20509,6 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.recipeId.code]
    *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
    * @param {date} [options.request.asAt] The asAt date to use
    *
    * @param {date} options.request.effectiveAt
@@ -20586,8 +20574,6 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -20679,8 +20665,6 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.recipeId.code]
    *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
    * @param {date} [options.request.asAt] The asAt date to use
    *
    * @param {date} options.request.effectiveAt
@@ -20738,8 +20722,6 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -22042,8 +22024,6 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.recipeId.code]
    *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
    * @param {date} [options.request.asAt] The asAt date to use
    *
    * @param {date} options.request.effectiveAt
@@ -22109,8 +22089,6 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -22830,8 +22808,6 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.right.aggregation.recipeId.code]
    *
-   * @param {boolean} [options.request.right.aggregation.loadReferencePortfolio]
-   *
    * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
    *
    * @param {date} options.request.right.aggregation.effectiveAt
@@ -22915,8 +22891,6 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.request.right.aggregation.recipeId.scope]
    *
    * @param {string} [options.request.right.aggregation.recipeId.code]
-   *
-   * @param {boolean} [options.request.right.aggregation.loadReferencePortfolio]
    *
    * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
    *
@@ -23590,9 +23564,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Add quotes
+   * @summary Upsert quotes
    *
-   * Add quotes effective at the specified time. If a quote is added with the
+   * Upsert quotes effective at the specified time. If a quote is added with the
    * same id (and is effective at the same time) as an existing quote, then the
    * more recently added quote will be returned when queried
    *
@@ -23600,7 +23574,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.quotes] The quotes to add
+   * @param {array} [options.quotes] The quotes to upsert
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -23626,9 +23600,9 @@ class LUSIDAPI extends ServiceClient {
   }
 
   /**
-   * @summary Add quotes
+   * @summary Upsert quotes
    *
-   * Add quotes effective at the specified time. If a quote is added with the
+   * Upsert quotes effective at the specified time. If a quote is added with the
    * same id (and is effective at the same time) as an existing quote, then the
    * more recently added quote will be returned when queried
    *
@@ -23636,7 +23610,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {array} [options.quotes] The quotes to add
+   * @param {array} [options.quotes] The quotes to upsert
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -24640,8 +24614,6 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.recipeId.code]
    *
-   * @param {boolean} [options.request.loadReferencePortfolio]
-   *
    * @param {date} [options.request.asAt] The asAt date to use
    *
    * @param {date} options.request.effectiveAt
@@ -24708,8 +24680,6 @@ class LUSIDAPI extends ServiceClient {
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
-   *
-   * @param {boolean} [options.request.loadReferencePortfolio]
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *

@@ -39,7 +39,6 @@ class ValuationsReconciliationRequest {
    * @property {object} [left.aggregation.recipeId]
    * @property {string} [left.aggregation.recipeId.scope]
    * @property {string} [left.aggregation.recipeId.code]
-   * @property {boolean} [left.aggregation.loadReferencePortfolio]
    * @property {date} [left.aggregation.asAt] The asAt date to use
    * @property {date} [left.aggregation.effectiveAt]
    * @property {array} [left.aggregation.metrics]
@@ -58,7 +57,6 @@ class ValuationsReconciliationRequest {
    * @property {object} [right.aggregation.recipeId]
    * @property {string} [right.aggregation.recipeId.scope]
    * @property {string} [right.aggregation.recipeId.code]
-   * @property {boolean} [right.aggregation.loadReferencePortfolio]
    * @property {date} [right.aggregation.asAt] The asAt date to use
    * @property {date} [right.aggregation.effectiveAt]
    * @property {array} [right.aggregation.metrics]

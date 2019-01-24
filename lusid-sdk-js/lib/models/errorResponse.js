@@ -78,7 +78,7 @@ class ErrorResponse {
    * 'ValuationEngineFailure', 'TaskFactoryFailure', 'TaskEvaluationFailure',
    * 'InstrumentFailure', 'CashFlowsFailure', 'ResultRetrievalFailure',
    * 'ResultProcessingFailure', 'VendorResultProcessingFailure',
-   * 'CannotSupplyTimesWithPortfoliosQuery'
+   * 'CannotSupplyTimesWithPortfoliosQuery', 'AttemptToUpsertDuplicateQuotes'
    * @property {string} [message]
    * @property {string} [detailedMessage]
    * @property {array} [items]

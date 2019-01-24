@@ -37,7 +37,6 @@ class ValuationReconciliationRequest {
    * @property {object} [aggregation.recipeId]
    * @property {string} [aggregation.recipeId.scope]
    * @property {string} [aggregation.recipeId.code]
-   * @property {boolean} [aggregation.loadReferencePortfolio]
    * @property {date} [aggregation.asAt] The asAt date to use
    * @property {date} [aggregation.effectiveAt]
    * @property {array} [aggregation.metrics]

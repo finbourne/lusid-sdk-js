@@ -95,7 +95,7 @@ export interface ErrorResponse {
    * 'PortfolioPreprocessFailure', 'ValuationEngineFailure', 'TaskFactoryFailure',
    * 'TaskEvaluationFailure', 'InstrumentFailure', 'CashFlowsFailure', 'ResultRetrievalFailure',
    * 'ResultProcessingFailure', 'VendorResultProcessingFailure',
-   * 'CannotSupplyTimesWithPortfoliosQuery'
+   * 'CannotSupplyTimesWithPortfoliosQuery', 'AttemptToUpsertDuplicateQuotes'
   */
   readonly code?: string;
   readonly message?: string;
@@ -746,7 +746,7 @@ export interface UpdatePortfolioGroupRequest {
 export interface AggregateSpec {
   key: string;
   /**
-   * Possible values include: 'Sum', 'Proportion'
+   * Possible values include: 'Sum', 'Proportion', 'Average', 'Count', 'Min', 'Max', 'Value'
   */
   op: string;
 }
@@ -770,7 +770,6 @@ export interface PropertyFilter {
 */
 export interface AggregationRequest {
   recipeId: ResourceId;
-  loadReferencePortfolio?: boolean;
   /**
    * The asAt date to use
   */

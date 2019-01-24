@@ -29,7 +29,8 @@ class AggregateSpec {
   /**
    * Create a AggregateSpec.
    * @property {string} key
-   * @property {string} op Possible values include: 'Sum', 'Proportion'
+   * @property {string} op Possible values include: 'Sum', 'Proportion',
+   * 'Average', 'Count', 'Min', 'Max', 'Value'
    */
   constructor() {
   }

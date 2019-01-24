@@ -32,7 +32,6 @@ class AggregationRequest {
    * @property {object} recipeId
    * @property {string} [recipeId.scope]
    * @property {string} [recipeId.code]
-   * @property {boolean} [loadReferencePortfolio]
    * @property {date} [asAt] The asAt date to use
    * @property {date} effectiveAt
    * @property {array} metrics
@@ -64,13 +63,6 @@ class AggregationRequest {
             type: {
               name: 'Composite',
               className: 'ResourceId'
-            }
-          },
-          loadReferencePortfolio: {
-            required: false,
-            serializedName: 'loadReferencePortfolio',
-            type: {
-              name: 'Boolean'
             }
           },
           asAt: {
