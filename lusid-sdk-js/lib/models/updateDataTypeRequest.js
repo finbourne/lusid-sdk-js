@@ -38,7 +38,7 @@ class UpdateDataTypeRequest {
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-   * 'ArrayOfQuoteIds'
+   * 'ArrayOfQuoteIds', 'ResourceId'
    * @property {array} [acceptableValues]
    * @property {string} [unitSchema] Possible values include: 'NoUnits',
    * 'Basic', 'Iso4217Currency'

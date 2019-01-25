@@ -277,7 +277,7 @@ export interface CreateDataTypeRequest {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'ArrayOfQuoteIds'
+   * 'QuoteId', 'ArrayOfQuoteIds', 'ResourceId'
   */
   valueType: string;
   acceptableValues?: any[];
@@ -312,7 +312,7 @@ export interface DataType {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'ArrayOfQuoteIds'
+   * 'QuoteId', 'ArrayOfQuoteIds', 'ResourceId'
   */
   valueType?: string;
   acceptableValues?: any[];
@@ -352,7 +352,7 @@ export interface UpdateDataTypeRequest {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'ArrayOfQuoteIds'
+   * 'QuoteId', 'ArrayOfQuoteIds', 'ResourceId'
   */
   valueType: string;
   acceptableValues?: any[];
@@ -791,7 +791,7 @@ export interface FieldSchema {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'ArrayOfQuoteIds'
+   * 'QuoteId', 'ArrayOfQuoteIds', 'ResourceId'
   */
   type?: string;
   isMetric?: boolean;
@@ -799,13 +799,8 @@ export interface FieldSchema {
   propertySchema?: { [propertyName: string]: FieldSchema };
 }
 
-export interface KeyValuePairOfPropertyKeyToFieldSchema {
-  readonly key?: string;
-  readonly value?: FieldSchema;
-}
-
 export interface ResultDataSchema {
-  nodeValueSchema?: KeyValuePairOfPropertyKeyToFieldSchema[];
+  nodeValueSchema?: { [propertyName: string]: FieldSchema };
   propertySchema?: { [propertyName: string]: FieldSchema };
 }
 
@@ -1088,7 +1083,7 @@ export interface PropertyDefinition {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'ArrayOfQuoteIds'
+   * 'QuoteId', 'ArrayOfQuoteIds', 'ResourceId'
   */
   valueType?: string;
   valueRequired?: boolean;
@@ -1346,21 +1341,16 @@ export interface ResourceListOfString {
   links?: Link[];
 }
 
-export interface KeyValuePairOfStringToFieldSchema {
-  readonly key?: string;
-  readonly value?: FieldSchema;
-}
-
 export interface Schema {
   entity?: string;
   href?: string;
-  values?: KeyValuePairOfStringToFieldSchema[];
+  values?: { [propertyName: string]: FieldSchema };
   links?: Link[];
 }
 
 export interface PropertySchema {
   href?: string;
-  values?: KeyValuePairOfPropertyKeyToFieldSchema[];
+  values?: { [propertyName: string]: FieldSchema };
   links?: Link[];
 }
 

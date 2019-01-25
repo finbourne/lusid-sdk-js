@@ -29,7 +29,7 @@ class PropertySchema {
   /**
    * Create a PropertySchema.
    * @property {string} [href]
-   * @property {array} [values]
+   * @property {object} [values]
    * @property {array} [links]
    */
   constructor() {
@@ -60,13 +60,13 @@ class PropertySchema {
             required: false,
             serializedName: 'values',
             type: {
-              name: 'Sequence',
-              element: {
+              name: 'Dictionary',
+              value: {
                   required: false,
-                  serializedName: 'KeyValuePairOfPropertyKeyToFieldSchemaElementType',
+                  serializedName: 'FieldSchemaElementType',
                   type: {
                     name: 'Composite',
-                    className: 'KeyValuePairOfPropertyKeyToFieldSchema'
+                    className: 'FieldSchema'
                   }
               }
             }

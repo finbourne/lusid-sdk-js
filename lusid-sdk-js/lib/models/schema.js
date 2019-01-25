@@ -30,7 +30,7 @@ class Schema {
    * Create a Schema.
    * @property {string} [entity]
    * @property {string} [href]
-   * @property {array} [values]
+   * @property {object} [values]
    * @property {array} [links]
    */
   constructor() {
@@ -68,13 +68,13 @@ class Schema {
             required: false,
             serializedName: 'values',
             type: {
-              name: 'Sequence',
-              element: {
+              name: 'Dictionary',
+              value: {
                   required: false,
-                  serializedName: 'KeyValuePairOfStringToFieldSchemaElementType',
+                  serializedName: 'FieldSchemaElementType',
                   type: {
                     name: 'Composite',
-                    className: 'KeyValuePairOfStringToFieldSchema'
+                    className: 'FieldSchema'
                   }
               }
             }

@@ -32,7 +32,7 @@ class ListAggregationResponse {
    * @property {array} [data]
    * @property {string} [aggregationCurrency]
    * @property {object} [dataSchema]
-   * @property {array} [dataSchema.nodeValueSchema]
+   * @property {object} [dataSchema.nodeValueSchema]
    * @property {object} [dataSchema.propertySchema]
    * @property {array} [links]
    */

@@ -845,7 +845,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
+   * 'ResourceId'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -892,7 +893,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
+   * 'ResourceId'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -1119,7 +1121,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
+   * 'ResourceId'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -1168,7 +1171,8 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
+   * 'ResourceId'
    *
    * @param {array} [options.request.acceptableValues]
    *

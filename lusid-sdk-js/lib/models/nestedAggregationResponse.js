@@ -37,7 +37,7 @@ class NestedAggregationResponse {
    * @property {array} [data.children]
    * @property {string} [aggregationCurrency]
    * @property {object} [dataSchema]
-   * @property {array} [dataSchema.nodeValueSchema]
+   * @property {object} [dataSchema.nodeValueSchema]
    * @property {object} [dataSchema.propertySchema]
    * @property {array} [links]
    */

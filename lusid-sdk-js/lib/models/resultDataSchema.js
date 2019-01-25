@@ -28,7 +28,7 @@
 class ResultDataSchema {
   /**
    * Create a ResultDataSchema.
-   * @property {array} [nodeValueSchema]
+   * @property {object} [nodeValueSchema]
    * @property {object} [propertySchema]
    */
   constructor() {
@@ -52,13 +52,13 @@ class ResultDataSchema {
             required: false,
             serializedName: 'nodeValueSchema',
             type: {
-              name: 'Sequence',
-              element: {
+              name: 'Dictionary',
+              value: {
                   required: false,
-                  serializedName: 'KeyValuePairOfPropertyKeyToFieldSchemaElementType',
+                  serializedName: 'FieldSchemaElementType',
                   type: {
                     name: 'Composite',
-                    className: 'KeyValuePairOfPropertyKeyToFieldSchema'
+                    className: 'FieldSchema'
                   }
               }
             }
