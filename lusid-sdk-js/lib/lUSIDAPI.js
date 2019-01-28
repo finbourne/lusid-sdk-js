@@ -1673,8 +1673,8 @@ function _batchUpsertCorporateActions(scope, code, options, callback) {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
- * 'ResourceId'
+ * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
+ * 'ArrayOfQuoteIds', 'ResourceId'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -2154,8 +2154,8 @@ function _getDataType(scope, code, options, callback) {
  * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
  * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
  * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
- * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
- * 'ResourceId'
+ * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
+ * 'ArrayOfQuoteIds', 'ResourceId'
  *
  * @param {array} [options.request.acceptableValues]
  *
@@ -17713,8 +17713,8 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
-   * 'ResourceId'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
+   * 'ArrayOfQuoteIds', 'ResourceId'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -17773,8 +17773,8 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
-   * 'ResourceId'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
+   * 'ArrayOfQuoteIds', 'ResourceId'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -18070,8 +18070,8 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
-   * 'ResourceId'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
+   * 'ArrayOfQuoteIds', 'ResourceId'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -18132,8 +18132,8 @@ class LUSIDAPI extends ServiceClient {
    * 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
-   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'ArrayOfQuoteIds',
-   * 'ResourceId'
+   * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
+   * 'ArrayOfQuoteIds', 'ResourceId'
    *
    * @param {array} [options.request.acceptableValues]
    *

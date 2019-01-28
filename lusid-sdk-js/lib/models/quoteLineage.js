@@ -23,59 +23,41 @@
 'use strict';
 
 /**
- * Class representing a QuoteId.
+ * Class representing a QuoteLineage.
  */
-class QuoteId {
+class QuoteLineage {
   /**
-   * Create a QuoteId.
-   * @property {string} instrumentId
-   * @property {string} instrumentIdType Possible values include:
-   * 'LusidInstrumentId', 'Figi', 'RIC', 'QuotePermId', 'Isin', 'CurrencyPair'
-   * @property {string} quoteType Possible values include: 'Price', 'Spread',
-   * 'Rate'
-   * @property {string} priceSide Possible values include: 'Bid', 'Mid', 'Ask'
+   * Create a QuoteLineage.
+   * @property {string} dataVendor
+   * @property {string} contributor
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of QuoteId
+   * Defines the metadata of QuoteLineage
    *
-   * @returns {object} metadata of QuoteId
+   * @returns {object} metadata of QuoteLineage
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'QuoteId',
+      serializedName: 'QuoteLineage',
       type: {
         name: 'Composite',
-        className: 'QuoteId',
+        className: 'QuoteLineage',
         modelProperties: {
-          instrumentId: {
+          dataVendor: {
             required: true,
-            serializedName: 'instrumentId',
+            serializedName: 'dataVendor',
             type: {
               name: 'String'
             }
           },
-          instrumentIdType: {
+          contributor: {
             required: true,
-            serializedName: 'instrumentIdType',
-            type: {
-              name: 'String'
-            }
-          },
-          quoteType: {
-            required: true,
-            serializedName: 'quoteType',
-            type: {
-              name: 'String'
-            }
-          },
-          priceSide: {
-            required: true,
-            serializedName: 'priceSide',
+            serializedName: 'contributor',
             type: {
               name: 'String'
             }
@@ -86,4 +68,4 @@ class QuoteId {
   }
 }
 
-module.exports = QuoteId;
+module.exports = QuoteLineage;

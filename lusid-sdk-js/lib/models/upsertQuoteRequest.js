@@ -30,13 +30,18 @@ class UpsertQuoteRequest {
    * Create a UpsertQuoteRequest.
    * @property {object} quoteId
    * @property {string} [quoteId.instrumentId]
-   * @property {string} [quoteId.instrumentIdType]
-   * @property {string} [quoteId.quoteConvention]
-   * @property {string} [quoteId.quoteType]
-   * @property {string} [quoteId.priceSource]
+   * @property {string} [quoteId.instrumentIdType] Possible values include:
+   * 'LusidInstrumentId', 'Figi', 'RIC', 'QuotePermId', 'Isin', 'CurrencyPair'
+   * @property {string} [quoteId.quoteType] Possible values include: 'Price',
+   * 'Spread', 'Rate'
+   * @property {string} [quoteId.priceSide] Possible values include: 'Bid',
+   * 'Mid', 'Ask'
    * @property {object} metricValue
    * @property {number} [metricValue.value]
    * @property {string} [metricValue.unit]
+   * @property {object} quoteLineage
+   * @property {string} [quoteLineage.dataVendor]
+   * @property {string} [quoteLineage.contributor]
    * @property {date} [effectiveAt]
    */
   constructor() {
@@ -70,6 +75,14 @@ class UpsertQuoteRequest {
             type: {
               name: 'Composite',
               className: 'MetricValue'
+            }
+          },
+          quoteLineage: {
+            required: true,
+            serializedName: 'quoteLineage',
+            type: {
+              name: 'Composite',
+              className: 'QuoteLineage'
             }
           },
           effectiveAt: {

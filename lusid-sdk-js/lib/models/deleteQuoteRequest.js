@@ -30,10 +30,12 @@ class DeleteQuoteRequest {
    * Create a DeleteQuoteRequest.
    * @property {object} quoteId
    * @property {string} [quoteId.instrumentId]
-   * @property {string} [quoteId.instrumentIdType]
-   * @property {string} [quoteId.quoteConvention]
-   * @property {string} [quoteId.quoteType]
-   * @property {string} [quoteId.priceSource]
+   * @property {string} [quoteId.instrumentIdType] Possible values include:
+   * 'LusidInstrumentId', 'Figi', 'RIC', 'QuotePermId', 'Isin', 'CurrencyPair'
+   * @property {string} [quoteId.quoteType] Possible values include: 'Price',
+   * 'Spread', 'Rate'
+   * @property {string} [quoteId.priceSide] Possible values include: 'Bid',
+   * 'Mid', 'Ask'
    * @property {date} effectiveAt
    */
   constructor() {

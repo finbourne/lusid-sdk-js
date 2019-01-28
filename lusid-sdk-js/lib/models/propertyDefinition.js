@@ -36,7 +36,7 @@ class PropertyDefinition {
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-   * 'ArrayOfQuoteIds', 'ResourceId'
+   * 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
    * @property {boolean} [valueRequired]
    * @property {string} [displayName]
    * @property {object} [dataTypeId]

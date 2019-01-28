@@ -40,7 +40,7 @@ class CreateDataTypeRequest {
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-   * 'ArrayOfQuoteIds', 'ResourceId'
+   * 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
    * @property {array} [acceptableValues]
    * @property {string} [unitSchema] Possible values include: 'NoUnits',
    * 'Basic', 'Iso4217Currency'

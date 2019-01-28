@@ -109,6 +109,7 @@ exports.PropertyDefinition = require('./propertyDefinition');
 exports.ResourceListOfPropertyDefinition = require('./resourceListOfPropertyDefinition');
 exports.UpdatePropertyDefinitionRequest = require('./updatePropertyDefinitionRequest');
 exports.QuoteId = require('./quoteId');
+exports.QuoteLineage = require('./quoteLineage');
 exports.UpsertQuoteRequest = require('./upsertQuoteRequest');
 exports.UpsertQuotesResponse = require('./upsertQuotesResponse');
 exports.DeleteQuoteRequest = require('./deleteQuoteRequest');
