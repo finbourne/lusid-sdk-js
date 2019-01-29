@@ -36,7 +36,6 @@ class PortfolioProperties {
    * @property {object} [version] The version of the portfolio
    * @property {date} [version.effectiveFrom]
    * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
    * @property {array} [links]
    */
   constructor() {

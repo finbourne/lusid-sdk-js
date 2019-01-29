@@ -31,7 +31,6 @@ class Results {
    * @property {object} [version]
    * @property {date} [version.effectiveFrom]
    * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
    * @property {string} [href]
    * @property {string} [values]
    * @property {string} [format] Possible values include: 'DataReader',

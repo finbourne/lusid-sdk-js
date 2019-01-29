@@ -36,7 +36,6 @@ class HoldingsAdjustment {
    * @property {object} [version]
    * @property {date} [version.effectiveFrom]
    * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
    * @property {string} [unmatchedHoldingMethod] Possible values include:
    * 'PositionToZero', 'KeepTheSame'
    * @property {array} [adjustments]

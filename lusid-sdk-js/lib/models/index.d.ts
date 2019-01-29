@@ -143,14 +143,8 @@ export interface InstrumentAnalytic {
 }
 
 export interface CreateCorporateActionSourceRequest {
-  /**
-   * Scope of Corporate Action Source
-  */
-  readonly scope?: string;
-  /**
-   * Code of Corporate Action Source
-  */
-  readonly code?: string;
+  scope?: string;
+  code?: string;
 }
 
 export interface ResourceId {
@@ -164,7 +158,6 @@ export interface ResourceId {
 export interface Version {
   readonly effectiveFrom?: Date;
   readonly asAtDate?: Date;
-  readonly href?: string;
 }
 
 export interface CorporateActionSource {
@@ -567,10 +560,7 @@ export interface ResourceListOfInstrument {
 export interface UpdateInstrumentIdentifierRequest {
   /**
    * The type of the identifier to upsert. This must be one of the code types marked as
-   * allowable for instrument identifiers. Possible values include: 'Undefined',
-   * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-   * 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
-   * 'QuotePermId'
+   * allowable for instrument identifiers.
   */
   type?: string;
   /**
@@ -660,7 +650,7 @@ export interface UpsertInstrumentPropertiesResponse {
   links?: Link[];
 }
 
-export interface ResourceListOfCodeType {
+export interface ResourceListOfString {
   values?: string[];
   /**
    * The Uri that returns the same result as the original request,
@@ -1056,7 +1046,7 @@ export interface ValuationsReconciliationRequest {
 
 export interface CreatePropertyDefinitionRequest {
   /**
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
    * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
   */
   domain?: string;
@@ -1102,7 +1092,7 @@ export interface PropertyDefinition {
   */
   unitSchema?: string;
   /**
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
    * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
   */
   readonly domain?: string;
@@ -1338,22 +1328,6 @@ export interface Results {
    * Possible values include: 'DataReader', 'Portfolio'
   */
   format?: string;
-  links?: Link[];
-}
-
-export interface ResourceListOfString {
-  values?: string[];
-  /**
-   * The Uri that returns the same result as the original request,
-   * but may include resolved as at time(s).
-  */
-  href?: string;
-  /**
-   * The total number of records returned in the set.
-   * Note: If count is set by the func 'AddDynamicCounter', Count will be zero until the values
-   * are evaluated. This is due to lazy evaluation.
-  */
-  count?: number;
   links?: Link[];
 }
 

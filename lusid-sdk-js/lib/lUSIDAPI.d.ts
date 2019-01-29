@@ -523,6 +523,12 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * Attempt to create a corporate action source.
    *
+   * @param {object} request The corporate action source definition
+   *
+   * @param {string} [request.scope]
+   *
+   * @param {string} [request.code]
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -534,12 +540,18 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  createCorporateActionSourceWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CorporateActionSource>>;
+  createCorporateActionSourceWithHttpOperationResponse(request: models.CreateCorporateActionSourceRequest, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CorporateActionSource>>;
 
   /**
    * @summary Create Corporate Action Source
    *
    * Attempt to create a corporate action source.
+   *
+   * @param {object} request The corporate action source definition
+   *
+   * @param {string} [request.scope]
+   *
+   * @param {string} [request.code]
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -568,9 +580,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  createCorporateActionSource(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CorporateActionSource>;
-  createCorporateActionSource(callback: ServiceCallback<models.CorporateActionSource>): void;
-  createCorporateActionSource(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CorporateActionSource>): void;
+  createCorporateActionSource(request: models.CreateCorporateActionSourceRequest, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CorporateActionSource>;
+  createCorporateActionSource(request: models.CreateCorporateActionSourceRequest, callback: ServiceCallback<models.CorporateActionSource>): void;
+  createCorporateActionSource(request: models.CreateCorporateActionSourceRequest, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CorporateActionSource>): void;
 
 
   /**
@@ -1658,12 +1670,9 @@ export default class LUSIDAPI extends ServiceClient {
    * identifiers. Optionally, it is possible to decorate each instrument with
    * specified property data.
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The identifier of the requested instrument
+   * @param {string} identifier The identifier of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1684,7 +1693,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getInstrumentWithHttpOperationResponse(type: string, id: string, options?: { effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Instrument>>;
+  getInstrumentWithHttpOperationResponse(identifierType: string, identifier: string, options?: { effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Instrument>>;
 
   /**
    * @summary Get instrument definition
@@ -1693,12 +1702,9 @@ export default class LUSIDAPI extends ServiceClient {
    * identifiers. Optionally, it is possible to decorate each instrument with
    * specified property data.
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The identifier of the requested instrument
+   * @param {string} identifier The identifier of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1735,9 +1741,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getInstrument(type: string, id: string, options?: { effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.Instrument>;
-  getInstrument(type: string, id: string, callback: ServiceCallback<models.Instrument>): void;
-  getInstrument(type: string, id: string, options: { effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Instrument>): void;
+  getInstrument(identifierType: string, identifier: string, options?: { effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.Instrument>;
+  getInstrument(identifierType: string, identifier: string, callback: ServiceCallback<models.Instrument>): void;
+  getInstrument(identifierType: string, identifier: string, options: { effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Instrument>): void;
 
 
   /**
@@ -1745,12 +1751,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * Adds, updates, or removes an identifier on an instrument
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The instrument identifier
+   * @param {string} identifier The instrument identifier
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1758,10 +1761,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.type] The type of the identifier to upsert.
    * This must be one of the code types marked as
-   * allowable for instrument identifiers. Possible values include: 'Undefined',
-   * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-   * 'Wertpapier', 'RIC', 'QuotePermId'
+   * allowable for instrument identifiers.
    *
    * @param {string} [options.request.value] The value of the identifier. If set
    * to `null`, this will remove the identifier completely.
@@ -1781,19 +1781,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  updateInstrumentIdentifierWithHttpOperationResponse(type: string, id: string, options?: { request? : models.UpdateInstrumentIdentifierRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Instrument>>;
+  updateInstrumentIdentifierWithHttpOperationResponse(identifierType: string, identifier: string, options?: { request? : models.UpdateInstrumentIdentifierRequest, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Instrument>>;
 
   /**
    * @summary Update instrument identifier
    *
    * Adds, updates, or removes an identifier on an instrument
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The instrument identifier
+   * @param {string} identifier The instrument identifier
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1801,10 +1798,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.type] The type of the identifier to upsert.
    * This must be one of the code types marked as
-   * allowable for instrument identifiers. Possible values include: 'Undefined',
-   * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-   * 'Wertpapier', 'RIC', 'QuotePermId'
+   * allowable for instrument identifiers.
    *
    * @param {string} [options.request.value] The value of the identifier. If set
    * to `null`, this will remove the identifier completely.
@@ -1840,9 +1834,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  updateInstrumentIdentifier(type: string, id: string, options?: { request? : models.UpdateInstrumentIdentifierRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.Instrument>;
-  updateInstrumentIdentifier(type: string, id: string, callback: ServiceCallback<models.Instrument>): void;
-  updateInstrumentIdentifier(type: string, id: string, options: { request? : models.UpdateInstrumentIdentifierRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Instrument>): void;
+  updateInstrumentIdentifier(identifierType: string, identifier: string, options?: { request? : models.UpdateInstrumentIdentifierRequest, customHeaders? : { [headerName: string]: string; } }): Promise<models.Instrument>;
+  updateInstrumentIdentifier(identifierType: string, identifier: string, callback: ServiceCallback<models.Instrument>): void;
+  updateInstrumentIdentifier(identifierType: string, identifier: string, options: { request? : models.UpdateInstrumentIdentifierRequest, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Instrument>): void;
 
 
   /**
@@ -1856,12 +1850,9 @@ export default class LUSIDAPI extends ServiceClient {
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The instrument identifier
+   * @param {string} identifier The instrument identifier
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1874,7 +1865,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deleteInstrumentWithHttpOperationResponse(type: string, id: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeleteInstrumentResponse>>;
+  deleteInstrumentWithHttpOperationResponse(identifierType: string, identifier: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeleteInstrumentResponse>>;
 
   /**
    * @summary Delete instrument
@@ -1887,12 +1878,9 @@ export default class LUSIDAPI extends ServiceClient {
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The instrument identifier
+   * @param {string} identifier The instrument identifier
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -1922,9 +1910,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deleteInstrument(type: string, id: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeleteInstrumentResponse>;
-  deleteInstrument(type: string, id: string, callback: ServiceCallback<models.DeleteInstrumentResponse>): void;
-  deleteInstrument(type: string, id: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeleteInstrumentResponse>): void;
+  deleteInstrument(identifierType: string, identifier: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.DeleteInstrumentResponse>;
+  deleteInstrument(identifierType: string, identifier: string, callback: ServiceCallback<models.DeleteInstrumentResponse>): void;
+  deleteInstrument(identifierType: string, identifier: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeleteInstrumentResponse>): void;
 
 
   /**
@@ -2015,12 +2003,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] the type of codes being specified.
-   * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
-   * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} [options.identifierType] The type of identifiers being
+   * supplied
    *
-   * @param {array} [options.codes] The identifiers of the instruments to get
+   * @param {array} [options.identifiers] The identifiers of the instruments to
+   * get
    *
    * @param {date} [options.effectiveAt] Optional. The effective date of the
    * request
@@ -2039,7 +2026,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getInstrumentsWithHttpOperationResponse(options?: { codeType? : string, codes? : string[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GetInstrumentsResponse>>;
+  getInstrumentsWithHttpOperationResponse(options?: { identifierType? : string, identifiers? : string[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GetInstrumentsResponse>>;
 
   /**
    * @summary Get instrument definition
@@ -2049,12 +2036,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] the type of codes being specified.
-   * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
-   * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} [options.identifierType] The type of identifiers being
+   * supplied
    *
-   * @param {array} [options.codes] The identifiers of the instruments to get
+   * @param {array} [options.identifiers] The identifiers of the instruments to
+   * get
    *
    * @param {date} [options.effectiveAt] Optional. The effective date of the
    * request
@@ -2090,9 +2076,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getInstruments(options?: { codeType? : string, codes? : string[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.GetInstrumentsResponse>;
+  getInstruments(options?: { identifierType? : string, identifiers? : string[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.GetInstrumentsResponse>;
   getInstruments(callback: ServiceCallback<models.GetInstrumentsResponse>): void;
-  getInstruments(options: { codeType? : string, codes? : string[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GetInstrumentsResponse>): void;
+  getInstruments(options: { identifierType? : string, identifiers? : string[], effectiveAt? : Date, asAt? : Date, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GetInstrumentsResponse>): void;
 
 
   /**
@@ -2103,12 +2089,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] The type of codes to search for. Possible
-   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
-   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} [options.identifierType] The type of identifiers being
+   * supplied
    *
-   * @param {array} [options.codes] The collection of instruments to search for
+   * @param {array} [options.identifiers] The identifiers of the instruments to
+   * get
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -2119,7 +2104,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  matchInstrumentsWithHttpOperationResponse(options?: { codeType? : string, codes? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MatchInstrumentsResponse>>;
+  matchInstrumentsWithHttpOperationResponse(options?: { identifierType? : string, identifiers? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MatchInstrumentsResponse>>;
 
   /**
    * @summary Find externally mastered instruments
@@ -2129,12 +2114,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] The type of codes to search for. Possible
-   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
-   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} [options.identifierType] The type of identifiers being
+   * supplied
    *
-   * @param {array} [options.codes] The collection of instruments to search for
+   * @param {array} [options.identifiers] The identifiers of the instruments to
+   * get
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -2162,9 +2146,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  matchInstruments(options?: { codeType? : string, codes? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.MatchInstrumentsResponse>;
+  matchInstruments(options?: { identifierType? : string, identifiers? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.MatchInstrumentsResponse>;
   matchInstruments(callback: ServiceCallback<models.MatchInstrumentsResponse>): void;
-  matchInstruments(options: { codeType? : string, codes? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MatchInstrumentsResponse>): void;
+  matchInstruments(options: { identifierType? : string, identifiers? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MatchInstrumentsResponse>): void;
 
 
   /**
@@ -2257,11 +2241,11 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfCodeType>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfString>} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getInstrumentIdentifiersWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfCodeType>>;
+  getInstrumentIdentifiersWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfString>>;
 
   /**
    * @summary Get allowable instrument identifiers
@@ -2284,7 +2268,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned.
    *
-   *                      @resolve {ResourceListOfCodeType} - The deserialized result object.
+   *                      @resolve {ResourceListOfString} - The deserialized result object.
    *
    *                      @reject {Error|ServiceError} - The error object.
    *
@@ -2292,17 +2276,16 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ResourceListOfCodeType} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfCodeType} for more
-   *                      information.
+   *                      {ResourceListOfString} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link ResourceListOfString} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getInstrumentIdentifiers(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfCodeType>;
-  getInstrumentIdentifiers(callback: ServiceCallback<models.ResourceListOfCodeType>): void;
-  getInstrumentIdentifiers(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfCodeType>): void;
+  getInstrumentIdentifiers(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfString>;
+  getInstrumentIdentifiers(callback: ServiceCallback<models.ResourceListOfString>): void;
+  getInstrumentIdentifiers(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfString>): void;
 
 
   /**
@@ -4964,7 +4947,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition] The definition of the new property
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+   * 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
    * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
    *
    * @param {string} [options.definition.scope]
@@ -5008,7 +4991,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition] The definition of the new property
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+   * 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
    * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
    *
    * @param {string} [options.definition.scope]
@@ -5067,7 +5050,7 @@ export default class LUSIDAPI extends ServiceClient {
    * Retrieve the definition for the identified property
    *
    * @param {string} domain The Property Domain of the requested property.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -5096,7 +5079,7 @@ export default class LUSIDAPI extends ServiceClient {
    * Retrieve the definition for the identified property
    *
    * @param {string} domain The Property Domain of the requested property.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -5146,7 +5129,7 @@ export default class LUSIDAPI extends ServiceClient {
    * already stored against these properties
    *
    * @param {string} domain The Property Domain of the property being updated.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -5193,7 +5176,7 @@ export default class LUSIDAPI extends ServiceClient {
    * already stored against these properties
    *
    * @param {string} domain The Property Domain of the property being updated.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -5257,7 +5240,7 @@ export default class LUSIDAPI extends ServiceClient {
    * Delete the definition of the specified property
    *
    * @param {string} domain The Property Domain of the property to be deleted.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -5284,7 +5267,7 @@ export default class LUSIDAPI extends ServiceClient {
    * Delete the definition of the specified property
    *
    * @param {string} domain The Property Domain of the property to be deleted.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *

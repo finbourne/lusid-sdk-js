@@ -28,8 +28,8 @@
 class CreateCorporateActionSourceRequest {
   /**
    * Create a CreateCorporateActionSourceRequest.
-   * @property {string} [scope] Scope of Corporate Action Source
-   * @property {string} [code] Code of Corporate Action Source
+   * @property {string} [scope]
+   * @property {string} [code]
    */
   constructor() {
   }
@@ -50,7 +50,6 @@ class CreateCorporateActionSourceRequest {
         modelProperties: {
           scope: {
             required: false,
-            readOnly: true,
             serializedName: 'scope',
             type: {
               name: 'String'
@@ -58,7 +57,6 @@ class CreateCorporateActionSourceRequest {
           },
           code: {
             required: false,
-            readOnly: true,
             serializedName: 'code',
             type: {
               name: 'String'

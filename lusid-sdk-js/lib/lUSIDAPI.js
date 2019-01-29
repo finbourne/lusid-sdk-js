@@ -1008,6 +1008,12 @@ function _listCorporateActionSources(options, callback) {
  *
  * Attempt to create a corporate action source.
  *
+ * @param {object} request The corporate action source definition
+ *
+ * @param {string} [request.scope]
+ *
+ * @param {string} [request.code]
+ *
  * @param {object} [options] Optional Parameters.
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
@@ -1026,7 +1032,7 @@ function _listCorporateActionSources(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _createCorporateActionSource(options, callback) {
+function _createCorporateActionSource(request, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -1036,7 +1042,14 @@ function _createCorporateActionSource(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-let request;
+  // Validate
+  try {
+    if (request === null || request === undefined) {
+      throw new Error('request cannot be null or undefined.');
+    }
+  } catch (error) {
+    return callback(error);
+  }
 
   // Construct URL
   let baseUrl = this.baseUri;
@@ -3112,12 +3125,9 @@ function _upsertInstruments(options, callback) {
  * identifiers. Optionally, it is possible to decorate each instrument with
  * specified property data.
  *
- * @param {string} type The type of identifier being supplied. Possible values
- * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
- * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
- * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+ * @param {string} identifierType The type of identifier being supplied
  *
- * @param {string} id The identifier of the requested instrument
+ * @param {string} identifier The identifier of the requested instrument
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -3145,7 +3155,7 @@ function _upsertInstruments(options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getInstrument(type, id, options, callback) {
+function _getInstrument(identifierType, identifier, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -3160,11 +3170,11 @@ function _getInstrument(type, id, options, callback) {
   let instrumentPropertyKeys = (options && options.instrumentPropertyKeys !== undefined) ? options.instrumentPropertyKeys : undefined;
   // Validate
   try {
-    if (type === null || type === undefined || typeof type.valueOf() !== 'string') {
-      throw new Error('type cannot be null or undefined and it must be of type string.');
+    if (identifierType === null || identifierType === undefined || typeof identifierType.valueOf() !== 'string') {
+      throw new Error('identifierType cannot be null or undefined and it must be of type string.');
     }
-    if (id === null || id === undefined || typeof id.valueOf() !== 'string') {
-      throw new Error('id cannot be null or undefined and it must be of type string.');
+    if (identifier === null || identifier === undefined || typeof identifier.valueOf() !== 'string') {
+      throw new Error('identifier cannot be null or undefined and it must be of type string.');
     }
     if (effectiveAt && !(effectiveAt instanceof Date ||
         (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
@@ -3187,9 +3197,9 @@ function _getInstrument(type, id, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{type}/{id}';
-  requestUrl = requestUrl.replace('{type}', encodeURIComponent(type));
-  requestUrl = requestUrl.replace('{id}', encodeURIComponent(id));
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{identifierType}/{identifier}';
+  requestUrl = requestUrl.replace('{identifierType}', encodeURIComponent(identifierType));
+  requestUrl = requestUrl.replace('{identifier}', encodeURIComponent(identifier));
   let queryParameters = [];
   if (effectiveAt !== null && effectiveAt !== undefined) {
     queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
@@ -3288,12 +3298,9 @@ function _getInstrument(type, id, options, callback) {
  *
  * Adds, updates, or removes an identifier on an instrument
  *
- * @param {string} type The type of identifier being supplied. Possible values
- * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
- * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
- * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+ * @param {string} identifierType The type of identifier being supplied
  *
- * @param {string} id The instrument identifier
+ * @param {string} identifier The instrument identifier
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -3301,10 +3308,7 @@ function _getInstrument(type, id, options, callback) {
  *
  * @param {string} [options.request.type] The type of the identifier to upsert.
  * This must be one of the code types marked as
- * allowable for instrument identifiers. Possible values include: 'Undefined',
- * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
- * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
- * 'Wertpapier', 'RIC', 'QuotePermId'
+ * allowable for instrument identifiers.
  *
  * @param {string} [options.request.value] The value of the identifier. If set
  * to `null`, this will remove the identifier completely.
@@ -3331,7 +3335,7 @@ function _getInstrument(type, id, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _updateInstrumentIdentifier(type, id, options, callback) {
+function _updateInstrumentIdentifier(identifierType, identifier, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -3344,11 +3348,11 @@ function _updateInstrumentIdentifier(type, id, options, callback) {
   let request = (options && options.request !== undefined) ? options.request : undefined;
   // Validate
   try {
-    if (type === null || type === undefined || typeof type.valueOf() !== 'string') {
-      throw new Error('type cannot be null or undefined and it must be of type string.');
+    if (identifierType === null || identifierType === undefined || typeof identifierType.valueOf() !== 'string') {
+      throw new Error('identifierType cannot be null or undefined and it must be of type string.');
     }
-    if (id === null || id === undefined || typeof id.valueOf() !== 'string') {
-      throw new Error('id cannot be null or undefined and it must be of type string.');
+    if (identifier === null || identifier === undefined || typeof identifier.valueOf() !== 'string') {
+      throw new Error('identifier cannot be null or undefined and it must be of type string.');
     }
   } catch (error) {
     return callback(error);
@@ -3356,9 +3360,9 @@ function _updateInstrumentIdentifier(type, id, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{type}/{id}';
-  requestUrl = requestUrl.replace('{type}', encodeURIComponent(type));
-  requestUrl = requestUrl.replace('{id}', encodeURIComponent(id));
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{identifierType}/{identifier}';
+  requestUrl = requestUrl.replace('{identifierType}', encodeURIComponent(identifierType));
+  requestUrl = requestUrl.replace('{identifier}', encodeURIComponent(identifier));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -3457,12 +3461,9 @@ function _updateInstrumentIdentifier(type, id, options, callback) {
  * It is important to always check the 'Failed' set for any unsuccessful
  * results.
  *
- * @param {string} type The type of identifier being supplied. Possible values
- * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
- * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
- * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+ * @param {string} identifierType The type of identifier being supplied
  *
- * @param {string} id The instrument identifier
+ * @param {string} identifier The instrument identifier
  *
  * @param {object} [options] Optional Parameters.
  *
@@ -3483,7 +3484,7 @@ function _updateInstrumentIdentifier(type, id, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _deleteInstrument(type, id, options, callback) {
+function _deleteInstrument(identifierType, identifier, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -3495,11 +3496,11 @@ function _deleteInstrument(type, id, options, callback) {
   }
   // Validate
   try {
-    if (type === null || type === undefined || typeof type.valueOf() !== 'string') {
-      throw new Error('type cannot be null or undefined and it must be of type string.');
+    if (identifierType === null || identifierType === undefined || typeof identifierType.valueOf() !== 'string') {
+      throw new Error('identifierType cannot be null or undefined and it must be of type string.');
     }
-    if (id === null || id === undefined || typeof id.valueOf() !== 'string') {
-      throw new Error('id cannot be null or undefined and it must be of type string.');
+    if (identifier === null || identifier === undefined || typeof identifier.valueOf() !== 'string') {
+      throw new Error('identifier cannot be null or undefined and it must be of type string.');
     }
   } catch (error) {
     return callback(error);
@@ -3507,9 +3508,9 @@ function _deleteInstrument(type, id, options, callback) {
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{type}/{id}';
-  requestUrl = requestUrl.replace('{type}', encodeURIComponent(type));
-  requestUrl = requestUrl.replace('{id}', encodeURIComponent(id));
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/{identifierType}/{identifier}';
+  requestUrl = requestUrl.replace('{identifierType}', encodeURIComponent(identifierType));
+  requestUrl = requestUrl.replace('{identifier}', encodeURIComponent(identifier));
 
   // Create HTTP transport objects
   let httpRequest = new WebResource();
@@ -3786,12 +3787,11 @@ function _findInstruments(options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.codeType] the type of codes being specified.
- * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
- * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
- * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+ * @param {string} [options.identifierType] The type of identifiers being
+ * supplied
  *
- * @param {array} [options.codes] The identifiers of the instruments to get
+ * @param {array} [options.identifiers] The identifiers of the instruments to
+ * get
  *
  * @param {date} [options.effectiveAt] Optional. The effective date of the
  * request
@@ -3828,20 +3828,20 @@ function _getInstruments(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let codeType = (options && options.codeType !== undefined) ? options.codeType : undefined;
-  let codes = (options && options.codes !== undefined) ? options.codes : undefined;
+  let identifierType = (options && options.identifierType !== undefined) ? options.identifierType : undefined;
+  let identifiers = (options && options.identifiers !== undefined) ? options.identifiers : undefined;
   let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let instrumentPropertyKeys = (options && options.instrumentPropertyKeys !== undefined) ? options.instrumentPropertyKeys : undefined;
   // Validate
   try {
-    if (codeType !== null && codeType !== undefined && typeof codeType.valueOf() !== 'string') {
-      throw new Error('codeType must be of type string.');
+    if (identifierType !== null && identifierType !== undefined && typeof identifierType.valueOf() !== 'string') {
+      throw new Error('identifierType must be of type string.');
     }
-    if (Array.isArray(codes)) {
-      for (let i = 0; i < codes.length; i++) {
-        if (codes[i] !== null && codes[i] !== undefined && typeof codes[i].valueOf() !== 'string') {
-          throw new Error('codes[i] must be of type string.');
+    if (Array.isArray(identifiers)) {
+      for (let i = 0; i < identifiers.length; i++) {
+        if (identifiers[i] !== null && identifiers[i] !== undefined && typeof identifiers[i].valueOf() !== 'string') {
+          throw new Error('identifiers[i] must be of type string.');
         }
       }
     }
@@ -3868,8 +3868,8 @@ function _getInstruments(options, callback) {
   let baseUrl = this.baseUri;
   let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/$get';
   let queryParameters = [];
-  if (codeType !== null && codeType !== undefined) {
-    queryParameters.push('codeType=' + encodeURIComponent(codeType));
+  if (identifierType !== null && identifierType !== undefined) {
+    queryParameters.push('identifierType=' + encodeURIComponent(identifierType));
   }
   if (effectiveAt !== null && effectiveAt !== undefined) {
     queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
@@ -3909,10 +3909,10 @@ function _getInstruments(options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (codes !== null && codes !== undefined) {
+    if (identifiers !== null && identifiers !== undefined) {
       let requestModelMapper = {
         required: false,
-        serializedName: 'codes',
+        serializedName: 'identifiers',
         type: {
           name: 'Sequence',
           element: {
@@ -3924,12 +3924,12 @@ function _getInstruments(options, callback) {
           }
         }
       };
-      requestModel = client.serialize(requestModelMapper, codes, 'codes');
+      requestModel = client.serialize(requestModelMapper, identifiers, 'identifiers');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(codes, null, 2)}.`);
+        `payload - ${JSON.stringify(identifiers, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -3998,12 +3998,11 @@ function _getInstruments(options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {string} [options.codeType] The type of codes to search for. Possible
- * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
- * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
- * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+ * @param {string} [options.identifierType] The type of identifiers being
+ * supplied
  *
- * @param {array} [options.codes] The collection of instruments to search for
+ * @param {array} [options.identifiers] The identifiers of the instruments to
+ * get
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -4032,17 +4031,17 @@ function _matchInstruments(options, callback) {
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
-  let codeType = (options && options.codeType !== undefined) ? options.codeType : undefined;
-  let codes = (options && options.codes !== undefined) ? options.codes : undefined;
+  let identifierType = (options && options.identifierType !== undefined) ? options.identifierType : undefined;
+  let identifiers = (options && options.identifiers !== undefined) ? options.identifiers : undefined;
   // Validate
   try {
-    if (codeType !== null && codeType !== undefined && typeof codeType.valueOf() !== 'string') {
-      throw new Error('codeType must be of type string.');
+    if (identifierType !== null && identifierType !== undefined && typeof identifierType.valueOf() !== 'string') {
+      throw new Error('identifierType must be of type string.');
     }
-    if (Array.isArray(codes)) {
-      for (let i = 0; i < codes.length; i++) {
-        if (codes[i] !== null && codes[i] !== undefined && typeof codes[i].valueOf() !== 'string') {
-          throw new Error('codes[i] must be of type string.');
+    if (Array.isArray(identifiers)) {
+      for (let i = 0; i < identifiers.length; i++) {
+        if (identifiers[i] !== null && identifiers[i] !== undefined && typeof identifiers[i].valueOf() !== 'string') {
+          throw new Error('identifiers[i] must be of type string.');
         }
       }
     }
@@ -4054,8 +4053,8 @@ function _matchInstruments(options, callback) {
   let baseUrl = this.baseUri;
   let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/instruments/$match';
   let queryParameters = [];
-  if (codeType !== null && codeType !== undefined) {
-    queryParameters.push('codeType=' + encodeURIComponent(codeType));
+  if (identifierType !== null && identifierType !== undefined) {
+    queryParameters.push('identifierType=' + encodeURIComponent(identifierType));
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -4079,10 +4078,10 @@ function _matchInstruments(options, callback) {
   let requestContent = null;
   let requestModel = null;
   try {
-    if (codes !== null && codes !== undefined) {
+    if (identifiers !== null && identifiers !== undefined) {
       let requestModelMapper = {
         required: false,
-        serializedName: 'codes',
+        serializedName: 'identifiers',
         type: {
           name: 'Sequence',
           element: {
@@ -4094,12 +4093,12 @@ function _matchInstruments(options, callback) {
           }
         }
       };
-      requestModel = client.serialize(requestModelMapper, codes, 'codes');
+      requestModel = client.serialize(requestModelMapper, identifiers, 'identifiers');
       requestContent = JSON.stringify(requestModel);
     }
   } catch (error) {
     let serializationError = new Error(`Error "${error.message}" occurred in serializing the ` +
-        `payload - ${JSON.stringify(codes, null, 2)}.`);
+        `payload - ${JSON.stringify(identifiers, null, 2)}.`);
     return callback(serializationError);
   }
   httpRequest.body = requestContent;
@@ -4330,8 +4329,7 @@ function _upsertInstrumentsProperties(options, callback) {
  *                      {Error}  err        - The Error object if an error occurred, null otherwise.
  *
  *                      {object} [result]   - The deserialized result object if an error did not occur.
- *                      See {@link ResourceListOfCodeType} for more
- *                      information.
+ *                      See {@link ResourceListOfString} for more information.
  *
  *                      {object} [request]  - The HTTP Request object if an error did not occur.
  *
@@ -4409,7 +4407,7 @@ function _getInstrumentIdentifiers(options, callback) {
         parsedResponse = JSON.parse(responseBody);
         result = JSON.parse(responseBody);
         if (parsedResponse !== null && parsedResponse !== undefined) {
-          let resultMapper = new client.models['ResourceListOfCodeType']().mapper();
+          let resultMapper = new client.models['ResourceListOfString']().mapper();
           result = client.deserialize(resultMapper, parsedResponse, 'result');
         }
       } catch (error) {
@@ -9489,7 +9487,7 @@ function _getMultiplePropertyDefinitions(options, callback) {
  * @param {object} [options.definition] The definition of the new property
  *
  * @param {string} [options.definition.domain] Possible values include:
- * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+ * 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
  * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
  *
  * @param {string} [options.definition.scope]
@@ -9636,7 +9634,7 @@ function _createPropertyDefinition(options, callback) {
  * Retrieve the definition for the identified property
  *
  * @param {string} domain The Property Domain of the requested property.
- * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+ * Possible values include: 'Trade', 'Portfolio', 'Holding',
  * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
  * 'CutDefinition'
  *
@@ -9788,7 +9786,7 @@ function _getPropertyDefinition(domain, scope, code, options, callback) {
  * already stored against these properties
  *
  * @param {string} domain The Property Domain of the property being updated.
- * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+ * Possible values include: 'Trade', 'Portfolio', 'Holding',
  * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
  * 'CutDefinition'
  *
@@ -9957,7 +9955,7 @@ function _updatePropertyDefinition(domain, scope, code, options, callback) {
  * Delete the definition of the specified property
  *
  * @param {string} domain The Property Domain of the property to be deleted.
- * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+ * Possible values include: 'Trade', 'Portfolio', 'Holding',
  * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
  * 'CutDefinition'
  *
@@ -17283,6 +17281,12 @@ class LUSIDAPI extends ServiceClient {
    *
    * Attempt to create a corporate action source.
    *
+   * @param {object} request The corporate action source definition
+   *
+   * @param {string} [request.scope]
+   *
+   * @param {string} [request.code]
+   *
    * @param {object} [options] Optional Parameters.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
@@ -17294,11 +17298,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  createCorporateActionSourceWithHttpOperationResponse(options) {
+  createCorporateActionSourceWithHttpOperationResponse(request, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._createCorporateActionSource(options, (err, result, request, response) => {
+      self._createCorporateActionSource(request, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -17312,6 +17316,12 @@ class LUSIDAPI extends ServiceClient {
    * @summary Create Corporate Action Source
    *
    * Attempt to create a corporate action source.
+   *
+   * @param {object} request The corporate action source definition
+   *
+   * @param {string} [request.scope]
+   *
+   * @param {string} [request.code]
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -17340,7 +17350,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  createCorporateActionSource(options, optionalCallback) {
+  createCorporateActionSource(request, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -17349,14 +17359,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._createCorporateActionSource(options, (err, result, request, response) => {
+        self._createCorporateActionSource(request, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._createCorporateActionSource(options, optionalCallback);
+      return self._createCorporateActionSource(request, options, optionalCallback);
     }
   }
 
@@ -18769,12 +18779,9 @@ class LUSIDAPI extends ServiceClient {
    * identifiers. Optionally, it is possible to decorate each instrument with
    * specified property data.
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The identifier of the requested instrument
+   * @param {string} identifier The identifier of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -18795,11 +18802,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getInstrumentWithHttpOperationResponse(type, id, options) {
+  getInstrumentWithHttpOperationResponse(identifierType, identifier, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getInstrument(type, id, options, (err, result, request, response) => {
+      self._getInstrument(identifierType, identifier, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -18816,12 +18823,9 @@ class LUSIDAPI extends ServiceClient {
    * identifiers. Optionally, it is possible to decorate each instrument with
    * specified property data.
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The identifier of the requested instrument
+   * @param {string} identifier The identifier of the requested instrument
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -18858,7 +18862,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getInstrument(type, id, options, optionalCallback) {
+  getInstrument(identifierType, identifier, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -18867,14 +18871,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getInstrument(type, id, options, (err, result, request, response) => {
+        self._getInstrument(identifierType, identifier, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getInstrument(type, id, options, optionalCallback);
+      return self._getInstrument(identifierType, identifier, options, optionalCallback);
     }
   }
 
@@ -18883,12 +18887,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * Adds, updates, or removes an identifier on an instrument
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The instrument identifier
+   * @param {string} identifier The instrument identifier
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -18896,10 +18897,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.type] The type of the identifier to upsert.
    * This must be one of the code types marked as
-   * allowable for instrument identifiers. Possible values include: 'Undefined',
-   * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-   * 'Wertpapier', 'RIC', 'QuotePermId'
+   * allowable for instrument identifiers.
    *
    * @param {string} [options.request.value] The value of the identifier. If set
    * to `null`, this will remove the identifier completely.
@@ -18919,11 +18917,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  updateInstrumentIdentifierWithHttpOperationResponse(type, id, options) {
+  updateInstrumentIdentifierWithHttpOperationResponse(identifierType, identifier, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._updateInstrumentIdentifier(type, id, options, (err, result, request, response) => {
+      self._updateInstrumentIdentifier(identifierType, identifier, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -18938,12 +18936,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * Adds, updates, or removes an identifier on an instrument
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The instrument identifier
+   * @param {string} identifier The instrument identifier
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -18951,10 +18946,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.request.type] The type of the identifier to upsert.
    * This must be one of the code types marked as
-   * allowable for instrument identifiers. Possible values include: 'Undefined',
-   * 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-   * 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-   * 'Wertpapier', 'RIC', 'QuotePermId'
+   * allowable for instrument identifiers.
    *
    * @param {string} [options.request.value] The value of the identifier. If set
    * to `null`, this will remove the identifier completely.
@@ -18990,7 +18982,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  updateInstrumentIdentifier(type, id, options, optionalCallback) {
+  updateInstrumentIdentifier(identifierType, identifier, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -18999,14 +18991,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._updateInstrumentIdentifier(type, id, options, (err, result, request, response) => {
+        self._updateInstrumentIdentifier(identifierType, identifier, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._updateInstrumentIdentifier(type, id, options, optionalCallback);
+      return self._updateInstrumentIdentifier(identifierType, identifier, options, optionalCallback);
     }
   }
 
@@ -19021,12 +19013,9 @@ class LUSIDAPI extends ServiceClient {
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The instrument identifier
+   * @param {string} identifier The instrument identifier
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19039,11 +19028,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  deleteInstrumentWithHttpOperationResponse(type, id, options) {
+  deleteInstrumentWithHttpOperationResponse(identifierType, identifier, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._deleteInstrument(type, id, options, (err, result, request, response) => {
+      self._deleteInstrument(identifierType, identifier, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -19064,12 +19053,9 @@ class LUSIDAPI extends ServiceClient {
    * It is important to always check the 'Failed' set for any unsuccessful
    * results.
    *
-   * @param {string} type The type of identifier being supplied. Possible values
-   * include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-   * 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-   * 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} identifierType The type of identifier being supplied
    *
-   * @param {string} id The instrument identifier
+   * @param {string} identifier The instrument identifier
    *
    * @param {object} [options] Optional Parameters.
    *
@@ -19099,7 +19085,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  deleteInstrument(type, id, options, optionalCallback) {
+  deleteInstrument(identifierType, identifier, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -19108,14 +19094,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._deleteInstrument(type, id, options, (err, result, request, response) => {
+        self._deleteInstrument(identifierType, identifier, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._deleteInstrument(type, id, options, optionalCallback);
+      return self._deleteInstrument(identifierType, identifier, options, optionalCallback);
     }
   }
 
@@ -19234,12 +19220,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] the type of codes being specified.
-   * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
-   * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} [options.identifierType] The type of identifiers being
+   * supplied
    *
-   * @param {array} [options.codes] The identifiers of the instruments to get
+   * @param {array} [options.identifiers] The identifiers of the instruments to
+   * get
    *
    * @param {date} [options.effectiveAt] Optional. The effective date of the
    * request
@@ -19280,12 +19265,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] the type of codes being specified.
-   * Possible values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId',
-   * 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} [options.identifierType] The type of identifiers being
+   * supplied
    *
-   * @param {array} [options.codes] The identifiers of the instruments to get
+   * @param {array} [options.identifiers] The identifiers of the instruments to
+   * get
    *
    * @param {date} [options.effectiveAt] Optional. The effective date of the
    * request
@@ -19349,12 +19333,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] The type of codes to search for. Possible
-   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
-   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} [options.identifierType] The type of identifiers being
+   * supplied
    *
-   * @param {array} [options.codes] The collection of instruments to search for
+   * @param {array} [options.identifiers] The identifiers of the instruments to
+   * get
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19387,12 +19370,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {string} [options.codeType] The type of codes to search for. Possible
-   * values include: 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS',
-   * 'Isin', 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-   * 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+   * @param {string} [options.identifierType] The type of identifiers being
+   * supplied
    *
-   * @param {array} [options.codes] The collection of instruments to search for
+   * @param {array} [options.identifiers] The identifiers of the instruments to
+   * get
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -19557,7 +19539,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ResourceListOfCodeType>} - The deserialized result object.
+   * @resolve {HttpOperationResponse<ResourceListOfString>} - The deserialized result object.
    *
    * @reject {Error} - The error object.
    */
@@ -19596,7 +19578,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * {Promise} A promise is returned
    *
-   *                      @resolve {ResourceListOfCodeType} - The deserialized result object.
+   *                      @resolve {ResourceListOfString} - The deserialized result object.
    *
    *                      @reject {Error} - The error object.
    *
@@ -19605,8 +19587,7 @@ class LUSIDAPI extends ServiceClient {
    *                      {Error}  err        - The Error object if an error occurred, null otherwise.
    *
    *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ResourceListOfCodeType} for more
-   *                      information.
+   *                      See {@link ResourceListOfString} for more information.
    *
    *                      {object} [request]  - The HTTP Request object if an error did not occur.
    *
@@ -23101,7 +23082,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition] The definition of the new property
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+   * 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
    * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
    *
    * @param {string} [options.definition.scope]
@@ -23157,7 +23138,7 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.definition] The definition of the new property
    *
    * @param {string} [options.definition.domain] Possible values include:
-   * 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+   * 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
    * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
    *
    * @param {string} [options.definition.scope]
@@ -23231,7 +23212,7 @@ class LUSIDAPI extends ServiceClient {
    * Retrieve the definition for the identified property
    *
    * @param {string} domain The Property Domain of the requested property.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -23272,7 +23253,7 @@ class LUSIDAPI extends ServiceClient {
    * Retrieve the definition for the identified property
    *
    * @param {string} domain The Property Domain of the requested property.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -23337,7 +23318,7 @@ class LUSIDAPI extends ServiceClient {
    * already stored against these properties
    *
    * @param {string} domain The Property Domain of the property being updated.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -23396,7 +23377,7 @@ class LUSIDAPI extends ServiceClient {
    * already stored against these properties
    *
    * @param {string} domain The Property Domain of the property being updated.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -23475,7 +23456,7 @@ class LUSIDAPI extends ServiceClient {
    * Delete the definition of the specified property
    *
    * @param {string} domain The Property Domain of the property to be deleted.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *
@@ -23514,7 +23495,7 @@ class LUSIDAPI extends ServiceClient {
    * Delete the definition of the specified property
    *
    * @param {string} domain The Property Domain of the property to be deleted.
-   * Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
+   * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
    * 'CutDefinition'
    *

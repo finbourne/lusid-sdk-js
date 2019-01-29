@@ -44,7 +44,6 @@ class CompletePortfolio {
    * @property {object} [version]
    * @property {date} [version.effectiveFrom]
    * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
    * @property {array} [properties]
    * @property {string} [baseCurrency]
    * @property {array} [links]

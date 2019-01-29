@@ -35,7 +35,6 @@ class CorporateActionSource {
    * @property {object} [version]
    * @property {date} [version.effectiveFrom]
    * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
    * @property {array} [links]
    */
   constructor() {

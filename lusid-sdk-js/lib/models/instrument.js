@@ -34,7 +34,6 @@ class Instrument {
    * @property {object} [version] The version of the instrument
    * @property {date} [version.effectiveFrom]
    * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
    * @property {string} [name] The name of the instrument
    * @property {object} [identifiers] The set of identifiers that can be used
    * to uniquely identify the instrument

@@ -31,7 +31,6 @@ class UpsertPortfolioTransactionsResponse {
    * @property {object} [version]
    * @property {date} [version.effectiveFrom]
    * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
    * @property {string} [href]
    * @property {array} [links]
    */

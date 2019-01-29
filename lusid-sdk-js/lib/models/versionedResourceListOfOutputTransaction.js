@@ -31,7 +31,6 @@ class VersionedResourceListOfOutputTransaction {
    * @property {object} [version]
    * @property {date} [version.effectiveFrom]
    * @property {date} [version.asAtDate]
-   * @property {string} [version.href]
    * @property {array} [values]
    * @property {string} [href] The Uri that returns the same result as the
    * original request,

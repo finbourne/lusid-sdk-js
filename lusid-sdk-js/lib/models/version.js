@@ -31,7 +31,6 @@ class Version {
    * Create a Version.
    * @property {date} [effectiveFrom]
    * @property {date} [asAtDate]
-   * @property {string} [href]
    */
   constructor() {
   }
@@ -64,14 +63,6 @@ class Version {
             serializedName: 'asAtDate',
             type: {
               name: 'DateTime'
-            }
-          },
-          href: {
-            required: false,
-            readOnly: true,
-            serializedName: 'href',
-            type: {
-              name: 'String'
             }
           }
         }
