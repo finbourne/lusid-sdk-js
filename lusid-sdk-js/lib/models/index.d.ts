@@ -524,6 +524,11 @@ export interface Instrument {
    * The lookthrough portfolio of the instrument (if any).
   */
   lookthroughPortfolio?: ResourceId;
+  /**
+   * The economic definition of the instrument for an OTC or instrument where an expanded
+   * definition exists.
+  */
+  instrumentDefinition?: InstrumentEconomicDefinition;
   links?: Link[];
 }
 

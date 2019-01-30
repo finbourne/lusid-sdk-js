@@ -44,6 +44,10 @@ class Instrument {
    * instrument (if any).
    * @property {string} [lookthroughPortfolio.scope]
    * @property {string} [lookthroughPortfolio.code]
+   * @property {object} [instrumentDefinition] The economic definition of the
+   * instrument for an OTC or instrument where an expanded definition exists.
+   * @property {string} [instrumentDefinition.instrumentFormat]
+   * @property {string} [instrumentDefinition.content]
    * @property {array} [links]
    */
   constructor() {
@@ -127,6 +131,14 @@ class Instrument {
             type: {
               name: 'Composite',
               className: 'ResourceId'
+            }
+          },
+          instrumentDefinition: {
+            required: false,
+            serializedName: 'instrumentDefinition',
+            type: {
+              name: 'Composite',
+              className: 'InstrumentEconomicDefinition'
             }
           },
           links: {
