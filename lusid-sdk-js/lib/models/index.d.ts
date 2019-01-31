@@ -57,7 +57,7 @@ export interface ErrorDetailBase {
 }
 
 export interface ErrorResponse {
-  readonly status?: number;
+  status?: number;
   /**
    * Possible values include: 'Unknown', 'VersionNotFound', 'InstrumentNotFound',
    * 'PropertyNotFound', 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
@@ -97,11 +97,11 @@ export interface ErrorResponse {
    * 'ResultProcessingFailure', 'VendorResultProcessingFailure',
    * 'CannotSupplyTimesWithPortfoliosQuery', 'AttemptToUpsertDuplicateQuotes'
   */
-  readonly code?: string;
-  readonly message?: string;
-  readonly detailedMessage?: string;
+  code?: string;
+  message?: string;
+  detailedMessage?: string;
   items?: ErrorDetailBase[];
-  readonly moreInfo?: string;
+  moreInfo?: string;
 }
 
 export interface ResourceListOfAnalyticStoreKey {
@@ -1610,6 +1610,7 @@ export interface PortfolioDetails {
 
 export interface CreatePortfolioDetails {
   baseCurrency?: string;
+  corporateActionSourceId?: ResourceId;
 }
 
 export interface ExecutionRequest {

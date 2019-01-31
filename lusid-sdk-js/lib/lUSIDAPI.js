@@ -14073,6 +14073,12 @@ function _getDetails(scope, code, options, callback) {
  *
  * @param {string} [options.details.baseCurrency]
  *
+ * @param {object} [options.details.corporateActionSourceId]
+ *
+ * @param {string} [options.details.corporateActionSourceId.scope]
+ *
+ * @param {string} [options.details.corporateActionSourceId.code]
+ *
  * @param {date} [options.effectiveAt] Optional. The effective date of the
  * change
  *
@@ -26199,6 +26205,12 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.details.baseCurrency]
    *
+   * @param {object} [options.details.corporateActionSourceId]
+   *
+   * @param {string} [options.details.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.details.corporateActionSourceId.code]
+   *
    * @param {date} [options.effectiveAt] Optional. The effective date of the
    * change
    *
@@ -26241,6 +26253,12 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.details] The set of details for the portfolio
    *
    * @param {string} [options.details.baseCurrency]
+   *
+   * @param {object} [options.details.corporateActionSourceId]
+   *
+   * @param {string} [options.details.corporateActionSourceId.scope]
+   *
+   * @param {string} [options.details.corporateActionSourceId.code]
    *
    * @param {date} [options.effectiveAt] Optional. The effective date of the
    * change

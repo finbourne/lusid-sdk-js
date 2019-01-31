@@ -29,6 +29,9 @@ class CreatePortfolioDetails {
   /**
    * Create a CreatePortfolioDetails.
    * @property {string} [baseCurrency]
+   * @property {object} [corporateActionSourceId]
+   * @property {string} [corporateActionSourceId.scope]
+   * @property {string} [corporateActionSourceId.code]
    */
   constructor() {
   }
@@ -52,6 +55,14 @@ class CreatePortfolioDetails {
             serializedName: 'baseCurrency',
             type: {
               name: 'String'
+            }
+          },
+          corporateActionSourceId: {
+            required: false,
+            serializedName: 'corporateActionSourceId',
+            type: {
+              name: 'Composite',
+              className: 'ResourceId'
             }
           }
         }

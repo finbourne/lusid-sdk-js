@@ -103,7 +103,6 @@ class ErrorResponse {
         modelProperties: {
           status: {
             required: false,
-            readOnly: true,
             serializedName: 'status',
             type: {
               name: 'Number'
@@ -111,7 +110,6 @@ class ErrorResponse {
           },
           code: {
             required: false,
-            readOnly: true,
             serializedName: 'code',
             type: {
               name: 'String'
@@ -119,7 +117,6 @@ class ErrorResponse {
           },
           message: {
             required: false,
-            readOnly: true,
             serializedName: 'message',
             type: {
               name: 'String'
@@ -127,7 +124,6 @@ class ErrorResponse {
           },
           detailedMessage: {
             required: false,
-            readOnly: true,
             serializedName: 'detailedMessage',
             type: {
               name: 'String'
@@ -150,7 +146,6 @@ class ErrorResponse {
           },
           moreInfo: {
             required: false,
-            readOnly: true,
             serializedName: 'moreInfo',
             type: {
               name: 'String'
