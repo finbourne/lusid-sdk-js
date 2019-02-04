@@ -13619,6 +13619,8 @@ function _setConfigurationTransactionTypes(options, callback) {
  *
  * @param {array} options.type.movements Movement data for the transaction code
  *
+ * @param {object} [options.type.properties]
+ *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
  *
@@ -25858,6 +25860,8 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {array} options.type.movements Movement data for the transaction code
    *
+   * @param {object} [options.type.properties]
+   *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
    *
@@ -25895,6 +25899,8 @@ class LUSIDAPI extends ServiceClient {
    * this specific transaction model
    *
    * @param {array} options.type.movements Movement data for the transaction code
+   *
+   * @param {object} [options.type.properties]
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

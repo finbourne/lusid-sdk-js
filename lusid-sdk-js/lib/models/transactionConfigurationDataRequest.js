@@ -82,7 +82,6 @@ class TransactionConfigurationDataRequest {
           },
           properties: {
             required: false,
-            readOnly: true,
             serializedName: 'properties',
             type: {
               name: 'Dictionary',

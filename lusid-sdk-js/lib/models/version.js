@@ -51,7 +51,6 @@ class Version {
         modelProperties: {
           effectiveFrom: {
             required: false,
-            readOnly: true,
             serializedName: 'effectiveFrom',
             type: {
               name: 'DateTime'
@@ -59,7 +58,6 @@ class Version {
           },
           asAtDate: {
             required: false,
-            readOnly: true,
             serializedName: 'asAtDate',
             type: {
               name: 'DateTime'

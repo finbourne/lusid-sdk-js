@@ -67,7 +67,6 @@ class Portfolio {
         modelProperties: {
           href: {
             required: false,
-            readOnly: true,
             serializedName: 'href',
             type: {
               name: 'String'
@@ -75,7 +74,6 @@ class Portfolio {
           },
           id: {
             required: false,
-            readOnly: true,
             serializedName: 'id',
             type: {
               name: 'Composite',
@@ -84,7 +82,6 @@ class Portfolio {
           },
           type: {
             required: false,
-            readOnly: true,
             serializedName: 'type',
             type: {
               name: 'String'
@@ -92,7 +89,6 @@ class Portfolio {
           },
           displayName: {
             required: false,
-            readOnly: true,
             serializedName: 'displayName',
             type: {
               name: 'String'
@@ -100,7 +96,6 @@ class Portfolio {
           },
           description: {
             required: false,
-            readOnly: true,
             serializedName: 'description',
             type: {
               name: 'String'
@@ -108,7 +103,6 @@ class Portfolio {
           },
           created: {
             required: false,
-            readOnly: true,
             serializedName: 'created',
             type: {
               name: 'DateTime'
@@ -116,7 +110,6 @@ class Portfolio {
           },
           parentPortfolioId: {
             required: false,
-            readOnly: true,
             serializedName: 'parentPortfolioId',
             type: {
               name: 'Composite',
@@ -125,7 +118,6 @@ class Portfolio {
           },
           version: {
             required: false,
-            readOnly: true,
             serializedName: 'version',
             type: {
               name: 'Composite',
@@ -134,7 +126,6 @@ class Portfolio {
           },
           isDerived: {
             required: false,
-            readOnly: true,
             serializedName: 'isDerived',
             type: {
               name: 'Boolean'

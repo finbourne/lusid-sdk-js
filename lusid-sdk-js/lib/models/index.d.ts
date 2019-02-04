@@ -156,8 +156,8 @@ export interface ResourceId {
  * Describes the version metadata of an entity.
 */
 export interface Version {
-  readonly effectiveFrom?: Date;
-  readonly asAtDate?: Date;
+  effectiveFrom?: Date;
+  asAtDate?: Date;
 }
 
 export interface CorporateActionSource {
@@ -391,37 +391,37 @@ export interface Portfolio {
   /**
    * Link to retrieve the current entity
   */
-  readonly href?: string;
+  href?: string;
   /**
    * Identifier for the portfolio
   */
-  readonly id?: ResourceId;
+  id?: ResourceId;
   /**
    * The type of portfolio this is (e.g. Transaction Portfolio, Reference  Portfolio). Possible
    * values include: 'Transaction', 'Reference', 'DerivedTransaction'
   */
-  readonly type?: string;
+  type?: string;
   /**
    * Display name of the portfolio
   */
-  readonly displayName?: string;
+  displayName?: string;
   /**
    * Description of the portfolio
   */
-  readonly description?: string;
+  description?: string;
   /**
    * Portfolio creation time in UTC
   */
-  readonly created?: Date;
+  created?: Date;
   /**
    * If this is a derived portfolio, the identifier of the portfolio from which it is derived
   */
-  readonly parentPortfolioId?: ResourceId;
+  parentPortfolioId?: ResourceId;
   /**
    * The version of the portfolio
   */
-  readonly version?: Version;
-  readonly isDerived?: boolean;
+  version?: Version;
+  isDerived?: boolean;
   links?: Link[];
 }
 
@@ -1514,7 +1514,7 @@ export interface TransactionConfigurationDataRequest {
    * Movement data for the transaction code
   */
   movements: TransactionConfigurationMovementDataRequest[];
-  readonly properties?: { [propertyName: string]: PerpetualPropertyValue };
+  properties?: { [propertyName: string]: PerpetualPropertyValue };
 }
 
 export interface TransactionPropertyMapping {
