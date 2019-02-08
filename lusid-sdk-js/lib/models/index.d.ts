@@ -1631,13 +1631,13 @@ export interface ExecutionRequest {
   */
   transactionTime: Date;
   /**
-   * FIX field 38.  Order quantity.
+   * FIX field 32.
   */
-  orderQty: number;
+  lastShares: number;
   /**
-   * FIX field 44.
+   * FIX field 31.
   */
-  price: number;
+  lastPx: number;
   /**
    * FIX field 15.
   */

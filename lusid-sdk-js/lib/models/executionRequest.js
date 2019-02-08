@@ -33,8 +33,8 @@ class ExecutionRequest {
    * @property {object} instrumentIdentifiers Unique instrument identifiers.
    * @property {date} transactionTime FIX field 60.  Time the transaction
    * represented by this ExecutionReport occurred.
-   * @property {number} orderQty FIX field 38.  Order quantity.
-   * @property {number} price FIX field 44.
+   * @property {number} lastShares FIX field 32.
+   * @property {number} lastPx FIX field 31.
    * @property {string} currency FIX field 15.
    */
   constructor() {
@@ -89,16 +89,16 @@ class ExecutionRequest {
               name: 'DateTime'
             }
           },
-          orderQty: {
+          lastShares: {
             required: true,
-            serializedName: 'orderQty',
+            serializedName: 'lastShares',
             type: {
               name: 'Number'
             }
           },
-          price: {
+          lastPx: {
             required: true,
-            serializedName: 'price',
+            serializedName: 'lastPx',
             type: {
               name: 'Number'
             }

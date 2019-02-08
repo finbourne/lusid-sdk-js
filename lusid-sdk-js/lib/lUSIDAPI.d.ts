@@ -7457,6 +7457,73 @@ export default class LUSIDAPI extends ServiceClient {
 
 
   /**
+   * @summary Delete executions
+   *
+   * Delete one or more executions from a transaction portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.executionIds] Ids of executions to delete
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @returns {Promise} A promise is returned
+   *
+   * @resolve {HttpOperationResponse<DeletedEntityResponse>} - The deserialized result object.
+   *
+   * @reject {Error|ServiceError} - The error object.
+   */
+  deleteExecutionsWithHttpOperationResponse(scope: string, code: string, options?: { executionIds? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeletedEntityResponse>>;
+
+  /**
+   * @summary Delete executions
+   *
+   * Delete one or more executions from a transaction portfolio
+   *
+   * @param {string} scope The scope of the portfolio
+   *
+   * @param {string} code The code of the portfolio
+   *
+   * @param {object} [options] Optional Parameters.
+   *
+   * @param {array} [options.executionIds] Ids of executions to delete
+   *
+   * @param {object} [options.customHeaders] Headers that will be added to the
+   * request
+   *
+   * @param {ServiceCallback} [optionalCallback] - The optional callback.
+   *
+   * @returns {ServiceCallback|Promise} If a callback was passed as the last
+   * parameter then it returns the callback else returns a Promise.
+   *
+   * {Promise} A promise is returned.
+   *
+   *                      @resolve {DeletedEntityResponse} - The deserialized result object.
+   *
+   *                      @reject {Error|ServiceError} - The error object.
+   *
+   * {ServiceCallback} optionalCallback(err, result, request, response)
+   *
+   *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+   *
+   *                      {DeletedEntityResponse} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link DeletedEntityResponse} for more information.
+   *
+   *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+   *
+   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   */
+  deleteExecutions(scope: string, code: string, options?: { executionIds? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.DeletedEntityResponse>;
+  deleteExecutions(scope: string, code: string, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+  deleteExecutions(scope: string, code: string, options: { executionIds? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeletedEntityResponse>): void;
+
+
+  /**
    * @summary Get holdings
    *
    * Get the aggregate holdings of a transaction portfolio.  If no effectiveAt or
