@@ -30,7 +30,10 @@ class NestedAggregationResponse {
    * Create a NestedAggregationResponse.
    * @property {string} [href]
    * @property {object} [data]
-   * @property {string} [data.key]
+   * @property {object} [data.key]
+   * @property {string} [data.key.key]
+   * @property {string} [data.key.op] Possible values include: 'Sum',
+   * 'Proportion', 'Average', 'Count', 'Min', 'Max', 'Value'
    * @property {string} [data.value]
    * @property {number} [data.depth]
    * @property {object} [data.properties]

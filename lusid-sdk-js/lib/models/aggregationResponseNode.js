@@ -28,7 +28,10 @@
 class AggregationResponseNode {
   /**
    * Create a AggregationResponseNode.
-   * @property {string} [key]
+   * @property {object} [key]
+   * @property {string} [key.key]
+   * @property {string} [key.op] Possible values include: 'Sum', 'Proportion',
+   * 'Average', 'Count', 'Min', 'Max', 'Value'
    * @property {string} [value]
    * @property {number} [depth]
    * @property {object} [properties]
@@ -55,7 +58,8 @@ class AggregationResponseNode {
             required: false,
             serializedName: 'key',
             type: {
-              name: 'String'
+              name: 'Composite',
+              className: 'AggregateSpec'
             }
           },
           value: {

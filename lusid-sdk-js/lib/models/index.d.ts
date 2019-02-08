@@ -739,11 +739,11 @@ export interface UpdatePortfolioGroupRequest {
 }
 
 export interface AggregateSpec {
-  key: string;
+  key?: string;
   /**
    * Possible values include: 'Sum', 'Proportion', 'Average', 'Count', 'Min', 'Max', 'Value'
   */
-  op: string;
+  op?: string;
 }
 
 export interface PropertyFilter {
@@ -808,7 +808,7 @@ export interface ListAggregationResponse {
 }
 
 export interface AggregationResponseNode {
-  key?: string;
+  key?: AggregateSpec;
   value?: string;
   depth?: number;
   properties?: { [propertyName: string]: any };
