@@ -35,7 +35,8 @@ class UpdatePropertyDefinitionRequest {
    * @property {string} [dataTypeId.code]
    * @property {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
-   * @property {string} [type] Possible values include: 'Label', 'Metric'
+   * @property {string} [type] Possible values include: 'Label', 'Metric',
+   * 'Information'
    */
   constructor() {
   }

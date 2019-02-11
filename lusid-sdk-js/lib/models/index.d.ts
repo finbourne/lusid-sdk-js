@@ -764,16 +764,46 @@ export interface PropertyFilter {
  * Specification object for the parameters of an aggregation
 */
 export interface AggregationRequest {
+  /**
+   * The configuration recipe, consisting of user scope and recipe name, to use in performing the
+   * aggregation.
+  */
   recipeId: ResourceId;
   /**
    * The asAt date to use
   */
   asAt?: Date;
+  /**
+   * The market data time, i.e. the time to run the aggregation request effective of.
+  */
   effectiveAt: Date;
+  /**
+   * The set of specifications for items to calculate or retrieve during the aggregation and
+   * present in the results.
+   * This is logically equivalent to the set of operations in a Sql select statement
+   * select [operation1(field1), operation2(field2), ... ] from results
+  */
   metrics: AggregateSpec[];
+  /**
+   * The set of items by which to perform grouping. This primarily matters when one or more of the
+   * metric operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement determines the set of
+   * keys by which to break the results out.
+  */
   groupBy?: string[];
+  /**
+   * A set of filters to use to reduce the data found in a request. Equivalent to the 'where ...'
+   * part of a Sql select statement.
+   * For example, filter a set of values within a given range or matching a particular value.
+  */
   filters?: PropertyFilter[];
+  /**
+   * limit the results to a particular number of values.
+  */
   limit?: number;
+  /**
+   * Sort the results or not.
+  */
   sort?: string;
 }
 
@@ -1022,6 +1052,12 @@ export interface ResourceListOfReconciliationBreak {
   links?: Link[];
 }
 
+/**
+ * Specification for the parameters that define how to perform a reconciliation between two
+ * portfolios. This defines
+ * the specification for one half of that request, namely how to find and perform an aggregation
+ * request on one of the portfolios.
+*/
 export interface ValuationReconciliationRequest {
   /**
    * The id of the portfolio on which to run the aggregation request
@@ -1033,6 +1069,17 @@ export interface ValuationReconciliationRequest {
   aggregation: AggregationRequest;
 }
 
+/**
+ * Specification for the reconciliation request. Left and Right hand sides are constructed. Each
+ * consists of a valuation of a portfolio
+ * using an aggregation request. The results of this can then be compared to each other. The
+ * difference, which is effectively a risk based
+ * difference allows comparison of the effects of changing a recipe, valuation date, or (though it
+ * may or may not make logical sense) a portfolio.
+ * For instance, one might look at the difference in risk caused by the addition of transaction to
+ * a portfolio, or through changing the valuation
+ * methodology or system.
+*/
 export interface ValuationsReconciliationRequest {
   /**
    * The specification of the left hand side of the valuation (risk) reconciliation
@@ -1065,7 +1112,7 @@ export interface CreatePropertyDefinitionRequest {
   */
   lifeTime?: string;
   /**
-   * Possible values include: 'Label', 'Metric'
+   * Possible values include: 'Label', 'Metric', 'Information'
   */
   type?: string;
 }
@@ -1089,7 +1136,7 @@ export interface PropertyDefinition {
   */
   lifeTime?: string;
   /**
-   * Possible values include: 'Label', 'Metric'
+   * Possible values include: 'Label', 'Metric', 'Information'
   */
   type?: string;
   /**
@@ -1131,7 +1178,7 @@ export interface UpdatePropertyDefinitionRequest {
   */
   lifeTime?: string;
   /**
-   * Possible values include: 'Label', 'Metric'
+   * Possible values include: 'Label', 'Metric', 'Information'
   */
   type?: string;
 }
@@ -1306,7 +1353,13 @@ export interface ResourceListOfConstituentsAdjustmentHeader {
 }
 
 export interface CreateResults {
+  /**
+   * The data that should be stored in the results cube.
+  */
   data?: string;
+  /**
+   * The scope of the data to be stored.
+  */
   scope?: string;
   /**
    * The key is a unique point in 'run' space. For a given scope and time point, one would wish to
@@ -1318,9 +1371,13 @@ export interface CreateResults {
    * Also, whether we would accept uploading of groups and then split them apart.
   */
   key?: string;
+  /**
+   * The date for which the results should be stored.
+  */
   date?: Date;
   /**
-   * Possible values include: 'DataReader', 'Portfolio'
+   * The format in which the results are stored/structured. Possible values include: 'DataReader',
+   * 'Portfolio'
   */
   format?: string;
 }

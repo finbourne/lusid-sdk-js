@@ -44,7 +44,8 @@ class PropertyDefinition {
    * @property {string} [dataTypeId.code]
    * @property {string} [lifeTime] Possible values include: 'Perpetual',
    * 'TimeVariant'
-   * @property {string} [type] Possible values include: 'Label', 'Metric'
+   * @property {string} [type] Possible values include: 'Label', 'Metric',
+   * 'Information'
    * @property {string} [unitSchema] Possible values include: 'NoUnits',
    * 'Basic', 'Iso4217Currency'
    * @property {string} [domain] Possible values include: 'Trade', 'Portfolio',

@@ -28,8 +28,9 @@
 class CreateResults {
   /**
    * Create a CreateResults.
-   * @property {string} [data]
-   * @property {string} [scope]
+   * @property {string} [data] The data that should be stored in the results
+   * cube.
+   * @property {string} [scope] The scope of the data to be stored.
    * @property {string} [key] The key is a unique point in 'run' space. For a
    * given scope and time point, one would wish to
    * identify a unique result set for a given recipe. In essence, this key is
@@ -40,9 +41,9 @@ class CreateResults {
    * results together, or only single ones.
    * Also, whether we would accept uploading of groups and then split them
    * apart.
-   * @property {date} [date]
-   * @property {string} [format] Possible values include: 'DataReader',
-   * 'Portfolio'
+   * @property {date} [date] The date for which the results should be stored.
+   * @property {string} [format] The format in which the results are
+   * stored/structured. Possible values include: 'DataReader', 'Portfolio'
    */
   constructor() {
   }

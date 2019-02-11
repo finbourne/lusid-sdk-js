@@ -2922,7 +2922,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId
+   * @param {object} options.request.recipeId The configuration recipe,
+   * consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
@@ -2930,17 +2932,31 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} options.request.effectiveAt
+   * @param {date} options.request.effectiveAt The market data time, i.e. the
+   * time to run the aggregation request effective of.
    *
-   * @param {array} options.request.metrics
+   * @param {array} options.request.metrics The set of specifications for items
+   * to calculate or retrieve during the aggregation and present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.groupBy]
+   * @param {array} [options.request.groupBy] The set of items by which to
+   * perform grouping. This primarily matters when one or more of the metric
+   * operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.filters]
+   * @param {array} [options.request.filters] A set of filters to use to reduce
+   * the data found in a request. Equivalent to the 'where ...' part of a Sql
+   * select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.limit]
+   * @param {number} [options.request.limit] limit the results to a particular
+   * number of values.
    *
-   * @param {string} [options.request.sort]
+   * @param {string} [options.request.sort] Sort the results or not.
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -2976,7 +2992,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId
+   * @param {object} options.request.recipeId The configuration recipe,
+   * consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
@@ -2984,17 +3002,31 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} options.request.effectiveAt
+   * @param {date} options.request.effectiveAt The market data time, i.e. the
+   * time to run the aggregation request effective of.
    *
-   * @param {array} options.request.metrics
+   * @param {array} options.request.metrics The set of specifications for items
+   * to calculate or retrieve during the aggregation and present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.groupBy]
+   * @param {array} [options.request.groupBy] The set of items by which to
+   * perform grouping. This primarily matters when one or more of the metric
+   * operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.filters]
+   * @param {array} [options.request.filters] A set of filters to use to reduce
+   * the data found in a request. Equivalent to the 'where ...' part of a Sql
+   * select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.limit]
+   * @param {number} [options.request.limit] limit the results to a particular
+   * number of values.
    *
-   * @param {string} [options.request.sort]
+   * @param {string} [options.request.sort] Sort the results or not.
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -3051,7 +3083,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId
+   * @param {object} options.request.recipeId The configuration recipe,
+   * consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
@@ -3059,17 +3093,31 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} options.request.effectiveAt
+   * @param {date} options.request.effectiveAt The market data time, i.e. the
+   * time to run the aggregation request effective of.
    *
-   * @param {array} options.request.metrics
+   * @param {array} options.request.metrics The set of specifications for items
+   * to calculate or retrieve during the aggregation and present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.groupBy]
+   * @param {array} [options.request.groupBy] The set of items by which to
+   * perform grouping. This primarily matters when one or more of the metric
+   * operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.filters]
+   * @param {array} [options.request.filters] A set of filters to use to reduce
+   * the data found in a request. Equivalent to the 'where ...' part of a Sql
+   * select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.limit]
+   * @param {number} [options.request.limit] limit the results to a particular
+   * number of values.
    *
-   * @param {string} [options.request.sort]
+   * @param {string} [options.request.sort] Sort the results or not.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -3097,7 +3145,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId
+   * @param {object} options.request.recipeId The configuration recipe,
+   * consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
@@ -3105,17 +3155,31 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} options.request.effectiveAt
+   * @param {date} options.request.effectiveAt The market data time, i.e. the
+   * time to run the aggregation request effective of.
    *
-   * @param {array} options.request.metrics
+   * @param {array} options.request.metrics The set of specifications for items
+   * to calculate or retrieve during the aggregation and present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.groupBy]
+   * @param {array} [options.request.groupBy] The set of items by which to
+   * perform grouping. This primarily matters when one or more of the metric
+   * operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.filters]
+   * @param {array} [options.request.filters] A set of filters to use to reduce
+   * the data found in a request. Equivalent to the 'where ...' part of a Sql
+   * select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.limit]
+   * @param {number} [options.request.limit] limit the results to a particular
+   * number of values.
    *
-   * @param {string} [options.request.sort]
+   * @param {string} [options.request.sort] Sort the results or not.
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -4086,7 +4150,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId
+   * @param {object} options.request.recipeId The configuration recipe,
+   * consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
@@ -4094,17 +4160,31 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} options.request.effectiveAt
+   * @param {date} options.request.effectiveAt The market data time, i.e. the
+   * time to run the aggregation request effective of.
    *
-   * @param {array} options.request.metrics
+   * @param {array} options.request.metrics The set of specifications for items
+   * to calculate or retrieve during the aggregation and present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.groupBy]
+   * @param {array} [options.request.groupBy] The set of items by which to
+   * perform grouping. This primarily matters when one or more of the metric
+   * operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.filters]
+   * @param {array} [options.request.filters] A set of filters to use to reduce
+   * the data found in a request. Equivalent to the 'where ...' part of a Sql
+   * select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.limit]
+   * @param {number} [options.request.limit] limit the results to a particular
+   * number of values.
    *
-   * @param {string} [options.request.sort]
+   * @param {string} [options.request.sort] Sort the results or not.
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -4140,7 +4220,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId
+   * @param {object} options.request.recipeId The configuration recipe,
+   * consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
@@ -4148,17 +4230,31 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} options.request.effectiveAt
+   * @param {date} options.request.effectiveAt The market data time, i.e. the
+   * time to run the aggregation request effective of.
    *
-   * @param {array} options.request.metrics
+   * @param {array} options.request.metrics The set of specifications for items
+   * to calculate or retrieve during the aggregation and present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.groupBy]
+   * @param {array} [options.request.groupBy] The set of items by which to
+   * perform grouping. This primarily matters when one or more of the metric
+   * operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.filters]
+   * @param {array} [options.request.filters] A set of filters to use to reduce
+   * the data found in a request. Equivalent to the 'where ...' part of a Sql
+   * select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.limit]
+   * @param {number} [options.request.limit] limit the results to a particular
+   * number of values.
    *
-   * @param {string} [options.request.sort]
+   * @param {string} [options.request.sort] Sort the results or not.
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -4708,7 +4804,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} options.request.right.aggregation The specification of the
    * aggregation request to be used to obtain the risk
    *
-   * @param {object} options.request.right.aggregation.recipeId
+   * @param {object} options.request.right.aggregation.recipeId The configuration
+   * recipe, consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.right.aggregation.recipeId.scope]
    *
@@ -4716,17 +4814,33 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
    *
-   * @param {date} options.request.right.aggregation.effectiveAt
+   * @param {date} options.request.right.aggregation.effectiveAt The market data
+   * time, i.e. the time to run the aggregation request effective of.
    *
-   * @param {array} options.request.right.aggregation.metrics
+   * @param {array} options.request.right.aggregation.metrics The set of
+   * specifications for items to calculate or retrieve during the aggregation and
+   * present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.right.aggregation.groupBy]
+   * @param {array} [options.request.right.aggregation.groupBy] The set of items
+   * by which to perform grouping. This primarily matters when one or more of the
+   * metric operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.right.aggregation.filters]
+   * @param {array} [options.request.right.aggregation.filters] A set of filters
+   * to use to reduce the data found in a request. Equivalent to the 'where ...'
+   * part of a Sql select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.right.aggregation.limit]
+   * @param {number} [options.request.right.aggregation.limit] limit the results
+   * to a particular number of values.
    *
-   * @param {string} [options.request.right.aggregation.sort]
+   * @param {string} [options.request.right.aggregation.sort] Sort the results or
+   * not.
    *
    * @param {array} options.request.instrumentPropertyKeys Instrument properties
    * to be included with any identified breaks. These properties will be in the
@@ -4780,7 +4894,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} options.request.right.aggregation The specification of the
    * aggregation request to be used to obtain the risk
    *
-   * @param {object} options.request.right.aggregation.recipeId
+   * @param {object} options.request.right.aggregation.recipeId The configuration
+   * recipe, consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.right.aggregation.recipeId.scope]
    *
@@ -4788,17 +4904,33 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
    *
-   * @param {date} options.request.right.aggregation.effectiveAt
+   * @param {date} options.request.right.aggregation.effectiveAt The market data
+   * time, i.e. the time to run the aggregation request effective of.
    *
-   * @param {array} options.request.right.aggregation.metrics
+   * @param {array} options.request.right.aggregation.metrics The set of
+   * specifications for items to calculate or retrieve during the aggregation and
+   * present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.right.aggregation.groupBy]
+   * @param {array} [options.request.right.aggregation.groupBy] The set of items
+   * by which to perform grouping. This primarily matters when one or more of the
+   * metric operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.right.aggregation.filters]
+   * @param {array} [options.request.right.aggregation.filters] A set of filters
+   * to use to reduce the data found in a request. Equivalent to the 'where ...'
+   * part of a Sql select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.right.aggregation.limit]
+   * @param {number} [options.request.right.aggregation.limit] limit the results
+   * to a particular number of values.
    *
-   * @param {string} [options.request.right.aggregation.sort]
+   * @param {string} [options.request.right.aggregation.sort] Sort the results or
+   * not.
    *
    * @param {array} options.request.instrumentPropertyKeys Instrument properties
    * to be included with any identified breaks. These properties will be in the
@@ -4968,7 +5100,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Perpetual', 'TimeVariant'
    *
    * @param {string} [options.definition.type] Possible values include: 'Label',
-   * 'Metric'
+   * 'Metric', 'Information'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5012,7 +5144,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Perpetual', 'TimeVariant'
    *
    * @param {string} [options.definition.type] Possible values include: 'Label',
-   * 'Metric'
+   * 'Metric', 'Information'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5155,7 +5287,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Perpetual', 'TimeVariant'
    *
    * @param {string} [options.definition.type] Possible values include: 'Label',
-   * 'Metric'
+   * 'Metric', 'Information'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -5202,7 +5334,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'Perpetual', 'TimeVariant'
    *
    * @param {string} [options.definition.type] Possible values include: 'Label',
-   * 'Metric'
+   * 'Metric', 'Information'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6000,9 +6132,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.request] The results to upload
    *
-   * @param {string} [options.request.data]
+   * @param {string} [options.request.data] The data that should be stored in the
+   * results cube.
    *
-   * @param {string} [options.request.scope]
+   * @param {string} [options.request.scope] The scope of the data to be stored.
    *
    * @param {string} [options.request.key] The key is a unique point in 'run'
    * space. For a given scope and time point, one would wish to
@@ -6014,10 +6147,11 @@ export default class LUSIDAPI extends ServiceClient {
    * results together, or only single ones.
    * Also, whether we would accept uploading of groups and then split them apart.
    *
-   * @param {date} [options.request.date]
+   * @param {date} [options.request.date] The date for which the results should
+   * be stored.
    *
-   * @param {string} [options.request.format] Possible values include:
-   * 'DataReader', 'Portfolio'
+   * @param {string} [options.request.format] The format in which the results are
+   * stored/structured. Possible values include: 'DataReader', 'Portfolio'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6045,9 +6179,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options.request] The results to upload
    *
-   * @param {string} [options.request.data]
+   * @param {string} [options.request.data] The data that should be stored in the
+   * results cube.
    *
-   * @param {string} [options.request.scope]
+   * @param {string} [options.request.scope] The scope of the data to be stored.
    *
    * @param {string} [options.request.key] The key is a unique point in 'run'
    * space. For a given scope and time point, one would wish to
@@ -6059,10 +6194,11 @@ export default class LUSIDAPI extends ServiceClient {
    * results together, or only single ones.
    * Also, whether we would accept uploading of groups and then split them apart.
    *
-   * @param {date} [options.request.date]
+   * @param {date} [options.request.date] The date for which the results should
+   * be stored.
    *
-   * @param {string} [options.request.format] Possible values include:
-   * 'DataReader', 'Portfolio'
+   * @param {string} [options.request.format] The format in which the results are
+   * stored/structured. Possible values include: 'DataReader', 'Portfolio'
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -6109,7 +6245,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId
+   * @param {object} options.request.recipeId The configuration recipe,
+   * consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
@@ -6117,17 +6255,31 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} options.request.effectiveAt
+   * @param {date} options.request.effectiveAt The market data time, i.e. the
+   * time to run the aggregation request effective of.
    *
-   * @param {array} options.request.metrics
+   * @param {array} options.request.metrics The set of specifications for items
+   * to calculate or retrieve during the aggregation and present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.groupBy]
+   * @param {array} [options.request.groupBy] The set of items by which to
+   * perform grouping. This primarily matters when one or more of the metric
+   * operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.filters]
+   * @param {array} [options.request.filters] A set of filters to use to reduce
+   * the data found in a request. Equivalent to the 'where ...' part of a Sql
+   * select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.limit]
+   * @param {number} [options.request.limit] limit the results to a particular
+   * number of values.
    *
-   * @param {string} [options.request.sort]
+   * @param {string} [options.request.sort] Sort the results or not.
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -6164,7 +6316,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId
+   * @param {object} options.request.recipeId The configuration recipe,
+   * consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
@@ -6172,17 +6326,31 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
-   * @param {date} options.request.effectiveAt
+   * @param {date} options.request.effectiveAt The market data time, i.e. the
+   * time to run the aggregation request effective of.
    *
-   * @param {array} options.request.metrics
+   * @param {array} options.request.metrics The set of specifications for items
+   * to calculate or retrieve during the aggregation and present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
    *
-   * @param {array} [options.request.groupBy]
+   * @param {array} [options.request.groupBy] The set of items by which to
+   * perform grouping. This primarily matters when one or more of the metric
+   * operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
    *
-   * @param {array} [options.request.filters]
+   * @param {array} [options.request.filters] A set of filters to use to reduce
+   * the data found in a request. Equivalent to the 'where ...' part of a Sql
+   * select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
    *
-   * @param {number} [options.request.limit]
+   * @param {number} [options.request.limit] limit the results to a particular
+   * number of values.
    *
-   * @param {string} [options.request.sort]
+   * @param {string} [options.request.sort] Sort the results or not.
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName

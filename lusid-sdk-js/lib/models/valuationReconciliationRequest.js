@@ -23,7 +23,11 @@
 'use strict';
 
 /**
- * Class representing a ValuationReconciliationRequest.
+ * Specification for the parameters that define how to perform a reconciliation
+ * between two portfolios. This defines
+ * the specification for one half of that request, namely how to find and
+ * perform an aggregation request on one of the portfolios.
+ *
  */
 class ValuationReconciliationRequest {
   /**
@@ -34,16 +38,33 @@ class ValuationReconciliationRequest {
    * @property {string} [portfolioId.code]
    * @property {object} aggregation The specification of the aggregation
    * request to be used to obtain the risk
-   * @property {object} [aggregation.recipeId]
+   * @property {object} [aggregation.recipeId] The configuration recipe,
+   * consisting of user scope and recipe name, to use in performing the
+   * aggregation.
    * @property {string} [aggregation.recipeId.scope]
    * @property {string} [aggregation.recipeId.code]
    * @property {date} [aggregation.asAt] The asAt date to use
-   * @property {date} [aggregation.effectiveAt]
-   * @property {array} [aggregation.metrics]
-   * @property {array} [aggregation.groupBy]
-   * @property {array} [aggregation.filters]
-   * @property {number} [aggregation.limit]
-   * @property {string} [aggregation.sort]
+   * @property {date} [aggregation.effectiveAt] The market data time, i.e. the
+   * time to run the aggregation request effective of.
+   * @property {array} [aggregation.metrics] The set of specifications for
+   * items to calculate or retrieve during the aggregation and present in the
+   * results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
+   * @property {array} [aggregation.groupBy] The set of items by which to
+   * perform grouping. This primarily matters when one or more of the metric
+   * operators is a mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
+   * @property {array} [aggregation.filters] A set of filters to use to reduce
+   * the data found in a request. Equivalent to the 'where ...' part of a Sql
+   * select statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
+   * @property {number} [aggregation.limit] limit the results to a particular
+   * number of values.
+   * @property {string} [aggregation.sort] Sort the results or not.
    */
   constructor() {
   }

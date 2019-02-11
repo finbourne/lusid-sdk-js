@@ -29,16 +29,31 @@
 class AggregationRequest {
   /**
    * Create a AggregationRequest.
-   * @property {object} recipeId
+   * @property {object} recipeId The configuration recipe, consisting of user
+   * scope and recipe name, to use in performing the aggregation.
    * @property {string} [recipeId.scope]
    * @property {string} [recipeId.code]
    * @property {date} [asAt] The asAt date to use
-   * @property {date} effectiveAt
-   * @property {array} metrics
-   * @property {array} [groupBy]
-   * @property {array} [filters]
-   * @property {number} [limit]
-   * @property {string} [sort]
+   * @property {date} effectiveAt The market data time, i.e. the time to run
+   * the aggregation request effective of.
+   * @property {array} metrics The set of specifications for items to calculate
+   * or retrieve during the aggregation and present in the results.
+   * This is logically equivalent to the set of operations in a Sql select
+   * statement
+   * select [operation1(field1), operation2(field2), ... ] from results
+   * @property {array} [groupBy] The set of items by which to perform grouping.
+   * This primarily matters when one or more of the metric operators is a
+   * mapping
+   * that reduces set size, e.g. sum or proportion. The group-by statement
+   * determines the set of keys by which to break the results out.
+   * @property {array} [filters] A set of filters to use to reduce the data
+   * found in a request. Equivalent to the 'where ...' part of a Sql select
+   * statement.
+   * For example, filter a set of values within a given range or matching a
+   * particular value.
+   * @property {number} [limit] limit the results to a particular number of
+   * values.
+   * @property {string} [sort] Sort the results or not.
    */
   constructor() {
   }
