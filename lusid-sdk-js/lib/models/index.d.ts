@@ -91,11 +91,12 @@ export interface ErrorResponse {
    * 'ReferencePortfolioRequestNotSupported', 'TransactionPortfolioRequestNotSupported',
    * 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
    * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
-   * 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure', 'DependenciesFailure',
-   * 'PortfolioPreprocessFailure', 'ValuationEngineFailure', 'TaskFactoryFailure',
-   * 'TaskEvaluationFailure', 'InstrumentFailure', 'CashFlowsFailure', 'ResultRetrievalFailure',
-   * 'ResultProcessingFailure', 'VendorResultProcessingFailure',
-   * 'CannotSupplyTimesWithPortfoliosQuery', 'AttemptToUpsertDuplicateQuotes'
+   * 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure', 'DuplicateConstituentFailure',
+   * 'UnresolvedConstituentFailure', 'DependenciesFailure', 'PortfolioPreprocessFailure',
+   * 'ValuationEngineFailure', 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
+   * 'CashFlowsFailure', 'ResultRetrievalFailure', 'ResultProcessingFailure',
+   * 'VendorResultProcessingFailure', 'CannotSupplyTimesWithPortfoliosQuery',
+   * 'AttemptToUpsertDuplicateQuotes'
   */
   code?: string;
   message?: string;
@@ -1263,6 +1264,10 @@ export interface CreateReferencePortfolioRequest {
 }
 
 export interface ReferencePortfolioConstituent {
+  /**
+   * Unique instrument identifiers.
+  */
+  instrumentIdentifiers?: { [propertyName: string]: string };
   instrumentUid: string;
   currency: string;
   /**
@@ -1297,7 +1302,10 @@ export interface GetReferencePortfolioConstituentsResponse {
 }
 
 export interface ReferencePortfolioConstituentRequest {
-  instrumentUid?: string;
+  /**
+   * Unique instrument identifiers.
+  */
+  instrumentIdentifiers?: { [propertyName: string]: string };
   properties?: { [propertyName: string]: PerpetualPropertyValue };
   weight?: number;
   currency?: string;
@@ -1728,6 +1736,10 @@ export interface Transaction {
   */
   type: string;
   /**
+   * Unique instrument identifiers.
+  */
+  instrumentIdentifiers?: { [propertyName: string]: string };
+  /**
    * Unique instrument identifier
   */
   instrumentUid: string;
@@ -1855,9 +1867,9 @@ export interface TargetTaxLotRequest {
 */
 export interface AdjustHoldingRequest {
   /**
-   * Unique instrument identifier
+   * Unique instrument identifiers.
   */
-  instrumentUid: string;
+  instrumentIdentifiers?: { [propertyName: string]: string };
   /**
    * Key fields to uniquely index the sub holdings of a instrument
   */
@@ -1951,6 +1963,10 @@ export interface TargetTaxLot {
 */
 export interface HoldingAdjustment {
   /**
+   * Unique instrument identifiers.
+  */
+  instrumentIdentifiers?: { [propertyName: string]: string };
+  /**
    * Unique instrument identifier
   */
   instrumentUid: string;
@@ -2013,9 +2029,9 @@ export interface TransactionRequest {
   */
   type: string;
   /**
-   * Unique instrument identifier
+   * Unique instrument identifiers.
   */
-  instrumentUid: string;
+  instrumentIdentifiers?: { [propertyName: string]: string };
   /**
    * Transaction date
   */
@@ -2149,6 +2165,10 @@ export interface OutputTransaction {
    * LUSID transaction description
   */
   readonly description?: string;
+  /**
+   * Unique instrument identifiers.
+  */
+  instrumentIdentifiers?: { [propertyName: string]: string };
   /**
    * Unique instrument identifier
   */

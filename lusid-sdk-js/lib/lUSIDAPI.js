@@ -10333,7 +10333,7 @@ function _upsertQuotes(scope, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _deleteQuote(scope, options, callback) {
+function _deleteQuotes(scope, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -16847,7 +16847,7 @@ class LUSIDAPI extends ServiceClient {
     this._updatePropertyDefinition = _updatePropertyDefinition;
     this._deletePropertyDefinition = _deletePropertyDefinition;
     this._upsertQuotes = _upsertQuotes;
-    this._deleteQuote = _deleteQuote;
+    this._deleteQuotes = _deleteQuotes;
     this._getQuotes = _getQuotes;
     this._createReferencePortfolio = _createReferencePortfolio;
     this._getReferencePortfolioConstituents = _getReferencePortfolioConstituents;
@@ -24041,11 +24041,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  deleteQuoteWithHttpOperationResponse(scope, options) {
+  deleteQuotesWithHttpOperationResponse(scope, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._deleteQuote(scope, options, (err, result, request, response) => {
+      self._deleteQuotes(scope, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -24092,7 +24092,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  deleteQuote(scope, options, optionalCallback) {
+  deleteQuotes(scope, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -24101,14 +24101,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._deleteQuote(scope, options, (err, result, request, response) => {
+        self._deleteQuotes(scope, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._deleteQuote(scope, options, optionalCallback);
+      return self._deleteQuotes(scope, options, optionalCallback);
     }
   }
 

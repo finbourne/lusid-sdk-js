@@ -48,6 +48,8 @@ class PortfolioHolding {
    * identifier
    * @property {string} [transaction.type] LUSID transaction type code - Buy,
    * Sell, StockIn, StockOut, etc
+   * @property {object} [transaction.instrumentIdentifiers] Unique instrument
+   * identifiers.
    * @property {string} [transaction.instrumentUid] Unique instrument
    * identifier
    * @property {date} [transaction.transactionDate] Transaction date

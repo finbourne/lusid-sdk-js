@@ -28,6 +28,7 @@
 class ReferencePortfolioConstituent {
   /**
    * Create a ReferencePortfolioConstituent.
+   * @property {object} [instrumentIdentifiers] Unique instrument identifiers.
    * @property {string} instrumentUid
    * @property {string} currency
    * @property {array} [properties] Properties associated with the constituent
@@ -51,6 +52,20 @@ class ReferencePortfolioConstituent {
         name: 'Composite',
         className: 'ReferencePortfolioConstituent',
         modelProperties: {
+          instrumentIdentifiers: {
+            required: false,
+            serializedName: 'instrumentIdentifiers',
+            type: {
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'StringElementType',
+                  type: {
+                    name: 'String'
+                  }
+              }
+            }
+          },
           instrumentUid: {
             required: true,
             serializedName: 'instrumentUid',

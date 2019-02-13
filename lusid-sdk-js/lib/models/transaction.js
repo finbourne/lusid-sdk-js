@@ -31,6 +31,7 @@ class Transaction {
    * @property {string} transactionId Unique transaction identifier
    * @property {string} type LUSID transaction type code - Buy, Sell, StockIn,
    * StockOut, etc
+   * @property {object} [instrumentIdentifiers] Unique instrument identifiers.
    * @property {string} instrumentUid Unique instrument identifier
    * @property {date} transactionDate Transaction date
    * @property {date} settlementDate Settlement date
@@ -82,6 +83,20 @@ class Transaction {
             serializedName: 'type',
             type: {
               name: 'String'
+            }
+          },
+          instrumentIdentifiers: {
+            required: false,
+            serializedName: 'instrumentIdentifiers',
+            type: {
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'StringElementType',
+                  type: {
+                    name: 'String'
+                  }
+              }
             }
           },
           instrumentUid: {

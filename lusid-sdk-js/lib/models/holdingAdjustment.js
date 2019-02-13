@@ -31,6 +31,7 @@
 class HoldingAdjustment {
   /**
    * Create a HoldingAdjustment.
+   * @property {object} [instrumentIdentifiers] Unique instrument identifiers.
    * @property {string} instrumentUid Unique instrument identifier
    * @property {array} [subHoldingKeys] Key fields to uniquely index the sub
    * holdings of a instrument
@@ -55,6 +56,20 @@ class HoldingAdjustment {
         name: 'Composite',
         className: 'HoldingAdjustment',
         modelProperties: {
+          instrumentIdentifiers: {
+            required: false,
+            serializedName: 'instrumentIdentifiers',
+            type: {
+              name: 'Dictionary',
+              value: {
+                  required: false,
+                  serializedName: 'StringElementType',
+                  type: {
+                    name: 'String'
+                  }
+              }
+            }
+          },
           instrumentUid: {
             required: true,
             serializedName: 'instrumentUid',

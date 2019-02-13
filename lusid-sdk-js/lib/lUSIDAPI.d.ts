@@ -5527,7 +5527,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  deleteQuoteWithHttpOperationResponse(scope: string, options?: { quotes? : models.DeleteQuoteRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeleteQuotesResponse>>;
+  deleteQuotesWithHttpOperationResponse(scope: string, options?: { quotes? : models.DeleteQuoteRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DeleteQuotesResponse>>;
 
   /**
    * @summary Delete a quote
@@ -5566,9 +5566,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  deleteQuote(scope: string, options?: { quotes? : models.DeleteQuoteRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.DeleteQuotesResponse>;
-  deleteQuote(scope: string, callback: ServiceCallback<models.DeleteQuotesResponse>): void;
-  deleteQuote(scope: string, options: { quotes? : models.DeleteQuoteRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeleteQuotesResponse>): void;
+  deleteQuotes(scope: string, options?: { quotes? : models.DeleteQuoteRequest[], customHeaders? : { [headerName: string]: string; } }): Promise<models.DeleteQuotesResponse>;
+  deleteQuotes(scope: string, callback: ServiceCallback<models.DeleteQuotesResponse>): void;
+  deleteQuotes(scope: string, options: { quotes? : models.DeleteQuoteRequest[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.DeleteQuotesResponse>): void;
 
 
   /**
