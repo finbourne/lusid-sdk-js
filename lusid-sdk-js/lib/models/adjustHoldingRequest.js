@@ -31,7 +31,7 @@
 class AdjustHoldingRequest {
   /**
    * Create a AdjustHoldingRequest.
-   * @property {object} [instrumentIdentifiers] Unique instrument identifiers.
+   * @property {object} instrumentIdentifiers Unique instrument identifiers.
    * @property {object} [subHoldingKeys] Key fields to uniquely index the sub
    * holdings of a instrument
    * @property {object} [properties] Arbitrary properties to store with the
@@ -56,7 +56,7 @@ class AdjustHoldingRequest {
         className: 'AdjustHoldingRequest',
         modelProperties: {
           instrumentIdentifiers: {
-            required: false,
+            required: true,
             serializedName: 'instrumentIdentifiers',
             type: {
               name: 'Dictionary',

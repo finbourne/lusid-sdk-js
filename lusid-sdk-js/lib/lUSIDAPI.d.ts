@@ -5766,9 +5766,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt The effective date of the constituents to retrieve
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * constituents to retrieve
    *
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
@@ -5790,7 +5791,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  getReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GetReferencePortfolioConstituentsResponse>>;
+  getReferencePortfolioConstituentsWithHttpOperationResponse(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GetReferencePortfolioConstituentsResponse>>;
 
   /**
    * @summary Get constituents
@@ -5801,9 +5802,10 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt The effective date of the constituents to retrieve
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * constituents to retrieve
    *
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
@@ -5842,9 +5844,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.GetReferencePortfolioConstituentsResponse>;
-  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, callback: ServiceCallback<models.GetReferencePortfolioConstituentsResponse>): void;
-  getReferencePortfolioConstituents(scope: string, code: string, effectiveAt: Date|string, options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GetReferencePortfolioConstituentsResponse>): void;
+  getReferencePortfolioConstituents(scope: string, code: string, options?: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.GetReferencePortfolioConstituentsResponse>;
+  getReferencePortfolioConstituents(scope: string, code: string, callback: ServiceCallback<models.GetReferencePortfolioConstituentsResponse>): void;
+  getReferencePortfolioConstituents(scope: string, code: string, options: { effectiveAt? : Date, asAt? : Date, sortBy? : string[], start? : number, limit? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GetReferencePortfolioConstituentsResponse>): void;
 
 
   /**

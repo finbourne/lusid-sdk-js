@@ -1263,6 +1263,39 @@ export interface CreateReferencePortfolioRequest {
   properties?: { [propertyName: string]: PerpetualPropertyValue };
 }
 
+export interface ReferencePortfolioConstituentRequest {
+  /**
+   * Unique instrument identifiers.
+  */
+  instrumentIdentifiers: { [propertyName: string]: string };
+  properties?: { [propertyName: string]: PerpetualPropertyValue };
+  weight: number;
+  currency?: string;
+}
+
+export interface UpsertReferencePortfolioConstituentsRequest {
+  effectiveFrom: Date;
+  /**
+   * Possible values include: 'Static', 'Floating', 'Periodical'
+  */
+  weightType: string;
+  /**
+   * Possible values include: 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'
+  */
+  periodType?: string;
+  periodCount?: number;
+  /**
+   * Set of constituents (instrument/weight pairings)
+  */
+  constituents: ReferencePortfolioConstituentRequest[];
+}
+
+export interface UpsertReferencePortfolioConstituentsResponse {
+  href?: string;
+  version?: Version;
+  links?: Link[];
+}
+
 export interface ReferencePortfolioConstituent {
   /**
    * Unique instrument identifiers.
@@ -1298,39 +1331,6 @@ export interface GetReferencePortfolioConstituentsResponse {
    * but may include resolved as at time(s).
   */
   href?: string;
-  links?: Link[];
-}
-
-export interface ReferencePortfolioConstituentRequest {
-  /**
-   * Unique instrument identifiers.
-  */
-  instrumentIdentifiers?: { [propertyName: string]: string };
-  properties?: { [propertyName: string]: PerpetualPropertyValue };
-  weight?: number;
-  currency?: string;
-}
-
-export interface UpsertReferencePortfolioConstituentsRequest {
-  effectiveFrom: Date;
-  /**
-   * Possible values include: 'Static', 'Floating', 'Periodical'
-  */
-  weightType: string;
-  /**
-   * Possible values include: 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'
-  */
-  periodType?: string;
-  periodCount?: number;
-  /**
-   * Set of constituents (instrument/weight pairings)
-  */
-  constituents: ReferencePortfolioConstituentRequest[];
-}
-
-export interface UpsertReferencePortfolioConstituentsResponse {
-  href?: string;
-  version?: Version;
   links?: Link[];
 }
 
@@ -1869,7 +1869,7 @@ export interface AdjustHoldingRequest {
   /**
    * Unique instrument identifiers.
   */
-  instrumentIdentifiers?: { [propertyName: string]: string };
+  instrumentIdentifiers: { [propertyName: string]: string };
   /**
    * Key fields to uniquely index the sub holdings of a instrument
   */
@@ -2031,7 +2031,7 @@ export interface TransactionRequest {
   /**
    * Unique instrument identifiers.
   */
-  instrumentIdentifiers?: { [propertyName: string]: string };
+  instrumentIdentifiers: { [propertyName: string]: string };
   /**
    * Transaction date
   */

@@ -28,9 +28,9 @@
 class ReferencePortfolioConstituentRequest {
   /**
    * Create a ReferencePortfolioConstituentRequest.
-   * @property {object} [instrumentIdentifiers] Unique instrument identifiers.
+   * @property {object} instrumentIdentifiers Unique instrument identifiers.
    * @property {object} [properties]
-   * @property {number} [weight]
+   * @property {number} weight
    * @property {string} [currency]
    */
   constructor() {
@@ -51,7 +51,7 @@ class ReferencePortfolioConstituentRequest {
         className: 'ReferencePortfolioConstituentRequest',
         modelProperties: {
           instrumentIdentifiers: {
-            required: false,
+            required: true,
             serializedName: 'instrumentIdentifiers',
             type: {
               name: 'Dictionary',
@@ -80,7 +80,7 @@ class ReferencePortfolioConstituentRequest {
             }
           },
           weight: {
-            required: false,
+            required: true,
             serializedName: 'weight',
             type: {
               name: 'Number'

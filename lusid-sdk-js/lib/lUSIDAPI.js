@@ -10828,9 +10828,10 @@ function _createReferencePortfolio(scope, options, callback) {
  *
  * @param {string} code The code of the portfolio
  *
- * @param {date} effectiveAt The effective date of the constituents to retrieve
- *
  * @param {object} [options] Optional Parameters.
+ *
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * constituents to retrieve
  *
  * @param {date} [options.asAt] Optional. The AsAt date of the data
  *
@@ -10860,7 +10861,7 @@ function _createReferencePortfolio(scope, options, callback) {
  *
  *                      {stream} [response] - The HTTP Response stream if an error did not occur.
  */
-function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, callback) {
+function _getReferencePortfolioConstituents(scope, code, options, callback) {
    /* jshint validthis: true */
   let client = this;
   if(!callback && typeof options === 'function') {
@@ -10870,6 +10871,7 @@ function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, c
   if (!callback) {
     throw new Error('callback cannot be null.');
   }
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
@@ -10882,9 +10884,9 @@ function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, c
     if (code === null || code === undefined || typeof code.valueOf() !== 'string') {
       throw new Error('code cannot be null or undefined and it must be of type string.');
     }
-    if(!effectiveAt || !(effectiveAt instanceof Date ||
+    if (effectiveAt && !(effectiveAt instanceof Date ||
         (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
-          throw new Error('effectiveAt cannot be null or undefined and it must be of type date.');
+          throw new Error('effectiveAt must be of type date.');
         }
     if (asAt && !(asAt instanceof Date ||
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
@@ -10909,11 +10911,13 @@ function _getReferencePortfolioConstituents(scope, code, effectiveAt, options, c
 
   // Construct URL
   let baseUrl = this.baseUri;
-  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/referenceportfolios/{scope}/{code}/{effectiveAt}/constituents';
+  let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'api/referenceportfolios/{scope}/{code}/constituents';
   requestUrl = requestUrl.replace('{scope}', encodeURIComponent(scope));
   requestUrl = requestUrl.replace('{code}', encodeURIComponent(code));
-  requestUrl = requestUrl.replace('{effectiveAt}', encodeURIComponent(client.serializeObject(effectiveAt)));
   let queryParameters = [];
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
+  }
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
   }
@@ -24361,9 +24365,10 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt The effective date of the constituents to retrieve
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * constituents to retrieve
    *
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
@@ -24385,11 +24390,11 @@ class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error} - The error object.
    */
-  getReferencePortfolioConstituentsWithHttpOperationResponse(scope, code, effectiveAt, options) {
+  getReferencePortfolioConstituentsWithHttpOperationResponse(scope, code, options) {
     let client = this;
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getReferencePortfolioConstituents(scope, code, effectiveAt, options, (err, result, request, response) => {
+      self._getReferencePortfolioConstituents(scope, code, options, (err, result, request, response) => {
         let httpOperationResponse = new msRest.HttpOperationResponse(request, response);
         httpOperationResponse.body = result;
         if (err) { reject(err); }
@@ -24408,9 +24413,10 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} code The code of the portfolio
    *
-   * @param {date} effectiveAt The effective date of the constituents to retrieve
-   *
    * @param {object} [options] Optional Parameters.
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * constituents to retrieve
    *
    * @param {date} [options.asAt] Optional. The AsAt date of the data
    *
@@ -24449,7 +24455,7 @@ class LUSIDAPI extends ServiceClient {
    *
    *                      {stream} [response] - The HTTP Response stream if an error did not occur.
    */
-  getReferencePortfolioConstituents(scope, code, effectiveAt, options, optionalCallback) {
+  getReferencePortfolioConstituents(scope, code, options, optionalCallback) {
     let client = this;
     let self = this;
     if (!optionalCallback && typeof options === 'function') {
@@ -24458,14 +24464,14 @@ class LUSIDAPI extends ServiceClient {
     }
     if (!optionalCallback) {
       return new Promise((resolve, reject) => {
-        self._getReferencePortfolioConstituents(scope, code, effectiveAt, options, (err, result, request, response) => {
+        self._getReferencePortfolioConstituents(scope, code, options, (err, result, request, response) => {
           if (err) { reject(err); }
           else { resolve(result); }
           return;
         });
       });
     } else {
-      return self._getReferencePortfolioConstituents(scope, code, effectiveAt, options, optionalCallback);
+      return self._getReferencePortfolioConstituents(scope, code, options, optionalCallback);
     }
   }
 
