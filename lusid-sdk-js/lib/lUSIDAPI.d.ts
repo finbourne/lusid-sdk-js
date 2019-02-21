@@ -1506,7 +1506,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt] The AsAt time
+   * @param {date} [options.asAt] Optional. The AsAt time
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -1515,10 +1515,10 @@ export default class LUSIDAPI extends ServiceClient {
    * of results
    *
    * @param {number} [options.limit] Optional. When paginating, limit the number
-   * of returned results to this many.
+   * of returned results to this many
    *
    * @param {string} [options.filter] Optional. Expression to filter the result
-   * set
+   * set - the default filter returns only instruments in the Active state
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1538,7 +1538,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt] The AsAt time
+   * @param {date} [options.asAt] Optional. The AsAt time
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -1547,10 +1547,10 @@ export default class LUSIDAPI extends ServiceClient {
    * of results
    *
    * @param {number} [options.limit] Optional. When paginating, limit the number
-   * of returned results to this many.
+   * of returned results to this many
    *
    * @param {string} [options.filter] Optional. Expression to filter the result
-   * set
+   * set - the default filter returns only instruments in the Active state
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

@@ -48,6 +48,7 @@ class Instrument {
    * instrument for an OTC or instrument where an expanded definition exists.
    * @property {string} [instrumentDefinition.instrumentFormat]
    * @property {string} [instrumentDefinition.content]
+   * @property {string} [state] Possible values include: 'Active', 'Inactive'
    * @property {array} [links]
    */
   constructor() {
@@ -139,6 +140,13 @@ class Instrument {
             type: {
               name: 'Composite',
               className: 'InstrumentEconomicDefinition'
+            }
+          },
+          state: {
+            required: false,
+            serializedName: 'state',
+            type: {
+              name: 'String'
             }
           },
           links: {

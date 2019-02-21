@@ -2792,7 +2792,7 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {date} [options.asAt] The AsAt time
+ * @param {date} [options.asAt] Optional. The AsAt time
  *
  * @param {array} [options.sortBy] Optional. Order the results by these fields.
  * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -2801,10 +2801,10 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
  * of results
  *
  * @param {number} [options.limit] Optional. When paginating, limit the number
- * of returned results to this many.
+ * of returned results to this many
  *
  * @param {string} [options.filter] Optional. Expression to filter the result
- * set
+ * set - the default filter returns only instruments in the Active state
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2837,7 +2837,7 @@ function _listInstruments(options, callback) {
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
-  let filter = (options && options.filter !== undefined) ? options.filter : undefined;
+  let filter = (options && options.filter !== undefined) ? options.filter : 'State eq \'Active\'';
   // Validate
   try {
     if (asAt && !(asAt instanceof Date ||
@@ -18809,7 +18809,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt] The AsAt time
+   * @param {date} [options.asAt] Optional. The AsAt time
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -18818,10 +18818,10 @@ class LUSIDAPI extends ServiceClient {
    * of results
    *
    * @param {number} [options.limit] Optional. When paginating, limit the number
-   * of returned results to this many.
+   * of returned results to this many
    *
    * @param {string} [options.filter] Optional. Expression to filter the result
-   * set
+   * set - the default filter returns only instruments in the Active state
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18853,7 +18853,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {date} [options.asAt] The AsAt time
+   * @param {date} [options.asAt] Optional. The AsAt time
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -18862,10 +18862,10 @@ class LUSIDAPI extends ServiceClient {
    * of results
    *
    * @param {number} [options.limit] Optional. When paginating, limit the number
-   * of returned results to this many.
+   * of returned results to this many
    *
    * @param {string} [options.filter] Optional. Expression to filter the result
-   * set
+   * set - the default filter returns only instruments in the Active state
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request

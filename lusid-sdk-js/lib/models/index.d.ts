@@ -530,6 +530,10 @@ export interface Instrument {
    * definition exists.
   */
   instrumentDefinition?: InstrumentEconomicDefinition;
+  /**
+   * Possible values include: 'Active', 'Inactive'
+  */
+  state?: string;
   links?: Link[];
 }
 
