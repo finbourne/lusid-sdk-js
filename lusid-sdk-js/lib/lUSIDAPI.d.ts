@@ -1508,6 +1508,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.asAt] Optional. The AsAt time
    *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
@@ -1519,6 +1522,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.filter] Optional. Expression to filter the result
    * set - the default filter returns only instruments in the Active state
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1529,7 +1535,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  listInstrumentsWithHttpOperationResponse(options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfInstrument>>;
+  listInstrumentsWithHttpOperationResponse(options?: { asAt? : Date, effectiveAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfInstrument>>;
 
   /**
    * @summary Get all of the currently mastered instruments in LUSID
@@ -1539,6 +1545,9 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options] Optional Parameters.
    *
    * @param {date} [options.asAt] Optional. The AsAt time
+   *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -1551,6 +1560,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.filter] Optional. Expression to filter the result
    * set - the default filter returns only instruments in the Active state
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -1578,9 +1590,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  listInstruments(options?: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfInstrument>;
+  listInstruments(options?: { asAt? : Date, effectiveAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfInstrument>;
   listInstruments(callback: ServiceCallback<models.ResourceListOfInstrument>): void;
-  listInstruments(options: { asAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfInstrument>): void;
+  listInstruments(options: { asAt? : Date, effectiveAt? : Date, sortBy? : string[], start? : number, limit? : number, filter? : string, instrumentPropertyKeys? : string[], customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfInstrument>): void;
 
 
   /**

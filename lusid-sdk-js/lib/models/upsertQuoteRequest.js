@@ -42,7 +42,7 @@ class UpsertQuoteRequest {
    * @property {object} quoteLineage
    * @property {string} [quoteLineage.dataVendor]
    * @property {string} [quoteLineage.contributor]
-   * @property {date} [effectiveAt]
+   * @property {date} effectiveAt
    */
   constructor() {
   }
@@ -86,7 +86,7 @@ class UpsertQuoteRequest {
             }
           },
           effectiveAt: {
-            required: false,
+            required: true,
             serializedName: 'effectiveAt',
             type: {
               name: 'DateTime'

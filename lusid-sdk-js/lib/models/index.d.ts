@@ -1214,7 +1214,7 @@ export interface UpsertQuoteRequest {
   quoteId: QuoteId;
   metricValue: MetricValue;
   quoteLineage: QuoteLineage;
-  effectiveAt?: Date;
+  effectiveAt: Date;
 }
 
 /**

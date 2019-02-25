@@ -2794,6 +2794,9 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
  *
  * @param {date} [options.asAt] Optional. The AsAt time
  *
+ * @param {date} [options.effectiveAt] Optional. The effective date of the
+ * query
+ *
  * @param {array} [options.sortBy] Optional. Order the results by these fields.
  * Use use the '-' sign to denote descending order e.g. -MyFieldName
  *
@@ -2805,6 +2808,9 @@ function _deleteDerivedPortfolioDetails(scope, code, options, callback) {
  *
  * @param {string} [options.filter] Optional. Expression to filter the result
  * set - the default filter returns only instruments in the Active state
+ *
+ * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+ * properties to be decorated on to the instrument
  *
  * @param {object} [options.customHeaders] Headers that will be added to the
  * request
@@ -2834,15 +2840,21 @@ function _listInstruments(options, callback) {
     throw new Error('callback cannot be null.');
   }
   let asAt = (options && options.asAt !== undefined) ? options.asAt : undefined;
+  let effectiveAt = (options && options.effectiveAt !== undefined) ? options.effectiveAt : undefined;
   let sortBy = (options && options.sortBy !== undefined) ? options.sortBy : undefined;
   let start = (options && options.start !== undefined) ? options.start : undefined;
   let limit = (options && options.limit !== undefined) ? options.limit : undefined;
   let filter = (options && options.filter !== undefined) ? options.filter : 'State eq \'Active\'';
+  let instrumentPropertyKeys = (options && options.instrumentPropertyKeys !== undefined) ? options.instrumentPropertyKeys : undefined;
   // Validate
   try {
     if (asAt && !(asAt instanceof Date ||
         (typeof asAt.valueOf() === 'string' && !isNaN(Date.parse(asAt))))) {
           throw new Error('asAt must be of type date.');
+        }
+    if (effectiveAt && !(effectiveAt instanceof Date ||
+        (typeof effectiveAt.valueOf() === 'string' && !isNaN(Date.parse(effectiveAt))))) {
+          throw new Error('effectiveAt must be of type date.');
         }
     if (Array.isArray(sortBy)) {
       for (let i = 0; i < sortBy.length; i++) {
@@ -2860,6 +2872,13 @@ function _listInstruments(options, callback) {
     if (filter !== null && filter !== undefined && typeof filter.valueOf() !== 'string') {
       throw new Error('filter must be of type string.');
     }
+    if (Array.isArray(instrumentPropertyKeys)) {
+      for (let i1 = 0; i1 < instrumentPropertyKeys.length; i1++) {
+        if (instrumentPropertyKeys[i1] !== null && instrumentPropertyKeys[i1] !== undefined && typeof instrumentPropertyKeys[i1].valueOf() !== 'string') {
+          throw new Error('instrumentPropertyKeys[i1] must be of type string.');
+        }
+      }
+    }
   } catch (error) {
     return callback(error);
   }
@@ -2870,6 +2889,9 @@ function _listInstruments(options, callback) {
   let queryParameters = [];
   if (asAt !== null && asAt !== undefined) {
     queryParameters.push('asAt=' + encodeURIComponent(client.serializeObject(asAt)));
+  }
+  if (effectiveAt !== null && effectiveAt !== undefined) {
+    queryParameters.push('effectiveAt=' + encodeURIComponent(client.serializeObject(effectiveAt)));
   }
   if (sortBy !== null && sortBy !== undefined) {
     if (sortBy.length == 0) {
@@ -2889,6 +2911,16 @@ function _listInstruments(options, callback) {
   }
   if (filter !== null && filter !== undefined) {
     queryParameters.push('filter=' + encodeURIComponent(filter));
+  }
+  if (instrumentPropertyKeys !== null && instrumentPropertyKeys !== undefined) {
+    if (instrumentPropertyKeys.length == 0) {
+      queryParameters.push('instrumentPropertyKeys=' + encodeURIComponent(''));
+    } else {
+      for (let item of instrumentPropertyKeys) {
+        item = (item === null || item === undefined) ? '' : item;
+        queryParameters.push('instrumentPropertyKeys=' + encodeURIComponent('' + item));
+      }
+    }
   }
   if (queryParameters.length > 0) {
     requestUrl += '?' + queryParameters.join('&');
@@ -18811,6 +18843,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.asAt] Optional. The AsAt time
    *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
@@ -18822,6 +18857,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.filter] Optional. Expression to filter the result
    * set - the default filter returns only instruments in the Active state
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
@@ -18855,6 +18893,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {date} [options.asAt] Optional. The AsAt time
    *
+   * @param {date} [options.effectiveAt] Optional. The effective date of the
+   * query
+   *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
    *
@@ -18866,6 +18907,9 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.filter] Optional. Expression to filter the result
    * set - the default filter returns only instruments in the Active state
+   *
+   * @param {array} [options.instrumentPropertyKeys] Optional. Keys of the
+   * properties to be decorated on to the instrument
    *
    * @param {object} [options.customHeaders] Headers that will be added to the
    * request
