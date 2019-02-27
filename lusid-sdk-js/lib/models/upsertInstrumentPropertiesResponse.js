@@ -28,9 +28,7 @@
 class UpsertInstrumentPropertiesResponse {
   /**
    * Create a UpsertInstrumentPropertiesResponse.
-   * @property {string} [href]
-   * @property {array} [failed] A list of any values that failed to be
-   * upserted.
+   * @property {date} asAtDate
    * @property {array} [links]
    */
   constructor() {
@@ -50,27 +48,11 @@ class UpsertInstrumentPropertiesResponse {
         name: 'Composite',
         className: 'UpsertInstrumentPropertiesResponse',
         modelProperties: {
-          href: {
-            required: false,
-            serializedName: 'href',
+          asAtDate: {
+            required: true,
+            serializedName: 'asAtDate',
             type: {
-              name: 'String'
-            }
-          },
-          failed: {
-            required: false,
-            readOnly: true,
-            serializedName: 'failed',
-            type: {
-              name: 'Sequence',
-              element: {
-                  required: false,
-                  serializedName: 'ErrorDetailElementType',
-                  type: {
-                    name: 'Composite',
-                    className: 'ErrorDetail'
-                  }
-              }
+              name: 'DateTime'
             }
           },
           links: {

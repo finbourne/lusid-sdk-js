@@ -652,11 +652,7 @@ export interface UpsertInstrumentPropertyRequest {
 }
 
 export interface UpsertInstrumentPropertiesResponse {
-  href?: string;
-  /**
-   * A list of any values that failed to be upserted.
-  */
-  readonly failed?: ErrorDetail[];
+  asAtDate: Date;
   links?: Link[];
 }
 
