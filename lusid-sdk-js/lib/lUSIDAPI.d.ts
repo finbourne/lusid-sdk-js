@@ -6834,7 +6834,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -6857,7 +6857,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  portfolioGroupsSearchWithHttpOperationResponse(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioGroup>>;
+  portfolioGroupsSearchWithHttpOperationResponse(options?: { request? : string, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioGroup>>;
 
   /**
    * @summary Search portfolio groups
@@ -6866,7 +6866,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -6906,9 +6906,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  portfolioGroupsSearch(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioGroup>;
+  portfolioGroupsSearch(options?: { request? : string, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioGroup>;
   portfolioGroupsSearch(callback: ServiceCallback<models.ResourceListOfPortfolioGroup>): void;
-  portfolioGroupsSearch(options: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioGroup>): void;
+  portfolioGroupsSearch(options: { request? : string, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioGroup>): void;
 
 
   /**
@@ -6918,7 +6918,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -6941,7 +6941,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  portfoliosSearchWithHttpOperationResponse(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioSearchResult>>;
+  portfoliosSearchWithHttpOperationResponse(options?: { request? : string, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPortfolioSearchResult>>;
 
   /**
    * @summary Search portfolios
@@ -6950,7 +6950,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -6990,9 +6990,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  portfoliosSearch(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioSearchResult>;
+  portfoliosSearch(options?: { request? : string, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPortfolioSearchResult>;
   portfoliosSearch(callback: ServiceCallback<models.ResourceListOfPortfolioSearchResult>): void;
-  portfoliosSearch(options: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioSearchResult>): void;
+  portfoliosSearch(options: { request? : string, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPortfolioSearchResult>): void;
 
 
   /**
@@ -7002,7 +7002,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -7025,7 +7025,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  propertiesSearchWithHttpOperationResponse(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyDefinition>>;
+  propertiesSearchWithHttpOperationResponse(options?: { request? : string, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ResourceListOfPropertyDefinition>>;
 
   /**
    * @summary Search property definitions
@@ -7034,7 +7034,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -7074,9 +7074,9 @@ export default class LUSIDAPI extends ServiceClient {
    *
    *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
    */
-  propertiesSearch(options?: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyDefinition>;
+  propertiesSearch(options?: { request? : string, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ResourceListOfPropertyDefinition>;
   propertiesSearch(callback: ServiceCallback<models.ResourceListOfPropertyDefinition>): void;
-  propertiesSearch(options: { request? : any, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyDefinition>): void;
+  propertiesSearch(options: { request? : string, sortBy? : string[], start? : number, limit? : number, filter? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ResourceListOfPropertyDefinition>): void;
 
 
   /**

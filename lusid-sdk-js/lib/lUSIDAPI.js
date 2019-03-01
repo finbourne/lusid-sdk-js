@@ -12880,7 +12880,7 @@ function _instrumentsSearch(options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request] A valid Elasticsearch 5.x request
+ * @param {string} [options.request] A valid Elasticsearch 5.x request
  *
  * @param {array} [options.sortBy] Optional. Order the results by these fields.
  * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -12928,8 +12928,8 @@ function _portfolioGroupsSearch(options, callback) {
   let filter = (options && options.filter !== undefined) ? options.filter : undefined;
   // Validate
   try {
-    if (request !== null && request !== undefined && typeof request !== 'object') {
-      throw new Error('request must be of type object.');
+    if (request !== null && request !== undefined && typeof request.valueOf() !== 'string') {
+      throw new Error('request must be of type string.');
     }
     if (Array.isArray(sortBy)) {
       for (let i = 0; i < sortBy.length; i++) {
@@ -12984,7 +12984,7 @@ function _portfolioGroupsSearch(options, callback) {
   httpRequest.url = requestUrl;
   httpRequest.headers = {};
   // Set Headers
-  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  httpRequest.headers['Content-Type'] = 'text/plain';
   if(options) {
     for(let headerName in options['customHeaders']) {
       if (options['customHeaders'].hasOwnProperty(headerName)) {
@@ -13001,7 +13001,7 @@ function _portfolioGroupsSearch(options, callback) {
         required: false,
         serializedName: 'request',
         type: {
-          name: 'Object'
+          name: 'String'
         }
       };
       requestModel = client.serialize(requestModelMapper, request, 'request');
@@ -13077,7 +13077,7 @@ function _portfolioGroupsSearch(options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request] A valid Elasticsearch 5.x request
+ * @param {string} [options.request] A valid Elasticsearch 5.x request
  *
  * @param {array} [options.sortBy] Optional. Order the results by these fields.
  * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -13125,8 +13125,8 @@ function _portfoliosSearch(options, callback) {
   let filter = (options && options.filter !== undefined) ? options.filter : undefined;
   // Validate
   try {
-    if (request !== null && request !== undefined && typeof request !== 'object') {
-      throw new Error('request must be of type object.');
+    if (request !== null && request !== undefined && typeof request.valueOf() !== 'string') {
+      throw new Error('request must be of type string.');
     }
     if (Array.isArray(sortBy)) {
       for (let i = 0; i < sortBy.length; i++) {
@@ -13181,7 +13181,7 @@ function _portfoliosSearch(options, callback) {
   httpRequest.url = requestUrl;
   httpRequest.headers = {};
   // Set Headers
-  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  httpRequest.headers['Content-Type'] = 'text/plain';
   if(options) {
     for(let headerName in options['customHeaders']) {
       if (options['customHeaders'].hasOwnProperty(headerName)) {
@@ -13198,7 +13198,7 @@ function _portfoliosSearch(options, callback) {
         required: false,
         serializedName: 'request',
         type: {
-          name: 'Object'
+          name: 'String'
         }
       };
       requestModel = client.serialize(requestModelMapper, request, 'request');
@@ -13274,7 +13274,7 @@ function _portfoliosSearch(options, callback) {
  *
  * @param {object} [options] Optional Parameters.
  *
- * @param {object} [options.request] A valid Elasticsearch 5.x request
+ * @param {string} [options.request] A valid Elasticsearch 5.x request
  *
  * @param {array} [options.sortBy] Optional. Order the results by these fields.
  * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -13322,8 +13322,8 @@ function _propertiesSearch(options, callback) {
   let filter = (options && options.filter !== undefined) ? options.filter : undefined;
   // Validate
   try {
-    if (request !== null && request !== undefined && typeof request !== 'object') {
-      throw new Error('request must be of type object.');
+    if (request !== null && request !== undefined && typeof request.valueOf() !== 'string') {
+      throw new Error('request must be of type string.');
     }
     if (Array.isArray(sortBy)) {
       for (let i = 0; i < sortBy.length; i++) {
@@ -13378,7 +13378,7 @@ function _propertiesSearch(options, callback) {
   httpRequest.url = requestUrl;
   httpRequest.headers = {};
   // Set Headers
-  httpRequest.headers['Content-Type'] = 'application/json-patch+json; charset=utf-8';
+  httpRequest.headers['Content-Type'] = 'text/plain';
   if(options) {
     for(let headerName in options['customHeaders']) {
       if (options['customHeaders'].hasOwnProperty(headerName)) {
@@ -13395,7 +13395,7 @@ function _propertiesSearch(options, callback) {
         required: false,
         serializedName: 'request',
         type: {
-          name: 'Object'
+          name: 'String'
         }
       };
       requestModel = client.serialize(requestModelMapper, request, 'request');
@@ -25789,7 +25789,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -25833,7 +25833,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -25900,7 +25900,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -25944,7 +25944,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -26011,7 +26011,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
@@ -26055,7 +26055,7 @@ class LUSIDAPI extends ServiceClient {
    *
    * @param {object} [options] Optional Parameters.
    *
-   * @param {object} [options.request] A valid Elasticsearch 5.x request
+   * @param {string} [options.request] A valid Elasticsearch 5.x request
    *
    * @param {array} [options.sortBy] Optional. Order the results by these fields.
    * Use use the '-' sign to denote descending order e.g. -MyFieldName
