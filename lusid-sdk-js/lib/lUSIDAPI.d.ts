@@ -858,7 +858,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
    * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
-   * 'ArrayOfQuoteIds', 'ResourceId'
+   * 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -906,7 +906,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
    * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
-   * 'ArrayOfQuoteIds', 'ResourceId'
+   * 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -1134,7 +1134,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
    * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
-   * 'ArrayOfQuoteIds', 'ResourceId'
+   * 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -1184,7 +1184,7 @@ export default class LUSIDAPI extends ServiceClient {
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits',
    * 'StringArray', 'CurrencyAndAmount', 'TradePrice', 'UnitCreation',
    * 'Currency', 'UserId', 'MetricValue', 'QuoteId', 'QuoteLineage',
-   * 'ArrayOfQuoteIds', 'ResourceId'
+   * 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
    *
    * @param {array} [options.request.acceptableValues]
    *
@@ -5092,7 +5092,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.domain] Possible values include:
    * 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
-   * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
+   * 'TransactionConfiguration', 'Instrument', 'CutDefinition', 'Analytic'
    *
    * @param {string} [options.definition.scope]
    *
@@ -5136,7 +5136,7 @@ export default class LUSIDAPI extends ServiceClient {
    *
    * @param {string} [options.definition.domain] Possible values include:
    * 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
-   * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
+   * 'TransactionConfiguration', 'Instrument', 'CutDefinition', 'Analytic'
    *
    * @param {string} [options.definition.scope]
    *
@@ -5196,7 +5196,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-   * 'CutDefinition'
+   * 'CutDefinition', 'Analytic'
    *
    * @param {string} scope The scope of the requested property
    *
@@ -5225,7 +5225,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} domain The Property Domain of the requested property.
    * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-   * 'CutDefinition'
+   * 'CutDefinition', 'Analytic'
    *
    * @param {string} scope The scope of the requested property
    *
@@ -5275,7 +5275,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} domain The Property Domain of the property being updated.
    * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-   * 'CutDefinition'
+   * 'CutDefinition', 'Analytic'
    *
    * @param {string} scope The scope of the property to be updated
    *
@@ -5322,7 +5322,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} domain The Property Domain of the property being updated.
    * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-   * 'CutDefinition'
+   * 'CutDefinition', 'Analytic'
    *
    * @param {string} scope The scope of the property to be updated
    *
@@ -5386,7 +5386,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-   * 'CutDefinition'
+   * 'CutDefinition', 'Analytic'
    *
    * @param {string} scope The scope of the property to be deleted
    *
@@ -5413,7 +5413,7 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {string} domain The Property Domain of the property to be deleted.
    * Possible values include: 'Trade', 'Portfolio', 'Holding',
    * 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-   * 'CutDefinition'
+   * 'CutDefinition', 'Analytic'
    *
    * @param {string} scope The scope of the property to be deleted
    *

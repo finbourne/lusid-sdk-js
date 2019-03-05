@@ -37,7 +37,7 @@ class FieldSchema {
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-   * 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
+   * 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
    * @property {boolean} [isMetric]
    * @property {number} [displayOrder]
    * @property {object} [propertySchema]

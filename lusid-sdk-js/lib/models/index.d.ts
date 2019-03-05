@@ -271,7 +271,7 @@ export interface CreateDataTypeRequest {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
+   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
   */
   valueType: string;
   acceptableValues?: any[];
@@ -306,7 +306,7 @@ export interface DataType {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
+   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
   */
   valueType?: string;
   acceptableValues?: any[];
@@ -346,7 +346,7 @@ export interface UpdateDataTypeRequest {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
+   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
   */
   valueType: string;
   acceptableValues?: any[];
@@ -817,7 +817,7 @@ export interface FieldSchema {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
+   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
   */
   type?: string;
   isMetric?: boolean;
@@ -1100,7 +1100,7 @@ export interface ValuationsReconciliationRequest {
 export interface CreatePropertyDefinitionRequest {
   /**
    * Possible values include: 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
-   * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
+   * 'TransactionConfiguration', 'Instrument', 'CutDefinition', 'Analytic'
   */
   domain?: string;
   scope?: string;
@@ -1126,7 +1126,7 @@ export interface PropertyDefinition {
    * 'PropertyArray', 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements', 'ArrayofUnits', 'StringArray',
    * 'CurrencyAndAmount', 'TradePrice', 'UnitCreation', 'Currency', 'UserId', 'MetricValue',
-   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
+   * 'QuoteId', 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
   */
   valueType?: string;
   valueRequired?: boolean;
@@ -1146,7 +1146,7 @@ export interface PropertyDefinition {
   unitSchema?: string;
   /**
    * Possible values include: 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
-   * 'TransactionConfiguration', 'Instrument', 'CutDefinition'
+   * 'TransactionConfiguration', 'Instrument', 'CutDefinition', 'Analytic'
   */
   readonly domain?: string;
   readonly scope?: string;

@@ -36,7 +36,7 @@ class PropertyDefinition {
    * 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
    * 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
    * 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-   * 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
+   * 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId', 'ResultValue'
    * @property {boolean} [valueRequired]
    * @property {string} [displayName]
    * @property {object} [dataTypeId]
@@ -50,7 +50,7 @@ class PropertyDefinition {
    * 'Basic', 'Iso4217Currency'
    * @property {string} [domain] Possible values include: 'Trade', 'Portfolio',
    * 'Holding', 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-   * 'CutDefinition'
+   * 'CutDefinition', 'Analytic'
    * @property {string} [scope]
    * @property {string} [code]
    * @property {array} [links]
