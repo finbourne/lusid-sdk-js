@@ -75,11 +75,12 @@ class ErrorResponse {
    * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
    * 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure',
    * 'DuplicateConstituentFailure', 'UnresolvedConstituentFailure',
-   * 'DependenciesFailure', 'PortfolioPreprocessFailure',
-   * 'ValuationEngineFailure', 'TaskFactoryFailure', 'TaskEvaluationFailure',
-   * 'InstrumentFailure', 'CashFlowsFailure', 'ResultRetrievalFailure',
-   * 'ResultProcessingFailure', 'VendorResultProcessingFailure',
-   * 'CannotSupplyTimesWithPortfoliosQuery', 'AttemptToUpsertDuplicateQuotes'
+   * 'MissingRecipeFailure', 'DependenciesFailure',
+   * 'PortfolioPreprocessFailure', 'ValuationEngineFailure',
+   * 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
+   * 'CashFlowsFailure', 'ResultRetrievalFailure', 'ResultProcessingFailure',
+   * 'VendorResultProcessingFailure', 'CannotSupplyTimesWithPortfoliosQuery',
+   * 'AttemptToUpsertDuplicateQuotes'
    * @property {string} [message]
    * @property {string} [detailedMessage]
    * @property {array} [items]

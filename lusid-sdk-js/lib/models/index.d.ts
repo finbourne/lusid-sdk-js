@@ -92,11 +92,11 @@ export interface ErrorResponse {
    * 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
    * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
    * 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure', 'DuplicateConstituentFailure',
-   * 'UnresolvedConstituentFailure', 'DependenciesFailure', 'PortfolioPreprocessFailure',
-   * 'ValuationEngineFailure', 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
-   * 'CashFlowsFailure', 'ResultRetrievalFailure', 'ResultProcessingFailure',
-   * 'VendorResultProcessingFailure', 'CannotSupplyTimesWithPortfoliosQuery',
-   * 'AttemptToUpsertDuplicateQuotes'
+   * 'UnresolvedConstituentFailure', 'MissingRecipeFailure', 'DependenciesFailure',
+   * 'PortfolioPreprocessFailure', 'ValuationEngineFailure', 'TaskFactoryFailure',
+   * 'TaskEvaluationFailure', 'InstrumentFailure', 'CashFlowsFailure', 'ResultRetrievalFailure',
+   * 'ResultProcessingFailure', 'VendorResultProcessingFailure',
+   * 'CannotSupplyTimesWithPortfoliosQuery', 'AttemptToUpsertDuplicateQuotes'
   */
   code?: string;
   message?: string;
@@ -739,6 +739,132 @@ export interface UpdatePortfolioGroupRequest {
   description?: string;
 }
 
+export interface MarketDataKeyRule {
+  /**
+   * the scope in which the data should be found when using this rule.
+  */
+  dataScope?: string;
+  /**
+   * The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*)
+  */
+  key: string;
+  /**
+   * the market data supplier (where the data comes from). Possible values include: 'DataScope',
+   * 'Lusid'
+  */
+  supplier: string;
+  /**
+   * is the quote to be looked for a price, yield etc. Possible values include: 'Price', 'Spread',
+   * 'Rate'
+  */
+  quoteType?: string;
+  /**
+   * the conceptual qualification for the field. Something like Bid, Ask or Mid. Possible values
+   * include: 'Bid', 'Mid', 'Ask'
+  */
+  priceSide?: string;
+}
+
+/**
+ * It is possible to control which supplier is used for a given asset class.
+*/
+export interface MarketContextSuppliers {
+  /**
+   * Possible values include: 'DataScope', 'Lusid'
+  */
+  commodity?: string;
+  /**
+   * Possible values include: 'DataScope', 'Lusid'
+  */
+  credit?: string;
+  /**
+   * Possible values include: 'DataScope', 'Lusid'
+  */
+  equity?: string;
+  /**
+   * Possible values include: 'DataScope', 'Lusid'
+  */
+  fx?: string;
+  /**
+   * Possible values include: 'DataScope', 'Lusid'
+  */
+  rates?: string;
+}
+
+/**
+ * The set of options that control miscellaneous and default market resolution behaviour.
+ * These are aimed at a 'crude' level of control for those who do not wish to fine tune the way
+ * that data is resolved.
+ * For clients who wish to simply match instruments to prices this is quite possibly sufficient.
+ * For those wishing to control market data sources
+ * according to requirements based on accuracy or timeliness it is not. In more advanced cases the
+ * options should largely be ignored and rules specified
+ * per source. Be aware that where no specified rule matches the final fallback is on to the logic
+ * implied here.
+*/
+export interface MarketOptions {
+  /**
+   * The default supplier of data. This controls which 'dialect' is used to find particular market
+   * data. e.g. one supplier might address data by RIC, another by PermId. Possible values include:
+   * 'DataScope', 'Lusid'
+  */
+  readonly defaultSupplier?: string;
+  /**
+   * when instrument quotes are searched for, what identifier should be used by default. Possible
+   * values include: 'LusidInstrumentId', 'Figi', 'RIC', 'QuotePermId', 'Isin', 'CurrencyPair'
+  */
+  readonly defaultInstrumentCodeType?: string;
+  /**
+   * for default rules, which scope should data be searched for in
+  */
+  readonly defaultScope?: string;
+}
+
+/**
+ * Market context node. This defines how LUSID processes parts of a request that require resolution
+ * of market data such as instrument prices or
+ * Fx rates. It controls where the data is loaded from and which sources take precedence.
+*/
+export interface MarketContext {
+  /**
+   * The set of rules that define how to resolve particular use cases. These can be relatively
+   * general or specific in nature.
+   * Nominally any number are possible and will be processed in order where applicable. However,
+   * there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve data. Ensuring
+   * that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+  */
+  marketRules?: MarketDataKeyRule[];
+  /**
+   * It is possible to control which supplier is used for a given asset class.
+  */
+  suppliers?: MarketContextSuppliers;
+  /**
+   * Miscellaneous options around market loading. In the simplest usage case, this is just a
+   * default supplier and instrument resolution code.
+  */
+  options?: MarketOptions;
+}
+
+/**
+ * The Configuration or Calculation Recipe controls how LUSID processes a given request.
+ * This can be used to change where market data used in pricing is loaded from and in what order,
+ * or which model is used to
+ * price a given instrument as well as how aggregation will process the produced results.
+*/
+export interface ConfigurationRecipe {
+  /**
+   * User given string name (code) to identify the recipe.
+  */
+  code: string;
+  /**
+   * The market configuration node that defines where market data used in processing a request is
+   * loaded from and how it is resolved.
+  */
+  market?: MarketContext;
+}
+
 export interface AggregateSpec {
   key?: string;
   /**
@@ -766,10 +892,21 @@ export interface PropertyFilter {
 */
 export interface AggregationRequest {
   /**
-   * The configuration recipe, consisting of user scope and recipe name, to use in performing the
+   * The configuration recipe, consisting of recipe scope and recipe name, to use in performing the
    * aggregation.
   */
-  recipeId: ResourceId;
+  recipeId?: ResourceId;
+  /**
+   * Target Method for providing a non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is intended to allow
+   * use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended that production
+   * recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+  */
+  inlineRecipe?: ConfigurationRecipe;
   /**
    * The asAt date to use
   */

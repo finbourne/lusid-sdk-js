@@ -5723,13 +5723,61 @@ function _deletePortfolioGroup(scope, code, options, callback) {
  * @param {object} [options.request] The request specifying the parameters of
  * the aggregation
  *
- * @param {object} options.request.recipeId The configuration recipe,
- * consisting of user scope and recipe name, to use in performing the
+ * @param {object} [options.request.recipeId] The configuration recipe,
+ * consisting of recipe scope and recipe name, to use in performing the
  * aggregation.
  *
  * @param {string} [options.request.recipeId.scope]
  *
  * @param {string} [options.request.recipeId.code]
+ *
+ * @param {object} [options.request.inlineRecipe] Target Method for providing a
+ * non-named recipe.
+ * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+ * intended to allow use of non-named
+ * recipes to iterate quickly for design purposes. Ultimately it is recommended
+ * that production recipes would be stored
+ * in Lusid.
+ *
+ * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+ *
+ * @param {string} options.request.inlineRecipe.code User given string name
+ * (code) to identify the recipe.
+ *
+ * @param {object} [options.request.inlineRecipe.market] The market
+ * configuration node that defines where market data used in processing a
+ * request is loaded from and how it is resolved.
+ *
+ * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+ * rules that define how to resolve particular use cases. These can be
+ * relatively general or specific in nature.
+ * Nominally any number are possible and will be processed in order where
+ * applicable. However, there is evidently a potential
+ * for increased computational cost where many rules must be applied to resolve
+ * data. Ensuring that portfolios are structured in
+ * such a way as to reduce the number of rules required is therefore sensible.
+ *
+ * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+ * possible to control which supplier is used for a given asset class.
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+ * values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+ * options around market loading. In the simplest usage case, this is just a
+ * default supplier and instrument resolution code.
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
@@ -5951,13 +5999,61 @@ function _getAggregationByGroup(scope, code, options, callback) {
  * @param {object} [options.request] The request specifying the parameters of
  * the aggregation
  *
- * @param {object} options.request.recipeId The configuration recipe,
- * consisting of user scope and recipe name, to use in performing the
+ * @param {object} [options.request.recipeId] The configuration recipe,
+ * consisting of recipe scope and recipe name, to use in performing the
  * aggregation.
  *
  * @param {string} [options.request.recipeId.scope]
  *
  * @param {string} [options.request.recipeId.code]
+ *
+ * @param {object} [options.request.inlineRecipe] Target Method for providing a
+ * non-named recipe.
+ * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+ * intended to allow use of non-named
+ * recipes to iterate quickly for design purposes. Ultimately it is recommended
+ * that production recipes would be stored
+ * in Lusid.
+ *
+ * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+ *
+ * @param {string} options.request.inlineRecipe.code User given string name
+ * (code) to identify the recipe.
+ *
+ * @param {object} [options.request.inlineRecipe.market] The market
+ * configuration node that defines where market data used in processing a
+ * request is loaded from and how it is resolved.
+ *
+ * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+ * rules that define how to resolve particular use cases. These can be
+ * relatively general or specific in nature.
+ * Nominally any number are possible and will be processed in order where
+ * applicable. However, there is evidently a potential
+ * for increased computational cost where many rules must be applied to resolve
+ * data. Ensuring that portfolios are structured in
+ * such a way as to reduce the number of rules required is therefore sensible.
+ *
+ * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+ * possible to control which supplier is used for a given asset class.
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+ * values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+ * options around market loading. In the simplest usage case, this is just a
+ * default supplier and instrument resolution code.
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
@@ -7962,13 +8058,61 @@ function _deletePortfolio(scope, code, options, callback) {
  * @param {object} [options.request] The request specifying the parameters of
  * the aggregation
  *
- * @param {object} options.request.recipeId The configuration recipe,
- * consisting of user scope and recipe name, to use in performing the
+ * @param {object} [options.request.recipeId] The configuration recipe,
+ * consisting of recipe scope and recipe name, to use in performing the
  * aggregation.
  *
  * @param {string} [options.request.recipeId.scope]
  *
  * @param {string} [options.request.recipeId.code]
+ *
+ * @param {object} [options.request.inlineRecipe] Target Method for providing a
+ * non-named recipe.
+ * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+ * intended to allow use of non-named
+ * recipes to iterate quickly for design purposes. Ultimately it is recommended
+ * that production recipes would be stored
+ * in Lusid.
+ *
+ * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+ *
+ * @param {string} options.request.inlineRecipe.code User given string name
+ * (code) to identify the recipe.
+ *
+ * @param {object} [options.request.inlineRecipe.market] The market
+ * configuration node that defines where market data used in processing a
+ * request is loaded from and how it is resolved.
+ *
+ * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+ * rules that define how to resolve particular use cases. These can be
+ * relatively general or specific in nature.
+ * Nominally any number are possible and will be processed in order where
+ * applicable. However, there is evidently a potential
+ * for increased computational cost where many rules must be applied to resolve
+ * data. Ensuring that portfolios are structured in
+ * such a way as to reduce the number of rules required is therefore sensible.
+ *
+ * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+ * possible to control which supplier is used for a given asset class.
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+ * values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+ * options around market loading. In the simplest usage case, this is just a
+ * default supplier and instrument resolution code.
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
@@ -9152,13 +9296,69 @@ function _reconcileHoldings(options, callback) {
  * @param {object} options.request.right.aggregation The specification of the
  * aggregation request to be used to obtain the risk
  *
- * @param {object} options.request.right.aggregation.recipeId The configuration
- * recipe, consisting of user scope and recipe name, to use in performing the
- * aggregation.
+ * @param {object} [options.request.right.aggregation.recipeId] The
+ * configuration recipe, consisting of recipe scope and recipe name, to use in
+ * performing the aggregation.
  *
  * @param {string} [options.request.right.aggregation.recipeId.scope]
  *
  * @param {string} [options.request.right.aggregation.recipeId.code]
+ *
+ * @param {object} [options.request.right.aggregation.inlineRecipe] Target
+ * Method for providing a non-named recipe.
+ * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+ * intended to allow use of non-named
+ * recipes to iterate quickly for design purposes. Ultimately it is recommended
+ * that production recipes would be stored
+ * in Lusid.
+ *
+ * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+ *
+ * @param {string} options.request.right.aggregation.inlineRecipe.code User
+ * given string name (code) to identify the recipe.
+ *
+ * @param {object} [options.request.right.aggregation.inlineRecipe.market] The
+ * market configuration node that defines where market data used in processing
+ * a request is loaded from and how it is resolved.
+ *
+ * @param {array}
+ * [options.request.right.aggregation.inlineRecipe.market.marketRules] The set
+ * of rules that define how to resolve particular use cases. These can be
+ * relatively general or specific in nature.
+ * Nominally any number are possible and will be processed in order where
+ * applicable. However, there is evidently a potential
+ * for increased computational cost where many rules must be applied to resolve
+ * data. Ensuring that portfolios are structured in
+ * such a way as to reduce the number of rules required is therefore sensible.
+ *
+ * @param {object}
+ * [options.request.right.aggregation.inlineRecipe.market.suppliers] It is
+ * possible to control which supplier is used for a given asset class.
+ *
+ * @param {string}
+ * [options.request.right.aggregation.inlineRecipe.market.suppliers.commodity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string}
+ * [options.request.right.aggregation.inlineRecipe.market.suppliers.credit]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string}
+ * [options.request.right.aggregation.inlineRecipe.market.suppliers.equity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string}
+ * [options.request.right.aggregation.inlineRecipe.market.suppliers.fx]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string}
+ * [options.request.right.aggregation.inlineRecipe.market.suppliers.rates]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {object}
+ * [options.request.right.aggregation.inlineRecipe.market.options]
+ * Miscellaneous options around market loading. In the simplest usage case,
+ * this is just a default supplier and instrument resolution code.
  *
  * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
  *
@@ -11747,13 +11947,61 @@ function _upsertResults(scope, key, dateParameter, options, callback) {
  * @param {object} [options.request] The request specifying the parameters of
  * the aggregation
  *
- * @param {object} options.request.recipeId The configuration recipe,
- * consisting of user scope and recipe name, to use in performing the
+ * @param {object} [options.request.recipeId] The configuration recipe,
+ * consisting of recipe scope and recipe name, to use in performing the
  * aggregation.
  *
  * @param {string} [options.request.recipeId.scope]
  *
  * @param {string} [options.request.recipeId.code]
+ *
+ * @param {object} [options.request.inlineRecipe] Target Method for providing a
+ * non-named recipe.
+ * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+ * intended to allow use of non-named
+ * recipes to iterate quickly for design purposes. Ultimately it is recommended
+ * that production recipes would be stored
+ * in Lusid.
+ *
+ * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+ *
+ * @param {string} options.request.inlineRecipe.code User given string name
+ * (code) to identify the recipe.
+ *
+ * @param {object} [options.request.inlineRecipe.market] The market
+ * configuration node that defines where market data used in processing a
+ * request is loaded from and how it is resolved.
+ *
+ * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+ * rules that define how to resolve particular use cases. These can be
+ * relatively general or specific in nature.
+ * Nominally any number are possible and will be processed in order where
+ * applicable. However, there is evidently a potential
+ * for increased computational cost where many rules must be applied to resolve
+ * data. Ensuring that portfolios are structured in
+ * such a way as to reduce the number of rules required is therefore sensible.
+ *
+ * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+ * possible to control which supplier is used for a given asset class.
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+ * values include: 'DataScope', 'Lusid'
+ *
+ * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+ * Possible values include: 'DataScope', 'Lusid'
+ *
+ * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+ * options around market loading. In the simplest usage case, this is just a
+ * default supplier and instrument resolution code.
  *
  * @param {date} [options.request.asAt] The asAt date to use
  *
@@ -20782,13 +21030,61 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId The configuration recipe,
-   * consisting of user scope and recipe name, to use in performing the
+   * @param {object} [options.request.recipeId] The configuration recipe,
+   * consisting of recipe scope and recipe name, to use in performing the
    * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
+   *
+   * @param {object} [options.request.inlineRecipe] Target Method for providing a
+   * non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.inlineRecipe.code User given string name
+   * (code) to identify the recipe.
+   *
+   * @param {object} [options.request.inlineRecipe.market] The market
+   * configuration node that defines where market data used in processing a
+   * request is loaded from and how it is resolved.
+   *
+   * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+   * rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+   * values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+   * options around market loading. In the simplest usage case, this is just a
+   * default supplier and instrument resolution code.
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -20864,13 +21160,61 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId The configuration recipe,
-   * consisting of user scope and recipe name, to use in performing the
+   * @param {object} [options.request.recipeId] The configuration recipe,
+   * consisting of recipe scope and recipe name, to use in performing the
    * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
+   *
+   * @param {object} [options.request.inlineRecipe] Target Method for providing a
+   * non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.inlineRecipe.code User given string name
+   * (code) to identify the recipe.
+   *
+   * @param {object} [options.request.inlineRecipe.market] The market
+   * configuration node that defines where market data used in processing a
+   * request is loaded from and how it is resolved.
+   *
+   * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+   * rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+   * values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+   * options around market loading. In the simplest usage case, this is just a
+   * default supplier and instrument resolution code.
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -20970,13 +21314,61 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId The configuration recipe,
-   * consisting of user scope and recipe name, to use in performing the
+   * @param {object} [options.request.recipeId] The configuration recipe,
+   * consisting of recipe scope and recipe name, to use in performing the
    * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
+   *
+   * @param {object} [options.request.inlineRecipe] Target Method for providing a
+   * non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.inlineRecipe.code User given string name
+   * (code) to identify the recipe.
+   *
+   * @param {object} [options.request.inlineRecipe.market] The market
+   * configuration node that defines where market data used in processing a
+   * request is loaded from and how it is resolved.
+   *
+   * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+   * rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+   * values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+   * options around market loading. In the simplest usage case, this is just a
+   * default supplier and instrument resolution code.
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -21044,13 +21436,61 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId The configuration recipe,
-   * consisting of user scope and recipe name, to use in performing the
+   * @param {object} [options.request.recipeId] The configuration recipe,
+   * consisting of recipe scope and recipe name, to use in performing the
    * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
+   *
+   * @param {object} [options.request.inlineRecipe] Target Method for providing a
+   * non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.inlineRecipe.code User given string name
+   * (code) to identify the recipe.
+   *
+   * @param {object} [options.request.inlineRecipe.market] The market
+   * configuration node that defines where market data used in processing a
+   * request is loaded from and how it is resolved.
+   *
+   * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+   * rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+   * values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+   * options around market loading. In the simplest usage case, this is just a
+   * default supplier and instrument resolution code.
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -22361,13 +22801,61 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId The configuration recipe,
-   * consisting of user scope and recipe name, to use in performing the
+   * @param {object} [options.request.recipeId] The configuration recipe,
+   * consisting of recipe scope and recipe name, to use in performing the
    * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
+   *
+   * @param {object} [options.request.inlineRecipe] Target Method for providing a
+   * non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.inlineRecipe.code User given string name
+   * (code) to identify the recipe.
+   *
+   * @param {object} [options.request.inlineRecipe.market] The market
+   * configuration node that defines where market data used in processing a
+   * request is loaded from and how it is resolved.
+   *
+   * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+   * rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+   * values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+   * options around market loading. In the simplest usage case, this is just a
+   * default supplier and instrument resolution code.
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -22443,13 +22931,61 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId The configuration recipe,
-   * consisting of user scope and recipe name, to use in performing the
+   * @param {object} [options.request.recipeId] The configuration recipe,
+   * consisting of recipe scope and recipe name, to use in performing the
    * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
+   *
+   * @param {object} [options.request.inlineRecipe] Target Method for providing a
+   * non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.inlineRecipe.code User given string name
+   * (code) to identify the recipe.
+   *
+   * @param {object} [options.request.inlineRecipe.market] The market
+   * configuration node that defines where market data used in processing a
+   * request is loaded from and how it is resolved.
+   *
+   * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+   * rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+   * values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+   * options around market loading. In the simplest usage case, this is just a
+   * default supplier and instrument resolution code.
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -23177,13 +23713,69 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} options.request.right.aggregation The specification of the
    * aggregation request to be used to obtain the risk
    *
-   * @param {object} options.request.right.aggregation.recipeId The configuration
-   * recipe, consisting of user scope and recipe name, to use in performing the
-   * aggregation.
+   * @param {object} [options.request.right.aggregation.recipeId] The
+   * configuration recipe, consisting of recipe scope and recipe name, to use in
+   * performing the aggregation.
    *
    * @param {string} [options.request.right.aggregation.recipeId.scope]
    *
    * @param {string} [options.request.right.aggregation.recipeId.code]
+   *
+   * @param {object} [options.request.right.aggregation.inlineRecipe] Target
+   * Method for providing a non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.right.aggregation.inlineRecipe.code User
+   * given string name (code) to identify the recipe.
+   *
+   * @param {object} [options.request.right.aggregation.inlineRecipe.market] The
+   * market configuration node that defines where market data used in processing
+   * a request is loaded from and how it is resolved.
+   *
+   * @param {array}
+   * [options.request.right.aggregation.inlineRecipe.market.marketRules] The set
+   * of rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.fx]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object}
+   * [options.request.right.aggregation.inlineRecipe.market.options]
+   * Miscellaneous options around market loading. In the simplest usage case,
+   * this is just a default supplier and instrument resolution code.
    *
    * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
    *
@@ -23279,13 +23871,69 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} options.request.right.aggregation The specification of the
    * aggregation request to be used to obtain the risk
    *
-   * @param {object} options.request.right.aggregation.recipeId The configuration
-   * recipe, consisting of user scope and recipe name, to use in performing the
-   * aggregation.
+   * @param {object} [options.request.right.aggregation.recipeId] The
+   * configuration recipe, consisting of recipe scope and recipe name, to use in
+   * performing the aggregation.
    *
    * @param {string} [options.request.right.aggregation.recipeId.scope]
    *
    * @param {string} [options.request.right.aggregation.recipeId.code]
+   *
+   * @param {object} [options.request.right.aggregation.inlineRecipe] Target
+   * Method for providing a non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.right.aggregation.inlineRecipe.code User
+   * given string name (code) to identify the recipe.
+   *
+   * @param {object} [options.request.right.aggregation.inlineRecipe.market] The
+   * market configuration node that defines where market data used in processing
+   * a request is loaded from and how it is resolved.
+   *
+   * @param {array}
+   * [options.request.right.aggregation.inlineRecipe.market.marketRules] The set
+   * of rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.fx]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object}
+   * [options.request.right.aggregation.inlineRecipe.market.options]
+   * Miscellaneous options around market loading. In the simplest usage case,
+   * this is just a default supplier and instrument resolution code.
    *
    * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
    *
@@ -25025,13 +25673,61 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId The configuration recipe,
-   * consisting of user scope and recipe name, to use in performing the
+   * @param {object} [options.request.recipeId] The configuration recipe,
+   * consisting of recipe scope and recipe name, to use in performing the
    * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
+   *
+   * @param {object} [options.request.inlineRecipe] Target Method for providing a
+   * non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.inlineRecipe.code User given string name
+   * (code) to identify the recipe.
+   *
+   * @param {object} [options.request.inlineRecipe.market] The market
+   * configuration node that defines where market data used in processing a
+   * request is loaded from and how it is resolved.
+   *
+   * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+   * rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+   * values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+   * options around market loading. In the simplest usage case, this is just a
+   * default supplier and instrument resolution code.
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -25108,13 +25804,61 @@ class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request] The request specifying the parameters of
    * the aggregation
    *
-   * @param {object} options.request.recipeId The configuration recipe,
-   * consisting of user scope and recipe name, to use in performing the
+   * @param {object} [options.request.recipeId] The configuration recipe,
+   * consisting of recipe scope and recipe name, to use in performing the
    * aggregation.
    *
    * @param {string} [options.request.recipeId.scope]
    *
    * @param {string} [options.request.recipeId.code]
+   *
+   * @param {object} [options.request.inlineRecipe] Target Method for providing a
+   * non-named recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This is
+   * intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is recommended
+   * that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   *
+   * @param {string} options.request.inlineRecipe.code User given string name
+   * (code) to identify the recipe.
+   *
+   * @param {object} [options.request.inlineRecipe.market] The market
+   * configuration node that defines where market data used in processing a
+   * request is loaded from and how it is resolved.
+   *
+   * @param {array} [options.request.inlineRecipe.market.marketRules] The set of
+   * rules that define how to resolve particular use cases. These can be
+   * relatively general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to resolve
+   * data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore sensible.
+   *
+   * @param {object} [options.request.inlineRecipe.market.suppliers] It is
+   * possible to control which supplier is used for a given asset class.
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.commodity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.credit]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.equity]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.fx] Possible
+   * values include: 'DataScope', 'Lusid'
+   *
+   * @param {string} [options.request.inlineRecipe.market.suppliers.rates]
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
+   * options around market loading. In the simplest usage case, this is just a
+   * default supplier and instrument resolution code.
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *

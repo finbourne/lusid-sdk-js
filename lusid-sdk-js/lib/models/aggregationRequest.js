@@ -29,10 +29,58 @@
 class AggregationRequest {
   /**
    * Create a AggregationRequest.
-   * @property {object} recipeId The configuration recipe, consisting of user
-   * scope and recipe name, to use in performing the aggregation.
+   * @property {object} [recipeId] The configuration recipe, consisting of
+   * recipe scope and recipe name, to use in performing the aggregation.
    * @property {string} [recipeId.scope]
    * @property {string} [recipeId.code]
+   * @property {object} [inlineRecipe] Target Method for providing a non-named
+   * recipe.
+   * If given, this replaces the 'RecipeId' used with the bespoke recipe. This
+   * is intended to allow use of non-named
+   * recipes to iterate quickly for design purposes. Ultimately it is
+   * recommended that production recipes would be stored
+   * in Lusid.
+   *
+   * USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE.
+   * @property {string} [inlineRecipe.code] User given string name (code) to
+   * identify the recipe.
+   * @property {object} [inlineRecipe.market] The market configuration node
+   * that defines where market data used in processing a request is loaded from
+   * and how it is resolved.
+   * @property {array} [inlineRecipe.market.marketRules] The set of rules that
+   * define how to resolve particular use cases. These can be relatively
+   * general or specific in nature.
+   * Nominally any number are possible and will be processed in order where
+   * applicable. However, there is evidently a potential
+   * for increased computational cost where many rules must be applied to
+   * resolve data. Ensuring that portfolios are structured in
+   * such a way as to reduce the number of rules required is therefore
+   * sensible.
+   * @property {object} [inlineRecipe.market.suppliers] It is possible to
+   * control which supplier is used for a given asset class.
+   * @property {string} [inlineRecipe.market.suppliers.commodity] Possible
+   * values include: 'DataScope', 'Lusid'
+   * @property {string} [inlineRecipe.market.suppliers.credit] Possible values
+   * include: 'DataScope', 'Lusid'
+   * @property {string} [inlineRecipe.market.suppliers.equity] Possible values
+   * include: 'DataScope', 'Lusid'
+   * @property {string} [inlineRecipe.market.suppliers.fx] Possible values
+   * include: 'DataScope', 'Lusid'
+   * @property {string} [inlineRecipe.market.suppliers.rates] Possible values
+   * include: 'DataScope', 'Lusid'
+   * @property {object} [inlineRecipe.market.options] Miscellaneous options
+   * around market loading. In the simplest usage case, this is just a default
+   * supplier and instrument resolution code.
+   * @property {string} [inlineRecipe.market.options.defaultSupplier] The
+   * default supplier of data. This controls which 'dialect' is used to find
+   * particular market data. e.g. one supplier might address data by RIC,
+   * another by PermId. Possible values include: 'DataScope', 'Lusid'
+   * @property {string} [inlineRecipe.market.options.defaultInstrumentCodeType]
+   * when instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   * @property {string} [inlineRecipe.market.options.defaultScope] for default
+   * rules, which scope should data be searched for in
    * @property {date} [asAt] The asAt date to use
    * @property {date} effectiveAt The market data time, i.e. the time to run
    * the aggregation request effective of.
@@ -73,11 +121,19 @@ class AggregationRequest {
         className: 'AggregationRequest',
         modelProperties: {
           recipeId: {
-            required: true,
+            required: false,
             serializedName: 'recipeId',
             type: {
               name: 'Composite',
               className: 'ResourceId'
+            }
+          },
+          inlineRecipe: {
+            required: false,
+            serializedName: 'inlineRecipe',
+            type: {
+              name: 'Composite',
+              className: 'ConfigurationRecipe'
             }
           },
           asAt: {
