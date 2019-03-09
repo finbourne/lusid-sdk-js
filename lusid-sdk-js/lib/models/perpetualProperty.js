@@ -67,7 +67,6 @@ class PerpetualProperty {
           },
           unit: {
             required: false,
-            readOnly: true,
             serializedName: 'unit',
             type: {
               name: 'String'

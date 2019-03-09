@@ -1124,7 +1124,7 @@ export interface PortfoliosReconciliationRequest {
 export interface PerpetualProperty {
   key: string;
   value: any;
-  readonly unit?: string;
+  unit?: string;
 }
 
 export interface CurrencyAndAmount {
