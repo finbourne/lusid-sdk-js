@@ -92,11 +92,12 @@ export interface ErrorResponse {
    * 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure', 'TransactionTypeNotFound',
    * 'TransactionTypeDuplication', 'InvalidPropertyValueAssignment',
    * 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure', 'DuplicateConstituentFailure',
-   * 'UnresolvedConstituentFailure', 'MissingRecipeFailure', 'DependenciesFailure',
-   * 'PortfolioPreprocessFailure', 'ValuationEngineFailure', 'TaskFactoryFailure',
-   * 'TaskEvaluationFailure', 'InstrumentFailure', 'CashFlowsFailure', 'ResultRetrievalFailure',
-   * 'ResultProcessingFailure', 'VendorResultProcessingFailure',
-   * 'CannotSupplyTimesWithPortfoliosQuery', 'AttemptToUpsertDuplicateQuotes'
+   * 'UnresolvedInstrumentConstituentFailure', 'UnresolvedInstrumentInTransitionFailure',
+   * 'MissingRecipeFailure', 'DependenciesFailure', 'PortfolioPreprocessFailure',
+   * 'ValuationEngineFailure', 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
+   * 'CashFlowsFailure', 'ResultRetrievalFailure', 'ResultProcessingFailure',
+   * 'VendorResultProcessingFailure', 'CannotSupplyTimesWithPortfoliosQuery',
+   * 'AttemptToUpsertDuplicateQuotes'
   */
   code?: string;
   message?: string;
@@ -184,7 +185,41 @@ export interface ResourceListOfCorporateActionSource {
   links?: Link[];
 }
 
+export interface CorporateActionTransitionComponentRequest {
+  /**
+   * unique instrument identifiers.
+  */
+  instrumentIdentifiers: { [propertyName: string]: string };
+  unitsFactor: number;
+  costFactor: number;
+}
+
+/**
+ * A 'transition' within a corporate action, representing a set of output movements paired to a
+ * single input position
+*/
+export interface CorporateActionTransitionRequest {
+  inputTransition?: CorporateActionTransitionComponentRequest;
+  outputTransitions?: CorporateActionTransitionComponentRequest[];
+}
+
+export interface CreateCorporateAction {
+  corporateActionCode: string;
+  announcementDate: Date;
+  exDate: Date;
+  recordDate: Date;
+  paymentDate: Date;
+  transitions: CorporateActionTransitionRequest[];
+}
+
 export interface CorporateActionTransitionComponent {
+  /**
+   * unique instrument identifiers.
+  */
+  instrumentIdentifiers: { [propertyName: string]: string };
+  /**
+   * Unique instrument identifier
+  */
   instrumentUid: string;
   unitsFactor: number;
   costFactor: number;
@@ -197,15 +232,6 @@ export interface CorporateActionTransitionComponent {
 export interface CorporateActionTransition {
   inputTransition?: CorporateActionTransitionComponent;
   outputTransitions?: CorporateActionTransitionComponent[];
-}
-
-export interface CreateCorporateAction {
-  corporateActionCode: string;
-  announcementDate: Date;
-  exDate: Date;
-  recordDate: Date;
-  paymentDate: Date;
-  transitions: CorporateActionTransition[];
 }
 
 /**
@@ -741,10 +767,6 @@ export interface UpdatePortfolioGroupRequest {
 
 export interface MarketDataKeyRule {
   /**
-   * the scope in which the data should be found when using this rule.
-  */
-  dataScope?: string;
-  /**
    * The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*)
   */
   key: string;
@@ -753,6 +775,10 @@ export interface MarketDataKeyRule {
    * 'Lusid'
   */
   supplier: string;
+  /**
+   * the scope in which the data should be found when using this rule.
+  */
+  dataScope: string;
   /**
    * is the quote to be looked for a price, yield etc. Possible values include: 'Price', 'Spread',
    * 'Rate'
@@ -808,16 +834,16 @@ export interface MarketOptions {
    * data. e.g. one supplier might address data by RIC, another by PermId. Possible values include:
    * 'DataScope', 'Lusid'
   */
-  readonly defaultSupplier?: string;
+  defaultSupplier?: string;
   /**
    * when instrument quotes are searched for, what identifier should be used by default. Possible
    * values include: 'LusidInstrumentId', 'Figi', 'RIC', 'QuotePermId', 'Isin', 'CurrencyPair'
   */
-  readonly defaultInstrumentCodeType?: string;
+  defaultInstrumentCodeType?: string;
   /**
    * for default rules, which scope should data be searched for in
   */
-  readonly defaultScope?: string;
+  defaultScope?: string;
 }
 
 /**

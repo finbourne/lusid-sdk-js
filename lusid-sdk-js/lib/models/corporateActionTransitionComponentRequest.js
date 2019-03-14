@@ -23,13 +23,12 @@
 'use strict';
 
 /**
- * Class representing a CorporateActionTransitionComponent.
+ * Class representing a CorporateActionTransitionComponentRequest.
  */
-class CorporateActionTransitionComponent {
+class CorporateActionTransitionComponentRequest {
   /**
-   * Create a CorporateActionTransitionComponent.
+   * Create a CorporateActionTransitionComponentRequest.
    * @property {object} instrumentIdentifiers unique instrument identifiers.
-   * @property {string} instrumentUid Unique instrument identifier
    * @property {number} unitsFactor
    * @property {number} costFactor
    */
@@ -37,18 +36,18 @@ class CorporateActionTransitionComponent {
   }
 
   /**
-   * Defines the metadata of CorporateActionTransitionComponent
+   * Defines the metadata of CorporateActionTransitionComponentRequest
    *
-   * @returns {object} metadata of CorporateActionTransitionComponent
+   * @returns {object} metadata of CorporateActionTransitionComponentRequest
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CorporateActionTransitionComponent',
+      serializedName: 'CorporateActionTransitionComponentRequest',
       type: {
         name: 'Composite',
-        className: 'CorporateActionTransitionComponent',
+        className: 'CorporateActionTransitionComponentRequest',
         modelProperties: {
           instrumentIdentifiers: {
             required: true,
@@ -62,13 +61,6 @@ class CorporateActionTransitionComponent {
                     name: 'String'
                   }
               }
-            }
-          },
-          instrumentUid: {
-            required: true,
-            serializedName: 'instrumentUid',
-            type: {
-              name: 'String'
             }
           },
           unitsFactor: {
@@ -91,4 +83,4 @@ class CorporateActionTransitionComponent {
   }
 }
 
-module.exports = CorporateActionTransitionComponent;
+module.exports = CorporateActionTransitionComponentRequest;

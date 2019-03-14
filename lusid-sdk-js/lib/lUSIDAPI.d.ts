@@ -2990,6 +2990,21 @@ export default class LUSIDAPI extends ServiceClient {
    * options around market loading. In the simplest usage case, this is just a
    * default supplier and instrument resolution code.
    *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultSupplier] The default
+   * supplier of data. This controls which 'dialect' is used to find particular
+   * market data. e.g. one supplier might address data by RIC, another by PermId.
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultInstrumentCodeType] when
+   * instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string} [options.request.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
+   *
    * @param {date} [options.request.asAt] The asAt date to use
    *
    * @param {date} options.request.effectiveAt The market data time, i.e. the
@@ -3107,6 +3122,21 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
    * options around market loading. In the simplest usage case, this is just a
    * default supplier and instrument resolution code.
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultSupplier] The default
+   * supplier of data. This controls which 'dialect' is used to find particular
+   * market data. e.g. one supplier might address data by RIC, another by PermId.
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultInstrumentCodeType] when
+   * instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string} [options.request.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -3247,6 +3277,21 @@ export default class LUSIDAPI extends ServiceClient {
    * options around market loading. In the simplest usage case, this is just a
    * default supplier and instrument resolution code.
    *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultSupplier] The default
+   * supplier of data. This controls which 'dialect' is used to find particular
+   * market data. e.g. one supplier might address data by RIC, another by PermId.
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultInstrumentCodeType] when
+   * instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string} [options.request.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
+   *
    * @param {date} [options.request.asAt] The asAt date to use
    *
    * @param {date} options.request.effectiveAt The market data time, i.e. the
@@ -3356,6 +3401,21 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
    * options around market loading. In the simplest usage case, this is just a
    * default supplier and instrument resolution code.
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultSupplier] The default
+   * supplier of data. This controls which 'dialect' is used to find particular
+   * market data. e.g. one supplier might address data by RIC, another by PermId.
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultInstrumentCodeType] when
+   * instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string} [options.request.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -4410,6 +4470,21 @@ export default class LUSIDAPI extends ServiceClient {
    * options around market loading. In the simplest usage case, this is just a
    * default supplier and instrument resolution code.
    *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultSupplier] The default
+   * supplier of data. This controls which 'dialect' is used to find particular
+   * market data. e.g. one supplier might address data by RIC, another by PermId.
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultInstrumentCodeType] when
+   * instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string} [options.request.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
+   *
    * @param {date} [options.request.asAt] The asAt date to use
    *
    * @param {date} options.request.effectiveAt The market data time, i.e. the
@@ -4527,6 +4602,21 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
    * options around market loading. In the simplest usage case, this is just a
    * default supplier and instrument resolution code.
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultSupplier] The default
+   * supplier of data. This controls which 'dialect' is used to find particular
+   * market data. e.g. one supplier might address data by RIC, another by PermId.
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultInstrumentCodeType] when
+   * instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string} [options.request.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *
@@ -5168,6 +5258,22 @@ export default class LUSIDAPI extends ServiceClient {
    * Miscellaneous options around market loading. In the simplest usage case,
    * this is just a default supplier and instrument resolution code.
    *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.options.defaultSupplier]
+   * The default supplier of data. This controls which 'dialect' is used to find
+   * particular market data. e.g. one supplier might address data by RIC, another
+   * by PermId. Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.options.defaultInstrumentCodeType]
+   * when instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
+   *
    * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
    *
    * @param {date} options.request.right.aggregation.effectiveAt The market data
@@ -5313,6 +5419,22 @@ export default class LUSIDAPI extends ServiceClient {
    * [options.request.right.aggregation.inlineRecipe.market.options]
    * Miscellaneous options around market loading. In the simplest usage case,
    * this is just a default supplier and instrument resolution code.
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.options.defaultSupplier]
+   * The default supplier of data. This controls which 'dialect' is used to find
+   * particular market data. e.g. one supplier might address data by RIC, another
+   * by PermId. Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.options.defaultInstrumentCodeType]
+   * when instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string}
+   * [options.request.right.aggregation.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
    *
    * @param {date} [options.request.right.aggregation.asAt] The asAt date to use
    *
@@ -6715,6 +6837,21 @@ export default class LUSIDAPI extends ServiceClient {
    * options around market loading. In the simplest usage case, this is just a
    * default supplier and instrument resolution code.
    *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultSupplier] The default
+   * supplier of data. This controls which 'dialect' is used to find particular
+   * market data. e.g. one supplier might address data by RIC, another by PermId.
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultInstrumentCodeType] when
+   * instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string} [options.request.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
+   *
    * @param {date} [options.request.asAt] The asAt date to use
    *
    * @param {date} options.request.effectiveAt The market data time, i.e. the
@@ -6833,6 +6970,21 @@ export default class LUSIDAPI extends ServiceClient {
    * @param {object} [options.request.inlineRecipe.market.options] Miscellaneous
    * options around market loading. In the simplest usage case, this is just a
    * default supplier and instrument resolution code.
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultSupplier] The default
+   * supplier of data. This controls which 'dialect' is used to find particular
+   * market data. e.g. one supplier might address data by RIC, another by PermId.
+   * Possible values include: 'DataScope', 'Lusid'
+   *
+   * @param {string}
+   * [options.request.inlineRecipe.market.options.defaultInstrumentCodeType] when
+   * instrument quotes are searched for, what identifier should be used by
+   * default. Possible values include: 'LusidInstrumentId', 'Figi', 'RIC',
+   * 'QuotePermId', 'Isin', 'CurrencyPair'
+   *
+   * @param {string} [options.request.inlineRecipe.market.options.defaultScope]
+   * for default rules, which scope should data be searched for in
    *
    * @param {date} [options.request.asAt] The asAt date to use
    *

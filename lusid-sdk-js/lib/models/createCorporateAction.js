@@ -94,10 +94,10 @@ class CreateCorporateAction {
               name: 'Sequence',
               element: {
                   required: false,
-                  serializedName: 'CorporateActionTransitionElementType',
+                  serializedName: 'CorporateActionTransitionRequestElementType',
                   type: {
                     name: 'Composite',
-                    className: 'CorporateActionTransition'
+                    className: 'CorporateActionTransitionRequest'
                   }
               }
             }

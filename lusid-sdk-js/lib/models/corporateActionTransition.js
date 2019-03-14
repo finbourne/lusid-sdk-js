@@ -31,7 +31,10 @@ class CorporateActionTransition {
   /**
    * Create a CorporateActionTransition.
    * @property {object} [inputTransition]
-   * @property {string} [inputTransition.instrumentUid]
+   * @property {object} [inputTransition.instrumentIdentifiers] unique
+   * instrument identifiers.
+   * @property {string} [inputTransition.instrumentUid] Unique instrument
+   * identifier
    * @property {number} [inputTransition.unitsFactor]
    * @property {number} [inputTransition.costFactor]
    * @property {array} [outputTransitions]

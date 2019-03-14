@@ -23,66 +23,58 @@
 'use strict';
 
 /**
- * Class representing a CorporateActionTransitionComponent.
+ * A 'transition' within a corporate action, representing a set of output
+ * movements paired to a single input position
+ *
  */
-class CorporateActionTransitionComponent {
+class CorporateActionTransitionRequest {
   /**
-   * Create a CorporateActionTransitionComponent.
-   * @property {object} instrumentIdentifiers unique instrument identifiers.
-   * @property {string} instrumentUid Unique instrument identifier
-   * @property {number} unitsFactor
-   * @property {number} costFactor
+   * Create a CorporateActionTransitionRequest.
+   * @property {object} [inputTransition]
+   * @property {object} [inputTransition.instrumentIdentifiers] unique
+   * instrument identifiers.
+   * @property {number} [inputTransition.unitsFactor]
+   * @property {number} [inputTransition.costFactor]
+   * @property {array} [outputTransitions]
    */
   constructor() {
   }
 
   /**
-   * Defines the metadata of CorporateActionTransitionComponent
+   * Defines the metadata of CorporateActionTransitionRequest
    *
-   * @returns {object} metadata of CorporateActionTransitionComponent
+   * @returns {object} metadata of CorporateActionTransitionRequest
    *
    */
   mapper() {
     return {
       required: false,
-      serializedName: 'CorporateActionTransitionComponent',
+      serializedName: 'CorporateActionTransitionRequest',
       type: {
         name: 'Composite',
-        className: 'CorporateActionTransitionComponent',
+        className: 'CorporateActionTransitionRequest',
         modelProperties: {
-          instrumentIdentifiers: {
-            required: true,
-            serializedName: 'instrumentIdentifiers',
+          inputTransition: {
+            required: false,
+            serializedName: 'inputTransition',
             type: {
-              name: 'Dictionary',
-              value: {
+              name: 'Composite',
+              className: 'CorporateActionTransitionComponentRequest'
+            }
+          },
+          outputTransitions: {
+            required: false,
+            serializedName: 'outputTransitions',
+            type: {
+              name: 'Sequence',
+              element: {
                   required: false,
-                  serializedName: 'StringElementType',
+                  serializedName: 'CorporateActionTransitionComponentRequestElementType',
                   type: {
-                    name: 'String'
+                    name: 'Composite',
+                    className: 'CorporateActionTransitionComponentRequest'
                   }
               }
-            }
-          },
-          instrumentUid: {
-            required: true,
-            serializedName: 'instrumentUid',
-            type: {
-              name: 'String'
-            }
-          },
-          unitsFactor: {
-            required: true,
-            serializedName: 'unitsFactor',
-            type: {
-              name: 'Number'
-            }
-          },
-          costFactor: {
-            required: true,
-            serializedName: 'costFactor',
-            type: {
-              name: 'Number'
             }
           }
         }
@@ -91,4 +83,4 @@ class CorporateActionTransitionComponent {
   }
 }
 
-module.exports = CorporateActionTransitionComponent;
+module.exports = CorporateActionTransitionRequest;

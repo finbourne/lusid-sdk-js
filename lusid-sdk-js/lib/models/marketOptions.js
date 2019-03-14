@@ -68,7 +68,6 @@ class MarketOptions {
         modelProperties: {
           defaultSupplier: {
             required: false,
-            readOnly: true,
             serializedName: 'defaultSupplier',
             type: {
               name: 'String'
@@ -76,7 +75,6 @@ class MarketOptions {
           },
           defaultInstrumentCodeType: {
             required: false,
-            readOnly: true,
             serializedName: 'defaultInstrumentCodeType',
             type: {
               name: 'String'
@@ -84,7 +82,6 @@ class MarketOptions {
           },
           defaultScope: {
             required: false,
-            readOnly: true,
             serializedName: 'defaultScope',
             type: {
               name: 'String'

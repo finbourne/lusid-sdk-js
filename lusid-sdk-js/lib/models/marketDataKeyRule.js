@@ -28,12 +28,12 @@
 class MarketDataKeyRule {
   /**
    * Create a MarketDataKeyRule.
-   * @property {string} [dataScope] the scope in which the data should be found
-   * when using this rule.
    * @property {string} key The market data key pattern which this is a rule
    * for. A dot separated string (A.B.C.D.*)
    * @property {string} supplier the market data supplier (where the data comes
    * from). Possible values include: 'DataScope', 'Lusid'
+   * @property {string} dataScope the scope in which the data should be found
+   * when using this rule.
    * @property {string} [quoteType] is the quote to be looked for a price,
    * yield etc. Possible values include: 'Price', 'Spread', 'Rate'
    * @property {string} [priceSide] the conceptual qualification for the field.
@@ -57,13 +57,6 @@ class MarketDataKeyRule {
         name: 'Composite',
         className: 'MarketDataKeyRule',
         modelProperties: {
-          dataScope: {
-            required: false,
-            serializedName: 'dataScope',
-            type: {
-              name: 'String'
-            }
-          },
           key: {
             required: true,
             serializedName: 'key',
@@ -74,6 +67,13 @@ class MarketDataKeyRule {
           supplier: {
             required: true,
             serializedName: 'supplier',
+            type: {
+              name: 'String'
+            }
+          },
+          dataScope: {
+            required: true,
+            serializedName: 'dataScope',
             type: {
               name: 'String'
             }
