@@ -50,8 +50,7 @@ class Transaction {
    * @property {string} [transactionCurrency] Transaction currency
    * @property {array} [properties]
    * @property {string} [counterpartyId] Counterparty identifier
-   * @property {string} source Where this transaction came from. Possible
-   * values include: 'System', 'Client'
+   * @property {string} source Where this transaction came from
    * @property {string} [nettingSet]
    */
   constructor() {

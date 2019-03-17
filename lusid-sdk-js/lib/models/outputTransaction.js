@@ -52,8 +52,7 @@ class OutputTransaction {
    * @property {string} [transactionCurrency] Transaction currency
    * @property {array} [properties]
    * @property {string} [counterpartyId] Counterparty identifier
-   * @property {string} [source] Where this transaction came from, either
-   * Client or System. Possible values include: 'System', 'Client'
+   * @property {string} [source] Where this transaction came from
    * @property {string} [nettingSet]
    * @property {string} [transactionStatus] Transaction status (active, amended
    * or cancelled). Possible values include: 'Active', 'Amended', 'Cancelled'

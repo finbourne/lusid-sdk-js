@@ -70,8 +70,7 @@ class PortfolioHolding {
    * @property {string} [transaction.transactionCurrency] Transaction currency
    * @property {array} [transaction.properties]
    * @property {string} [transaction.counterpartyId] Counterparty identifier
-   * @property {string} [transaction.source] Where this transaction came from.
-   * Possible values include: 'System', 'Client'
+   * @property {string} [transaction.source] Where this transaction came from
    * @property {string} [transaction.nettingSet]
    */
   constructor() {

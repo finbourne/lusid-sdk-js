@@ -1940,7 +1940,7 @@ export interface Transaction {
   */
   counterpartyId?: string;
   /**
-   * Where this transaction came from. Possible values include: 'System', 'Client'
+   * Where this transaction came from
   */
   source: string;
   nettingSet?: string;
@@ -2229,10 +2229,9 @@ export interface TransactionRequest {
   */
   counterpartyId?: string;
   /**
-   * Where this transaction came from, either Client or System. Possible values include: 'System',
-   * 'Client'
+   * Where this transaction came from
   */
-  source: string;
+  source?: string;
   nettingSet?: string;
 }
 
@@ -2374,8 +2373,7 @@ export interface OutputTransaction {
   */
   readonly counterpartyId?: string;
   /**
-   * Where this transaction came from, either Client or System. Possible values include: 'System',
-   * 'Client'
+   * Where this transaction came from
   */
   readonly source?: string;
   readonly nettingSet?: string;

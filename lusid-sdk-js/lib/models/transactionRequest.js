@@ -49,8 +49,7 @@ class TransactionRequest {
    * @property {string} [transactionCurrency] Transaction currency
    * @property {object} [properties]
    * @property {string} [counterpartyId] Counterparty identifier
-   * @property {string} source Where this transaction came from, either Client
-   * or System. Possible values include: 'System', 'Client'
+   * @property {string} [source] Where this transaction came from
    * @property {string} [nettingSet]
    */
   constructor() {
@@ -172,7 +171,7 @@ class TransactionRequest {
             }
           },
           source: {
-            required: true,
+            required: false,
             serializedName: 'source',
             type: {
               name: 'String'
