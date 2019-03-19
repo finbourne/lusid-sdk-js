@@ -28,7 +28,7 @@
 class InstrumentAnalytic {
   /**
    * Create a InstrumentAnalytic.
-   * @property {string} [instrumentUid] Unique instrument identifier
+   * @property {string} instrumentUid Unique instrument identifier
    * @property {number} [value] Value of the analytic, eg price
    * @property {string} [denomination] Underlying unit of the analytic, eg
    * currency, EPS etc.
@@ -51,7 +51,7 @@ class InstrumentAnalytic {
         className: 'InstrumentAnalytic',
         modelProperties: {
           instrumentUid: {
-            required: false,
+            required: true,
             serializedName: 'instrumentUid',
             type: {
               name: 'String'

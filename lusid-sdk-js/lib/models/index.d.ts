@@ -133,7 +133,7 @@ export interface InstrumentAnalytic {
   /**
    * Unique instrument identifier
   */
-  instrumentUid?: string;
+  instrumentUid: string;
   /**
    * Value of the analytic, eg price
   */
