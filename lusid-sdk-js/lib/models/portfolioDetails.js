@@ -36,6 +36,9 @@ class PortfolioDetails {
    * @property {date} [version.effectiveFrom]
    * @property {date} [version.asAtDate]
    * @property {string} [baseCurrency]
+   * @property {object} [corporateActionSourceId]
+   * @property {string} [corporateActionSourceId.scope]
+   * @property {string} [corporateActionSourceId.code]
    * @property {array} [links]
    */
   constructor() {
@@ -83,6 +86,14 @@ class PortfolioDetails {
             serializedName: 'baseCurrency',
             type: {
               name: 'String'
+            }
+          },
+          corporateActionSourceId: {
+            required: false,
+            serializedName: 'corporateActionSourceId',
+            type: {
+              name: 'Composite',
+              className: 'ResourceId'
             }
           },
           links: {

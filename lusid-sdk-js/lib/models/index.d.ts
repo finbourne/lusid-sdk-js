@@ -1833,6 +1833,7 @@ export interface PortfolioDetails {
   */
   version?: Version;
   baseCurrency?: string;
+  corporateActionSourceId?: ResourceId;
   links?: Link[];
 }
 
