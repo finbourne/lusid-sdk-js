@@ -1,14 +1,17 @@
-FROM microsoft/dotnet:2.0-sdk
+FROM maven:3.5-jdk-10
 
-RUN mkdir -p /usr/src
-WORKDIR /usr/src
+RUN mkdir -p /usr/swaggerjar/
+WORKDIR /usr/swaggerjar/
 
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils && \
-    curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-    apt-get install -y nodejs && \
-    apt-get install npm
+RUN apt-get update && \
+    apt-get -y install curl gnupg && \
+    curl -sL https://deb.nodesource.com/setup_11.x  | bash - && \
+    apt-get -y install nodejs && \
+    apt-get -y install jq
 
-RUN npm install -g autorest
+RUN wget http://central.maven.org/maven2/org/openapitools/openapi-generator-cli/3.3.4/openapi-generator-cli-3.3.4.jar -O openapi-generator-cli.jar
 
-# use specific version of modeler, see https://github.com/Azure/autorest/issues/2746
-CMD autorest --nodejs --use=@microsoft.azure/autorest.modeler@2.3.40
+ADD .openapi-generator-ignore .
+ADD generate.sh .
+
+ENTRYPOINT [ "/bin/bash", "generate.sh" ]
