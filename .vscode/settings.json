@@ -1,0 +1,7 @@
+{
+  // Configure glob patterns of file paths to exclude from linting
+  "tslint.exclude": [
+    "**/generated/**",
+    "**/.generated/**"
+  ]
+}

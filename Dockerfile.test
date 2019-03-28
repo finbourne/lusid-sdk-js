@@ -1,0 +1,9 @@
+FROM node:alpine
+
+COPY sdk/ /usr/users/sdk/
+
+WORKDIR /usr/users/sdk/
+
+RUN npm install
+
+CMD ["npm", "test"]
