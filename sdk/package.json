@@ -16,6 +16,7 @@
     "fs": false
   },
   "dependencies": {
+    "csvtojson": "^2.0.8",
     "superagent": "*",
     "uuid": "^3.3.2"
   },
