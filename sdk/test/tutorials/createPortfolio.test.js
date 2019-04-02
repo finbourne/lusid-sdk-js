@@ -18,7 +18,7 @@ var request = {
 var test_portfolios = function() {
   var scope = uuid4()
   clientBuilder(client).then((client) => {
-    client.api.portfolios.transactions.createPortfolio(scope, request))
+    client.api.portfolios.transactions.createPortfolio(scope, request)
     .then((res) => res)
     .catch((err) => err)
   })
