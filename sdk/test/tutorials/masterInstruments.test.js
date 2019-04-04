@@ -189,7 +189,7 @@ var securityCurrencyCode = lusid.CreatePropertyDefinitionRequest
       displayName: 'SECURITY_CURRENCY_CODE',
       dataTypeId: lusid.ResourceId.constructFromObject({
         scope: "default",
-        code: "currencyAndAmount"
+        code: "currency"
       }),
       lifeTime: 'TimeVariant',
       type: 'Label'
@@ -203,12 +203,16 @@ Promise.all([
   createProperty(securityCurrencyCode)
 ])
   .then((res) => {
-    return addLusidInstrumentIdsFromFile(instrumentsFile)
+    return addLusidInstrumentIdsFromFile(instrumentsFile).then((instruments) => {
+      return [
+        instruments,
+        res[1]
+      ]
+    })
   })
-  .then((instruments) => {
-    console.log(instruments)
+  .then(([instruments, propertyResponse]) => {
     return upsertInstrumentProperties(
-      'Instrument/default/Currency',
+      propertyResponse.key,
       'currency',
       instruments)
   })
