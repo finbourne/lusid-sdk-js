@@ -117,7 +117,7 @@ Name | Type | Description | Notes
 
 * `EntityWithIdAlreadyExists` (value: `"EntityWithIdAlreadyExists"`)
 
-* `PortfolioDetailsDoNotExist` (value: `"PortfolioDetailsDoNotExist"`)
+* `DerivedPortfolioDetailsDoNotExist` (value: `"DerivedPortfolioDetailsDoNotExist"`)
 
 * `PortfolioWithNameAlreadyExists` (value: `"PortfolioWithNameAlreadyExists"`)
 
@@ -242,6 +242,10 @@ Name | Type | Description | Notes
 * `CannotSupplyTimesWithPortfoliosQuery` (value: `"CannotSupplyTimesWithPortfoliosQuery"`)
 
 * `AttemptToUpsertDuplicateQuotes` (value: `"AttemptToUpsertDuplicateQuotes"`)
+
+* `CorporateActionSourceDoesNotExist` (value: `"CorporateActionSourceDoesNotExist"`)
+
+* `InstrumentIdentifierAlreadyInUse` (value: `"InstrumentIdentifierAlreadyInUse"`)
 
 
 

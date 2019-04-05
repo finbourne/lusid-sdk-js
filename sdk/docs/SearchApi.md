@@ -83,7 +83,7 @@ var opts = {
   'start': 56, // Number | Optional. When paginating, skip this number of results
   'limit': 56, // Number | Optional. When paginating, limit the number of returned results to this many.
   'filter': "filter_example", // String | Optional. Expression to filter the result set
-  'body': "body_example" // String | A valid Elasticsearch 5.x request
+  'UNKNOWN_BASE_TYPE': new LusidSdk.UNKNOWN_BASE_TYPE() // UNKNOWN_BASE_TYPE | A valid Elasticsearch 5.x request
 };
 apiInstance.portfolioGroupsSearch(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
  **start** | **Number**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **Number**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **String**| Optional. Expression to filter the result set | [optional] 
- **body** | **String**| A valid Elasticsearch 5.x request | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| A valid Elasticsearch 5.x request | [optional] 
 
 ### Return type
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 
 <a name="portfoliosSearch"></a>
@@ -138,7 +138,7 @@ var opts = {
   'start': 56, // Number | Optional. When paginating, skip this number of results
   'limit': 56, // Number | Optional. When paginating, limit the number of returned results to this many.
   'filter': "filter_example", // String | Optional. Expression to filter the result set
-  'body': "body_example" // String | A valid Elasticsearch 5.x request
+  'UNKNOWN_BASE_TYPE': new LusidSdk.UNKNOWN_BASE_TYPE() // UNKNOWN_BASE_TYPE | A valid Elasticsearch 5.x request
 };
 apiInstance.portfoliosSearch(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
  **start** | **Number**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **Number**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **String**| Optional. Expression to filter the result set | [optional] 
- **body** | **String**| A valid Elasticsearch 5.x request | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| A valid Elasticsearch 5.x request | [optional] 
 
 ### Return type
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 
 <a name="propertiesSearch"></a>
@@ -193,7 +193,7 @@ var opts = {
   'start': 56, // Number | Optional. When paginating, skip this number of results
   'limit': 56, // Number | Optional. When paginating, limit the number of returned results to this many.
   'filter': "filter_example", // String | Optional. Expression to filter the result set
-  'body': "body_example" // String | A valid Elasticsearch 5.x request
+  'UNKNOWN_BASE_TYPE': new LusidSdk.UNKNOWN_BASE_TYPE() // UNKNOWN_BASE_TYPE | A valid Elasticsearch 5.x request
 };
 apiInstance.propertiesSearch(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
  **start** | **Number**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **Number**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **String**| Optional. Expression to filter the result set | [optional] 
- **body** | **String**| A valid Elasticsearch 5.x request | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| A valid Elasticsearch 5.x request | [optional] 
 
 ### Return type
 
@@ -223,6 +223,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 

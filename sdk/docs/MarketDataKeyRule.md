@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **String** | The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*) | 
-**supplier** | **String** | the market data supplier (where the data comes from) | 
-**dataScope** | **String** | the scope in which the data should be found when using this rule. | 
-**quoteType** | **String** | is the quote to be looked for a price, yield etc. | [optional] 
-**priceSide** | **String** | the conceptual qualification for the field. Something like Bid, Ask or Mid. | [optional] 
+**supplier** | **String** | The market data supplier (where the data comes from) | 
+**dataScope** | **String** | The scope in which the data should be found when using this rule. | 
+**quoteType** | **String** | Is the quote to be looked for a price, yield etc. | [optional] 
+**priceSide** | **String** | The conceptual qualification for the field. Something like Bid, Ask or Mid. | [optional] 
 
 
 <a name="SupplierEnum"></a>

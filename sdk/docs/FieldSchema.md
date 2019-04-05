@@ -66,8 +66,6 @@ Name | Type | Description | Notes
 
 * `QuoteId` (value: `"QuoteId"`)
 
-* `QuoteLineage` (value: `"QuoteLineage"`)
-
 * `ArrayOfQuoteIds` (value: `"ArrayOfQuoteIds"`)
 
 * `ResourceId` (value: `"ResourceId"`)

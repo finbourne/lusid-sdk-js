@@ -30,6 +30,16 @@ Name | Type | Description | Notes
 
 * `UnsettledCashTypes` (value: `"UnsettledCashTypes"`)
 
+* `StockMovement` (value: `"StockMovement"`)
+
+* `CashCommitment` (value: `"CashCommitment"`)
+
+* `CashReceivable` (value: `"CashReceivable"`)
+
+* `CashForward` (value: `"CashForward"`)
+
+* `CashAccrual` (value: `"CashAccrual"`)
+
 
 
 

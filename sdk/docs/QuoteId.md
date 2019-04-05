@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**provider** | **String** |  | 
+**priceSource** | **String** |  | 
 **instrumentId** | **String** |  | 
 **instrumentIdType** | **String** |  | 
 **quoteType** | **String** |  | 

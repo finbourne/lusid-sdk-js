@@ -287,6 +287,7 @@ var apiInstance = new LusidSdk.InstrumentsApi();
 var opts = {
   'asAt': new Date("2013-10-20T19:20:30+01:00"), // Date | Optional. The AsAt time
   'effectiveAt': new Date("2013-10-20T19:20:30+01:00"), // Date | Optional. The effective date of the query
+  'page': "page_example", // String | Optional. The pagination token to continue listing instruments. This value is returned from a previous call to ListInstruments.  If this is set, then the sortBy, filter, effectiveAt, and asAt fields must not have changed. Also, if set, a start value cannot be set.
   'sortBy': ["null"], // [String] | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
   'start': 56, // Number | Optional. When paginating, skip this number of results
   'limit': 56, // Number | Optional. When paginating, limit the number of returned results to this many
@@ -307,6 +308,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asAt** | **Date**| Optional. The AsAt time | [optional] 
  **effectiveAt** | **Date**| Optional. The effective date of the query | [optional] 
+ **page** | **String**| Optional. The pagination token to continue listing instruments. This value is returned from a previous call to ListInstruments.  If this is set, then the sortBy, filter, effectiveAt, and asAt fields must not have changed. Also, if set, a start value cannot be set. | [optional] 
  **sortBy** | [**[String]**](String.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **Number**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **Number**| Optional. When paginating, limit the number of returned results to this many | [optional] 

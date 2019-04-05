@@ -83,7 +83,8 @@ var opts = {
   'asAt': new Date("2013-10-20T19:20:30+01:00"), // Date | Optional. The AsAt date of the data
   'sortBy': ["null"], // [String] | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName
   'start': 56, // Number | Optional. When paginating, skip this number of results
-  'limit': 56 // Number | Optional. When paginating, limit the number of returned results to this many
+  'limit': 56, // Number | Optional. When paginating, limit the number of returned results to this many
+  'instrumentPropertyKeys': ["null"] // [String] | Optional. The Properties of the constituents
 };
 apiInstance.getReferencePortfolioConstituents(scope, code, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
  **sortBy** | [**[String]**](String.md)| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **Number**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **Number**| Optional. When paginating, limit the number of returned results to this many | [optional] 
+ **instrumentPropertyKeys** | [**[String]**](String.md)| Optional. The Properties of the constituents | [optional] 
 
 ### Return type
 

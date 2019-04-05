@@ -35,6 +35,10 @@ Name | Type | Description | Notes
 
 * `EntitySchema` (value: `"EntitySchema"`)
 
+* `NextPage` (value: `"NextPage"`)
+
+* `PreviousPage` (value: `"PreviousPage"`)
+
 * `Quote` (value: `"Quote"`)
 
 * `ConstituentsAdjustments` (value: `"ConstituentsAdjustments"`)

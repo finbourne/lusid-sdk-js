@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**asAtDate** | **Date** |  | 
+**asAt** | **Date** |  | 
 **links** | [**[Link]**](Link.md) |  | [optional] 
 
 

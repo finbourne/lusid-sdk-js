@@ -1,9 +1,8 @@
-# LusidSdk.QuoteLineage
+# LusidSdk.AggregationContext
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dataVendor** | **String** |  | 
-**contributor** | **String** |  | 
+**options** | [**AggregationOptions**](AggregationOptions.md) |  | [optional] 
 
 
