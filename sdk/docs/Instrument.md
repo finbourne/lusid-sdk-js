@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **properties** | [**[Property]**](Property.md) | Any requested instrument properties. If no property can be found for the instrument, then  a value of &#39;Unknown&#39; will be returned | [optional] 
 **lookthroughPortfolio** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **instrumentDefinition** | [**InstrumentEconomicDefinition**](InstrumentEconomicDefinition.md) |  | [optional] 
-**state** | **String** |  | [optional] 
+**state** | **String** |  | 
 **links** | [**[Link]**](Link.md) |  | [optional] 
 
 

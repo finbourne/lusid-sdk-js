@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **href** | **String** |  | [optional] 
-**id** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**version** | [**Version**](Version.md) |  | [optional] 
+**id** | [**ResourceId**](ResourceId.md) |  | 
+**version** | [**Version**](Version.md) |  | 
 **links** | [**[Link]**](Link.md) |  | [optional] 
 
 

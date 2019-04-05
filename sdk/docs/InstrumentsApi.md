@@ -214,7 +214,7 @@ This endpoint does not need any parameter.
 
 <a name="getInstruments"></a>
 # **getInstruments**
-> GetInstrumentsResponse getInstruments(opts)
+> GetInstrumentsResponse getInstruments(identifierType, requestBody, opts)
 
 Get instrument definition
 
@@ -229,14 +229,14 @@ var oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 var apiInstance = new LusidSdk.InstrumentsApi();
+var identifierType = "identifierType_example"; // String | The type of identifiers being supplied
+var requestBody = ["null"]; // [String] | The identifiers of the instruments to get
 var opts = {
-  'identifierType': "identifierType_example", // String | The type of identifiers being supplied
   'effectiveAt': new Date("2013-10-20T19:20:30+01:00"), // Date | Optional. The effective date of the request
   'asAt': new Date("2013-10-20T19:20:30+01:00"), // Date | Optional. The as at date of the request
-  'instrumentPropertyKeys': ["null"], // [String] | Optional. Keys of the properties to be decorated on to the instrument
-  'requestBody': ["null"] // [String] | The identifiers of the instruments to get
+  'instrumentPropertyKeys': ["null"] // [String] | Optional. Keys of the properties to be decorated on to the instrument
 };
-apiInstance.getInstruments(opts).then(function(data) {
+apiInstance.getInstruments(identifierType, requestBody, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -248,11 +248,11 @@ apiInstance.getInstruments(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identifierType** | **String**| The type of identifiers being supplied | [optional] 
+ **identifierType** | **String**| The type of identifiers being supplied | 
+ **requestBody** | [**[String]**](Array.md)| The identifiers of the instruments to get | 
  **effectiveAt** | **Date**| Optional. The effective date of the request | [optional] 
  **asAt** | **Date**| Optional. The as at date of the request | [optional] 
  **instrumentPropertyKeys** | [**[String]**](String.md)| Optional. Keys of the properties to be decorated on to the instrument | [optional] 
- **requestBody** | [**[String]**](Array.md)| The identifiers of the instruments to get | [optional] 
 
 ### Return type
 
