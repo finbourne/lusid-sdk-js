@@ -23,6 +23,8 @@
     "superagent": "*",
     "csvtojson": "*",
     "uuid": "*"
+
+
   },
   "devDependencies": {
     "@types/node": "9.6.47",

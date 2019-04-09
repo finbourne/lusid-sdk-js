@@ -12,13 +12,13 @@ swagger_file=$gen_root/$1
 config_file=$gen_root/config.json
 
 #   remove all previously generated files
-shopt -s extglob 
+shopt -s extglob
 echo "removing previous sdk:"
 rm -rf $sdk_output_folder/docs/
 rm -rf $sdk_output_folder/src/
 rm -rf $sdk_output_folder/test/api/
 rm -rf $sdk_output_folder/test/model/
-shopt -u extglob 
+shopt -u extglob
 
 # set version of the SDK
 sdk_version=$(cat $swagger_file | jq -r '.info.version')
@@ -29,7 +29,7 @@ cp .openapi-generator-ignore $sdk_output_folder
 echo "generating sdk"
 java -jar /usr/swaggerjar/openapi-generator-cli.jar generate \
     -i $swagger_file \
-    -l javascript \
+    -l typescript-node \
     -o $sdk_output_folder \
     -c $config_file
 
