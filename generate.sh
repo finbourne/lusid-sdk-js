@@ -56,7 +56,7 @@ mv api/_portfoliosApi.ts api/portfoliosApi.ts
 cd ..
 
 rm -rf $sdk_output_folder/.openapi-generator/
-rm $sdk_output_folder/.openapi-generator-ignore
-rm $sdk_output_folder/README.md
-rm $sdk_output_folder/.travis.yml
-rm $sdk_output_folder/git_push.sh
+rm -f $sdk_output_folder/.openapi-generator-ignore
+rm -f $sdk_output_folder/README.md
+rm -f $sdk_output_folder/.travis.yml
+rm -f $sdk_output_folder/git_push.sh
