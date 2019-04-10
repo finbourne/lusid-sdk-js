@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get -y install nodejs && \
     apt-get -y install jq
 
-RUN wget http://central.maven.org/maven2/org/openapitools/openapi-generator-cli/3.3.4/openapi-generator-cli-3.3.4.jar -O openapi-generator-cli.jar
+RUN wget http://central.maven.org/maven2/org/openapitools/openapi-generator-cli/4.0.0-beta3/openapi-generator-cli-4.0.0-beta3.jar -O openapi-generator-cli.jar
 
 ADD .openapi-generator-ignore .
 ADD generate.sh .

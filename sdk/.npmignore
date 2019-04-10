@@ -1,0 +1,5 @@
+*
+!lib/*
+!lib/api/*
+!lib/model/*
+!package.json
