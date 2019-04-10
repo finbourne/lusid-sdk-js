@@ -3,6 +3,7 @@
 # secrets
 .npmrc
 *secrets*
+*temp*
 
 # compiled output
 /dist
