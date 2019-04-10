@@ -29,9 +29,10 @@ cp .openapi-generator-ignore $sdk_output_folder
 echo "generating sdk"
 java -jar /usr/swaggerjar/openapi-generator-cli.jar generate \
     -i $swagger_file \
-    -l typescript-node \
+    -g typescript-node \
     -o $sdk_output_folder \
-    -c $config_file
+    -c $config_file \
+    --additional-properties supportsES6=true
 
 # update package.json
 cat $sdk_output_folder/package.json | jq -r --arg SDK_VERSION "$sdk_version" '.version |= $SDK_VERSION' > temp && mv temp $sdk_output_folder/package.json

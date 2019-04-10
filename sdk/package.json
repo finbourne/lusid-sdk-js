@@ -1,6 +1,6 @@
 {
   "name": "@finbourne/lusid",
-  "version": "0.9.228",
+  "version": "0.9.233",
   "author": "engineering@finbourne.com",
   "license": "MIT",
   "description": "LUSID JavaScript/Typescript SDK for Node",
@@ -23,11 +23,9 @@
     "superagent": "*",
     "csvtojson": "*",
     "uuid": "*"
-
-
   },
   "devDependencies": {
-    "@types/node": "9.6.47",
+    "@types/node": "^11.13.2",
     "typescript": "^3.1.6",
     "mocha": "*"
   }

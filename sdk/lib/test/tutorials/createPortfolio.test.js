@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var api_1 = require("../../api");
 var apiClientInitialisation_1 = require("./apiClientInitialisation");
 var clientAuthentication = require('./apiClientAuthentication.js');
+var uuid4 = require('uuid/v4');
 var client = new apiClientInitialisation_1.Client();
 var clientBuilder = clientAuthentication.lusidApiClientBuilder;
 function createTransactionPortfolio(scope, createRequest) {
@@ -19,6 +20,6 @@ var createRequest = new api_1.CreateTransactionPortfolioRequest();
 createRequest.displayName = "UK Equities";
 createRequest.code = "UKEQTY";
 createRequest.baseCurrency = "GBP";
-createTransactionPortfolio("uk-managers52", createRequest)
+createTransactionPortfolio("uk-managers", createRequest)
     .then(function (portfolio) { return console.log(portfolio); })
     .catch(function (err) { return console.log(err); });
