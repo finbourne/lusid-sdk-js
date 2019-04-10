@@ -20,6 +20,6 @@ var createRequest = new api_1.CreateTransactionPortfolioRequest();
 createRequest.displayName = "UK Equities";
 createRequest.code = "UKEQTY";
 createRequest.baseCurrency = "GBP";
-createTransactionPortfolio("uk-managers", createRequest)
+createTransactionPortfolio(uuid4(), createRequest)
     .then(function (portfolio) { return console.log(portfolio); })
     .catch(function (err) { return console.log(err); });

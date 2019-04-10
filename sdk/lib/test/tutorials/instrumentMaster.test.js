@@ -8,7 +8,7 @@ var uuid4 = require('uuid/v4');
 var csv = require('csvtojson');
 var client = new apiClientInitialisation_1.Client();
 var clientBuilder = clientAuthentication.lusidApiClientBuilder;
-var instrumentsFile = './data/paper-instruments.csv';
+var instrumentsFile = './paper-instruments.json';
 /**
  * Function to take an instrument object and convert it into a LUSID model
  * Inputs
@@ -25,15 +25,42 @@ function buildUpsertInstrumentRequest(instrument) {
     };
     return definition;
 }
-// Import your instruments from a CSV file and upsert them
-function upsertFromCsv(filePath) {
+// Import your instruments from a CSV file
+function loadFromCsv(filePath) {
     // Returns a promise
     return new Promise(function (resolve, reject) {
         // Use the csvtojson module to import a CSV file
         return csv()
             .fromFile(filePath)
             // Produces an array of objects, one for each row (instrument) of the CSV
-            .then(function (instruments) {
+            .then(function (instruments) { return resolve(instruments); })
+            .catch(function (err) { return reject(err); });
+    });
+}
+// Import your instruments from a JSON file
+function loadFromJson(filePath) {
+    // Returns a promise
+    return new Promise(function (resolve, reject) {
+        // Use the csvtojson module to import a CSV file
+        var instruments = require(filePath);
+        return resolve(instruments);
+    });
+}
+var FileType;
+(function (FileType) {
+    FileType["Json"] = "Json";
+    FileType["Csv"] = "Csv";
+})(FileType || (FileType = {}));
+function upsertInstrumentsFromFile(filePath, fileType) {
+    if (fileType == FileType.Json) {
+        var loadFunction = loadFromJson(filePath);
+    }
+    else {
+        var loadFunction = loadFromCsv(filePath);
+    }
+    return new Promise(function (resolve, reject) {
+        loadFunction.then(function (instruments) {
+            console.log(instruments);
             // Use a reduce function to convert each instrument object into a LUSID model
             return instruments.reduce(function (map, instrument) {
                 // Call your conversion function defined earlier to convert each instrument
@@ -87,11 +114,16 @@ function getLuidForInstruments(identifierType, identifierValues) {
     });
 }
 // Get the Lusid Instrument Id for our instruments
-function addLusidInstrumentIdsFromFile(fileName) {
+function addLusidInstrumentIdsFromFile(filePath, fileType) {
+    if (fileType == FileType.Json) {
+        var loadFunction = loadFromJson(filePath);
+    }
+    else {
+        var loadFunction = loadFromCsv(filePath);
+    }
     return new Promise(function (resolve, reject) {
         // Get your instruments from a CSV file
-        return csv()
-            .fromFile(fileName)
+        return loadFunction
             .then(function (instruments) {
             // Get the figi for each instrument
             return [
@@ -170,13 +202,13 @@ securityCurrencyCode.type = api_1.CreatePropertyDefinitionRequest.TypeEnum.Label
 // Once the instruments have been upserted and property definition created you
 // can add your own properties
 Promise.all([
-    upsertFromCsv(instrumentsFile),
+    upsertInstrumentsFromFile(instrumentsFile, FileType.Json),
     createProperty(securityCurrencyCode)
 ])
     .then(function (res) {
     return {
         property: res[1],
-        instruments: addLusidInstrumentIdsFromFile(instrumentsFile)
+        instruments: addLusidInstrumentIdsFromFile(instrumentsFile, FileType.Json)
     };
 })
     .then(function (response) {

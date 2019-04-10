@@ -7,6 +7,6 @@ var client = new Client();
 var clientBuilder = clientAuthentication.lusidApiClientBuilder;
 clientBuilder(client).then(function (client) {
     client.api.applicationMetadata.getLusidVersions().then(function (result) {
-        console.log(result);
+        console.log(result.body);
     });
 });

@@ -3,7 +3,7 @@ import {
   CreateTransactionPortfolioRequest, Portfolio, ErrorResponse } from "../../api";
 
 import { Client } from './apiClientInitialisation'
-import { ClientResponse } from "http";
+import { IncomingMessage } from "http";
 
 const clientAuthentication = require('./apiClientAuthentication.js')
 const uuid4 = require('uuid/v4')
@@ -21,8 +21,8 @@ function createTransactionPortfolio(
           scope,
           createRequest
         )
-      .then((res: {response: ClientResponse; body: Portfolio}) => resolve(res.body))
-      .catch((err: {response: ClientResponse; body: ErrorResponse}) => reject(err))
+      .then((res: {response: IncomingMessage; body: Portfolio}) => resolve(res.body))
+      .catch((err: {response: IncomingMessage; body: ErrorResponse}) => reject(err))
       })
     })
 }
@@ -32,6 +32,6 @@ createRequest.displayName = "UK Equities"
 createRequest.code = "UKEQTY"
 createRequest.baseCurrency = "GBP"
 
-createTransactionPortfolio("uk-managers", createRequest)
+createTransactionPortfolio(uuid4(), createRequest)
 .then((portfolio: Portfolio) => console.log(portfolio))
 .catch((err) => console.log(err))

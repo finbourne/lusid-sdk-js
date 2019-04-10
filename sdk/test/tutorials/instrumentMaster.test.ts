@@ -18,7 +18,7 @@ const csv = require('csvtojson')
 
 var client = new Client()
 var clientBuilder = clientAuthentication.lusidApiClientBuilder;
-var instrumentsFile = './data/paper-instruments.csv'
+var instrumentsFile = './paper-instruments.json'
 
 /**
  * Function to take an instrument object and convert it into a LUSID model
@@ -37,32 +37,66 @@ function buildUpsertInstrumentRequest(instrument: any): InstrumentDefinition {
   return definition
 }
 
-// Import your instruments from a CSV file and upsert them
-function upsertFromCsv(filePath: string): Promise<UpsertInstrumentsResponse> {
+// Import your instruments from a CSV file
+function loadFromCsv(filePath: string): Promise<any[]> {
   // Returns a promise
   return new Promise((resolve, reject) => {
     // Use the csvtojson module to import a CSV file
     return csv()
     .fromFile(filePath)
     // Produces an array of objects, one for each row (instrument) of the CSV
-    .then((instruments: any[]) => {
-      // Use a reduce function to convert each instrument object into a LUSID model
-      return instruments.reduce((map: {[key: string]: InstrumentDefinition}, instrument: any) => {
-        // Call your conversion function defined earlier to convert each instrument
-        map[instrument.instrument_name] = buildUpsertInstrumentRequest(instrument)
-        return map
-      }, {})
-    })
-    .then((instrumentDefinitions: {[key: string]: InstrumentDefinition}) => {
-      // Use your client to call upsert instruments
-      return clientBuilder(client).then((client: Client) => {
-        return client.api.instruments.upsertInstruments(instrumentDefinitions)
-      })
-    })
-    .then((res: any) => resolve(res.body))
-    .catch((err: any) => reject(err))
+    .then((instruments: any[]) => resolve(instruments))
+    .catch((err) => reject(err))
   })
 }
+
+// Import your instruments from a JSON file
+function loadFromJson(filePath: string): Promise<any[]> {
+  // Returns a promise
+  return new Promise((resolve, reject) => {
+    // Use the csvtojson module to import a CSV file
+    let instruments = require(filePath)
+    return resolve(instruments)
+  })
+}
+
+enum FileType {
+    Json = "Json",
+    Csv = "Csv",
+}
+
+function upsertInstrumentsFromFile(
+  filePath: string,
+  fileType: FileType
+  ): Promise<UpsertInstrumentsResponse> {
+
+    if (fileType == FileType.Json) {
+      var loadFunction = loadFromJson(filePath)
+    } else {
+      var loadFunction = loadFromCsv(filePath)
+    }
+
+    return new Promise((resolve, reject) => {
+      loadFunction.then((instruments: any[]) => {
+        console.log(instruments)
+        // Use a reduce function to convert each instrument object into a LUSID model
+        return instruments.reduce((map: {[key: string]: InstrumentDefinition}, instrument: any) => {
+          // Call your conversion function defined earlier to convert each instrument
+          map[instrument.instrument_name] = buildUpsertInstrumentRequest(instrument)
+          return map
+        }, {})
+      })
+      .then((instrumentDefinitions: {[key: string]: InstrumentDefinition}) => {
+        // Use your client to call upsert instruments
+        return clientBuilder(client).then((client: Client) => {
+          return client.api.instruments.upsertInstruments(instrumentDefinitions)
+        })
+      })
+      .then((res: any) => resolve(res.body))
+      .catch((err: any) => reject(err))
+    })
+  }
+
 
 // Use your client to call LUSID and create a new property
 function createProperty(
@@ -107,40 +141,49 @@ function getLuidForInstruments(
   }
 
 // Get the Lusid Instrument Id for our instruments
-function addLusidInstrumentIdsFromFile(fileName: string): Promise<any[]> {
-  return new Promise((resolve, reject) => {
-    // Get your instruments from a CSV file
-    return csv()
-    .fromFile(fileName)
-    .then((instruments: any[]) => {
-      // Get the figi for each instrument
-      return [
-        instruments,
-        instruments.reduce((figis: string[], instrument: any) => {
-          figis.push(instrument.figi)
-          return figis
-        }, [])
-      ]
-    })
-    .then(([instruments, figis]) => {
-      // Using the Figi retrieve each instruments LusidInstrumentId
-      return getLuidForInstruments('Figi', figis)
-      .then((lusidInstrumentIdMapping) => {
+function addLusidInstrumentIdsFromFile(
+  filePath: string,
+  fileType: FileType
+  ): Promise<any[]> {
+
+    if (fileType == FileType.Json) {
+      var loadFunction = loadFromJson(filePath)
+    } else {
+      var loadFunction = loadFromCsv(filePath)
+    }
+
+    return new Promise((resolve, reject) => {
+      // Get your instruments from a CSV file
+      return loadFunction
+      .then((instruments: any[]) => {
+        // Get the figi for each instrument
         return [
           instruments,
-          lusidInstrumentIdMapping
+          instruments.reduce((figis: string[], instrument: any) => {
+            figis.push(instrument.figi)
+            return figis
+          }, [])
         ]
       })
-    })
-    .then(([instruments, lusidInstrumentIdMapping]) => {
-      return instruments.map((instrument: any) => {
-        instrument.lusidinstrumentid = lusidInstrumentIdMapping[instrument.figi]
-        return instrument
+      .then(([instruments, figis]) => {
+        // Using the Figi retrieve each instruments LusidInstrumentId
+        return getLuidForInstruments('Figi', figis)
+        .then((lusidInstrumentIdMapping) => {
+          return [
+            instruments,
+            lusidInstrumentIdMapping
+          ]
+        })
       })
+      .then(([instruments, lusidInstrumentIdMapping]) => {
+        return instruments.map((instrument: any) => {
+          instrument.lusidinstrumentid = lusidInstrumentIdMapping[instrument.figi]
+          return instrument
+        })
+      })
+      .then((instruments: any[]) => resolve(instruments))
+      .catch((err: any) => reject(err))
     })
-    .then((instruments: any[]) => resolve(instruments))
-    .catch((err: any) => reject(err))
-  })
 }
 
 function buildInstrumentProperty(key: string, value: string): InstrumentProperty {
@@ -211,13 +254,13 @@ securityCurrencyCode.type = CreatePropertyDefinitionRequest.TypeEnum.Label
 // Once the instruments have been upserted and property definition created you
 // can add your own properties
 Promise.all([
-  upsertFromCsv(instrumentsFile),
+  upsertInstrumentsFromFile(instrumentsFile, FileType.Json),
   createProperty(securityCurrencyCode)
 ])
   .then((res) => {
     return {
       property: res[1],
-      instruments: addLusidInstrumentIdsFromFile(instrumentsFile)
+      instruments: addLusidInstrumentIdsFromFile(instrumentsFile, FileType.Json)
       }
     })
   .then((response) => {
@@ -228,7 +271,7 @@ Promise.all([
         instruments)
     })
   })
-  .then((res) => console.log(res))
+  .then((res: UpsertInstrumentPropertiesResponse) => console.log(res))
   .catch((err) => console.log(err))
 
 export {}

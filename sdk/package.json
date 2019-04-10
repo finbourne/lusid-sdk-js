@@ -7,7 +7,7 @@
   "main": "./lib/api.js",
   "types": "./lib/api.d.ts",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha --recursive",
+    "test": "mocha --recursive lib/",
     "build": "tsc --outDir lib/"
   },
   "repository": {

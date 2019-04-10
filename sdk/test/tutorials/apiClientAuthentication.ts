@@ -103,7 +103,7 @@ var lusidApiClientBuilder = function(client: Client) {
           apiToken: result.body.access_token,
           apiTokenExpiry: result.body.expires_in
         }})
-      // Using the OktaResponse get the access token and refresh details  
+      // Using the OktaResponse get the access token and refresh details
       .then((oktaResponse) => {
         if (oktaResponse.statusCode == 200) {
           var oauth2 = client.authentications.oauth2
