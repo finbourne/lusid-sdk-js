@@ -1,0 +1,281 @@
+[
+ {
+   "instrument_name": "AVEVA GRP",
+   "currency": "GBP",
+   "figi": "BBG000C21Y87",
+   "ticker": "AVV",
+   "isin": "GB00BBG9VN75",
+   "sedol": "BBG9VN7",
+   "client_internal": "imd_56344535"
+ },
+ {
+   "instrument_name": "BAE SYS.",
+   "currency": "GBP",
+   "figi": "BBG000BD5TW4",
+   "ticker": "BA.",
+   "isin": "GB0002634946",
+   "sedol": "263494",
+   "client_internal": "imd_56344983"
+ },
+ {
+   "instrument_name": "BATM ADVANCED",
+   "currency": "GBP",
+   "figi": "BBG000BFJD77",
+   "ticker": "BVC",
+   "isin": "IL0010849045",
+   "sedol": "911146",
+   "client_internal": "imd_56344098"
+ },
+ {
+   "instrument_name": "BTG",
+   "currency": "GBP",
+   "figi": "BBG000BZZK79",
+   "ticker": "BTG",
+   "isin": "GB0001001592",
+   "sedol": "100159",
+   "client_internal": "imd_56344345"
+ },
+ {
+   "instrument_name": "COBHAM",
+   "currency": "GBP",
+   "figi": "BBG000BS6810",
+   "ticker": "COB",
+   "isin": "GB00B07KD360",
+   "sedol": "B07KD36",
+   "client_internal": "imd_56344363"
+ },
+ {
+   "instrument_name": "COMPUTACENTER",
+   "currency": "GBP",
+   "figi": "BBG000BN7CL9",
+   "ticker": "CCC",
+   "isin": "GB00BV9FP302",
+   "sedol": "BV9FP30",
+   "client_internal": "imd_56344296"
+ },
+ {
+   "instrument_name": "CONSORT MED.",
+   "currency": "GBP",
+   "figi": "BBG000BD8278",
+   "ticker": "CSRT",
+   "isin": "GB0000946276",
+   "sedol": "94627",
+   "client_internal": "imd_56344187"
+ },
+ {
+   "instrument_name": "DIALIGHT",
+   "currency": "GBP",
+   "figi": "BBG000BLQNG4",
+   "ticker": "DIA",
+   "isin": "GB0033057794",
+   "sedol": "3305779",
+   "client_internal": "imd_56344572"
+ },
+ {
+   "instrument_name": "GENUS",
+   "currency": "GBP",
+   "figi": "BBG000CTMKX7",
+   "ticker": "GNS",
+   "isin": "GB0002074580",
+   "sedol": "207458",
+   "client_internal": "imd_56344789"
+ },
+ {
+   "instrument_name": "GRESHAM TECH",
+   "currency": "GBP",
+   "figi": "BBG000BS2592",
+   "ticker": "GHT",
+   "isin": "GB0008808825",
+   "sedol": "880882",
+   "client_internal": "imd_56344132"
+ },
+ {
+   "instrument_name": "KCOM GRP",
+   "currency": "GBP",
+   "figi": "BBG000BYWT85",
+   "ticker": "KCOM",
+   "isin": "GB0007448250",
+   "sedol": "744825",
+   "client_internal": "imd_56344145"
+ },
+ {
+   "instrument_name": "MEGGITT",
+   "currency": "GBP",
+   "figi": "BBG000BDT1M0",
+   "ticker": "MGGT",
+   "isin": "GB0005758098",
+   "sedol": "575809",
+   "client_internal": "imd_56344589"
+ },
+ {
+   "instrument_name": "MICRO FOCUS",
+   "currency": "GBP",
+   "figi": "BBG000G4KJC6",
+   "ticker": "MCRO",
+   "isin": "GB00BD8YWM01",
+   "sedol": "BD8YWM0",
+   "client_internal": "imd_56344635"
+ },
+ {
+   "instrument_name": "MICROGEN",
+   "currency": "GBP",
+   "figi": "BBG000BDSS88",
+   "ticker": "MCGN",
+   "isin": "GB00BVVHWX30",
+   "sedol": "BVVHWX3",
+   "client_internal": "imd_56344997"
+ },
+ {
+   "instrument_name": "NCC GRP",
+   "currency": "GBP",
+   "figi": "BBG000BS8WF0",
+   "ticker": "NCC",
+   "isin": "GB00B01QGK86",
+   "sedol": "B01QGK8",
+   "client_internal": "imd_56344728"
+ },
+ {
+   "instrument_name": "OXFORD BIOMED.",
+   "currency": "GBP",
+   "figi": "BBG000BMB7T9",
+   "ticker": "OXB",
+   "isin": "GB00BDFBVT43",
+   "sedol": "BDFBVT4",
+   "client_internal": "imd_56344603"
+ },
+ {
+   "instrument_name": "OXFORD INSTRMNT",
+   "currency": "GBP",
+   "figi": "BBG000BDWZZ7",
+   "ticker": "OXIG",
+   "isin": "GB0006650450",
+   "sedol": "665045",
+   "client_internal": "imd_56344185"
+ },
+ {
+   "instrument_name": "PADDY PWR BET",
+   "currency": "GBP",
+   "figi": "BBG000N8GHT0",
+   "ticker": "PPB",
+   "isin": "IE00BWT6H894",
+   "sedol": "BWXC0Z1",
+   "client_internal": "imd_56344663"
+ },
+ {
+   "instrument_name": "QINETIQ",
+   "currency": "GBP",
+   "figi": "BBG000HF3Y54",
+   "ticker": "QQ.",
+   "isin": "GB00B0WMWD03",
+   "sedol": "B0WMWD0",
+   "client_internal": "imd_56344339"
+ },
+ {
+   "instrument_name": "RENISHAW",
+   "currency": "GBP",
+   "figi": "BBG000BDZTQ8",
+   "ticker": "RSW",
+   "isin": "GB0007323586",
+   "sedol": "732358",
+   "client_internal": "imd_56344227"
+ },
+ {
+   "instrument_name": "RICARDO",
+   "currency": "GBP",
+   "figi": "BBG000BDYQS3",
+   "ticker": "RCDO",
+   "isin": "GB0007370074",
+   "sedol": "737007",
+   "client_internal": "imd_56344991"
+ },
+ {
+   "instrument_name": "SAGE GRP.",
+   "currency": "GBP",
+   "figi": "BBG000BN0PP3",
+   "ticker": "SGE",
+   "isin": "GB00B8C3BL03",
+   "sedol": "B8C3BL0",
+   "client_internal": "imd_23536673"
+ },
+ {
+   "instrument_name": "SDL",
+   "currency": "GBP",
+   "figi": "BBG000C4HGK1",
+   "ticker": "SDL",
+   "isin": "GB0009376368",
+   "sedol": "937636",
+   "client_internal": "imd_56344998"
+ },
+ {
+   "instrument_name": "SMITH&NEPHEW",
+   "currency": "GBP",
+   "figi": "BBG000BF21F2",
+   "ticker": "SN.",
+   "isin": "GB0009223206",
+   "sedol": "922320",
+   "client_internal": "imd_56344867"
+ },
+ {
+   "instrument_name": "SPECTRIS",
+   "currency": "GBP",
+   "figi": "BBG000CNV8Z5",
+   "ticker": "SXS",
+   "isin": "GB0003308607",
+   "sedol": "330860",
+   "client_internal": "imd_56344976"
+ },
+ {
+   "instrument_name": "SPIRENT",
+   "currency": "GBP",
+   "figi": "BBG000C4LV50",
+   "ticker": "SPT",
+   "isin": "GB0004726096",
+   "sedol": "472609",
+   "client_internal": "imd_56344143"
+ },
+ {
+   "instrument_name": "TRIAD GRP.",
+   "currency": "GBP",
+   "figi": "BBG000BL9R74",
+   "ticker": "TRD",
+   "isin": "GB0009035741",
+   "sedol": "903574",
+   "client_internal": "imd_56344189"
+ },
+ {
+   "instrument_name": "ULTRA ELEC.",
+   "currency": "GBP",
+   "figi": "BBG000HHH4C3",
+   "ticker": "ULE",
+   "isin": "GB0009123323",
+   "sedol": "912332",
+   "client_internal": "imd_56344100"
+ },
+ {
+   "instrument_name": "VECTURA",
+   "currency": "GBP",
+   "figi": "BBG000PRWXX8",
+   "ticker": "VEC",
+   "isin": "GB00B01D1K48",
+   "sedol": "B01D1K4",
+   "client_internal": "imd_56344105"
+ },
+ {
+   "instrument_name": "XAAR",
+   "currency": "GBP",
+   "figi": "BBG000BVKQF2",
+   "ticker": "XAR",
+   "isin": "GB0001570810",
+   "sedol": "157081",
+   "client_internal": "imd_56344107"
+ },
+ {
+   "instrument_name": "XP POWER",
+   "currency": "GBP",
+   "figi": "BBG000BZMBQ2",
+   "ticker": "XPP",
+   "isin": "SG9999003735",
+   "sedol": "B1RMWL0",
+   "client_internal": "imd_56344111"
+ }
+]

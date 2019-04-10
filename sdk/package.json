@@ -1,28 +1,31 @@
 {
   "name": "@finbourne/lusid",
-  "version": "0.9.236",
+  "version": "0.9.233",
   "author": "engineering@finbourne.com",
   "license": "MIT",
-  "description": "LUSID JavaScript SDK",
-  "main": "src/index.js",
+  "description": "LUSID JavaScript/Typescript SDK for Node",
+  "main": "./lib/api.js",
+  "types": "./lib/api.d.ts",
+  "scripts": {
+    "test": "mocha --recursive lib/",
+    "build": "tsc --outDir lib/"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/finbourne/lusid-sdk-js"
-  },
-  "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha --recursive"
   },
   "browser": {
     "fs": false
   },
   "dependencies": {
-    "csvtojson": "^2.0.8",
+    "request": "*",
     "superagent": "*",
-    "uuid": "^3.3.2"
+    "csvtojson": "*",
+    "uuid": "*"
   },
   "devDependencies": {
-    "expect.js": "~0.3.1",
-    "mocha": "^5.2.0",
-    "sinon": "1.17.3"
+    "@types/node": "^11.13.2",
+    "typescript": "^3.1.6",
+    "mocha": "*"
   }
 }
