@@ -18,10 +18,14 @@ var instrumentsFile = './paper-instruments.json';
  */
 function buildUpsertInstrumentRequest(instrument) {
     var definition = new api_1.InstrumentDefinition();
+    var figiIdentifier = new api_1.InstrumentIdValue();
+    figiIdentifier.value = instrument.figi;
+    var clientInternalIdentifier = new api_1.InstrumentIdValue();
+    clientInternalIdentifier.value = instrument.client_internal;
     definition.name = instrument.instrument_name;
     definition.identifiers = {
-        "Figi": instrument.figi,
-        "ClientInternal": instrument.client_internal
+        "Figi": figiIdentifier,
+        "ClientInternal": clientInternalIdentifier
     };
     return definition;
 }
@@ -60,7 +64,6 @@ function upsertInstrumentsFromFile(filePath, fileType) {
     }
     return new Promise(function (resolve, reject) {
         loadFunction.then(function (instruments) {
-            console.log(instruments);
             // Use a reduce function to convert each instrument object into a LUSID model
             return instruments.reduce(function (map, instrument) {
                 // Call your conversion function defined earlier to convert each instrument
