@@ -18,10 +18,14 @@ var instrumentsFile = './paper-instruments.json';
  */
 function buildUpsertInstrumentRequest(instrument) {
     var definition = new api_1.InstrumentDefinition();
+    var figiIdentifier = new api_1.InstrumentIdValue();
+    figiIdentifier.value = instrument.figi;
+    var clientInternalIdentifier = new api_1.InstrumentIdValue();
+    figiIdentifier.value = instrument.client_internal;
     definition.name = instrument.instrument_name;
     definition.identifiers = {
-        "Figi": instrument.figi,
-        "ClientInternal": instrument.client_internal
+        "Figi": figiIdentifier,
+        "ClientInternal": clientInternalIdentifier
     };
     return definition;
 }
