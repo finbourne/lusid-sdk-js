@@ -4,8 +4,6 @@ import http = require('http');
 import { DeleteInstrumentResponse } from '../model/deleteInstrumentResponse';
 import { GetInstrumentsResponse } from '../model/getInstrumentsResponse';
 import { Instrument } from '../model/instrument';
-import { MatchInstrumentsResponse } from '../model/matchInstrumentsResponse';
-import { Property } from '../model/property';
 import { ResourceListOfInstrument } from '../model/resourceListOfInstrument';
 import { ResourceListOfString } from '../model/resourceListOfString';
 import { UpdateInstrumentIdentifierRequest } from '../model/updateInstrumentIdentifierRequest';
@@ -43,22 +41,6 @@ export declare class InstrumentsApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: DeleteInstrumentResponse;
-    }>;
-    /**
-     * Get a collection of instruments by a set of identifiers. Optionally, it is possible to decorate each instrument with specified property data.
-     * @summary Search instrument definition
-     * @param effectiveAt Optional. The effective date of the query
-     * @param asAt Optional. The AsAt date of the query
-     * @param instrumentPropertyKeys Optional. Keys of the properties to be decorated on to the instrument
-     * @param aliases The list of market aliases (e.g ISIN, Ticker) to find instruments by.
-     */
-    findInstruments(effectiveAt?: Date, asAt?: Date, instrumentPropertyKeys?: Array<string>, aliases?: Array<Property>, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: ResourceListOfInstrument;
     }>;
     /**
      * Get an individual instrument by the one of its unique instrument identifiers. Optionally, it is possible to decorate each instrument with specified property data.
@@ -125,20 +107,6 @@ export declare class InstrumentsApi {
     }): Promise<{
         response: http.IncomingMessage;
         body: ResourceListOfInstrument;
-    }>;
-    /**
-     * Search for a set of instruments from an external instrument mastering service
-     * @summary Find externally mastered instruments
-     * @param identifierType The type of identifiers being supplied
-     * @param identifiers The identifiers of the instruments to get
-     */
-    matchInstruments(identifierType?: string, identifiers?: Array<string>, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: MatchInstrumentsResponse;
     }>;
     /**
      * Adds, updates, or removes an identifier on an instrument

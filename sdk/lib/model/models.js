@@ -68,7 +68,6 @@ __export(require("./marketContext"));
 __export(require("./marketContextSuppliers"));
 __export(require("./marketDataKeyRule"));
 __export(require("./marketOptions"));
-__export(require("./matchInstrumentsResponse"));
 __export(require("./metricValue"));
 __export(require("./modelSelection"));
 __export(require("./nestedAggregationResponse"));
@@ -223,7 +222,6 @@ var marketContext_1 = require("./marketContext");
 var marketContextSuppliers_1 = require("./marketContextSuppliers");
 var marketDataKeyRule_1 = require("./marketDataKeyRule");
 var marketOptions_1 = require("./marketOptions");
-var matchInstrumentsResponse_1 = require("./matchInstrumentsResponse");
 var metricValue_1 = require("./metricValue");
 var modelSelection_1 = require("./modelSelection");
 var nestedAggregationResponse_1 = require("./nestedAggregationResponse");
@@ -458,7 +456,6 @@ var typeMap = {
     "MarketContextSuppliers": marketContextSuppliers_1.MarketContextSuppliers,
     "MarketDataKeyRule": marketDataKeyRule_1.MarketDataKeyRule,
     "MarketOptions": marketOptions_1.MarketOptions,
-    "MatchInstrumentsResponse": matchInstrumentsResponse_1.MatchInstrumentsResponse,
     "MetricValue": metricValue_1.MetricValue,
     "ModelSelection": modelSelection_1.ModelSelection,
     "NestedAggregationResponse": nestedAggregationResponse_1.NestedAggregationResponse,

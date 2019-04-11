@@ -63,7 +63,6 @@ export * from './marketContext';
 export * from './marketContextSuppliers';
 export * from './marketDataKeyRule';
 export * from './marketOptions';
-export * from './matchInstrumentsResponse';
 export * from './metricValue';
 export * from './modelSelection';
 export * from './nestedAggregationResponse';
@@ -221,7 +220,6 @@ import { MarketContext } from './marketContext';
 import { MarketContextSuppliers } from './marketContextSuppliers';
 import { MarketDataKeyRule } from './marketDataKeyRule';
 import { MarketOptions } from './marketOptions';
-import { MatchInstrumentsResponse } from './matchInstrumentsResponse';
 import { MetricValue } from './metricValue';
 import { ModelSelection } from './modelSelection';
 import { NestedAggregationResponse } from './nestedAggregationResponse';
@@ -459,7 +457,6 @@ let typeMap: {[index: string]: any} = {
     "MarketContextSuppliers": MarketContextSuppliers,
     "MarketDataKeyRule": MarketDataKeyRule,
     "MarketOptions": MarketOptions,
-    "MatchInstrumentsResponse": MatchInstrumentsResponse,
     "MetricValue": MetricValue,
     "ModelSelection": ModelSelection,
     "NestedAggregationResponse": NestedAggregationResponse,

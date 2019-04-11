@@ -63,7 +63,6 @@ export * from './marketContext';
 export * from './marketContextSuppliers';
 export * from './marketDataKeyRule';
 export * from './marketOptions';
-export * from './matchInstrumentsResponse';
 export * from './metricValue';
 export * from './modelSelection';
 export * from './nestedAggregationResponse';
