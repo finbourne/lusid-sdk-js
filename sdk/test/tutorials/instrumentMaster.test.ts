@@ -35,7 +35,7 @@ function buildUpsertInstrumentRequest(instrument: any): InstrumentDefinition {
   figiIdentifier.value = instrument.figi
 
   let clientInternalIdentifier = new InstrumentIdValue()
-  figiIdentifier.value = instrument.client_internal
+  clientInternalIdentifier.value = instrument.client_internal
 
   definition.name = instrument.instrument_name
   definition.identifiers = {
@@ -86,7 +86,6 @@ function upsertInstrumentsFromFile(
 
     return new Promise((resolve, reject) => {
       loadFunction.then((instruments: any[]) => {
-        console.log(instruments)
         // Use a reduce function to convert each instrument object into a LUSID model
         return instruments.reduce((map: {[key: string]: InstrumentDefinition}, instrument: any) => {
           // Call your conversion function defined earlier to convert each instrument
