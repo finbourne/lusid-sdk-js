@@ -3,18 +3,18 @@ const lusid = require('../api');
 import localVarRequest = require('request');
 import http = require('http');
 const querystring = require('querystring')
-const secretsPath = './secrets.json'
 const superagent = require('superagent')
+const secretsPath = './secrets.json'
 
-const refreshLimit = 600
+const refreshLimit = 300
 
 // Create an enum for use in defining the source of each credential
 export enum Source {
-  // Use an environment variable to populate
+  // Use an environment variable to populate the credential
   Environment,
-  // Use a file called secrets.json file to populate
+  // Use a file called secrets.json file to populate the credential
   Secrets,
-  // Use a raw value or variable to populate
+  // Use a raw value or variable to populate the credential
   Raw
 }
 
@@ -50,11 +50,11 @@ class Oauth2 {
 export class Client {
 
   // Authentications object to hold the oauth2 details
-  authentications: {}
+  authentications: any = {}
   // The base path for the client to call
   basePath: string
   // The available API endpoints
-  api: any
+  api: any = {}
   // The path to the secrets file which may be used to store credentials
   secretsFilePath: string
   // The credentials
@@ -87,6 +87,7 @@ export class Client {
     this.clientId = this.fetchCredentials(clientId[0], clientId[1])
     this.clientSecret = this.fetchCredentials(clientSecret[0], clientSecret[1])
     this.basePath = this.fetchCredentials(apiUrl[0], apiUrl[1])
+
     // Set the authentications to use oauth2
     this.authentications = {'oauth2': new Oauth2(undefined, 0,0,0,0)}
 
@@ -101,7 +102,7 @@ export class Client {
       // Make the API endpoint camel case
       apiName = apiName[0].toLowerCase() + apiName.slice(1)
       // Add the endpoint to our client
-      this.api[apiName] = new api()
+      this.api[apiName] = apiInstance
       // Add the base path and accessToken
       this.api[apiName]['_basePath'] = this.basePath
       this.api[apiName]['authentications']['oauth2']['accessToken'] = this.authentications['oauth2'].accessToken
@@ -138,7 +139,7 @@ export class Client {
         )
 
       oauthPopulated.then(function(oauth2Details: Oauth2) {
-        api['authentications']['oauth2']['accessToken'] = oauth2Details.accessToken
+        api['authentications']['oauth2'] = oauth2Details
         resolve(apiFunction.apply(api, topLevelArguments))
       })
       .catch((err) => reject(err))
@@ -242,7 +243,7 @@ export class Client {
     // Check if an access token already exists, if not trigger refresh
     if (oauth2.accessToken === undefined) {
       // Call Okta to get access details
-      console.log('Access Token Close to Expiring or not Initialised - Calling Okta to refresh')
+      console.log('Access Token not Initialised - Calling Okta to refresh')
       return true
     }
 
@@ -255,6 +256,7 @@ export class Client {
     // If the token will expire in less than the refresh limit
     if (oauth2.tokenTimeTillExpiry < refreshLimit) {
       // Call Okta to get access details
+      console.log('Access Token Close to Expiring - Calling Okta to refresh')
       return true
     }
     // Else don't trigger a refresh
