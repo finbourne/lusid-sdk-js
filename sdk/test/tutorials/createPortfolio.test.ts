@@ -20,13 +20,13 @@ function createTransactionPortfolio(
   createRequest: CreateTransactionPortfolioRequest
   ) :Promise<Portfolio> {
     return new Promise((resolve, reject) => {
-
-    client.api.transactionPortfolios.createPortfolio(
-      scope,
-      createRequest
-    )
-    .then((res: {response: IncomingMessage; body: Portfolio}) => resolve(res.body))
-    .catch((err: {response: IncomingMessage; body: ErrorResponse}) => reject(err))
+      console.log(client.api.transactionPortfolios.createPortfolio)
+      client.api.transactionPortfolios.createPortfolio(
+        scope,
+        createRequest
+      )
+      .then((res: {response: IncomingMessage; body: Portfolio}) => resolve(res.body))
+      .catch((err: {response: IncomingMessage; body: ErrorResponse}) => reject(err))
     })
   }
 
@@ -36,5 +36,5 @@ createRequest.code = "UKEQTY"
 createRequest.baseCurrency = "GBP"
 
 createTransactionPortfolio(uuid4(), createRequest)
-.then((portfolio: Portfolio) => console.log(portfolio))
+.then((res) => console.log(res))
 .catch((err) => console.log(err))

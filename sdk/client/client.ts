@@ -87,7 +87,6 @@ export class Client {
     this.clientId = this.fetchCredentials(clientId[0], clientId[1])
     this.clientSecret = this.fetchCredentials(clientSecret[0], clientSecret[1])
     this.basePath = this.fetchCredentials(apiUrl[0], apiUrl[1])
-    console.log(this.basePath)
     // Set the authentications to use oauth2
     this.authentications = {'oauth2': new Oauth2(undefined, 0,0,0,0)}
 
@@ -112,7 +111,8 @@ export class Client {
         if (typeof(this.api[apiName][prop]) == 'function' && !['setDefaultAuthentication', 'setApiKey'].includes(prop)) {
           this.api[apiName][prop] = this.apiFunctionWrapper(
             this.api[apiName][prop],
-            this.api[apiName])
+            this.api[apiName],
+            this)
         }
 
       }
@@ -120,20 +120,28 @@ export class Client {
     })
   }
 
-  apiFunctionWrapper(apiFunction, api) {
-    return () => {
-      this.refreshToken(
-        this.authentications['oauth2'],
-        this.refreshLimit,
-        this.tokenUrl,
-        this.username,
-        this.password,
-        this.clientId,
-        this.clientSecret
-      )
-      .then(function (oauthPopulated: Oauth2) {
-        api['authentications']['oauth2']['accessToken'] = oauthPopulated.accessToken
-        return apiFunction.apply(this, arguments)
+  apiFunctionWrapper(apiFunction, api, self) {
+
+    return function() {
+      var topLevelArguments = arguments
+
+      return new Promise(function(resolve, reject) {
+
+        var oauthPopulated = self.refreshToken(
+          self.authentications['oauth2'],
+          self.refreshLimit,
+          self.tokenUrl,
+          self.username,
+          self.password,
+          self.clientId,
+          self.clientSecret
+        )
+
+      oauthPopulated.then(function(oauth2Details: Oauth2) {
+        api['authentications']['oauth2']['accessToken'] = oauth2Details.accessToken
+        resolve(apiFunction.apply(api, topLevelArguments))
+      })
+      .catch((err) => reject(err))
       })
     }
   }
@@ -190,7 +198,7 @@ export class Client {
   }
 
   // This function handles refreshing the token when required
-  private async refreshToken(
+  private refreshToken(
     oauth2: Oauth2,
     refreshLimit: number,
     tokenUrl: string,
@@ -199,28 +207,29 @@ export class Client {
     clientId: string,
     clientSecret: string
   ): Promise<Oauth2> {
-    // Returns a promise
-    return new Promise((resolve, reject) => {
-      // Check if the token needs a refresh
-      if (this.checkTokenRefresh(oauth2, refreshLimit)) {
 
-        // If so get a new access token
-        this.getAccessToken(
-          tokenUrl,
-          username,
-          password,
-          clientId,
-          clientSecret
-        )
-        // Call then and return the oauth object to avoid nested promises in return
-        .then((oauthObject: Oauth2) => {
-          console.log('inside then')
-          resolve(oauthObject)
-        })
-      } else {
-        // If no refresh required just return the oauth object
-        resolve(oauth2)
-      }
+      return new Promise((resolve, reject) => {
+
+        // Check if the token needs a refresh
+        if (this.checkTokenRefresh(oauth2, refreshLimit)) {
+
+          // If so get a new access token
+          this.getAccessToken(
+            tokenUrl,
+            username,
+            password,
+            clientId,
+            clientSecret
+          )
+          // Call then and return the oauth object to avoid nested promises in return
+          .then((oauthObject: Oauth2) => {
+            resolve(oauthObject)
+          })
+          .catch((err) => reject(err))
+        } else {
+          // If no refresh required just return the oauth object
+          resolve(oauth2)
+        }
     })
   }
 
@@ -233,6 +242,7 @@ export class Client {
     // Check if an access token already exists, if not trigger refresh
     if (oauth2.accessToken === undefined) {
       // Call Okta to get access details
+      console.log('Access Token Close to Expiring or not Initialised - Calling Okta to refresh')
       return true
     }
 
@@ -261,15 +271,15 @@ export class Client {
     clientSecret: string
   ): Promise<Oauth2> {
     // Returns a rpomise
-    console.log('running get access token')
+
     return new Promise((resolve, reject) => {
-      console.log('inside promise')
+
       // Set the headers for authentication with Okta - only x-www-form-urlencoded supported
       var headers = {headers: {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded"
       }}
-      console.log('headers set')
+
       // Set the request body for authentication with Okta
       var requestBody = querystring.stringify({
           grant_type: "password",
@@ -279,14 +289,13 @@ export class Client {
           client_id: clientId,
           client_secret: clientSecret
         })
-      console.log('request body set')
+
       // Make a POST request to Okta to get a LUSID access token
       superagent
         .post(tokenUrl)
         .send(requestBody)
         .set(headers)
         .then((result) => {
-          console.log('response from okta' + result.statusCode)
           return {
             statusCode: result.statusCode,
             apiToken: result.body.access_token,
@@ -295,7 +304,6 @@ export class Client {
         // Using the OktaResponse get the access token and refresh details
         .then((oktaResponse) => {
           if (oktaResponse.statusCode == 200) {
-            console.log('response from okta setting oAuth2')
             let oAuth2 = new Oauth2(
               oktaResponse.apiToken,
               oktaResponse.apiTokenExpiry,

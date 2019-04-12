@@ -78,7 +78,6 @@ var Client = /** @class */ (function () {
         this.clientId = this.fetchCredentials(clientId[0], clientId[1]);
         this.clientSecret = this.fetchCredentials(clientSecret[0], clientSecret[1]);
         this.basePath = this.fetchCredentials(apiUrl[0], apiUrl[1]);
-        console.log(this.basePath);
         // Set the authentications to use oauth2
         this.authentications = { 'oauth2': new Oauth2(undefined, 0, 0, 0, 0) };
         // Iterate over the API endpoints and add each to our client
@@ -100,18 +99,21 @@ var Client = /** @class */ (function () {
             for (var prop in _this.api[apiName]) {
                 // Exclude two non-api specific functions
                 if (typeof (_this.api[apiName][prop]) == 'function' && !['setDefaultAuthentication', 'setApiKey'].includes(prop)) {
-                    _this.api[apiName][prop] = _this.apiFunctionWrapper(_this.api[apiName][prop], _this.api[apiName]);
+                    _this.api[apiName][prop] = _this.apiFunctionWrapper(_this.api[apiName][prop], _this.api[apiName], _this);
                 }
             }
         });
     }
-    Client.prototype.apiFunctionWrapper = function (apiFunction, api) {
-        var _this = this;
+    Client.prototype.apiFunctionWrapper = function (apiFunction, api, self) {
         return function () {
-            _this.refreshToken(_this.authentications['oauth2'], _this.refreshLimit, _this.tokenUrl, _this.username, _this.password, _this.clientId, _this.clientSecret)
-                .then(function (oauthPopulated) {
-                api['authentications']['oauth2']['accessToken'] = oauthPopulated.accessToken;
-                return apiFunction.apply(this, arguments);
+            var topLevelArguments = arguments;
+            return new Promise(function (resolve, reject) {
+                var oauthPopulated = self.refreshToken(self.authentications['oauth2'], self.refreshLimit, self.tokenUrl, self.username, self.password, self.clientId, self.clientSecret);
+                oauthPopulated.then(function (oauth2Details) {
+                    api['authentications']['oauth2']['accessToken'] = oauth2Details.accessToken;
+                    resolve(apiFunction.apply(api, topLevelArguments));
+                })
+                    .catch(function (err) { return reject(err); });
             });
         };
     };
@@ -166,27 +168,22 @@ var Client = /** @class */ (function () {
     };
     // This function handles refreshing the token when required
     Client.prototype.refreshToken = function (oauth2, refreshLimit, tokenUrl, username, password, clientId, clientSecret) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                // Returns a promise
-                return [2 /*return*/, new Promise(function (resolve, reject) {
-                        // Check if the token needs a refresh
-                        if (_this.checkTokenRefresh(oauth2, refreshLimit)) {
-                            // If so get a new access token
-                            _this.getAccessToken(tokenUrl, username, password, clientId, clientSecret)
-                                // Call then and return the oauth object to avoid nested promises in return
-                                .then(function (oauthObject) {
-                                console.log('inside then');
-                                resolve(oauthObject);
-                            });
-                        }
-                        else {
-                            // If no refresh required just return the oauth object
-                            resolve(oauth2);
-                        }
-                    })];
-            });
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            // Check if the token needs a refresh
+            if (_this.checkTokenRefresh(oauth2, refreshLimit)) {
+                // If so get a new access token
+                _this.getAccessToken(tokenUrl, username, password, clientId, clientSecret)
+                    // Call then and return the oauth object to avoid nested promises in return
+                    .then(function (oauthObject) {
+                    resolve(oauthObject);
+                })
+                    .catch(function (err) { return reject(err); });
+            }
+            else {
+                // If no refresh required just return the oauth object
+                resolve(oauth2);
+            }
         });
     };
     // Checks if the access token requires a refresh
@@ -194,6 +191,7 @@ var Client = /** @class */ (function () {
         // Check if an access token already exists, if not trigger refresh
         if (oauth2.accessToken === undefined) {
             // Call Okta to get access details
+            console.log('Access Token Close to Expiring or not Initialised - Calling Okta to refresh');
             return true;
         }
         // If it does exist check that it has not expired
@@ -215,15 +213,12 @@ var Client = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 // Returns a rpomise
-                console.log('running get access token');
                 return [2 /*return*/, new Promise(function (resolve, reject) {
-                        console.log('inside promise');
                         // Set the headers for authentication with Okta - only x-www-form-urlencoded supported
                         var headers = { headers: {
                                 "Accept": "application/json",
                                 "Content-Type": "application/x-www-form-urlencoded"
                             } };
-                        console.log('headers set');
                         // Set the request body for authentication with Okta
                         var requestBody = querystring.stringify({
                             grant_type: "password",
@@ -233,14 +228,12 @@ var Client = /** @class */ (function () {
                             client_id: clientId,
                             client_secret: clientSecret
                         });
-                        console.log('request body set');
                         // Make a POST request to Okta to get a LUSID access token
                         superagent
                             .post(tokenUrl)
                             .send(requestBody)
                             .set(headers)
                             .then(function (result) {
-                            console.log('response from okta' + result.statusCode);
                             return {
                                 statusCode: result.statusCode,
                                 apiToken: result.body.access_token,
@@ -250,7 +243,6 @@ var Client = /** @class */ (function () {
                             // Using the OktaResponse get the access token and refresh details
                             .then(function (oktaResponse) {
                             if (oktaResponse.statusCode == 200) {
-                                console.log('response from okta setting oAuth2');
                                 var oAuth2 = new Oauth2(oktaResponse.apiToken, oktaResponse.apiTokenExpiry, oktaResponse.apiTokenExpiry, _this.getCurrentEpochTime(), _this.getCurrentEpochTime());
                                 resolve(oAuth2);
                             }

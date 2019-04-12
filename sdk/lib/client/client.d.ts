@@ -15,7 +15,7 @@ export declare class Client {
     private clientSecret;
     refreshLimit: number;
     constructor(tokenUrl: [Source, string], username: [Source, string], password: [Source, string], clientId: [Source, string], clientSecret: [Source, string], apiUrl: [Source, string]);
-    apiFunctionWrapper(apiFunction: any, api: any): () => void;
+    apiFunctionWrapper(apiFunction: any, api: any, self: any): () => Promise<{}>;
     private fetchCredentials;
     private getCurrentEpochTime;
     private refreshToken;
