@@ -59,6 +59,8 @@ __export(require("./instrument"));
 __export(require("./instrumentAnalytic"));
 __export(require("./instrumentDefinition"));
 __export(require("./instrumentEconomicDefinition"));
+__export(require("./instrumentIdTypeDescriptor"));
+__export(require("./instrumentIdValue"));
 __export(require("./instrumentMatch"));
 __export(require("./instrumentProperty"));
 __export(require("./instrumentSearchProperty"));
@@ -105,6 +107,7 @@ __export(require("./resourceListOfDataType"));
 __export(require("./resourceListOfHoldingsAdjustmentHeader"));
 __export(require("./resourceListOfIUnitDefinitionDto"));
 __export(require("./resourceListOfInstrument"));
+__export(require("./resourceListOfInstrumentIdTypeDescriptor"));
 __export(require("./resourceListOfPortfolio"));
 __export(require("./resourceListOfPortfolioGroup"));
 __export(require("./resourceListOfPortfolioSearchResult"));
@@ -213,6 +216,8 @@ var instrument_1 = require("./instrument");
 var instrumentAnalytic_1 = require("./instrumentAnalytic");
 var instrumentDefinition_1 = require("./instrumentDefinition");
 var instrumentEconomicDefinition_1 = require("./instrumentEconomicDefinition");
+var instrumentIdTypeDescriptor_1 = require("./instrumentIdTypeDescriptor");
+var instrumentIdValue_1 = require("./instrumentIdValue");
 var instrumentMatch_1 = require("./instrumentMatch");
 var instrumentProperty_1 = require("./instrumentProperty");
 var instrumentSearchProperty_1 = require("./instrumentSearchProperty");
@@ -259,6 +264,7 @@ var resourceListOfDataType_1 = require("./resourceListOfDataType");
 var resourceListOfHoldingsAdjustmentHeader_1 = require("./resourceListOfHoldingsAdjustmentHeader");
 var resourceListOfIUnitDefinitionDto_1 = require("./resourceListOfIUnitDefinitionDto");
 var resourceListOfInstrument_1 = require("./resourceListOfInstrument");
+var resourceListOfInstrumentIdTypeDescriptor_1 = require("./resourceListOfInstrumentIdTypeDescriptor");
 var resourceListOfPortfolio_1 = require("./resourceListOfPortfolio");
 var resourceListOfPortfolioGroup_1 = require("./resourceListOfPortfolioGroup");
 var resourceListOfPortfolioSearchResult_1 = require("./resourceListOfPortfolioSearchResult");
@@ -345,6 +351,7 @@ var enumsMap = {
     "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": holdingsAdjustmentHeader_1.HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
     "IUnitDefinitionDto.SchemaEnum": iUnitDefinitionDto_1.IUnitDefinitionDto.SchemaEnum,
     "Instrument.StateEnum": instrument_1.Instrument.StateEnum,
+    "InstrumentIdTypeDescriptor.CardinalityEnum": instrumentIdTypeDescriptor_1.InstrumentIdTypeDescriptor.CardinalityEnum,
     "Link.RelationEnum": link_1.Link.RelationEnum,
     "Link.MethodEnum": link_1.Link.MethodEnum,
     "MarketContextSuppliers.FxEnum": marketContextSuppliers_1.MarketContextSuppliers.FxEnum,
@@ -447,6 +454,8 @@ var typeMap = {
     "InstrumentAnalytic": instrumentAnalytic_1.InstrumentAnalytic,
     "InstrumentDefinition": instrumentDefinition_1.InstrumentDefinition,
     "InstrumentEconomicDefinition": instrumentEconomicDefinition_1.InstrumentEconomicDefinition,
+    "InstrumentIdTypeDescriptor": instrumentIdTypeDescriptor_1.InstrumentIdTypeDescriptor,
+    "InstrumentIdValue": instrumentIdValue_1.InstrumentIdValue,
     "InstrumentMatch": instrumentMatch_1.InstrumentMatch,
     "InstrumentProperty": instrumentProperty_1.InstrumentProperty,
     "InstrumentSearchProperty": instrumentSearchProperty_1.InstrumentSearchProperty,
@@ -493,6 +502,7 @@ var typeMap = {
     "ResourceListOfHoldingsAdjustmentHeader": resourceListOfHoldingsAdjustmentHeader_1.ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": resourceListOfIUnitDefinitionDto_1.ResourceListOfIUnitDefinitionDto,
     "ResourceListOfInstrument": resourceListOfInstrument_1.ResourceListOfInstrument,
+    "ResourceListOfInstrumentIdTypeDescriptor": resourceListOfInstrumentIdTypeDescriptor_1.ResourceListOfInstrumentIdTypeDescriptor,
     "ResourceListOfPortfolio": resourceListOfPortfolio_1.ResourceListOfPortfolio,
     "ResourceListOfPortfolioGroup": resourceListOfPortfolioGroup_1.ResourceListOfPortfolioGroup,
     "ResourceListOfPortfolioSearchResult": resourceListOfPortfolioSearchResult_1.ResourceListOfPortfolioSearchResult,

@@ -5,7 +5,7 @@ import { DeleteInstrumentResponse } from '../model/deleteInstrumentResponse';
 import { GetInstrumentsResponse } from '../model/getInstrumentsResponse';
 import { Instrument } from '../model/instrument';
 import { ResourceListOfInstrument } from '../model/resourceListOfInstrument';
-import { ResourceListOfString } from '../model/resourceListOfString';
+import { ResourceListOfInstrumentIdTypeDescriptor } from '../model/resourceListOfInstrumentIdTypeDescriptor';
 import { UpdateInstrumentIdentifierRequest } from '../model/updateInstrumentIdentifierRequest';
 import { UpsertInstrumentPropertiesResponse } from '../model/upsertInstrumentPropertiesResponse';
 import { UpsertInstrumentPropertyRequest } from '../model/upsertInstrumentPropertyRequest';
@@ -60,7 +60,7 @@ export declare class InstrumentsApi {
         body: Instrument;
     }>;
     /**
-     * Gets the set of identifiers that have been configured as unique identifiers for instruments.     Only CodeTypes returned from this end point can be used as identifiers for instruments.
+     * Returns a collection of instrument identifier type descriptors. Each descriptor specifies the properties  of a particular instrument identifier - its name, its cardinality (whether or not multiple instruments can  share the same identifier value), and its corresponding PropertyKey.
      * @summary Get allowable instrument identifiers
      */
     getInstrumentIdentifiers(options?: {
@@ -69,7 +69,7 @@ export declare class InstrumentsApi {
         };
     }): Promise<{
         response: http.IncomingMessage;
-        body: ResourceListOfString;
+        body: ResourceListOfInstrumentIdTypeDescriptor;
     }>;
     /**
      * Get a collection of instruments by a set of identifiers. Optionally, it is possible to decorate each instrument with specified property data.

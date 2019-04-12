@@ -54,6 +54,8 @@ export * from './instrument';
 export * from './instrumentAnalytic';
 export * from './instrumentDefinition';
 export * from './instrumentEconomicDefinition';
+export * from './instrumentIdTypeDescriptor';
+export * from './instrumentIdValue';
 export * from './instrumentMatch';
 export * from './instrumentProperty';
 export * from './instrumentSearchProperty';
@@ -100,6 +102,7 @@ export * from './resourceListOfDataType';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
 export * from './resourceListOfInstrument';
+export * from './resourceListOfInstrumentIdTypeDescriptor';
 export * from './resourceListOfPortfolio';
 export * from './resourceListOfPortfolioGroup';
 export * from './resourceListOfPortfolioSearchResult';
@@ -211,6 +214,8 @@ import { Instrument } from './instrument';
 import { InstrumentAnalytic } from './instrumentAnalytic';
 import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentEconomicDefinition } from './instrumentEconomicDefinition';
+import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
+import { InstrumentIdValue } from './instrumentIdValue';
 import { InstrumentMatch } from './instrumentMatch';
 import { InstrumentProperty } from './instrumentProperty';
 import { InstrumentSearchProperty } from './instrumentSearchProperty';
@@ -257,6 +262,7 @@ import { ResourceListOfDataType } from './resourceListOfDataType';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
 import { ResourceListOfInstrument } from './resourceListOfInstrument';
+import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
 import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
 import { ResourceListOfPortfolioSearchResult } from './resourceListOfPortfolioSearchResult';
@@ -345,6 +351,7 @@ let enumsMap: {[index: string]: any} = {
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
         "Instrument.StateEnum": Instrument.StateEnum,
+        "InstrumentIdTypeDescriptor.CardinalityEnum": InstrumentIdTypeDescriptor.CardinalityEnum,
         "Link.RelationEnum": Link.RelationEnum,
         "Link.MethodEnum": Link.MethodEnum,
         "MarketContextSuppliers.FxEnum": MarketContextSuppliers.FxEnum,
@@ -448,6 +455,8 @@ let typeMap: {[index: string]: any} = {
     "InstrumentAnalytic": InstrumentAnalytic,
     "InstrumentDefinition": InstrumentDefinition,
     "InstrumentEconomicDefinition": InstrumentEconomicDefinition,
+    "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
+    "InstrumentIdValue": InstrumentIdValue,
     "InstrumentMatch": InstrumentMatch,
     "InstrumentProperty": InstrumentProperty,
     "InstrumentSearchProperty": InstrumentSearchProperty,
@@ -494,6 +503,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
     "ResourceListOfInstrument": ResourceListOfInstrument,
+    "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
     "ResourceListOfPortfolioGroup": ResourceListOfPortfolioGroup,
     "ResourceListOfPortfolioSearchResult": ResourceListOfPortfolioSearchResult,
