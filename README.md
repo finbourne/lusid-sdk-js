@@ -1,3 +1,5 @@
+https://travis-ci.org/finbourne/lusid-sdk-js.svg?branch=master
+
 # LUSID<sup>®</sup> JavaScript SDK
 
 A generated version of the SDK is included in the `sdk` folder based on the OpenAPI specification named `lusid.json` in the root folder.  The most up to date version of the OpenAPI specification can be downloaded from https://api.lusid.com/swagger/v0/swagger.json
