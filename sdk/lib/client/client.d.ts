@@ -4,7 +4,7 @@ export declare enum Source {
     Raw = 2
 }
 export declare class Client {
-    authentications: {};
+    authentications: any;
     basePath: string;
     api: any;
     secretsFilePath: string;

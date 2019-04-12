@@ -121,13 +121,17 @@ export class Client {
     })
   }
 
+  // Wrapper function to add refresh token logic to every API call
   apiFunctionWrapper(apiFunction, api, self) {
 
+    // Return a function
     return function() {
+      // Collect the arguments passed into the wrapper to use later
       var topLevelArguments = arguments
-
+      // Return a promise to ensure that the function remains 'thenable'
       return new Promise(function(resolve, reject) {
 
+        // Trigger a token refresh
         var oauthPopulated = self.refreshToken(
           self.authentications['oauth2'],
           self.refreshLimit,
@@ -137,12 +141,22 @@ export class Client {
           self.clientId,
           self.clientSecret
         )
-
-      oauthPopulated.then(function(oauth2Details: Oauth2) {
-        api['authentications']['oauth2'] = oauth2Details
-        resolve(apiFunction.apply(api, topLevelArguments))
-      })
-      .catch((err) => reject(err))
+        // Once this has completed pass the oauth2 details on
+        oauthPopulated.then(function(oauth2Details: Oauth2) {
+          // Update the clients oauth2 details
+          self.authentications.oauth2 = oauth2Details
+          // Update the access token of the api being called
+          api['authentications']['oauth2']['accessToken'] = self.authentications.oauth2.accessToken
+          /* Resolve the promise with the function that was wrapped
+          /* In this case api is the api that this function is a part of,
+          /* this is required to ensure that the function is called
+          /* in the right context. The second argument topLevelArguments
+          /* is the arguments passed into the Wrapper
+          */
+          resolve(apiFunction.apply(api, topLevelArguments))
+        })
+        // Error handling
+        .catch((err) => reject(err))
       })
     }
   }
