@@ -1,4 +1,4 @@
-https://travis-ci.org/finbourne/lusid-sdk-js.svg?branch=master
+[![Build Status](https://travis-ci.org/finbourne/lusid-sdk-js.svg?branch=master)](https://travis-ci.org/finbourne/lusid-sdk-js)
 
 # LUSID<sup>®</sup> JavaScript SDK
 
