@@ -2,30 +2,33 @@
 import {
   CreateTransactionPortfolioRequest, Portfolio, ErrorResponse } from "../../api";
 
-import { Client } from './apiClientInitialisation'
+import { Client, Source } from '../../client/client'
 import { IncomingMessage } from "http";
-
-const clientAuthentication = require('./apiClientAuthentication.js')
 const uuid4 = require('uuid/v4')
 
-var client = new Client()
-var clientBuilder = clientAuthentication.lusidApiClientBuilder;
+var client = new Client(
+  [Source.Secrets, 'tokenUrl'],
+  [Source.Secrets, 'username'],
+  [Source.Secrets, 'password'],
+  [Source.Secrets, 'clientId'],
+  [Source.Secrets, 'clientSecret'],
+  [Source.Secrets, 'apiUrl'],
+)
 
 function createTransactionPortfolio(
   scope: string,
   createRequest: CreateTransactionPortfolioRequest
   ) :Promise<Portfolio> {
     return new Promise((resolve, reject) => {
-      clientBuilder(client).then((client: Client) => {
-        client.api.transactionPortfolios.createPortfolio(
-          scope,
-          createRequest
-        )
-      .then((res: {response: IncomingMessage; body: Portfolio}) => resolve(res.body))
-      .catch((err: {response: IncomingMessage; body: ErrorResponse}) => reject(err))
-      })
+
+    client.api.transactionPortfolios.createPortfolio(
+      scope,
+      createRequest
+    )
+    .then((res: {response: IncomingMessage; body: Portfolio}) => resolve(res.body))
+    .catch((err: {response: IncomingMessage; body: ErrorResponse}) => reject(err))
     })
-}
+  }
 
 var createRequest = new CreateTransactionPortfolioRequest()
 createRequest.displayName = "UK Equities"
