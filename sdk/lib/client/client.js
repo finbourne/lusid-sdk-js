@@ -38,17 +38,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Require the LUSID SDK and libaries
 var lusid = require('../api');
 var querystring = require('querystring');
-var secretsPath = './secrets.json';
 var superagent = require('superagent');
-var refreshLimit = 600;
+var secretsPath = './secrets.json';
+var refreshLimit = 300;
 // Create an enum for use in defining the source of each credential
 var Source;
 (function (Source) {
-    // Use an environment variable to populate
+    // Use an environment variable to populate the credential
     Source[Source["Environment"] = 0] = "Environment";
-    // Use a file called secrets.json file to populate
+    // Use a file called secrets.json file to populate the credential
     Source[Source["Secrets"] = 1] = "Secrets";
-    // Use a raw value or variable to populate
+    // Use a raw value or variable to populate the credential
     Source[Source["Raw"] = 2] = "Raw";
 })(Source = exports.Source || (exports.Source = {}));
 // This class containes the OAuth2.0 details
@@ -67,6 +67,10 @@ var Client = /** @class */ (function () {
     // Constructor method
     function Client(tokenUrl, username, password, clientId, clientSecret, apiUrl) {
         var _this = this;
+        // Authentications object to hold the oauth2 details
+        this.authentications = {};
+        // The available API endpoints
+        this.api = {};
         // The refresh limit in seconds before token expiry to trigger a refresh
         this.refreshLimit = refreshLimit;
         // Set the path to the secrets file
@@ -91,7 +95,7 @@ var Client = /** @class */ (function () {
             // Make the API endpoint camel case
             apiName = apiName[0].toLowerCase() + apiName.slice(1);
             // Add the endpoint to our client
-            _this.api[apiName] = new api();
+            _this.api[apiName] = apiInstance;
             // Add the base path and accessToken
             _this.api[apiName]['_basePath'] = _this.basePath;
             _this.api[apiName]['authentications']['oauth2']['accessToken'] = _this.authentications['oauth2'].accessToken;
@@ -104,15 +108,32 @@ var Client = /** @class */ (function () {
             }
         });
     }
+    // Wrapper function to add refresh token logic to every API call
     Client.prototype.apiFunctionWrapper = function (apiFunction, api, self) {
+        // Return a function
         return function () {
+            // Collect the arguments passed into the wrapper to use later
             var topLevelArguments = arguments;
+            // Return a promise to ensure that the function remains 'thenable'
             return new Promise(function (resolve, reject) {
+                // Trigger a token refresh
                 var oauthPopulated = self.refreshToken(self.authentications['oauth2'], self.refreshLimit, self.tokenUrl, self.username, self.password, self.clientId, self.clientSecret);
+                // Once this has completed pass the oauth2 details on
                 oauthPopulated.then(function (oauth2Details) {
-                    api['authentications']['oauth2']['accessToken'] = oauth2Details.accessToken;
+                    // Update the clients oauth2 details
+                    self.authentications.oauth2 = oauth2Details;
+                    console.log(self.authentications.oauth2);
+                    // Update the details of the api being called
+                    api['authentications']['oauth2']['accessToken'] = self.authentications.oauth2.accessToken;
+                    /* Resolve the promise with the function that was wrapped
+                    /* In this case api is the api that this function is a part of,
+                    /* this is required to ensure that the function is called
+                    /* in the right context. The second argument topLevelArguments
+                    /* is the arguments passed into the Wrapper
+                    */
                     resolve(apiFunction.apply(api, topLevelArguments));
                 })
+                    // Error handling
                     .catch(function (err) { return reject(err); });
             });
         };
@@ -191,7 +212,7 @@ var Client = /** @class */ (function () {
         // Check if an access token already exists, if not trigger refresh
         if (oauth2.accessToken === undefined) {
             // Call Okta to get access details
-            console.log('Access Token Close to Expiring or not Initialised - Calling Okta to refresh');
+            console.log('Access Token not Initialised - Calling Okta to refresh');
             return true;
         }
         // If it does exist check that it has not expired
@@ -202,6 +223,7 @@ var Client = /** @class */ (function () {
         // If the token will expire in less than the refresh limit
         if (oauth2.tokenTimeTillExpiry < refreshLimit) {
             // Call Okta to get access details
+            console.log('Access Token Close to Expiring - Calling Okta to refresh');
             return true;
         }
         // Else don't trigger a refresh
