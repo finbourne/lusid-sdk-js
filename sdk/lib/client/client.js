@@ -40,7 +40,7 @@ var lusid = require('../api');
 var querystring = require('querystring');
 var superagent = require('superagent');
 var secretsPath = './secrets.json';
-var refreshLimit = 300;
+var refreshLimit = 3580;
 // Create an enum for use in defining the source of each credential
 var Source;
 (function (Source) {
@@ -62,10 +62,20 @@ var Oauth2 = /** @class */ (function () {
     }
     return Oauth2;
 }());
+var Credentials = /** @class */ (function () {
+    function Credentials(tokenUrl, username, password, clientId, clientSecret) {
+        this.tokenUrl = tokenUrl;
+        this.username = username;
+        this.password = password;
+        this.clientId = clientId;
+        this.clientSecret = clientSecret;
+    }
+    return Credentials;
+}());
 // The class for the client
 var Client = /** @class */ (function () {
     // Constructor method
-    function Client(tokenUrl, username, password, clientId, clientSecret, apiUrl) {
+    function Client(tokenUrlDetails, usernameDetails, passwordDetails, clientIdDetails, clientSecretDetails, apiUrlDetails) {
         var _this = this;
         // Authentications object to hold the oauth2 details
         this.authentications = {};
@@ -76,12 +86,13 @@ var Client = /** @class */ (function () {
         // Set the path to the secrets file
         this.secretsFilePath = secretsPath;
         // Set the credentials
-        this.tokenUrl = this.fetchCredentials(tokenUrl[0], tokenUrl[1]);
-        this.username = this.fetchCredentials(username[0], username[1]);
-        this.password = this.fetchCredentials(password[0], password[1]);
-        this.clientId = this.fetchCredentials(clientId[0], clientId[1]);
-        this.clientSecret = this.fetchCredentials(clientSecret[0], clientSecret[1]);
-        this.basePath = this.fetchCredentials(apiUrl[0], apiUrl[1]);
+        this.tokenUrlDetails = tokenUrlDetails;
+        this.usernameDetails = usernameDetails;
+        this.passwordDetails = passwordDetails;
+        this.clientIdDetails = clientIdDetails;
+        this.clientSecretDetails = clientSecretDetails;
+        // Set the base path for the API
+        this.basePath = this.fetchCredentials(apiUrlDetails[0], apiUrlDetails[1]);
         // Set the authentications to use oauth2
         this.authentications = { 'oauth2': new Oauth2(undefined, 0, 0, 0, 0) };
         // Iterate over the API endpoints and add each to our client
@@ -117,13 +128,12 @@ var Client = /** @class */ (function () {
             // Return a promise to ensure that the function remains 'thenable'
             return new Promise(function (resolve, reject) {
                 // Trigger a token refresh
-                var oauthPopulated = self.refreshToken(self.authentications['oauth2'], self.refreshLimit, self.tokenUrl, self.username, self.password, self.clientId, self.clientSecret);
+                var oauthPopulated = self.refreshToken(self.authentications['oauth2'], self.refreshLimit, self.tokenUrlDetails, self.usernameDetails, self.passwordDetails, self.clientIdDetails, self.clientSecretDetails);
                 // Once this has completed pass the oauth2 details on
                 oauthPopulated.then(function (oauth2Details) {
                     // Update the clients oauth2 details
                     self.authentications.oauth2 = oauth2Details;
-                    console.log(self.authentications.oauth2);
-                    // Update the details of the api being called
+                    // Update the access token of the api being called
                     api['authentications']['oauth2']['accessToken'] = self.authentications.oauth2.accessToken;
                     /* Resolve the promise with the function that was wrapped
                     /* In this case api is the api that this function is a part of,
@@ -188,13 +198,14 @@ var Client = /** @class */ (function () {
         return Math.floor(new Date().getTime() / 1000);
     };
     // This function handles refreshing the token when required
-    Client.prototype.refreshToken = function (oauth2, refreshLimit, tokenUrl, username, password, clientId, clientSecret) {
+    Client.prototype.refreshToken = function (oauth2, refreshLimit, tokenUrlDetails, usernameDetails, passwordDetails, clientIdDetails, clientSecretDetails) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             // Check if the token needs a refresh
             if (_this.checkTokenRefresh(oauth2, refreshLimit)) {
+                var credentials = new Credentials(_this.fetchCredentials(tokenUrlDetails[0], tokenUrlDetails[1]), _this.fetchCredentials(usernameDetails[0], usernameDetails[1]), _this.fetchCredentials(passwordDetails[0], passwordDetails[1]), _this.fetchCredentials(clientIdDetails[0], clientIdDetails[1]), _this.fetchCredentials(clientSecretDetails[0], clientSecretDetails[1]));
                 // If so get a new access token
-                _this.getAccessToken(tokenUrl, username, password, clientId, clientSecret)
+                _this.getAccessToken(credentials.tokenUrl, credentials.username, credentials.password, credentials.clientId, credentials.clientSecret)
                     // Call then and return the oauth object to avoid nested promises in return
                     .then(function (oauthObject) {
                     resolve(oauthObject);
@@ -227,6 +238,7 @@ var Client = /** @class */ (function () {
             return true;
         }
         // Else don't trigger a refresh
+        console.log('Access Token Valid - No refresh required');
         return false;
     };
     // Gets an access token form Okta to use to interact with the API
