@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "request": "*",
-    "superagent": "*",
     "csvtojson": "*",
     "uuid": "*"
   },

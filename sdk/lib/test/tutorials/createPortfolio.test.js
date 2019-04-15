@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var api_1 = require("../../api");
 var client_1 = require("../../client/client");
 var uuid4 = require('uuid/v4');
-var client = new client_1.Client([client_1.Source.Secrets, 'tokenUrl'], [client_1.Source.Secrets, 'username'], [client_1.Source.Secrets, 'password'], [client_1.Source.Secrets, 'clientId'], [client_1.Source.Secrets, 'clientSecret'], [client_1.Source.Secrets, 'apiUrl']);
+var client = new client_1.Client([client_1.Source.Secrets, 'tokenUrl'], [client_1.Source.Raw, 'jarvis.automated.tests@finbourne.com'], [client_1.Source.Secrets, 'password'], [client_1.Source.Secrets, 'clientId'], [client_1.Source.Secrets, 'clientSecret'], [client_1.Source.Environment, 'FBN_API_URL']);
 function createTransactionPortfolio(scope, createRequest) {
     return new Promise(function (resolve, reject) {
         console.log(client.api.transactionPortfolios.createPortfolio);
@@ -30,4 +30,3 @@ setTimeout(function () {
 createTransactionPortfolio(uuid4(), createRequest)
     .then(function (res) { return console.log(res); })
     .catch(function (err) { return console.log(err); });
-console.log(client);

@@ -1,12 +1,45 @@
+import { AggregationApi, AnalyticsStoresApi, ApplicationMetadataApi, CorporateActionSourcesApi, DataTypesApi, DerivedTransactionPortfoliosApi, InstrumentsApi, LoginApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, ResultsApi, SchemasApi, ScopesApi, SearchApi, SystemConfigurationApi, TransactionPortfoliosApi } from '../api/apis';
 export declare enum Source {
     Environment = 0,
     Secrets = 1,
     Raw = 2
 }
+declare class Oauth2 {
+    accessToken: string;
+    tokenExpiryDuration: number;
+    tokenTimeTillExpiry: number;
+    tokenLastRefreshTime: number;
+    tokenLastRefreshCheckTime: number;
+    constructor(accessToken: string | undefined, tokenExpiryTime: number, tokenTimeTillExpiry: number, tokenLastRefreshTime: number, tokenLastRefreshCheckTime: number);
+}
+declare class Api {
+    aggregation: AggregationApi;
+    analyicsStores: AnalyticsStoresApi;
+    applicationMetadata: ApplicationMetadataApi;
+    corporateActionSources: CorporateActionSourcesApi;
+    dataTypes: DataTypesApi;
+    derivedTransactionPortfolios: DerivedTransactionPortfoliosApi;
+    instruments: InstrumentsApi;
+    login: LoginApi;
+    portfolioGroups: PortfolioGroupsApi;
+    portfolios: PortfoliosApi;
+    propertyDefinitions: PropertyDefinitionsApi;
+    quotes: QuotesApi;
+    reconciliations: ReconciliationsApi;
+    referencePortfolio: ReferencePortfolioApi;
+    results: ResultsApi;
+    schemas: SchemasApi;
+    scopes: ScopesApi;
+    search: SearchApi;
+    systemConfiguration: SystemConfigurationApi;
+    transactionPortfolios: TransactionPortfoliosApi;
+}
 export declare class Client {
-    authentications: any;
+    authentications: {
+        [key: string]: Oauth2;
+    };
     basePath: string;
-    api: any;
+    api: Api;
     secretsFilePath: string;
     private tokenUrlDetails;
     private usernameDetails;
@@ -22,3 +55,4 @@ export declare class Client {
     private checkTokenRefresh;
     private getAccessToken;
 }
+export {};

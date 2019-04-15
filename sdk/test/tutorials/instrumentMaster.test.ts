@@ -11,14 +11,19 @@ import {
   ResourceId,
   InstrumentIdValue} from "../../api";
 
-import { Client } from './apiClientInitialisation'
-
-const clientAuthentication = require('./apiClientAuthentication.js')
+import { Client, Source } from '../../client/client'
 const uuid4 = require('uuid/v4')
 const csv = require('csvtojson')
 
-var client = new Client()
-var clientBuilder = clientAuthentication.lusidApiClientBuilder;
+var client = new Client(
+  [Source.Secrets, 'tokenUrl'],
+  [Source.Raw, 'jarvis.automated.tests@finbourne.com'],
+  [Source.Secrets, 'password'],
+  [Source.Secrets, 'clientId'],
+  [Source.Secrets, 'clientSecret'],
+  [Source.Environment, 'FBN_API_URL'],
+)
+
 var instrumentsFile = './paper-instruments.json'
 
 /**
@@ -95,10 +100,9 @@ function upsertInstrumentsFromFile(
       })
       .then((instrumentDefinitions: {[key: string]: InstrumentDefinition}) => {
         // Use your client to call upsert instruments
-        return clientBuilder(client).then((client: Client) => {
-          return client.api.instruments.upsertInstruments(instrumentDefinitions)
+        console.log(instrumentDefinitions)
+        return client.api.instruments.upsertInstruments(instrumentDefinitions)
         })
-      })
       .then((res: any) => resolve(res.body))
       .catch((err: any) => reject(err))
     })
@@ -112,9 +116,7 @@ function createProperty(
     // Return a promise
     return new Promise((resolve, reject) => {
       // Use your client to call create property definition
-      return clientBuilder(client).then((client: Client) => {
-        return client.api.propertyDefinitions.createPropertyDefinition(propertyDefintion)
-      })
+      client.api.propertyDefinitions.createPropertyDefinition(propertyDefintion)
       .then((res: any) => resolve(res.body))
       .catch((err: any) => reject(err))
     })
@@ -123,22 +125,20 @@ function createProperty(
 // Gets tne Lusid Instrument Id for a list of instruments
 function getLuidForInstruments(
   identifierType: string,
-  identifierValues: string):
-  Promise<{[key: string]: string}> {
+  identifierValues: string[]
+  ): Promise<{[key: string]: string}> {
     // Return a promise
     return new Promise((resolve, reject) => {
       // Using your client call LUSID to get the instrument definitions
-      return clientBuilder(client)
-      .then((client: Client) => {
-        return client.api.instruments.getInstruments(identifierType, identifierValues)
-        .then((res: any) => res.body)
-      })
+      client.api.instruments.getInstruments(identifierType, identifierValues)
+      .then((res: any) => res.body)
       .then((res: GetInstrumentsResponse) => {
         // Pick off the Lusid Instrument ID for each definition and discard the rest
-        return Object.keys(res.values).reduce((map: {[key: string]: string}, instrumentIdentifier: string) => {
-          map[instrumentIdentifier] = res.values[instrumentIdentifier].lusidInstrumentId
-          return map
-        }, {})
+        return Object.keys(res.values).reduce(
+          (map: {[key: string]: string}, instrumentIdentifier: string) => {
+            map[instrumentIdentifier] = res.values[instrumentIdentifier].lusidInstrumentId
+            return map
+          }, {})
       })
       .then((lusidInstrumentIdMapping: {[key: string]: string}) => {
         resolve(lusidInstrumentIdMapping)
@@ -206,7 +206,7 @@ function buildUpsertInstrumentPropertiesRequest(
   key: string,
   property: string,
   instruments: any[]):
-  UpsertInstrumentPropertyRequest {
+  UpsertInstrumentPropertyRequest[] {
     return instruments.reduce((list: UpsertInstrumentPropertyRequest[], instrument: any) => {
       let instrumentPropertyRequest = new UpsertInstrumentPropertyRequest()
       instrumentPropertyRequest.lusidInstrumentId = instrument.lusidinstrumentid
@@ -227,19 +227,17 @@ function upsertInstrumentProperties(
   instruments: any[]):
   Promise<UpsertInstrumentPropertiesResponse> {
     return new Promise((resolve, reject) => {
-      return clientBuilder(client).then((client: Client) => {
-        return client.api.instruments.upsertInstrumentsProperties(
-          buildUpsertInstrumentPropertiesRequest(
-            key,
-            property,
-            instruments
-          )
+      client.api.instruments.upsertInstrumentsProperties(
+        buildUpsertInstrumentPropertiesRequest(
+          key,
+          property,
+          instruments
         )
-    })
+      )
     .then((res: any) => resolve(res.body))
     .catch((err: any) => reject(err))
   })
-  }
+}
 
 // Create a custom property using the LUSID model
 var dataTypeId = new ResourceId()

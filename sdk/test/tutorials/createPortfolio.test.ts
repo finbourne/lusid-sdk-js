@@ -8,11 +8,11 @@ const uuid4 = require('uuid/v4')
 
 var client = new Client(
   [Source.Secrets, 'tokenUrl'],
-  [Source.Secrets, 'username'],
+  [Source.Raw, 'jarvis.automated.tests@finbourne.com'],
   [Source.Secrets, 'password'],
   [Source.Secrets, 'clientId'],
   [Source.Secrets, 'clientSecret'],
-  [Source.Secrets, 'apiUrl'],
+  [Source.Environment, 'FBN_API_URL'],
 )
 
 function createTransactionPortfolio(
@@ -38,15 +38,15 @@ createRequest.baseCurrency = "GBP"
 setTimeout(function() {
   createTransactionPortfolio(uuid4(), createRequest)
   .then((res) => console.log(res))
-  .catch((err) => console.log(err))}, 10000)
+  .catch((err) => console.log(err))
+}, 10000)
 
 setTimeout(function() {
   createTransactionPortfolio(uuid4(), createRequest)
   .then((res) => console.log(res))
-  .catch((err) => console.log(err))}, 25000)
+  .catch((err) => console.log(err))
+}, 25000)
 
 createTransactionPortfolio(uuid4(), createRequest)
 .then((res) => console.log(res))
 .catch((err) => console.log(err))
-
-console.log(client)
