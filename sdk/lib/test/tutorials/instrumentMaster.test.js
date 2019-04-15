@@ -71,7 +71,6 @@ function upsertInstrumentsFromFile(filePath, fileType) {
         })
             .then(function (instrumentDefinitions) {
             // Use your client to call upsert instruments
-            console.log(instrumentDefinitions);
             return client.api.instruments.upsertInstruments(instrumentDefinitions);
         })
             .then(function (res) { return resolve(res.body); })

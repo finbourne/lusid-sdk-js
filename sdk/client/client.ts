@@ -397,7 +397,6 @@ export class Client {
     // Check if an access token already exists, if not trigger refresh
     if (oauth2.accessToken === undefined) {
       // Call Okta to get access details
-      console.log('Access Token not Initialised - Calling Okta to refresh')
       return true
     }
 
@@ -410,11 +409,9 @@ export class Client {
     // If the token will expire in less than the refresh limit
     if (oauth2.tokenTimeTillExpiry < refreshLimit) {
       // Call Okta to get access details
-      console.log('Access Token Close to Expiring - Calling Okta to refresh')
       return true
     }
     // Else don't trigger a refresh
-    console.log('Access Token Valid - No refresh required')
     return false
   }
 
