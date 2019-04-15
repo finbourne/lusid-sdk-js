@@ -11,18 +11,9 @@ import {
   ResourceId,
   InstrumentIdValue} from "../../api";
 
-import { Client, Source } from '../../client/client'
+import { client } from './clientBuilder'
 const uuid4 = require('uuid/v4')
 const csv = require('csvtojson')
-
-var client = new Client(
-  [Source.Secrets, 'tokenUrl'],
-  [Source.Raw, 'jarvis.automated.tests@finbourne.com'],
-  [Source.Secrets, 'password'],
-  [Source.Secrets, 'clientId'],
-  [Source.Secrets, 'clientSecret'],
-  [Source.Environment, 'FBN_API_URL'],
-)
 
 var instrumentsFile = './paper-instruments.json'
 
@@ -100,7 +91,6 @@ function upsertInstrumentsFromFile(
       })
       .then((instrumentDefinitions: {[key: string]: InstrumentDefinition}) => {
         // Use your client to call upsert instruments
-        console.log(instrumentDefinitions)
         return client.api.instruments.upsertInstruments(instrumentDefinitions)
         })
       .then((res: any) => resolve(res.body))
@@ -279,4 +269,4 @@ Promise.all([
   .then((res: UpsertInstrumentPropertiesResponse) => console.log(res))
   .catch((err) => console.log(err))
 
-export {}
+export {};
