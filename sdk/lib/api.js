@@ -6,3 +6,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // This is the entrypoint for the package
 __export(require("./api/apis"));
 __export(require("./model/models"));
+__export(require("./client/client"));

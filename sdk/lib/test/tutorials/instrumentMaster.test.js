@@ -2,10 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 // Require the LUSID SDK and libraries
 var api_1 = require("../../api");
-var client_1 = require("../../client/client");
+var clientBuilder_1 = require("./clientBuilder");
 var uuid4 = require('uuid/v4');
 var csv = require('csvtojson');
-var client = new client_1.Client([client_1.Source.Secrets, 'tokenUrl'], [client_1.Source.Raw, 'jarvis.automated.tests@finbourne.com'], [client_1.Source.Secrets, 'password'], [client_1.Source.Secrets, 'clientId'], [client_1.Source.Secrets, 'clientSecret'], [client_1.Source.Environment, 'FBN_API_URL']);
 var instrumentsFile = './paper-instruments.json';
 /**
  * Function to take an instrument object and convert it into a LUSID model
@@ -71,7 +70,7 @@ function upsertInstrumentsFromFile(filePath, fileType) {
         })
             .then(function (instrumentDefinitions) {
             // Use your client to call upsert instruments
-            return client.api.instruments.upsertInstruments(instrumentDefinitions);
+            return clientBuilder_1.client.api.instruments.upsertInstruments(instrumentDefinitions);
         })
             .then(function (res) { return resolve(res.body); })
             .catch(function (err) { return reject(err); });
@@ -82,7 +81,7 @@ function createProperty(propertyDefintion) {
     // Return a promise
     return new Promise(function (resolve, reject) {
         // Use your client to call create property definition
-        client.api.propertyDefinitions.createPropertyDefinition(propertyDefintion)
+        clientBuilder_1.client.api.propertyDefinitions.createPropertyDefinition(propertyDefintion)
             .then(function (res) { return resolve(res.body); })
             .catch(function (err) { return reject(err); });
     });
@@ -92,7 +91,7 @@ function getLuidForInstruments(identifierType, identifierValues) {
     // Return a promise
     return new Promise(function (resolve, reject) {
         // Using your client call LUSID to get the instrument definitions
-        client.api.instruments.getInstruments(identifierType, identifierValues)
+        clientBuilder_1.client.api.instruments.getInstruments(identifierType, identifierValues)
             .then(function (res) { return res.body; })
             .then(function (res) {
             // Pick off the Lusid Instrument ID for each definition and discard the rest
@@ -171,7 +170,7 @@ function buildUpsertInstrumentPropertiesRequest(key, property, instruments) {
 }
 function upsertInstrumentProperties(key, property, instruments) {
     return new Promise(function (resolve, reject) {
-        client.api.instruments.upsertInstrumentsProperties(buildUpsertInstrumentPropertiesRequest(key, property, instruments))
+        clientBuilder_1.client.api.instruments.upsertInstrumentsProperties(buildUpsertInstrumentPropertiesRequest(key, property, instruments))
             .then(function (res) { return resolve(res.body); })
             .catch(function (err) { return reject(err); });
     });

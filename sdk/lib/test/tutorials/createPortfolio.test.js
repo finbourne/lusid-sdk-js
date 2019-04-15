@@ -2,13 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 // Require the LUSID SDK and libraries
 var api_1 = require("../../api");
-var client_1 = require("../../client/client");
+var clientBuilder_1 = require("./clientBuilder");
 var uuid4 = require('uuid/v4');
-var client = new client_1.Client([client_1.Source.Secrets, 'tokenUrl'], [client_1.Source.Raw, 'jarvis.automated.tests@finbourne.com'], [client_1.Source.Secrets, 'password'], [client_1.Source.Secrets, 'clientId'], [client_1.Source.Secrets, 'clientSecret'], [client_1.Source.Environment, 'FBN_API_URL']);
 function createTransactionPortfolio(scope, createRequest) {
     return new Promise(function (resolve, reject) {
-        console.log(client.api.transactionPortfolios.createPortfolio);
-        client.api.transactionPortfolios.createPortfolio(scope, createRequest)
+        console.log(clientBuilder_1.client.api.transactionPortfolios.createPortfolio);
+        clientBuilder_1.client.api.transactionPortfolios.createPortfolio(scope, createRequest)
             .then(function (res) { return resolve(res.body); })
             .catch(function (err) { return reject(err); });
     });
