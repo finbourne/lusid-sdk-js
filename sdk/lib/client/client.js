@@ -34,14 +34,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-// Require the LUSID SDK and libaries
+// Require the libraries
+var request_1 = __importDefault(require("request"));
+var querystring_1 = __importDefault(require("querystring"));
+// Import a list of the LUSID APIs
 var lusid = require('../api');
-var querystring = require('querystring');
-var superagent = require('superagent');
+// Set the default path to the secrets file
 var secretsPath = './secrets.json';
+// Set the default amount of seconds before token expiry to call a refresh
 var refreshLimit = 3580;
-// Create an enum for use in defining the source of each credential
+/*
+To authenticate with a third party identity provider, a number of credentials
+are required e.g. username, password, clientId, clientSecret etc.
+
+Each credential may be sourced from a different location, the three locations
+that you can use with the client are:
+
+- An environment variable,
+- A secrets.json file located in the client folder of the LUSID SDK
+- A variable or raw string
+
+The enum below is for use in identifying the source of each credential when
+you create a client
+*/
 var Source;
 (function (Source) {
     // Use an environment variable to populate the credential
@@ -51,17 +70,12 @@ var Source;
     // Use a raw value or variable to populate the credential
     Source[Source["Raw"] = 2] = "Raw";
 })(Source = exports.Source || (exports.Source = {}));
-// This class containes the OAuth2.0 details
-var Oauth2 = /** @class */ (function () {
-    function Oauth2(accessToken, tokenExpiryTime, tokenTimeTillExpiry, tokenLastRefreshTime, tokenLastRefreshCheckTime) {
-        this.accessToken = accessToken;
-        this.tokenExpiryDuration = tokenExpiryTime;
-        this.tokenTimeTillExpiry = tokenTimeTillExpiry;
-        this.tokenLastRefreshTime = tokenLastRefreshTime;
-        this.tokenLastRefreshCheckTime = tokenLastRefreshCheckTime;
-    }
-    return Oauth2;
-}());
+/*
+To ensure that you have all the credentials correctly populated we use a
+Credentials class. This class is only ever used inside function calls. This
+means that the sensitive credentials are never stored and are only pulled from
+their sources when required.
+*/
 var Credentials = /** @class */ (function () {
     function Credentials(tokenUrl, username, password, clientId, clientSecret) {
         this.tokenUrl = tokenUrl;
@@ -72,20 +86,52 @@ var Credentials = /** @class */ (function () {
     }
     return Credentials;
 }());
-// The class for the client
+/*
+The LUSID API uses OAuth2.0 for authentication. The access token generated
+through the OAuth2.0 flow expires after a given period of time. To ensure
+uninterrupted access to LUSID we need to manage the refresh of this token.
+
+The class below allows you to keep track of the current access token as well
+as details regarding the token's expiry and last refresh
+ */
+var Oauth2 = /** @class */ (function () {
+    // Constructor method to set each property
+    function Oauth2(accessToken, tokenExpiryTime, tokenTimeTillExpiry, tokenLastRefreshTime, tokenLastRefreshCheckTime) {
+        this.accessToken = accessToken;
+        this.tokenExpiryDuration = tokenExpiryTime;
+        this.tokenTimeTillExpiry = tokenTimeTillExpiry;
+        this.tokenLastRefreshTime = tokenLastRefreshTime;
+        this.tokenLastRefreshCheckTime = tokenLastRefreshCheckTime;
+    }
+    return Oauth2;
+}());
+/*
+The Api class exists to ensure that all the methods available on each of the
+LUSID APIs show up when using code editors and interactive development
+environments which have features such as IntelliSense.
+
+It contains a property for each of the LUSID APIs.
+*/
+var Api = /** @class */ (function () {
+    function Api() {
+    }
+    return Api;
+}());
+/*
+To get connected with LUSID all you need to do is create a new client from
+the Client class below. This class handles storage of the location of each
+of the credentials, OAuth2.0 token refresh logic and is populated with every
+one of LUSIDs APIs and their methods.
+*/
 var Client = /** @class */ (function () {
-    // Constructor method
+    // Constructor method which takes the details on where to find the credentials
     function Client(tokenUrlDetails, usernameDetails, passwordDetails, clientIdDetails, clientSecretDetails, apiUrlDetails) {
         var _this = this;
-        // Authentications object to hold the oauth2 details
-        this.authentications = {};
-        // The available API endpoints
-        this.api = {};
         // The refresh limit in seconds before token expiry to trigger a refresh
         this.refreshLimit = refreshLimit;
         // Set the path to the secrets file
         this.secretsFilePath = secretsPath;
-        // Set the credentials
+        // Set the credential details
         this.tokenUrlDetails = tokenUrlDetails;
         this.usernameDetails = usernameDetails;
         this.passwordDetails = passwordDetails;
@@ -95,10 +141,12 @@ var Client = /** @class */ (function () {
         this.basePath = this.fetchCredentials(apiUrlDetails[0], apiUrlDetails[1]);
         // Set the authentications to use oauth2
         this.authentications = { 'oauth2': new Oauth2(undefined, 0, 0, 0, 0) };
+        // Create a new instance of the API
+        this.api = new Api();
         // Iterate over the API endpoints and add each to our client
-        this.api = {};
         lusid.APIS.forEach(function (api) {
-            var apiInstance = new api();
+            // Create a new instance of the api endpoint
+            var apiInstance = new api(_this.basePath);
             // Get the name of the API
             var apiName = apiInstance.constructor.name;
             // Shorten the api name slightly by removing API at the end
@@ -107,19 +155,20 @@ var Client = /** @class */ (function () {
             apiName = apiName[0].toLowerCase() + apiName.slice(1);
             // Add the endpoint to our client
             _this.api[apiName] = apiInstance;
-            // Add the base path and accessToken
-            _this.api[apiName]['_basePath'] = _this.basePath;
-            _this.api[apiName]['authentications']['oauth2']['accessToken'] = _this.authentications['oauth2'].accessToken;
             // For each function on the API
             for (var prop in _this.api[apiName]) {
                 // Exclude two non-api specific functions
                 if (typeof (_this.api[apiName][prop]) == 'function' && !['setDefaultAuthentication', 'setApiKey'].includes(prop)) {
+                    // Wrap each method with token refresh logic
                     _this.api[apiName][prop] = _this.apiFunctionWrapper(_this.api[apiName][prop], _this.api[apiName], _this);
                 }
             }
         });
     }
-    // Wrapper function to add refresh token logic to every API call
+    /*
+    The function below is a wrapper function which wraps the input function
+    'apiFunction' with token refresh logic to ensure uninterrupted access to LUSID.
+    */
     Client.prototype.apiFunctionWrapper = function (apiFunction, api, self) {
         // Return a function
         return function () {
@@ -135,11 +184,12 @@ var Client = /** @class */ (function () {
                     self.authentications.oauth2 = oauth2Details;
                     // Update the access token of the api being called
                     api['authentications']['oauth2']['accessToken'] = self.authentications.oauth2.accessToken;
-                    /* Resolve the promise with the function that was wrapped
-                    /* In this case api is the api that this function is a part of,
-                    /* this is required to ensure that the function is called
-                    /* in the right context. The second argument topLevelArguments
-                    /* is the arguments passed into the Wrapper
+                    /*
+                    Resolve the promise with the function that was wrapped
+                    In this case api is the api that this function is a part of,
+                    this is required to ensure that the function is called
+                    in the right context. The second argument topLevelArguments
+                    is the arguments passed into the Wrapper
                     */
                     resolve(apiFunction.apply(api, topLevelArguments));
                 })
@@ -148,7 +198,9 @@ var Client = /** @class */ (function () {
             });
         };
     };
-    // Gets the credentials from the specified source
+    /*
+    The fetchCredentials function gets the credentials from the specified source
+    */
     Client.prototype.fetchCredentials = function (source, value) {
         // Environment source
         if (source == Source.Environment) {
@@ -193,32 +245,52 @@ var Client = /** @class */ (function () {
         // Return the credential
         return credential;
     };
-    // Gets the current time in seconds since 1970, used for token refresh
+    /*
+    Gets the current time in seconds since 1970, used for token refresh calculations
+    and to keep track of the last refresh
+    */
     Client.prototype.getCurrentEpochTime = function () {
         return Math.floor(new Date().getTime() / 1000);
     };
-    // This function handles refreshing the token when required
+    /*
+    This function handles refreshing the token when required. It checks for a
+    token refresh and if required it fetches the appropriate credentials, calls
+    the identity provider and retrieves a new access token
+    */
     Client.prototype.refreshToken = function (oauth2, refreshLimit, tokenUrlDetails, usernameDetails, passwordDetails, clientIdDetails, clientSecretDetails) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            // Check if the token needs a refresh
-            if (_this.checkTokenRefresh(oauth2, refreshLimit)) {
-                var credentials = new Credentials(_this.fetchCredentials(tokenUrlDetails[0], tokenUrlDetails[1]), _this.fetchCredentials(usernameDetails[0], usernameDetails[1]), _this.fetchCredentials(passwordDetails[0], passwordDetails[1]), _this.fetchCredentials(clientIdDetails[0], clientIdDetails[1]), _this.fetchCredentials(clientSecretDetails[0], clientSecretDetails[1]));
-                // If so get a new access token
-                _this.getAccessToken(credentials.tokenUrl, credentials.username, credentials.password, credentials.clientId, credentials.clientSecret)
-                    // Call then and return the oauth object to avoid nested promises in return
-                    .then(function (oauthObject) {
-                    resolve(oauthObject);
-                })
-                    .catch(function (err) { return reject(err); });
-            }
-            else {
-                // If no refresh required just return the oauth object
-                resolve(oauth2);
-            }
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                // Return a promise
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        // Check if the token needs a refresh
+                        if (_this.checkTokenRefresh(oauth2, refreshLimit)) {
+                            // If so, populate the credentials
+                            var credentials = new Credentials(_this.fetchCredentials(tokenUrlDetails[0], tokenUrlDetails[1]), _this.fetchCredentials(usernameDetails[0], usernameDetails[1]), _this.fetchCredentials(passwordDetails[0], passwordDetails[1]), _this.fetchCredentials(clientIdDetails[0], clientIdDetails[1]), _this.fetchCredentials(clientSecretDetails[0], clientSecretDetails[1]));
+                            // Get a new access token using these credentials
+                            _this.getAccessToken(credentials.tokenUrl, credentials.username, credentials.password, credentials.clientId, credentials.clientSecret)
+                                // Return the oauth object to avoid nested promises in return
+                                .then(function (oauthObject) {
+                                // Resolve the promise
+                                resolve(oauthObject);
+                            })
+                                .catch(function (err) { return reject(err); });
+                        }
+                        else {
+                            // If no refresh required just return the oauth object
+                            resolve(oauth2);
+                        }
+                    })];
+            });
         });
     };
-    // Checks if the access token requires a refresh
+    /*
+    This function checks if the access token supplied via an OAuth2.0 flow requires
+    refreshing. It looks to see if the access token is undefined (meaning that
+    it has never been set) or if it is close to expiring.
+  
+    If a refresh is required it returns true, else it returns false
+    */
     Client.prototype.checkTokenRefresh = function (oauth2, refreshLimit) {
         // Check if an access token already exists, if not trigger refresh
         if (oauth2.accessToken === undefined) {
@@ -241,7 +313,9 @@ var Client = /** @class */ (function () {
         console.log('Access Token Valid - No refresh required');
         return false;
     };
-    // Gets an access token form Okta to use to interact with the API
+    /*
+    This function calls the identity provider to get an access token
+    */
     Client.prototype.getAccessToken = function (tokenUrl, username, password, clientId, clientSecret) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
@@ -249,12 +323,12 @@ var Client = /** @class */ (function () {
                 // Returns a rpomise
                 return [2 /*return*/, new Promise(function (resolve, reject) {
                         // Set the headers for authentication with Okta - only x-www-form-urlencoded supported
-                        var headers = { headers: {
-                                "Accept": "application/json",
-                                "Content-Type": "application/x-www-form-urlencoded"
-                            } };
+                        var headers = {
+                            "Accept": "application/json",
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        };
                         // Set the request body for authentication with Okta
-                        var requestBody = querystring.stringify({
+                        var requestBody = querystring_1.default.stringify({
                             grant_type: "password",
                             username: username,
                             password: password,
@@ -263,28 +337,26 @@ var Client = /** @class */ (function () {
                             client_secret: clientSecret
                         });
                         // Make a POST request to Okta to get a LUSID access token
-                        superagent
-                            .post(tokenUrl)
-                            .send(requestBody)
-                            .set(headers)
-                            .then(function (result) {
-                            return {
-                                statusCode: result.statusCode,
-                                apiToken: result.body.access_token,
-                                apiTokenExpiry: result.body.expires_in
-                            };
-                        })
-                            // Using the OktaResponse get the access token and refresh details
-                            .then(function (oktaResponse) {
-                            if (oktaResponse.statusCode == 200) {
-                                var oAuth2 = new Oauth2(oktaResponse.apiToken, oktaResponse.apiTokenExpiry, oktaResponse.apiTokenExpiry, _this.getCurrentEpochTime(), _this.getCurrentEpochTime());
+                        var localVarRequestOptions = {
+                            method: 'POST',
+                            headers: headers,
+                            uri: tokenUrl,
+                            useQuerystring: false,
+                            json: true,
+                            body: requestBody
+                        };
+                        request_1.default(localVarRequestOptions, function (err, res, body) {
+                            if (err) {
+                                reject(err);
+                            }
+                            else if (res.statusCode == 200) {
+                                var oAuth2 = new Oauth2(body.access_token, body.expires_in, body.expires_in, _this.getCurrentEpochTime(), _this.getCurrentEpochTime());
                                 resolve(oAuth2);
                             }
                             else {
-                                throw "Okta returned status code of " + oktaResponse.statusCode + " please check your connection and credentials";
+                                reject(body);
                             }
-                        })
-                            .catch(function (err) { return reject(err); });
+                        });
                     })];
             });
         });

@@ -1,14 +1,51 @@
-// Require the LUSID SDK and libaries
-const lusid = require('../api');
-import localVarRequest = require('request');
-import http = require('http');
-const querystring = require('querystring')
-const superagent = require('superagent')
-const secretsPath = './secrets.json'
+// Require the libraries
+import localVarRequest from 'request';
+import querystring from 'querystring'
 
+// Import a list of the LUSID APIs
+const lusid = require('../api');
+// Import each of the LUSID APIs
+import {
+  AggregationApi,
+  AnalyticsStoresApi,
+  ApplicationMetadataApi,
+  CorporateActionSourcesApi,
+  DataTypesApi,
+  DerivedTransactionPortfoliosApi,
+  InstrumentsApi,
+  LoginApi,
+  PortfolioGroupsApi,
+  PortfoliosApi,
+  PropertyDefinitionsApi,
+  QuotesApi,
+  ReconciliationsApi,
+  ReferencePortfolioApi,
+  ResultsApi,
+  SchemasApi,
+  ScopesApi,
+  SearchApi,
+  SystemConfigurationApi,
+  TransactionPortfoliosApi } from '../api/apis'
+
+// Set the default path to the secrets file
+const secretsPath = './secrets.json'
+// Set the default amount of seconds before token expiry to call a refresh
 const refreshLimit = 3580
 
-// Create an enum for use in defining the source of each credential
+/*
+To authenticate with a third party identity provider, a number of credentials
+are required e.g. username, password, clientId, clientSecret etc.
+
+Each credential may be sourced from a different location, the three locations
+that you can use with the client are:
+
+- An environment variable,
+- A secrets.json file located in the client folder of the LUSID SDK
+- A variable or raw string
+
+The enum below is for use in identifying the source of each credential when
+you create a client
+*/
 export enum Source {
   // Use an environment variable to populate the credential
   Environment,
@@ -18,34 +55,12 @@ export enum Source {
   Raw
 }
 
-// This class containes the OAuth2.0 details
-class Oauth2 {
-  // The access token to access the API
-  accessToken: string
-  // The time that each token lasts before expiring in seconds
-  tokenExpiryDuration: number
-  // The time till the token expires in seconds
-  tokenTimeTillExpiry: number
-  // The time of the last refresh in seconds since 1970
-  tokenLastRefreshTime: number
-  // The time that the last refresh check occured in seconds since 1970
-  tokenLastRefreshCheckTime: number
-
-  constructor(
-    accessToken: string | undefined,
-    tokenExpiryTime: number,
-    tokenTimeTillExpiry:number,
-    tokenLastRefreshTime: number,
-    tokenLastRefreshCheckTime: number
-  ) {
-    this.accessToken = accessToken
-    this.tokenExpiryDuration = tokenExpiryTime
-    this.tokenTimeTillExpiry = tokenTimeTillExpiry
-    this.tokenLastRefreshTime = tokenLastRefreshTime
-    this.tokenLastRefreshCheckTime = tokenLastRefreshCheckTime
-  }
-}
-
+/*
+To ensure that you have all the credentials correctly populated we use a
+Credentials class. This class is only ever used inside function calls. This
+means that the sensitive credentials are never stored and are only pulled from
+their sources when required.
+*/
 class Credentials {
   // The credentials
   public tokenUrl: string
@@ -70,28 +85,98 @@ class Credentials {
 
 }
 
-// The class for the client
+/*
+The LUSID API uses OAuth2.0 for authentication. The access token generated
+through the OAuth2.0 flow expires after a given period of time. To ensure
+uninterrupted access to LUSID we need to manage the refresh of this token.
+
+The class below allows you to keep track of the current access token as well
+as details regarding the token's expiry and last refresh
+ */
+class Oauth2 {
+  // The access token to access the API
+  public accessToken: string
+  // The time that each token lasts before expiring in seconds
+  public tokenExpiryDuration: number
+  // The time till the token expires in seconds
+  public tokenTimeTillExpiry: number
+  // The time of the last refresh in seconds since 1970
+  public tokenLastRefreshTime: number
+  // The time that the last refresh check occured in seconds since 1970
+  public tokenLastRefreshCheckTime: number
+
+  // Constructor method to set each property
+  constructor(
+    accessToken: string | undefined,
+    tokenExpiryTime: number,
+    tokenTimeTillExpiry:number,
+    tokenLastRefreshTime: number,
+    tokenLastRefreshCheckTime: number
+  ) {
+    this.accessToken = accessToken
+    this.tokenExpiryDuration = tokenExpiryTime
+    this.tokenTimeTillExpiry = tokenTimeTillExpiry
+    this.tokenLastRefreshTime = tokenLastRefreshTime
+    this.tokenLastRefreshCheckTime = tokenLastRefreshCheckTime
+  }
+}
+
+/*
+The Api class exists to ensure that all the methods available on each of the
+LUSID APIs show up when using code editors and interactive development
+environments which have features such as IntelliSense.
+
+It contains a property for each of the LUSID APIs.
+*/
+class Api {
+  public aggregation:  AggregationApi
+  public analyicsStores:  AnalyticsStoresApi
+  public applicationMetadata: ApplicationMetadataApi
+  public corporateActionSources: CorporateActionSourcesApi
+  public dataTypes: DataTypesApi
+  public derivedTransactionPortfolios: DerivedTransactionPortfoliosApi
+  public instruments: InstrumentsApi
+  public login: LoginApi
+  public portfolioGroups: PortfolioGroupsApi
+  public portfolios: PortfoliosApi
+  public propertyDefinitions: PropertyDefinitionsApi
+  public quotes: QuotesApi
+  public reconciliations: ReconciliationsApi
+  public referencePortfolio: ReferencePortfolioApi
+  public results: ResultsApi
+  public schemas: SchemasApi
+  public scopes: ScopesApi
+  public search: SearchApi
+  public systemConfiguration: SystemConfigurationApi
+  public transactionPortfolios: TransactionPortfoliosApi
+}
+
+/*
+To get connected with LUSID all you need to do is create a new client from
+the Client class below. This class handles storage of the location of each
+of the credentials, OAuth2.0 token refresh logic and is populated with every
+one of LUSIDs APIs and their methods.
+*/
 export class Client {
 
   // Authentications object to hold the oauth2 details
-  authentications: any = {}
+  authentications: {[key: string]: Oauth2}
   // The base path for the client to call
   basePath: string
   // The available API endpoints
-  api: any = {}
+  api: Api
   // The path to the secrets file which may be used to store credentials
   secretsFilePath: string
-  // The credentials
+  // The credential access details
   private tokenUrlDetails: [Source, string]
   private usernameDetails: [Source, string]
   private passwordDetails: [Source, string]
   private clientIdDetails: [Source, string]
   private clientSecretDetails: [Source, string]
-
   // The refresh limit in seconds before token expiry to trigger a refresh
   refreshLimit: number = refreshLimit
 
-  // Constructor method
+  // Constructor method which takes the details on where to find the credentials
   constructor(
     tokenUrlDetails: [Source, string],
     usernameDetails: [Source, string],
@@ -104,7 +189,7 @@ export class Client {
     // Set the path to the secrets file
     this.secretsFilePath = secretsPath
 
-    // Set the credentials
+    // Set the credential details
     this.tokenUrlDetails = tokenUrlDetails
     this.usernameDetails = usernameDetails
     this.passwordDetails = passwordDetails
@@ -117,10 +202,12 @@ export class Client {
     // Set the authentications to use oauth2
     this.authentications = {'oauth2': new Oauth2(undefined, 0,0,0,0)}
 
+    // Create a new instance of the API
+    this.api = new Api()
     // Iterate over the API endpoints and add each to our client
-    this.api = {}
     lusid.APIS.forEach((api: any) => {
-      let apiInstance = new api()
+      // Create a new instance of the api endpoint
+      let apiInstance = new api(this.basePath)
       // Get the name of the API
       let apiName: string = apiInstance.constructor.name
       // Shorten the api name slightly by removing API at the end
@@ -129,13 +216,12 @@ export class Client {
       apiName = apiName[0].toLowerCase() + apiName.slice(1)
       // Add the endpoint to our client
       this.api[apiName] = apiInstance
-      // Add the base path and accessToken
-      this.api[apiName]['_basePath'] = this.basePath
-      this.api[apiName]['authentications']['oauth2']['accessToken'] = this.authentications['oauth2'].accessToken
+
       // For each function on the API
       for (var prop in this.api[apiName]) {
         // Exclude two non-api specific functions
         if (typeof(this.api[apiName][prop]) == 'function' && !['setDefaultAuthentication', 'setApiKey'].includes(prop)) {
+          // Wrap each method with token refresh logic
           this.api[apiName][prop] = this.apiFunctionWrapper(
             this.api[apiName][prop],
             this.api[apiName],
@@ -147,8 +233,11 @@ export class Client {
     })
   }
 
-  // Wrapper function to add refresh token logic to every API call
-  apiFunctionWrapper(apiFunction, api, self) {
+  /*
+  The function below is a wrapper function which wraps the input function
+  'apiFunction' with token refresh logic to ensure uninterrupted access to LUSID.
+  */
+  public apiFunctionWrapper(apiFunction, api, self) {
 
     // Return a function
     return function() {
@@ -172,11 +261,12 @@ export class Client {
           self.authentications.oauth2 = oauth2Details
           // Update the access token of the api being called
           api['authentications']['oauth2']['accessToken'] = self.authentications.oauth2.accessToken
-          /* Resolve the promise with the function that was wrapped
-          /* In this case api is the api that this function is a part of,
-          /* this is required to ensure that the function is called
-          /* in the right context. The second argument topLevelArguments
-          /* is the arguments passed into the Wrapper
+          /*
+          Resolve the promise with the function that was wrapped
+          In this case api is the api that this function is a part of,
+          this is required to ensure that the function is called
+          in the right context. The second argument topLevelArguments
+          is the arguments passed into the Wrapper
           */
           resolve(apiFunction.apply(api, topLevelArguments))
         })
@@ -186,7 +276,9 @@ export class Client {
     }
   }
 
-  // Gets the credentials from the specified source
+  /*
+  The fetchCredentials function gets the credentials from the specified source
+  */
   private fetchCredentials(source: Source, value: string): string {
 
     // Environment source
@@ -232,13 +324,20 @@ export class Client {
     return credential
   }
 
-  // Gets the current time in seconds since 1970, used for token refresh
+  /*
+  Gets the current time in seconds since 1970, used for token refresh calculations
+  and to keep track of the last refresh
+  */
   private getCurrentEpochTime() {
     return Math.floor(new Date().getTime() / 1000)
   }
 
-  // This function handles refreshing the token when required
-  private refreshToken(
+  /*
+  This function handles refreshing the token when required. It checks for a
+  token refresh and if required it fetches the appropriate credentials, calls
+  the identity provider and retrieves a new access token
+  */
+  private async refreshToken(
     oauth2: Oauth2,
     refreshLimit: number,
     tokenUrlDetails: [Source, string],
@@ -247,13 +346,13 @@ export class Client {
     clientIdDetails: [Source, string],
     clientSecretDetails: [Source, string]
   ): Promise<Oauth2> {
-
+      // Return a promise
       return new Promise((resolve, reject) => {
 
         // Check if the token needs a refresh
         if (this.checkTokenRefresh(oauth2, refreshLimit)) {
 
-          // Populate the credentials using the details provided to the client
+          // If so, populate the credentials
           var credentials = new Credentials(
             this.fetchCredentials(tokenUrlDetails[0], tokenUrlDetails[1]),
             this.fetchCredentials(usernameDetails[0], usernameDetails[1]),
@@ -270,8 +369,9 @@ export class Client {
             credentials.clientId,
             credentials.clientSecret
           )
-          // Call then and return the oauth object to avoid nested promises in return
+          // Return the oauth object to avoid nested promises in return
           .then((oauthObject: Oauth2) => {
+            // Resolve the promise
             resolve(oauthObject)
           })
           .catch((err) => reject(err))
@@ -282,7 +382,13 @@ export class Client {
     })
   }
 
-  // Checks if the access token requires a refresh
+  /*
+  This function checks if the access token supplied via an OAuth2.0 flow requires
+  refreshing. It looks to see if the access token is undefined (meaning that
+  it has never been set) or if it is close to expiring.
+
+  If a refresh is required it returns true, else it returns false
+  */
   private checkTokenRefresh(
     oauth2: Oauth2,
     refreshLimit: number
@@ -313,7 +419,9 @@ export class Client {
   }
 
 
-  // Gets an access token form Okta to use to interact with the API
+  /*
+  This function calls the identity provider to get an access token
+  */
   private async getAccessToken(
     tokenUrl: string,
     username: string,
@@ -326,10 +434,10 @@ export class Client {
     return new Promise((resolve, reject) => {
 
       // Set the headers for authentication with Okta - only x-www-form-urlencoded supported
-      var headers = {headers: {
+      var headers = {
         "Accept": "application/json",
         "Content-Type": "application/x-www-form-urlencoded"
-      }}
+      }
 
       // Set the request body for authentication with Okta
       var requestBody = querystring.stringify({
@@ -342,32 +450,30 @@ export class Client {
         })
 
       // Make a POST request to Okta to get a LUSID access token
-      superagent
-        .post(tokenUrl)
-        .send(requestBody)
-        .set(headers)
-        .then((result) => {
-          return {
-            statusCode: result.statusCode,
-            apiToken: result.body.access_token,
-            apiTokenExpiry: result.body.expires_in
-          }})
-        // Using the OktaResponse get the access token and refresh details
-        .then((oktaResponse) => {
-          if (oktaResponse.statusCode == 200) {
-            let oAuth2 = new Oauth2(
-              oktaResponse.apiToken,
-              oktaResponse.apiTokenExpiry,
-              oktaResponse.apiTokenExpiry,
-              this.getCurrentEpochTime(),
-              this.getCurrentEpochTime()
-            )
-            resolve(oAuth2)
-          } else {
-            throw "Okta returned status code of " + oktaResponse.statusCode + " please check your connection and credentials"
-          }
-        })
-        .catch((err) => reject(err))
+      let localVarRequestOptions: localVarRequest.Options = {
+          method: 'POST',
+          headers: headers,
+          uri: tokenUrl,
+          useQuerystring: false,
+          json: true,
+          body: requestBody
+      };
+
+      localVarRequest(localVarRequestOptions, (err, res, body) => {
+        if (err) {
+          reject (err)
+        } else if (res.statusCode == 200) {
+          let oAuth2 = new Oauth2(
+            body.access_token,
+            body.expires_in,
+            body.expires_in,
+            this.getCurrentEpochTime(),
+            this.getCurrentEpochTime())
+          resolve (oAuth2)
+        } else {
+          reject (body)
+        }
+      })
     })
   }
 
