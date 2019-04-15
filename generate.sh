@@ -52,6 +52,10 @@ echo "import { PropertyValue } from '../model/propertyValue';" > api/_portfolios
 cat api/portfoliosApi.ts >> api/_portfoliosApi.ts
 rm api/portfoliosApi.ts
 mv api/_portfoliosApi.ts api/portfoliosApi.ts
+echo "export * from './client/client';" > _api.ts
+cat api.ts >> _api.ts
+rm api.ts
+mv _api.ts api.ts
 
 cd ..
 
