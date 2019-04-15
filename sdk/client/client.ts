@@ -6,7 +6,7 @@ const querystring = require('querystring')
 const superagent = require('superagent')
 const secretsPath = './secrets.json'
 
-const refreshLimit = 300
+const refreshLimit = 3580
 
 // Create an enum for use in defining the source of each credential
 export enum Source {
@@ -46,6 +46,30 @@ class Oauth2 {
   }
 }
 
+class Credentials {
+  // The credentials
+  public tokenUrl: string
+  public username: string
+  public password: string
+  public clientId: string
+  public clientSecret: string
+
+  constructor(
+    tokenUrl: string,
+    username: string,
+    password: string,
+    clientId: string,
+    clientSecret: string
+  ) {
+      this.tokenUrl = tokenUrl
+      this.username = username
+      this.password = password
+      this.clientId = clientId
+      this.clientSecret = clientSecret
+  }
+
+}
+
 // The class for the client
 export class Client {
 
@@ -58,35 +82,37 @@ export class Client {
   // The path to the secrets file which may be used to store credentials
   secretsFilePath: string
   // The credentials
-  private tokenUrl: string
-  private username: string
-  private password: string
-  private clientId: string
-  private clientSecret: string
+  private tokenUrlDetails: [Source, string]
+  private usernameDetails: [Source, string]
+  private passwordDetails: [Source, string]
+  private clientIdDetails: [Source, string]
+  private clientSecretDetails: [Source, string]
 
   // The refresh limit in seconds before token expiry to trigger a refresh
   refreshLimit: number = refreshLimit
 
   // Constructor method
   constructor(
-    tokenUrl: [Source, string],
-    username: [Source, string],
-    password: [Source, string],
-    clientId: [Source, string],
-    clientSecret: [Source, string],
-    apiUrl: [Source, string],
+    tokenUrlDetails: [Source, string],
+    usernameDetails: [Source, string],
+    passwordDetails: [Source, string],
+    clientIdDetails: [Source, string],
+    clientSecretDetails: [Source, string],
+    apiUrlDetails: [Source, string],
     ) {
 
     // Set the path to the secrets file
     this.secretsFilePath = secretsPath
 
     // Set the credentials
-    this.tokenUrl = this.fetchCredentials(tokenUrl[0], tokenUrl[1])
-    this.username = this.fetchCredentials(username[0], username[1])
-    this.password = this.fetchCredentials(password[0], password[1])
-    this.clientId = this.fetchCredentials(clientId[0], clientId[1])
-    this.clientSecret = this.fetchCredentials(clientSecret[0], clientSecret[1])
-    this.basePath = this.fetchCredentials(apiUrl[0], apiUrl[1])
+    this.tokenUrlDetails = tokenUrlDetails
+    this.usernameDetails = usernameDetails
+    this.passwordDetails = passwordDetails
+    this.clientIdDetails = clientIdDetails
+    this.clientSecretDetails = clientSecretDetails
+
+    // Set the base path for the API
+    this.basePath = this.fetchCredentials(apiUrlDetails[0], apiUrlDetails[1])
 
     // Set the authentications to use oauth2
     this.authentications = {'oauth2': new Oauth2(undefined, 0,0,0,0)}
@@ -130,16 +156,15 @@ export class Client {
       var topLevelArguments = arguments
       // Return a promise to ensure that the function remains 'thenable'
       return new Promise(function(resolve, reject) {
-
         // Trigger a token refresh
         var oauthPopulated = self.refreshToken(
           self.authentications['oauth2'],
           self.refreshLimit,
-          self.tokenUrl,
-          self.username,
-          self.password,
-          self.clientId,
-          self.clientSecret
+          self.tokenUrlDetails,
+          self.usernameDetails,
+          self.passwordDetails,
+          self.clientIdDetails,
+          self.clientSecretDetails
         )
         // Once this has completed pass the oauth2 details on
         oauthPopulated.then(function(oauth2Details: Oauth2) {
@@ -216,11 +241,11 @@ export class Client {
   private refreshToken(
     oauth2: Oauth2,
     refreshLimit: number,
-    tokenUrl: string,
-    username: string,
-    password: string,
-    clientId: string,
-    clientSecret: string
+    tokenUrlDetails: [Source, string],
+    usernameDetails: [Source, string],
+    passwordDetails: [Source, string],
+    clientIdDetails: [Source, string],
+    clientSecretDetails: [Source, string]
   ): Promise<Oauth2> {
 
       return new Promise((resolve, reject) => {
@@ -228,13 +253,22 @@ export class Client {
         // Check if the token needs a refresh
         if (this.checkTokenRefresh(oauth2, refreshLimit)) {
 
-          // If so get a new access token
+          // Populate the credentials using the details provided to the client
+          var credentials = new Credentials(
+            this.fetchCredentials(tokenUrlDetails[0], tokenUrlDetails[1]),
+            this.fetchCredentials(usernameDetails[0], usernameDetails[1]),
+            this.fetchCredentials(passwordDetails[0], passwordDetails[1]),
+            this.fetchCredentials(clientIdDetails[0], clientIdDetails[1]),
+            this.fetchCredentials(clientSecretDetails[0], clientSecretDetails[1])
+          )
+
+          // Get a new access token using these credentials
           this.getAccessToken(
-            tokenUrl,
-            username,
-            password,
-            clientId,
-            clientSecret
+            credentials.tokenUrl,
+            credentials.username,
+            credentials.password,
+            credentials.clientId,
+            credentials.clientSecret
           )
           // Call then and return the oauth object to avoid nested promises in return
           .then((oauthObject: Oauth2) => {
@@ -274,6 +308,7 @@ export class Client {
       return true
     }
     // Else don't trigger a refresh
+    console.log('Access Token Valid - No refresh required')
     return false
   }
 

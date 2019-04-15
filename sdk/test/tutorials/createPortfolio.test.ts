@@ -1,6 +1,6 @@
 // Require the LUSID SDK and libraries
 import {
-  CreateTransactionPortfolioRequest, Portfolio, ErrorResponse } from "../../api";
+  CreateTransactionPortfolioRequest, Portfolio, ErrorResponse, AggregationApi } from "../../api";
 
 import { Client, Source } from '../../client/client'
 import { IncomingMessage } from "http";
@@ -35,6 +35,18 @@ createRequest.displayName = "UK Equities"
 createRequest.code = "UKEQTY"
 createRequest.baseCurrency = "GBP"
 
+setTimeout(function() {
+  createTransactionPortfolio(uuid4(), createRequest)
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err))}, 10000)
+
+setTimeout(function() {
+  createTransactionPortfolio(uuid4(), createRequest)
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err))}, 25000)
+
 createTransactionPortfolio(uuid4(), createRequest)
 .then((res) => console.log(res))
 .catch((err) => console.log(err))
+
+console.log(client)

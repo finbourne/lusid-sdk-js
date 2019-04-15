@@ -17,6 +17,17 @@ var createRequest = new api_1.CreateTransactionPortfolioRequest();
 createRequest.displayName = "UK Equities";
 createRequest.code = "UKEQTY";
 createRequest.baseCurrency = "GBP";
+setTimeout(function () {
+    createTransactionPortfolio(uuid4(), createRequest)
+        .then(function (res) { return console.log(res); })
+        .catch(function (err) { return console.log(err); });
+}, 10000);
+setTimeout(function () {
+    createTransactionPortfolio(uuid4(), createRequest)
+        .then(function (res) { return console.log(res); })
+        .catch(function (err) { return console.log(err); });
+}, 25000);
 createTransactionPortfolio(uuid4(), createRequest)
     .then(function (res) { return console.log(res); })
     .catch(function (err) { return console.log(err); });
+console.log(client);
