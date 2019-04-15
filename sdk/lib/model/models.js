@@ -351,7 +351,6 @@ var enumsMap = {
     "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": holdingsAdjustmentHeader_1.HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
     "IUnitDefinitionDto.SchemaEnum": iUnitDefinitionDto_1.IUnitDefinitionDto.SchemaEnum,
     "Instrument.StateEnum": instrument_1.Instrument.StateEnum,
-    "InstrumentIdTypeDescriptor.CardinalityEnum": instrumentIdTypeDescriptor_1.InstrumentIdTypeDescriptor.CardinalityEnum,
     "Link.RelationEnum": link_1.Link.RelationEnum,
     "Link.MethodEnum": link_1.Link.MethodEnum,
     "MarketContextSuppliers.FxEnum": marketContextSuppliers_1.MarketContextSuppliers.FxEnum,
