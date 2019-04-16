@@ -7,7 +7,7 @@
   "main": "./lib/api.js",
   "types": "./lib/api.d.ts",
   "scripts": {
-    "test": "mocha --timeout 10000 --recursive lib/",
+    "test": "mocha --timeout 30000 --recursive lib/",
     "build": "tsc --outDir lib/"
   },
   "repository": {
