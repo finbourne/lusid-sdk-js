@@ -12,7 +12,6 @@ function createTransactionPortfolio(
   createRequest: CreateTransactionPortfolioRequest
   ) :Promise<Portfolio> {
     return new Promise((resolve, reject) => {
-      console.log(client.api.transactionPortfolios.createPortfolio)
       client.api.transactionPortfolios.createPortfolio(
         scope,
         createRequest
@@ -27,20 +26,15 @@ createRequest.displayName = "UK Equities"
 createRequest.code = "UKEQTY"
 createRequest.baseCurrency = "GBP"
 
-setTimeout(function() {
-  createTransactionPortfolio(uuid4(), createRequest)
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-}, 10000)
-
-setTimeout(function() {
-  createTransactionPortfolio(uuid4(), createRequest)
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err))
-}, 25000)
-
-createTransactionPortfolio(uuid4(), createRequest)
-.then((res) => console.log(res))
-.catch((err) => console.log(err))
+describe('Create portfolios', () => {
+  it('Should create a portfolio', (done) => {
+    createTransactionPortfolio(uuid4(), createRequest)
+    .then((res) => {
+      console.log(res)
+      done()
+    })
+    .catch((err) => console.log(err))
+  })
+})
 
 export {};

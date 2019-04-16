@@ -3,3 +3,4 @@
 !lib/api/*
 !lib/model/*
 !package.json
+!lib/client/*

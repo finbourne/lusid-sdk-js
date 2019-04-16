@@ -31,7 +31,7 @@ function loadFromCsv(filePath) {
     // Returns a promise
     return new Promise(function (resolve, reject) {
         // Use the csvtojson module to import a CSV file
-        return csv()
+        csv()
             .fromFile(filePath)
             // Produces an array of objects, one for each row (instrument) of the CSV
             .then(function (instruments) { return resolve(instruments); })
@@ -43,8 +43,13 @@ function loadFromJson(filePath) {
     // Returns a promise
     return new Promise(function (resolve, reject) {
         // Use the csvtojson module to import a CSV file
-        var instruments = require(filePath);
-        return resolve(instruments);
+        try {
+            var instruments = require(filePath);
+            resolve(instruments);
+        }
+        catch (err) {
+            reject(err);
+        }
     });
 }
 var FileType;
@@ -53,13 +58,13 @@ var FileType;
     FileType["Csv"] = "Csv";
 })(FileType || (FileType = {}));
 function upsertInstrumentsFromFile(filePath, fileType) {
-    if (fileType == FileType.Json) {
-        var loadFunction = loadFromJson(filePath);
-    }
-    else {
-        var loadFunction = loadFromCsv(filePath);
-    }
     return new Promise(function (resolve, reject) {
+        if (fileType == FileType.Json) {
+            var loadFunction = loadFromJson(filePath);
+        }
+        else {
+            var loadFunction = loadFromCsv(filePath);
+        }
         loadFunction.then(function (instruments) {
             // Use a reduce function to convert each instrument object into a LUSID model
             return instruments.reduce(function (map, instrument) {
@@ -108,15 +113,15 @@ function getLuidForInstruments(identifierType, identifierValues) {
 }
 // Get the Lusid Instrument Id for our instruments
 function addLusidInstrumentIdsFromFile(filePath, fileType) {
-    if (fileType == FileType.Json) {
-        var loadFunction = loadFromJson(filePath);
-    }
-    else {
-        var loadFunction = loadFromCsv(filePath);
-    }
     return new Promise(function (resolve, reject) {
-        // Get your instruments from a CSV file
-        return loadFunction
+        if (fileType == FileType.Json) {
+            var loadFunction = loadFromJson(filePath);
+        }
+        else {
+            var loadFunction = loadFromCsv(filePath);
+        }
+        // Get your instruments from a the file
+        loadFunction
             .then(function (instruments) {
             // Get the figi for each instrument
             return [
@@ -192,20 +197,27 @@ securityCurrencyCode.lifeTime = api_1.CreatePropertyDefinitionRequest.LifeTimeEn
 securityCurrencyCode.type = api_1.CreatePropertyDefinitionRequest.TypeEnum.Label;
 // Once the instruments have been upserted and property definition created you
 // can add your own properties
-Promise.all([
-    upsertInstrumentsFromFile(instrumentsFile, FileType.Json),
-    createProperty(securityCurrencyCode)
-])
-    .then(function (res) {
-    return {
-        property: res[1],
-        instruments: addLusidInstrumentIdsFromFile(instrumentsFile, FileType.Json)
-    };
-})
-    .then(function (response) {
-    return response.instruments.then(function (instruments) {
-        return upsertInstrumentProperties(response.property['key'], 'currency', instruments);
+describe('Load Instrument Master', function () {
+    it('Should create instruments with properties', function (done) {
+        Promise.all([
+            upsertInstrumentsFromFile(instrumentsFile, FileType.Json),
+            createProperty(securityCurrencyCode)
+        ])
+            .then(function (res) {
+            return {
+                property: res[1],
+                instruments: addLusidInstrumentIdsFromFile(instrumentsFile, FileType.Json)
+            };
+        })
+            .then(function (response) {
+            return response.instruments.then(function (instruments) {
+                return upsertInstrumentProperties(response.property['key'], 'currency', instruments);
+            });
+        })
+            .then(function (res) {
+            console.log(res);
+            done();
+        })
+            .catch(function (err) { return console.log(err); });
     });
-})
-    .then(function (res) { return console.log(res); })
-    .catch(function (err) { return console.log(err); });
+});
