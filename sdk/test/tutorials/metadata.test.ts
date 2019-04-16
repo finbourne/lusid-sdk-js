@@ -1,7 +1,15 @@
 // Require the LUSID client and libraries
 import {client} from './clientBuilder'
 
-client.api.applicationMetadata.getLusidVersions().then((result) => {
-  console.log(result.body)})
+describe('Collect Metatdata', () => {
+  it('Should fetch the LUSID version information', (done) => {
+    client.api.applicationMetadata.getLusidVersions()
+    .then((result) => {
+      console.log(result.body)
+      done()
+    })
+    .catch((err) => console.log(err))
+  })
+})
 
 export {};

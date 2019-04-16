@@ -3,8 +3,11 @@ services:
 - docker
 script:
   - cd sdk
-  - docker build -t finbourne/lusid-sdk-js-test .
-  - docker run -e FBN_TOKEN_URL=$FBN_TOKEN_URL -e FBN_USERNAME=$FBN_USERNAME -e FBN_PASSWORD=$FBN_PASSWORD -e FBN_CLIENT_ID=$FBN_CLIENT_ID -e FBN_CLIENT_SECRET=$FBN_CLIENT_SECRET -e FBN_LUSID_API_URL=$FBN_LUSID_API_URL finbourne/lusid-sdk-js-test
+  - docker build -t finbourne/lusid-sdk-nodejs-test .
+  - docker run -e FBN_TOKEN_URL=$FBN_TOKEN_URL -e FBN_USERNAME=$FBN_USERNAME
+  -e FBN_PASSWORD=$FBN_PASSWORD -e FBN_CLIENT_ID=$FBN_CLIENT_ID
+  -e FBN_CLIENT_SECRET=$FBN_CLIENT_SECRET -e FBN_LUSID_API_URL=$FBN_LUSID_API_URL
+  -v /usr/src/node_modules -v $(pwd):/usr/src finbourne/lusid-sdk-js-test
 notifications:
   slack:
     rooms:
