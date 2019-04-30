@@ -1,3 +1,5 @@
+export * from './accessControlledAction';
+export * from './actionId';
 export * from './addTransactionPropertyResponse';
 export * from './adjustHolding';
 export * from './adjustHoldingRequest';
@@ -8,6 +10,7 @@ export * from './aggregationRequest';
 export * from './aggregationResponseNode';
 export * from './analyticStore';
 export * from './analyticStoreKey';
+export * from './codeOnlyIdPathDefinition';
 export * from './completePortfolio';
 export * from './configurationRecipe';
 export * from './constituentsAdjustmentHeader';
@@ -43,6 +46,7 @@ export * from './executionRequest';
 export * from './expandedGroup';
 export * from './fieldSchema';
 export * from './fileResponse';
+export * from './fullIdPathDefinition';
 export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
 export * from './getReferencePortfolioConstituentsResponse';
@@ -50,6 +54,7 @@ export * from './holdingAdjustment';
 export * from './holdingsAdjustment';
 export * from './holdingsAdjustmentHeader';
 export * from './iUnitDefinitionDto';
+export * from './idPathDefinition';
 export * from './instrument';
 export * from './instrumentAnalytic';
 export * from './instrumentDefinition';
@@ -116,7 +121,9 @@ export * from './resourceListOfValueType';
 export * from './resultDataSchema';
 export * from './results';
 export * from './schema';
+export * from './scopeAndCodeIdPathDefinition';
 export * from './scopeDefinition';
+export * from './scopeIdPathDefinition';
 export * from './stream';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
@@ -158,6 +165,8 @@ export * from './versionedResourceListOfTransaction';
 
 import localVarRequest = require('request');
 
+import { AccessControlledAction } from './accessControlledAction';
+import { ActionId } from './actionId';
 import { AddTransactionPropertyResponse } from './addTransactionPropertyResponse';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
@@ -168,6 +177,7 @@ import { AggregationRequest } from './aggregationRequest';
 import { AggregationResponseNode } from './aggregationResponseNode';
 import { AnalyticStore } from './analyticStore';
 import { AnalyticStoreKey } from './analyticStoreKey';
+import { CodeOnlyIdPathDefinition } from './codeOnlyIdPathDefinition';
 import { CompletePortfolio } from './completePortfolio';
 import { ConfigurationRecipe } from './configurationRecipe';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
@@ -203,6 +213,7 @@ import { ExecutionRequest } from './executionRequest';
 import { ExpandedGroup } from './expandedGroup';
 import { FieldSchema } from './fieldSchema';
 import { FileResponse } from './fileResponse';
+import { FullIdPathDefinition } from './fullIdPathDefinition';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
@@ -210,6 +221,7 @@ import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingsAdjustment } from './holdingsAdjustment';
 import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
+import { IdPathDefinition } from './idPathDefinition';
 import { Instrument } from './instrument';
 import { InstrumentAnalytic } from './instrumentAnalytic';
 import { InstrumentDefinition } from './instrumentDefinition';
@@ -276,7 +288,9 @@ import { ResourceListOfValueType } from './resourceListOfValueType';
 import { ResultDataSchema } from './resultDataSchema';
 import { Results } from './results';
 import { Schema } from './schema';
+import { ScopeAndCodeIdPathDefinition } from './scopeAndCodeIdPathDefinition';
 import { ScopeDefinition } from './scopeDefinition';
+import { ScopeIdPathDefinition } from './scopeIdPathDefinition';
 import { Stream } from './stream';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
@@ -350,6 +364,7 @@ let enumsMap: {[index: string]: any} = {
         "HoldingsAdjustment.UnmatchedHoldingMethodEnum": HoldingsAdjustment.UnmatchedHoldingMethodEnum,
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
+        "IdPathDefinition.CategoryEnum": IdPathDefinition.CategoryEnum,
         "Instrument.StateEnum": Instrument.StateEnum,
         "Link.RelationEnum": Link.RelationEnum,
         "Link.MethodEnum": Link.MethodEnum,
@@ -398,6 +413,8 @@ let enumsMap: {[index: string]: any} = {
 }
 
 let typeMap: {[index: string]: any} = {
+    "AccessControlledAction": AccessControlledAction,
+    "ActionId": ActionId,
     "AddTransactionPropertyResponse": AddTransactionPropertyResponse,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingRequest": AdjustHoldingRequest,
@@ -408,6 +425,7 @@ let typeMap: {[index: string]: any} = {
     "AggregationResponseNode": AggregationResponseNode,
     "AnalyticStore": AnalyticStore,
     "AnalyticStoreKey": AnalyticStoreKey,
+    "CodeOnlyIdPathDefinition": CodeOnlyIdPathDefinition,
     "CompletePortfolio": CompletePortfolio,
     "ConfigurationRecipe": ConfigurationRecipe,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
@@ -443,6 +461,7 @@ let typeMap: {[index: string]: any} = {
     "ExpandedGroup": ExpandedGroup,
     "FieldSchema": FieldSchema,
     "FileResponse": FileResponse,
+    "FullIdPathDefinition": FullIdPathDefinition,
     "GetInstrumentsResponse": GetInstrumentsResponse,
     "GetQuotesResponse": GetQuotesResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
@@ -450,6 +469,7 @@ let typeMap: {[index: string]: any} = {
     "HoldingsAdjustment": HoldingsAdjustment,
     "HoldingsAdjustmentHeader": HoldingsAdjustmentHeader,
     "IUnitDefinitionDto": IUnitDefinitionDto,
+    "IdPathDefinition": IdPathDefinition,
     "Instrument": Instrument,
     "InstrumentAnalytic": InstrumentAnalytic,
     "InstrumentDefinition": InstrumentDefinition,
@@ -516,7 +536,9 @@ let typeMap: {[index: string]: any} = {
     "ResultDataSchema": ResultDataSchema,
     "Results": Results,
     "Schema": Schema,
+    "ScopeAndCodeIdPathDefinition": ScopeAndCodeIdPathDefinition,
     "ScopeDefinition": ScopeDefinition,
+    "ScopeIdPathDefinition": ScopeIdPathDefinition,
     "Stream": Stream,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
