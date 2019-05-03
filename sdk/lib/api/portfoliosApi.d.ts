@@ -116,13 +116,14 @@ export declare class PortfoliosApi {
      * @summary List portfolios
      * @param effectiveAt Optional. The effective date of the data
      * @param asAt Optional. The AsAt date of the data
+     * @param page Optional. The pagination token to continue listing portfolios. This value is returned from a previous call to ListPortfolios.  If this is set, then the sortBy, filter, query, effectiveAt, and asAt fields must not have changed. Also, if set, a start  value cannot be set.
      * @param sortBy Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName
      * @param start Optional. When paginating, skip this number of results
      * @param limit Optional. When paginating, limit the number of returned results to this many.
      * @param filter Optional. Expression to filter the result set
      * @param query Optional. Expression specifying the criteria that the returned portfolios must meet
      */
-    listPortfolios(effectiveAt?: Date, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, query?: string, options?: {
+    listPortfolios(effectiveAt?: Date, asAt?: Date, page?: string, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, query?: string, options?: {
         headers: {
             [name: string]: string;
         };
