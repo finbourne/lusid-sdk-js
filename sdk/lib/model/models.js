@@ -28,6 +28,7 @@ __export(require("./corporateActionTransitionRequest"));
 __export(require("./createAnalyticStoreRequest"));
 __export(require("./createCorporateAction"));
 __export(require("./createCorporateActionSourceRequest"));
+__export(require("./createCutLabelDefinitionRequest"));
 __export(require("./createDataTypeRequest"));
 __export(require("./createDerivedTransactionPortfolioRequest"));
 __export(require("./createPortfolioDetails"));
@@ -38,6 +39,8 @@ __export(require("./createResults"));
 __export(require("./createTransactionPortfolioRequest"));
 __export(require("./createUnitDefinition"));
 __export(require("./currencyAndAmount"));
+__export(require("./cutLabelDefinition"));
+__export(require("./cutLocalTime"));
 __export(require("./dataType"));
 __export(require("./deleteInstrumentPropertyRequest"));
 __export(require("./deleteInstrumentResponse"));
@@ -108,6 +111,7 @@ __export(require("./resourceListOfAnalyticStoreKey"));
 __export(require("./resourceListOfConstituentsAdjustmentHeader"));
 __export(require("./resourceListOfCorporateAction"));
 __export(require("./resourceListOfCorporateActionSource"));
+__export(require("./resourceListOfCutLabelDefinition"));
 __export(require("./resourceListOfDataType"));
 __export(require("./resourceListOfHoldingsAdjustmentHeader"));
 __export(require("./resourceListOfIUnitDefinitionDto"));
@@ -143,6 +147,7 @@ __export(require("./transactionPropertyMapping"));
 __export(require("./transactionPropertyMappingRequest"));
 __export(require("./transactionQueryParameters"));
 __export(require("./transactionRequest"));
+__export(require("./updateCutLabelDefinitionRequest"));
 __export(require("./updateDataTypeRequest"));
 __export(require("./updateInstrumentIdentifierRequest"));
 __export(require("./updatePortfolioGroupRequest"));
@@ -192,6 +197,7 @@ var corporateActionTransitionRequest_1 = require("./corporateActionTransitionReq
 var createAnalyticStoreRequest_1 = require("./createAnalyticStoreRequest");
 var createCorporateAction_1 = require("./createCorporateAction");
 var createCorporateActionSourceRequest_1 = require("./createCorporateActionSourceRequest");
+var createCutLabelDefinitionRequest_1 = require("./createCutLabelDefinitionRequest");
 var createDataTypeRequest_1 = require("./createDataTypeRequest");
 var createDerivedTransactionPortfolioRequest_1 = require("./createDerivedTransactionPortfolioRequest");
 var createPortfolioDetails_1 = require("./createPortfolioDetails");
@@ -202,6 +208,8 @@ var createResults_1 = require("./createResults");
 var createTransactionPortfolioRequest_1 = require("./createTransactionPortfolioRequest");
 var createUnitDefinition_1 = require("./createUnitDefinition");
 var currencyAndAmount_1 = require("./currencyAndAmount");
+var cutLabelDefinition_1 = require("./cutLabelDefinition");
+var cutLocalTime_1 = require("./cutLocalTime");
 var dataType_1 = require("./dataType");
 var deleteInstrumentPropertyRequest_1 = require("./deleteInstrumentPropertyRequest");
 var deleteInstrumentResponse_1 = require("./deleteInstrumentResponse");
@@ -272,6 +280,7 @@ var resourceListOfAnalyticStoreKey_1 = require("./resourceListOfAnalyticStoreKey
 var resourceListOfConstituentsAdjustmentHeader_1 = require("./resourceListOfConstituentsAdjustmentHeader");
 var resourceListOfCorporateAction_1 = require("./resourceListOfCorporateAction");
 var resourceListOfCorporateActionSource_1 = require("./resourceListOfCorporateActionSource");
+var resourceListOfCutLabelDefinition_1 = require("./resourceListOfCutLabelDefinition");
 var resourceListOfDataType_1 = require("./resourceListOfDataType");
 var resourceListOfHoldingsAdjustmentHeader_1 = require("./resourceListOfHoldingsAdjustmentHeader");
 var resourceListOfIUnitDefinitionDto_1 = require("./resourceListOfIUnitDefinitionDto");
@@ -307,6 +316,7 @@ var transactionPropertyMapping_1 = require("./transactionPropertyMapping");
 var transactionPropertyMappingRequest_1 = require("./transactionPropertyMappingRequest");
 var transactionQueryParameters_1 = require("./transactionQueryParameters");
 var transactionRequest_1 = require("./transactionRequest");
+var updateCutLabelDefinitionRequest_1 = require("./updateCutLabelDefinitionRequest");
 var updateDataTypeRequest_1 = require("./updateDataTypeRequest");
 var updateInstrumentIdentifierRequest_1 = require("./updateInstrumentIdentifierRequest");
 var updatePortfolioGroupRequest_1 = require("./updatePortfolioGroupRequest");
@@ -437,6 +447,7 @@ var typeMap = {
     "CreateAnalyticStoreRequest": createAnalyticStoreRequest_1.CreateAnalyticStoreRequest,
     "CreateCorporateAction": createCorporateAction_1.CreateCorporateAction,
     "CreateCorporateActionSourceRequest": createCorporateActionSourceRequest_1.CreateCorporateActionSourceRequest,
+    "CreateCutLabelDefinitionRequest": createCutLabelDefinitionRequest_1.CreateCutLabelDefinitionRequest,
     "CreateDataTypeRequest": createDataTypeRequest_1.CreateDataTypeRequest,
     "CreateDerivedTransactionPortfolioRequest": createDerivedTransactionPortfolioRequest_1.CreateDerivedTransactionPortfolioRequest,
     "CreatePortfolioDetails": createPortfolioDetails_1.CreatePortfolioDetails,
@@ -447,6 +458,8 @@ var typeMap = {
     "CreateTransactionPortfolioRequest": createTransactionPortfolioRequest_1.CreateTransactionPortfolioRequest,
     "CreateUnitDefinition": createUnitDefinition_1.CreateUnitDefinition,
     "CurrencyAndAmount": currencyAndAmount_1.CurrencyAndAmount,
+    "CutLabelDefinition": cutLabelDefinition_1.CutLabelDefinition,
+    "CutLocalTime": cutLocalTime_1.CutLocalTime,
     "DataType": dataType_1.DataType,
     "DeleteInstrumentPropertyRequest": deleteInstrumentPropertyRequest_1.DeleteInstrumentPropertyRequest,
     "DeleteInstrumentResponse": deleteInstrumentResponse_1.DeleteInstrumentResponse,
@@ -517,6 +530,7 @@ var typeMap = {
     "ResourceListOfConstituentsAdjustmentHeader": resourceListOfConstituentsAdjustmentHeader_1.ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfCorporateAction": resourceListOfCorporateAction_1.ResourceListOfCorporateAction,
     "ResourceListOfCorporateActionSource": resourceListOfCorporateActionSource_1.ResourceListOfCorporateActionSource,
+    "ResourceListOfCutLabelDefinition": resourceListOfCutLabelDefinition_1.ResourceListOfCutLabelDefinition,
     "ResourceListOfDataType": resourceListOfDataType_1.ResourceListOfDataType,
     "ResourceListOfHoldingsAdjustmentHeader": resourceListOfHoldingsAdjustmentHeader_1.ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": resourceListOfIUnitDefinitionDto_1.ResourceListOfIUnitDefinitionDto,
@@ -552,6 +566,7 @@ var typeMap = {
     "TransactionPropertyMappingRequest": transactionPropertyMappingRequest_1.TransactionPropertyMappingRequest,
     "TransactionQueryParameters": transactionQueryParameters_1.TransactionQueryParameters,
     "TransactionRequest": transactionRequest_1.TransactionRequest,
+    "UpdateCutLabelDefinitionRequest": updateCutLabelDefinitionRequest_1.UpdateCutLabelDefinitionRequest,
     "UpdateDataTypeRequest": updateDataTypeRequest_1.UpdateDataTypeRequest,
     "UpdateInstrumentIdentifierRequest": updateInstrumentIdentifierRequest_1.UpdateInstrumentIdentifierRequest,
     "UpdatePortfolioGroupRequest": updatePortfolioGroupRequest_1.UpdatePortfolioGroupRequest,

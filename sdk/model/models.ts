@@ -23,6 +23,7 @@ export * from './corporateActionTransitionRequest';
 export * from './createAnalyticStoreRequest';
 export * from './createCorporateAction';
 export * from './createCorporateActionSourceRequest';
+export * from './createCutLabelDefinitionRequest';
 export * from './createDataTypeRequest';
 export * from './createDerivedTransactionPortfolioRequest';
 export * from './createPortfolioDetails';
@@ -33,6 +34,8 @@ export * from './createResults';
 export * from './createTransactionPortfolioRequest';
 export * from './createUnitDefinition';
 export * from './currencyAndAmount';
+export * from './cutLabelDefinition';
+export * from './cutLocalTime';
 export * from './dataType';
 export * from './deleteInstrumentPropertyRequest';
 export * from './deleteInstrumentResponse';
@@ -103,6 +106,7 @@ export * from './resourceListOfAnalyticStoreKey';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfCorporateAction';
 export * from './resourceListOfCorporateActionSource';
+export * from './resourceListOfCutLabelDefinition';
 export * from './resourceListOfDataType';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
@@ -138,6 +142,7 @@ export * from './transactionPropertyMapping';
 export * from './transactionPropertyMappingRequest';
 export * from './transactionQueryParameters';
 export * from './transactionRequest';
+export * from './updateCutLabelDefinitionRequest';
 export * from './updateDataTypeRequest';
 export * from './updateInstrumentIdentifierRequest';
 export * from './updatePortfolioGroupRequest';
@@ -190,6 +195,7 @@ import { CorporateActionTransitionRequest } from './corporateActionTransitionReq
 import { CreateAnalyticStoreRequest } from './createAnalyticStoreRequest';
 import { CreateCorporateAction } from './createCorporateAction';
 import { CreateCorporateActionSourceRequest } from './createCorporateActionSourceRequest';
+import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
 import { CreateDataTypeRequest } from './createDataTypeRequest';
 import { CreateDerivedTransactionPortfolioRequest } from './createDerivedTransactionPortfolioRequest';
 import { CreatePortfolioDetails } from './createPortfolioDetails';
@@ -200,6 +206,8 @@ import { CreateResults } from './createResults';
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
 import { CreateUnitDefinition } from './createUnitDefinition';
 import { CurrencyAndAmount } from './currencyAndAmount';
+import { CutLabelDefinition } from './cutLabelDefinition';
+import { CutLocalTime } from './cutLocalTime';
 import { DataType } from './dataType';
 import { DeleteInstrumentPropertyRequest } from './deleteInstrumentPropertyRequest';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
@@ -270,6 +278,7 @@ import { ResourceListOfAnalyticStoreKey } from './resourceListOfAnalyticStoreKey
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
 import { ResourceListOfCorporateActionSource } from './resourceListOfCorporateActionSource';
+import { ResourceListOfCutLabelDefinition } from './resourceListOfCutLabelDefinition';
 import { ResourceListOfDataType } from './resourceListOfDataType';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
@@ -305,6 +314,7 @@ import { TransactionPropertyMapping } from './transactionPropertyMapping';
 import { TransactionPropertyMappingRequest } from './transactionPropertyMappingRequest';
 import { TransactionQueryParameters } from './transactionQueryParameters';
 import { TransactionRequest } from './transactionRequest';
+import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionRequest';
 import { UpdateDataTypeRequest } from './updateDataTypeRequest';
 import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierRequest';
 import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
@@ -438,6 +448,7 @@ let typeMap: {[index: string]: any} = {
     "CreateAnalyticStoreRequest": CreateAnalyticStoreRequest,
     "CreateCorporateAction": CreateCorporateAction,
     "CreateCorporateActionSourceRequest": CreateCorporateActionSourceRequest,
+    "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
     "CreateDataTypeRequest": CreateDataTypeRequest,
     "CreateDerivedTransactionPortfolioRequest": CreateDerivedTransactionPortfolioRequest,
     "CreatePortfolioDetails": CreatePortfolioDetails,
@@ -448,6 +459,8 @@ let typeMap: {[index: string]: any} = {
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
     "CreateUnitDefinition": CreateUnitDefinition,
     "CurrencyAndAmount": CurrencyAndAmount,
+    "CutLabelDefinition": CutLabelDefinition,
+    "CutLocalTime": CutLocalTime,
     "DataType": DataType,
     "DeleteInstrumentPropertyRequest": DeleteInstrumentPropertyRequest,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
@@ -518,6 +531,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfCorporateAction": ResourceListOfCorporateAction,
     "ResourceListOfCorporateActionSource": ResourceListOfCorporateActionSource,
+    "ResourceListOfCutLabelDefinition": ResourceListOfCutLabelDefinition,
     "ResourceListOfDataType": ResourceListOfDataType,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
@@ -553,6 +567,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionPropertyMappingRequest": TransactionPropertyMappingRequest,
     "TransactionQueryParameters": TransactionQueryParameters,
     "TransactionRequest": TransactionRequest,
+    "UpdateCutLabelDefinitionRequest": UpdateCutLabelDefinitionRequest,
     "UpdateDataTypeRequest": UpdateDataTypeRequest,
     "UpdateInstrumentIdentifierRequest": UpdateInstrumentIdentifierRequest,
     "UpdatePortfolioGroupRequest": UpdatePortfolioGroupRequest,

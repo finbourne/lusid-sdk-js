@@ -64,7 +64,7 @@ export declare class PortfoliosApi {
      * @param effectiveAt Optional. The effective date of the data
      * @param asAt Optional. The AsAt date of the data
      */
-    getPortfolio(scope: string, code: string, effectiveAt?: Date, asAt?: Date, options?: {
+    getPortfolio(scope: string, code: string, effectiveAt?: string, asAt?: Date, options?: {
         headers: {
             [name: string]: string;
         };
