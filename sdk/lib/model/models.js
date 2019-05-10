@@ -15,6 +15,7 @@ __export(require("./aggregationRequest"));
 __export(require("./aggregationResponseNode"));
 __export(require("./analyticStore"));
 __export(require("./analyticStoreKey"));
+__export(require("./change"));
 __export(require("./codeOnlyIdPathDefinition"));
 __export(require("./completePortfolio"));
 __export(require("./configurationRecipe"));
@@ -108,6 +109,7 @@ __export(require("./referencePortfolioConstituent"));
 __export(require("./referencePortfolioConstituentRequest"));
 __export(require("./resourceId"));
 __export(require("./resourceListOfAnalyticStoreKey"));
+__export(require("./resourceListOfChange"));
 __export(require("./resourceListOfConstituentsAdjustmentHeader"));
 __export(require("./resourceListOfCorporateAction"));
 __export(require("./resourceListOfCorporateActionSource"));
@@ -184,6 +186,7 @@ var aggregationRequest_1 = require("./aggregationRequest");
 var aggregationResponseNode_1 = require("./aggregationResponseNode");
 var analyticStore_1 = require("./analyticStore");
 var analyticStoreKey_1 = require("./analyticStoreKey");
+var change_1 = require("./change");
 var codeOnlyIdPathDefinition_1 = require("./codeOnlyIdPathDefinition");
 var completePortfolio_1 = require("./completePortfolio");
 var configurationRecipe_1 = require("./configurationRecipe");
@@ -277,6 +280,7 @@ var referencePortfolioConstituent_1 = require("./referencePortfolioConstituent")
 var referencePortfolioConstituentRequest_1 = require("./referencePortfolioConstituentRequest");
 var resourceId_1 = require("./resourceId");
 var resourceListOfAnalyticStoreKey_1 = require("./resourceListOfAnalyticStoreKey");
+var resourceListOfChange_1 = require("./resourceListOfChange");
 var resourceListOfConstituentsAdjustmentHeader_1 = require("./resourceListOfConstituentsAdjustmentHeader");
 var resourceListOfCorporateAction_1 = require("./resourceListOfCorporateAction");
 var resourceListOfCorporateActionSource_1 = require("./resourceListOfCorporateActionSource");
@@ -434,6 +438,7 @@ var typeMap = {
     "AggregationResponseNode": aggregationResponseNode_1.AggregationResponseNode,
     "AnalyticStore": analyticStore_1.AnalyticStore,
     "AnalyticStoreKey": analyticStoreKey_1.AnalyticStoreKey,
+    "Change": change_1.Change,
     "CodeOnlyIdPathDefinition": codeOnlyIdPathDefinition_1.CodeOnlyIdPathDefinition,
     "CompletePortfolio": completePortfolio_1.CompletePortfolio,
     "ConfigurationRecipe": configurationRecipe_1.ConfigurationRecipe,
@@ -527,6 +532,7 @@ var typeMap = {
     "ReferencePortfolioConstituentRequest": referencePortfolioConstituentRequest_1.ReferencePortfolioConstituentRequest,
     "ResourceId": resourceId_1.ResourceId,
     "ResourceListOfAnalyticStoreKey": resourceListOfAnalyticStoreKey_1.ResourceListOfAnalyticStoreKey,
+    "ResourceListOfChange": resourceListOfChange_1.ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": resourceListOfConstituentsAdjustmentHeader_1.ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfCorporateAction": resourceListOfCorporateAction_1.ResourceListOfCorporateAction,
     "ResourceListOfCorporateActionSource": resourceListOfCorporateActionSource_1.ResourceListOfCorporateActionSource,

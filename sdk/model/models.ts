@@ -10,6 +10,7 @@ export * from './aggregationRequest';
 export * from './aggregationResponseNode';
 export * from './analyticStore';
 export * from './analyticStoreKey';
+export * from './change';
 export * from './codeOnlyIdPathDefinition';
 export * from './completePortfolio';
 export * from './configurationRecipe';
@@ -103,6 +104,7 @@ export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './resourceId';
 export * from './resourceListOfAnalyticStoreKey';
+export * from './resourceListOfChange';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfCorporateAction';
 export * from './resourceListOfCorporateActionSource';
@@ -182,6 +184,7 @@ import { AggregationRequest } from './aggregationRequest';
 import { AggregationResponseNode } from './aggregationResponseNode';
 import { AnalyticStore } from './analyticStore';
 import { AnalyticStoreKey } from './analyticStoreKey';
+import { Change } from './change';
 import { CodeOnlyIdPathDefinition } from './codeOnlyIdPathDefinition';
 import { CompletePortfolio } from './completePortfolio';
 import { ConfigurationRecipe } from './configurationRecipe';
@@ -275,6 +278,7 @@ import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAnalyticStoreKey } from './resourceListOfAnalyticStoreKey';
+import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
 import { ResourceListOfCorporateActionSource } from './resourceListOfCorporateActionSource';
@@ -435,6 +439,7 @@ let typeMap: {[index: string]: any} = {
     "AggregationResponseNode": AggregationResponseNode,
     "AnalyticStore": AnalyticStore,
     "AnalyticStoreKey": AnalyticStoreKey,
+    "Change": Change,
     "CodeOnlyIdPathDefinition": CodeOnlyIdPathDefinition,
     "CompletePortfolio": CompletePortfolio,
     "ConfigurationRecipe": ConfigurationRecipe,
@@ -528,6 +533,7 @@ let typeMap: {[index: string]: any} = {
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "ResourceId": ResourceId,
     "ResourceListOfAnalyticStoreKey": ResourceListOfAnalyticStoreKey,
+    "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfCorporateAction": ResourceListOfCorporateAction,
     "ResourceListOfCorporateActionSource": ResourceListOfCorporateActionSource,
