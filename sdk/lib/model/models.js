@@ -49,8 +49,6 @@ __export(require("./deleteQuoteRequest"));
 __export(require("./deleteQuotesResponse"));
 __export(require("./deletedEntityResponse"));
 __export(require("./errorDetail"));
-__export(require("./errorDetailBase"));
-__export(require("./errorResponse"));
 __export(require("./executionRequest"));
 __export(require("./expandedGroup"));
 __export(require("./fieldSchema"));
@@ -75,6 +73,8 @@ __export(require("./instrumentProperty"));
 __export(require("./instrumentSearchProperty"));
 __export(require("./link"));
 __export(require("./listAggregationResponse"));
+__export(require("./lusidProblemDetails"));
+__export(require("./lusidValidationProblemDetails"));
 __export(require("./marketContext"));
 __export(require("./marketContextSuppliers"));
 __export(require("./marketDataKeyRule"));
@@ -220,8 +220,6 @@ var deleteQuoteRequest_1 = require("./deleteQuoteRequest");
 var deleteQuotesResponse_1 = require("./deleteQuotesResponse");
 var deletedEntityResponse_1 = require("./deletedEntityResponse");
 var errorDetail_1 = require("./errorDetail");
-var errorDetailBase_1 = require("./errorDetailBase");
-var errorResponse_1 = require("./errorResponse");
 var executionRequest_1 = require("./executionRequest");
 var expandedGroup_1 = require("./expandedGroup");
 var fieldSchema_1 = require("./fieldSchema");
@@ -246,6 +244,8 @@ var instrumentProperty_1 = require("./instrumentProperty");
 var instrumentSearchProperty_1 = require("./instrumentSearchProperty");
 var link_1 = require("./link");
 var listAggregationResponse_1 = require("./listAggregationResponse");
+var lusidProblemDetails_1 = require("./lusidProblemDetails");
+var lusidValidationProblemDetails_1 = require("./lusidValidationProblemDetails");
 var marketContext_1 = require("./marketContext");
 var marketContextSuppliers_1 = require("./marketContextSuppliers");
 var marketDataKeyRule_1 = require("./marketDataKeyRule");
@@ -371,7 +371,6 @@ var enumsMap = {
     "DataType.TypeValueRangeEnum": dataType_1.DataType.TypeValueRangeEnum,
     "DataType.ValueTypeEnum": dataType_1.DataType.ValueTypeEnum,
     "DataType.UnitSchemaEnum": dataType_1.DataType.UnitSchemaEnum,
-    "ErrorResponse.CodeEnum": errorResponse_1.ErrorResponse.CodeEnum,
     "FieldSchema.TypeEnum": fieldSchema_1.FieldSchema.TypeEnum,
     "GetReferencePortfolioConstituentsResponse.WeightTypeEnum": getReferencePortfolioConstituentsResponse_1.GetReferencePortfolioConstituentsResponse.WeightTypeEnum,
     "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": getReferencePortfolioConstituentsResponse_1.GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
@@ -472,8 +471,6 @@ var typeMap = {
     "DeleteQuotesResponse": deleteQuotesResponse_1.DeleteQuotesResponse,
     "DeletedEntityResponse": deletedEntityResponse_1.DeletedEntityResponse,
     "ErrorDetail": errorDetail_1.ErrorDetail,
-    "ErrorDetailBase": errorDetailBase_1.ErrorDetailBase,
-    "ErrorResponse": errorResponse_1.ErrorResponse,
     "ExecutionRequest": executionRequest_1.ExecutionRequest,
     "ExpandedGroup": expandedGroup_1.ExpandedGroup,
     "FieldSchema": fieldSchema_1.FieldSchema,
@@ -498,6 +495,8 @@ var typeMap = {
     "InstrumentSearchProperty": instrumentSearchProperty_1.InstrumentSearchProperty,
     "Link": link_1.Link,
     "ListAggregationResponse": listAggregationResponse_1.ListAggregationResponse,
+    "LusidProblemDetails": lusidProblemDetails_1.LusidProblemDetails,
+    "LusidValidationProblemDetails": lusidValidationProblemDetails_1.LusidValidationProblemDetails,
     "MarketContext": marketContext_1.MarketContext,
     "MarketContextSuppliers": marketContextSuppliers_1.MarketContextSuppliers,
     "MarketDataKeyRule": marketDataKeyRule_1.MarketDataKeyRule,

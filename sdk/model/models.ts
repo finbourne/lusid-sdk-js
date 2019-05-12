@@ -44,8 +44,6 @@ export * from './deleteQuoteRequest';
 export * from './deleteQuotesResponse';
 export * from './deletedEntityResponse';
 export * from './errorDetail';
-export * from './errorDetailBase';
-export * from './errorResponse';
 export * from './executionRequest';
 export * from './expandedGroup';
 export * from './fieldSchema';
@@ -70,6 +68,8 @@ export * from './instrumentProperty';
 export * from './instrumentSearchProperty';
 export * from './link';
 export * from './listAggregationResponse';
+export * from './lusidProblemDetails';
+export * from './lusidValidationProblemDetails';
 export * from './marketContext';
 export * from './marketContextSuppliers';
 export * from './marketDataKeyRule';
@@ -218,8 +218,6 @@ import { DeleteQuoteRequest } from './deleteQuoteRequest';
 import { DeleteQuotesResponse } from './deleteQuotesResponse';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { ErrorDetail } from './errorDetail';
-import { ErrorDetailBase } from './errorDetailBase';
-import { ErrorResponse } from './errorResponse';
 import { ExecutionRequest } from './executionRequest';
 import { ExpandedGroup } from './expandedGroup';
 import { FieldSchema } from './fieldSchema';
@@ -244,6 +242,8 @@ import { InstrumentProperty } from './instrumentProperty';
 import { InstrumentSearchProperty } from './instrumentSearchProperty';
 import { Link } from './link';
 import { ListAggregationResponse } from './listAggregationResponse';
+import { LusidProblemDetails } from './lusidProblemDetails';
+import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MarketContext } from './marketContext';
 import { MarketContextSuppliers } from './marketContextSuppliers';
 import { MarketDataKeyRule } from './marketDataKeyRule';
@@ -371,7 +371,6 @@ let enumsMap: {[index: string]: any} = {
         "DataType.TypeValueRangeEnum": DataType.TypeValueRangeEnum,
         "DataType.ValueTypeEnum": DataType.ValueTypeEnum,
         "DataType.UnitSchemaEnum": DataType.UnitSchemaEnum,
-        "ErrorResponse.CodeEnum": ErrorResponse.CodeEnum,
         "FieldSchema.TypeEnum": FieldSchema.TypeEnum,
         "GetReferencePortfolioConstituentsResponse.WeightTypeEnum": GetReferencePortfolioConstituentsResponse.WeightTypeEnum,
         "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
@@ -473,8 +472,6 @@ let typeMap: {[index: string]: any} = {
     "DeleteQuotesResponse": DeleteQuotesResponse,
     "DeletedEntityResponse": DeletedEntityResponse,
     "ErrorDetail": ErrorDetail,
-    "ErrorDetailBase": ErrorDetailBase,
-    "ErrorResponse": ErrorResponse,
     "ExecutionRequest": ExecutionRequest,
     "ExpandedGroup": ExpandedGroup,
     "FieldSchema": FieldSchema,
@@ -499,6 +496,8 @@ let typeMap: {[index: string]: any} = {
     "InstrumentSearchProperty": InstrumentSearchProperty,
     "Link": Link,
     "ListAggregationResponse": ListAggregationResponse,
+    "LusidProblemDetails": LusidProblemDetails,
+    "LusidValidationProblemDetails": LusidValidationProblemDetails,
     "MarketContext": MarketContext,
     "MarketContextSuppliers": MarketContextSuppliers,
     "MarketDataKeyRule": MarketDataKeyRule,
