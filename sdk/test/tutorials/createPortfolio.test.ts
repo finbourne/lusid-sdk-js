@@ -1,9 +1,10 @@
 // Require the LUSID SDK and libraries
 import {
-  CreateTransactionPortfolioRequest, Portfolio, ErrorResponse, AggregationApi } from "../../api";
+  CreateTransactionPortfolioRequest, Portfolio, AggregationApi } from "../../api";
 
 import { client } from './clientBuilder'
 import { IncomingMessage } from "http";
+import { LusidProblemDetails } from "../../model/models";
 const uuid4 = require('uuid/v4')
 
 
@@ -17,7 +18,7 @@ function createTransactionPortfolio(
         createRequest
       )
       .then((res: {response: IncomingMessage; body: Portfolio}) => resolve(res.body))
-      .catch((err: {response: IncomingMessage; body: ErrorResponse}) => reject(err))
+      .catch((err: {response: IncomingMessage; body: LusidProblemDetails}) => reject(err))
     })
   }
 
