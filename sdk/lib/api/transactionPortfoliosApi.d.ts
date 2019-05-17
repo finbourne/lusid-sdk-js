@@ -80,11 +80,11 @@ export declare class TransactionPortfoliosApi {
      * @param sortBy Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName
      * @param start Optional. When paginating, skip this number of results
      * @param limit Optional. When paginating, limit the number of returned results to this many.
-     * @param instrumentPropertyKeys Optional. Keys for the instrument property values to be decorated onto the transactions
+     * @param propertyKeys Optional. Keys for the transaction or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified.
      * @param filter Optional. Expression to filter the result set
      * @param parameters Optional. Transaction query parameters
      */
-    buildTransactions(scope: string, code: string, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, instrumentPropertyKeys?: Array<string>, filter?: string, parameters?: TransactionQueryParameters, options?: {
+    buildTransactions(scope: string, code: string, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, propertyKeys?: Array<string>, filter?: string, parameters?: TransactionQueryParameters, options?: {
         headers: {
             [name: string]: string;
         };
@@ -195,9 +195,9 @@ export declare class TransactionPortfoliosApi {
      * @param start Optional. When paginating, skip this number of results
      * @param limit Optional. When paginating, limit the number of returned results to this many.
      * @param filter Optional. Expression to filter the result set
-     * @param instrumentPropertyKeys Optional. Keys for the instrument property values to be decorated onto the holdings
+     * @param propertyKeys Optional. Keys for the Holding or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified.
      */
-    getHoldings(scope: string, code: string, byTaxlots?: boolean, effectiveAt?: Date, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, instrumentPropertyKeys?: Array<string>, options?: {
+    getHoldings(scope: string, code: string, byTaxlots?: boolean, effectiveAt?: Date, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, propertyKeys?: Array<string>, options?: {
         headers: {
             [name: string]: string;
         };
@@ -232,10 +232,10 @@ export declare class TransactionPortfoliosApi {
      * @param sortBy Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName
      * @param start Optional. When paginating, skip this number of results
      * @param limit Optional. When paginating, limit the number of returned results to this many.
-     * @param instrumentPropertyKeys Optional. Keys for the instrument property values that will be decorated onto the transactions
+     * @param propertyKeys Optional. Keys for the transaction or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified.
      * @param filter Optional. Expression to filter the result set
      */
-    getTransactions(scope: string, code: string, fromTransactionDate?: Date, toTransactionDate?: Date, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, instrumentPropertyKeys?: Array<string>, filter?: string, options?: {
+    getTransactions(scope: string, code: string, fromTransactionDate?: Date, toTransactionDate?: Date, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, propertyKeys?: Array<string>, filter?: string, options?: {
         headers: {
             [name: string]: string;
         };
