@@ -167,14 +167,13 @@ export declare class PortfoliosApi {
         body: Portfolio;
     }>;
     /**
-     * Upsert one or more property values to a portfolio for the specified effectiveAt. All properties must be of the domain Portfolio.
-     * @summary Upsert properties
+     * Upsert one or more property values to a portfolio. All properties must be of the domain Portfolio.
+     * @summary Upsert portfolio properties
      * @param scope The scope of the portfolio
      * @param code The code of the portfolio
-     * @param effectiveAt Optional. The effective date of the change
-     * @param portfolioProperties The property values to be upserted to the portfolio
+     * @param portfolioProperties The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date.
      */
-    upsertPortfolioProperties(scope: string, code: string, effectiveAt?: Date, portfolioProperties?: {
+    upsertPortfolioProperties(scope: string, code: string, portfolioProperties?: {
         [key: string]: PropertyValue;
     }, options?: {
         headers: {

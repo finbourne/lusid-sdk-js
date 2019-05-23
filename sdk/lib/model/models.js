@@ -27,7 +27,6 @@ __export(require("./corporateActionTransitionComponent"));
 __export(require("./corporateActionTransitionComponentRequest"));
 __export(require("./corporateActionTransitionRequest"));
 __export(require("./createAnalyticStoreRequest"));
-__export(require("./createCorporateAction"));
 __export(require("./createCorporateActionSourceRequest"));
 __export(require("./createCutLabelDefinitionRequest"));
 __export(require("./createDataTypeRequest"));
@@ -155,6 +154,7 @@ __export(require("./updateInstrumentIdentifierRequest"));
 __export(require("./updatePortfolioGroupRequest"));
 __export(require("./updatePortfolioRequest"));
 __export(require("./updatePropertyDefinitionRequest"));
+__export(require("./upsertCorporateActionRequest"));
 __export(require("./upsertCorporateActionsResponse"));
 __export(require("./upsertInstrumentPropertiesResponse"));
 __export(require("./upsertInstrumentPropertyRequest"));
@@ -198,7 +198,6 @@ var corporateActionTransitionComponent_1 = require("./corporateActionTransitionC
 var corporateActionTransitionComponentRequest_1 = require("./corporateActionTransitionComponentRequest");
 var corporateActionTransitionRequest_1 = require("./corporateActionTransitionRequest");
 var createAnalyticStoreRequest_1 = require("./createAnalyticStoreRequest");
-var createCorporateAction_1 = require("./createCorporateAction");
 var createCorporateActionSourceRequest_1 = require("./createCorporateActionSourceRequest");
 var createCutLabelDefinitionRequest_1 = require("./createCutLabelDefinitionRequest");
 var createDataTypeRequest_1 = require("./createDataTypeRequest");
@@ -326,6 +325,7 @@ var updateInstrumentIdentifierRequest_1 = require("./updateInstrumentIdentifierR
 var updatePortfolioGroupRequest_1 = require("./updatePortfolioGroupRequest");
 var updatePortfolioRequest_1 = require("./updatePortfolioRequest");
 var updatePropertyDefinitionRequest_1 = require("./updatePropertyDefinitionRequest");
+var upsertCorporateActionRequest_1 = require("./upsertCorporateActionRequest");
 var upsertCorporateActionsResponse_1 = require("./upsertCorporateActionsResponse");
 var upsertInstrumentPropertiesResponse_1 = require("./upsertInstrumentPropertiesResponse");
 var upsertInstrumentPropertyRequest_1 = require("./upsertInstrumentPropertyRequest");
@@ -449,7 +449,6 @@ var typeMap = {
     "CorporateActionTransitionComponentRequest": corporateActionTransitionComponentRequest_1.CorporateActionTransitionComponentRequest,
     "CorporateActionTransitionRequest": corporateActionTransitionRequest_1.CorporateActionTransitionRequest,
     "CreateAnalyticStoreRequest": createAnalyticStoreRequest_1.CreateAnalyticStoreRequest,
-    "CreateCorporateAction": createCorporateAction_1.CreateCorporateAction,
     "CreateCorporateActionSourceRequest": createCorporateActionSourceRequest_1.CreateCorporateActionSourceRequest,
     "CreateCutLabelDefinitionRequest": createCutLabelDefinitionRequest_1.CreateCutLabelDefinitionRequest,
     "CreateDataTypeRequest": createDataTypeRequest_1.CreateDataTypeRequest,
@@ -577,6 +576,7 @@ var typeMap = {
     "UpdatePortfolioGroupRequest": updatePortfolioGroupRequest_1.UpdatePortfolioGroupRequest,
     "UpdatePortfolioRequest": updatePortfolioRequest_1.UpdatePortfolioRequest,
     "UpdatePropertyDefinitionRequest": updatePropertyDefinitionRequest_1.UpdatePropertyDefinitionRequest,
+    "UpsertCorporateActionRequest": upsertCorporateActionRequest_1.UpsertCorporateActionRequest,
     "UpsertCorporateActionsResponse": upsertCorporateActionsResponse_1.UpsertCorporateActionsResponse,
     "UpsertInstrumentPropertiesResponse": upsertInstrumentPropertiesResponse_1.UpsertInstrumentPropertiesResponse,
     "UpsertInstrumentPropertyRequest": upsertInstrumentPropertyRequest_1.UpsertInstrumentPropertyRequest,
