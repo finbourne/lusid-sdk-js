@@ -4,6 +4,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./accessControlledAction"));
+__export(require("./accessControlledResource"));
 __export(require("./actionId"));
 __export(require("./addTransactionPropertyResponse"));
 __export(require("./adjustHolding"));
@@ -16,7 +17,6 @@ __export(require("./aggregationResponseNode"));
 __export(require("./analyticStore"));
 __export(require("./analyticStoreKey"));
 __export(require("./change"));
-__export(require("./codeOnlyIdPathDefinition"));
 __export(require("./completePortfolio"));
 __export(require("./configurationRecipe"));
 __export(require("./constituentsAdjustmentHeader"));
@@ -52,7 +52,6 @@ __export(require("./executionRequest"));
 __export(require("./expandedGroup"));
 __export(require("./fieldSchema"));
 __export(require("./fileResponse"));
-__export(require("./fullIdPathDefinition"));
 __export(require("./getInstrumentsResponse"));
 __export(require("./getQuotesResponse"));
 __export(require("./getReferencePortfolioConstituentsResponse"));
@@ -60,7 +59,8 @@ __export(require("./holdingAdjustment"));
 __export(require("./holdingsAdjustment"));
 __export(require("./holdingsAdjustmentHeader"));
 __export(require("./iUnitDefinitionDto"));
-__export(require("./idPathDefinition"));
+__export(require("./idSelectorDefinition"));
+__export(require("./identifierPartSchema"));
 __export(require("./instrument"));
 __export(require("./instrumentAnalytic"));
 __export(require("./instrumentDefinition"));
@@ -107,6 +107,7 @@ __export(require("./reconciliationBreak"));
 __export(require("./referencePortfolioConstituent"));
 __export(require("./referencePortfolioConstituentRequest"));
 __export(require("./resourceId"));
+__export(require("./resourceListOfAccessControlledResource"));
 __export(require("./resourceListOfAnalyticStoreKey"));
 __export(require("./resourceListOfChange"));
 __export(require("./resourceListOfConstituentsAdjustmentHeader"));
@@ -131,9 +132,7 @@ __export(require("./resourceListOfValueType"));
 __export(require("./resultDataSchema"));
 __export(require("./results"));
 __export(require("./schema"));
-__export(require("./scopeAndCodeIdPathDefinition"));
 __export(require("./scopeDefinition"));
-__export(require("./scopeIdPathDefinition"));
 __export(require("./stream"));
 __export(require("./targetTaxLot"));
 __export(require("./targetTaxLotRequest"));
@@ -175,6 +174,7 @@ __export(require("./versionedResourceListOfOutputTransaction"));
 __export(require("./versionedResourceListOfPortfolioHolding"));
 __export(require("./versionedResourceListOfTransaction"));
 var accessControlledAction_1 = require("./accessControlledAction");
+var accessControlledResource_1 = require("./accessControlledResource");
 var actionId_1 = require("./actionId");
 var addTransactionPropertyResponse_1 = require("./addTransactionPropertyResponse");
 var adjustHolding_1 = require("./adjustHolding");
@@ -187,7 +187,6 @@ var aggregationResponseNode_1 = require("./aggregationResponseNode");
 var analyticStore_1 = require("./analyticStore");
 var analyticStoreKey_1 = require("./analyticStoreKey");
 var change_1 = require("./change");
-var codeOnlyIdPathDefinition_1 = require("./codeOnlyIdPathDefinition");
 var completePortfolio_1 = require("./completePortfolio");
 var configurationRecipe_1 = require("./configurationRecipe");
 var constituentsAdjustmentHeader_1 = require("./constituentsAdjustmentHeader");
@@ -223,7 +222,6 @@ var executionRequest_1 = require("./executionRequest");
 var expandedGroup_1 = require("./expandedGroup");
 var fieldSchema_1 = require("./fieldSchema");
 var fileResponse_1 = require("./fileResponse");
-var fullIdPathDefinition_1 = require("./fullIdPathDefinition");
 var getInstrumentsResponse_1 = require("./getInstrumentsResponse");
 var getQuotesResponse_1 = require("./getQuotesResponse");
 var getReferencePortfolioConstituentsResponse_1 = require("./getReferencePortfolioConstituentsResponse");
@@ -231,7 +229,8 @@ var holdingAdjustment_1 = require("./holdingAdjustment");
 var holdingsAdjustment_1 = require("./holdingsAdjustment");
 var holdingsAdjustmentHeader_1 = require("./holdingsAdjustmentHeader");
 var iUnitDefinitionDto_1 = require("./iUnitDefinitionDto");
-var idPathDefinition_1 = require("./idPathDefinition");
+var idSelectorDefinition_1 = require("./idSelectorDefinition");
+var identifierPartSchema_1 = require("./identifierPartSchema");
 var instrument_1 = require("./instrument");
 var instrumentAnalytic_1 = require("./instrumentAnalytic");
 var instrumentDefinition_1 = require("./instrumentDefinition");
@@ -278,6 +277,7 @@ var reconciliationBreak_1 = require("./reconciliationBreak");
 var referencePortfolioConstituent_1 = require("./referencePortfolioConstituent");
 var referencePortfolioConstituentRequest_1 = require("./referencePortfolioConstituentRequest");
 var resourceId_1 = require("./resourceId");
+var resourceListOfAccessControlledResource_1 = require("./resourceListOfAccessControlledResource");
 var resourceListOfAnalyticStoreKey_1 = require("./resourceListOfAnalyticStoreKey");
 var resourceListOfChange_1 = require("./resourceListOfChange");
 var resourceListOfConstituentsAdjustmentHeader_1 = require("./resourceListOfConstituentsAdjustmentHeader");
@@ -302,9 +302,7 @@ var resourceListOfValueType_1 = require("./resourceListOfValueType");
 var resultDataSchema_1 = require("./resultDataSchema");
 var results_1 = require("./results");
 var schema_1 = require("./schema");
-var scopeAndCodeIdPathDefinition_1 = require("./scopeAndCodeIdPathDefinition");
 var scopeDefinition_1 = require("./scopeDefinition");
-var scopeIdPathDefinition_1 = require("./scopeIdPathDefinition");
 var stream_1 = require("./stream");
 var targetTaxLot_1 = require("./targetTaxLot");
 var targetTaxLotRequest_1 = require("./targetTaxLotRequest");
@@ -377,7 +375,6 @@ var enumsMap = {
     "HoldingsAdjustment.UnmatchedHoldingMethodEnum": holdingsAdjustment_1.HoldingsAdjustment.UnmatchedHoldingMethodEnum,
     "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": holdingsAdjustmentHeader_1.HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
     "IUnitDefinitionDto.SchemaEnum": iUnitDefinitionDto_1.IUnitDefinitionDto.SchemaEnum,
-    "IdPathDefinition.CategoryEnum": idPathDefinition_1.IdPathDefinition.CategoryEnum,
     "Instrument.StateEnum": instrument_1.Instrument.StateEnum,
     "Link.RelationEnum": link_1.Link.RelationEnum,
     "Link.MethodEnum": link_1.Link.MethodEnum,
@@ -426,6 +423,7 @@ var enumsMap = {
 };
 var typeMap = {
     "AccessControlledAction": accessControlledAction_1.AccessControlledAction,
+    "AccessControlledResource": accessControlledResource_1.AccessControlledResource,
     "ActionId": actionId_1.ActionId,
     "AddTransactionPropertyResponse": addTransactionPropertyResponse_1.AddTransactionPropertyResponse,
     "AdjustHolding": adjustHolding_1.AdjustHolding,
@@ -438,7 +436,6 @@ var typeMap = {
     "AnalyticStore": analyticStore_1.AnalyticStore,
     "AnalyticStoreKey": analyticStoreKey_1.AnalyticStoreKey,
     "Change": change_1.Change,
-    "CodeOnlyIdPathDefinition": codeOnlyIdPathDefinition_1.CodeOnlyIdPathDefinition,
     "CompletePortfolio": completePortfolio_1.CompletePortfolio,
     "ConfigurationRecipe": configurationRecipe_1.ConfigurationRecipe,
     "ConstituentsAdjustmentHeader": constituentsAdjustmentHeader_1.ConstituentsAdjustmentHeader,
@@ -474,7 +471,6 @@ var typeMap = {
     "ExpandedGroup": expandedGroup_1.ExpandedGroup,
     "FieldSchema": fieldSchema_1.FieldSchema,
     "FileResponse": fileResponse_1.FileResponse,
-    "FullIdPathDefinition": fullIdPathDefinition_1.FullIdPathDefinition,
     "GetInstrumentsResponse": getInstrumentsResponse_1.GetInstrumentsResponse,
     "GetQuotesResponse": getQuotesResponse_1.GetQuotesResponse,
     "GetReferencePortfolioConstituentsResponse": getReferencePortfolioConstituentsResponse_1.GetReferencePortfolioConstituentsResponse,
@@ -482,7 +478,8 @@ var typeMap = {
     "HoldingsAdjustment": holdingsAdjustment_1.HoldingsAdjustment,
     "HoldingsAdjustmentHeader": holdingsAdjustmentHeader_1.HoldingsAdjustmentHeader,
     "IUnitDefinitionDto": iUnitDefinitionDto_1.IUnitDefinitionDto,
-    "IdPathDefinition": idPathDefinition_1.IdPathDefinition,
+    "IdSelectorDefinition": idSelectorDefinition_1.IdSelectorDefinition,
+    "IdentifierPartSchema": identifierPartSchema_1.IdentifierPartSchema,
     "Instrument": instrument_1.Instrument,
     "InstrumentAnalytic": instrumentAnalytic_1.InstrumentAnalytic,
     "InstrumentDefinition": instrumentDefinition_1.InstrumentDefinition,
@@ -529,6 +526,7 @@ var typeMap = {
     "ReferencePortfolioConstituent": referencePortfolioConstituent_1.ReferencePortfolioConstituent,
     "ReferencePortfolioConstituentRequest": referencePortfolioConstituentRequest_1.ReferencePortfolioConstituentRequest,
     "ResourceId": resourceId_1.ResourceId,
+    "ResourceListOfAccessControlledResource": resourceListOfAccessControlledResource_1.ResourceListOfAccessControlledResource,
     "ResourceListOfAnalyticStoreKey": resourceListOfAnalyticStoreKey_1.ResourceListOfAnalyticStoreKey,
     "ResourceListOfChange": resourceListOfChange_1.ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": resourceListOfConstituentsAdjustmentHeader_1.ResourceListOfConstituentsAdjustmentHeader,
@@ -553,9 +551,7 @@ var typeMap = {
     "ResultDataSchema": resultDataSchema_1.ResultDataSchema,
     "Results": results_1.Results,
     "Schema": schema_1.Schema,
-    "ScopeAndCodeIdPathDefinition": scopeAndCodeIdPathDefinition_1.ScopeAndCodeIdPathDefinition,
     "ScopeDefinition": scopeDefinition_1.ScopeDefinition,
-    "ScopeIdPathDefinition": scopeIdPathDefinition_1.ScopeIdPathDefinition,
     "Stream": stream_1.Stream,
     "TargetTaxLot": targetTaxLot_1.TargetTaxLot,
     "TargetTaxLotRequest": targetTaxLotRequest_1.TargetTaxLotRequest,
