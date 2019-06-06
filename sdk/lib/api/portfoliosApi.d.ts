@@ -32,7 +32,7 @@ export declare class PortfoliosApi {
      * @param code The code of the portfolio
      * @param effectiveAt Optional. The effective date of the deletion
      */
-    deletePortfolio(scope: string, code: string, effectiveAt?: Date, options?: {
+    deletePortfolio(scope: string, code: string, effectiveAt?: string, options?: {
         headers: {
             [name: string]: string;
         };
@@ -48,7 +48,7 @@ export declare class PortfoliosApi {
      * @param effectiveAt Optional. The effective date of the deletion
      * @param portfolioPropertyKeys Optional. The keys of the properties to be deleted. None specified indicates the intention to delete all properties from the portfolio
      */
-    deletePortfolioProperties(scope: string, code: string, effectiveAt?: Date, portfolioPropertyKeys?: Array<string>, options?: {
+    deletePortfolioProperties(scope: string, code: string, effectiveAt?: string, portfolioPropertyKeys?: Array<string>, options?: {
         headers: {
             [name: string]: string;
         };
@@ -103,7 +103,7 @@ export declare class PortfoliosApi {
      * @param start Optional. When paginating, skip this number of results
      * @param limit Optional. When paginating, limit the number of returned results to this many.
      */
-    getPortfolioProperties(scope: string, code: string, effectiveAt?: Date, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, options?: {
+    getPortfolioProperties(scope: string, code: string, effectiveAt?: string, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, options?: {
         headers: {
             [name: string]: string;
         };
@@ -123,7 +123,7 @@ export declare class PortfoliosApi {
      * @param filter Optional. Expression to filter the result set
      * @param query Optional. Expression specifying the criteria that the returned portfolios must meet
      */
-    listPortfolios(effectiveAt?: Date, asAt?: Date, page?: string, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, query?: string, options?: {
+    listPortfolios(effectiveAt?: string, asAt?: Date, page?: string, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, query?: string, options?: {
         headers: {
             [name: string]: string;
         };
@@ -142,7 +142,7 @@ export declare class PortfoliosApi {
      * @param limit Optional. When paginating, limit the number of returned results to this many.
      * @param filter Optional. Expression to filter the result set
      */
-    listPortfoliosForScope(scope: string, effectiveAt?: Date, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, options?: {
+    listPortfoliosForScope(scope: string, effectiveAt?: string, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, options?: {
         headers: {
             [name: string]: string;
         };
@@ -158,7 +158,7 @@ export declare class PortfoliosApi {
      * @param effectiveAt Optional. The effective date for the change
      * @param request The updated portfolio definition
      */
-    updatePortfolio(scope: string, code: string, effectiveAt?: Date, request?: UpdatePortfolioRequest, options?: {
+    updatePortfolio(scope: string, code: string, effectiveAt?: string, request?: UpdatePortfolioRequest, options?: {
         headers: {
             [name: string]: string;
         };

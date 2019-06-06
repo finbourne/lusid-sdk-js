@@ -63,7 +63,7 @@ export declare class TransactionPortfoliosApi {
      * @param effectiveAt The effective date of the change
      * @param holdingAdjustments The selected set of holdings adjustments
      */
-    adjustHoldings(scope: string, code: string, effectiveAt: Date, holdingAdjustments?: Array<AdjustHoldingRequest>, options?: {
+    adjustHoldings(scope: string, code: string, effectiveAt: string, holdingAdjustments?: Array<AdjustHoldingRequest>, options?: {
         headers: {
             [name: string]: string;
         };
@@ -99,7 +99,7 @@ export declare class TransactionPortfoliosApi {
      * @param code The code of the portfolio
      * @param effectiveAt The effective date of the change
      */
-    cancelAdjustHoldings(scope: string, code: string, effectiveAt: Date, options?: {
+    cancelAdjustHoldings(scope: string, code: string, effectiveAt: string, options?: {
         headers: {
             [name: string]: string;
         };
@@ -175,7 +175,7 @@ export declare class TransactionPortfoliosApi {
      * @param effectiveAt Optional. The effective date of the data
      * @param asAt Optional. The AsAt date of the data
      */
-    getDetails(scope: string, code: string, effectiveAt?: Date, asAt?: Date, options?: {
+    getDetails(scope: string, code: string, effectiveAt?: string, asAt?: Date, options?: {
         headers: {
             [name: string]: string;
         };
@@ -197,7 +197,7 @@ export declare class TransactionPortfoliosApi {
      * @param filter Optional. Expression to filter the result set
      * @param propertyKeys Optional. Keys for the Holding or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified.
      */
-    getHoldings(scope: string, code: string, byTaxlots?: boolean, effectiveAt?: Date, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, propertyKeys?: Array<string>, options?: {
+    getHoldings(scope: string, code: string, byTaxlots?: boolean, effectiveAt?: string, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, propertyKeys?: Array<string>, options?: {
         headers: {
             [name: string]: string;
         };
@@ -213,7 +213,7 @@ export declare class TransactionPortfoliosApi {
      * @param effectiveAt The effective time of the holdings adjustment
      * @param asAt Optional. The AsAt date of the data
      */
-    getHoldingsAdjustment(scope: string, code: string, effectiveAt: Date, asAt?: Date, options?: {
+    getHoldingsAdjustment(scope: string, code: string, effectiveAt: string, asAt?: Date, options?: {
         headers: {
             [name: string]: string;
         };
@@ -235,7 +235,7 @@ export declare class TransactionPortfoliosApi {
      * @param propertyKeys Optional. Keys for the transaction or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified.
      * @param filter Optional. Expression to filter the result set
      */
-    getTransactions(scope: string, code: string, fromTransactionDate?: Date, toTransactionDate?: Date, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, propertyKeys?: Array<string>, filter?: string, options?: {
+    getTransactions(scope: string, code: string, fromTransactionDate?: string, toTransactionDate?: string, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, propertyKeys?: Array<string>, filter?: string, options?: {
         headers: {
             [name: string]: string;
         };
@@ -252,7 +252,7 @@ export declare class TransactionPortfoliosApi {
      * @param toEffectiveAt Holdings adjustments between this time (inclusive) and the fromEffectiveAt are returned.
      * @param asAt Optional. The AsAt date of the data
      */
-    listHoldingsAdjustments(scope: string, code: string, fromEffectiveAt?: Date, toEffectiveAt?: Date, asAt?: Date, options?: {
+    listHoldingsAdjustments(scope: string, code: string, fromEffectiveAt?: string, toEffectiveAt?: string, asAt?: Date, options?: {
         headers: {
             [name: string]: string;
         };
@@ -268,7 +268,7 @@ export declare class TransactionPortfoliosApi {
      * @param effectiveAt The effective date of the change
      * @param holdingAdjustments The complete set of holdings adjustments for the portfolio
      */
-    setHoldings(scope: string, code: string, effectiveAt: Date, holdingAdjustments?: Array<AdjustHoldingRequest>, options?: {
+    setHoldings(scope: string, code: string, effectiveAt: string, holdingAdjustments?: Array<AdjustHoldingRequest>, options?: {
         headers: {
             [name: string]: string;
         };
@@ -299,7 +299,7 @@ export declare class TransactionPortfoliosApi {
      * @param effectiveAt Optional. The effective date of the change
      * @param details The set of details for the portfolio
      */
-    upsertPortfolioDetails(scope: string, code: string, effectiveAt?: Date, details?: CreatePortfolioDetails, options?: {
+    upsertPortfolioDetails(scope: string, code: string, effectiveAt?: string, details?: CreatePortfolioDetails, options?: {
         headers: {
             [name: string]: string;
         };
