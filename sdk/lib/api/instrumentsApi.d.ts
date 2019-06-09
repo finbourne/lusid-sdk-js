@@ -51,7 +51,7 @@ export declare class InstrumentsApi {
      * @param asAt Optional. The AsAt date of the query
      * @param instrumentPropertyKeys Optional. Keys of the properties to be decorated on to the instrument
      */
-    getInstrument(identifierType: string, identifier: string, effectiveAt?: Date, asAt?: Date, instrumentPropertyKeys?: Array<string>, options?: {
+    getInstrument(identifierType: string, identifier: string, effectiveAt?: string, asAt?: Date, instrumentPropertyKeys?: Array<string>, options?: {
         headers: {
             [name: string]: string;
         };
@@ -80,7 +80,7 @@ export declare class InstrumentsApi {
      * @param asAt Optional. The as at date of the request
      * @param instrumentPropertyKeys Optional. Keys of the properties to be decorated on to the instrument
      */
-    getInstruments(identifierType: string, identifiers: Array<string>, effectiveAt?: Date, asAt?: Date, instrumentPropertyKeys?: Array<string>, options?: {
+    getInstruments(identifierType: string, identifiers: Array<string>, effectiveAt?: string, asAt?: Date, instrumentPropertyKeys?: Array<string>, options?: {
         headers: {
             [name: string]: string;
         };
