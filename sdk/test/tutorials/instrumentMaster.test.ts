@@ -235,7 +235,7 @@ function upsertInstrumentProperties(
 
 // Create a custom property using the LUSID model
 var dataTypeId = new ResourceId()
-dataTypeId.scope = "default"
+dataTypeId.scope = "system"
 dataTypeId.code= "currency"
 
 // Create a property definition request to define a new property
