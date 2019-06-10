@@ -18,15 +18,15 @@
     "fs": false
   },
   "dependencies": {
-    "request": "^2.88.0",
     "csvtojson": "^2.0.8",
+    "request": "^2.88.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@types/node": "^11.13.2",
     "@types/mocha": "^5.2.6",
-    "mocha": "^6.1.2",
-    "typescript": "^3.1.6",
-    "js-yaml": ">=3.13.1"
+    "@types/node": "^11.13.2",
+    "js-yaml": ">=3.13.1",
+    "mocha": "^6.1.4",
+    "typescript": "^3.5.1"
   }
 }
