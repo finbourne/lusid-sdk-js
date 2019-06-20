@@ -76,6 +76,7 @@ export * from './marketOptions';
 export * from './metricValue';
 export * from './modelSelection';
 export * from './nestedAggregationResponse';
+export * from './orderBySpec';
 export * from './outputTransaction';
 export * from './perpetualProperty';
 export * from './perpetualPropertyValue';

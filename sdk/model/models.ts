@@ -76,6 +76,7 @@ export * from './marketOptions';
 export * from './metricValue';
 export * from './modelSelection';
 export * from './nestedAggregationResponse';
+export * from './orderBySpec';
 export * from './outputTransaction';
 export * from './perpetualProperty';
 export * from './perpetualPropertyValue';
@@ -249,6 +250,7 @@ import { MarketOptions } from './marketOptions';
 import { MetricValue } from './metricValue';
 import { ModelSelection } from './modelSelection';
 import { NestedAggregationResponse } from './nestedAggregationResponse';
+import { OrderBySpec } from './orderBySpec';
 import { OutputTransaction } from './outputTransaction';
 import { PerpetualProperty } from './perpetualProperty';
 import { PerpetualPropertyValue } from './perpetualPropertyValue';
@@ -390,6 +392,7 @@ let enumsMap: {[index: string]: any} = {
         "MarketOptions.DefaultInstrumentCodeTypeEnum": MarketOptions.DefaultInstrumentCodeTypeEnum,
         "ModelSelection.LibraryEnum": ModelSelection.LibraryEnum,
         "ModelSelection.ModelEnum": ModelSelection.ModelEnum,
+        "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
@@ -501,6 +504,7 @@ let typeMap: {[index: string]: any} = {
     "MetricValue": MetricValue,
     "ModelSelection": ModelSelection,
     "NestedAggregationResponse": NestedAggregationResponse,
+    "OrderBySpec": OrderBySpec,
     "OutputTransaction": OutputTransaction,
     "PerpetualProperty": PerpetualProperty,
     "PerpetualPropertyValue": PerpetualPropertyValue,

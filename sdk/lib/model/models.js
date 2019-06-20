@@ -81,6 +81,7 @@ __export(require("./marketOptions"));
 __export(require("./metricValue"));
 __export(require("./modelSelection"));
 __export(require("./nestedAggregationResponse"));
+__export(require("./orderBySpec"));
 __export(require("./outputTransaction"));
 __export(require("./perpetualProperty"));
 __export(require("./perpetualPropertyValue"));
@@ -251,6 +252,7 @@ var marketOptions_1 = require("./marketOptions");
 var metricValue_1 = require("./metricValue");
 var modelSelection_1 = require("./modelSelection");
 var nestedAggregationResponse_1 = require("./nestedAggregationResponse");
+var orderBySpec_1 = require("./orderBySpec");
 var outputTransaction_1 = require("./outputTransaction");
 var perpetualProperty_1 = require("./perpetualProperty");
 var perpetualPropertyValue_1 = require("./perpetualPropertyValue");
@@ -390,6 +392,7 @@ var enumsMap = {
     "MarketOptions.DefaultInstrumentCodeTypeEnum": marketOptions_1.MarketOptions.DefaultInstrumentCodeTypeEnum,
     "ModelSelection.LibraryEnum": modelSelection_1.ModelSelection.LibraryEnum,
     "ModelSelection.ModelEnum": modelSelection_1.ModelSelection.ModelEnum,
+    "OrderBySpec.SortOrderEnum": orderBySpec_1.OrderBySpec.SortOrderEnum,
     "OutputTransaction.TransactionStatusEnum": outputTransaction_1.OutputTransaction.TransactionStatusEnum,
     "Portfolio.TypeEnum": portfolio_1.Portfolio.TypeEnum,
     "PortfolioSearchResult.TypeEnum": portfolioSearchResult_1.PortfolioSearchResult.TypeEnum,
@@ -500,6 +503,7 @@ var typeMap = {
     "MetricValue": metricValue_1.MetricValue,
     "ModelSelection": modelSelection_1.ModelSelection,
     "NestedAggregationResponse": nestedAggregationResponse_1.NestedAggregationResponse,
+    "OrderBySpec": orderBySpec_1.OrderBySpec,
     "OutputTransaction": outputTransaction_1.OutputTransaction,
     "PerpetualProperty": perpetualProperty_1.PerpetualProperty,
     "PerpetualPropertyValue": perpetualPropertyValue_1.PerpetualPropertyValue,
