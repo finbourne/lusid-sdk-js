@@ -122,8 +122,9 @@ export declare class PortfoliosApi {
      * @param limit Optional. When paginating, limit the number of returned results to this many.
      * @param filter Optional. Expression to filter the result set
      * @param query Optional. Expression specifying the criteria that the returned portfolios must meet
+     * @param portfolioPropertyKeys Optional. Keys of the properties to be decorated on to the portfolio
      */
-    listPortfolios(effectiveAt?: string, asAt?: Date, page?: string, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, query?: string, options?: {
+    listPortfolios(effectiveAt?: string, asAt?: Date, page?: string, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, query?: string, portfolioPropertyKeys?: Array<string>, options?: {
         headers: {
             [name: string]: string;
         };
@@ -141,8 +142,9 @@ export declare class PortfoliosApi {
      * @param start Optional. When paginating, skip this number of results
      * @param limit Optional. When paginating, limit the number of returned results to this many.
      * @param filter Optional. Expression to filter the result set
+     * @param portfolioPropertyKeys Optional. Keys of the properties to be decorated on to the portfolio
      */
-    listPortfoliosForScope(scope: string, effectiveAt?: string, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, options?: {
+    listPortfoliosForScope(scope: string, effectiveAt?: string, asAt?: Date, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, portfolioPropertyKeys?: Array<string>, options?: {
         headers: {
             [name: string]: string;
         };
