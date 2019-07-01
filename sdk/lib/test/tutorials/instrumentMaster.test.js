@@ -218,6 +218,6 @@ describe('Load Instrument Master', function () {
             console.log(res);
             done();
         })
-            .catch(function (err) { return console.log(err); });
+            .catch(function (err) { return console.log(err.response.statusCode, err.response.statusMessage); });
     });
 });

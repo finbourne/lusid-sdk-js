@@ -9,6 +9,6 @@ describe('Collect Metatdata', function () {
             console.log(result.body);
             done();
         })
-            .catch(function (err) { return console.log(err); });
+            .catch(function (err) { return console.log(err.response.statusCode, err.response.statusMessage); });
     });
 });
