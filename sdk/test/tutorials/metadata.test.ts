@@ -8,7 +8,7 @@ describe('Collect Metatdata', () => {
       console.log(result.body)
       done()
     })
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(err.response.statusCode, err.response.statusMessage))
   })
 })
 

@@ -276,7 +276,7 @@ describe('Load Instrument Master', () => {
         console.log(res)
         done()
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err.response.statusCode, err.response.statusMessage))
   })
 })
 
