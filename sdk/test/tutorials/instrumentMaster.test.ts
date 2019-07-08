@@ -248,7 +248,6 @@ securityCurrencyCode.displayName = 'SECURITY_CURRENCY_CODE'
 securityCurrencyCode.code = 'SECURITY_CURRENCY_CODE'
 securityCurrencyCode.dataTypeId = dataTypeId
 securityCurrencyCode.lifeTime = CreatePropertyDefinitionRequest.LifeTimeEnum.TimeVariant
-securityCurrencyCode.type = CreatePropertyDefinitionRequest.TypeEnum.Label
 
 // Once the instruments have been upserted and property definition created you
 // can add your own properties
