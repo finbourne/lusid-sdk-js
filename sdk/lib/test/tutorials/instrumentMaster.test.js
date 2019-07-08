@@ -194,7 +194,6 @@ securityCurrencyCode.displayName = 'SECURITY_CURRENCY_CODE';
 securityCurrencyCode.code = 'SECURITY_CURRENCY_CODE';
 securityCurrencyCode.dataTypeId = dataTypeId;
 securityCurrencyCode.lifeTime = api_1.CreatePropertyDefinitionRequest.LifeTimeEnum.TimeVariant;
-securityCurrencyCode.type = api_1.CreatePropertyDefinitionRequest.TypeEnum.Label;
 // Once the instruments have been upserted and property definition created you
 // can add your own properties
 describe('Load Instrument Master', function () {
