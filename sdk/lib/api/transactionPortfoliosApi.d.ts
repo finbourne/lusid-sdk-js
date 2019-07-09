@@ -105,6 +105,36 @@ export declare class TransactionPortfoliosApi {
         body: DeletedEntityResponse;
     }>;
     /**
+     * Cancel one or more executions from a transaction portfolio.
+     * @summary Cancel executions
+     * @param scope The scope of the transaction portfolio.
+     * @param code The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
+     * @param executionIds The ids of the executions to cancel.
+     */
+    cancelExecutions(scope: string, code: string, executionIds: Array<string>, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: DeletedEntityResponse;
+    }>;
+    /**
+     * Cancel one or more transactions from the specified transaction portfolio.
+     * @summary Cancel transactions
+     * @param scope The scope of the transaction portfolio.
+     * @param code The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
+     * @param transactionIds The ids of the transactions to cancel.
+     */
+    cancelTransactions(scope: string, code: string, transactionIds: Array<string>, options?: {
+        headers: {
+            [name: string]: string;
+        };
+    }): Promise<{
+        response: http.IncomingMessage;
+        body: DeletedEntityResponse;
+    }>;
+    /**
      * Create a transaction portfolio in a specific scope.
      * @summary Create portfolio
      * @param scope The scope that the transaction portfolio will be created in.
@@ -119,21 +149,6 @@ export declare class TransactionPortfoliosApi {
         body: Portfolio;
     }>;
     /**
-     * Delete one or more executions from a transaction portfolio.
-     * @summary Delete executions
-     * @param scope The scope of the transaction portfolio.
-     * @param code The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-     * @param executionIds The ids of the executions to delete.
-     */
-    deleteExecutions(scope: string, code: string, executionIds: Array<string>, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: DeletedEntityResponse;
-    }>;
-    /**
      * Delete a single property value from a single transaction in a transaction portfolio.
      * @summary Delete property from transaction
      * @param scope The scope of the transaction portfolio.
@@ -142,21 +157,6 @@ export declare class TransactionPortfoliosApi {
      * @param transactionPropertyKey The property key of the property value to delete from the transaction.              This must be from the \&quot;Trade\&quot; domain and will have the format {domain}/{scope}/{code} e.g.              \&quot;Trade/strategy/quantsignal\&quot;.
      */
     deletePropertyFromTransaction(scope: string, code: string, transactionId: string, transactionPropertyKey: string, options?: {
-        headers: {
-            [name: string]: string;
-        };
-    }): Promise<{
-        response: http.IncomingMessage;
-        body: DeletedEntityResponse;
-    }>;
-    /**
-     * Delete one or more transactions from the specified transaction portfolio.
-     * @summary Delete transactions
-     * @param scope The scope of the transaction portfolio.
-     * @param code The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-     * @param transactionIds The ids of the transactions to delete.
-     */
-    deleteTransactions(scope: string, code: string, transactionIds: Array<string>, options?: {
         headers: {
             [name: string]: string;
         };
