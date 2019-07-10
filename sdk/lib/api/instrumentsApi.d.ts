@@ -30,7 +30,7 @@ export declare class InstrumentsApi {
     accessToken: string;
     /**
      * Attempt to delete one or more \"client\" instruments.    The response will include those instruments that could not be deleted (as well as any available details).                It is important to always check the 'Failed' set for any unsuccessful results.
-     * @summary Delete instrument
+     * @summary [EARLY ACCESS] Delete instrument
      * @param identifierType The type of identifier being supplied
      * @param identifier The instrument identifier
      */
@@ -44,7 +44,7 @@ export declare class InstrumentsApi {
     }>;
     /**
      * Get an individual instrument by the one of its unique instrument identifiers. Optionally, it is possible to decorate each instrument with specified property data.
-     * @summary Get instrument definition
+     * @summary [EARLY ACCESS] Get instrument definition
      * @param identifierType The type of identifier being supplied
      * @param identifier The identifier of the requested instrument
      * @param effectiveAt Optional. The effective date of the query
@@ -61,7 +61,7 @@ export declare class InstrumentsApi {
     }>;
     /**
      * Returns a collection of instrument identifier type descriptors. Each descriptor specifies the properties  of a particular instrument identifier - its name, its cardinality (whether or not multiple instruments can  share the same identifier value), and its corresponding PropertyKey.
-     * @summary Get allowable instrument identifiers
+     * @summary [EARLY ACCESS] Get allowable instrument identifiers
      */
     getInstrumentIdentifiers(options?: {
         headers: {
@@ -73,7 +73,7 @@ export declare class InstrumentsApi {
     }>;
     /**
      * Get a collection of instruments by a set of identifiers. Optionally, it is possible to decorate each instrument with specified property data.
-     * @summary Get instrument definition
+     * @summary [EARLY ACCESS] Get instrument definition
      * @param identifierType The type of identifiers being supplied
      * @param identifiers The identifiers of the instruments to get
      * @param effectiveAt Optional. The effective date of the request
@@ -90,7 +90,7 @@ export declare class InstrumentsApi {
     }>;
     /**
      * Lists all instruments that have been mastered within LUSID.
-     * @summary Get all of the currently mastered instruments in LUSID
+     * @summary [EARLY ACCESS] Get all of the currently mastered instruments in LUSID
      * @param asAt Optional. The AsAt time
      * @param effectiveAt Optional. The effective date of the query
      * @param page Optional. The pagination token to continue listing instruments. This value is returned from a previous call to ListInstruments.  If this is set, then the sortBy, filter, effectiveAt, and asAt fields must not have changed. Also, if set, a start value cannot be set.
@@ -110,7 +110,7 @@ export declare class InstrumentsApi {
     }>;
     /**
      * Adds, updates, or removes an identifier on an instrument
-     * @summary Update instrument identifier
+     * @summary [EARLY ACCESS] Update instrument identifier
      * @param identifierType The type of identifier being supplied
      * @param identifier The instrument identifier
      * @param request The identifier to add, update, or remove
@@ -125,7 +125,7 @@ export declare class InstrumentsApi {
     }>;
     /**
      * Attempt to master one or more instruments in LUSID's instrument master. Each instrument is keyed by some unique key. This key is unimportant, and serves only as a method to identify created instruments in the response.    The response will return both the collection of successfully created instruments, as well as those that were rejected and why their creation failed. They will be keyed against the key supplied in the  request.                It is important to always check the 'Failed' set for any unsuccessful results.
-     * @summary Upsert instruments
+     * @summary [EARLY ACCESS] Upsert instruments
      * @param requests The instrument definitions
      */
     upsertInstruments(requests?: {
@@ -140,7 +140,7 @@ export declare class InstrumentsApi {
     }>;
     /**
      * Attempt to upsert property data for one or more instruments, properties, and effective dates.    The response will include the details of any failures that occurred during data storage.                It is important to always check the 'Failed' collection for any unsuccessful results.
-     * @summary Upsert instrument properties
+     * @summary [EARLY ACCESS] Upsert instrument properties
      * @param instrumentProperties The instrument property data
      */
     upsertInstrumentsProperties(instrumentProperties?: Array<UpsertInstrumentPropertyRequest>, options?: {

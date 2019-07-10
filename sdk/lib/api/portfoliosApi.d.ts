@@ -27,7 +27,7 @@ export declare class PortfoliosApi {
     accessToken: string;
     /**
      * Delete a portfolio at the specified effectiveAt
-     * @summary Delete portfolio
+     * @summary [EARLY ACCESS] Delete portfolio
      * @param scope The scope of the portfolio
      * @param code The code of the portfolio
      * @param effectiveAt Optional. The effective date of the deletion
@@ -42,7 +42,7 @@ export declare class PortfoliosApi {
     }>;
     /**
      * Delete one, many or all property values from a portfolio for the specified effectiveAt                Specifying no effectiveAt will delete all properties
-     * @summary Delete portfolio properties
+     * @summary [EARLY ACCESS] Delete portfolio properties
      * @param scope The scope of the portfolio
      * @param code Code for the portfolio
      * @param effectiveAt Optional. The effective date of the deletion
@@ -58,7 +58,7 @@ export declare class PortfoliosApi {
     }>;
     /**
      * Retrieves the basic set of information about a portfolio using the specified scope and code.
-     * @summary Get portfolio definition
+     * @summary [EARLY ACCESS] Get portfolio definition
      * @param scope The scope of the portfolio
      * @param code The code of the portfolio
      * @param effectiveAt Optional. The effective date of the data
@@ -74,7 +74,7 @@ export declare class PortfoliosApi {
     }>;
     /**
      * Gets all commands that modified a specific portfolio, including any input transactions.
-     * @summary Get commands
+     * @summary [EARLY ACCESS] Get commands
      * @param scope The scope of the portfolio
      * @param code The code of the portfolio
      * @param fromAsAt Optional. Filters commands by those that were processed at or after this date and time
@@ -94,7 +94,7 @@ export declare class PortfoliosApi {
     }>;
     /**
      * Get the properties of a portfolio
-     * @summary Get portfolio properties
+     * @summary [EARLY ACCESS] Get portfolio properties
      * @param scope The scope of the portfolio
      * @param code The code of the portfolio
      * @param effectiveAt Optional. The effective date of the data
@@ -113,7 +113,7 @@ export declare class PortfoliosApi {
     }>;
     /**
      * List all portfolios matching the specified criteria.                Example query syntax for the query parameter:                - To see which portfolios have holdings in the specified instruments:                    instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))                * Note that copy/pasting above examples results in incorrect single quote character
-     * @summary List portfolios
+     * @summary [EARLY ACCESS] List portfolios
      * @param effectiveAt Optional. The effective date of the data
      * @param asAt Optional. The AsAt date of the data
      * @param page Optional. The pagination token to continue listing portfolios. This value is returned from a previous call to ListPortfolios.  If this is set, then the sortBy, filter, query, effectiveAt, and asAt fields must not have changed. Also, if set, a start  value cannot be set.
@@ -134,7 +134,7 @@ export declare class PortfoliosApi {
     }>;
     /**
      * List all the portfolios in the specified scope
-     * @summary List portfolios for scope
+     * @summary [EARLY ACCESS] List portfolios for scope
      * @param scope The scope
      * @param effectiveAt Optional. The effective date of the data
      * @param asAt Optional. The AsAt date of the data
@@ -154,7 +154,7 @@ export declare class PortfoliosApi {
     }>;
     /**
      * Update the definition of a specific portfolio. Note, some parts of a portfolio definition are not available for modification after the initial creation.
-     * @summary Update portfolio definition
+     * @summary [EARLY ACCESS] Update portfolio definition
      * @param scope The scope of the portfolio
      * @param code The code of the portfolio
      * @param effectiveAt Optional. The effective date for the change
@@ -170,7 +170,7 @@ export declare class PortfoliosApi {
     }>;
     /**
      * Upsert one or more property values to a portfolio. All properties must be of the domain Portfolio.
-     * @summary Upsert portfolio properties
+     * @summary [EARLY ACCESS] Upsert portfolio properties
      * @param scope The scope of the portfolio
      * @param code The code of the portfolio
      * @param portfolioProperties The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date.
