@@ -100,7 +100,7 @@ export declare class InstrumentsApi {
      * @param filter Optional. Expression to filter the result set - the default filter returns only instruments in the Active state
      * @param instrumentPropertyKeys Optional. Keys of the properties to be decorated on to the instrument
      */
-    listInstruments(asAt?: Date, effectiveAt?: Date, page?: string, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, instrumentPropertyKeys?: Array<string>, options?: {
+    listInstruments(asAt?: Date, effectiveAt?: string, page?: string, sortBy?: Array<string>, start?: number, limit?: number, filter?: string, instrumentPropertyKeys?: Array<string>, options?: {
         headers: {
             [name: string]: string;
         };
