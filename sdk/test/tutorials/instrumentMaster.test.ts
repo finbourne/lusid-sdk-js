@@ -3,9 +3,9 @@ import {
   InstrumentDefinition,
   UpsertInstrumentsResponse,
   PropertyDefinition,
+  Property,
   CreatePropertyDefinitionRequest,
   GetInstrumentsResponse,
-  InstrumentProperty,
   UpsertInstrumentPropertiesResponse,
   UpsertInstrumentPropertyRequest,
   ResourceId,
@@ -187,8 +187,8 @@ function addLusidInstrumentIdsFromFile(
     })
 }
 
-function buildInstrumentProperty(key: string, value: string): InstrumentProperty {
-  let instrumentProperty = new InstrumentProperty()
+function buildInstrumentProperty(key: string, value: string): Property {
+  let instrumentProperty = new Property()
   instrumentProperty.key = key
   instrumentProperty.value = {
     labelValue: value,
@@ -248,7 +248,6 @@ securityCurrencyCode.displayName = 'SECURITY_CURRENCY_CODE'
 securityCurrencyCode.code = 'SECURITY_CURRENCY_CODE'
 securityCurrencyCode.dataTypeId = dataTypeId
 securityCurrencyCode.lifeTime = CreatePropertyDefinitionRequest.LifeTimeEnum.TimeVariant
-securityCurrencyCode.type = CreatePropertyDefinitionRequest.TypeEnum.Label
 
 // Once the instruments have been upserted and property definition created you
 // can add your own properties
