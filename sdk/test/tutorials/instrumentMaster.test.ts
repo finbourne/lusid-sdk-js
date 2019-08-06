@@ -5,11 +5,12 @@ import {
   PropertyDefinition,
   CreatePropertyDefinitionRequest,
   GetInstrumentsResponse,
-  InstrumentProperty,
   UpsertInstrumentPropertiesResponse,
   UpsertInstrumentPropertyRequest,
   ResourceId,
-  InstrumentIdValue} from "../../api";
+  InstrumentIdValue,
+  Property, PropertyValue
+} from "../../api";
 
 import { client } from './clientBuilder'
 const uuid4 = require('uuid/v4')
@@ -187,12 +188,12 @@ function addLusidInstrumentIdsFromFile(
     })
 }
 
-function buildInstrumentProperty(key: string, value: string): InstrumentProperty {
-  let instrumentProperty = new InstrumentProperty()
+function buildInstrumentProperty(key: string, value: string): Property {
+  let instrumentProperty = new Property()
   instrumentProperty.key = key
-  instrumentProperty.value = {
-    labelValue: value,
-  }
+  let instrumentPropertyValue = new PropertyValue()
+  instrumentPropertyValue.labelValue = value
+  instrumentProperty.value = instrumentPropertyValue
   return instrumentProperty
 }
 
