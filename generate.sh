@@ -39,19 +39,6 @@ cat $sdk_output_folder/package.json | jq -r --arg SDK_VERSION "$sdk_version" '.v
 
 cd $gen_root/sdk
 
-# workarounds for known issue - https://github.com/OpenAPITools/openapi-generator/issues/1139
-echo "import { InstrumentDefinition } from '../model/instrumentDefinition';" > api/_instrumentsApi.ts
-cat api/instrumentsApi.ts >> api/_instrumentsApi.ts
-rm api/instrumentsApi.ts
-mv api/_instrumentsApi.ts api/instrumentsApi.ts
-echo "import { PerpetualPropertyValue } from '../model/perpetualPropertyValue';" > api/_transactionPortfoliosApi.ts
-cat api/transactionPortfoliosApi.ts >> api/_transactionPortfoliosApi.ts
-rm api/transactionPortfoliosApi.ts
-mv api/_transactionPortfoliosApi.ts api/transactionPortfoliosApi.ts
-echo "import { PropertyValue } from '../model/propertyValue';" > api/_portfoliosApi.ts
-cat api/portfoliosApi.ts >> api/_portfoliosApi.ts
-rm api/portfoliosApi.ts
-mv api/_portfoliosApi.ts api/portfoliosApi.ts
 echo "export * from './client/client';" > _api.ts
 cat api.ts >> _api.ts
 rm api.ts
