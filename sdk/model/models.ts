@@ -1,7 +1,6 @@
 export * from './accessControlledAction';
 export * from './accessControlledResource';
 export * from './actionId';
-export * from './addTransactionPropertyResponse';
 export * from './adjustHolding';
 export * from './adjustHoldingRequest';
 export * from './aggregateSpec';
@@ -11,6 +10,7 @@ export * from './aggregationRequest';
 export * from './aggregationResponseNode';
 export * from './analyticStore';
 export * from './analyticStoreKey';
+export * from './annulQuotesResponse';
 export * from './change';
 export * from './completePortfolio';
 export * from './configurationRecipe';
@@ -39,8 +39,6 @@ export * from './cutLocalTime';
 export * from './dataType';
 export * from './deleteInstrumentPropertyRequest';
 export * from './deleteInstrumentResponse';
-export * from './deleteQuoteRequest';
-export * from './deleteQuotesResponse';
 export * from './deletedEntityResponse';
 export * from './errorDetail';
 export * from './executionRequest';
@@ -63,7 +61,6 @@ export * from './instrumentEconomicDefinition';
 export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
 export * from './instrumentMatch';
-export * from './instrumentProperty';
 export * from './instrumentSearchProperty';
 export * from './link';
 export * from './listAggregationResponse';
@@ -79,7 +76,6 @@ export * from './nestedAggregationResponse';
 export * from './orderBySpec';
 export * from './outputTransaction';
 export * from './perpetualProperty';
-export * from './perpetualPropertyValue';
 export * from './portfolio';
 export * from './portfolioDetails';
 export * from './portfolioGroup';
@@ -98,6 +94,7 @@ export * from './propertySchema';
 export * from './propertyValue';
 export * from './quote';
 export * from './quoteId';
+export * from './quoteSeriesId';
 export * from './realisedGainLoss';
 export * from './reconciliationBreak';
 export * from './referencePortfolioConstituent';
@@ -160,6 +157,7 @@ export * from './upsertQuoteRequest';
 export * from './upsertQuotesResponse';
 export * from './upsertReferencePortfolioConstituentsRequest';
 export * from './upsertReferencePortfolioConstituentsResponse';
+export * from './upsertTransactionPropertiesResponse';
 export * from './user';
 export * from './valuationReconciliationRequest';
 export * from './valuationsReconciliationRequest';
@@ -175,7 +173,6 @@ import localVarRequest = require('request');
 import { AccessControlledAction } from './accessControlledAction';
 import { AccessControlledResource } from './accessControlledResource';
 import { ActionId } from './actionId';
-import { AddTransactionPropertyResponse } from './addTransactionPropertyResponse';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
 import { AggregateSpec } from './aggregateSpec';
@@ -185,6 +182,7 @@ import { AggregationRequest } from './aggregationRequest';
 import { AggregationResponseNode } from './aggregationResponseNode';
 import { AnalyticStore } from './analyticStore';
 import { AnalyticStoreKey } from './analyticStoreKey';
+import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
 import { ConfigurationRecipe } from './configurationRecipe';
@@ -213,8 +211,6 @@ import { CutLocalTime } from './cutLocalTime';
 import { DataType } from './dataType';
 import { DeleteInstrumentPropertyRequest } from './deleteInstrumentPropertyRequest';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
-import { DeleteQuoteRequest } from './deleteQuoteRequest';
-import { DeleteQuotesResponse } from './deleteQuotesResponse';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { ErrorDetail } from './errorDetail';
 import { ExecutionRequest } from './executionRequest';
@@ -237,7 +233,6 @@ import { InstrumentEconomicDefinition } from './instrumentEconomicDefinition';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
 import { InstrumentMatch } from './instrumentMatch';
-import { InstrumentProperty } from './instrumentProperty';
 import { InstrumentSearchProperty } from './instrumentSearchProperty';
 import { Link } from './link';
 import { ListAggregationResponse } from './listAggregationResponse';
@@ -253,7 +248,6 @@ import { NestedAggregationResponse } from './nestedAggregationResponse';
 import { OrderBySpec } from './orderBySpec';
 import { OutputTransaction } from './outputTransaction';
 import { PerpetualProperty } from './perpetualProperty';
-import { PerpetualPropertyValue } from './perpetualPropertyValue';
 import { Portfolio } from './portfolio';
 import { PortfolioDetails } from './portfolioDetails';
 import { PortfolioGroup } from './portfolioGroup';
@@ -272,6 +266,7 @@ import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { Quote } from './quote';
 import { QuoteId } from './quoteId';
+import { QuoteSeriesId } from './quoteSeriesId';
 import { RealisedGainLoss } from './realisedGainLoss';
 import { ReconciliationBreak } from './reconciliationBreak';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
@@ -334,6 +329,7 @@ import { UpsertQuoteRequest } from './upsertQuoteRequest';
 import { UpsertQuotesResponse } from './upsertQuotesResponse';
 import { UpsertReferencePortfolioConstituentsRequest } from './upsertReferencePortfolioConstituentsRequest';
 import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferencePortfolioConstituentsResponse';
+import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
 import { User } from './user';
 import { ValuationReconciliationRequest } from './valuationReconciliationRequest';
 import { ValuationsReconciliationRequest } from './valuationsReconciliationRequest';
@@ -379,14 +375,13 @@ let enumsMap: {[index: string]: any} = {
         "Instrument.StateEnum": Instrument.StateEnum,
         "Link.RelationEnum": Link.RelationEnum,
         "Link.MethodEnum": Link.MethodEnum,
-        "MarketContextSuppliers.FxEnum": MarketContextSuppliers.FxEnum,
-        "MarketContextSuppliers.RatesEnum": MarketContextSuppliers.RatesEnum,
         "MarketContextSuppliers.CommodityEnum": MarketContextSuppliers.CommodityEnum,
         "MarketContextSuppliers.CreditEnum": MarketContextSuppliers.CreditEnum,
         "MarketContextSuppliers.EquityEnum": MarketContextSuppliers.EquityEnum,
+        "MarketContextSuppliers.FxEnum": MarketContextSuppliers.FxEnum,
+        "MarketContextSuppliers.RatesEnum": MarketContextSuppliers.RatesEnum,
         "MarketDataKeyRule.SupplierEnum": MarketDataKeyRule.SupplierEnum,
         "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
-        "MarketDataKeyRule.PriceSideEnum": MarketDataKeyRule.PriceSideEnum,
         "MarketOptions.DefaultSupplierEnum": MarketOptions.DefaultSupplierEnum,
         "MarketOptions.DefaultInstrumentCodeTypeEnum": MarketOptions.DefaultInstrumentCodeTypeEnum,
         "ModelSelection.LibraryEnum": ModelSelection.LibraryEnum,
@@ -402,9 +397,8 @@ let enumsMap: {[index: string]: any} = {
         "PropertyDefinition.DomainEnum": PropertyDefinition.DomainEnum,
         "PropertyFilter.OperatorEnum": PropertyFilter.OperatorEnum,
         "PropertyFilter.RightOperandTypeEnum": PropertyFilter.RightOperandTypeEnum,
-        "QuoteId.InstrumentIdTypeEnum": QuoteId.InstrumentIdTypeEnum,
-        "QuoteId.QuoteTypeEnum": QuoteId.QuoteTypeEnum,
-        "QuoteId.PriceSideEnum": QuoteId.PriceSideEnum,
+        "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
+        "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
         "ResourceListOfValueType.ValuesEnum": ResourceListOfValueType.ValuesEnum,
         "Results.FormatEnum": Results.FormatEnum,
         "TransactionConfigurationMovementData.MovementTypesEnum": TransactionConfigurationMovementData.MovementTypesEnum,
@@ -426,7 +420,6 @@ let typeMap: {[index: string]: any} = {
     "AccessControlledAction": AccessControlledAction,
     "AccessControlledResource": AccessControlledResource,
     "ActionId": ActionId,
-    "AddTransactionPropertyResponse": AddTransactionPropertyResponse,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingRequest": AdjustHoldingRequest,
     "AggregateSpec": AggregateSpec,
@@ -436,6 +429,7 @@ let typeMap: {[index: string]: any} = {
     "AggregationResponseNode": AggregationResponseNode,
     "AnalyticStore": AnalyticStore,
     "AnalyticStoreKey": AnalyticStoreKey,
+    "AnnulQuotesResponse": AnnulQuotesResponse,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
     "ConfigurationRecipe": ConfigurationRecipe,
@@ -464,8 +458,6 @@ let typeMap: {[index: string]: any} = {
     "DataType": DataType,
     "DeleteInstrumentPropertyRequest": DeleteInstrumentPropertyRequest,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
-    "DeleteQuoteRequest": DeleteQuoteRequest,
-    "DeleteQuotesResponse": DeleteQuotesResponse,
     "DeletedEntityResponse": DeletedEntityResponse,
     "ErrorDetail": ErrorDetail,
     "ExecutionRequest": ExecutionRequest,
@@ -488,7 +480,6 @@ let typeMap: {[index: string]: any} = {
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
     "InstrumentIdValue": InstrumentIdValue,
     "InstrumentMatch": InstrumentMatch,
-    "InstrumentProperty": InstrumentProperty,
     "InstrumentSearchProperty": InstrumentSearchProperty,
     "Link": Link,
     "ListAggregationResponse": ListAggregationResponse,
@@ -504,7 +495,6 @@ let typeMap: {[index: string]: any} = {
     "OrderBySpec": OrderBySpec,
     "OutputTransaction": OutputTransaction,
     "PerpetualProperty": PerpetualProperty,
-    "PerpetualPropertyValue": PerpetualPropertyValue,
     "Portfolio": Portfolio,
     "PortfolioDetails": PortfolioDetails,
     "PortfolioGroup": PortfolioGroup,
@@ -523,6 +513,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyValue": PropertyValue,
     "Quote": Quote,
     "QuoteId": QuoteId,
+    "QuoteSeriesId": QuoteSeriesId,
     "RealisedGainLoss": RealisedGainLoss,
     "ReconciliationBreak": ReconciliationBreak,
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
@@ -585,6 +576,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertQuotesResponse": UpsertQuotesResponse,
     "UpsertReferencePortfolioConstituentsRequest": UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": UpsertReferencePortfolioConstituentsResponse,
+    "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
     "User": User,
     "ValuationReconciliationRequest": ValuationReconciliationRequest,
     "ValuationsReconciliationRequest": ValuationsReconciliationRequest,

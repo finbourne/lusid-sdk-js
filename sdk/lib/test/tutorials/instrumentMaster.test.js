@@ -155,11 +155,11 @@ function addLusidInstrumentIdsFromFile(filePath, fileType) {
     });
 }
 function buildInstrumentProperty(key, value) {
-    var instrumentProperty = new api_1.InstrumentProperty();
+    var instrumentProperty = new api_1.Property();
     instrumentProperty.key = key;
-    instrumentProperty.value = {
-        labelValue: value,
-    };
+    var instrumentPropertyValue = new api_1.PropertyValue();
+    instrumentPropertyValue.labelValue = value;
+    instrumentProperty.value = instrumentPropertyValue;
     return instrumentProperty;
 }
 function buildUpsertInstrumentPropertiesRequest(key, property, instruments) {

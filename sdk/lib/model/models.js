@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./accessControlledAction"));
 __export(require("./accessControlledResource"));
 __export(require("./actionId"));
-__export(require("./addTransactionPropertyResponse"));
 __export(require("./adjustHolding"));
 __export(require("./adjustHoldingRequest"));
 __export(require("./aggregateSpec"));
@@ -16,6 +15,7 @@ __export(require("./aggregationRequest"));
 __export(require("./aggregationResponseNode"));
 __export(require("./analyticStore"));
 __export(require("./analyticStoreKey"));
+__export(require("./annulQuotesResponse"));
 __export(require("./change"));
 __export(require("./completePortfolio"));
 __export(require("./configurationRecipe"));
@@ -44,8 +44,6 @@ __export(require("./cutLocalTime"));
 __export(require("./dataType"));
 __export(require("./deleteInstrumentPropertyRequest"));
 __export(require("./deleteInstrumentResponse"));
-__export(require("./deleteQuoteRequest"));
-__export(require("./deleteQuotesResponse"));
 __export(require("./deletedEntityResponse"));
 __export(require("./errorDetail"));
 __export(require("./executionRequest"));
@@ -68,7 +66,6 @@ __export(require("./instrumentEconomicDefinition"));
 __export(require("./instrumentIdTypeDescriptor"));
 __export(require("./instrumentIdValue"));
 __export(require("./instrumentMatch"));
-__export(require("./instrumentProperty"));
 __export(require("./instrumentSearchProperty"));
 __export(require("./link"));
 __export(require("./listAggregationResponse"));
@@ -84,7 +81,6 @@ __export(require("./nestedAggregationResponse"));
 __export(require("./orderBySpec"));
 __export(require("./outputTransaction"));
 __export(require("./perpetualProperty"));
-__export(require("./perpetualPropertyValue"));
 __export(require("./portfolio"));
 __export(require("./portfolioDetails"));
 __export(require("./portfolioGroup"));
@@ -103,6 +99,7 @@ __export(require("./propertySchema"));
 __export(require("./propertyValue"));
 __export(require("./quote"));
 __export(require("./quoteId"));
+__export(require("./quoteSeriesId"));
 __export(require("./realisedGainLoss"));
 __export(require("./reconciliationBreak"));
 __export(require("./referencePortfolioConstituent"));
@@ -165,6 +162,7 @@ __export(require("./upsertQuoteRequest"));
 __export(require("./upsertQuotesResponse"));
 __export(require("./upsertReferencePortfolioConstituentsRequest"));
 __export(require("./upsertReferencePortfolioConstituentsResponse"));
+__export(require("./upsertTransactionPropertiesResponse"));
 __export(require("./user"));
 __export(require("./valuationReconciliationRequest"));
 __export(require("./valuationsReconciliationRequest"));
@@ -177,7 +175,6 @@ __export(require("./versionedResourceListOfTransaction"));
 var accessControlledAction_1 = require("./accessControlledAction");
 var accessControlledResource_1 = require("./accessControlledResource");
 var actionId_1 = require("./actionId");
-var addTransactionPropertyResponse_1 = require("./addTransactionPropertyResponse");
 var adjustHolding_1 = require("./adjustHolding");
 var adjustHoldingRequest_1 = require("./adjustHoldingRequest");
 var aggregateSpec_1 = require("./aggregateSpec");
@@ -187,6 +184,7 @@ var aggregationRequest_1 = require("./aggregationRequest");
 var aggregationResponseNode_1 = require("./aggregationResponseNode");
 var analyticStore_1 = require("./analyticStore");
 var analyticStoreKey_1 = require("./analyticStoreKey");
+var annulQuotesResponse_1 = require("./annulQuotesResponse");
 var change_1 = require("./change");
 var completePortfolio_1 = require("./completePortfolio");
 var configurationRecipe_1 = require("./configurationRecipe");
@@ -215,8 +213,6 @@ var cutLocalTime_1 = require("./cutLocalTime");
 var dataType_1 = require("./dataType");
 var deleteInstrumentPropertyRequest_1 = require("./deleteInstrumentPropertyRequest");
 var deleteInstrumentResponse_1 = require("./deleteInstrumentResponse");
-var deleteQuoteRequest_1 = require("./deleteQuoteRequest");
-var deleteQuotesResponse_1 = require("./deleteQuotesResponse");
 var deletedEntityResponse_1 = require("./deletedEntityResponse");
 var errorDetail_1 = require("./errorDetail");
 var executionRequest_1 = require("./executionRequest");
@@ -239,7 +235,6 @@ var instrumentEconomicDefinition_1 = require("./instrumentEconomicDefinition");
 var instrumentIdTypeDescriptor_1 = require("./instrumentIdTypeDescriptor");
 var instrumentIdValue_1 = require("./instrumentIdValue");
 var instrumentMatch_1 = require("./instrumentMatch");
-var instrumentProperty_1 = require("./instrumentProperty");
 var instrumentSearchProperty_1 = require("./instrumentSearchProperty");
 var link_1 = require("./link");
 var listAggregationResponse_1 = require("./listAggregationResponse");
@@ -255,7 +250,6 @@ var nestedAggregationResponse_1 = require("./nestedAggregationResponse");
 var orderBySpec_1 = require("./orderBySpec");
 var outputTransaction_1 = require("./outputTransaction");
 var perpetualProperty_1 = require("./perpetualProperty");
-var perpetualPropertyValue_1 = require("./perpetualPropertyValue");
 var portfolio_1 = require("./portfolio");
 var portfolioDetails_1 = require("./portfolioDetails");
 var portfolioGroup_1 = require("./portfolioGroup");
@@ -274,6 +268,7 @@ var propertySchema_1 = require("./propertySchema");
 var propertyValue_1 = require("./propertyValue");
 var quote_1 = require("./quote");
 var quoteId_1 = require("./quoteId");
+var quoteSeriesId_1 = require("./quoteSeriesId");
 var realisedGainLoss_1 = require("./realisedGainLoss");
 var reconciliationBreak_1 = require("./reconciliationBreak");
 var referencePortfolioConstituent_1 = require("./referencePortfolioConstituent");
@@ -336,6 +331,7 @@ var upsertQuoteRequest_1 = require("./upsertQuoteRequest");
 var upsertQuotesResponse_1 = require("./upsertQuotesResponse");
 var upsertReferencePortfolioConstituentsRequest_1 = require("./upsertReferencePortfolioConstituentsRequest");
 var upsertReferencePortfolioConstituentsResponse_1 = require("./upsertReferencePortfolioConstituentsResponse");
+var upsertTransactionPropertiesResponse_1 = require("./upsertTransactionPropertiesResponse");
 var user_1 = require("./user");
 var valuationReconciliationRequest_1 = require("./valuationReconciliationRequest");
 var valuationsReconciliationRequest_1 = require("./valuationsReconciliationRequest");
@@ -379,14 +375,13 @@ var enumsMap = {
     "Instrument.StateEnum": instrument_1.Instrument.StateEnum,
     "Link.RelationEnum": link_1.Link.RelationEnum,
     "Link.MethodEnum": link_1.Link.MethodEnum,
-    "MarketContextSuppliers.FxEnum": marketContextSuppliers_1.MarketContextSuppliers.FxEnum,
-    "MarketContextSuppliers.RatesEnum": marketContextSuppliers_1.MarketContextSuppliers.RatesEnum,
     "MarketContextSuppliers.CommodityEnum": marketContextSuppliers_1.MarketContextSuppliers.CommodityEnum,
     "MarketContextSuppliers.CreditEnum": marketContextSuppliers_1.MarketContextSuppliers.CreditEnum,
     "MarketContextSuppliers.EquityEnum": marketContextSuppliers_1.MarketContextSuppliers.EquityEnum,
+    "MarketContextSuppliers.FxEnum": marketContextSuppliers_1.MarketContextSuppliers.FxEnum,
+    "MarketContextSuppliers.RatesEnum": marketContextSuppliers_1.MarketContextSuppliers.RatesEnum,
     "MarketDataKeyRule.SupplierEnum": marketDataKeyRule_1.MarketDataKeyRule.SupplierEnum,
     "MarketDataKeyRule.QuoteTypeEnum": marketDataKeyRule_1.MarketDataKeyRule.QuoteTypeEnum,
-    "MarketDataKeyRule.PriceSideEnum": marketDataKeyRule_1.MarketDataKeyRule.PriceSideEnum,
     "MarketOptions.DefaultSupplierEnum": marketOptions_1.MarketOptions.DefaultSupplierEnum,
     "MarketOptions.DefaultInstrumentCodeTypeEnum": marketOptions_1.MarketOptions.DefaultInstrumentCodeTypeEnum,
     "ModelSelection.LibraryEnum": modelSelection_1.ModelSelection.LibraryEnum,
@@ -402,9 +397,8 @@ var enumsMap = {
     "PropertyDefinition.DomainEnum": propertyDefinition_1.PropertyDefinition.DomainEnum,
     "PropertyFilter.OperatorEnum": propertyFilter_1.PropertyFilter.OperatorEnum,
     "PropertyFilter.RightOperandTypeEnum": propertyFilter_1.PropertyFilter.RightOperandTypeEnum,
-    "QuoteId.InstrumentIdTypeEnum": quoteId_1.QuoteId.InstrumentIdTypeEnum,
-    "QuoteId.QuoteTypeEnum": quoteId_1.QuoteId.QuoteTypeEnum,
-    "QuoteId.PriceSideEnum": quoteId_1.QuoteId.PriceSideEnum,
+    "QuoteSeriesId.InstrumentIdTypeEnum": quoteSeriesId_1.QuoteSeriesId.InstrumentIdTypeEnum,
+    "QuoteSeriesId.QuoteTypeEnum": quoteSeriesId_1.QuoteSeriesId.QuoteTypeEnum,
     "ResourceListOfValueType.ValuesEnum": resourceListOfValueType_1.ResourceListOfValueType.ValuesEnum,
     "Results.FormatEnum": results_1.Results.FormatEnum,
     "TransactionConfigurationMovementData.MovementTypesEnum": transactionConfigurationMovementData_1.TransactionConfigurationMovementData.MovementTypesEnum,
@@ -425,7 +419,6 @@ var typeMap = {
     "AccessControlledAction": accessControlledAction_1.AccessControlledAction,
     "AccessControlledResource": accessControlledResource_1.AccessControlledResource,
     "ActionId": actionId_1.ActionId,
-    "AddTransactionPropertyResponse": addTransactionPropertyResponse_1.AddTransactionPropertyResponse,
     "AdjustHolding": adjustHolding_1.AdjustHolding,
     "AdjustHoldingRequest": adjustHoldingRequest_1.AdjustHoldingRequest,
     "AggregateSpec": aggregateSpec_1.AggregateSpec,
@@ -435,6 +428,7 @@ var typeMap = {
     "AggregationResponseNode": aggregationResponseNode_1.AggregationResponseNode,
     "AnalyticStore": analyticStore_1.AnalyticStore,
     "AnalyticStoreKey": analyticStoreKey_1.AnalyticStoreKey,
+    "AnnulQuotesResponse": annulQuotesResponse_1.AnnulQuotesResponse,
     "Change": change_1.Change,
     "CompletePortfolio": completePortfolio_1.CompletePortfolio,
     "ConfigurationRecipe": configurationRecipe_1.ConfigurationRecipe,
@@ -463,8 +457,6 @@ var typeMap = {
     "DataType": dataType_1.DataType,
     "DeleteInstrumentPropertyRequest": deleteInstrumentPropertyRequest_1.DeleteInstrumentPropertyRequest,
     "DeleteInstrumentResponse": deleteInstrumentResponse_1.DeleteInstrumentResponse,
-    "DeleteQuoteRequest": deleteQuoteRequest_1.DeleteQuoteRequest,
-    "DeleteQuotesResponse": deleteQuotesResponse_1.DeleteQuotesResponse,
     "DeletedEntityResponse": deletedEntityResponse_1.DeletedEntityResponse,
     "ErrorDetail": errorDetail_1.ErrorDetail,
     "ExecutionRequest": executionRequest_1.ExecutionRequest,
@@ -487,7 +479,6 @@ var typeMap = {
     "InstrumentIdTypeDescriptor": instrumentIdTypeDescriptor_1.InstrumentIdTypeDescriptor,
     "InstrumentIdValue": instrumentIdValue_1.InstrumentIdValue,
     "InstrumentMatch": instrumentMatch_1.InstrumentMatch,
-    "InstrumentProperty": instrumentProperty_1.InstrumentProperty,
     "InstrumentSearchProperty": instrumentSearchProperty_1.InstrumentSearchProperty,
     "Link": link_1.Link,
     "ListAggregationResponse": listAggregationResponse_1.ListAggregationResponse,
@@ -503,7 +494,6 @@ var typeMap = {
     "OrderBySpec": orderBySpec_1.OrderBySpec,
     "OutputTransaction": outputTransaction_1.OutputTransaction,
     "PerpetualProperty": perpetualProperty_1.PerpetualProperty,
-    "PerpetualPropertyValue": perpetualPropertyValue_1.PerpetualPropertyValue,
     "Portfolio": portfolio_1.Portfolio,
     "PortfolioDetails": portfolioDetails_1.PortfolioDetails,
     "PortfolioGroup": portfolioGroup_1.PortfolioGroup,
@@ -522,6 +512,7 @@ var typeMap = {
     "PropertyValue": propertyValue_1.PropertyValue,
     "Quote": quote_1.Quote,
     "QuoteId": quoteId_1.QuoteId,
+    "QuoteSeriesId": quoteSeriesId_1.QuoteSeriesId,
     "RealisedGainLoss": realisedGainLoss_1.RealisedGainLoss,
     "ReconciliationBreak": reconciliationBreak_1.ReconciliationBreak,
     "ReferencePortfolioConstituent": referencePortfolioConstituent_1.ReferencePortfolioConstituent,
@@ -584,6 +575,7 @@ var typeMap = {
     "UpsertQuotesResponse": upsertQuotesResponse_1.UpsertQuotesResponse,
     "UpsertReferencePortfolioConstituentsRequest": upsertReferencePortfolioConstituentsRequest_1.UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": upsertReferencePortfolioConstituentsResponse_1.UpsertReferencePortfolioConstituentsResponse,
+    "UpsertTransactionPropertiesResponse": upsertTransactionPropertiesResponse_1.UpsertTransactionPropertiesResponse,
     "User": user_1.User,
     "ValuationReconciliationRequest": valuationReconciliationRequest_1.ValuationReconciliationRequest,
     "ValuationsReconciliationRequest": valuationsReconciliationRequest_1.ValuationsReconciliationRequest,
