@@ -42,6 +42,7 @@ __export(require("./currencyAndAmount"));
 __export(require("./cutLabelDefinition"));
 __export(require("./cutLocalTime"));
 __export(require("./dataType"));
+__export(require("./deleteInstrumentPropertiesResponse"));
 __export(require("./deleteInstrumentPropertyRequest"));
 __export(require("./deleteInstrumentResponse"));
 __export(require("./deletedEntityResponse"));
@@ -211,6 +212,7 @@ var currencyAndAmount_1 = require("./currencyAndAmount");
 var cutLabelDefinition_1 = require("./cutLabelDefinition");
 var cutLocalTime_1 = require("./cutLocalTime");
 var dataType_1 = require("./dataType");
+var deleteInstrumentPropertiesResponse_1 = require("./deleteInstrumentPropertiesResponse");
 var deleteInstrumentPropertyRequest_1 = require("./deleteInstrumentPropertyRequest");
 var deleteInstrumentResponse_1 = require("./deleteInstrumentResponse");
 var deletedEntityResponse_1 = require("./deletedEntityResponse");
@@ -455,6 +457,7 @@ var typeMap = {
     "CutLabelDefinition": cutLabelDefinition_1.CutLabelDefinition,
     "CutLocalTime": cutLocalTime_1.CutLocalTime,
     "DataType": dataType_1.DataType,
+    "DeleteInstrumentPropertiesResponse": deleteInstrumentPropertiesResponse_1.DeleteInstrumentPropertiesResponse,
     "DeleteInstrumentPropertyRequest": deleteInstrumentPropertyRequest_1.DeleteInstrumentPropertyRequest,
     "DeleteInstrumentResponse": deleteInstrumentResponse_1.DeleteInstrumentResponse,
     "DeletedEntityResponse": deletedEntityResponse_1.DeletedEntityResponse,

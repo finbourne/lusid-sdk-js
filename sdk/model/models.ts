@@ -37,6 +37,7 @@ export * from './currencyAndAmount';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
 export * from './dataType';
+export * from './deleteInstrumentPropertiesResponse';
 export * from './deleteInstrumentPropertyRequest';
 export * from './deleteInstrumentResponse';
 export * from './deletedEntityResponse';
@@ -209,6 +210,7 @@ import { CurrencyAndAmount } from './currencyAndAmount';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
 import { DataType } from './dataType';
+import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
 import { DeleteInstrumentPropertyRequest } from './deleteInstrumentPropertyRequest';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeletedEntityResponse } from './deletedEntityResponse';
@@ -456,6 +458,7 @@ let typeMap: {[index: string]: any} = {
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
     "DataType": DataType,
+    "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,
     "DeleteInstrumentPropertyRequest": DeleteInstrumentPropertyRequest,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeletedEntityResponse": DeletedEntityResponse,
