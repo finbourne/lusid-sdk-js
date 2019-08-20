@@ -16,6 +16,7 @@ __export(require("./aggregationResponseNode"));
 __export(require("./analyticStore"));
 __export(require("./analyticStoreKey"));
 __export(require("./annulQuotesResponse"));
+__export(require("./annulStructuredDataResponse"));
 __export(require("./change"));
 __export(require("./completePortfolio"));
 __export(require("./configurationRecipe"));
@@ -54,6 +55,7 @@ __export(require("./fileResponse"));
 __export(require("./getInstrumentsResponse"));
 __export(require("./getQuotesResponse"));
 __export(require("./getReferencePortfolioConstituentsResponse"));
+__export(require("./getStructuredMarketDataResponse"));
 __export(require("./holdingAdjustment"));
 __export(require("./holdingsAdjustment"));
 __export(require("./holdingsAdjustmentHeader"));
@@ -133,6 +135,8 @@ __export(require("./results"));
 __export(require("./schema"));
 __export(require("./scopeDefinition"));
 __export(require("./stream"));
+__export(require("./structuredMarketData"));
+__export(require("./structuredMarketDataId"));
 __export(require("./targetTaxLot"));
 __export(require("./targetTaxLotRequest"));
 __export(require("./transaction"));
@@ -163,6 +167,8 @@ __export(require("./upsertQuoteRequest"));
 __export(require("./upsertQuotesResponse"));
 __export(require("./upsertReferencePortfolioConstituentsRequest"));
 __export(require("./upsertReferencePortfolioConstituentsResponse"));
+__export(require("./upsertStructuredDataResponse"));
+__export(require("./upsertStructuredMarketDataRequest"));
 __export(require("./upsertTransactionPropertiesResponse"));
 __export(require("./user"));
 __export(require("./valuationReconciliationRequest"));
@@ -186,6 +192,7 @@ var aggregationResponseNode_1 = require("./aggregationResponseNode");
 var analyticStore_1 = require("./analyticStore");
 var analyticStoreKey_1 = require("./analyticStoreKey");
 var annulQuotesResponse_1 = require("./annulQuotesResponse");
+var annulStructuredDataResponse_1 = require("./annulStructuredDataResponse");
 var change_1 = require("./change");
 var completePortfolio_1 = require("./completePortfolio");
 var configurationRecipe_1 = require("./configurationRecipe");
@@ -224,6 +231,7 @@ var fileResponse_1 = require("./fileResponse");
 var getInstrumentsResponse_1 = require("./getInstrumentsResponse");
 var getQuotesResponse_1 = require("./getQuotesResponse");
 var getReferencePortfolioConstituentsResponse_1 = require("./getReferencePortfolioConstituentsResponse");
+var getStructuredMarketDataResponse_1 = require("./getStructuredMarketDataResponse");
 var holdingAdjustment_1 = require("./holdingAdjustment");
 var holdingsAdjustment_1 = require("./holdingsAdjustment");
 var holdingsAdjustmentHeader_1 = require("./holdingsAdjustmentHeader");
@@ -303,6 +311,8 @@ var results_1 = require("./results");
 var schema_1 = require("./schema");
 var scopeDefinition_1 = require("./scopeDefinition");
 var stream_1 = require("./stream");
+var structuredMarketData_1 = require("./structuredMarketData");
+var structuredMarketDataId_1 = require("./structuredMarketDataId");
 var targetTaxLot_1 = require("./targetTaxLot");
 var targetTaxLotRequest_1 = require("./targetTaxLotRequest");
 var transaction_1 = require("./transaction");
@@ -333,6 +343,8 @@ var upsertQuoteRequest_1 = require("./upsertQuoteRequest");
 var upsertQuotesResponse_1 = require("./upsertQuotesResponse");
 var upsertReferencePortfolioConstituentsRequest_1 = require("./upsertReferencePortfolioConstituentsRequest");
 var upsertReferencePortfolioConstituentsResponse_1 = require("./upsertReferencePortfolioConstituentsResponse");
+var upsertStructuredDataResponse_1 = require("./upsertStructuredDataResponse");
+var upsertStructuredMarketDataRequest_1 = require("./upsertStructuredMarketDataRequest");
 var upsertTransactionPropertiesResponse_1 = require("./upsertTransactionPropertiesResponse");
 var user_1 = require("./user");
 var valuationReconciliationRequest_1 = require("./valuationReconciliationRequest");
@@ -431,6 +443,7 @@ var typeMap = {
     "AnalyticStore": analyticStore_1.AnalyticStore,
     "AnalyticStoreKey": analyticStoreKey_1.AnalyticStoreKey,
     "AnnulQuotesResponse": annulQuotesResponse_1.AnnulQuotesResponse,
+    "AnnulStructuredDataResponse": annulStructuredDataResponse_1.AnnulStructuredDataResponse,
     "Change": change_1.Change,
     "CompletePortfolio": completePortfolio_1.CompletePortfolio,
     "ConfigurationRecipe": configurationRecipe_1.ConfigurationRecipe,
@@ -469,6 +482,7 @@ var typeMap = {
     "GetInstrumentsResponse": getInstrumentsResponse_1.GetInstrumentsResponse,
     "GetQuotesResponse": getQuotesResponse_1.GetQuotesResponse,
     "GetReferencePortfolioConstituentsResponse": getReferencePortfolioConstituentsResponse_1.GetReferencePortfolioConstituentsResponse,
+    "GetStructuredMarketDataResponse": getStructuredMarketDataResponse_1.GetStructuredMarketDataResponse,
     "HoldingAdjustment": holdingAdjustment_1.HoldingAdjustment,
     "HoldingsAdjustment": holdingsAdjustment_1.HoldingsAdjustment,
     "HoldingsAdjustmentHeader": holdingsAdjustmentHeader_1.HoldingsAdjustmentHeader,
@@ -548,6 +562,8 @@ var typeMap = {
     "Schema": schema_1.Schema,
     "ScopeDefinition": scopeDefinition_1.ScopeDefinition,
     "Stream": stream_1.Stream,
+    "StructuredMarketData": structuredMarketData_1.StructuredMarketData,
+    "StructuredMarketDataId": structuredMarketDataId_1.StructuredMarketDataId,
     "TargetTaxLot": targetTaxLot_1.TargetTaxLot,
     "TargetTaxLotRequest": targetTaxLotRequest_1.TargetTaxLotRequest,
     "Transaction": transaction_1.Transaction,
@@ -578,6 +594,8 @@ var typeMap = {
     "UpsertQuotesResponse": upsertQuotesResponse_1.UpsertQuotesResponse,
     "UpsertReferencePortfolioConstituentsRequest": upsertReferencePortfolioConstituentsRequest_1.UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": upsertReferencePortfolioConstituentsResponse_1.UpsertReferencePortfolioConstituentsResponse,
+    "UpsertStructuredDataResponse": upsertStructuredDataResponse_1.UpsertStructuredDataResponse,
+    "UpsertStructuredMarketDataRequest": upsertStructuredMarketDataRequest_1.UpsertStructuredMarketDataRequest,
     "UpsertTransactionPropertiesResponse": upsertTransactionPropertiesResponse_1.UpsertTransactionPropertiesResponse,
     "User": user_1.User,
     "ValuationReconciliationRequest": valuationReconciliationRequest_1.ValuationReconciliationRequest,

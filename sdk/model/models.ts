@@ -11,6 +11,7 @@ export * from './aggregationResponseNode';
 export * from './analyticStore';
 export * from './analyticStoreKey';
 export * from './annulQuotesResponse';
+export * from './annulStructuredDataResponse';
 export * from './change';
 export * from './completePortfolio';
 export * from './configurationRecipe';
@@ -49,6 +50,7 @@ export * from './fileResponse';
 export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
 export * from './getReferencePortfolioConstituentsResponse';
+export * from './getStructuredMarketDataResponse';
 export * from './holdingAdjustment';
 export * from './holdingsAdjustment';
 export * from './holdingsAdjustmentHeader';
@@ -128,6 +130,8 @@ export * from './results';
 export * from './schema';
 export * from './scopeDefinition';
 export * from './stream';
+export * from './structuredMarketData';
+export * from './structuredMarketDataId';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './transaction';
@@ -158,6 +162,8 @@ export * from './upsertQuoteRequest';
 export * from './upsertQuotesResponse';
 export * from './upsertReferencePortfolioConstituentsRequest';
 export * from './upsertReferencePortfolioConstituentsResponse';
+export * from './upsertStructuredDataResponse';
+export * from './upsertStructuredMarketDataRequest';
 export * from './upsertTransactionPropertiesResponse';
 export * from './user';
 export * from './valuationReconciliationRequest';
@@ -184,6 +190,7 @@ import { AggregationResponseNode } from './aggregationResponseNode';
 import { AnalyticStore } from './analyticStore';
 import { AnalyticStoreKey } from './analyticStoreKey';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
+import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
 import { ConfigurationRecipe } from './configurationRecipe';
@@ -222,6 +229,7 @@ import { FileResponse } from './fileResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
+import { GetStructuredMarketDataResponse } from './getStructuredMarketDataResponse';
 import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingsAdjustment } from './holdingsAdjustment';
 import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
@@ -301,6 +309,8 @@ import { Results } from './results';
 import { Schema } from './schema';
 import { ScopeDefinition } from './scopeDefinition';
 import { Stream } from './stream';
+import { StructuredMarketData } from './structuredMarketData';
+import { StructuredMarketDataId } from './structuredMarketDataId';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { Transaction } from './transaction';
@@ -331,6 +341,8 @@ import { UpsertQuoteRequest } from './upsertQuoteRequest';
 import { UpsertQuotesResponse } from './upsertQuotesResponse';
 import { UpsertReferencePortfolioConstituentsRequest } from './upsertReferencePortfolioConstituentsRequest';
 import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferencePortfolioConstituentsResponse';
+import { UpsertStructuredDataResponse } from './upsertStructuredDataResponse';
+import { UpsertStructuredMarketDataRequest } from './upsertStructuredMarketDataRequest';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
 import { User } from './user';
 import { ValuationReconciliationRequest } from './valuationReconciliationRequest';
@@ -432,6 +444,7 @@ let typeMap: {[index: string]: any} = {
     "AnalyticStore": AnalyticStore,
     "AnalyticStoreKey": AnalyticStoreKey,
     "AnnulQuotesResponse": AnnulQuotesResponse,
+    "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
     "ConfigurationRecipe": ConfigurationRecipe,
@@ -470,6 +483,7 @@ let typeMap: {[index: string]: any} = {
     "GetInstrumentsResponse": GetInstrumentsResponse,
     "GetQuotesResponse": GetQuotesResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
+    "GetStructuredMarketDataResponse": GetStructuredMarketDataResponse,
     "HoldingAdjustment": HoldingAdjustment,
     "HoldingsAdjustment": HoldingsAdjustment,
     "HoldingsAdjustmentHeader": HoldingsAdjustmentHeader,
@@ -549,6 +563,8 @@ let typeMap: {[index: string]: any} = {
     "Schema": Schema,
     "ScopeDefinition": ScopeDefinition,
     "Stream": Stream,
+    "StructuredMarketData": StructuredMarketData,
+    "StructuredMarketDataId": StructuredMarketDataId,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "Transaction": Transaction,
@@ -579,6 +595,8 @@ let typeMap: {[index: string]: any} = {
     "UpsertQuotesResponse": UpsertQuotesResponse,
     "UpsertReferencePortfolioConstituentsRequest": UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": UpsertReferencePortfolioConstituentsResponse,
+    "UpsertStructuredDataResponse": UpsertStructuredDataResponse,
+    "UpsertStructuredMarketDataRequest": UpsertStructuredMarketDataRequest,
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
     "User": User,
     "ValuationReconciliationRequest": ValuationReconciliationRequest,
