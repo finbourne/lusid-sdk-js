@@ -125,6 +125,7 @@ __export(require("./resourceListOfPortfolioGroup"));
 __export(require("./resourceListOfPortfolioSearchResult"));
 __export(require("./resourceListOfProcessedCommand"));
 __export(require("./resourceListOfPropertyDefinition"));
+__export(require("./resourceListOfQuote"));
 __export(require("./resourceListOfReconciliationBreak"));
 __export(require("./resourceListOfScopeDefinition"));
 __export(require("./resourceListOfString"));
@@ -301,6 +302,7 @@ var resourceListOfPortfolioGroup_1 = require("./resourceListOfPortfolioGroup");
 var resourceListOfPortfolioSearchResult_1 = require("./resourceListOfPortfolioSearchResult");
 var resourceListOfProcessedCommand_1 = require("./resourceListOfProcessedCommand");
 var resourceListOfPropertyDefinition_1 = require("./resourceListOfPropertyDefinition");
+var resourceListOfQuote_1 = require("./resourceListOfQuote");
 var resourceListOfReconciliationBreak_1 = require("./resourceListOfReconciliationBreak");
 var resourceListOfScopeDefinition_1 = require("./resourceListOfScopeDefinition");
 var resourceListOfString_1 = require("./resourceListOfString");
@@ -552,6 +554,7 @@ var typeMap = {
     "ResourceListOfPortfolioSearchResult": resourceListOfPortfolioSearchResult_1.ResourceListOfPortfolioSearchResult,
     "ResourceListOfProcessedCommand": resourceListOfProcessedCommand_1.ResourceListOfProcessedCommand,
     "ResourceListOfPropertyDefinition": resourceListOfPropertyDefinition_1.ResourceListOfPropertyDefinition,
+    "ResourceListOfQuote": resourceListOfQuote_1.ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": resourceListOfReconciliationBreak_1.ResourceListOfReconciliationBreak,
     "ResourceListOfScopeDefinition": resourceListOfScopeDefinition_1.ResourceListOfScopeDefinition,
     "ResourceListOfString": resourceListOfString_1.ResourceListOfString,

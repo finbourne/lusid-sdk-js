@@ -120,6 +120,7 @@ export * from './resourceListOfPortfolioGroup';
 export * from './resourceListOfPortfolioSearchResult';
 export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfPropertyDefinition';
+export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfScopeDefinition';
 export * from './resourceListOfString';

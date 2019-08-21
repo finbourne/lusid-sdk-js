@@ -120,6 +120,7 @@ export * from './resourceListOfPortfolioGroup';
 export * from './resourceListOfPortfolioSearchResult';
 export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfPropertyDefinition';
+export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfScopeDefinition';
 export * from './resourceListOfString';
@@ -299,6 +300,7 @@ import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
 import { ResourceListOfPortfolioSearchResult } from './resourceListOfPortfolioSearchResult';
 import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
+import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResourceListOfString } from './resourceListOfString';
@@ -553,6 +555,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPortfolioSearchResult": ResourceListOfPortfolioSearchResult,
     "ResourceListOfProcessedCommand": ResourceListOfProcessedCommand,
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
+    "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ResourceListOfString": ResourceListOfString,
