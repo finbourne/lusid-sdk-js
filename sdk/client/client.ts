@@ -6,10 +6,7 @@ import querystring from 'querystring'
 const lusid = require('../api');
 // Import each of the LUSID APIs
 import {
-  AggregationApi,
-  AnalyticsStoresApi,
   ApplicationMetadataApi,
-  CorporateActionSourcesApi,
   DataTypesApi,
   DerivedTransactionPortfoliosApi,
   InstrumentsApi,
@@ -17,13 +14,9 @@ import {
   PortfolioGroupsApi,
   PortfoliosApi,
   PropertyDefinitionsApi,
-  QuotesApi,
   ReconciliationsApi,
   ReferencePortfolioApi,
-  ResultsApi,
-  SchemasApi,
   ScopesApi,
-  SearchApi,
   SystemConfigurationApi,
   TransactionPortfoliosApi } from '../api/apis'
 

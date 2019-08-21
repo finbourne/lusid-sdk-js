@@ -1,6 +1,6 @@
 // Require the LUSID SDK and libraries
 import {
-  CreateTransactionPortfolioRequest, Portfolio, AggregationApi } from "../../api";
+  CreateTransactionPortfolioRequest, Portfolio } from "../../api";
 
 import { client } from './clientBuilder'
 import { IncomingMessage } from "http";
