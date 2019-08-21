@@ -1,4 +1,4 @@
-import { AggregationApi, AnalyticsStoresApi, ApplicationMetadataApi, CorporateActionSourcesApi, DataTypesApi, DerivedTransactionPortfoliosApi, InstrumentsApi, LoginApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, ResultsApi, SchemasApi, ScopesApi, SearchApi, SystemConfigurationApi, TransactionPortfoliosApi } from '../api/apis';
+import { ApplicationMetadataApi, DataTypesApi, DerivedTransactionPortfoliosApi, InstrumentsApi, LoginApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, ReconciliationsApi, ReferencePortfolioApi, ScopesApi, SystemConfigurationApi, TransactionPortfoliosApi } from '../api/apis';
 export declare enum Source {
     Environment = 0,
     Secrets = 1,
@@ -13,10 +13,7 @@ declare class Oauth2 {
     constructor(accessToken: string | undefined, tokenExpiryTime: number, tokenTimeTillExpiry: number, tokenLastRefreshTime: number, tokenLastRefreshCheckTime: number);
 }
 declare class Api {
-    aggregation: AggregationApi;
-    analyicsStores: AnalyticsStoresApi;
     applicationMetadata: ApplicationMetadataApi;
-    corporateActionSources: CorporateActionSourcesApi;
     dataTypes: DataTypesApi;
     derivedTransactionPortfolios: DerivedTransactionPortfoliosApi;
     instruments: InstrumentsApi;
@@ -24,13 +21,9 @@ declare class Api {
     portfolioGroups: PortfolioGroupsApi;
     portfolios: PortfoliosApi;
     propertyDefinitions: PropertyDefinitionsApi;
-    quotes: QuotesApi;
     reconciliations: ReconciliationsApi;
     referencePortfolio: ReferencePortfolioApi;
-    results: ResultsApi;
-    schemas: SchemasApi;
     scopes: ScopesApi;
-    search: SearchApi;
     systemConfiguration: SystemConfigurationApi;
     transactionPortfolios: TransactionPortfoliosApi;
 }
