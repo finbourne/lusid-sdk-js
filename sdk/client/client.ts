@@ -122,10 +122,7 @@ environments which have features such as IntelliSense.
 It contains a property for each of the LUSID APIs.
 */
 class Api {
-  public aggregation:  AggregationApi
-  public analyicsStores:  AnalyticsStoresApi
   public applicationMetadata: ApplicationMetadataApi
-  public corporateActionSources: CorporateActionSourcesApi
   public dataTypes: DataTypesApi
   public derivedTransactionPortfolios: DerivedTransactionPortfoliosApi
   public instruments: InstrumentsApi
@@ -133,13 +130,9 @@ class Api {
   public portfolioGroups: PortfolioGroupsApi
   public portfolios: PortfoliosApi
   public propertyDefinitions: PropertyDefinitionsApi
-  public quotes: QuotesApi
   public reconciliations: ReconciliationsApi
   public referencePortfolio: ReferencePortfolioApi
-  public results: ResultsApi
-  public schemas: SchemasApi
   public scopes: ScopesApi
-  public search: SearchApi
   public systemConfiguration: SystemConfigurationApi
   public transactionPortfolios: TransactionPortfoliosApi
 }
