@@ -12,7 +12,7 @@ __export(require("./aggregateSpec"));
 __export(require("./aggregationContext"));
 __export(require("./aggregationOptions"));
 __export(require("./aggregationRequest"));
-__export(require("./aggregationResponseNode"));
+__export(require("./aggregationResponseNodeOfDictionaryOfStringToObject"));
 __export(require("./analyticStore"));
 __export(require("./analyticStoreKey"));
 __export(require("./annulQuotesResponse"));
@@ -189,7 +189,7 @@ var aggregateSpec_1 = require("./aggregateSpec");
 var aggregationContext_1 = require("./aggregationContext");
 var aggregationOptions_1 = require("./aggregationOptions");
 var aggregationRequest_1 = require("./aggregationRequest");
-var aggregationResponseNode_1 = require("./aggregationResponseNode");
+var aggregationResponseNodeOfDictionaryOfStringToObject_1 = require("./aggregationResponseNodeOfDictionaryOfStringToObject");
 var analyticStore_1 = require("./analyticStore");
 var analyticStoreKey_1 = require("./analyticStoreKey");
 var annulQuotesResponse_1 = require("./annulQuotesResponse");
@@ -441,7 +441,7 @@ var typeMap = {
     "AggregationContext": aggregationContext_1.AggregationContext,
     "AggregationOptions": aggregationOptions_1.AggregationOptions,
     "AggregationRequest": aggregationRequest_1.AggregationRequest,
-    "AggregationResponseNode": aggregationResponseNode_1.AggregationResponseNode,
+    "AggregationResponseNodeOfDictionaryOfStringToObject": aggregationResponseNodeOfDictionaryOfStringToObject_1.AggregationResponseNodeOfDictionaryOfStringToObject,
     "AnalyticStore": analyticStore_1.AnalyticStore,
     "AnalyticStoreKey": analyticStoreKey_1.AnalyticStoreKey,
     "AnnulQuotesResponse": annulQuotesResponse_1.AnnulQuotesResponse,

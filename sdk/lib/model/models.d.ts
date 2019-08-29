@@ -7,7 +7,7 @@ export * from './aggregateSpec';
 export * from './aggregationContext';
 export * from './aggregationOptions';
 export * from './aggregationRequest';
-export * from './aggregationResponseNode';
+export * from './aggregationResponseNodeOfDictionaryOfStringToObject';
 export * from './analyticStore';
 export * from './analyticStoreKey';
 export * from './annulQuotesResponse';

@@ -7,7 +7,7 @@ export * from './aggregateSpec';
 export * from './aggregationContext';
 export * from './aggregationOptions';
 export * from './aggregationRequest';
-export * from './aggregationResponseNode';
+export * from './aggregationResponseNodeOfDictionaryOfStringToObject';
 export * from './analyticStore';
 export * from './analyticStoreKey';
 export * from './annulQuotesResponse';
@@ -187,7 +187,7 @@ import { AggregateSpec } from './aggregateSpec';
 import { AggregationContext } from './aggregationContext';
 import { AggregationOptions } from './aggregationOptions';
 import { AggregationRequest } from './aggregationRequest';
-import { AggregationResponseNode } from './aggregationResponseNode';
+import { AggregationResponseNodeOfDictionaryOfStringToObject } from './aggregationResponseNodeOfDictionaryOfStringToObject';
 import { AnalyticStore } from './analyticStore';
 import { AnalyticStoreKey } from './analyticStoreKey';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
@@ -442,7 +442,7 @@ let typeMap: {[index: string]: any} = {
     "AggregationContext": AggregationContext,
     "AggregationOptions": AggregationOptions,
     "AggregationRequest": AggregationRequest,
-    "AggregationResponseNode": AggregationResponseNode,
+    "AggregationResponseNodeOfDictionaryOfStringToObject": AggregationResponseNodeOfDictionaryOfStringToObject,
     "AnalyticStore": AnalyticStore,
     "AnalyticStoreKey": AnalyticStoreKey,
     "AnnulQuotesResponse": AnnulQuotesResponse,
