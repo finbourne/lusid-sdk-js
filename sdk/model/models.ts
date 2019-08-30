@@ -78,6 +78,8 @@ export * from './modelSelection';
 export * from './nestedAggregationResponse';
 export * from './orderBySpec';
 export * from './outputTransaction';
+export * from './pagedResourceListOfPortfolioSearchResult';
+export * from './pagedResourceListOfPropertyDefinition';
 export * from './perpetualProperty';
 export * from './portfolio';
 export * from './portfolioDetails';
@@ -258,6 +260,8 @@ import { ModelSelection } from './modelSelection';
 import { NestedAggregationResponse } from './nestedAggregationResponse';
 import { OrderBySpec } from './orderBySpec';
 import { OutputTransaction } from './outputTransaction';
+import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
+import { PagedResourceListOfPropertyDefinition } from './pagedResourceListOfPropertyDefinition';
 import { PerpetualProperty } from './perpetualProperty';
 import { Portfolio } from './portfolio';
 import { PortfolioDetails } from './portfolioDetails';
@@ -513,6 +517,8 @@ let typeMap: {[index: string]: any} = {
     "NestedAggregationResponse": NestedAggregationResponse,
     "OrderBySpec": OrderBySpec,
     "OutputTransaction": OutputTransaction,
+    "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
+    "PagedResourceListOfPropertyDefinition": PagedResourceListOfPropertyDefinition,
     "PerpetualProperty": PerpetualProperty,
     "Portfolio": Portfolio,
     "PortfolioDetails": PortfolioDetails,

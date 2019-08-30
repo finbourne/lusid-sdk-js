@@ -78,6 +78,8 @@ export * from './modelSelection';
 export * from './nestedAggregationResponse';
 export * from './orderBySpec';
 export * from './outputTransaction';
+export * from './pagedResourceListOfPortfolioSearchResult';
+export * from './pagedResourceListOfPropertyDefinition';
 export * from './perpetualProperty';
 export * from './portfolio';
 export * from './portfolioDetails';

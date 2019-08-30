@@ -83,6 +83,8 @@ __export(require("./modelSelection"));
 __export(require("./nestedAggregationResponse"));
 __export(require("./orderBySpec"));
 __export(require("./outputTransaction"));
+__export(require("./pagedResourceListOfPortfolioSearchResult"));
+__export(require("./pagedResourceListOfPropertyDefinition"));
 __export(require("./perpetualProperty"));
 __export(require("./portfolio"));
 __export(require("./portfolioDetails"));
@@ -260,6 +262,8 @@ var modelSelection_1 = require("./modelSelection");
 var nestedAggregationResponse_1 = require("./nestedAggregationResponse");
 var orderBySpec_1 = require("./orderBySpec");
 var outputTransaction_1 = require("./outputTransaction");
+var pagedResourceListOfPortfolioSearchResult_1 = require("./pagedResourceListOfPortfolioSearchResult");
+var pagedResourceListOfPropertyDefinition_1 = require("./pagedResourceListOfPropertyDefinition");
 var perpetualProperty_1 = require("./perpetualProperty");
 var portfolio_1 = require("./portfolio");
 var portfolioDetails_1 = require("./portfolioDetails");
@@ -512,6 +516,8 @@ var typeMap = {
     "NestedAggregationResponse": nestedAggregationResponse_1.NestedAggregationResponse,
     "OrderBySpec": orderBySpec_1.OrderBySpec,
     "OutputTransaction": outputTransaction_1.OutputTransaction,
+    "PagedResourceListOfPortfolioSearchResult": pagedResourceListOfPortfolioSearchResult_1.PagedResourceListOfPortfolioSearchResult,
+    "PagedResourceListOfPropertyDefinition": pagedResourceListOfPropertyDefinition_1.PagedResourceListOfPropertyDefinition,
     "PerpetualProperty": perpetualProperty_1.PerpetualProperty,
     "Portfolio": portfolio_1.Portfolio,
     "PortfolioDetails": portfolioDetails_1.PortfolioDetails,
