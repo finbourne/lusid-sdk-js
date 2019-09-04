@@ -204,7 +204,8 @@ function buildUpsertInstrumentPropertiesRequest(
   UpsertInstrumentPropertyRequest[] {
     return instruments.reduce((list: UpsertInstrumentPropertyRequest[], instrument: any) => {
       let instrumentPropertyRequest = new UpsertInstrumentPropertyRequest()
-      instrumentPropertyRequest.lusidInstrumentId = instrument.lusidinstrumentid
+      instrumentPropertyRequest.identifierType = "LusidInstrumentId"
+      instrumentPropertyRequest.identifier = instrument.lusidinstrumentid
       instrumentPropertyRequest.properties = [
         buildInstrumentProperty(
           key,
