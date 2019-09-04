@@ -39,7 +39,6 @@ export * from './cutLabelDefinition';
 export * from './cutLocalTime';
 export * from './dataType';
 export * from './deleteInstrumentPropertiesResponse';
-export * from './deleteInstrumentPropertyRequest';
 export * from './deleteInstrumentResponse';
 export * from './deletedEntityResponse';
 export * from './errorDetail';

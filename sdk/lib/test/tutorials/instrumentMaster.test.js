@@ -165,7 +165,8 @@ function buildInstrumentProperty(key, value) {
 function buildUpsertInstrumentPropertiesRequest(key, property, instruments) {
     return instruments.reduce(function (list, instrument) {
         var instrumentPropertyRequest = new api_1.UpsertInstrumentPropertyRequest();
-        instrumentPropertyRequest.lusidInstrumentId = instrument.lusidinstrumentid;
+        instrumentPropertyRequest.identifierType = "LusidInstrumentId";
+        instrumentPropertyRequest.identifier = instrument.lusidinstrumentid;
         instrumentPropertyRequest.properties = [
             buildInstrumentProperty(key, instrument[property])
         ];
