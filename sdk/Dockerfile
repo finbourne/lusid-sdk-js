@@ -1,5 +1,5 @@
 FROM node:alpine
-RUN apk add bash
+RUN apk add bash && apk add jq && apk add gpg
 WORKDIR /usr/src/
 
 COPY package.json package.json
