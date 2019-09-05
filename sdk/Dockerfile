@@ -4,7 +4,7 @@ WORKDIR /usr/src/
 
 COPY package.json package.json
 
-RUN npm install --global
+RUN npm install
 
 # The environment variables required to run the tests
 ENV FBN_TOKEN_URL ${FBN_TOKEN_URL}
