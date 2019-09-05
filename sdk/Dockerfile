@@ -1,5 +1,5 @@
 FROM node:alpine
-
+RUN apk add bash
 WORKDIR /usr/src/
 
 COPY package.json package.json
