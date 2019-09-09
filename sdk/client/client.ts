@@ -13,7 +13,7 @@ environments which have features such as IntelliSense.
 
 It contains a property for each of the LUSID APIs.
 */
-import {Api} from "./apis";
+import {Api} from "../apis";
 
 
 // Set the default path to the secrets file
