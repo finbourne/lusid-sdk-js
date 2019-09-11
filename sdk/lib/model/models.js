@@ -16,10 +16,12 @@ __export(require("./aggregationResponseNodeOfDictionaryOfStringToObject"));
 __export(require("./analyticStore"));
 __export(require("./analyticStoreKey"));
 __export(require("./annulQuotesResponse"));
+__export(require("./annulSingleStructuredDataResponse"));
 __export(require("./annulStructuredDataResponse"));
 __export(require("./change"));
 __export(require("./completePortfolio"));
 __export(require("./configurationRecipe"));
+__export(require("./configurationRecipeSnippet"));
 __export(require("./constituentsAdjustmentHeader"));
 __export(require("./corporateAction"));
 __export(require("./corporateActionSource"));
@@ -53,6 +55,7 @@ __export(require("./fieldSchema"));
 __export(require("./fileResponse"));
 __export(require("./getInstrumentsResponse"));
 __export(require("./getQuotesResponse"));
+__export(require("./getRecipeResponse"));
 __export(require("./getReferencePortfolioConstituentsResponse"));
 __export(require("./getStructuredMarketDataResponse"));
 __export(require("./holdingAdjustment"));
@@ -167,8 +170,10 @@ __export(require("./upsertPortfolioExecutionsResponse"));
 __export(require("./upsertPortfolioTransactionsResponse"));
 __export(require("./upsertQuoteRequest"));
 __export(require("./upsertQuotesResponse"));
+__export(require("./upsertRecipeRequest"));
 __export(require("./upsertReferencePortfolioConstituentsRequest"));
 __export(require("./upsertReferencePortfolioConstituentsResponse"));
+__export(require("./upsertSingleStructuredDataResponse"));
 __export(require("./upsertStructuredDataResponse"));
 __export(require("./upsertStructuredMarketDataRequest"));
 __export(require("./upsertTransactionPropertiesResponse"));
@@ -194,10 +199,12 @@ var aggregationResponseNodeOfDictionaryOfStringToObject_1 = require("./aggregati
 var analyticStore_1 = require("./analyticStore");
 var analyticStoreKey_1 = require("./analyticStoreKey");
 var annulQuotesResponse_1 = require("./annulQuotesResponse");
+var annulSingleStructuredDataResponse_1 = require("./annulSingleStructuredDataResponse");
 var annulStructuredDataResponse_1 = require("./annulStructuredDataResponse");
 var change_1 = require("./change");
 var completePortfolio_1 = require("./completePortfolio");
 var configurationRecipe_1 = require("./configurationRecipe");
+var configurationRecipeSnippet_1 = require("./configurationRecipeSnippet");
 var constituentsAdjustmentHeader_1 = require("./constituentsAdjustmentHeader");
 var corporateAction_1 = require("./corporateAction");
 var corporateActionSource_1 = require("./corporateActionSource");
@@ -231,6 +238,7 @@ var fieldSchema_1 = require("./fieldSchema");
 var fileResponse_1 = require("./fileResponse");
 var getInstrumentsResponse_1 = require("./getInstrumentsResponse");
 var getQuotesResponse_1 = require("./getQuotesResponse");
+var getRecipeResponse_1 = require("./getRecipeResponse");
 var getReferencePortfolioConstituentsResponse_1 = require("./getReferencePortfolioConstituentsResponse");
 var getStructuredMarketDataResponse_1 = require("./getStructuredMarketDataResponse");
 var holdingAdjustment_1 = require("./holdingAdjustment");
@@ -345,8 +353,10 @@ var upsertPortfolioExecutionsResponse_1 = require("./upsertPortfolioExecutionsRe
 var upsertPortfolioTransactionsResponse_1 = require("./upsertPortfolioTransactionsResponse");
 var upsertQuoteRequest_1 = require("./upsertQuoteRequest");
 var upsertQuotesResponse_1 = require("./upsertQuotesResponse");
+var upsertRecipeRequest_1 = require("./upsertRecipeRequest");
 var upsertReferencePortfolioConstituentsRequest_1 = require("./upsertReferencePortfolioConstituentsRequest");
 var upsertReferencePortfolioConstituentsResponse_1 = require("./upsertReferencePortfolioConstituentsResponse");
+var upsertSingleStructuredDataResponse_1 = require("./upsertSingleStructuredDataResponse");
 var upsertStructuredDataResponse_1 = require("./upsertStructuredDataResponse");
 var upsertStructuredMarketDataRequest_1 = require("./upsertStructuredMarketDataRequest");
 var upsertTransactionPropertiesResponse_1 = require("./upsertTransactionPropertiesResponse");
@@ -447,10 +457,12 @@ var typeMap = {
     "AnalyticStore": analyticStore_1.AnalyticStore,
     "AnalyticStoreKey": analyticStoreKey_1.AnalyticStoreKey,
     "AnnulQuotesResponse": annulQuotesResponse_1.AnnulQuotesResponse,
+    "AnnulSingleStructuredDataResponse": annulSingleStructuredDataResponse_1.AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": annulStructuredDataResponse_1.AnnulStructuredDataResponse,
     "Change": change_1.Change,
     "CompletePortfolio": completePortfolio_1.CompletePortfolio,
     "ConfigurationRecipe": configurationRecipe_1.ConfigurationRecipe,
+    "ConfigurationRecipeSnippet": configurationRecipeSnippet_1.ConfigurationRecipeSnippet,
     "ConstituentsAdjustmentHeader": constituentsAdjustmentHeader_1.ConstituentsAdjustmentHeader,
     "CorporateAction": corporateAction_1.CorporateAction,
     "CorporateActionSource": corporateActionSource_1.CorporateActionSource,
@@ -484,6 +496,7 @@ var typeMap = {
     "FileResponse": fileResponse_1.FileResponse,
     "GetInstrumentsResponse": getInstrumentsResponse_1.GetInstrumentsResponse,
     "GetQuotesResponse": getQuotesResponse_1.GetQuotesResponse,
+    "GetRecipeResponse": getRecipeResponse_1.GetRecipeResponse,
     "GetReferencePortfolioConstituentsResponse": getReferencePortfolioConstituentsResponse_1.GetReferencePortfolioConstituentsResponse,
     "GetStructuredMarketDataResponse": getStructuredMarketDataResponse_1.GetStructuredMarketDataResponse,
     "HoldingAdjustment": holdingAdjustment_1.HoldingAdjustment,
@@ -598,8 +611,10 @@ var typeMap = {
     "UpsertPortfolioTransactionsResponse": upsertPortfolioTransactionsResponse_1.UpsertPortfolioTransactionsResponse,
     "UpsertQuoteRequest": upsertQuoteRequest_1.UpsertQuoteRequest,
     "UpsertQuotesResponse": upsertQuotesResponse_1.UpsertQuotesResponse,
+    "UpsertRecipeRequest": upsertRecipeRequest_1.UpsertRecipeRequest,
     "UpsertReferencePortfolioConstituentsRequest": upsertReferencePortfolioConstituentsRequest_1.UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": upsertReferencePortfolioConstituentsResponse_1.UpsertReferencePortfolioConstituentsResponse,
+    "UpsertSingleStructuredDataResponse": upsertSingleStructuredDataResponse_1.UpsertSingleStructuredDataResponse,
     "UpsertStructuredDataResponse": upsertStructuredDataResponse_1.UpsertStructuredDataResponse,
     "UpsertStructuredMarketDataRequest": upsertStructuredMarketDataRequest_1.UpsertStructuredMarketDataRequest,
     "UpsertTransactionPropertiesResponse": upsertTransactionPropertiesResponse_1.UpsertTransactionPropertiesResponse,

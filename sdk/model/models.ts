@@ -11,10 +11,12 @@ export * from './aggregationResponseNodeOfDictionaryOfStringToObject';
 export * from './analyticStore';
 export * from './analyticStoreKey';
 export * from './annulQuotesResponse';
+export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
 export * from './change';
 export * from './completePortfolio';
 export * from './configurationRecipe';
+export * from './configurationRecipeSnippet';
 export * from './constituentsAdjustmentHeader';
 export * from './corporateAction';
 export * from './corporateActionSource';
@@ -48,6 +50,7 @@ export * from './fieldSchema';
 export * from './fileResponse';
 export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
+export * from './getRecipeResponse';
 export * from './getReferencePortfolioConstituentsResponse';
 export * from './getStructuredMarketDataResponse';
 export * from './holdingAdjustment';
@@ -162,8 +165,10 @@ export * from './upsertPortfolioExecutionsResponse';
 export * from './upsertPortfolioTransactionsResponse';
 export * from './upsertQuoteRequest';
 export * from './upsertQuotesResponse';
+export * from './upsertRecipeRequest';
 export * from './upsertReferencePortfolioConstituentsRequest';
 export * from './upsertReferencePortfolioConstituentsResponse';
+export * from './upsertSingleStructuredDataResponse';
 export * from './upsertStructuredDataResponse';
 export * from './upsertStructuredMarketDataRequest';
 export * from './upsertTransactionPropertiesResponse';
@@ -192,10 +197,12 @@ import { AggregationResponseNodeOfDictionaryOfStringToObject } from './aggregati
 import { AnalyticStore } from './analyticStore';
 import { AnalyticStoreKey } from './analyticStoreKey';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
+import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
 import { ConfigurationRecipe } from './configurationRecipe';
+import { ConfigurationRecipeSnippet } from './configurationRecipeSnippet';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
 import { CorporateAction } from './corporateAction';
 import { CorporateActionSource } from './corporateActionSource';
@@ -229,6 +236,7 @@ import { FieldSchema } from './fieldSchema';
 import { FileResponse } from './fileResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
+import { GetRecipeResponse } from './getRecipeResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
 import { GetStructuredMarketDataResponse } from './getStructuredMarketDataResponse';
 import { HoldingAdjustment } from './holdingAdjustment';
@@ -343,8 +351,10 @@ import { UpsertPortfolioExecutionsResponse } from './upsertPortfolioExecutionsRe
 import { UpsertPortfolioTransactionsResponse } from './upsertPortfolioTransactionsResponse';
 import { UpsertQuoteRequest } from './upsertQuoteRequest';
 import { UpsertQuotesResponse } from './upsertQuotesResponse';
+import { UpsertRecipeRequest } from './upsertRecipeRequest';
 import { UpsertReferencePortfolioConstituentsRequest } from './upsertReferencePortfolioConstituentsRequest';
 import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferencePortfolioConstituentsResponse';
+import { UpsertSingleStructuredDataResponse } from './upsertSingleStructuredDataResponse';
 import { UpsertStructuredDataResponse } from './upsertStructuredDataResponse';
 import { UpsertStructuredMarketDataRequest } from './upsertStructuredMarketDataRequest';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
@@ -448,10 +458,12 @@ let typeMap: {[index: string]: any} = {
     "AnalyticStore": AnalyticStore,
     "AnalyticStoreKey": AnalyticStoreKey,
     "AnnulQuotesResponse": AnnulQuotesResponse,
+    "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
     "ConfigurationRecipe": ConfigurationRecipe,
+    "ConfigurationRecipeSnippet": ConfigurationRecipeSnippet,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
     "CorporateAction": CorporateAction,
     "CorporateActionSource": CorporateActionSource,
@@ -485,6 +497,7 @@ let typeMap: {[index: string]: any} = {
     "FileResponse": FileResponse,
     "GetInstrumentsResponse": GetInstrumentsResponse,
     "GetQuotesResponse": GetQuotesResponse,
+    "GetRecipeResponse": GetRecipeResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
     "GetStructuredMarketDataResponse": GetStructuredMarketDataResponse,
     "HoldingAdjustment": HoldingAdjustment,
@@ -599,8 +612,10 @@ let typeMap: {[index: string]: any} = {
     "UpsertPortfolioTransactionsResponse": UpsertPortfolioTransactionsResponse,
     "UpsertQuoteRequest": UpsertQuoteRequest,
     "UpsertQuotesResponse": UpsertQuotesResponse,
+    "UpsertRecipeRequest": UpsertRecipeRequest,
     "UpsertReferencePortfolioConstituentsRequest": UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": UpsertReferencePortfolioConstituentsResponse,
+    "UpsertSingleStructuredDataResponse": UpsertSingleStructuredDataResponse,
     "UpsertStructuredDataResponse": UpsertStructuredDataResponse,
     "UpsertStructuredMarketDataRequest": UpsertStructuredMarketDataRequest,
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
