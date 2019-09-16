@@ -18,7 +18,6 @@ import { LusidProblemDetails } from '../model/lusidProblemDetails';
 import { LusidValidationProblemDetails } from '../model/lusidValidationProblemDetails';
 import { PortfoliosReconciliationRequest } from '../model/portfoliosReconciliationRequest';
 import { ResourceListOfReconciliationBreak } from '../model/resourceListOfReconciliationBreak';
-import { ValuationsReconciliationRequest } from '../model/valuationsReconciliationRequest';
 
 import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
 import { OAuth } from '../model/models';
@@ -122,77 +121,6 @@ export class ReconciliationsApi {
             useQuerystring: this._useQuerystring,
             json: true,
             body: ObjectSerializer.serialize(request, "PortfoliosReconciliationRequest")
-        };
-
-        this.authentications.oauth2.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
-        }
-        return new Promise<{ response: http.IncomingMessage; body: ResourceListOfReconciliationBreak;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    body = ObjectSerializer.deserialize(body, "ResourceListOfReconciliationBreak");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
-                }
-            });
-        });
-    }
-    /**
-     * Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
-     * @summary [EXPERIMENTAL] Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
-     * @param sortBy Optional. Order the results by these fields. Use use the \&#39;-\&#39; sign to denote descending order e.g. -MyFieldName
-     * @param start Optional. When paginating, skip this number of results
-     * @param limit Optional. When paginating, limit the number of returned results to this many.
-     * @param filter Optional. Expression to filter the result set
-     * @param request The specifications of the inputs to the reconciliation
-     */
-    public async reconcileValuation (sortBy?: Array<string>, start?: number, limit?: number, filter?: string, request?: ValuationsReconciliationRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ResourceListOfReconciliationBreak;  }> {
-        const localVarPath = this.basePath + '/api/portfolios/$reconcileValuation';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let localVarFormParams: any = {};
-
-        if (sortBy !== undefined) {
-            localVarQueryParameters['sortBy'] = ObjectSerializer.serialize(sortBy, "Array<string>");
-        }
-
-        if (start !== undefined) {
-            localVarQueryParameters['start'] = ObjectSerializer.serialize(start, "number");
-        }
-
-        if (limit !== undefined) {
-            localVarQueryParameters['limit'] = ObjectSerializer.serialize(limit, "number");
-        }
-
-        if (filter !== undefined) {
-            localVarQueryParameters['filter'] = ObjectSerializer.serialize(filter, "string");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-            body: ObjectSerializer.serialize(request, "ValuationsReconciliationRequest")
         };
 
         this.authentications.oauth2.applyToRequest(localVarRequestOptions);
