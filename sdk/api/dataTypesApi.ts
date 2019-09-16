@@ -14,13 +14,11 @@ import localVarRequest = require('request');
 import http = require('http');
 
 /* tslint:disable:no-unused-locals */
-import { CreateDataTypeRequest } from '../model/createDataTypeRequest';
 import { DataType } from '../model/dataType';
 import { LusidProblemDetails } from '../model/lusidProblemDetails';
 import { LusidValidationProblemDetails } from '../model/lusidValidationProblemDetails';
 import { ResourceListOfDataType } from '../model/resourceListOfDataType';
 import { ResourceListOfIUnitDefinitionDto } from '../model/resourceListOfIUnitDefinitionDto';
-import { UpdateDataTypeRequest } from '../model/updateDataTypeRequest';
 
 import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
 import { OAuth } from '../model/models';
@@ -81,57 +79,6 @@ export class DataTypesApi {
         this.authentications.oauth2.accessToken = token;
     }
 
-    /**
-     * Create a new data type definition    Data types cannot be created in either the \"default\" or \"system\" scopes.
-     * @summary [BETA] Create data type definition
-     * @param request The definition of the new data type
-     */
-    public async createDataType (request?: CreateDataTypeRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: DataType;  }> {
-        const localVarPath = this.basePath + '/api/datatypes';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let localVarFormParams: any = {};
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-            body: ObjectSerializer.serialize(request, "CreateDataTypeRequest")
-        };
-
-        this.authentications.oauth2.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
-        }
-        return new Promise<{ response: http.IncomingMessage; body: DataType;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    body = ObjectSerializer.deserialize(body, "DataType");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
-                }
-            });
-        });
-    }
     /**
      * Get the definition of a specified data type
      * @summary [EARLY ACCESS] Get data type definition
@@ -340,71 +287,6 @@ export class DataTypesApi {
                     reject(error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "ResourceListOfDataType");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
-                }
-            });
-        });
-    }
-    /**
-     * Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
-     * @summary [BETA] Update data type definition
-     * @param scope The scope of the data type
-     * @param code The code of the data type
-     * @param request The updated definition of the data type
-     */
-    public async updateDataType (scope: string, code: string, request?: UpdateDataTypeRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: DataType;  }> {
-        const localVarPath = this.basePath + '/api/datatypes/{scope}/{code}'
-            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
-            .replace('{' + 'code' + '}', encodeURIComponent(String(code)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'scope' is not null or undefined
-        if (scope === null || scope === undefined) {
-            throw new Error('Required parameter scope was null or undefined when calling updateDataType.');
-        }
-
-        // verify required parameter 'code' is not null or undefined
-        if (code === null || code === undefined) {
-            throw new Error('Required parameter code was null or undefined when calling updateDataType.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'PUT',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-            body: ObjectSerializer.serialize(request, "UpdateDataTypeRequest")
-        };
-
-        this.authentications.oauth2.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
-        }
-        return new Promise<{ response: http.IncomingMessage; body: DataType;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    body = ObjectSerializer.deserialize(body, "DataType");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve({ response: response, body: body });
                     } else {

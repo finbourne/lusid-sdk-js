@@ -14,7 +14,6 @@ import localVarRequest = require('request');
 import http = require('http');
 
 /* tslint:disable:no-unused-locals */
-import { DeleteInstrumentPropertiesResponse } from '../model/deleteInstrumentPropertiesResponse';
 import { DeleteInstrumentResponse } from '../model/deleteInstrumentResponse';
 import { GetInstrumentsResponse } from '../model/getInstrumentsResponse';
 import { Instrument } from '../model/instrument';
@@ -141,81 +140,6 @@ export class InstrumentsApi {
                     reject(error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "DeleteInstrumentResponse");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
-                }
-            });
-        });
-    }
-    /**
-     * Delete a collection of property values from an instrument, optionally, at the specified effective date, returning a  Finbourne.WebApi.Interface.Dto.Instruments.DeleteInstrumentPropertiesResponse value, containing the AsAtTime at which the operation was completed.
-     * @summary [EXPERIMENTAL] Delete properties from an instrument
-     * @param identifierType The identifier type of the instrument, e.g., \&quot;Figi\&quot;
-     * @param identifier The identifier of the instrument to delete properties from.
-     * @param propertyKeys The property keys of the properties to be deleted from the instrument. Only properties in the  Finbourne.Entities.PropertyDomain.Instrument domain can be supplied.
-     * @param effectiveAt The effective date to delete the properties from. Note that this is only valid to set if the properties being deleted  are defined to be Finbourne.Entities.PropertyLifeTime.TimeVariant, otherwise this value must not be set.
-     */
-    public async deleteInstrumentProperties (identifierType: string, identifier: string, propertyKeys: Array<string>, effectiveAt?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: DeleteInstrumentPropertiesResponse;  }> {
-        const localVarPath = this.basePath + '/api/instruments/{identifierType}/{identifier}/properties/$delete'
-            .replace('{' + 'identifierType' + '}', encodeURIComponent(String(identifierType)))
-            .replace('{' + 'identifier' + '}', encodeURIComponent(String(identifier)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'identifierType' is not null or undefined
-        if (identifierType === null || identifierType === undefined) {
-            throw new Error('Required parameter identifierType was null or undefined when calling deleteInstrumentProperties.');
-        }
-
-        // verify required parameter 'identifier' is not null or undefined
-        if (identifier === null || identifier === undefined) {
-            throw new Error('Required parameter identifier was null or undefined when calling deleteInstrumentProperties.');
-        }
-
-        // verify required parameter 'propertyKeys' is not null or undefined
-        if (propertyKeys === null || propertyKeys === undefined) {
-            throw new Error('Required parameter propertyKeys was null or undefined when calling deleteInstrumentProperties.');
-        }
-
-        if (effectiveAt !== undefined) {
-            localVarQueryParameters['effectiveAt'] = ObjectSerializer.serialize(effectiveAt, "string");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-            body: ObjectSerializer.serialize(propertyKeys, "Array<string>")
-        };
-
-        this.authentications.oauth2.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
-        }
-        return new Promise<{ response: http.IncomingMessage; body: DeleteInstrumentPropertiesResponse;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    body = ObjectSerializer.deserialize(body, "DeleteInstrumentPropertiesResponse");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve({ response: response, body: body });
                     } else {
