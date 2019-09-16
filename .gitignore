@@ -4,11 +4,15 @@
 .npmrc
 *secrets*
 *temp*
+!.github/**
 
 # compiled output
 /dist
 /tmp
 /out-tsc
+*/lib/*
+!**/lib/test/tutorials/*.csv
+!**/lib/test/tutorials/*.json
 
 # dependencies
 *node_modules*
