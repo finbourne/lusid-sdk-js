@@ -10,26 +10,93 @@
  * Do not edit the class manually.
  */
 
-import { Instrument } from './instrument';
 import { Link } from './link';
+import { Property } from './property';
+import { ResourceId } from './resourceId';
 
-export class ResourceListOfInstrument {
-    'values': Array<Instrument>;
+/**
+* A list of portfolios.
+*/
+export class PortfolioSearchResult {
+    'id': ResourceId;
+    /**
+    * The type of the portfolio.
+    */
+    'type': PortfolioSearchResult.TypeEnum;
+    /**
+    * The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+    */
     'href'?: string;
+    /**
+    * The long form description of the portfolio.
+    */
+    'description'?: string;
+    /**
+    * The name of the portfolio.
+    */
+    'displayName': string;
+    /**
+    * Whether or not this is a derived portfolio.
+    */
+    'isDerived'?: boolean;
+    /**
+    * The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date.
+    */
+    'created': Date;
+    'parentPortfolioId'?: ResourceId;
+    /**
+    * The requested portfolio properties. These will be from the \'Portfolio\' domain.
+    */
+    'properties'?: Array<Property>;
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<Instrument>"
+            "name": "id",
+            "baseName": "id",
+            "type": "ResourceId"
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "PortfolioSearchResult.TypeEnum"
         },
         {
             "name": "href",
             "baseName": "href",
             "type": "string"
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string"
+        },
+        {
+            "name": "displayName",
+            "baseName": "displayName",
+            "type": "string"
+        },
+        {
+            "name": "isDerived",
+            "baseName": "isDerived",
+            "type": "boolean"
+        },
+        {
+            "name": "created",
+            "baseName": "created",
+            "type": "Date"
+        },
+        {
+            "name": "parentPortfolioId",
+            "baseName": "parentPortfolioId",
+            "type": "ResourceId"
+        },
+        {
+            "name": "properties",
+            "baseName": "properties",
+            "type": "Array<Property>"
         },
         {
             "name": "links",
@@ -38,7 +105,14 @@ export class ResourceListOfInstrument {
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfInstrument.attributeTypeMap;
+        return PortfolioSearchResult.attributeTypeMap;
     }
 }
 
+export namespace PortfolioSearchResult {
+    export enum TypeEnum {
+        Transaction = <any> 'Transaction',
+        Reference = <any> 'Reference',
+        DerivedTransaction = <any> 'DerivedTransaction'
+    }
+}

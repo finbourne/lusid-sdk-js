@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { Instrument } from './instrument';
 import { Link } from './link';
+import { PortfolioSearchResult } from './portfolioSearchResult';
 
-export class ResourceListOfInstrument {
-    'values': Array<Instrument>;
+export class ResourceListOfPortfolioSearchResult {
+    'values': Array<PortfolioSearchResult>;
     'href'?: string;
     'links'?: Array<Link>;
 
@@ -24,7 +24,7 @@ export class ResourceListOfInstrument {
         {
             "name": "values",
             "baseName": "values",
-            "type": "Array<Instrument>"
+            "type": "Array<PortfolioSearchResult>"
         },
         {
             "name": "href",
@@ -38,7 +38,7 @@ export class ResourceListOfInstrument {
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfInstrument.attributeTypeMap;
+        return ResourceListOfPortfolioSearchResult.attributeTypeMap;
     }
 }
 

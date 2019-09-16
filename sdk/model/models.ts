@@ -47,6 +47,7 @@ export * from './portfolioGroup';
 export * from './portfolioHolding';
 export * from './portfolioProperties';
 export * from './portfolioReconciliationRequest';
+export * from './portfolioSearchResult';
 export * from './portfoliosReconciliationRequest';
 export * from './processedCommand';
 export * from './property';
@@ -67,6 +68,7 @@ export * from './resourceListOfInstrument';
 export * from './resourceListOfInstrumentIdTypeDescriptor';
 export * from './resourceListOfPortfolio';
 export * from './resourceListOfPortfolioGroup';
+export * from './resourceListOfPortfolioSearchResult';
 export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfReconciliationBreak';
@@ -158,6 +160,7 @@ import { PortfolioGroup } from './portfolioGroup';
 import { PortfolioHolding } from './portfolioHolding';
 import { PortfolioProperties } from './portfolioProperties';
 import { PortfolioReconciliationRequest } from './portfolioReconciliationRequest';
+import { PortfolioSearchResult } from './portfolioSearchResult';
 import { PortfoliosReconciliationRequest } from './portfoliosReconciliationRequest';
 import { ProcessedCommand } from './processedCommand';
 import { Property } from './property';
@@ -178,6 +181,7 @@ import { ResourceListOfInstrument } from './resourceListOfInstrument';
 import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
 import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
+import { ResourceListOfPortfolioSearchResult } from './resourceListOfPortfolioSearchResult';
 import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
@@ -249,6 +253,7 @@ let enumsMap: {[index: string]: any} = {
         "Link.MethodEnum": Link.MethodEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
+        "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
         "PropertyDefinition.ValueTypeEnum": PropertyDefinition.ValueTypeEnum,
         "PropertyDefinition.LifeTimeEnum": PropertyDefinition.LifeTimeEnum,
         "PropertyDefinition.TypeEnum": PropertyDefinition.TypeEnum,
@@ -315,6 +320,7 @@ let typeMap: {[index: string]: any} = {
     "PortfolioHolding": PortfolioHolding,
     "PortfolioProperties": PortfolioProperties,
     "PortfolioReconciliationRequest": PortfolioReconciliationRequest,
+    "PortfolioSearchResult": PortfolioSearchResult,
     "PortfoliosReconciliationRequest": PortfoliosReconciliationRequest,
     "ProcessedCommand": ProcessedCommand,
     "Property": Property,
@@ -335,6 +341,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
     "ResourceListOfPortfolioGroup": ResourceListOfPortfolioGroup,
+    "ResourceListOfPortfolioSearchResult": ResourceListOfPortfolioSearchResult,
     "ResourceListOfProcessedCommand": ResourceListOfProcessedCommand,
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
