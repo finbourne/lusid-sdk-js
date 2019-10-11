@@ -73,7 +73,6 @@ export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfScopeDefinition';
-export * from './resourceListOfTransactionConfigurationData';
 export * from './scopeDefinition';
 export * from './stream';
 export * from './targetTaxLot';
@@ -89,6 +88,7 @@ export * from './transactionPropertyMapping';
 export * from './transactionPropertyMappingRequest';
 export * from './transactionQueryParameters';
 export * from './transactionRequest';
+export * from './transactionSetConfigurationData';
 export * from './updateCutLabelDefinitionRequest';
 export * from './updateInstrumentIdentifierRequest';
 export * from './updatePortfolioGroupRequest';
@@ -186,7 +186,6 @@ import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
-import { ResourceListOfTransactionConfigurationData } from './resourceListOfTransactionConfigurationData';
 import { ScopeDefinition } from './scopeDefinition';
 import { Stream } from './stream';
 import { TargetTaxLot } from './targetTaxLot';
@@ -202,6 +201,7 @@ import { TransactionPropertyMapping } from './transactionPropertyMapping';
 import { TransactionPropertyMappingRequest } from './transactionPropertyMappingRequest';
 import { TransactionQueryParameters } from './transactionQueryParameters';
 import { TransactionRequest } from './transactionRequest';
+import { TransactionSetConfigurationData } from './transactionSetConfigurationData';
 import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionRequest';
 import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierRequest';
 import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
@@ -346,7 +346,6 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
-    "ResourceListOfTransactionConfigurationData": ResourceListOfTransactionConfigurationData,
     "ScopeDefinition": ScopeDefinition,
     "Stream": Stream,
     "TargetTaxLot": TargetTaxLot,
@@ -362,6 +361,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionPropertyMappingRequest": TransactionPropertyMappingRequest,
     "TransactionQueryParameters": TransactionQueryParameters,
     "TransactionRequest": TransactionRequest,
+    "TransactionSetConfigurationData": TransactionSetConfigurationData,
     "UpdateCutLabelDefinitionRequest": UpdateCutLabelDefinitionRequest,
     "UpdateInstrumentIdentifierRequest": UpdateInstrumentIdentifierRequest,
     "UpdatePortfolioGroupRequest": UpdatePortfolioGroupRequest,
