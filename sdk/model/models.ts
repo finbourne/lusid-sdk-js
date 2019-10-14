@@ -27,7 +27,6 @@ export * from './getReferencePortfolioConstituentsResponse';
 export * from './holdingAdjustment';
 export * from './holdingsAdjustment';
 export * from './holdingsAdjustmentHeader';
-export * from './httpMethod';
 export * from './iUnitDefinitionDto';
 export * from './idSelectorDefinition';
 export * from './identifierPartSchema';
@@ -141,7 +140,6 @@ import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfol
 import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingsAdjustment } from './holdingsAdjustment';
 import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
-import { HttpMethod } from './httpMethod';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { IdentifierPartSchema } from './identifierPartSchema';
@@ -251,6 +249,8 @@ let enumsMap: {[index: string]: any} = {
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
         "Instrument.StateEnum": Instrument.StateEnum,
+        "Link.RelationEnum": Link.RelationEnum,
+        "Link.MethodEnum": Link.MethodEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
@@ -300,7 +300,6 @@ let typeMap: {[index: string]: any} = {
     "HoldingAdjustment": HoldingAdjustment,
     "HoldingsAdjustment": HoldingsAdjustment,
     "HoldingsAdjustmentHeader": HoldingsAdjustmentHeader,
-    "HttpMethod": HttpMethod,
     "IUnitDefinitionDto": IUnitDefinitionDto,
     "IdSelectorDefinition": IdSelectorDefinition,
     "IdentifierPartSchema": IdentifierPartSchema,
