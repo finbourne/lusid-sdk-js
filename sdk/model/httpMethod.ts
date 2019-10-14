@@ -10,38 +10,21 @@
  * Do not edit the class manually.
  */
 
-import { Link } from './link';
-import { Version } from './version';
 
-export class AdjustHolding {
-    /**
-    * The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
-    */
-    'href'?: string;
-    'version': Version;
-    'links'?: Array<Link>;
+export class HttpMethod {
+    'method'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "method",
+            "baseName": "method",
             "type": "string"
-        },
-        {
-            "name": "version",
-            "baseName": "version",
-            "type": "Version"
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return AdjustHolding.attributeTypeMap;
+        return HttpMethod.attributeTypeMap;
     }
 }
 
