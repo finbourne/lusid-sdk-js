@@ -10,43 +10,48 @@
  * Do not edit the class manually.
  */
 
-import { CutLocalTime } from './cutLocalTime';
+import { Link } from './link';
+import { Property } from './property';
+import { Version } from './version';
 
-/**
-* This request specifies a new Cut Label Definition
-*/
-export class UpdateCutLabelDefinitionRequest {
-    'displayName': string;
-    'description'?: string;
-    'cutLocalTime': CutLocalTime;
-    'timeZone': string;
+export class PortfolioGroupProperties {
+    /**
+    * The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+    */
+    'href'?: string;
+    /**
+    * The portfolio group properties. These will be from the \'PortfolioGroup\' domain.
+    */
+    'properties'?: { [key: string]: Property; };
+    'version'?: Version;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "displayName",
-            "baseName": "displayName",
+            "name": "href",
+            "baseName": "href",
             "type": "string"
         },
         {
-            "name": "description",
-            "baseName": "description",
-            "type": "string"
+            "name": "properties",
+            "baseName": "properties",
+            "type": "{ [key: string]: Property; }"
         },
         {
-            "name": "cutLocalTime",
-            "baseName": "cutLocalTime",
-            "type": "CutLocalTime"
+            "name": "version",
+            "baseName": "version",
+            "type": "Version"
         },
         {
-            "name": "timeZone",
-            "baseName": "timeZone",
-            "type": "string"
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return UpdateCutLabelDefinitionRequest.attributeTypeMap;
+        return PortfolioGroupProperties.attributeTypeMap;
     }
 }
 
