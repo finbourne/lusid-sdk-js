@@ -251,8 +251,6 @@ let enumsMap: {[index: string]: any} = {
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
         "Instrument.StateEnum": Instrument.StateEnum,
-        "Link.RelationEnum": Link.RelationEnum,
-        "Link.MethodEnum": Link.MethodEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
