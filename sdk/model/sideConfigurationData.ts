@@ -10,25 +10,69 @@
  * Do not edit the class manually.
  */
 
-import { DataType } from './dataType';
 import { Link } from './link';
 
-export class ResourceListOfDataType {
-    'values': Array<DataType>;
-    'href'?: string;
+/**
+* Configuration needed to define a side. Sides are referenced by Label. Beyond that, other properties  can be used to reference either transaction fields, or transaction properties.
+*/
+export class SideConfigurationData {
+    /**
+    * The side\'s label.
+    */
+    'side': string;
+    /**
+    * The security, or instrument.
+    */
+    'security': string;
+    /**
+    * The currency.
+    */
+    'currency': string;
+    /**
+    * The rate.
+    */
+    'rate': string;
+    /**
+    * The units.
+    */
+    'units': string;
+    /**
+    * The amount.
+    */
+    'amount': string;
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<DataType>"
+            "name": "side",
+            "baseName": "side",
+            "type": "string"
         },
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "security",
+            "baseName": "security",
+            "type": "string"
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string"
+        },
+        {
+            "name": "rate",
+            "baseName": "rate",
+            "type": "string"
+        },
+        {
+            "name": "units",
+            "baseName": "units",
+            "type": "string"
+        },
+        {
+            "name": "amount",
+            "baseName": "amount",
             "type": "string"
         },
         {
@@ -38,7 +82,7 @@ export class ResourceListOfDataType {
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfDataType.attributeTypeMap;
+        return SideConfigurationData.attributeTypeMap;
     }
 }
 
