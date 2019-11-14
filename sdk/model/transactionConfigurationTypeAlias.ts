@@ -73,9 +73,9 @@ export namespace TransactionConfigurationTypeAlias {
         LongLonger = <any> 'LongLonger',
         LongShorter = <any> 'LongShorter',
         ShortShorter = <any> 'ShortShorter',
+        Shorter = <any> 'Shorter',
         ShortLonger = <any> 'ShortLonger',
         Longer = <any> 'Longer',
-        Shorter = <any> 'Shorter',
         AllRoles = <any> 'AllRoles'
     }
 }

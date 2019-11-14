@@ -67,19 +67,19 @@ export namespace TransactionConfigurationMovementDataRequest {
     export enum MovementTypesEnum {
         Settlement = <any> 'Settlement',
         Traded = <any> 'Traded',
+        StockMovement = <any> 'StockMovement',
         FutureCash = <any> 'FutureCash',
         Commitment = <any> 'Commitment',
         Receivable = <any> 'Receivable',
         CashSettlement = <any> 'CashSettlement',
-        Accrual = <any> 'Accrual',
-        ForwardFx = <any> 'ForwardFx',
-        UnsettledCashTypes = <any> 'UnsettledCashTypes',
-        StockMovement = <any> 'StockMovement',
+        CashForward = <any> 'CashForward',
         CashCommitment = <any> 'CashCommitment',
         CashReceivable = <any> 'CashReceivable',
-        CashForward = <any> 'CashForward',
+        Accrual = <any> 'Accrual',
+        CashAccrual = <any> 'CashAccrual',
+        ForwardFx = <any> 'ForwardFx',
         CashFxForward = <any> 'CashFxForward',
-        CashAccrual = <any> 'CashAccrual'
+        UnsettledCashTypes = <any> 'UnsettledCashTypes'
     }
     export enum SideEnum {
         Side1 = <any> 'Side1',
