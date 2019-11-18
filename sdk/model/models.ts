@@ -75,6 +75,7 @@ export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfScopeDefinition';
 export * from './scopeDefinition';
+export * from './sideConfigurationData';
 export * from './stream';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
@@ -189,6 +190,7 @@ import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefini
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ScopeDefinition } from './scopeDefinition';
+import { SideConfigurationData } from './sideConfigurationData';
 import { Stream } from './stream';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
@@ -260,9 +262,7 @@ let enumsMap: {[index: string]: any} = {
         "PropertyDefinition.UnitSchemaEnum": PropertyDefinition.UnitSchemaEnum,
         "PropertyDefinition.DomainEnum": PropertyDefinition.DomainEnum,
         "TransactionConfigurationMovementData.MovementTypesEnum": TransactionConfigurationMovementData.MovementTypesEnum,
-        "TransactionConfigurationMovementData.SideEnum": TransactionConfigurationMovementData.SideEnum,
         "TransactionConfigurationMovementDataRequest.MovementTypesEnum": TransactionConfigurationMovementDataRequest.MovementTypesEnum,
-        "TransactionConfigurationMovementDataRequest.SideEnum": TransactionConfigurationMovementDataRequest.SideEnum,
         "TransactionConfigurationTypeAlias.TransactionRolesEnum": TransactionConfigurationTypeAlias.TransactionRolesEnum,
         "TransactionPrice.TypeEnum": TransactionPrice.TypeEnum,
         "TransactionQueryParameters.QueryModeEnum": TransactionQueryParameters.QueryModeEnum,
@@ -348,6 +348,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ScopeDefinition": ScopeDefinition,
+    "SideConfigurationData": SideConfigurationData,
     "Stream": Stream,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
