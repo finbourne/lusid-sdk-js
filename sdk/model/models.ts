@@ -40,6 +40,7 @@ export * from './lusidProblemDetails';
 export * from './lusidValidationProblemDetails';
 export * from './metricValue';
 export * from './outputTransaction';
+export * from './pagedResourceListOfInstrument';
 export * from './perpetualProperty';
 export * from './portfolio';
 export * from './portfolioDetails';
@@ -65,7 +66,6 @@ export * from './resourceListOfCutLabelDefinition';
 export * from './resourceListOfDataType';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
-export * from './resourceListOfInstrument';
 export * from './resourceListOfInstrumentIdTypeDescriptor';
 export * from './resourceListOfPortfolio';
 export * from './resourceListOfPortfolioGroup';
@@ -155,6 +155,7 @@ import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MetricValue } from './metricValue';
 import { OutputTransaction } from './outputTransaction';
+import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PerpetualProperty } from './perpetualProperty';
 import { Portfolio } from './portfolio';
 import { PortfolioDetails } from './portfolioDetails';
@@ -180,7 +181,6 @@ import { ResourceListOfCutLabelDefinition } from './resourceListOfCutLabelDefini
 import { ResourceListOfDataType } from './resourceListOfDataType';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
-import { ResourceListOfInstrument } from './resourceListOfInstrument';
 import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
 import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
@@ -313,6 +313,7 @@ let typeMap: {[index: string]: any} = {
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
     "MetricValue": MetricValue,
     "OutputTransaction": OutputTransaction,
+    "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PerpetualProperty": PerpetualProperty,
     "Portfolio": Portfolio,
     "PortfolioDetails": PortfolioDetails,
@@ -338,7 +339,6 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfDataType": ResourceListOfDataType,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
-    "ResourceListOfInstrument": ResourceListOfInstrument,
     "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
     "ResourceListOfPortfolioGroup": ResourceListOfPortfolioGroup,
