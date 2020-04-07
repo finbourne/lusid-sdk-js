@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 import { ActionId } from './actionId';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { Link } from './link';

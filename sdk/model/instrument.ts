@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 import { InstrumentEconomicDefinition } from './instrumentEconomicDefinition';
 import { Link } from './link';
 import { Property } from './property';

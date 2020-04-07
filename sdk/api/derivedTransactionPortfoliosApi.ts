@@ -20,10 +20,8 @@ import { LusidProblemDetails } from '../model/lusidProblemDetails';
 import { LusidValidationProblemDetails } from '../model/lusidValidationProblemDetails';
 import { Portfolio } from '../model/portfolio';
 
-import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
-import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
-
-import { HttpError, RequestFile } from './apis';
+import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
+import { OAuth } from '../model/models';
 
 let defaultBasePath = 'http://localhost';
 
@@ -36,15 +34,13 @@ export enum DerivedTransactionPortfoliosApiApiKeys {
 
 export class DerivedTransactionPortfoliosApi {
     protected _basePath = defaultBasePath;
-    protected _defaultHeaders : any = {};
+    protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
         'default': <Authentication>new VoidAuth(),
         'oauth2': new OAuth(),
     }
-
-    protected interceptors: Interceptor[] = [];
 
     constructor(basePath?: string);
     constructor(basePathOrUsername: string, password?: string, basePath?: string) {
@@ -67,14 +63,6 @@ export class DerivedTransactionPortfoliosApi {
         this._basePath = basePath;
     }
 
-    set defaultHeaders(defaultHeaders: any) {
-        this._defaultHeaders = defaultHeaders;
-    }
-
-    get defaultHeaders() {
-        return this._defaultHeaders;
-    }
-
     get basePath() {
         return this._basePath;
     }
@@ -91,10 +79,6 @@ export class DerivedTransactionPortfoliosApi {
         this.authentications.oauth2.accessToken = token;
     }
 
-    public addInterceptor(interceptor: Interceptor) {
-        this.interceptors.push(interceptor);
-    }
-
     /**
      * Creates a transaction portfolio that derives from an existing transaction portfolio. In a derived portfolio, parts of the portfolio can either be specific to this portfolio, or can be inherited from a \"parent\". Different parts of the portfolio (e.g. transactions or properties) are combined in different ways. The portfolio details are either overridden in entirety, or not at all. The same is true for properties. Transactions on a derived portfolio are merged with its parent portfolio\'s transactions. If the parent portfolio is itself a derived portfolio, transactions from that parent are also merged (and that parent\'s portfolio\'s, if it is also a derived portfolio, and so on).
      * @summary [EARLY ACCESS] Create derived transaction portfolio
@@ -105,14 +89,7 @@ export class DerivedTransactionPortfoliosApi {
         const localVarPath = this.basePath + '/api/derivedtransactionportfolios/{scope}'
             .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)));
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['text/plain', 'application/json', 'text/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         // verify required parameter 'scope' is not null or undefined
@@ -134,38 +111,29 @@ export class DerivedTransactionPortfoliosApi {
             body: ObjectSerializer.serialize(portfolio, "CreateDerivedTransactionPortfolioRequest")
         };
 
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.oauth2.accessToken) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions);
 
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
+        this.authentications.default.applyToRequest(localVarRequestOptions);
 
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
             }
-            return new Promise<{ response: http.IncomingMessage; body: Portfolio;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
+        }
+        return new Promise<{ response: http.IncomingMessage; body: Portfolio;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "Portfolio");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Portfolio");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
+                        reject({ response: response, body: body });
                     }
-                });
+                }
             });
         });
     }
@@ -181,14 +149,7 @@ export class DerivedTransactionPortfoliosApi {
             .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
             .replace('{' + 'code' + '}', encodeURIComponent(String(code)));
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['text/plain', 'application/json', 'text/json'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
         let localVarFormParams: any = {};
 
         // verify required parameter 'scope' is not null or undefined
@@ -218,38 +179,29 @@ export class DerivedTransactionPortfoliosApi {
             json: true,
         };
 
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.oauth2.accessToken) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions);
 
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
+        this.authentications.default.applyToRequest(localVarRequestOptions);
 
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
             }
-            return new Promise<{ response: http.IncomingMessage; body: DeletedEntityResponse;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
+        }
+        return new Promise<{ response: http.IncomingMessage; body: DeletedEntityResponse;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "DeletedEntityResponse");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
                     } else {
-                        body = ObjectSerializer.deserialize(body, "DeletedEntityResponse");
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
+                        reject({ response: response, body: body });
                     }
-                });
+                }
             });
         });
     }

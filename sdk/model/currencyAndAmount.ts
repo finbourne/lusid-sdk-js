@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 
 /**
 * An amount of a specific currency, specifying a value and an associated unit

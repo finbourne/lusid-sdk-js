@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 import { Link } from './link';
 import { OutputTransaction } from './outputTransaction';
 import { Version } from './version';

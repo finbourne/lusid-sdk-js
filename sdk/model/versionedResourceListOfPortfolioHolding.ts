@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 import { Link } from './link';
 import { PortfolioHolding } from './portfolioHolding';
 import { Version } from './version';

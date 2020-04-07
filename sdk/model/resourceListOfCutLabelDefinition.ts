@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { Link } from './link';
 

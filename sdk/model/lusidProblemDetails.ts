@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 
 export class LusidProblemDetails extends null<String, object> {
     'name': string;

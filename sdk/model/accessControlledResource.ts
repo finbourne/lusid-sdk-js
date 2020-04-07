@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 import { AccessControlledAction } from './accessControlledAction';
 import { IdentifierPartSchema } from './identifierPartSchema';
 import { Link } from './link';

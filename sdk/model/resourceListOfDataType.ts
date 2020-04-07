@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 import { DataType } from './dataType';
 import { Link } from './link';
 

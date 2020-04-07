@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { PerpetualProperty } from './perpetualProperty';
 import { RealisedGainLoss } from './realisedGainLoss';

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from '../api';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { Link } from './link';
 
