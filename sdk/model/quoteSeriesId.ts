@@ -10,35 +10,92 @@
  * Do not edit the class manually.
  */
 
-import { AccessControlledResource } from './accessControlledResource';
-import { Link } from './link';
 
-export class ResourceListOfAccessControlledResource {
-    'values': Array<AccessControlledResource>;
-    'href'?: string;
-    'links'?: Array<Link>;
+/**
+* The time invariant unique identifier of the quote. Combined with the effective datetime of the quote this  uniquely identifies the quote. This can be thought of as a unique identifier for a time series of quotes.
+*/
+export class QuoteSeriesId {
+    /**
+    * The platform or vendor that provided the quote, e.g. \'DataScope\', \'LUSID\' etc.
+    */
+    'provider': string;
+    /**
+    * The source or originator of the quote, e.g. a bank or financial institution.
+    */
+    'priceSource'?: string;
+    /**
+    * The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. \'BBG00JX0P539\'.
+    */
+    'instrumentId': string;
+    /**
+    * The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. \'Figi\'.
+    */
+    'instrumentIdType': QuoteSeriesId.InstrumentIdTypeEnum;
+    /**
+    * The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used.
+    */
+    'quoteType': QuoteSeriesId.QuoteTypeEnum;
+    /**
+    * The field of the quote e.g. bid, mid, ask etc. This should be consistent across a time series of quotes. The allowed values are dependant on the specified Provider.
+    */
+    'field': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<AccessControlledResource>"
-        },
-        {
-            "name": "href",
-            "baseName": "href",
+            "name": "provider",
+            "baseName": "provider",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
+            "name": "priceSource",
+            "baseName": "priceSource",
+            "type": "string"
+        },
+        {
+            "name": "instrumentId",
+            "baseName": "instrumentId",
+            "type": "string"
+        },
+        {
+            "name": "instrumentIdType",
+            "baseName": "instrumentIdType",
+            "type": "QuoteSeriesId.InstrumentIdTypeEnum"
+        },
+        {
+            "name": "quoteType",
+            "baseName": "quoteType",
+            "type": "QuoteSeriesId.QuoteTypeEnum"
+        },
+        {
+            "name": "field",
+            "baseName": "field",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfAccessControlledResource.attributeTypeMap;
+        return QuoteSeriesId.attributeTypeMap;
     }
 }
 
+export namespace QuoteSeriesId {
+    export enum InstrumentIdTypeEnum {
+        LusidInstrumentId = <any> 'LusidInstrumentId',
+        Figi = <any> 'Figi',
+        RIC = <any> 'RIC',
+        QuotePermId = <any> 'QuotePermId',
+        Isin = <any> 'Isin',
+        CurrencyPair = <any> 'CurrencyPair'
+    }
+    export enum QuoteTypeEnum {
+        Price = <any> 'Price',
+        Spread = <any> 'Spread',
+        Rate = <any> 'Rate',
+        LogNormalVol = <any> 'LogNormalVol',
+        NormalVol = <any> 'NormalVol',
+        ParSpread = <any> 'ParSpread',
+        IsdaSpread = <any> 'IsdaSpread',
+        Upfront = <any> 'Upfront'
+    }
+}

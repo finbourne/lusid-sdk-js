@@ -55,6 +55,9 @@ export * from './processedCommand';
 export * from './property';
 export * from './propertyDefinition';
 export * from './propertyValue';
+export * from './quote';
+export * from './quoteId';
+export * from './quoteSeriesId';
 export * from './realisedGainLoss';
 export * from './reconciliationBreak';
 export * from './referencePortfolioConstituent';
@@ -72,6 +75,7 @@ export * from './resourceListOfPortfolioGroup';
 export * from './resourceListOfPortfolioSearchResult';
 export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfPropertyDefinition';
+export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfScopeDefinition';
 export * from './scopeDefinition';
@@ -170,6 +174,9 @@ import { ProcessedCommand } from './processedCommand';
 import { Property } from './property';
 import { PropertyDefinition } from './propertyDefinition';
 import { PropertyValue } from './propertyValue';
+import { Quote } from './quote';
+import { QuoteId } from './quoteId';
+import { QuoteSeriesId } from './quoteSeriesId';
 import { RealisedGainLoss } from './realisedGainLoss';
 import { ReconciliationBreak } from './reconciliationBreak';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
@@ -187,6 +194,7 @@ import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
 import { ResourceListOfPortfolioSearchResult } from './resourceListOfPortfolioSearchResult';
 import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
+import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ScopeDefinition } from './scopeDefinition';
@@ -261,6 +269,8 @@ let enumsMap: {[index: string]: any} = {
         "PropertyDefinition.TypeEnum": PropertyDefinition.TypeEnum,
         "PropertyDefinition.UnitSchemaEnum": PropertyDefinition.UnitSchemaEnum,
         "PropertyDefinition.DomainEnum": PropertyDefinition.DomainEnum,
+        "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
+        "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
         "TransactionConfigurationMovementData.MovementTypesEnum": TransactionConfigurationMovementData.MovementTypesEnum,
         "TransactionConfigurationMovementDataRequest.MovementTypesEnum": TransactionConfigurationMovementDataRequest.MovementTypesEnum,
         "TransactionConfigurationTypeAlias.TransactionRolesEnum": TransactionConfigurationTypeAlias.TransactionRolesEnum,
@@ -328,6 +338,9 @@ let typeMap: {[index: string]: any} = {
     "Property": Property,
     "PropertyDefinition": PropertyDefinition,
     "PropertyValue": PropertyValue,
+    "Quote": Quote,
+    "QuoteId": QuoteId,
+    "QuoteSeriesId": QuoteSeriesId,
     "RealisedGainLoss": RealisedGainLoss,
     "ReconciliationBreak": ReconciliationBreak,
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
@@ -345,6 +358,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPortfolioSearchResult": ResourceListOfPortfolioSearchResult,
     "ResourceListOfProcessedCommand": ResourceListOfProcessedCommand,
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
+    "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ScopeDefinition": ScopeDefinition,

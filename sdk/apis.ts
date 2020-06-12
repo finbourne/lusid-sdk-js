@@ -7,6 +7,7 @@ import {LoginApi} from './api/loginApi';
 import {PortfolioGroupsApi} from './api/portfolioGroupsApi';
 import {PortfoliosApi} from './api/portfoliosApi';
 import {PropertyDefinitionsApi} from './api/propertyDefinitionsApi';
+import {QuotesApi} from './api/quotesApi';
 import {ReconciliationsApi} from './api/reconciliationsApi';
 import {ReferencePortfolioApi} from './api/referencePortfolioApi';
 import {ScopesApi} from './api/scopesApi';
@@ -24,6 +25,7 @@ export class Api {
     public portfolioGroups:  PortfolioGroupsApi
     public portfolios:  PortfoliosApi
     public propertyDefinitions:  PropertyDefinitionsApi
+    public quotes:  QuotesApi
     public reconciliations:  ReconciliationsApi
     public referencePortfolio:  ReferencePortfolioApi
     public scopes:  ScopesApi

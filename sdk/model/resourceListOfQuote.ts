@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { AccessControlledResource } from './accessControlledResource';
 import { Link } from './link';
+import { Quote } from './quote';
 
-export class ResourceListOfAccessControlledResource {
-    'values': Array<AccessControlledResource>;
+export class ResourceListOfQuote {
+    'values': Array<Quote>;
     'href'?: string;
     'links'?: Array<Link>;
 
@@ -24,7 +24,7 @@ export class ResourceListOfAccessControlledResource {
         {
             "name": "values",
             "baseName": "values",
-            "type": "Array<AccessControlledResource>"
+            "type": "Array<Quote>"
         },
         {
             "name": "href",
@@ -38,7 +38,7 @@ export class ResourceListOfAccessControlledResource {
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfAccessControlledResource.attributeTypeMap;
+        return ResourceListOfQuote.attributeTypeMap;
     }
 }
 

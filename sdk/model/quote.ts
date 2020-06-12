@@ -10,35 +10,68 @@
  * Do not edit the class manually.
  */
 
-import { AccessControlledResource } from './accessControlledResource';
-import { Link } from './link';
+import { MetricValue } from './metricValue';
+import { QuoteId } from './quoteId';
 
-export class ResourceListOfAccessControlledResource {
-    'values': Array<AccessControlledResource>;
-    'href'?: string;
-    'links'?: Array<Link>;
+/**
+* The quote id, value and lineage of the quotes all keyed by a unique correlation id.
+*/
+export class Quote {
+    'quoteId': QuoteId;
+    'metricValue'?: MetricValue;
+    /**
+    * Description of the quote\'s lineage e.g. \'FundAccountant_GreenQuality\'.
+    */
+    'lineage'?: string;
+    /**
+    * The cut label that this quote was updated or inserted with.
+    */
+    'cutLabel'?: string;
+    /**
+    * The unique id of the user that updated or inserted the quote.
+    */
+    'uploadedBy': string;
+    /**
+    * The asAt datetime at which the quote was committed to LUSID.
+    */
+    'asAt': Date;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<AccessControlledResource>"
+            "name": "quoteId",
+            "baseName": "quoteId",
+            "type": "QuoteId"
         },
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "metricValue",
+            "baseName": "metricValue",
+            "type": "MetricValue"
+        },
+        {
+            "name": "lineage",
+            "baseName": "lineage",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
+            "name": "cutLabel",
+            "baseName": "cutLabel",
+            "type": "string"
+        },
+        {
+            "name": "uploadedBy",
+            "baseName": "uploadedBy",
+            "type": "string"
+        },
+        {
+            "name": "asAt",
+            "baseName": "asAt",
+            "type": "Date"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfAccessControlledResource.attributeTypeMap;
+        return Quote.attributeTypeMap;
     }
 }
 

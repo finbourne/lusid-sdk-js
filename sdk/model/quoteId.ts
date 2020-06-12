@@ -10,35 +10,34 @@
  * Do not edit the class manually.
  */
 
-import { AccessControlledResource } from './accessControlledResource';
-import { Link } from './link';
+import { QuoteSeriesId } from './quoteSeriesId';
 
-export class ResourceListOfAccessControlledResource {
-    'values': Array<AccessControlledResource>;
-    'href'?: string;
-    'links'?: Array<Link>;
+/**
+* The unique identifier of the quote.
+*/
+export class QuoteId {
+    'quoteSeriesId': QuoteSeriesId;
+    /**
+    * The effective datetime or cut label at which the quote is valid from.
+    */
+    'effectiveAt': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<AccessControlledResource>"
+            "name": "quoteSeriesId",
+            "baseName": "quoteSeriesId",
+            "type": "QuoteSeriesId"
         },
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "effectiveAt",
+            "baseName": "effectiveAt",
             "type": "string"
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfAccessControlledResource.attributeTypeMap;
+        return QuoteId.attributeTypeMap;
     }
 }
 
