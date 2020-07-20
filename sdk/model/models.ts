@@ -35,7 +35,6 @@ export * from './instrumentDefinition';
 export * from './instrumentEconomicDefinition';
 export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
-export * from './labelValueSet';
 export * from './link';
 export * from './lusidProblemDetails';
 export * from './lusidValidationProblemDetails';
@@ -155,7 +154,6 @@ import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentEconomicDefinition } from './instrumentEconomicDefinition';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
-import { LabelValueSet } from './labelValueSet';
 import { Link } from './link';
 import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
@@ -320,7 +318,6 @@ let typeMap: {[index: string]: any} = {
     "InstrumentEconomicDefinition": InstrumentEconomicDefinition,
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
     "InstrumentIdValue": InstrumentIdValue,
-    "LabelValueSet": LabelValueSet,
     "Link": Link,
     "LusidProblemDetails": LusidProblemDetails,
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
