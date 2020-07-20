@@ -11,32 +11,23 @@
  */
 
 
-export class UpdatePortfolioGroupRequest {
-    /**
-    * The name of the portfolio group.
-    */
-    'displayName': string;
-    /**
-    * A long form description of the portfolio group.
-    */
-    'description'?: string;
+/**
+* The set of string labels in a multi-value property.
+*/
+export class LabelValueSet {
+    'values'?: Array<string>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "displayName",
-            "baseName": "displayName",
-            "type": "string"
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string"
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<string>"
         }    ];
 
     static getAttributeTypeMap() {
-        return UpdatePortfolioGroupRequest.attributeTypeMap;
+        return LabelValueSet.attributeTypeMap;
     }
 }
 
