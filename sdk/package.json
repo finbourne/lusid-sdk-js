@@ -1,6 +1,6 @@
 {
   "name": "@finbourne/lusid",
-  "version": "0.11.1859",
+  "version": "0.11.1860",
   "author": "engineering@finbourne.com",
   "license": "MIT",
   "description": "LUSID JavaScript/Typescript SDK for Node",
