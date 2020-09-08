@@ -32,11 +32,11 @@ export * from './idSelectorDefinition';
 export * from './identifierPartSchema';
 export * from './instrument';
 export * from './instrumentDefinition';
-export * from './instrumentEconomicDefinition';
 export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
 export * from './labelValueSet';
 export * from './link';
+export * from './lusidInstrument';
 export * from './lusidProblemDetails';
 export * from './lusidValidationProblemDetails';
 export * from './metricValue';
@@ -152,11 +152,11 @@ import { IdSelectorDefinition } from './idSelectorDefinition';
 import { IdentifierPartSchema } from './identifierPartSchema';
 import { Instrument } from './instrument';
 import { InstrumentDefinition } from './instrumentDefinition';
-import { InstrumentEconomicDefinition } from './instrumentEconomicDefinition';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
 import { LabelValueSet } from './labelValueSet';
 import { Link } from './link';
+import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MetricValue } from './metricValue';
@@ -263,6 +263,7 @@ let enumsMap: {[index: string]: any} = {
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
         "Instrument.StateEnum": Instrument.StateEnum,
+        "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
@@ -318,11 +319,11 @@ let typeMap: {[index: string]: any} = {
     "IdentifierPartSchema": IdentifierPartSchema,
     "Instrument": Instrument,
     "InstrumentDefinition": InstrumentDefinition,
-    "InstrumentEconomicDefinition": InstrumentEconomicDefinition,
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
     "InstrumentIdValue": InstrumentIdValue,
     "LabelValueSet": LabelValueSet,
     "Link": Link,
+    "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
     "MetricValue": MetricValue,
