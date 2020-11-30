@@ -41,7 +41,6 @@ export * from './lusidProblemDetails';
 export * from './lusidValidationProblemDetails';
 export * from './metricValue';
 export * from './outputTransaction';
-export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfInstrument';
 export * from './perpetualProperty';
 export * from './portfolio';
@@ -67,6 +66,7 @@ export * from './referencePortfolioConstituentRequest';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfConstituentsAdjustmentHeader';
+export * from './resourceListOfCutLabelDefinition';
 export * from './resourceListOfDataType';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
@@ -161,7 +161,6 @@ import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MetricValue } from './metricValue';
 import { OutputTransaction } from './outputTransaction';
-import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PerpetualProperty } from './perpetualProperty';
 import { Portfolio } from './portfolio';
@@ -187,6 +186,7 @@ import { ReferencePortfolioConstituentRequest } from './referencePortfolioConsti
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
+import { ResourceListOfCutLabelDefinition } from './resourceListOfCutLabelDefinition';
 import { ResourceListOfDataType } from './resourceListOfDataType';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
@@ -328,7 +328,6 @@ let typeMap: {[index: string]: any} = {
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
     "MetricValue": MetricValue,
     "OutputTransaction": OutputTransaction,
-    "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PerpetualProperty": PerpetualProperty,
     "Portfolio": Portfolio,
@@ -354,6 +353,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
+    "ResourceListOfCutLabelDefinition": ResourceListOfCutLabelDefinition,
     "ResourceListOfDataType": ResourceListOfDataType,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,

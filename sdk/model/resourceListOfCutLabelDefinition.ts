@@ -10,13 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { Instrument } from './instrument';
+import { CutLabelDefinition } from './cutLabelDefinition';
 import { Link } from './link';
 
-export class PagedResourceListOfInstrument {
-    'nextPage'?: string;
-    'previousPage'?: string;
-    'values': Array<Instrument>;
+export class ResourceListOfCutLabelDefinition {
+    'values': Array<CutLabelDefinition>;
     'href'?: string;
     'links'?: Array<Link>;
 
@@ -24,19 +22,9 @@ export class PagedResourceListOfInstrument {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "nextPage",
-            "baseName": "nextPage",
-            "type": "string"
-        },
-        {
-            "name": "previousPage",
-            "baseName": "previousPage",
-            "type": "string"
-        },
-        {
             "name": "values",
             "baseName": "values",
-            "type": "Array<Instrument>"
+            "type": "Array<CutLabelDefinition>"
         },
         {
             "name": "href",
@@ -50,7 +38,7 @@ export class PagedResourceListOfInstrument {
         }    ];
 
     static getAttributeTypeMap() {
-        return PagedResourceListOfInstrument.attributeTypeMap;
+        return ResourceListOfCutLabelDefinition.attributeTypeMap;
     }
 }
 
