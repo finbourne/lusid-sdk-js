@@ -16,4 +16,4 @@ ENV FBN_CLIENT_ID ${FBN_CLIENT_ID}
 ENV FBN_CLIENT_SECRET ${FBN_CLIENT_SECRET}
 ENV FBN_LUSID_API_URL ${FBN_LUSID_API_URL}
 
-CMD ["sh","-c", "npm run build && npm run test"]
+ENTRYPOINT ["sh","-c", "npm run build && npm run test"]
