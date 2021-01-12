@@ -3,6 +3,8 @@ export * from './accessControlledResource';
 export * from './actionId';
 export * from './adjustHolding';
 export * from './adjustHoldingRequest';
+export * from './annulQuotesResponse';
+export * from './change';
 export * from './completePortfolio';
 export * from './constituentsAdjustmentHeader';
 export * from './createCutLabelDefinitionRequest';
@@ -23,6 +25,7 @@ export * from './executionRequest';
 export * from './expandedGroup';
 export * from './fileResponse';
 export * from './getInstrumentsResponse';
+export * from './getQuotesResponse';
 export * from './getReferencePortfolioConstituentsResponse';
 export * from './holdingAdjustment';
 export * from './holdingsAdjustment';
@@ -66,6 +69,7 @@ export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
+export * from './resourceListOfChange';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfDataType';
 export * from './resourceListOfHoldingsAdjustmentHeader';
@@ -106,6 +110,8 @@ export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
 export * from './upsertPortfolioExecutionsResponse';
 export * from './upsertPortfolioTransactionsResponse';
+export * from './upsertQuoteRequest';
+export * from './upsertQuotesResponse';
 export * from './upsertReferencePortfolioConstituentsRequest';
 export * from './upsertReferencePortfolioConstituentsResponse';
 export * from './upsertTransactionPropertiesResponse';
@@ -123,6 +129,8 @@ import { AccessControlledResource } from './accessControlledResource';
 import { ActionId } from './actionId';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
+import { AnnulQuotesResponse } from './annulQuotesResponse';
+import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
@@ -143,6 +151,7 @@ import { ExecutionRequest } from './executionRequest';
 import { ExpandedGroup } from './expandedGroup';
 import { FileResponse } from './fileResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
+import { GetQuotesResponse } from './getQuotesResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
 import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingsAdjustment } from './holdingsAdjustment';
@@ -186,6 +195,7 @@ import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
+import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfDataType } from './resourceListOfDataType';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
@@ -226,6 +236,8 @@ import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyReque
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
 import { UpsertPortfolioExecutionsResponse } from './upsertPortfolioExecutionsResponse';
 import { UpsertPortfolioTransactionsResponse } from './upsertPortfolioTransactionsResponse';
+import { UpsertQuoteRequest } from './upsertQuoteRequest';
+import { UpsertQuotesResponse } from './upsertQuotesResponse';
 import { UpsertReferencePortfolioConstituentsRequest } from './upsertReferencePortfolioConstituentsRequest';
 import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferencePortfolioConstituentsResponse';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
@@ -290,6 +302,8 @@ let typeMap: {[index: string]: any} = {
     "ActionId": ActionId,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingRequest": AdjustHoldingRequest,
+    "AnnulQuotesResponse": AnnulQuotesResponse,
+    "Change": Change,
     "CompletePortfolio": CompletePortfolio,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
@@ -310,6 +324,7 @@ let typeMap: {[index: string]: any} = {
     "ExpandedGroup": ExpandedGroup,
     "FileResponse": FileResponse,
     "GetInstrumentsResponse": GetInstrumentsResponse,
+    "GetQuotesResponse": GetQuotesResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
     "HoldingAdjustment": HoldingAdjustment,
     "HoldingsAdjustment": HoldingsAdjustment,
@@ -353,6 +368,7 @@ let typeMap: {[index: string]: any} = {
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
+    "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfDataType": ResourceListOfDataType,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
@@ -393,6 +409,8 @@ let typeMap: {[index: string]: any} = {
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,
     "UpsertPortfolioExecutionsResponse": UpsertPortfolioExecutionsResponse,
     "UpsertPortfolioTransactionsResponse": UpsertPortfolioTransactionsResponse,
+    "UpsertQuoteRequest": UpsertQuoteRequest,
+    "UpsertQuotesResponse": UpsertQuotesResponse,
     "UpsertReferencePortfolioConstituentsRequest": UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": UpsertReferencePortfolioConstituentsResponse,
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,

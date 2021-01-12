@@ -2,6 +2,7 @@ import {ApplicationMetadataApi} from './api/applicationMetadataApi';
 import {CutLabelDefinitionsApi} from './api/cutLabelDefinitionsApi';
 import {DataTypesApi} from './api/dataTypesApi';
 import {DerivedTransactionPortfoliosApi} from './api/derivedTransactionPortfoliosApi';
+import {EntitiesApi} from './api/entitiesApi';
 import {InstrumentsApi} from './api/instrumentsApi';
 import {LoginApi} from './api/loginApi';
 import {PortfolioGroupsApi} from './api/portfolioGroupsApi';
@@ -20,6 +21,7 @@ export class Api {
     public cutLabelDefinitions:  CutLabelDefinitionsApi
     public dataTypes:  DataTypesApi
     public derivedTransactionPortfolios:  DerivedTransactionPortfoliosApi
+    public entities:  EntitiesApi
     public instruments:  InstrumentsApi
     public login:  LoginApi
     public portfolioGroups:  PortfolioGroupsApi
