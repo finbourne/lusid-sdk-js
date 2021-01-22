@@ -166,6 +166,8 @@ export class Client {
     lusid.APIS.forEach((api: any) => {
       // Create a new instance of the api endpoint
       let apiInstance = new api(this.basePath)
+      // As per docs at (https://github.com/request/request) use `foo=bar&foo=baz` format always
+      apiInstance.useQuerystring = true
       // Get the name of the API
       let apiName: string = apiInstance.constructor.name
       // Shorten the api name slightly by removing API at the end
