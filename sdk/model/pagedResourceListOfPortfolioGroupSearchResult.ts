@@ -10,72 +10,47 @@
  * Do not edit the class manually.
  */
 
-import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
+import { Link } from './link';
+import { PortfolioGroupSearchResult } from './portfolioGroupSearchResult';
 
-export class UpsertReferencePortfolioConstituentsRequest {
-    /**
-    * The first date from which the weights will apply
-    */
-    'effectiveFrom': string;
-    /**
-    * The available values are: Static, Floating, Periodical
-    */
-    'weightType': UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum;
-    /**
-    * The available values are: Daily, Weekly, Monthly, Quarterly, Annually
-    */
-    'periodType'?: UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum;
-    'periodCount'?: number;
-    /**
-    * Set of constituents (instrument/weight pairings)
-    */
-    'constituents': Array<ReferencePortfolioConstituentRequest>;
+export class PagedResourceListOfPortfolioGroupSearchResult {
+    'nextPage'?: string;
+    'previousPage'?: string;
+    'values': Array<PortfolioGroupSearchResult>;
+    'href'?: string;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "effectiveFrom",
-            "baseName": "effectiveFrom",
+            "name": "nextPage",
+            "baseName": "nextPage",
             "type": "string"
         },
         {
-            "name": "weightType",
-            "baseName": "weightType",
-            "type": "UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum"
+            "name": "previousPage",
+            "baseName": "previousPage",
+            "type": "string"
         },
         {
-            "name": "periodType",
-            "baseName": "periodType",
-            "type": "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum"
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<PortfolioGroupSearchResult>"
         },
         {
-            "name": "periodCount",
-            "baseName": "periodCount",
-            "type": "number"
+            "name": "href",
+            "baseName": "href",
+            "type": "string"
         },
         {
-            "name": "constituents",
-            "baseName": "constituents",
-            "type": "Array<ReferencePortfolioConstituentRequest>"
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return UpsertReferencePortfolioConstituentsRequest.attributeTypeMap;
+        return PagedResourceListOfPortfolioGroupSearchResult.attributeTypeMap;
     }
 }
 
-export namespace UpsertReferencePortfolioConstituentsRequest {
-    export enum WeightTypeEnum {
-        Static = <any> 'Static',
-        Floating = <any> 'Floating',
-        Periodical = <any> 'Periodical'
-    }
-    export enum PeriodTypeEnum {
-        Daily = <any> 'Daily',
-        Weekly = <any> 'Weekly',
-        Monthly = <any> 'Monthly',
-        Quarterly = <any> 'Quarterly',
-        Annually = <any> 'Annually'
-    }
-}

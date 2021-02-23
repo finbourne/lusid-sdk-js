@@ -46,11 +46,13 @@ export * from './metricValue';
 export * from './outputTransaction';
 export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfInstrument';
+export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './perpetualProperty';
 export * from './portfolio';
 export * from './portfolioDetails';
 export * from './portfolioGroup';
 export * from './portfolioGroupProperties';
+export * from './portfolioGroupSearchResult';
 export * from './portfolioHolding';
 export * from './portfolioProperties';
 export * from './portfolioReconciliationRequest';
@@ -172,11 +174,13 @@ import { MetricValue } from './metricValue';
 import { OutputTransaction } from './outputTransaction';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
+import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PerpetualProperty } from './perpetualProperty';
 import { Portfolio } from './portfolio';
 import { PortfolioDetails } from './portfolioDetails';
 import { PortfolioGroup } from './portfolioGroup';
 import { PortfolioGroupProperties } from './portfolioGroupProperties';
+import { PortfolioGroupSearchResult } from './portfolioGroupSearchResult';
 import { PortfolioHolding } from './portfolioHolding';
 import { PortfolioProperties } from './portfolioProperties';
 import { PortfolioReconciliationRequest } from './portfolioReconciliationRequest';
@@ -345,11 +349,13 @@ let typeMap: {[index: string]: any} = {
     "OutputTransaction": OutputTransaction,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
+    "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PerpetualProperty": PerpetualProperty,
     "Portfolio": Portfolio,
     "PortfolioDetails": PortfolioDetails,
     "PortfolioGroup": PortfolioGroup,
     "PortfolioGroupProperties": PortfolioGroupProperties,
+    "PortfolioGroupSearchResult": PortfolioGroupSearchResult,
     "PortfolioHolding": PortfolioHolding,
     "PortfolioProperties": PortfolioProperties,
     "PortfolioReconciliationRequest": PortfolioReconciliationRequest,

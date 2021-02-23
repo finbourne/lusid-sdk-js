@@ -10,72 +10,90 @@
  * Do not edit the class manually.
  */
 
-import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
+import { Link } from './link';
+import { ResourceId } from './resourceId';
+import { Version } from './version';
 
-export class UpsertReferencePortfolioConstituentsRequest {
+export class PortfolioGroupSearchResult {
     /**
-    * The first date from which the weights will apply
+    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'effectiveFrom': string;
+    'href'?: string;
+    'id': ResourceId;
     /**
-    * The available values are: Static, Floating, Periodical
+    * The name of the portfolio group.
     */
-    'weightType': UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum;
+    'displayName': string;
     /**
-    * The available values are: Daily, Weekly, Monthly, Quarterly, Annually
+    * The long form description of the portfolio group.
     */
-    'periodType'?: UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum;
-    'periodCount'?: number;
+    'description'?: string;
     /**
-    * Set of constituents (instrument/weight pairings)
+    * The effective datetime at which the portfolio group was created. No portfolios or sub groups can be added to the group before this date.
     */
-    'constituents': Array<ReferencePortfolioConstituentRequest>;
+    'created'?: Date;
+    /**
+    * The collection of resource identifiers for the portfolios contained in the portfolio group.
+    */
+    'portfolios'?: Array<ResourceId>;
+    /**
+    * The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups.
+    */
+    'subGroups'?: Array<ResourceId>;
+    'version'?: Version;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "effectiveFrom",
-            "baseName": "effectiveFrom",
+            "name": "href",
+            "baseName": "href",
             "type": "string"
         },
         {
-            "name": "weightType",
-            "baseName": "weightType",
-            "type": "UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum"
+            "name": "id",
+            "baseName": "id",
+            "type": "ResourceId"
         },
         {
-            "name": "periodType",
-            "baseName": "periodType",
-            "type": "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum"
+            "name": "displayName",
+            "baseName": "displayName",
+            "type": "string"
         },
         {
-            "name": "periodCount",
-            "baseName": "periodCount",
-            "type": "number"
+            "name": "description",
+            "baseName": "description",
+            "type": "string"
         },
         {
-            "name": "constituents",
-            "baseName": "constituents",
-            "type": "Array<ReferencePortfolioConstituentRequest>"
+            "name": "created",
+            "baseName": "created",
+            "type": "Date"
+        },
+        {
+            "name": "portfolios",
+            "baseName": "portfolios",
+            "type": "Array<ResourceId>"
+        },
+        {
+            "name": "subGroups",
+            "baseName": "subGroups",
+            "type": "Array<ResourceId>"
+        },
+        {
+            "name": "version",
+            "baseName": "version",
+            "type": "Version"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return UpsertReferencePortfolioConstituentsRequest.attributeTypeMap;
+        return PortfolioGroupSearchResult.attributeTypeMap;
     }
 }
 
-export namespace UpsertReferencePortfolioConstituentsRequest {
-    export enum WeightTypeEnum {
-        Static = <any> 'Static',
-        Floating = <any> 'Floating',
-        Periodical = <any> 'Periodical'
-    }
-    export enum PeriodTypeEnum {
-        Daily = <any> 'Daily',
-        Weekly = <any> 'Weekly',
-        Monthly = <any> 'Monthly',
-        Quarterly = <any> 'Quarterly',
-        Annually = <any> 'Annually'
-    }
-}
