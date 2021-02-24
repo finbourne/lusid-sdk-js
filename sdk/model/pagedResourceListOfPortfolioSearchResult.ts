@@ -11,40 +11,37 @@
  */
 
 import { Link } from './link';
-import { Version } from './version';
+import { PortfolioSearchResult } from './portfolioSearchResult';
 
-/**
-* A record of holdings adjustments made on the transaction portfolio.
-*/
-export class HoldingsAdjustmentHeader {
-    /**
-    * The effective datetime from which the adjustment is valid. There can only be one holdings adjustment for a transaction portfolio at a specific effective datetime, so this uniquely identifies the adjustment.
-    */
-    'effectiveAt': Date;
-    'version': Version;
-    /**
-    * Describes how the holdings were adjusted. If \'PositionToZero\' the entire transaction portfolio\'s holdings were set via a call to \'Set holdings\'. If \'KeepTheSame\' only the specified holdings were adjusted via a call to \'Adjust holdings\'. The available values are: PositionToZero, KeepTheSame
-    */
-    'unmatchedHoldingMethod': HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum;
+export class PagedResourceListOfPortfolioSearchResult {
+    'nextPage'?: string;
+    'previousPage'?: string;
+    'values': Array<PortfolioSearchResult>;
+    'href'?: string;
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "effectiveAt",
-            "baseName": "effectiveAt",
-            "type": "Date"
+            "name": "nextPage",
+            "baseName": "nextPage",
+            "type": "string"
         },
         {
-            "name": "version",
-            "baseName": "version",
-            "type": "Version"
+            "name": "previousPage",
+            "baseName": "previousPage",
+            "type": "string"
         },
         {
-            "name": "unmatchedHoldingMethod",
-            "baseName": "unmatchedHoldingMethod",
-            "type": "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum"
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<PortfolioSearchResult>"
+        },
+        {
+            "name": "href",
+            "baseName": "href",
+            "type": "string"
         },
         {
             "name": "links",
@@ -53,13 +50,7 @@ export class HoldingsAdjustmentHeader {
         }    ];
 
     static getAttributeTypeMap() {
-        return HoldingsAdjustmentHeader.attributeTypeMap;
+        return PagedResourceListOfPortfolioSearchResult.attributeTypeMap;
     }
 }
 
-export namespace HoldingsAdjustmentHeader {
-    export enum UnmatchedHoldingMethodEnum {
-        PositionToZero = <any> 'PositionToZero',
-        KeepTheSame = <any> 'KeepTheSame'
-    }
-}
