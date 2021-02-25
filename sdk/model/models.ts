@@ -48,6 +48,7 @@ export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfInstrument';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
+export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './perpetualProperty';
 export * from './portfolio';
 export * from './portfolioDetails';
@@ -62,6 +63,7 @@ export * from './portfoliosReconciliationRequest';
 export * from './processedCommand';
 export * from './property';
 export * from './propertyDefinition';
+export * from './propertyDefinitionSearchResult';
 export * from './propertyValue';
 export * from './quote';
 export * from './quoteId';
@@ -177,6 +179,7 @@ import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutL
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
+import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
 import { PerpetualProperty } from './perpetualProperty';
 import { Portfolio } from './portfolio';
 import { PortfolioDetails } from './portfolioDetails';
@@ -191,6 +194,7 @@ import { PortfoliosReconciliationRequest } from './portfoliosReconciliationReque
 import { ProcessedCommand } from './processedCommand';
 import { Property } from './property';
 import { PropertyDefinition } from './propertyDefinition';
+import { PropertyDefinitionSearchResult } from './propertyDefinitionSearchResult';
 import { PropertyValue } from './propertyValue';
 import { Quote } from './quote';
 import { QuoteId } from './quoteId';
@@ -291,6 +295,12 @@ let enumsMap: {[index: string]: any} = {
         "PropertyDefinition.DomainEnum": PropertyDefinition.DomainEnum,
         "PropertyDefinition.LifeTimeEnum": PropertyDefinition.LifeTimeEnum,
         "PropertyDefinition.PropertyDefinitionTypeEnum": PropertyDefinition.PropertyDefinitionTypeEnum,
+        "PropertyDefinitionSearchResult.ValueTypeEnum": PropertyDefinitionSearchResult.ValueTypeEnum,
+        "PropertyDefinitionSearchResult.TypeEnum": PropertyDefinitionSearchResult.TypeEnum,
+        "PropertyDefinitionSearchResult.UnitSchemaEnum": PropertyDefinitionSearchResult.UnitSchemaEnum,
+        "PropertyDefinitionSearchResult.DomainEnum": PropertyDefinitionSearchResult.DomainEnum,
+        "PropertyDefinitionSearchResult.LifeTimeEnum": PropertyDefinitionSearchResult.LifeTimeEnum,
+        "PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum": PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
         "TransactionConfigurationMovementData.MovementTypesEnum": TransactionConfigurationMovementData.MovementTypesEnum,
@@ -353,6 +363,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
+    "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
     "PerpetualProperty": PerpetualProperty,
     "Portfolio": Portfolio,
     "PortfolioDetails": PortfolioDetails,
@@ -367,6 +378,7 @@ let typeMap: {[index: string]: any} = {
     "ProcessedCommand": ProcessedCommand,
     "Property": Property,
     "PropertyDefinition": PropertyDefinition,
+    "PropertyDefinitionSearchResult": PropertyDefinitionSearchResult,
     "PropertyValue": PropertyValue,
     "Quote": Quote,
     "QuoteId": QuoteId,

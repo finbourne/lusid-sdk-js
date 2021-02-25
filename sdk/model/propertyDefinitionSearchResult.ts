@@ -10,230 +10,230 @@
  * Do not edit the class manually.
  */
 
-import localVarRequest = require('request');
-import http = require('http');
+import { Link } from './link';
+import { ResourceId } from './resourceId';
 
-/* tslint:disable:no-unused-locals */
-import { FileResponse } from '../model/fileResponse';
-import { LusidProblemDetails } from '../model/lusidProblemDetails';
-import { LusidValidationProblemDetails } from '../model/lusidValidationProblemDetails';
-import { ResourceListOfAccessControlledResource } from '../model/resourceListOfAccessControlledResource';
-import { VersionSummaryDto } from '../model/versionSummaryDto';
+/**
+* A property definition search result
+*/
+export class PropertyDefinitionSearchResult {
+    /**
+    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+    */
+    'href'?: string;
+    /**
+    * The property key which uniquely identifies the property. The format for the property key is {domain}/{scope}/{code}, e.g. \'Portfolio/Manager/Id\'.
+    */
+    'key'?: string;
+    /**
+    * The type of values that can be associated with this property. This is defined by the property\'s data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel
+    */
+    'valueType'?: PropertyDefinitionSearchResult.ValueTypeEnum;
+    /**
+    * The display name of the property.
+    */
+    'displayName'?: string;
+    'dataTypeId'?: ResourceId;
+    /**
+    * The type of the property. The available values are: Label, Metric, Information
+    */
+    'type'?: PropertyDefinitionSearchResult.TypeEnum;
+    /**
+    * The units that can be associated with the property\'s values. This is defined by the property\'s data type. The available values are: NoUnits, Basic, Iso4217Currency
+    */
+    'unitSchema'?: PropertyDefinitionSearchResult.UnitSchemaEnum;
+    /**
+    * The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity
+    */
+    'domain'?: PropertyDefinitionSearchResult.DomainEnum;
+    /**
+    * The scope that the property exists in.
+    */
+    'scope'?: string;
+    /**
+    * The code of the property. Together with the domain and scope this uniquely identifies the property.
+    */
+    'code'?: string;
+    /**
+    * Whether or not a value is always required for this property.
+    */
+    'valueRequired'?: boolean;
+    /**
+    * Describes how the property\'s values can change over time. The available values are: Perpetual, TimeVariant
+    */
+    'lifeTime'?: PropertyDefinitionSearchResult.LifeTimeEnum;
+    /**
+    * Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key.
+    */
+    'constraintStyle'?: string;
+    /**
+    * The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition
+    */
+    'propertyDefinitionType'?: PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum;
+    /**
+    * A brief description of what a property of this property definition contains.
+    */
+    'propertyDescription'?: string;
+    /**
+    * The rule that defines how data is composed for a derived property.
+    */
+    'derivationFormula'?: string;
+    'links'?: Array<Link>;
 
-import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
-import { OAuth } from '../model/models';
+    static discriminator: string | undefined = undefined;
 
-let defaultBasePath = 'http://local-unit-test-server.lusid.com:49891';
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "href",
+            "baseName": "href",
+            "type": "string"
+        },
+        {
+            "name": "key",
+            "baseName": "key",
+            "type": "string"
+        },
+        {
+            "name": "valueType",
+            "baseName": "valueType",
+            "type": "PropertyDefinitionSearchResult.ValueTypeEnum"
+        },
+        {
+            "name": "displayName",
+            "baseName": "displayName",
+            "type": "string"
+        },
+        {
+            "name": "dataTypeId",
+            "baseName": "dataTypeId",
+            "type": "ResourceId"
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "PropertyDefinitionSearchResult.TypeEnum"
+        },
+        {
+            "name": "unitSchema",
+            "baseName": "unitSchema",
+            "type": "PropertyDefinitionSearchResult.UnitSchemaEnum"
+        },
+        {
+            "name": "domain",
+            "baseName": "domain",
+            "type": "PropertyDefinitionSearchResult.DomainEnum"
+        },
+        {
+            "name": "scope",
+            "baseName": "scope",
+            "type": "string"
+        },
+        {
+            "name": "code",
+            "baseName": "code",
+            "type": "string"
+        },
+        {
+            "name": "valueRequired",
+            "baseName": "valueRequired",
+            "type": "boolean"
+        },
+        {
+            "name": "lifeTime",
+            "baseName": "lifeTime",
+            "type": "PropertyDefinitionSearchResult.LifeTimeEnum"
+        },
+        {
+            "name": "constraintStyle",
+            "baseName": "constraintStyle",
+            "type": "string"
+        },
+        {
+            "name": "propertyDefinitionType",
+            "baseName": "propertyDefinitionType",
+            "type": "PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum"
+        },
+        {
+            "name": "propertyDescription",
+            "baseName": "propertyDescription",
+            "type": "string"
+        },
+        {
+            "name": "derivationFormula",
+            "baseName": "derivationFormula",
+            "type": "string"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
+        }    ];
 
-// ===============================================
-// This file is autogenerated - Please do not edit
-// ===============================================
-
-export enum ApplicationMetadataApiApiKeys {
+    static getAttributeTypeMap() {
+        return PropertyDefinitionSearchResult.attributeTypeMap;
+    }
 }
 
-export class ApplicationMetadataApi {
-    protected _basePath = defaultBasePath;
-    protected defaultHeaders : any = {};
-    protected _useQuerystring : boolean = false;
-
-    protected authentications = {
-        'default': <Authentication>new VoidAuth(),
-        'oauth2': new OAuth(),
+export namespace PropertyDefinitionSearchResult {
+    export enum ValueTypeEnum {
+        String = <any> 'String',
+        Int = <any> 'Int',
+        Decimal = <any> 'Decimal',
+        DateTime = <any> 'DateTime',
+        Boolean = <any> 'Boolean',
+        Map = <any> 'Map',
+        List = <any> 'List',
+        PropertyArray = <any> 'PropertyArray',
+        Percentage = <any> 'Percentage',
+        Code = <any> 'Code',
+        Id = <any> 'Id',
+        Uri = <any> 'Uri',
+        CurrencyAndAmount = <any> 'CurrencyAndAmount',
+        TradePrice = <any> 'TradePrice',
+        Currency = <any> 'Currency',
+        MetricValue = <any> 'MetricValue',
+        ResourceId = <any> 'ResourceId',
+        ResultValue = <any> 'ResultValue',
+        CutLocalTime = <any> 'CutLocalTime',
+        DateOrCutLabel = <any> 'DateOrCutLabel'
     }
-
-    constructor(basePath?: string);
-    constructor(basePathOrUsername: string, password?: string, basePath?: string) {
-        if (password) {
-            if (basePath) {
-                this.basePath = basePath;
-            }
-        } else {
-            if (basePathOrUsername) {
-                this.basePath = basePathOrUsername
-            }
-        }
+    export enum TypeEnum {
+        Label = <any> 'Label',
+        Metric = <any> 'Metric',
+        Information = <any> 'Information'
     }
-
-    set useQuerystring(value: boolean) {
-        this._useQuerystring = value;
+    export enum UnitSchemaEnum {
+        NoUnits = <any> 'NoUnits',
+        Basic = <any> 'Basic',
+        Iso4217Currency = <any> 'Iso4217Currency'
     }
-
-    set basePath(basePath: string) {
-        this._basePath = basePath;
+    export enum DomainEnum {
+        NotDefined = <any> 'NotDefined',
+        Transaction = <any> 'Transaction',
+        Portfolio = <any> 'Portfolio',
+        Holding = <any> 'Holding',
+        ReferenceHolding = <any> 'ReferenceHolding',
+        TransactionConfiguration = <any> 'TransactionConfiguration',
+        Instrument = <any> 'Instrument',
+        CutLabelDefinition = <any> 'CutLabelDefinition',
+        Analytic = <any> 'Analytic',
+        PortfolioGroup = <any> 'PortfolioGroup',
+        Person = <any> 'Person',
+        AccessMetadata = <any> 'AccessMetadata',
+        Order = <any> 'Order',
+        UnitResult = <any> 'UnitResult',
+        MarketData = <any> 'MarketData',
+        ConfigurationRecipe = <any> 'ConfigurationRecipe',
+        Allocation = <any> 'Allocation',
+        Calendar = <any> 'Calendar',
+        LegalEntity = <any> 'LegalEntity'
     }
-
-    get basePath() {
-        return this._basePath;
+    export enum LifeTimeEnum {
+        Perpetual = <any> 'Perpetual',
+        TimeVariant = <any> 'TimeVariant'
     }
-
-    public setDefaultAuthentication(auth: Authentication) {
-        this.authentications.default = auth;
-    }
-
-    public setApiKey(key: ApplicationMetadataApiApiKeys, value: string) {
-        (this.authentications as any)[ApplicationMetadataApiApiKeys[key]].apiKey = value;
-    }
-
-    set accessToken(token: string) {
-        this.authentications.oauth2.accessToken = token;
-    }
-
-    /**
-     * Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific value will return the latest version being returned
-     * @summary [EARLY ACCESS] Download Excel Addin
-     * @param version The requested version of the Excel plugin
-     */
-    public async getExcelAddin (version?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: FileResponse;  }> {
-        const localVarPath = this.basePath + '/api/metadata/downloads/exceladdin';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let localVarFormParams: any = {};
-
-        if (version !== undefined) {
-            localVarQueryParameters['version'] = ObjectSerializer.serialize(version, "string");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        this.authentications.oauth2.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
-        }
-        return new Promise<{ response: http.IncomingMessage; body: FileResponse;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    body = ObjectSerializer.deserialize(body, "FileResponse");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
-                }
-            });
-        });
-    }
-    /**
-     * Get the semantic versions associated with LUSID and its ecosystem
-     * @summary [EARLY ACCESS] Get LUSID versions
-     */
-    public async getLusidVersions (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: VersionSummaryDto;  }> {
-        const localVarPath = this.basePath + '/api/metadata/versions';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let localVarFormParams: any = {};
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        this.authentications.oauth2.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
-        }
-        return new Promise<{ response: http.IncomingMessage; body: VersionSummaryDto;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    body = ObjectSerializer.deserialize(body, "VersionSummaryDto");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
-                }
-            });
-        });
-    }
-    /**
-     * Get the comprehensive set of resources that are available for access control
-     * @summary [EARLY ACCESS] Get resources available for access control
-     * @param filter Optional. Expression to filter the result set.               For example, to filter on the Application, use \&quot;application eq \&#39;string\&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
-     */
-    public async listAccessControlledResources (filter?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ResourceListOfAccessControlledResource;  }> {
-        const localVarPath = this.basePath + '/api/metadata/access/resources';
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let localVarFormParams: any = {};
-
-        if (filter !== undefined) {
-            localVarQueryParameters['filter'] = ObjectSerializer.serialize(filter, "string");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        this.authentications.oauth2.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
-        }
-        return new Promise<{ response: http.IncomingMessage; body: ResourceListOfAccessControlledResource;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    body = ObjectSerializer.deserialize(body, "ResourceListOfAccessControlledResource");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
-                }
-            });
-        });
+    export enum PropertyDefinitionTypeEnum {
+        ValueProperty = <any> 'ValueProperty',
+        DerivedDefinition = <any> 'DerivedDefinition'
     }
 }
