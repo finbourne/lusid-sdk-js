@@ -10,42 +10,124 @@
  * Do not edit the class manually.
  */
 
-import { ErrorDetail } from './errorDetail';
-import { Instrument } from './instrument';
+import { CurrencyAndAmount } from './currencyAndAmount';
 import { Link } from './link';
+import { PerpetualProperty } from './perpetualProperty';
+import { Transaction } from './transaction';
 
-export class GetInstrumentsResponse {
+/**
+* The details for the cashflow for a given portfolio.
+*/
+export class PortfolioCashFlow {
     /**
-    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+    * The groupBy subHoldings and currency.
     */
-    'href'?: string;
+    'groupById': number;
     /**
-    * The instrument definitions, keyed by the identifier used to retrieve them. Only instruments that were found will be contained in this collection.
+    * Sequence number determining the order of the cash flow records.
     */
-    'values'?: { [key: string]: Instrument; };
+    'sequenceNumber': number;
     /**
-    * The identifiers which did not resolve to an instrument along with the nature of the failure.
+    * Indicates the date when the cash-flow settles.
     */
-    'failed'?: { [key: string]: ErrorDetail; };
+    'effectiveDate'?: Date;
+    /**
+    * The sub-holding properties which identify the holding. Each property will be from the \'Transaction\' domain. These are configured when a transaction portfolio is created.
+    */
+    'subHoldingKeys'?: { [key: string]: PerpetualProperty; };
+    /**
+    * Indicates the record type (Closed, Open, Activity).
+    */
+    'type': string;
+    /**
+    * Indicates the specific movement of the transaction that generated this cash flow.
+    */
+    'movementName': string;
+    'cashflow': CurrencyAndAmount;
+    'balance': CurrencyAndAmount;
+    /**
+    * Exchange rate between the currency of this cash flow and the reporting currency.
+    */
+    'fxRate': number;
+    'cashflowReportingCurrency': CurrencyAndAmount;
+    'balanceReportingCurrency': CurrencyAndAmount;
+    'translationGainLoss': CurrencyAndAmount;
+    'costBasisReportingCurrency': CurrencyAndAmount;
+    'transaction'?: Transaction;
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "groupById",
+            "baseName": "groupById",
+            "type": "number"
+        },
+        {
+            "name": "sequenceNumber",
+            "baseName": "sequenceNumber",
+            "type": "number"
+        },
+        {
+            "name": "effectiveDate",
+            "baseName": "effectiveDate",
+            "type": "Date"
+        },
+        {
+            "name": "subHoldingKeys",
+            "baseName": "subHoldingKeys",
+            "type": "{ [key: string]: PerpetualProperty; }"
+        },
+        {
+            "name": "type",
+            "baseName": "type",
             "type": "string"
         },
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "{ [key: string]: Instrument; }"
+            "name": "movementName",
+            "baseName": "movementName",
+            "type": "string"
         },
         {
-            "name": "failed",
-            "baseName": "failed",
-            "type": "{ [key: string]: ErrorDetail; }"
+            "name": "cashflow",
+            "baseName": "cashflow",
+            "type": "CurrencyAndAmount"
+        },
+        {
+            "name": "balance",
+            "baseName": "balance",
+            "type": "CurrencyAndAmount"
+        },
+        {
+            "name": "fxRate",
+            "baseName": "fxRate",
+            "type": "number"
+        },
+        {
+            "name": "cashflowReportingCurrency",
+            "baseName": "cashflowReportingCurrency",
+            "type": "CurrencyAndAmount"
+        },
+        {
+            "name": "balanceReportingCurrency",
+            "baseName": "balanceReportingCurrency",
+            "type": "CurrencyAndAmount"
+        },
+        {
+            "name": "translationGainLoss",
+            "baseName": "translationGainLoss",
+            "type": "CurrencyAndAmount"
+        },
+        {
+            "name": "costBasisReportingCurrency",
+            "baseName": "costBasisReportingCurrency",
+            "type": "CurrencyAndAmount"
+        },
+        {
+            "name": "transaction",
+            "baseName": "transaction",
+            "type": "Transaction"
         },
         {
             "name": "links",
@@ -54,7 +136,7 @@ export class GetInstrumentsResponse {
         }    ];
 
     static getAttributeTypeMap() {
-        return GetInstrumentsResponse.attributeTypeMap;
+        return PortfolioCashFlow.attributeTypeMap;
     }
 }
 

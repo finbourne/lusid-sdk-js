@@ -51,6 +51,7 @@ export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './perpetualProperty';
 export * from './portfolio';
+export * from './portfolioCashFlow';
 export * from './portfolioDetails';
 export * from './portfolioGroup';
 export * from './portfolioGroupProperties';
@@ -81,6 +82,7 @@ export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
 export * from './resourceListOfInstrumentIdTypeDescriptor';
 export * from './resourceListOfPortfolio';
+export * from './resourceListOfPortfolioCashFlow';
 export * from './resourceListOfPortfolioGroup';
 export * from './resourceListOfPortfolioSearchResult';
 export * from './resourceListOfProcessedCommand';
@@ -182,6 +184,7 @@ import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfP
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
 import { PerpetualProperty } from './perpetualProperty';
 import { Portfolio } from './portfolio';
+import { PortfolioCashFlow } from './portfolioCashFlow';
 import { PortfolioDetails } from './portfolioDetails';
 import { PortfolioGroup } from './portfolioGroup';
 import { PortfolioGroupProperties } from './portfolioGroupProperties';
@@ -212,6 +215,7 @@ import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldings
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
 import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
+import { ResourceListOfPortfolioCashFlow } from './resourceListOfPortfolioCashFlow';
 import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
 import { ResourceListOfPortfolioSearchResult } from './resourceListOfPortfolioSearchResult';
 import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand';
@@ -366,6 +370,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
     "PerpetualProperty": PerpetualProperty,
     "Portfolio": Portfolio,
+    "PortfolioCashFlow": PortfolioCashFlow,
     "PortfolioDetails": PortfolioDetails,
     "PortfolioGroup": PortfolioGroup,
     "PortfolioGroupProperties": PortfolioGroupProperties,
@@ -396,6 +401,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
     "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
+    "ResourceListOfPortfolioCashFlow": ResourceListOfPortfolioCashFlow,
     "ResourceListOfPortfolioGroup": ResourceListOfPortfolioGroup,
     "ResourceListOfPortfolioSearchResult": ResourceListOfPortfolioSearchResult,
     "ResourceListOfProcessedCommand": ResourceListOfProcessedCommand,

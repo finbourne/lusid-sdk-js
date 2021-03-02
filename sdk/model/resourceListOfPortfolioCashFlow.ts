@@ -10,51 +10,47 @@
  * Do not edit the class manually.
  */
 
-import { ErrorDetail } from './errorDetail';
-import { Instrument } from './instrument';
 import { Link } from './link';
+import { PortfolioCashFlow } from './portfolioCashFlow';
 
-export class GetInstrumentsResponse {
-    /**
-    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
-    */
+export class ResourceListOfPortfolioCashFlow {
+    'values': Array<PortfolioCashFlow>;
     'href'?: string;
-    /**
-    * The instrument definitions, keyed by the identifier used to retrieve them. Only instruments that were found will be contained in this collection.
-    */
-    'values'?: { [key: string]: Instrument; };
-    /**
-    * The identifiers which did not resolve to an instrument along with the nature of the failure.
-    */
-    'failed'?: { [key: string]: ErrorDetail; };
     'links'?: Array<Link>;
+    'nextPage'?: string;
+    'previousPage'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<PortfolioCashFlow>"
+        },
         {
             "name": "href",
             "baseName": "href",
             "type": "string"
         },
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "{ [key: string]: Instrument; }"
-        },
-        {
-            "name": "failed",
-            "baseName": "failed",
-            "type": "{ [key: string]: ErrorDetail; }"
-        },
-        {
             "name": "links",
             "baseName": "links",
             "type": "Array<Link>"
+        },
+        {
+            "name": "nextPage",
+            "baseName": "nextPage",
+            "type": "string"
+        },
+        {
+            "name": "previousPage",
+            "baseName": "previousPage",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return GetInstrumentsResponse.attributeTypeMap;
+        return ResourceListOfPortfolioCashFlow.attributeTypeMap;
     }
 }
 
