@@ -38,6 +38,7 @@ export * from './instrumentDefinition';
 export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
 export * from './labelValueSet';
+export * from './legalEntity';
 export * from './link';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
@@ -46,6 +47,7 @@ export * from './metricValue';
 export * from './outputTransaction';
 export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfInstrument';
+export * from './pagedResourceListOfLegalEntity';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
@@ -115,6 +117,7 @@ export * from './updatePropertyDefinitionRequest';
 export * from './upsertInstrumentPropertiesResponse';
 export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
+export * from './upsertLegalEntityRequest';
 export * from './upsertPortfolioExecutionsResponse';
 export * from './upsertPortfolioTransactionsResponse';
 export * from './upsertQuoteRequest';
@@ -171,6 +174,7 @@ import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
 import { LabelValueSet } from './labelValueSet';
+import { LegalEntity } from './legalEntity';
 import { Link } from './link';
 import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
@@ -179,6 +183,7 @@ import { MetricValue } from './metricValue';
 import { OutputTransaction } from './outputTransaction';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
+import { PagedResourceListOfLegalEntity } from './pagedResourceListOfLegalEntity';
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
@@ -248,6 +253,7 @@ import { UpdatePropertyDefinitionRequest } from './updatePropertyDefinitionReque
 import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentPropertiesResponse';
 import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyRequest';
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
+import { UpsertLegalEntityRequest } from './upsertLegalEntityRequest';
 import { UpsertPortfolioExecutionsResponse } from './upsertPortfolioExecutionsResponse';
 import { UpsertPortfolioTransactionsResponse } from './upsertPortfolioTransactionsResponse';
 import { UpsertQuoteRequest } from './upsertQuoteRequest';
@@ -357,6 +363,7 @@ let typeMap: {[index: string]: any} = {
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
     "InstrumentIdValue": InstrumentIdValue,
     "LabelValueSet": LabelValueSet,
+    "LegalEntity": LegalEntity,
     "Link": Link,
     "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
@@ -365,6 +372,7 @@ let typeMap: {[index: string]: any} = {
     "OutputTransaction": OutputTransaction,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
+    "PagedResourceListOfLegalEntity": PagedResourceListOfLegalEntity,
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
@@ -434,6 +442,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertInstrumentPropertiesResponse": UpsertInstrumentPropertiesResponse,
     "UpsertInstrumentPropertyRequest": UpsertInstrumentPropertyRequest,
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,
+    "UpsertLegalEntityRequest": UpsertLegalEntityRequest,
     "UpsertPortfolioExecutionsResponse": UpsertPortfolioExecutionsResponse,
     "UpsertPortfolioTransactionsResponse": UpsertPortfolioTransactionsResponse,
     "UpsertQuoteRequest": UpsertQuoteRequest,

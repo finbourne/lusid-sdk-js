@@ -10,47 +10,55 @@
  * Do not edit the class manually.
  */
 
-import { Link } from './link';
-import { ReconciliationBreak } from './reconciliationBreak';
+import { Property } from './property';
 
-export class ResourceListOfReconciliationBreak {
-    'values': Array<ReconciliationBreak>;
-    'href'?: string;
-    'links'?: Array<Link>;
-    'nextPage'?: string;
-    'previousPage'?: string;
+/**
+* Request to create or update an legal entity
+*/
+export class UpsertLegalEntityRequest {
+    /**
+    * The identifiers the legal entity will be upserted with.The provided keys should be idTypeScope, idTypeCode, code
+    */
+    'identifiers': { [key: string]: Property; };
+    /**
+    * A set of properties associated to the Legal Entity.
+    */
+    'properties'?: { [key: string]: Property; };
+    /**
+    * The display name of the Legal Entity
+    */
+    'displayName': string;
+    /**
+    * The description of the Legal Entity
+    */
+    'description'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<ReconciliationBreak>"
+            "name": "identifiers",
+            "baseName": "identifiers",
+            "type": "{ [key: string]: Property; }"
         },
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "properties",
+            "baseName": "properties",
+            "type": "{ [key: string]: Property; }"
+        },
+        {
+            "name": "displayName",
+            "baseName": "displayName",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
-        },
-        {
-            "name": "nextPage",
-            "baseName": "nextPage",
-            "type": "string"
-        },
-        {
-            "name": "previousPage",
-            "baseName": "previousPage",
+            "name": "description",
+            "baseName": "description",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfReconciliationBreak.attributeTypeMap;
+        return UpsertLegalEntityRequest.attributeTypeMap;
     }
 }
 

@@ -10,23 +10,33 @@
  * Do not edit the class manually.
  */
 
+import { LegalEntity } from './legalEntity';
 import { Link } from './link';
-import { ReconciliationBreak } from './reconciliationBreak';
 
-export class ResourceListOfReconciliationBreak {
-    'values': Array<ReconciliationBreak>;
-    'href'?: string;
-    'links'?: Array<Link>;
+export class PagedResourceListOfLegalEntity {
     'nextPage'?: string;
     'previousPage'?: string;
+    'values': Array<LegalEntity>;
+    'href'?: string;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
+            "name": "nextPage",
+            "baseName": "nextPage",
+            "type": "string"
+        },
+        {
+            "name": "previousPage",
+            "baseName": "previousPage",
+            "type": "string"
+        },
+        {
             "name": "values",
             "baseName": "values",
-            "type": "Array<ReconciliationBreak>"
+            "type": "Array<LegalEntity>"
         },
         {
             "name": "href",
@@ -37,20 +47,10 @@ export class ResourceListOfReconciliationBreak {
             "name": "links",
             "baseName": "links",
             "type": "Array<Link>"
-        },
-        {
-            "name": "nextPage",
-            "baseName": "nextPage",
-            "type": "string"
-        },
-        {
-            "name": "previousPage",
-            "baseName": "previousPage",
-            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfReconciliationBreak.attributeTypeMap;
+        return PagedResourceListOfLegalEntity.attributeTypeMap;
     }
 }
 

@@ -4,6 +4,7 @@ import {DataTypesApi} from './api/dataTypesApi';
 import {DerivedTransactionPortfoliosApi} from './api/derivedTransactionPortfoliosApi';
 import {EntitiesApi} from './api/entitiesApi';
 import {InstrumentsApi} from './api/instrumentsApi';
+import {LegalEntitiesApi} from './api/legalEntitiesApi';
 import {LoginApi} from './api/loginApi';
 import {PortfolioGroupsApi} from './api/portfolioGroupsApi';
 import {PortfoliosApi} from './api/portfoliosApi';
@@ -23,6 +24,7 @@ export class Api {
     public derivedTransactionPortfolios:  DerivedTransactionPortfoliosApi
     public entities:  EntitiesApi
     public instruments:  InstrumentsApi
+    public legalEntities:  LegalEntitiesApi
     public login:  LoginApi
     public portfolioGroups:  PortfolioGroupsApi
     public portfolios:  PortfoliosApi

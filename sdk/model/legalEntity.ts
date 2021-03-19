@@ -11,22 +11,52 @@
  */
 
 import { Link } from './link';
-import { ReconciliationBreak } from './reconciliationBreak';
+import { Property } from './property';
+import { Version } from './version';
 
-export class ResourceListOfReconciliationBreak {
-    'values': Array<ReconciliationBreak>;
+/**
+* Representation of Legal Entity on LUSID API
+*/
+export class LegalEntity {
+    /**
+    * The display name of the Legal Entity
+    */
+    'displayName'?: string;
+    /**
+    * The description of the Legal Entity
+    */
+    'description'?: string;
+    /**
+    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+    */
     'href'?: string;
+    /**
+    * The unique LUSID Legal Entity Identifier (LULEID) of the Legal Entity. This field is not populated until further notice.
+    */
+    'lusidLegalEntityId'?: string;
+    /**
+    * Unique client-defined identifiers of the Legal Entity.
+    */
+    'identifiers'?: { [key: string]: Property; };
+    /**
+    * A set of properties associated to the Legal Entity.
+    */
+    'properties'?: { [key: string]: Property; };
+    'version'?: Version;
     'links'?: Array<Link>;
-    'nextPage'?: string;
-    'previousPage'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<ReconciliationBreak>"
+            "name": "displayName",
+            "baseName": "displayName",
+            "type": "string"
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string"
         },
         {
             "name": "href",
@@ -34,23 +64,33 @@ export class ResourceListOfReconciliationBreak {
             "type": "string"
         },
         {
+            "name": "lusidLegalEntityId",
+            "baseName": "lusidLegalEntityId",
+            "type": "string"
+        },
+        {
+            "name": "identifiers",
+            "baseName": "identifiers",
+            "type": "{ [key: string]: Property; }"
+        },
+        {
+            "name": "properties",
+            "baseName": "properties",
+            "type": "{ [key: string]: Property; }"
+        },
+        {
+            "name": "version",
+            "baseName": "version",
+            "type": "Version"
+        },
+        {
             "name": "links",
             "baseName": "links",
             "type": "Array<Link>"
-        },
-        {
-            "name": "nextPage",
-            "baseName": "nextPage",
-            "type": "string"
-        },
-        {
-            "name": "previousPage",
-            "baseName": "previousPage",
-            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfReconciliationBreak.attributeTypeMap;
+        return LegalEntity.attributeTypeMap;
     }
 }
 
