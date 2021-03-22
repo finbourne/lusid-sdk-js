@@ -18,7 +18,6 @@ export * from './currencyAndAmount';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
 export * from './dataType';
-export * from './dateRange';
 export * from './deleteInstrumentResponse';
 export * from './deletedEntityResponse';
 export * from './errorDetail';
@@ -68,7 +67,6 @@ export * from './processedCommand';
 export * from './property';
 export * from './propertyDefinition';
 export * from './propertyDefinitionSearchResult';
-export * from './propertyInterval';
 export * from './propertyValue';
 export * from './quote';
 export * from './quoteId';
@@ -91,7 +89,6 @@ export * from './resourceListOfPortfolioGroup';
 export * from './resourceListOfPortfolioSearchResult';
 export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfPropertyDefinition';
-export * from './resourceListOfPropertyInterval';
 export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfScopeDefinition';
@@ -157,7 +154,6 @@ import { CurrencyAndAmount } from './currencyAndAmount';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
 import { DataType } from './dataType';
-import { DateRange } from './dateRange';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { ErrorDetail } from './errorDetail';
@@ -207,7 +203,6 @@ import { ProcessedCommand } from './processedCommand';
 import { Property } from './property';
 import { PropertyDefinition } from './propertyDefinition';
 import { PropertyDefinitionSearchResult } from './propertyDefinitionSearchResult';
-import { PropertyInterval } from './propertyInterval';
 import { PropertyValue } from './propertyValue';
 import { Quote } from './quote';
 import { QuoteId } from './quoteId';
@@ -230,7 +225,6 @@ import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
 import { ResourceListOfPortfolioSearchResult } from './resourceListOfPortfolioSearchResult';
 import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
-import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval';
 import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
@@ -349,7 +343,6 @@ let typeMap: {[index: string]: any} = {
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
     "DataType": DataType,
-    "DateRange": DateRange,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeletedEntityResponse": DeletedEntityResponse,
     "ErrorDetail": ErrorDetail,
@@ -399,7 +392,6 @@ let typeMap: {[index: string]: any} = {
     "Property": Property,
     "PropertyDefinition": PropertyDefinition,
     "PropertyDefinitionSearchResult": PropertyDefinitionSearchResult,
-    "PropertyInterval": PropertyInterval,
     "PropertyValue": PropertyValue,
     "Quote": Quote,
     "QuoteId": QuoteId,
@@ -422,7 +414,6 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPortfolioSearchResult": ResourceListOfPortfolioSearchResult,
     "ResourceListOfProcessedCommand": ResourceListOfProcessedCommand,
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
-    "ResourceListOfPropertyInterval": ResourceListOfPropertyInterval,
     "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
