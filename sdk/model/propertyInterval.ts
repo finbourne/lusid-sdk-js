@@ -10,118 +10,44 @@
  * Do not edit the class manually.
  */
 
-import { Link } from './link';
-import { Property } from './property';
-import { ResourceId } from './resourceId';
+import { DateRange } from './dateRange';
+import { PropertyValue } from './propertyValue';
 
-/**
-* A list of portfolios.
-*/
-export class PortfolioSearchResult {
-    'id': ResourceId;
+export class PropertyInterval {
+    'value': PropertyValue;
+    'effectiveRange': DateRange;
+    'asAtRange': DateRange;
     /**
-    * The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction
+    * Indicates whether the value is part of the prevailing effective date timeline for the requested asAt date, or whether it has been superseded by correctional activity
     */
-    'type': PortfolioSearchResult.TypeEnum;
-    /**
-    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
-    */
-    'href'?: string;
-    /**
-    * The long form description of the portfolio.
-    */
-    'description'?: string;
-    /**
-    * The name of the portfolio.
-    */
-    'displayName': string;
-    /**
-    * Whether or not this is a derived portfolio.
-    */
-    'isDerived'?: boolean;
-    /**
-    * The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date.
-    */
-    'created': Date;
-    'parentPortfolioId'?: ResourceId;
-    /**
-    * The base currency of the portfolio. This will be an empty string for reference portfolios.
-    */
-    'baseCurrency'?: string;
-    /**
-    * The requested portfolio properties. These will be from the \'Portfolio\' domain.
-    */
-    'properties'?: Array<Property>;
-    'links'?: Array<Link>;
+    'status': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "ResourceId"
+            "name": "value",
+            "baseName": "value",
+            "type": "PropertyValue"
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "PortfolioSearchResult.TypeEnum"
+            "name": "effectiveRange",
+            "baseName": "effectiveRange",
+            "type": "DateRange"
         },
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "asAtRange",
+            "baseName": "asAtRange",
+            "type": "DateRange"
+        },
+        {
+            "name": "status",
+            "baseName": "status",
             "type": "string"
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string"
-        },
-        {
-            "name": "displayName",
-            "baseName": "displayName",
-            "type": "string"
-        },
-        {
-            "name": "isDerived",
-            "baseName": "isDerived",
-            "type": "boolean"
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date"
-        },
-        {
-            "name": "parentPortfolioId",
-            "baseName": "parentPortfolioId",
-            "type": "ResourceId"
-        },
-        {
-            "name": "baseCurrency",
-            "baseName": "baseCurrency",
-            "type": "string"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "Array<Property>"
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return PortfolioSearchResult.attributeTypeMap;
+        return PropertyInterval.attributeTypeMap;
     }
 }
 
-export namespace PortfolioSearchResult {
-    export enum TypeEnum {
-        Transaction = <any> 'Transaction',
-        Reference = <any> 'Reference',
-        DerivedTransaction = <any> 'DerivedTransaction'
-    }
-}

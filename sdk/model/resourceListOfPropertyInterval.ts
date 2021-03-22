@@ -11,61 +11,22 @@
  */
 
 import { Link } from './link';
-import { Property } from './property';
-import { ResourceId } from './resourceId';
+import { PropertyInterval } from './propertyInterval';
 
-/**
-* A list of portfolios.
-*/
-export class PortfolioSearchResult {
-    'id': ResourceId;
-    /**
-    * The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction
-    */
-    'type': PortfolioSearchResult.TypeEnum;
-    /**
-    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
-    */
+export class ResourceListOfPropertyInterval {
+    'values': Array<PropertyInterval>;
     'href'?: string;
-    /**
-    * The long form description of the portfolio.
-    */
-    'description'?: string;
-    /**
-    * The name of the portfolio.
-    */
-    'displayName': string;
-    /**
-    * Whether or not this is a derived portfolio.
-    */
-    'isDerived'?: boolean;
-    /**
-    * The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date.
-    */
-    'created': Date;
-    'parentPortfolioId'?: ResourceId;
-    /**
-    * The base currency of the portfolio. This will be an empty string for reference portfolios.
-    */
-    'baseCurrency'?: string;
-    /**
-    * The requested portfolio properties. These will be from the \'Portfolio\' domain.
-    */
-    'properties'?: Array<Property>;
     'links'?: Array<Link>;
+    'nextPage'?: string;
+    'previousPage'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "ResourceId"
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "PortfolioSearchResult.TypeEnum"
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<PropertyInterval>"
         },
         {
             "name": "href",
@@ -73,55 +34,23 @@ export class PortfolioSearchResult {
             "type": "string"
         },
         {
-            "name": "description",
-            "baseName": "description",
-            "type": "string"
-        },
-        {
-            "name": "displayName",
-            "baseName": "displayName",
-            "type": "string"
-        },
-        {
-            "name": "isDerived",
-            "baseName": "isDerived",
-            "type": "boolean"
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date"
-        },
-        {
-            "name": "parentPortfolioId",
-            "baseName": "parentPortfolioId",
-            "type": "ResourceId"
-        },
-        {
-            "name": "baseCurrency",
-            "baseName": "baseCurrency",
-            "type": "string"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "Array<Property>"
-        },
-        {
             "name": "links",
             "baseName": "links",
             "type": "Array<Link>"
+        },
+        {
+            "name": "nextPage",
+            "baseName": "nextPage",
+            "type": "string"
+        },
+        {
+            "name": "previousPage",
+            "baseName": "previousPage",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return PortfolioSearchResult.attributeTypeMap;
+        return ResourceListOfPropertyInterval.attributeTypeMap;
     }
 }
 
-export namespace PortfolioSearchResult {
-    export enum TypeEnum {
-        Transaction = <any> 'Transaction',
-        Reference = <any> 'Reference',
-        DerivedTransaction = <any> 'DerivedTransaction'
-    }
-}
