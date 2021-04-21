@@ -6,7 +6,6 @@ export * from './adjustHoldingRequest';
 export * from './annulQuotesResponse';
 export * from './change';
 export * from './completePortfolio';
-export * from './completeRelation';
 export * from './constituentsAdjustmentHeader';
 export * from './createCutLabelDefinitionRequest';
 export * from './createDerivedTransactionPortfolioRequest';
@@ -14,8 +13,6 @@ export * from './createPortfolioDetails';
 export * from './createPortfolioGroupRequest';
 export * from './createPropertyDefinitionRequest';
 export * from './createReferencePortfolioRequest';
-export * from './createRelationDefinitionRequest';
-export * from './createRelationRequest';
 export * from './createTransactionPortfolioRequest';
 export * from './currencyAndAmount';
 export * from './cutLabelDefinition';
@@ -23,7 +20,6 @@ export * from './cutLocalTime';
 export * from './dataType';
 export * from './dateRange';
 export * from './deleteInstrumentResponse';
-export * from './deleteRelationRequest';
 export * from './deletedEntityResponse';
 export * from './errorDetail';
 export * from './executionRequest';
@@ -81,8 +77,6 @@ export * from './realisedGainLoss';
 export * from './reconciliationBreak';
 export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
-export * from './relation';
-export * from './relationDefinition';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfChange';
@@ -100,7 +94,6 @@ export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfPropertyInterval';
 export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
-export * from './resourceListOfRelation';
 export * from './resourceListOfScopeDefinition';
 export * from './scopeDefinition';
 export * from './sideConfigurationData';
@@ -152,7 +145,6 @@ import { AdjustHoldingRequest } from './adjustHoldingRequest';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
-import { CompleteRelation } from './completeRelation';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
 import { CreateDerivedTransactionPortfolioRequest } from './createDerivedTransactionPortfolioRequest';
@@ -160,8 +152,6 @@ import { CreatePortfolioDetails } from './createPortfolioDetails';
 import { CreatePortfolioGroupRequest } from './createPortfolioGroupRequest';
 import { CreatePropertyDefinitionRequest } from './createPropertyDefinitionRequest';
 import { CreateReferencePortfolioRequest } from './createReferencePortfolioRequest';
-import { CreateRelationDefinitionRequest } from './createRelationDefinitionRequest';
-import { CreateRelationRequest } from './createRelationRequest';
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { CutLabelDefinition } from './cutLabelDefinition';
@@ -169,7 +159,6 @@ import { CutLocalTime } from './cutLocalTime';
 import { DataType } from './dataType';
 import { DateRange } from './dateRange';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
-import { DeleteRelationRequest } from './deleteRelationRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { ErrorDetail } from './errorDetail';
 import { ExecutionRequest } from './executionRequest';
@@ -227,8 +216,6 @@ import { RealisedGainLoss } from './realisedGainLoss';
 import { ReconciliationBreak } from './reconciliationBreak';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
-import { Relation } from './relation';
-import { RelationDefinition } from './relationDefinition';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfChange } from './resourceListOfChange';
@@ -246,7 +233,6 @@ import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefini
 import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval';
 import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
-import { ResourceListOfRelation } from './resourceListOfRelation';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ScopeDefinition } from './scopeDefinition';
 import { SideConfigurationData } from './sideConfigurationData';
@@ -351,7 +337,6 @@ let typeMap: {[index: string]: any} = {
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
-    "CompleteRelation": CompleteRelation,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
     "CreateDerivedTransactionPortfolioRequest": CreateDerivedTransactionPortfolioRequest,
@@ -359,8 +344,6 @@ let typeMap: {[index: string]: any} = {
     "CreatePortfolioGroupRequest": CreatePortfolioGroupRequest,
     "CreatePropertyDefinitionRequest": CreatePropertyDefinitionRequest,
     "CreateReferencePortfolioRequest": CreateReferencePortfolioRequest,
-    "CreateRelationDefinitionRequest": CreateRelationDefinitionRequest,
-    "CreateRelationRequest": CreateRelationRequest,
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
     "CurrencyAndAmount": CurrencyAndAmount,
     "CutLabelDefinition": CutLabelDefinition,
@@ -368,7 +351,6 @@ let typeMap: {[index: string]: any} = {
     "DataType": DataType,
     "DateRange": DateRange,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
-    "DeleteRelationRequest": DeleteRelationRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
     "ErrorDetail": ErrorDetail,
     "ExecutionRequest": ExecutionRequest,
@@ -426,8 +408,6 @@ let typeMap: {[index: string]: any} = {
     "ReconciliationBreak": ReconciliationBreak,
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
-    "Relation": Relation,
-    "RelationDefinition": RelationDefinition,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfChange": ResourceListOfChange,
@@ -445,7 +425,6 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPropertyInterval": ResourceListOfPropertyInterval,
     "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
-    "ResourceListOfRelation": ResourceListOfRelation,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ScopeDefinition": ScopeDefinition,
     "SideConfigurationData": SideConfigurationData,
