@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Property } from './property';
 import { ResourceId } from './resourceId';
 
@@ -22,19 +21,19 @@ export class CreatePortfolioGroupRequest {
     /**
     * The effective datetime at which the portfolio group was created. Defaults to the current LUSID system datetime if not specified.
     */
-    'created'?: Date | null;
+    'created'?: Date;
     /**
     * The resource identifiers of the portfolios to be contained within the portfolio group.
     */
-    'values'?: Array<ResourceId> | null;
+    'values'?: Array<ResourceId>;
     /**
     * The resource identifiers of the portfolio groups to be contained within the portfolio group as sub groups.
     */
-    'subGroups'?: Array<ResourceId> | null;
+    'subGroups'?: Array<ResourceId>;
     /**
     * A set of unique group properties to add to the portfolio group. Each property must be from the \'PortfolioGroup\' domain and should be identified by its key which has the format {domain}/{scope}/{code}, e.g. \'PortfolioGroup/Manager/Id\'. These properties must be pre-defined.
     */
-    'properties'?: { [key: string]: Property; } | null;
+    'properties'?: { [key: string]: Property; };
     /**
     * The name of the portfolio group.
     */
@@ -42,7 +41,7 @@ export class CreatePortfolioGroupRequest {
     /**
     * A long form description of the portfolio group.
     */
-    'description'?: string | null;
+    'description'?: string;
 
     static discriminator: string | undefined = undefined;
 

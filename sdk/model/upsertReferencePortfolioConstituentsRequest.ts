@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 
 export class UpsertReferencePortfolioConstituentsRequest {
@@ -26,7 +25,7 @@ export class UpsertReferencePortfolioConstituentsRequest {
     * The available values are: Daily, Weekly, Monthly, Quarterly, Annually
     */
     'periodType'?: UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum;
-    'periodCount'?: number | null;
+    'periodCount'?: number;
     /**
     * Set of constituents (instrument/weight pairings)
     */

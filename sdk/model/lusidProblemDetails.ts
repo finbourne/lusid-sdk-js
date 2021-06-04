@@ -10,18 +10,17 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
 export class LusidProblemDetails {
     'name': string;
-    'errorDetails'?: Array<{ [key: string]: string; }> | null;
+    'errorDetails'?: Array<{ [key: string]: string; }>;
     'code': number;
-    'type'?: string | null;
-    'title'?: string | null;
-    'status'?: number | null;
-    'detail'?: string | null;
-    'instance'?: string | null;
-    'extensions'?: { [key: string]: object; } | null;
+    'type'?: string;
+    'title'?: string;
+    'status'?: number;
+    'detail'?: string;
+    'instance'?: string;
+    'extensions'?: { [key: string]: object; };
 
     static discriminator: string | undefined = undefined;
 

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { ActionId } from './actionId';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { Link } from './link';
@@ -18,8 +17,8 @@ import { Link } from './link';
 export class AccessControlledAction {
     'description': string;
     'action': ActionId;
-    'limitedSet'?: Array<IdSelectorDefinition> | null;
-    'links'?: Array<Link> | null;
+    'limitedSet'?: Array<IdSelectorDefinition>;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

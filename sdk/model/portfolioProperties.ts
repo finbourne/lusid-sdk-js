@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 import { Property } from './property';
 import { Version } from './version';
@@ -19,13 +18,13 @@ export class PortfolioProperties {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string | null;
+    'href'?: string;
     /**
     * The portfolio properties. These will be from the \'Portfolio\' domain.
     */
-    'properties'?: { [key: string]: Property; } | null;
+    'properties'?: { [key: string]: Property; };
     'version'?: Version;
-    'links'?: Array<Link> | null;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

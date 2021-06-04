@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { CutLocalTime } from './cutLocalTime';
 
 /**
@@ -19,7 +18,7 @@ import { CutLocalTime } from './cutLocalTime';
 export class CreateCutLabelDefinitionRequest {
     'code': string;
     'displayName': string;
-    'description'?: string | null;
+    'description'?: string;
     'cutLocalTime': CutLocalTime;
     'timeZone': string;
 

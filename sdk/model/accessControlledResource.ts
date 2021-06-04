@@ -10,18 +10,17 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { AccessControlledAction } from './accessControlledAction';
 import { IdentifierPartSchema } from './identifierPartSchema';
 import { Link } from './link';
 
 export class AccessControlledResource {
-    'application'?: string | null;
-    'name'?: string | null;
+    'application'?: string;
+    'name'?: string;
     'description': string;
     'actions': Array<AccessControlledAction>;
-    'identifierParts'?: Array<IdentifierPartSchema> | null;
-    'links'?: Array<Link> | null;
+    'identifierParts'?: Array<IdentifierPartSchema>;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

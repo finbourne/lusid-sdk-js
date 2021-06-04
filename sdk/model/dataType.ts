@@ -10,13 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { Link } from './link';
 import { ResourceId } from './resourceId';
 
 export class DataType {
-    'href'?: string | null;
+    'href'?: string;
     /**
     * The available values are: Open, Closed
     */
@@ -28,13 +27,13 @@ export class DataType {
     * The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel
     */
     'valueType': DataType.ValueTypeEnum;
-    'acceptableValues'?: Array<string> | null;
+    'acceptableValues'?: Array<string>;
     /**
     * The available values are: NoUnits, Basic, Iso4217Currency
     */
     'unitSchema'?: DataType.UnitSchemaEnum;
-    'acceptableUnits'?: Array<IUnitDefinitionDto> | null;
-    'links'?: Array<Link> | null;
+    'acceptableUnits'?: Array<IUnitDefinitionDto>;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

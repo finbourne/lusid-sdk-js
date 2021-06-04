@@ -10,19 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 
 export class DeleteInstrumentResponse {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string | null;
+    'href'?: string;
     /**
     * The asAt datetime at which the instrument was deleted.
     */
     'asAt': Date;
-    'links'?: Array<Link> | null;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

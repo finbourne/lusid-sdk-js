@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { CurrencyAndAmount } from './currencyAndAmount';
 
 export class RealisedGainLoss {
@@ -25,15 +24,15 @@ export class RealisedGainLoss {
     /**
     * The effective datetime that the units associated with this gain or loss where originally purchased.
     */
-    'purchaseTradeDate'?: Date | null;
+    'purchaseTradeDate'?: Date;
     /**
     * The effective datetime that the units associated with this gain or loss where originally settled.
     */
-    'purchaseSettlementDate'?: Date | null;
+    'purchaseSettlementDate'?: Date;
     /**
     * The purchase price of each unit associated with this gain or loss.
     */
-    'purchasePrice'?: number | null;
+    'purchasePrice'?: number;
     'costTradeCcy': CurrencyAndAmount;
     'costPortfolioCcy': CurrencyAndAmount;
     'realisedTradeCcy': CurrencyAndAmount;

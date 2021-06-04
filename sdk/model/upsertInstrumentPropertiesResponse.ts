@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 
 export class UpsertInstrumentPropertiesResponse {
@@ -18,7 +17,7 @@ export class UpsertInstrumentPropertiesResponse {
     * The asAt datetime at which the properties were updated or inserted on the specified instruments.
     */
     'asAtDate': Date;
-    'links'?: Array<Link> | null;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

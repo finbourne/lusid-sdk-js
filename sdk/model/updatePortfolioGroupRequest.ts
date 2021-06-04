@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
 export class UpdatePortfolioGroupRequest {
     /**
@@ -20,7 +19,7 @@ export class UpdatePortfolioGroupRequest {
     /**
     * A long form description of the portfolio group.
     */
-    'description'?: string | null;
+    'description'?: string;
 
     static discriminator: string | undefined = undefined;
 

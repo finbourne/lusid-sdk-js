@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 import { PerpetualProperty } from './perpetualProperty';
 import { Version } from './version';
@@ -19,10 +18,10 @@ export class UpsertTransactionPropertiesResponse {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string | null;
+    'href'?: string;
     'version'?: Version;
-    'properties'?: { [key: string]: PerpetualProperty; } | null;
-    'links'?: Array<Link> | null;
+    'properties'?: { [key: string]: PerpetualProperty; };
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

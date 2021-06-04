@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 import { SideConfigurationData } from './sideConfigurationData';
 import { TransactionConfigurationData } from './transactionConfigurationData';
@@ -26,8 +25,8 @@ export class TransactionSetConfigurationData {
     /**
     * Collection of side definitions
     */
-    'sideDefinitions'?: Array<SideConfigurationData> | null;
-    'links'?: Array<Link> | null;
+    'sideDefinitions'?: Array<SideConfigurationData>;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

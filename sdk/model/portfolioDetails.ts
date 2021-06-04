@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 import { ResourceId } from './resourceId';
 import { Version } from './version';
@@ -19,7 +18,7 @@ export class PortfolioDetails {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string | null;
+    'href'?: string;
     'originPortfolioId': ResourceId;
     'version': Version;
     /**
@@ -27,8 +26,8 @@ export class PortfolioDetails {
     */
     'baseCurrency': string;
     'corporateActionSourceId'?: ResourceId;
-    'subHoldingKeys'?: Array<string> | null;
-    'links'?: Array<Link> | null;
+    'subHoldingKeys'?: Array<string>;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

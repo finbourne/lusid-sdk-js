@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 import { ResourceId } from './resourceId';
 
@@ -21,11 +20,11 @@ export class PropertyDefinition {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string | null;
+    'href'?: string;
     /**
     * The property key which uniquely identifies the property. The format for the property key is {domain}/{scope}/{code}, e.g. \'Portfolio/Manager/Id\'.
     */
-    'key'?: string | null;
+    'key'?: string;
     /**
     * The type of values that can be associated with this property. This is defined by the property\'s data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel
     */
@@ -33,7 +32,7 @@ export class PropertyDefinition {
     /**
     * The display name of the property.
     */
-    'displayName'?: string | null;
+    'displayName'?: string;
     'dataTypeId'?: ResourceId;
     /**
     * The type of the property. The available values are: Label, Metric, Information
@@ -50,11 +49,11 @@ export class PropertyDefinition {
     /**
     * The scope that the property exists in.
     */
-    'scope'?: string | null;
+    'scope'?: string;
     /**
     * The code of the property. Together with the domain and scope this uniquely identifies the property.
     */
-    'code'?: string | null;
+    'code'?: string;
     /**
     * Whether or not a value is always required for this property.
     */
@@ -66,7 +65,7 @@ export class PropertyDefinition {
     /**
     * Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key.
     */
-    'constraintStyle'?: string | null;
+    'constraintStyle'?: string;
     /**
     * The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition
     */
@@ -74,12 +73,12 @@ export class PropertyDefinition {
     /**
     * A brief description of what a property of this property definition contains.
     */
-    'propertyDescription'?: string | null;
+    'propertyDescription'?: string;
     /**
     * The rule that defines how data is composed for a derived property.
     */
-    'derivationFormula'?: string | null;
-    'links'?: Array<Link> | null;
+    'derivationFormula'?: string;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

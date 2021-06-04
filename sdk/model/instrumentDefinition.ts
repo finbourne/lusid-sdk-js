@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { InstrumentIdValue } from './instrumentIdValue';
 import { LusidInstrument } from './lusidInstrument';
 import { Property } from './property';
@@ -28,7 +27,7 @@ export class InstrumentDefinition {
     /**
     * Set of unique instrument properties and associated values to store with the instrument. Each property must be from the \'Instrument\' domain.
     */
-    'properties'?: Array<Property> | null;
+    'properties'?: Array<Property>;
     'lookThroughPortfolioId'?: ResourceId;
     'definition'?: LusidInstrument;
 

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { HoldingAdjustment } from './holdingAdjustment';
 import { Link } from './link';
 import { Version } from './version';
@@ -32,7 +31,7 @@ export class HoldingsAdjustment {
     * The holding adjustments.
     */
     'adjustments': Array<HoldingAdjustment>;
-    'links'?: Array<Link> | null;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

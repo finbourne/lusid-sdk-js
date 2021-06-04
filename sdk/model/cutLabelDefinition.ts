@@ -10,18 +10,17 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { CutLocalTime } from './cutLocalTime';
 import { Link } from './link';
 
 export class CutLabelDefinition {
-    'code'?: string | null;
-    'displayName'?: string | null;
-    'description'?: string | null;
+    'code'?: string;
+    'displayName'?: string;
+    'description'?: string;
     'cutLocalTime'?: CutLocalTime;
-    'timeZone'?: string | null;
-    'href'?: string | null;
-    'links'?: Array<Link> | null;
+    'timeZone'?: string;
+    'href'?: string;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
