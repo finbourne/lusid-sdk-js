@@ -34,4 +34,7 @@ export * from './systemConfigurationApi';
 import { SystemConfigurationApi } from './systemConfigurationApi';
 export * from './transactionPortfoliosApi';
 import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
+
+export { RequestFile } from '../model/models';
+
 export const APIS = [ApplicationMetadataApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, InstrumentsApi, LegalEntitiesApi, LoginApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, ScopesApi, SearchApi, SystemConfigurationApi, TransactionPortfoliosApi];
