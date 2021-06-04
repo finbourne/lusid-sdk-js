@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { PropertyValue } from './propertyValue';
 
 export class Property {
@@ -22,11 +21,11 @@ export class Property {
     /**
     * The effective datetime from which the property is valid.
     */
-    'effectiveFrom'?: Date | null;
+    'effectiveFrom'?: Date;
     /**
     * The effective datetime until which the property is valid. If not supplied this will be valid indefinitely, or until the next \'effectiveFrom\' datetime of the property.
     */
-    'effectiveUntil'?: Date | null;
+    'effectiveUntil'?: Date;
 
     static discriminator: string | undefined = undefined;
 

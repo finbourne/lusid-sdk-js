@@ -10,13 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
 /**
 * The set of string labels in a multi-value property.
 */
 export class LabelValueSet {
-    'values'?: Set<string> | null;
+    'values'?: Array<string>;
 
     static discriminator: string | undefined = undefined;
 
@@ -24,7 +23,7 @@ export class LabelValueSet {
         {
             "name": "values",
             "baseName": "values",
-            "type": "Set<string>"
+            "type": "Array<string>"
         }    ];
 
     static getAttributeTypeMap() {

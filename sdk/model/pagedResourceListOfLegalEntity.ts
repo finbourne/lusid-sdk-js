@@ -10,16 +10,15 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { LegalEntity } from './legalEntity';
 import { Link } from './link';
 
 export class PagedResourceListOfLegalEntity {
-    'nextPage'?: string | null;
-    'previousPage'?: string | null;
+    'nextPage'?: string;
+    'previousPage'?: string;
     'values': Array<LegalEntity>;
-    'href'?: string | null;
-    'links'?: Array<Link> | null;
+    'href'?: string;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

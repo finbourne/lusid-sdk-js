@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { LabelValueSet } from './labelValueSet';
 import { MetricValue } from './metricValue';
 
@@ -21,7 +20,7 @@ export class PropertyValue {
     /**
     * The text value of a property defined as having the \'Label\' type.
     */
-    'labelValue'?: string | null;
+    'labelValue'?: string;
     'metricValue'?: MetricValue;
     'labelValueSet'?: LabelValueSet;
 

@@ -10,16 +10,15 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 import { ProcessedCommand } from './processedCommand';
 
 export class ResourceListOfProcessedCommand {
     'values': Array<ProcessedCommand>;
-    'href'?: string | null;
-    'links'?: Array<Link> | null;
-    'nextPage'?: string | null;
-    'previousPage'?: string | null;
+    'href'?: string;
+    'links'?: Array<Link>;
+    'nextPage'?: string;
+    'previousPage'?: string;
 
     static discriminator: string | undefined = undefined;
 

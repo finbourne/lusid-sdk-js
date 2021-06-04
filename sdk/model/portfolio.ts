@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 import { Property } from './property';
 import { ResourceId } from './resourceId';
@@ -23,7 +22,7 @@ export class Portfolio {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string | null;
+    'href'?: string;
     'id': ResourceId;
     /**
     * The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction
@@ -36,7 +35,7 @@ export class Portfolio {
     /**
     * The long form description of the portfolio.
     */
-    'description'?: string | null;
+    'description'?: string;
     /**
     * The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date.
     */
@@ -50,12 +49,12 @@ export class Portfolio {
     /**
     * The base currency of the portfolio. This will be an empty string for reference portfolios.
     */
-    'baseCurrency'?: string | null;
+    'baseCurrency'?: string;
     /**
     * The requested portfolio properties. These will be from the \'Portfolio\' domain.
     */
-    'properties'?: { [key: string]: Property; } | null;
-    'links'?: Array<Link> | null;
+    'properties'?: { [key: string]: Property; };
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

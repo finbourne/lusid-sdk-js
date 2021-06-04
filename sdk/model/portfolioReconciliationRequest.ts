@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { ResourceId } from './resourceId';
 
 export class PortfolioReconciliationRequest {
@@ -22,7 +21,7 @@ export class PortfolioReconciliationRequest {
     /**
     * Optional. The AsAt date of the portfolio
     */
-    'asAt'?: Date | null;
+    'asAt'?: Date;
 
     static discriminator: string | undefined = undefined;
 

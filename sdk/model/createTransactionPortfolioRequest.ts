@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Property } from './property';
 import { ResourceId } from './resourceId';
 
@@ -22,7 +21,7 @@ export class CreateTransactionPortfolioRequest {
     /**
     * A description for the transaction portfolio.
     */
-    'description'?: string | null;
+    'description'?: string;
     /**
     * The code of the transaction portfolio. Together with the scope this uniquely identifies the transaction portfolio.
     */
@@ -30,7 +29,7 @@ export class CreateTransactionPortfolioRequest {
     /**
     * The effective datetime at which to create the transaction portfolio. No transactions can be added to the transaction portfolio before this date. Defaults to the current LUSID system datetime if not specified.
     */
-    'created'?: Date | null;
+    'created'?: Date;
     /**
     * The base currency of the transaction portfolio in ISO 4217 currency code format.
     */
@@ -43,11 +42,11 @@ export class CreateTransactionPortfolioRequest {
     /**
     * A set of unique transaction properties to group the transaction portfolio\'s holdings by. Each property must be from the \'Transaction\' domain and identified by a key in the format {domain}/{scope}/{code}, for example \'Transaction/strategies/quantsignal\'.
     */
-    'subHoldingKeys'?: Array<string> | null;
+    'subHoldingKeys'?: Array<string>;
     /**
     * A set of unique portfolio properties to add to the transaction portfolio. Each property must be from the \'Portfolio\' domain and identified by a key in the format {domain}/{scope}/{code}, for example \'Portfolio/Manager/Id\'. Note these properties must be pre-defined.
     */
-    'properties'?: { [key: string]: Property; } | null;
+    'properties'?: { [key: string]: Property; };
 
     static discriminator: string | undefined = undefined;
 

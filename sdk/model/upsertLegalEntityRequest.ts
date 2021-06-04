@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Property } from './property';
 
 /**
@@ -24,7 +23,7 @@ export class UpsertLegalEntityRequest {
     /**
     * A set of properties associated to the Legal Entity.
     */
-    'properties'?: { [key: string]: Property; } | null;
+    'properties'?: { [key: string]: Property; };
     /**
     * The display name of the Legal Entity
     */
@@ -32,7 +31,7 @@ export class UpsertLegalEntityRequest {
     /**
     * The description of the Legal Entity
     */
-    'description'?: string | null;
+    'description'?: string;
 
     static discriminator: string | undefined = undefined;
 

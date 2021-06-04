@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { PerpetualProperty } from './perpetualProperty';
 import { TransactionConfigurationMovementData } from './transactionConfigurationMovementData';
 import { TransactionConfigurationTypeAlias } from './transactionConfigurationTypeAlias';
@@ -24,7 +23,7 @@ export class TransactionConfigurationData {
     * Movement data for the transaction code
     */
     'movements': Array<TransactionConfigurationMovementData>;
-    'properties'?: { [key: string]: PerpetualProperty; } | null;
+    'properties'?: { [key: string]: PerpetualProperty; };
 
     static discriminator: string | undefined = undefined;
 

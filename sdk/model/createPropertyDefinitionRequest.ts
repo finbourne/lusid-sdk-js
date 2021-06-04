@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { ResourceId } from './resourceId';
 
 export class CreatePropertyDefinitionRequest {
@@ -42,11 +41,11 @@ export class CreatePropertyDefinitionRequest {
     /**
     * Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. Defaults to \"Property\" if not specified. Valid values for this field are: Property, Collection or Identifier.
     */
-    'constraintStyle'?: string | null;
+    'constraintStyle'?: string;
     /**
     * Describes the property
     */
-    'propertyDescription'?: string | null;
+    'propertyDescription'?: string;
 
     static discriminator: string | undefined = undefined;
 

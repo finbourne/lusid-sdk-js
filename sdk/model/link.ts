@@ -10,12 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
 export class Link {
     'relation': string;
     'href': string;
-    'description'?: string | null;
+    'description'?: string;
     'method': string;
 
     static discriminator: string | undefined = undefined;

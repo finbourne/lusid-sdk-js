@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Link } from './link';
 import { Property } from './property';
 import { Version } from './version';
@@ -22,29 +21,29 @@ export class LegalEntity {
     /**
     * The display name of the Legal Entity
     */
-    'displayName'?: string | null;
+    'displayName'?: string;
     /**
     * The description of the Legal Entity
     */
-    'description'?: string | null;
+    'description'?: string;
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string | null;
+    'href'?: string;
     /**
     * The unique LUSID Legal Entity Identifier (LULEID) of the Legal Entity. This field is not populated until further notice.
     */
-    'lusidLegalEntityId'?: string | null;
+    'lusidLegalEntityId'?: string;
     /**
     * Unique client-defined identifiers of the Legal Entity.
     */
-    'identifiers'?: { [key: string]: Property; } | null;
+    'identifiers'?: { [key: string]: Property; };
     /**
     * A set of properties associated to the Legal Entity.
     */
-    'properties'?: { [key: string]: Property; } | null;
+    'properties'?: { [key: string]: Property; };
     'version'?: Version;
-    'links'?: Array<Link> | null;
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

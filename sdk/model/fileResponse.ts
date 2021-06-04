@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { Stream } from './stream';
 
 /**
@@ -18,8 +17,8 @@ import { Stream } from './stream';
 */
 export class FileResponse {
     'fileStream'?: Stream;
-    'contentType'?: string | null;
-    'downloadedFilename'?: string | null;
+    'contentType'?: string;
+    'downloadedFilename'?: string;
 
     static discriminator: string | undefined = undefined;
 

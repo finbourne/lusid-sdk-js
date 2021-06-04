@@ -10,16 +10,15 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
 import { Link } from './link';
 
 export class ResourceListOfConstituentsAdjustmentHeader {
     'values': Array<ConstituentsAdjustmentHeader>;
-    'href'?: string | null;
-    'links'?: Array<Link> | null;
-    'nextPage'?: string | null;
-    'previousPage'?: string | null;
+    'href'?: string;
+    'links'?: Array<Link>;
+    'nextPage'?: string;
+    'previousPage'?: string;
 
     static discriminator: string | undefined = undefined;
 

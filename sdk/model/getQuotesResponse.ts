@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { ErrorDetail } from './errorDetail';
 import { Link } from './link';
 import { Quote } from './quote';
@@ -19,20 +18,20 @@ export class GetQuotesResponse {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string | null;
+    'href'?: string;
     /**
     * The quotes which have been successfully retrieved.
     */
-    'values'?: { [key: string]: Quote; } | null;
+    'values'?: { [key: string]: Quote; };
     /**
     * The quotes that could not be found along with a reason why.
     */
-    'notFound'?: { [key: string]: ErrorDetail; } | null;
+    'notFound'?: { [key: string]: ErrorDetail; };
     /**
     * The quotes that could not be retrieved due to an error along with a reason for their failure.
     */
-    'failed'?: { [key: string]: ErrorDetail; } | null;
-    'links'?: Array<Link> | null;
+    'failed'?: { [key: string]: ErrorDetail; };
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 

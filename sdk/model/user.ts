@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
 /**
 * The unique id of the user that issued the command.
@@ -19,7 +18,7 @@ export class User {
     /**
     * The unique id of the user.
     */
-    'id'?: string | null;
+    'id'?: string;
 
     static discriminator: string | undefined = undefined;
 

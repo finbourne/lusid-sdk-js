@@ -10,19 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
 export class LusidValidationProblemDetails {
     'name': string;
-    'errorDetails'?: Array<{ [key: string]: string; }> | null;
+    'errorDetails'?: Array<{ [key: string]: string; }>;
     'code': number;
-    'errors'?: { [key: string]: Array<string>; } | null;
-    'type'?: string | null;
-    'title'?: string | null;
-    'status'?: number | null;
-    'detail'?: string | null;
-    'instance'?: string | null;
-    'extensions'?: { [key: string]: object; } | null;
+    'errors'?: { [key: string]: Array<string>; };
+    'type'?: string;
+    'title'?: string;
+    'status'?: number;
+    'detail'?: string;
+    'instance'?: string;
+    'extensions'?: { [key: string]: object; };
 
     static discriminator: string | undefined = undefined;
 

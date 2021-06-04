@@ -10,21 +10,20 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { ResourceId } from './resourceId';
 
 export class CreateDerivedTransactionPortfolioRequest {
     'displayName': string;
-    'description'?: string | null;
+    'description'?: string;
     'code': string;
     'parentPortfolioId': ResourceId;
-    'created'?: Date | null;
+    'created'?: Date;
     'corporateActionSourceId'?: ResourceId;
     /**
     * The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst
     */
     'accountingMethod'?: CreateDerivedTransactionPortfolioRequest.AccountingMethodEnum;
-    'subHoldingKeys'?: Array<string> | null;
+    'subHoldingKeys'?: Array<string>;
 
     static discriminator: string | undefined = undefined;
 
