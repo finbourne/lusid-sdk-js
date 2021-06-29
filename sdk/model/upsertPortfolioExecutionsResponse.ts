@@ -19,9 +19,6 @@ export class UpsertPortfolioExecutionsResponse {
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
     'href'?: string;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

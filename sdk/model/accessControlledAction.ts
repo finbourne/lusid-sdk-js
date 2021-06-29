@@ -14,22 +14,10 @@ import { ActionId } from './actionId';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { Link } from './link';
 
-/**
-* An action that can be access controlled
-*/
 export class AccessControlledAction {
-    /**
-    * The description of the action
-    */
     'description': string;
     'action': ActionId;
-    /**
-    * When populated, the provided values are the limited set of resources that are allowed to be specified for  access control for this action
-    */
     'limitedSet'?: Array<IdSelectorDefinition>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

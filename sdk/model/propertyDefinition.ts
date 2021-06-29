@@ -78,9 +78,6 @@ export class PropertyDefinition {
     * The rule that defines how data is composed for a derived property.
     */
     'derivationFormula'?: string;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

@@ -40,9 +40,6 @@ export class SideConfigurationData {
     * The amount.
     */
     'amount': string;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

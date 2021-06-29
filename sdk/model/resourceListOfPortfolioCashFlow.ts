@@ -13,29 +13,11 @@
 import { Link } from './link';
 import { PortfolioCashFlow } from './portfolioCashFlow';
 
-/**
-* A collection of resources that can be returned from requests.
-*/
 export class ResourceListOfPortfolioCashFlow {
-    /**
-    * The resources to list.
-    */
     'values': Array<PortfolioCashFlow>;
-    /**
-    * The URI of the resource list.
-    */
     'href'?: string;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
-    /**
-    * The next page of results.
-    */
     'nextPage'?: string;
-    /**
-    * The previous page of results.
-    */
     'previousPage'?: string;
 
     static discriminator: string | undefined = undefined;

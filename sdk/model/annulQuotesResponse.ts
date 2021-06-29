@@ -26,9 +26,6 @@ export class AnnulQuotesResponse {
     * The quotes that could not be deleted along with a reason for their failure.
     */
     'failed'?: { [key: string]: ErrorDetail; };
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
