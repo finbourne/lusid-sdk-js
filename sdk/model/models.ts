@@ -3,9 +3,6 @@ export * from './accessControlledResource';
 export * from './actionId';
 export * from './adjustHolding';
 export * from './adjustHoldingRequest';
-export * from './allocation';
-export * from './allocationRequest';
-export * from './allocationSetRequest';
 export * from './annulQuotesResponse';
 export * from './change';
 export * from './completePortfolio';
@@ -48,15 +45,10 @@ export * from './lusidInstrument';
 export * from './lusidProblemDetails';
 export * from './lusidValidationProblemDetails';
 export * from './metricValue';
-export * from './order';
-export * from './orderRequest';
-export * from './orderSetRequest';
 export * from './outputTransaction';
-export * from './pagedResourceListOfAllocation';
 export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfInstrument';
 export * from './pagedResourceListOfLegalEntity';
-export * from './pagedResourceListOfOrder';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
@@ -87,14 +79,12 @@ export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
-export * from './resourceListOfAllocation';
 export * from './resourceListOfChange';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfDataType';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
 export * from './resourceListOfInstrumentIdTypeDescriptor';
-export * from './resourceListOfOrder';
 export * from './resourceListOfPortfolio';
 export * from './resourceListOfPortfolioCashFlow';
 export * from './resourceListOfPortfolioGroup';
@@ -151,9 +141,6 @@ import { AccessControlledResource } from './accessControlledResource';
 import { ActionId } from './actionId';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
-import { Allocation } from './allocation';
-import { AllocationRequest } from './allocationRequest';
-import { AllocationSetRequest } from './allocationSetRequest';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
@@ -196,15 +183,10 @@ import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MetricValue } from './metricValue';
-import { Order } from './order';
-import { OrderRequest } from './orderRequest';
-import { OrderSetRequest } from './orderSetRequest';
 import { OutputTransaction } from './outputTransaction';
-import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PagedResourceListOfLegalEntity } from './pagedResourceListOfLegalEntity';
-import { PagedResourceListOfOrder } from './pagedResourceListOfOrder';
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
@@ -235,14 +217,12 @@ import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
-import { ResourceListOfAllocation } from './resourceListOfAllocation';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfDataType } from './resourceListOfDataType';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
 import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
-import { ResourceListOfOrder } from './resourceListOfOrder';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
 import { ResourceListOfPortfolioCashFlow } from './resourceListOfPortfolioCashFlow';
 import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
@@ -352,9 +332,6 @@ let typeMap: {[index: string]: any} = {
     "ActionId": ActionId,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingRequest": AdjustHoldingRequest,
-    "Allocation": Allocation,
-    "AllocationRequest": AllocationRequest,
-    "AllocationSetRequest": AllocationSetRequest,
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
@@ -397,15 +374,10 @@ let typeMap: {[index: string]: any} = {
     "LusidProblemDetails": LusidProblemDetails,
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
     "MetricValue": MetricValue,
-    "Order": Order,
-    "OrderRequest": OrderRequest,
-    "OrderSetRequest": OrderSetRequest,
     "OutputTransaction": OutputTransaction,
-    "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PagedResourceListOfLegalEntity": PagedResourceListOfLegalEntity,
-    "PagedResourceListOfOrder": PagedResourceListOfOrder,
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
@@ -436,14 +408,12 @@ let typeMap: {[index: string]: any} = {
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
-    "ResourceListOfAllocation": ResourceListOfAllocation,
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfDataType": ResourceListOfDataType,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
     "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
-    "ResourceListOfOrder": ResourceListOfOrder,
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
     "ResourceListOfPortfolioCashFlow": ResourceListOfPortfolioCashFlow,
     "ResourceListOfPortfolioGroup": ResourceListOfPortfolioGroup,
