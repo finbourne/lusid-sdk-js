@@ -27,9 +27,6 @@ export class GetInstrumentsResponse {
     * The identifiers that did not resolve to an instrument along with the nature of the failure.
     */
     'failed'?: { [key: string]: ErrorDetail; };
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

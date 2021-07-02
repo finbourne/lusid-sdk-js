@@ -63,9 +63,6 @@ export class Order {
     'price'?: CurrencyAndAmount;
     'orderInstructionId'?: ResourceId;
     'packageId'?: ResourceId;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

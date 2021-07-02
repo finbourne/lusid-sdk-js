@@ -13,29 +13,11 @@
 import { Link } from './link';
 import { Order } from './order';
 
-/**
-* A paginated list of resource that can be returned from a request.
-*/
 export class PagedResourceListOfOrder {
-    /**
-    * The next page of results.
-    */
     'nextPage'?: string;
-    /**
-    * The previous page of results.
-    */
     'previousPage'?: string;
-    /**
-    * The resources to list.
-    */
     'values': Array<Order>;
-    /**
-    * The URI of the resource list.
-    */
     'href'?: string;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

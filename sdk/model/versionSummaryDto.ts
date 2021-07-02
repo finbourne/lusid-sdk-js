@@ -16,9 +16,6 @@ export class VersionSummaryDto {
     'apiVersion'?: string;
     'buildVersion'?: string;
     'excelVersion'?: string;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

@@ -54,9 +54,6 @@ export class Portfolio {
     * The requested portfolio properties. These will be from the \'Portfolio\' domain.
     */
     'properties'?: { [key: string]: Property; };
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

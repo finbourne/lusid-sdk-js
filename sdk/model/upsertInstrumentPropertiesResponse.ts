@@ -17,9 +17,6 @@ export class UpsertInstrumentPropertiesResponse {
     * The as-at datetime at which properties were created or updated.
     */
     'asAtDate': Date;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
