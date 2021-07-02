@@ -1,3 +1,4 @@
+import {AllocationsApi} from './api/allocationsApi';
 import {ApplicationMetadataApi} from './api/applicationMetadataApi';
 import {CutLabelDefinitionsApi} from './api/cutLabelDefinitionsApi';
 import {DataTypesApi} from './api/dataTypesApi';
@@ -6,6 +7,7 @@ import {EntitiesApi} from './api/entitiesApi';
 import {InstrumentsApi} from './api/instrumentsApi';
 import {LegalEntitiesApi} from './api/legalEntitiesApi';
 import {LoginApi} from './api/loginApi';
+import {OrdersApi} from './api/ordersApi';
 import {PortfolioGroupsApi} from './api/portfolioGroupsApi';
 import {PortfoliosApi} from './api/portfoliosApi';
 import {PropertyDefinitionsApi} from './api/propertyDefinitionsApi';
@@ -18,6 +20,7 @@ import {SystemConfigurationApi} from './api/systemConfigurationApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
 
 export class Api {
+    public allocations:  AllocationsApi
     public applicationMetadata:  ApplicationMetadataApi
     public cutLabelDefinitions:  CutLabelDefinitionsApi
     public dataTypes:  DataTypesApi
@@ -26,6 +29,7 @@ export class Api {
     public instruments:  InstrumentsApi
     public legalEntities:  LegalEntitiesApi
     public login:  LoginApi
+    public orders:  OrdersApi
     public portfolioGroups:  PortfolioGroupsApi
     public portfolios:  PortfoliosApi
     public propertyDefinitions:  PropertyDefinitionsApi
