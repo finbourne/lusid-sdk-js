@@ -25,7 +25,6 @@ export * from './dateRange';
 export * from './deleteInstrumentResponse';
 export * from './deletedEntityResponse';
 export * from './errorDetail';
-export * from './executionRequest';
 export * from './expandedGroup';
 export * from './fileResponse';
 export * from './getInstrumentsResponse';
@@ -130,7 +129,6 @@ export * from './upsertInstrumentPropertiesResponse';
 export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
 export * from './upsertLegalEntityRequest';
-export * from './upsertPortfolioExecutionsResponse';
 export * from './upsertPortfolioTransactionsResponse';
 export * from './upsertQuoteRequest';
 export * from './upsertQuotesResponse';
@@ -173,7 +171,6 @@ import { DateRange } from './dateRange';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { ErrorDetail } from './errorDetail';
-import { ExecutionRequest } from './executionRequest';
 import { ExpandedGroup } from './expandedGroup';
 import { FileResponse } from './fileResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
@@ -278,7 +275,6 @@ import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentProperties
 import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyRequest';
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
 import { UpsertLegalEntityRequest } from './upsertLegalEntityRequest';
-import { UpsertPortfolioExecutionsResponse } from './upsertPortfolioExecutionsResponse';
 import { UpsertPortfolioTransactionsResponse } from './upsertPortfolioTransactionsResponse';
 import { UpsertQuoteRequest } from './upsertQuoteRequest';
 import { UpsertQuotesResponse } from './upsertQuotesResponse';
@@ -374,7 +370,6 @@ let typeMap: {[index: string]: any} = {
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeletedEntityResponse": DeletedEntityResponse,
     "ErrorDetail": ErrorDetail,
-    "ExecutionRequest": ExecutionRequest,
     "ExpandedGroup": ExpandedGroup,
     "FileResponse": FileResponse,
     "GetInstrumentsResponse": GetInstrumentsResponse,
@@ -479,7 +474,6 @@ let typeMap: {[index: string]: any} = {
     "UpsertInstrumentPropertyRequest": UpsertInstrumentPropertyRequest,
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,
     "UpsertLegalEntityRequest": UpsertLegalEntityRequest,
-    "UpsertPortfolioExecutionsResponse": UpsertPortfolioExecutionsResponse,
     "UpsertPortfolioTransactionsResponse": UpsertPortfolioTransactionsResponse,
     "UpsertQuoteRequest": UpsertQuoteRequest,
     "UpsertQuotesResponse": UpsertQuotesResponse,
