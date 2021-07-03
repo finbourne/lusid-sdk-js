@@ -51,9 +51,6 @@ export class CompletePortfolio {
     * If the portfolio is a transaction portfolio or derived transaction portfolio, this is the base currency of the portfolio.
     */
     'baseCurrency'?: string;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

@@ -14,33 +14,12 @@ import { AccessControlledAction } from './accessControlledAction';
 import { IdentifierPartSchema } from './identifierPartSchema';
 import { Link } from './link';
 
-/**
-* A resource to which access can be controlled
-*/
 export class AccessControlledResource {
-    /**
-    * The application to which this resource belongs
-    */
     'application'?: string;
-    /**
-    * The display name of the resource
-    */
     'name'?: string;
-    /**
-    * The description of the resource
-    */
     'description': string;
-    /**
-    * The actions acceptable for this type of resource
-    */
     'actions': Array<AccessControlledAction>;
-    /**
-    * The constituent parts of a valid identifier for this resource
-    */
     'identifierParts'?: Array<IdentifierPartSchema>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

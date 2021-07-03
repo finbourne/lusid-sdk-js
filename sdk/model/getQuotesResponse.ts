@@ -31,9 +31,6 @@ export class GetQuotesResponse {
     * The quotes that could not be retrieved due to an error along with a reason for their failure.
     */
     'failed'?: { [key: string]: ErrorDetail; };
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
