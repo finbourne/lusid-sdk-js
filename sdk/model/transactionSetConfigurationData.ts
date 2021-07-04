@@ -26,9 +26,6 @@ export class TransactionSetConfigurationData {
     * Collection of side definitions
     */
     'sideDefinitions'?: Array<SideConfigurationData>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
