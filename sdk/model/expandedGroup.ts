@@ -38,9 +38,6 @@ export class ExpandedGroup {
     */
     'subGroups'?: Array<ExpandedGroup>;
     'version'?: Version;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

@@ -16,25 +16,10 @@ import { Version } from './version';
 
 export class VersionedResourceListOfPortfolioHolding {
     'version': Version;
-    /**
-    * The resources to list.
-    */
     'values': Array<PortfolioHolding>;
-    /**
-    * The URI of the resource list.
-    */
     'href'?: string;
-    /**
-    * The next page of results.
-    */
     'nextPage'?: string;
-    /**
-    * The previous page of results.
-    */
     'previousPage'?: string;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

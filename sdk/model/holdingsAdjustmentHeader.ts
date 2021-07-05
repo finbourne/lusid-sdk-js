@@ -26,9 +26,6 @@ export class HoldingsAdjustmentHeader {
     * Describes how the holdings were adjusted. If \'PositionToZero\' the entire transaction portfolio\'s holdings were set via a call to \'Set holdings\'. If \'KeepTheSame\' only the specified holdings were adjusted via a call to \'Adjust holdings\'. The available values are: PositionToZero, KeepTheSame
     */
     'unmatchedHoldingMethod': HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

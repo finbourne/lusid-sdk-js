@@ -11,21 +11,9 @@
  */
 
 
-/**
-* A description of a problem that has arisen during the processing of a request.
-*/
 export class LusidProblemDetails {
-    /**
-    * The name of the error
-    */
     'name': string;
-    /**
-    * Any additional informational information available about the nature and detail of the problem
-    */
     'errorDetails'?: Array<{ [key: string]: string; }>;
-    /**
-    * Get the error code of the response
-    */
     'code': number;
     'type'?: string;
     'title'?: string;

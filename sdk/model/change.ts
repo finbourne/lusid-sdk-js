@@ -25,9 +25,6 @@ export class Change {
     'amended': boolean;
     'amendmentEffectiveAt'?: Date;
     'amendmentAsAt'?: Date;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
