@@ -19,9 +19,6 @@ export class ConstituentsAdjustmentHeader {
     */
     'effectiveAt'?: Date;
     'version'?: Version;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

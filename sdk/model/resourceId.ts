@@ -11,17 +11,8 @@
  */
 
 
-/**
-* Identifiers of an entity
-*/
 export class ResourceId {
-    /**
-    * The scope used to identify an entity
-    */
     'scope': string;
-    /**
-    * The code used to identify an entity
-    */
     'code': string;
 
     static discriminator: string | undefined = undefined;

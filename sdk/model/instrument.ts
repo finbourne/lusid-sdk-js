@@ -47,9 +47,6 @@ export class Instrument {
     * The state of of the instrument at the asAt datetime of this version of the instrument definition. The available values are: Active, Inactive
     */
     'state': Instrument.StateEnum;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

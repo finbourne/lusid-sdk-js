@@ -21,9 +21,6 @@ export class UpsertTransactionPropertiesResponse {
     'href'?: string;
     'version'?: Version;
     'properties'?: { [key: string]: PerpetualProperty; };
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
