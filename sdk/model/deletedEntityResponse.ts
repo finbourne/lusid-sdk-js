@@ -25,9 +25,6 @@ export class DeletedEntityResponse {
     * The asAt datetime at which the deletion was committed to LUSID.
     */
     'asAt': Date;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

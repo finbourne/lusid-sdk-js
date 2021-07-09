@@ -54,9 +54,6 @@ export class PortfolioCashFlow {
     'translationGainLoss': CurrencyAndAmount;
     'costBasisReportingCurrency': CurrencyAndAmount;
     'transaction'?: Transaction;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

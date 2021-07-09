@@ -11,25 +11,10 @@
  */
 
 
-/**
-* Link class.
-*/
 export class Link {
-    /**
-    * Relation of link.
-    */
     'relation': string;
-    /**
-    * Href of link.
-    */
     'href': string;
-    /**
-    * Description of link.
-    */
     'description'?: string;
-    /**
-    * Http method of link.
-    */
     'method': string;
 
     static discriminator: string | undefined = undefined;

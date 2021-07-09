@@ -27,9 +27,6 @@ export class PortfolioDetails {
     'baseCurrency': string;
     'corporateActionSourceId'?: ResourceId;
     'subHoldingKeys'?: Array<string>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

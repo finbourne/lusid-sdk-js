@@ -52,9 +52,6 @@ export class PortfolioSearchResult {
     * The requested portfolio properties. These will be from the \'Portfolio\' domain.
     */
     'properties'?: Array<Property>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;

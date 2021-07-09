@@ -16,9 +16,6 @@ import { Version } from './version';
 export class UpsertReferencePortfolioConstituentsResponse {
     'href'?: string;
     'version'?: Version;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
