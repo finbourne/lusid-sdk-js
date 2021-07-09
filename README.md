@@ -1,4 +1,5 @@
 ![LUSID_by_Finbourne](https://content.finbourne.com/LUSID_repo.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ffinbourne%2Flusid-sdk-js.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ffinbourne%2Flusid-sdk-js?ref=badge_shield)
 
 [![Build Status](https://travis-ci.org/finbourne/lusid-sdk-js.svg?branch=master)](https://travis-ci.org/finbourne/lusid-sdk-js)
 
@@ -18,3 +19,7 @@ If you would prefer to generate the Javsscript SDK locally from the FINBOURNE Op
 - download the latest swagger.json file from https://api.lusid.com/swagger/index.html
 - save it in this directory as lusid.json
 - run `$ docker-compose up && docker-compose rm -f`
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ffinbourne%2Flusid-sdk-js.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ffinbourne%2Flusid-sdk-js?ref=badge_large)
