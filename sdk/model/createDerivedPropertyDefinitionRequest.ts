@@ -10,65 +10,105 @@
  * Do not edit the class manually.
  */
 
-import { Link } from './link';
-import { ProcessedCommand } from './processedCommand';
+import { ResourceId } from './resourceId';
 
-/**
-* A collection of resources that can be returned from requests.
-*/
-export class ResourceListOfProcessedCommand {
+export class CreateDerivedPropertyDefinitionRequest {
     /**
-    * The resources to list.
+    * The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction
     */
-    'values': Array<ProcessedCommand>;
+    'domain': CreateDerivedPropertyDefinitionRequest.DomainEnum;
     /**
-    * The URI of the resource list.
+    * The scope that the property exists in.
     */
-    'href'?: string;
+    'scope': string;
     /**
-    * Collection of links.
+    * The code of the property. Together with the domain and scope this uniquely identifies the property.
     */
-    'links'?: Array<Link>;
+    'code': string;
     /**
-    * The next page of results.
+    * The display name of the property.
     */
-    'nextPage'?: string;
+    'displayName': string;
+    'dataTypeId': ResourceId;
     /**
-    * The previous page of results.
+    * Describes the property
     */
-    'previousPage'?: string;
+    'propertyDescription'?: string;
+    /**
+    * The rule that defines how data is composed for a derived property.
+    */
+    'derivationFormula'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<ProcessedCommand>"
+            "name": "domain",
+            "baseName": "domain",
+            "type": "CreateDerivedPropertyDefinitionRequest.DomainEnum"
         },
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "scope",
+            "baseName": "scope",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
-        },
-        {
-            "name": "nextPage",
-            "baseName": "nextPage",
+            "name": "code",
+            "baseName": "code",
             "type": "string"
         },
         {
-            "name": "previousPage",
-            "baseName": "previousPage",
+            "name": "displayName",
+            "baseName": "displayName",
+            "type": "string"
+        },
+        {
+            "name": "dataTypeId",
+            "baseName": "dataTypeId",
+            "type": "ResourceId"
+        },
+        {
+            "name": "propertyDescription",
+            "baseName": "propertyDescription",
+            "type": "string"
+        },
+        {
+            "name": "derivationFormula",
+            "baseName": "derivationFormula",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfProcessedCommand.attributeTypeMap;
+        return CreateDerivedPropertyDefinitionRequest.attributeTypeMap;
     }
 }
 
+export namespace CreateDerivedPropertyDefinitionRequest {
+    export enum DomainEnum {
+        NotDefined = <any> 'NotDefined',
+        Transaction = <any> 'Transaction',
+        Portfolio = <any> 'Portfolio',
+        Holding = <any> 'Holding',
+        ReferenceHolding = <any> 'ReferenceHolding',
+        TransactionConfiguration = <any> 'TransactionConfiguration',
+        Instrument = <any> 'Instrument',
+        CutLabelDefinition = <any> 'CutLabelDefinition',
+        Analytic = <any> 'Analytic',
+        PortfolioGroup = <any> 'PortfolioGroup',
+        Person = <any> 'Person',
+        AccessMetadata = <any> 'AccessMetadata',
+        Order = <any> 'Order',
+        UnitResult = <any> 'UnitResult',
+        MarketData = <any> 'MarketData',
+        ConfigurationRecipe = <any> 'ConfigurationRecipe',
+        Allocation = <any> 'Allocation',
+        Calendar = <any> 'Calendar',
+        LegalEntity = <any> 'LegalEntity',
+        Placement = <any> 'Placement',
+        Execution = <any> 'Execution',
+        Block = <any> 'Block',
+        Participation = <any> 'Participation',
+        Package = <any> 'Package',
+        OrderInstruction = <any> 'OrderInstruction'
+    }
+}
