@@ -11,7 +11,6 @@ export * from './change';
 export * from './completePortfolio';
 export * from './constituentsAdjustmentHeader';
 export * from './createCutLabelDefinitionRequest';
-export * from './createDerivedPropertyDefinitionRequest';
 export * from './createDerivedTransactionPortfolioRequest';
 export * from './createPortfolioDetails';
 export * from './createPortfolioGroupRequest';
@@ -158,7 +157,6 @@ import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
-import { CreateDerivedPropertyDefinitionRequest } from './createDerivedPropertyDefinitionRequest';
 import { CreateDerivedTransactionPortfolioRequest } from './createDerivedTransactionPortfolioRequest';
 import { CreatePortfolioDetails } from './createPortfolioDetails';
 import { CreatePortfolioGroupRequest } from './createPortfolioGroupRequest';
@@ -304,7 +302,6 @@ let primitives = [
                  
 let enumsMap: {[index: string]: any} = {
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
-        "CreateDerivedPropertyDefinitionRequest.DomainEnum": CreateDerivedPropertyDefinitionRequest.DomainEnum,
         "CreateDerivedTransactionPortfolioRequest.AccountingMethodEnum": CreateDerivedTransactionPortfolioRequest.AccountingMethodEnum,
         "CreatePropertyDefinitionRequest.DomainEnum": CreatePropertyDefinitionRequest.DomainEnum,
         "CreatePropertyDefinitionRequest.LifeTimeEnum": CreatePropertyDefinitionRequest.LifeTimeEnum,
@@ -359,7 +356,6 @@ let typeMap: {[index: string]: any} = {
     "CompletePortfolio": CompletePortfolio,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
-    "CreateDerivedPropertyDefinitionRequest": CreateDerivedPropertyDefinitionRequest,
     "CreateDerivedTransactionPortfolioRequest": CreateDerivedTransactionPortfolioRequest,
     "CreatePortfolioDetails": CreatePortfolioDetails,
     "CreatePortfolioGroupRequest": CreatePortfolioGroupRequest,
