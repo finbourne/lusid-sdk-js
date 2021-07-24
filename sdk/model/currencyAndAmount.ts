@@ -10,13 +10,14 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 /**
 * An amount of a specific currency, specifying a value and an associated unit
 */
 export class CurrencyAndAmount {
     'amount'?: number;
-    'currency'?: string;
+    'currency'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

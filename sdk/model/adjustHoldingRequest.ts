@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { PerpetualProperty } from './perpetualProperty';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 
@@ -24,11 +25,11 @@ export class AdjustHoldingRequest {
     /**
     * Set of unique transaction properties and associated values to store with the holding adjustment transaction automatically created by LUSID. Each property must be from the \'Transaction\' domain.
     */
-    'subHoldingKeys'?: { [key: string]: PerpetualProperty; };
+    'subHoldingKeys'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * Set of unique holding properties and associated values to store with the target holding. Each property must be from the \'Holding\' domain.
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * The tax-lots that together make up the target holding.
     */
@@ -36,7 +37,7 @@ export class AdjustHoldingRequest {
     /**
     * The Holding currency. This needs to be equal with the one on the TaxLot -> cost if one is specified
     */
-    'currency'?: string;
+    'currency'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

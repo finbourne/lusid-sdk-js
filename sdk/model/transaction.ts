@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { PerpetualProperty } from './perpetualProperty';
 import { TransactionPrice } from './transactionPrice';
@@ -29,7 +30,7 @@ export class Transaction {
     /**
     * A set of instrument identifiers that can resolve the transaction to a unique instrument.
     */
-    'instrumentIdentifiers'?: { [key: string]: string; };
+    'instrumentIdentifiers'?: { [key: string]: string; } | null;
     /**
     * The unqiue Lusid Instrument Id (LUID) of the instrument that the transaction is in.
     */
@@ -51,23 +52,23 @@ export class Transaction {
     /**
     * The exchange rate between the transaction and settlement currency (settlement currency being represented by the TotalConsideration.Currency). For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate.
     */
-    'exchangeRate'?: number;
+    'exchangeRate'?: number | null;
     /**
     * The transaction currency.
     */
-    'transactionCurrency'?: string;
+    'transactionCurrency'?: string | null;
     /**
     * Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the \'Transaction\' domain.
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * The identifier for the counterparty of the transaction.
     */
-    'counterpartyId'?: string;
+    'counterpartyId'?: string | null;
     /**
     * The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration.
     */
-    'source'?: string;
+    'source'?: string | null;
     /**
     * The asAt datetime that the transaction was added to LUSID.
     */

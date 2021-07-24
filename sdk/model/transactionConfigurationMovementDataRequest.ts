@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { PerpetualProperty } from './perpetualProperty';
 import { TransactionPropertyMappingRequest } from './transactionPropertyMappingRequest';
 
@@ -26,12 +27,12 @@ export class TransactionConfigurationMovementDataRequest {
     * The movement direction
     */
     'direction': number;
-    'properties'?: { [key: string]: PerpetualProperty; };
-    'mappings'?: Array<TransactionPropertyMappingRequest>;
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
+    'mappings'?: Array<TransactionPropertyMappingRequest> | null;
     /**
     * The movement name (optional)
     */
-    'name'?: string;
+    'name'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { Link } from './link';
 import { LusidInstrument } from './lusidInstrument';
 import { Property } from './property';
@@ -23,7 +24,7 @@ export class Instrument {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * The unique LUSID Instrument Identifier (LUID) of the instrument.
     */
@@ -40,7 +41,7 @@ export class Instrument {
     /**
     * The requested instrument properties. These will be from the \'Instrument\' domain.
     */
-    'properties'?: Array<Property>;
+    'properties'?: Array<Property> | null;
     'lookthroughPortfolio'?: ResourceId;
     'instrumentDefinition'?: LusidInstrument;
     /**
@@ -50,7 +51,7 @@ export class Instrument {
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

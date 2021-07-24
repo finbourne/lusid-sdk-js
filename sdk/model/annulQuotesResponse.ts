@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { ErrorDetail } from './errorDetail';
 import { Link } from './link';
 
@@ -17,19 +18,19 @@ export class AnnulQuotesResponse {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * The quotes which have been successfully deleted along with the asAt datetime at which the deletion was committed to LUSID.
     */
-    'values'?: { [key: string]: Date; };
+    'values'?: { [key: string]: Date; } | null;
     /**
     * The quotes that could not be deleted along with a reason for their failure.
     */
-    'failed'?: { [key: string]: ErrorDetail; };
+    'failed'?: { [key: string]: ErrorDetail; } | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

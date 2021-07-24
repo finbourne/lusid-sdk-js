@@ -10,16 +10,17 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { Link } from './link';
 
 export class VersionSummaryDto {
-    'apiVersion'?: string;
-    'buildVersion'?: string;
-    'excelVersion'?: string;
+    'apiVersion'?: string | null;
+    'buildVersion'?: string | null;
+    'excelVersion'?: string | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

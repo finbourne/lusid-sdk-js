@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 export class TransactionPropertyMapping {
     /**
@@ -19,11 +20,11 @@ export class TransactionPropertyMapping {
     /**
     * The Side
     */
-    'mapFrom'?: string;
+    'mapFrom'?: string | null;
     /**
     * The Side
     */
-    'setTo'?: object;
+    'setTo'?: object | null;
 
     static discriminator: string | undefined = undefined;
 

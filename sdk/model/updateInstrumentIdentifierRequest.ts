@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 export class UpdateInstrumentIdentifierRequest {
     /**
@@ -19,11 +20,11 @@ export class UpdateInstrumentIdentifierRequest {
     /**
     * The new value of the allowable instrument identifier. If unspecified the identifier will be removed from the instrument.
     */
-    'value'?: string;
+    'value'?: string | null;
     /**
     * The effective datetime from which the identifier should be updated, inserted or removed. Defaults to the current LUSID system datetime if not specified.
     */
-    'effectiveAt'?: string;
+    'effectiveAt'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

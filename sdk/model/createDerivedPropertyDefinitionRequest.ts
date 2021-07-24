@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { ResourceId } from './resourceId';
 
 export class CreateDerivedPropertyDefinitionRequest {
@@ -33,11 +34,11 @@ export class CreateDerivedPropertyDefinitionRequest {
     /**
     * Describes the property
     */
-    'propertyDescription'?: string;
+    'propertyDescription'?: string | null;
     /**
     * The rule that defines how data is composed for a derived property.
     */
-    'derivationFormula'?: string;
+    'derivationFormula'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

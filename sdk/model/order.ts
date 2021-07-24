@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { Link } from './link';
 import { PerpetualProperty } from './perpetualProperty';
@@ -23,7 +24,7 @@ export class Order {
     /**
     * Client-defined properties associated with this order.
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     'version'?: Version;
     /**
     * The instrument ordered.
@@ -47,15 +48,15 @@ export class Order {
     /**
     * The order\'s state (examples: New, PartiallyFilled, ...)
     */
-    'state'?: string;
+    'state'?: string | null;
     /**
     * The order\'s type (examples: Limit, Market, ...)
     */
-    'type'?: string;
+    'type'?: string | null;
     /**
     * The order\'s time in force (examples: Day, GoodTilCancel, ...)
     */
-    'timeInForce'?: string;
+    'timeInForce'?: string | null;
     /**
     * The date on which the order was made
     */
@@ -66,7 +67,7 @@ export class Order {
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

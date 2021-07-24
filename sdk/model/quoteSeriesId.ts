@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 /**
 * The time invariant unique identifier of the quote. Combined with the effective datetime of the quote this  uniquely identifies the quote. This can be thought of as a unique identifier for a time series of quotes.
@@ -22,7 +23,7 @@ export class QuoteSeriesId {
     /**
     * The source or originator of the quote, e.g. a bank or financial institution.
     */
-    'priceSource'?: string;
+    'priceSource'?: string | null;
     /**
     * The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. \'BBG00JX0P539\'.
     */
@@ -83,7 +84,7 @@ export namespace QuoteSeriesId {
     export enum InstrumentIdTypeEnum {
         LusidInstrumentId = <any> 'LusidInstrumentId',
         Figi = <any> 'Figi',
-        RIC = <any> 'RIC',
+        Ric = <any> 'RIC',
         QuotePermId = <any> 'QuotePermId',
         Isin = <any> 'Isin',
         CurrencyPair = <any> 'CurrencyPair',

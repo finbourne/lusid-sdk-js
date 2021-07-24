@@ -10,13 +10,14 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { PerpetualProperty } from './perpetualProperty';
 
 export class ReferencePortfolioConstituent {
     /**
     * Unique instrument identifiers
     */
-    'instrumentIdentifiers'?: { [key: string]: string; };
+    'instrumentIdentifiers'?: { [key: string]: string; } | null;
     /**
     * LUSID\'s internal unique instrument identifier, resolved from the instrument identifiers
     */
@@ -25,9 +26,9 @@ export class ReferencePortfolioConstituent {
     /**
     * Properties associated with the constituent
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     'weight': number;
-    'floatingWeight'?: number;
+    'floatingWeight'?: number | null;
 
     static discriminator: string | undefined = undefined;
 

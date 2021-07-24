@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { PerpetualProperty } from './perpetualProperty';
 import { TransactionPrice } from './transactionPrice';
@@ -44,23 +45,23 @@ export class TransactionRequest {
     /**
     * The exchange rate between the transaction and settlement currency (settlement currency being represented by TotalConsideration.Currency). For example, if the transaction currency is USD and the settlement currency is GBP, this would be the appropriate USD/GBP rate.
     */
-    'exchangeRate'?: number;
+    'exchangeRate'?: number | null;
     /**
     * The transaction currency.
     */
-    'transactionCurrency'?: string;
+    'transactionCurrency'?: string | null;
     /**
     * A list of unique transaction properties and associated values to store for the transaction. Each property must be from the \'Transaction\' domain.
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * The identifier for the counterparty of the transaction.
     */
-    'counterpartyId'?: string;
+    'counterpartyId'?: string | null;
     /**
     * The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration.
     */
-    'source'?: string;
+    'source'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

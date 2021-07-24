@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { Link } from './link';
 import { Property } from './property';
 import { ResourceId } from './resourceId';
@@ -26,11 +27,11 @@ export class PortfolioSearchResult {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * The long form description of the portfolio.
     */
-    'description'?: string;
+    'description'?: string | null;
     /**
     * The name of the portfolio.
     */
@@ -47,15 +48,15 @@ export class PortfolioSearchResult {
     /**
     * The base currency of the portfolio. This will be an empty string for reference portfolios.
     */
-    'baseCurrency'?: string;
+    'baseCurrency'?: string | null;
     /**
     * The requested portfolio properties. These will be from the \'Portfolio\' domain.
     */
-    'properties'?: Array<Property>;
+    'properties'?: Array<Property> | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
