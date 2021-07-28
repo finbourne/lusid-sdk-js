@@ -10,49 +10,63 @@
  * Do not edit the class manually.
  */
 
-import { Property } from './property';
 
-export class CreateReferencePortfolioRequest {
-    'displayName': string;
-    'description'?: string;
-    'code': string;
-    'created'?: Date;
+/**
+* A list of Returns.
+*/
+export class PerformanceReturn {
     /**
-    * Portfolio properties to add to the portfolio
+    * The effectiveAt for the return.
     */
-    'properties'?: { [key: string]: Property; };
+    'effectiveAt': Date;
+    /**
+    * The return number.
+    */
+    'rateOfReturn': number;
+    /**
+    * The opening market value.
+    */
+    'openingMarketValue'?: number;
+    /**
+    * The closing market value.
+    */
+    'closingMarketValue'?: number;
+    /**
+    * Show the returns on a Daily or Monthly period.
+    */
+    'period'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "displayName",
-            "baseName": "displayName",
-            "type": "string"
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string"
-        },
-        {
-            "name": "code",
-            "baseName": "code",
-            "type": "string"
-        },
-        {
-            "name": "created",
-            "baseName": "created",
+            "name": "effectiveAt",
+            "baseName": "effectiveAt",
             "type": "Date"
         },
         {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "{ [key: string]: Property; }"
+            "name": "rateOfReturn",
+            "baseName": "rateOfReturn",
+            "type": "number"
+        },
+        {
+            "name": "openingMarketValue",
+            "baseName": "openingMarketValue",
+            "type": "number"
+        },
+        {
+            "name": "closingMarketValue",
+            "baseName": "closingMarketValue",
+            "type": "number"
+        },
+        {
+            "name": "period",
+            "baseName": "period",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateReferencePortfolioRequest.attributeTypeMap;
+        return PerformanceReturn.attributeTypeMap;
     }
 }
 

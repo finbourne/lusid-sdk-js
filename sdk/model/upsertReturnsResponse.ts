@@ -10,49 +10,63 @@
  * Do not edit the class manually.
  */
 
-import { Property } from './property';
+import { ErrorDetail } from './errorDetail';
+import { Link } from './link';
+import { Version } from './version';
 
-export class CreateReferencePortfolioRequest {
-    'displayName': string;
-    'description'?: string;
-    'code': string;
-    'created'?: Date;
+/**
+* Response from upserting Returns
+*/
+export class UpsertReturnsResponse {
+    'version': Version;
     /**
-    * Portfolio properties to add to the portfolio
+    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'properties'?: { [key: string]: Property; };
+    'href'?: string;
+    /**
+    * The set of values that were successfully retrieved.
+    */
+    'values'?: Array<{ [key: string]: Date; }>;
+    /**
+    * The set of values that could not be retrieved due along with a reason for this, e.g badly formed request.
+    */
+    'failed'?: Array<{ [key: string]: ErrorDetail; }>;
+    /**
+    * Collection of links.
+    */
+    'links'?: Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "displayName",
-            "baseName": "displayName",
+            "name": "version",
+            "baseName": "version",
+            "type": "Version"
+        },
+        {
+            "name": "href",
+            "baseName": "href",
             "type": "string"
         },
         {
-            "name": "description",
-            "baseName": "description",
-            "type": "string"
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<{ [key: string]: Date; }>"
         },
         {
-            "name": "code",
-            "baseName": "code",
-            "type": "string"
+            "name": "failed",
+            "baseName": "failed",
+            "type": "Array<{ [key: string]: ErrorDetail; }>"
         },
         {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "{ [key: string]: Property; }"
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateReferencePortfolioRequest.attributeTypeMap;
+        return UpsertReturnsResponse.attributeTypeMap;
     }
 }
 

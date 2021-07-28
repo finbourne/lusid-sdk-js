@@ -10,49 +10,65 @@
  * Do not edit the class manually.
  */
 
-import { Property } from './property';
+import { Link } from './link';
+import { PerformanceReturn } from './performanceReturn';
 
-export class CreateReferencePortfolioRequest {
-    'displayName': string;
-    'description'?: string;
-    'code': string;
-    'created'?: Date;
+/**
+* A collection of resources that can be returned from requests.
+*/
+export class ResourceListOfPerformanceReturn {
     /**
-    * Portfolio properties to add to the portfolio
+    * The resources to list.
     */
-    'properties'?: { [key: string]: Property; };
+    'values': Array<PerformanceReturn>;
+    /**
+    * The URI of the resource list.
+    */
+    'href'?: string;
+    /**
+    * Collection of links.
+    */
+    'links'?: Array<Link>;
+    /**
+    * The next page of results.
+    */
+    'nextPage'?: string;
+    /**
+    * The previous page of results.
+    */
+    'previousPage'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "displayName",
-            "baseName": "displayName",
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<PerformanceReturn>"
+        },
+        {
+            "name": "href",
+            "baseName": "href",
             "type": "string"
         },
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
+        },
+        {
+            "name": "nextPage",
+            "baseName": "nextPage",
             "type": "string"
         },
         {
-            "name": "code",
-            "baseName": "code",
+            "name": "previousPage",
+            "baseName": "previousPage",
             "type": "string"
-        },
-        {
-            "name": "created",
-            "baseName": "created",
-            "type": "Date"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "{ [key: string]: Property; }"
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateReferencePortfolioRequest.attributeTypeMap;
+        return ResourceListOfPerformanceReturn.attributeTypeMap;
     }
 }
 
