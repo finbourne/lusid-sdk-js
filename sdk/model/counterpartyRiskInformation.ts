@@ -10,37 +10,41 @@
  * Do not edit the class manually.
  */
 
+import { CreditRating } from './creditRating';
+import { IndustryClassifier } from './industryClassifier';
 
-export class TransactionPrice {
-    'price'?: number;
+/**
+* In the event that the legal entity is a counterparty to an OTC transaction  (as signatory to a counterparty agreement such as an ISDA 2002 Master Agreement),  this information would be needed for calculations  such as Credit-Valuation-Adjustments and Debit-Valuation-Adjustments (CVA, DVA, XVA etc).
+*/
+export class CounterpartyRiskInformation {
     /**
-    * The available values are: Price, Yield, Spread
+    * The country to which one would naturally ascribe risk, typically the legal entity\'s country of registration. This can be used to infer funding currency and related market data in the absence of a specific preference.
     */
-    'type'?: TransactionPrice.TypeEnum;
+    'countryOfRisk': string;
+    'creditRatings': Array<CreditRating>;
+    'industryClassifiers': Array<IndustryClassifier>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "price",
-            "baseName": "price",
-            "type": "number"
+            "name": "countryOfRisk",
+            "baseName": "countryOfRisk",
+            "type": "string"
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "TransactionPrice.TypeEnum"
+            "name": "creditRatings",
+            "baseName": "creditRatings",
+            "type": "Array<CreditRating>"
+        },
+        {
+            "name": "industryClassifiers",
+            "baseName": "industryClassifiers",
+            "type": "Array<IndustryClassifier>"
         }    ];
 
     static getAttributeTypeMap() {
-        return TransactionPrice.attributeTypeMap;
+        return CounterpartyRiskInformation.attributeTypeMap;
     }
 }
 
-export namespace TransactionPrice {
-    export enum TypeEnum {
-        Price = <any> 'Price',
-        Yield = <any> 'Yield',
-        Spread = <any> 'Spread'
-    }
-}

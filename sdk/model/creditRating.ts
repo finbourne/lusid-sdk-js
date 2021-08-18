@@ -11,36 +11,35 @@
  */
 
 
-export class TransactionPrice {
-    'price'?: number;
+/**
+* Object describing a credit rating,  which assesses the stability and credit worthiness of a legal entity  and hence its likelihood of defaulting on its outstanding obligations (typically debt).
+*/
+export class CreditRating {
     /**
-    * The available values are: Price, Yield, Spread
+    * The provider of the credit rating, which will typically be an agency such as Moody\'s or Standard and Poor.
     */
-    'type'?: TransactionPrice.TypeEnum;
+    'ratingSource': string;
+    /**
+    * The credit rating provided by the rating source. This would expected to be consistent with the rating scheme of that agency/source.
+    */
+    'rating': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "price",
-            "baseName": "price",
-            "type": "number"
+            "name": "ratingSource",
+            "baseName": "ratingSource",
+            "type": "string"
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "TransactionPrice.TypeEnum"
+            "name": "rating",
+            "baseName": "rating",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return TransactionPrice.attributeTypeMap;
+        return CreditRating.attributeTypeMap;
     }
 }
 
-export namespace TransactionPrice {
-    export enum TypeEnum {
-        Price = <any> 'Price',
-        Yield = <any> 'Yield',
-        Spread = <any> 'Spread'
-    }
-}

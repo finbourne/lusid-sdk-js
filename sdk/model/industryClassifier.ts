@@ -11,36 +11,35 @@
  */
 
 
-export class TransactionPrice {
-    'price'?: number;
+/**
+* Object describing a particular industry classifier,  which comprises a classification code and the name of the classification system to which the code belongs.
+*/
+export class IndustryClassifier {
     /**
-    * The available values are: Price, Yield, Spread
+    * The name of the classification system to which the classification code belongs (e.g. GICS).
     */
-    'type'?: TransactionPrice.TypeEnum;
+    'classificationSystemName': string;
+    /**
+    * The specific industry classification code assigned to the legal entity.
+    */
+    'classificationCode': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "price",
-            "baseName": "price",
-            "type": "number"
+            "name": "classificationSystemName",
+            "baseName": "classificationSystemName",
+            "type": "string"
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "TransactionPrice.TypeEnum"
+            "name": "classificationCode",
+            "baseName": "classificationCode",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return TransactionPrice.attributeTypeMap;
+        return IndustryClassifier.attributeTypeMap;
     }
 }
 
-export namespace TransactionPrice {
-    export enum TypeEnum {
-        Price = <any> 'Price',
-        Yield = <any> 'Yield',
-        Spread = <any> 'Spread'
-    }
-}

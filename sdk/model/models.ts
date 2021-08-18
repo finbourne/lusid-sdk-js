@@ -10,6 +10,7 @@ export * from './annulQuotesResponse';
 export * from './change';
 export * from './completePortfolio';
 export * from './constituentsAdjustmentHeader';
+export * from './counterpartyRiskInformation';
 export * from './createCutLabelDefinitionRequest';
 export * from './createDerivedPropertyDefinitionRequest';
 export * from './createDerivedTransactionPortfolioRequest';
@@ -18,6 +19,7 @@ export * from './createPortfolioGroupRequest';
 export * from './createPropertyDefinitionRequest';
 export * from './createReferencePortfolioRequest';
 export * from './createTransactionPortfolioRequest';
+export * from './creditRating';
 export * from './currencyAndAmount';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
@@ -37,6 +39,7 @@ export * from './holdingsAdjustmentHeader';
 export * from './iUnitDefinitionDto';
 export * from './idSelectorDefinition';
 export * from './identifierPartSchema';
+export * from './industryClassifier';
 export * from './instrument';
 export * from './instrumentDefinition';
 export * from './instrumentIdTypeDescriptor';
@@ -160,6 +163,7 @@ import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
+import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
 import { CreateDerivedPropertyDefinitionRequest } from './createDerivedPropertyDefinitionRequest';
 import { CreateDerivedTransactionPortfolioRequest } from './createDerivedTransactionPortfolioRequest';
@@ -168,6 +172,7 @@ import { CreatePortfolioGroupRequest } from './createPortfolioGroupRequest';
 import { CreatePropertyDefinitionRequest } from './createPropertyDefinitionRequest';
 import { CreateReferencePortfolioRequest } from './createReferencePortfolioRequest';
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
+import { CreditRating } from './creditRating';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
@@ -187,6 +192,7 @@ import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { IdentifierPartSchema } from './identifierPartSchema';
+import { IndustryClassifier } from './industryClassifier';
 import { Instrument } from './instrument';
 import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
@@ -364,6 +370,7 @@ let typeMap: {[index: string]: any} = {
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
+    "CounterpartyRiskInformation": CounterpartyRiskInformation,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
     "CreateDerivedPropertyDefinitionRequest": CreateDerivedPropertyDefinitionRequest,
     "CreateDerivedTransactionPortfolioRequest": CreateDerivedTransactionPortfolioRequest,
@@ -372,6 +379,7 @@ let typeMap: {[index: string]: any} = {
     "CreatePropertyDefinitionRequest": CreatePropertyDefinitionRequest,
     "CreateReferencePortfolioRequest": CreateReferencePortfolioRequest,
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
+    "CreditRating": CreditRating,
     "CurrencyAndAmount": CurrencyAndAmount,
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
@@ -391,6 +399,7 @@ let typeMap: {[index: string]: any} = {
     "IUnitDefinitionDto": IUnitDefinitionDto,
     "IdSelectorDefinition": IdSelectorDefinition,
     "IdentifierPartSchema": IdentifierPartSchema,
+    "IndustryClassifier": IndustryClassifier,
     "Instrument": Instrument,
     "InstrumentDefinition": InstrumentDefinition,
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
