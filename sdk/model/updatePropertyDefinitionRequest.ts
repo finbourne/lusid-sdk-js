@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 export class UpdatePropertyDefinitionRequest {
     /**
@@ -19,7 +20,7 @@ export class UpdatePropertyDefinitionRequest {
     /**
     * Describes the property
     */
-    'propertyDescription'?: string;
+    'propertyDescription'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

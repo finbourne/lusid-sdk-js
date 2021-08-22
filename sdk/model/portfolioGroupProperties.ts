@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { Link } from './link';
 import { Property } from './property';
 import { Version } from './version';
@@ -18,16 +19,16 @@ export class PortfolioGroupProperties {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * The portfolio group properties. These will be from the \'PortfolioGroup\' domain.
     */
-    'properties'?: { [key: string]: Property; };
+    'properties'?: { [key: string]: Property; } | null;
     'version'?: Version;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

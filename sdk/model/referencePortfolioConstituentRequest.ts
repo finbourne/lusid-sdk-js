@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { PerpetualProperty } from './perpetualProperty';
 
 export class ReferencePortfolioConstituentRequest {
@@ -17,9 +18,9 @@ export class ReferencePortfolioConstituentRequest {
     * Unique instrument identifiers
     */
     'instrumentIdentifiers': { [key: string]: string; };
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     'weight': number;
-    'currency'?: string;
+    'currency'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

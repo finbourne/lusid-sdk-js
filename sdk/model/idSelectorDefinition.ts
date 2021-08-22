@@ -10,13 +10,14 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { ActionId } from './actionId';
 
 export class IdSelectorDefinition {
     'identifier': { [key: string]: string; };
     'actions': Array<ActionId>;
-    'name'?: string;
-    'description'?: string;
+    'name'?: string | null;
+    'description'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

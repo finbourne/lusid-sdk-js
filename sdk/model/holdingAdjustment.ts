@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { PerpetualProperty } from './perpetualProperty';
 import { TargetTaxLot } from './targetTaxLot';
 
@@ -20,7 +21,7 @@ export class HoldingAdjustment {
     /**
     * A set of instrument identifiers that can resolve the holding adjustment to a unique instrument.
     */
-    'instrumentIdentifiers'?: { [key: string]: string; };
+    'instrumentIdentifiers'?: { [key: string]: string; } | null;
     /**
     * The unqiue Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in.
     */
@@ -28,11 +29,11 @@ export class HoldingAdjustment {
     /**
     * The set of unique transaction properties and associated values stored with the holding adjustment transactions automatically created by LUSID. Each property will be from the \'Transaction\' domain.
     */
-    'subHoldingKeys'?: { [key: string]: PerpetualProperty; };
+    'subHoldingKeys'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * The set of unique holding properties and associated values stored with the target holding. Each property will be from the \'Holding\' domain.
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * The tax-lots that together make up the target holding.
     */
@@ -40,7 +41,7 @@ export class HoldingAdjustment {
     /**
     * The Holding currency.
     */
-    'currency'?: string;
+    'currency'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

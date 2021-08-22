@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CurrencyAndAmount } from './currencyAndAmount';
 
 export class TargetTaxLotRequest {
@@ -21,19 +22,19 @@ export class TargetTaxLotRequest {
     /**
     * The total cost of the tax-lot in the transaction portfolio\'s base currency.
     */
-    'portfolioCost'?: number;
+    'portfolioCost'?: number | null;
     /**
     * The purchase price of each unit of the instrument held in this tax-lot. This forms part of the unique key required for multiple tax-lots.
     */
-    'price'?: number;
+    'price'?: number | null;
     /**
     * The purchase date of this tax-lot. This forms part of the unique key required for multiple tax-lots.
     */
-    'purchaseDate'?: Date;
+    'purchaseDate'?: Date | null;
     /**
     * The settlement date of the tax-lot\'s opening transaction.
     */
-    'settlementDate'?: Date;
+    'settlementDate'?: Date | null;
 
     static discriminator: string | undefined = undefined;
 

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { PerpetualProperty } from './perpetualProperty';
 import { TransactionPropertyMappingRequest } from './transactionPropertyMappingRequest';
 
@@ -29,15 +30,15 @@ export class TransactionConfigurationMovementDataRequest {
     /**
     * The properties associated with the underlying Movement.
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * This allows you to map a transaction property to a property on the underlying holding.
     */
-    'mappings'?: Array<TransactionPropertyMappingRequest>;
+    'mappings'?: Array<TransactionPropertyMappingRequest> | null;
     /**
     * The movement name (optional)
     */
-    'name'?: string;
+    'name'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

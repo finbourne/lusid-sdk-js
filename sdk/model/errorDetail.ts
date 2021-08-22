@@ -10,24 +10,25 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 export class ErrorDetail {
     /**
     * The id of the failed item that this error relates to.
     */
-    'id'?: string;
+    'id'?: string | null;
     /**
     * The type of failure that occurred.
     */
-    'type'?: string;
+    'type'?: string | null;
     /**
     * Description of the failure that occurred.
     */
-    'detail'?: string;
+    'detail'?: string | null;
     /**
     * Information about the particular instance of the failure (supplied information depends on the type of failure).
     */
-    'errorDetails'?: Array<{ [key: string]: string; }>;
+    'errorDetails'?: Array<{ [key: string]: string; }> | null;
 
     static discriminator: string | undefined = undefined;
 

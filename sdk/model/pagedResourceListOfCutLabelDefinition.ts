@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { Link } from './link';
 
@@ -20,11 +21,11 @@ export class PagedResourceListOfCutLabelDefinition {
     /**
     * The next page of results.
     */
-    'nextPage'?: string;
+    'nextPage'?: string | null;
     /**
     * The previous page of results.
     */
-    'previousPage'?: string;
+    'previousPage'?: string | null;
     /**
     * The resources to list.
     */
@@ -32,11 +33,11 @@ export class PagedResourceListOfCutLabelDefinition {
     /**
     * The URI of the resource list.
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

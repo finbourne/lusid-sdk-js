@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { PerpetualProperty } from './perpetualProperty';
 import { ResourceId } from './resourceId';
@@ -21,7 +22,7 @@ export class AllocationRequest {
     /**
     * Client-defined properties associated with this allocation.
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * The instrument allocated.
     */
@@ -36,19 +37,19 @@ export class AllocationRequest {
     /**
     * A placement - also known as an order placed in the market - associated with this allocation.
     */
-    'placementIds'?: Array<ResourceId>;
+    'placementIds'?: Array<ResourceId> | null;
     /**
     * The state of this allocation.
     */
-    'state'?: string;
+    'state'?: string | null;
     /**
     * The side of this allocation (examples: Buy, Sell, ...).
     */
-    'side'?: string;
+    'side'?: string | null;
     /**
     * The type of order associated with this allocation (examples: Limit, Market, ...).
     */
-    'type'?: string;
+    'type'?: string | null;
     /**
     * The settlement date for this allocation.
     */
@@ -61,7 +62,7 @@ export class AllocationRequest {
     /**
     * The settlement currency of this allocation.
     */
-    'settlementCurrency'?: string;
+    'settlementCurrency'?: string | null;
     /**
     * The settlement currency to allocation currency FX rate.
     */
@@ -69,7 +70,7 @@ export class AllocationRequest {
     /**
     * The counterparty for this allocation.
     */
-    'counterparty'?: string;
+    'counterparty'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

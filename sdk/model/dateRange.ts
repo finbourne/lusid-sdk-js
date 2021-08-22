@@ -10,10 +10,11 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 export class DateRange {
     'fromDate': Date;
-    'untilDate'?: Date;
+    'untilDate'?: Date | null;
 
     static discriminator: string | undefined = undefined;
 

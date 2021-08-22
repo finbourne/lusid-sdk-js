@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { PerpetualProperty } from './perpetualProperty';
 import { Property } from './property';
@@ -26,11 +27,11 @@ export class PortfolioHolding {
     /**
     * The sub-holding properties which identify the holding. Each property will be from the \'Transaction\' domain. These are configured when a transaction portfolio is created.
     */
-    'subHoldingKeys'?: { [key: string]: PerpetualProperty; };
+    'subHoldingKeys'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * The properties which have been requested to be decorated onto the holding. These will be from the \'Instrument\' or \'Holding\' domain.
     */
-    'properties'?: { [key: string]: Property; };
+    'properties'?: { [key: string]: Property; } | null;
     /**
     * The type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc.
     */
@@ -49,7 +50,7 @@ export class PortfolioHolding {
     /**
     * The holding currency.
     */
-    'currency'?: string;
+    'currency'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { Link } from './link';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 
@@ -23,7 +24,7 @@ export class GetReferencePortfolioConstituentsResponse {
     * The available values are: Daily, Weekly, Monthly, Quarterly, Annually
     */
     'periodType'?: GetReferencePortfolioConstituentsResponse.PeriodTypeEnum;
-    'periodCount'?: number;
+    'periodCount'?: number | null;
     /**
     * Set of constituents (instrument/weight pairings)
     */
@@ -31,11 +32,11 @@ export class GetReferencePortfolioConstituentsResponse {
     /**
     * The Uri that returns the same result as the original request,  but may include resolved as at time(s).
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

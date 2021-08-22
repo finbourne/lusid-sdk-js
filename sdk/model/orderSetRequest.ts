@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { OrderRequest } from './orderRequest';
 
 /**
@@ -19,7 +20,7 @@ export class OrderSetRequest {
     /**
     * A collection of OrderRequests.
     */
-    'orderRequests'?: Array<OrderRequest>;
+    'orderRequests'?: Array<OrderRequest> | null;
 
     static discriminator: string | undefined = undefined;
 

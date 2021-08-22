@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { Link } from './link';
 import { ResourceId } from './resourceId';
 
@@ -17,18 +18,18 @@ import { ResourceId } from './resourceId';
 * The time an entity was modified (amendment and/or historical correction).
 */
 export class Change {
-    'href'?: string;
+    'href'?: string | null;
     'entityId': ResourceId;
     'corrected': boolean;
-    'correctionEffectiveAt'?: Date;
-    'correctionAsAt'?: Date;
+    'correctionEffectiveAt'?: Date | null;
+    'correctionAsAt'?: Date | null;
     'amended': boolean;
-    'amendmentEffectiveAt'?: Date;
-    'amendmentAsAt'?: Date;
+    'amendmentEffectiveAt'?: Date | null;
+    'amendmentAsAt'?: Date | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

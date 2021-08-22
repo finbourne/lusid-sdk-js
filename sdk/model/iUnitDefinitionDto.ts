@@ -10,15 +10,16 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 export class IUnitDefinitionDto {
     /**
     * The available values are: NoUnits, Basic, Iso4217Currency
     */
     'schema'?: IUnitDefinitionDto.SchemaEnum;
-    'code'?: string;
-    'displayName'?: string;
-    'description'?: string;
+    'code'?: string | null;
+    'displayName'?: string | null;
+    'description'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

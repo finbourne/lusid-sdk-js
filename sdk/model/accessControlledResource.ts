@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { AccessControlledAction } from './accessControlledAction';
 import { IdentifierPartSchema } from './identifierPartSchema';
 import { Link } from './link';
@@ -21,11 +22,11 @@ export class AccessControlledResource {
     /**
     * The application to which this resource belongs
     */
-    'application'?: string;
+    'application'?: string | null;
     /**
     * The display name of the resource
     */
-    'name'?: string;
+    'name'?: string | null;
     /**
     * The description of the resource
     */
@@ -37,11 +38,11 @@ export class AccessControlledResource {
     /**
     * The constituent parts of a valid identifier for this resource
     */
-    'identifierParts'?: Array<IdentifierPartSchema>;
+    'identifierParts'?: Array<IdentifierPartSchema> | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

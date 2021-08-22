@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { PerpetualProperty } from './perpetualProperty';
 import { ResourceId } from './resourceId';
@@ -21,7 +22,7 @@ export class OrderRequest {
     /**
     * Client-defined properties associated with this order.
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * The instrument ordered.
     */
@@ -40,15 +41,15 @@ export class OrderRequest {
     /**
     * The order\'s state (examples: New, PartiallyFilled, ...)
     */
-    'state'?: string;
+    'state'?: string | null;
     /**
     * The order\'s type (examples: Limit, Market, ...)
     */
-    'type'?: string;
+    'type'?: string | null;
     /**
     * The order\'s time in force (examples: Day, GoodTilCancel, ...)
     */
-    'timeInForce'?: string;
+    'timeInForce'?: string | null;
     /**
     * The date on which the order was made
     */

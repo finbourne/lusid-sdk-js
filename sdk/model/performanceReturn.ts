@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 /**
 * A list of Returns.
@@ -26,15 +27,15 @@ export class PerformanceReturn {
     /**
     * The opening market value.
     */
-    'openingMarketValue'?: number;
+    'openingMarketValue'?: number | null;
     /**
     * The closing market value.
     */
-    'closingMarketValue'?: number;
+    'closingMarketValue'?: number | null;
     /**
     * Show the returns on a Daily or Monthly period.
     */
-    'period'?: string;
+    'period'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

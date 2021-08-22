@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 export class UpdatePortfolioRequest {
     /**
@@ -19,7 +20,7 @@ export class UpdatePortfolioRequest {
     /**
     * The description of the transaction portfolio.
     */
-    'description'?: string;
+    'description'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

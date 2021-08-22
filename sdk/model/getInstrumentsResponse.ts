@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { ErrorDetail } from './errorDetail';
 import { Instrument } from './instrument';
 import { Link } from './link';
@@ -18,19 +19,19 @@ export class GetInstrumentsResponse {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * The instrument definitions, keyed by the identifier used to retrieve them. Only instruments that were found will be contained in this collection.
     */
-    'values'?: { [key: string]: Instrument; };
+    'values'?: { [key: string]: Instrument; } | null;
     /**
     * The identifiers that did not resolve to an instrument along with the nature of the failure.
     */
-    'failed'?: { [key: string]: ErrorDetail; };
+    'failed'?: { [key: string]: ErrorDetail; } | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

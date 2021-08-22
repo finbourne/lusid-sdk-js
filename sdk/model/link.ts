@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 /**
 * Link class.
@@ -26,7 +27,7 @@ export class Link {
     /**
     * Description of link.
     */
-    'description'?: string;
+    'description'?: string | null;
     /**
     * Http method of link.
     */
