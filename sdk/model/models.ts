@@ -1,5 +1,3 @@
-import localVarRequest from 'request';
-
 export * from './accessControlledAction';
 export * from './accessControlledResource';
 export * from './actionId';
@@ -151,18 +149,7 @@ export * from './versionedResourceListOfOutputTransaction';
 export * from './versionedResourceListOfPortfolioHolding';
 export * from './versionedResourceListOfTransaction';
 
-import * as fs from 'fs';
-
-export interface RequestDetailedFile {
-    value: Buffer;
-    options?: {
-        filename?: string;
-        contentType?: string;
-    }
-}
-
-export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
-
+import localVarRequest = require('request');
 
 import { AccessControlledAction } from './accessControlledAction';
 import { AccessControlledResource } from './accessControlledResource';
@@ -326,7 +313,7 @@ let primitives = [
                     "number",
                     "any"
                  ];
-
+                 
 let enumsMap: {[index: string]: any} = {
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
         "CreateDerivedPropertyDefinitionRequest.DomainEnum": CreateDerivedPropertyDefinitionRequest.DomainEnum,
@@ -568,9 +555,9 @@ export class ObjectSerializer {
             let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
             subType = subType.substring(0, subType.length - 1); // Type> => Type
             let transformedData: any[] = [];
-            for (let index = 0; index < data.length; index++) {
-                let datum = data[index];
-                transformedData.push(ObjectSerializer.serialize(datum, subType));
+            for (let index in data) {
+                let date = data[index];
+                transformedData.push(ObjectSerializer.serialize(date, subType));
             }
             return transformedData;
         } else if (type === "Date") {
@@ -582,14 +569,14 @@ export class ObjectSerializer {
             if (!typeMap[type]) { // in case we dont know the type
                 return data;
             }
-
+            
             // Get the actual type of this object
             type = this.findCorrectType(data, type);
 
             // get the map for the correct type.
             let attributeTypes = typeMap[type].getAttributeTypeMap();
             let instance: {[index: string]: any} = {};
-            for (let index = 0; index < attributeTypes.length; index++) {
+            for (let index in attributeTypes) {
                 let attributeType = attributeTypes[index];
                 instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
             }
@@ -608,9 +595,9 @@ export class ObjectSerializer {
             let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
             subType = subType.substring(0, subType.length - 1); // Type> => Type
             let transformedData: any[] = [];
-            for (let index = 0; index < data.length; index++) {
-                let datum = data[index];
-                transformedData.push(ObjectSerializer.deserialize(datum, subType));
+            for (let index in data) {
+                let date = data[index];
+                transformedData.push(ObjectSerializer.deserialize(date, subType));
             }
             return transformedData;
         } else if (type === "Date") {
@@ -625,7 +612,7 @@ export class ObjectSerializer {
             }
             let instance = new typeMap[type]();
             let attributeTypes = typeMap[type].getAttributeTypeMap();
-            for (let index = 0; index < attributeTypes.length; index++) {
+            for (let index in attributeTypes) {
                 let attributeType = attributeTypes[index];
                 instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type);
             }
@@ -638,7 +625,7 @@ export interface Authentication {
     /**
     * Apply authentication settings to header and query params.
     */
-    applyToRequest(requestOptions: localVarRequest.Options): Promise<void> | void;
+    applyToRequest(requestOptions: localVarRequest.Options): void;
 }
 
 export class HttpBasicAuth implements Authentication {
@@ -648,19 +635,6 @@ export class HttpBasicAuth implements Authentication {
     applyToRequest(requestOptions: localVarRequest.Options): void {
         requestOptions.auth = {
             username: this.username, password: this.password
-        }
-    }
-}
-
-export class HttpBearerAuth implements Authentication {
-    public accessToken: string | (() => string) = '';
-
-    applyToRequest(requestOptions: localVarRequest.Options): void {
-        if (requestOptions && requestOptions.headers) {
-            const accessToken = typeof this.accessToken === 'function'
-                            ? this.accessToken()
-                            : this.accessToken;
-            requestOptions.headers["Authorization"] = "Bearer " + accessToken;
         }
     }
 }
@@ -676,13 +650,6 @@ export class ApiKeyAuth implements Authentication {
             (<any>requestOptions.qs)[this.paramName] = this.apiKey;
         } else if (this.location == "header" && requestOptions && requestOptions.headers) {
             requestOptions.headers[this.paramName] = this.apiKey;
-        } else if (this.location == 'cookie' && requestOptions && requestOptions.headers) {
-            if (requestOptions.headers['Cookie']) {
-                requestOptions.headers['Cookie'] += '; ' + this.paramName + '=' + encodeURIComponent(this.apiKey);
-            }
-            else {
-                requestOptions.headers['Cookie'] = this.paramName + '=' + encodeURIComponent(this.apiKey);
-            }
         }
     }
 }
@@ -705,5 +672,3 @@ export class VoidAuth implements Authentication {
         // Do nothing
     }
 }
-
-export type Interceptor = (requestOptions: localVarRequest.Options) => (Promise<void> | void);
