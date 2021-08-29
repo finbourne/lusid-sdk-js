@@ -10,13 +10,14 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 export class MetricValue {
     /**
     * The numerical value of the property.
     */
     'value'?: number;
-    'unit'?: string;
+    'unit'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

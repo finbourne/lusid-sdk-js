@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { Link } from './link';
 import { ResourceId } from './resourceId';
 import { Version } from './version';
@@ -18,7 +19,7 @@ export class PortfolioGroup {
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string;
+    'href'?: string | null;
     'id': ResourceId;
     /**
     * The name of the portfolio group.
@@ -27,7 +28,7 @@ export class PortfolioGroup {
     /**
     * The long form description of the portfolio group.
     */
-    'description'?: string;
+    'description'?: string | null;
     /**
     * The effective datetime at which the portfolio group was created. No portfolios or sub groups can be added to the group before this date.
     */
@@ -35,16 +36,16 @@ export class PortfolioGroup {
     /**
     * The collection of resource identifiers for the portfolios contained in the portfolio group.
     */
-    'portfolios'?: Array<ResourceId>;
+    'portfolios'?: Array<ResourceId> | null;
     /**
     * The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups.
     */
-    'subGroups'?: Array<ResourceId>;
+    'subGroups'?: Array<ResourceId> | null;
     'version'?: Version;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

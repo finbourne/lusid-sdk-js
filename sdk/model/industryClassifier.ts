@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 /**
 * Object describing a particular industry classifier,  which comprises a classification code and the name of the classification system to which the code belongs.

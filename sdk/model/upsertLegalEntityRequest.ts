@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
 import { Property } from './property';
 
@@ -24,7 +25,7 @@ export class UpsertLegalEntityRequest {
     /**
     * A set of properties associated to the Legal Entity.
     */
-    'properties'?: { [key: string]: Property; };
+    'properties'?: { [key: string]: Property; } | null;
     /**
     * The display name of the Legal Entity
     */
@@ -32,7 +33,7 @@ export class UpsertLegalEntityRequest {
     /**
     * The description of the Legal Entity
     */
-    'description'?: string;
+    'description'?: string | null;
     'counterpartyRiskInformation'?: CounterpartyRiskInformation;
 
     static discriminator: string | undefined = undefined;

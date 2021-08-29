@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { ActionId } from './actionId';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { Link } from './link';
@@ -26,11 +27,11 @@ export class AccessControlledAction {
     /**
     * When populated, the provided values are the limited set of resources that are allowed to be specified for  access control for this action
     */
-    'limitedSet'?: Array<IdSelectorDefinition>;
+    'limitedSet'?: Array<IdSelectorDefinition> | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

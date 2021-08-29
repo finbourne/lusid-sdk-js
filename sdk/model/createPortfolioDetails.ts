@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { ResourceId } from './resourceId';
 
 export class CreatePortfolioDetails {

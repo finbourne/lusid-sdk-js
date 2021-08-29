@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CreditRating } from './creditRating';
 import { IndustryClassifier } from './industryClassifier';
 

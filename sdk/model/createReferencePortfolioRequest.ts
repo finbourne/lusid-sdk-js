@@ -10,17 +10,18 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { Property } from './property';
 
 export class CreateReferencePortfolioRequest {
     'displayName': string;
-    'description'?: string;
+    'description'?: string | null;
     'code': string;
-    'created'?: Date;
+    'created'?: Date | null;
     /**
     * Portfolio properties to add to the portfolio
     */
-    'properties'?: { [key: string]: Property; };
+    'properties'?: { [key: string]: Property; } | null;
 
     static discriminator: string | undefined = undefined;
 

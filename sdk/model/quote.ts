@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { MetricValue } from './metricValue';
 import { QuoteId } from './quoteId';
 
@@ -22,11 +23,11 @@ export class Quote {
     /**
     * Description of the quote\'s lineage e.g. \'FundAccountant_GreenQuality\'.
     */
-    'lineage'?: string;
+    'lineage'?: string | null;
     /**
     * The cut label that this quote was updated or inserted with.
     */
-    'cutLabel'?: string;
+    'cutLabel'?: string | null;
     /**
     * The unique id of the user that updated or inserted the quote.
     */
@@ -38,7 +39,7 @@ export class Quote {
     /**
     * An optional scale factor for non-standard scaling of quotes against the instrument. If not supplied, the default ScaleFactor is 1.
     */
-    'scaleFactor'?: number;
+    'scaleFactor'?: number | null;
 
     static discriminator: string | undefined = undefined;
 

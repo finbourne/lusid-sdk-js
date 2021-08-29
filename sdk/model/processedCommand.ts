@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { User } from './user';
 
 /**
@@ -23,7 +24,7 @@ export class ProcessedCommand {
     /**
     * The unique identifier for the command including the request id.
     */
-    'path'?: string;
+    'path'?: string | null;
     'userId': User;
     /**
     * The asAt datetime that the events published by the processing of this command were committed to LUSID.

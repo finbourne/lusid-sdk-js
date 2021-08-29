@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { Link } from './link';
 import { PerpetualProperty } from './perpetualProperty';
@@ -35,7 +36,7 @@ export class Allocation {
     /**
     * Client-defined properties associated with this allocation.
     */
-    'properties'?: { [key: string]: PerpetualProperty; };
+    'properties'?: { [key: string]: PerpetualProperty; } | null;
     /**
     * The LUSID instrument id for the instrument allocated.
     */
@@ -43,19 +44,19 @@ export class Allocation {
     /**
     * A placement - also known as an order placed in the market - associated with this allocation.
     */
-    'placementIds'?: Array<ResourceId>;
+    'placementIds'?: Array<ResourceId> | null;
     /**
     * The state of this allocation.
     */
-    'state'?: string;
+    'state'?: string | null;
     /**
     * The side of this allocation (examples: Buy, Sell, ...).
     */
-    'side'?: string;
+    'side'?: string | null;
     /**
     * The type of order associated with this allocation (examples: Limit, Market, ...).
     */
-    'type'?: string;
+    'type'?: string | null;
     /**
     * The settlement date for this allocation.
     */
@@ -68,7 +69,7 @@ export class Allocation {
     /**
     * The settlement currency of this allocation.
     */
-    'settlementCurrency'?: string;
+    'settlementCurrency'?: string | null;
     /**
     * The settlement currency to allocation currency FX rate.
     */
@@ -76,11 +77,11 @@ export class Allocation {
     /**
     * The counterparty for this allocation.
     */
-    'counterparty'?: string;
+    'counterparty'?: string | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

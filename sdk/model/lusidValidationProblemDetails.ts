@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 /**
 * A description of a problem that has arisen whilst validating a request
@@ -22,18 +23,18 @@ export class LusidValidationProblemDetails {
     /**
     * Any additional informational information available about the nature and detail of the problem
     */
-    'errorDetails'?: Array<{ [key: string]: string; }>;
+    'errorDetails'?: Array<{ [key: string]: string; }> | null;
     /**
     * Get the error code of the response
     */
     'code': number;
-    'errors'?: { [key: string]: Array<string>; };
-    'type'?: string;
-    'title'?: string;
-    'status'?: number;
-    'detail'?: string;
-    'instance'?: string;
-    'extensions'?: { [key: string]: object; };
+    'errors'?: { [key: string]: Array<string>; } | null;
+    'type'?: string | null;
+    'title'?: string | null;
+    'status'?: number | null;
+    'detail'?: string | null;
+    'instance'?: string | null;
+    'extensions'?: { [key: string]: object; } | null;
 
     static discriminator: string | undefined = undefined;
 

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
 import { Link } from './link';
 import { Property } from './property';
@@ -22,33 +23,33 @@ export class LegalEntity {
     /**
     * The display name of the Legal Entity
     */
-    'displayName'?: string;
+    'displayName'?: string | null;
     /**
     * The description of the Legal Entity
     */
-    'description'?: string;
+    'description'?: string | null;
     /**
     * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * The unique LUSID Legal Entity Identifier (LULEID) of the Legal Entity. This field is not populated until further notice.
     */
-    'lusidLegalEntityId'?: string;
+    'lusidLegalEntityId'?: string | null;
     /**
     * Unique client-defined identifiers of the Legal Entity.
     */
-    'identifiers'?: { [key: string]: Property; };
+    'identifiers'?: { [key: string]: Property; } | null;
     /**
     * A set of properties associated to the Legal Entity.
     */
-    'properties'?: { [key: string]: Property; };
+    'properties'?: { [key: string]: Property; } | null;
     'counterpartyRiskInformation'?: CounterpartyRiskInformation;
     'version'?: Version;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { Link } from './link';
 
@@ -24,19 +25,19 @@ export class ResourceListOfIUnitDefinitionDto {
     /**
     * The URI of the resource list.
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
     /**
     * The next page of results.
     */
-    'nextPage'?: string;
+    'nextPage'?: string | null;
     /**
     * The previous page of results.
     */
-    'previousPage'?: string;
+    'previousPage'?: string | null;
 
     static discriminator: string | undefined = undefined;
 

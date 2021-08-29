@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 
 export class TransactionPropertyMappingRequest {
     /**
@@ -19,11 +20,11 @@ export class TransactionPropertyMappingRequest {
     /**
     * The Property Key of the Property to map from.
     */
-    'mapFrom'?: string;
+    'mapFrom'?: string | null;
     /**
     * A pointer to the Property being mapped from.
     */
-    'setTo'?: object;
+    'setTo'?: object | null;
 
     static discriminator: string | undefined = undefined;
 

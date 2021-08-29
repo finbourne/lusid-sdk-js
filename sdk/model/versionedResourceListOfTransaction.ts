@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from './models';
 import { Link } from './link';
 import { Transaction } from './transaction';
 import { Version } from './version';
@@ -23,19 +24,19 @@ export class VersionedResourceListOfTransaction {
     /**
     * The URI of the resource list.
     */
-    'href'?: string;
+    'href'?: string | null;
     /**
     * The next page of results.
     */
-    'nextPage'?: string;
+    'nextPage'?: string | null;
     /**
     * The previous page of results.
     */
-    'previousPage'?: string;
+    'previousPage'?: string | null;
     /**
     * Collection of links.
     */
-    'links'?: Array<Link>;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
