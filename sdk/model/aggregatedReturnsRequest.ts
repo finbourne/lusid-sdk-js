@@ -11,106 +11,71 @@
  */
 
 import { RequestFile } from './models';
+import { PerformanceReturnsMetric } from './performanceReturnsMetric';
 import { ResourceId } from './resourceId';
 
-export class CreateDerivedPropertyDefinitionRequest {
+/**
+* The request used in the AggregatedReturns.
+*/
+export class AggregatedReturnsRequest {
     /**
-    * The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity
+    * A list of metrics to calculate in the AggregatedReturns.
     */
-    'domain': CreateDerivedPropertyDefinitionRequest.DomainEnum;
+    'metrics': Array<PerformanceReturnsMetric>;
+    'recipeId'?: ResourceId;
     /**
-    * The scope that the property exists in.
+    * The method used to calculate the Portfolio performance: Equal/Asset.
     */
-    'scope': string;
+    'compositeMethod'?: string | null;
     /**
-    * The code of the property. Together with the domain and scope this uniquely identifies the property.
+    * The type of the returns used to calculate the aggregation result: Daily/Monthly.
     */
-    'code': string;
+    'period'?: string | null;
     /**
-    * The display name of the property.
+    * The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly.
     */
-    'displayName': string;
-    'dataTypeId': ResourceId;
+    'outputFrequency'?: string | null;
     /**
-    * Describes the property
+    * Optional - either a date, or the key for a portfolio property containing a date. If provided, the given date will override the inception date for this request.
     */
-    'propertyDescription'?: string | null;
-    /**
-    * The rule that defines how data is composed for a derived property.
-    */
-    'derivationFormula'?: string | null;
+    'alternativeInceptionDate'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "domain",
-            "baseName": "domain",
-            "type": "CreateDerivedPropertyDefinitionRequest.DomainEnum"
+            "name": "metrics",
+            "baseName": "metrics",
+            "type": "Array<PerformanceReturnsMetric>"
         },
         {
-            "name": "scope",
-            "baseName": "scope",
-            "type": "string"
-        },
-        {
-            "name": "code",
-            "baseName": "code",
-            "type": "string"
-        },
-        {
-            "name": "displayName",
-            "baseName": "displayName",
-            "type": "string"
-        },
-        {
-            "name": "dataTypeId",
-            "baseName": "dataTypeId",
+            "name": "recipeId",
+            "baseName": "recipeId",
             "type": "ResourceId"
         },
         {
-            "name": "propertyDescription",
-            "baseName": "propertyDescription",
+            "name": "compositeMethod",
+            "baseName": "compositeMethod",
             "type": "string"
         },
         {
-            "name": "derivationFormula",
-            "baseName": "derivationFormula",
+            "name": "period",
+            "baseName": "period",
+            "type": "string"
+        },
+        {
+            "name": "outputFrequency",
+            "baseName": "outputFrequency",
+            "type": "string"
+        },
+        {
+            "name": "alternativeInceptionDate",
+            "baseName": "alternativeInceptionDate",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateDerivedPropertyDefinitionRequest.attributeTypeMap;
+        return AggregatedReturnsRequest.attributeTypeMap;
     }
 }
 
-export namespace CreateDerivedPropertyDefinitionRequest {
-    export enum DomainEnum {
-        NotDefined = <any> 'NotDefined',
-        Transaction = <any> 'Transaction',
-        Portfolio = <any> 'Portfolio',
-        Holding = <any> 'Holding',
-        ReferenceHolding = <any> 'ReferenceHolding',
-        TransactionConfiguration = <any> 'TransactionConfiguration',
-        Instrument = <any> 'Instrument',
-        CutLabelDefinition = <any> 'CutLabelDefinition',
-        Analytic = <any> 'Analytic',
-        PortfolioGroup = <any> 'PortfolioGroup',
-        Person = <any> 'Person',
-        AccessMetadata = <any> 'AccessMetadata',
-        Order = <any> 'Order',
-        UnitResult = <any> 'UnitResult',
-        MarketData = <any> 'MarketData',
-        ConfigurationRecipe = <any> 'ConfigurationRecipe',
-        Allocation = <any> 'Allocation',
-        Calendar = <any> 'Calendar',
-        LegalEntity = <any> 'LegalEntity',
-        Placement = <any> 'Placement',
-        Execution = <any> 'Execution',
-        Block = <any> 'Block',
-        Participation = <any> 'Participation',
-        Package = <any> 'Package',
-        OrderInstruction = <any> 'OrderInstruction',
-        CustomEntity = <any> 'CustomEntity'
-    }
-}

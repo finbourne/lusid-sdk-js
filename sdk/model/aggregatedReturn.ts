@@ -13,104 +13,80 @@
 import { RequestFile } from './models';
 import { ResourceId } from './resourceId';
 
-export class CreateDerivedPropertyDefinitionRequest {
+/**
+* A list of Aggregated Returns.
+*/
+export class AggregatedReturn {
     /**
-    * The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity
+    * The effectiveAt for the return.
     */
-    'domain': CreateDerivedPropertyDefinitionRequest.DomainEnum;
+    'effectiveAt': Date;
     /**
-    * The scope that the property exists in.
+    * The opening market value.
     */
-    'scope': string;
+    'openingMarketValue'?: number | null;
     /**
-    * The code of the property. Together with the domain and scope this uniquely identifies the property.
+    * The closing market value.
     */
-    'code': string;
+    'closingMarketValue'?: number | null;
     /**
-    * The display name of the property.
+    * The value for the specified metric.
     */
-    'displayName': string;
-    'dataTypeId': ResourceId;
+    'metricsValue': { [key: string]: number; };
     /**
-    * Describes the property
+    * Show the aggregated output returns on a Daily or Monthly period.
     */
-    'propertyDescription'?: string | null;
+    'frequency'?: string | null;
     /**
-    * The rule that defines how data is composed for a derived property.
+    * The number of members in the Composite on the given day.
     */
-    'derivationFormula'?: string | null;
+    'compositeMembers'?: number | null;
+    /**
+    * List containing Composite members which post no return on the given day.
+    */
+    'compositeMembersWithoutReturn'?: Array<ResourceId> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "domain",
-            "baseName": "domain",
-            "type": "CreateDerivedPropertyDefinitionRequest.DomainEnum"
+            "name": "effectiveAt",
+            "baseName": "effectiveAt",
+            "type": "Date"
         },
         {
-            "name": "scope",
-            "baseName": "scope",
+            "name": "openingMarketValue",
+            "baseName": "openingMarketValue",
+            "type": "number"
+        },
+        {
+            "name": "closingMarketValue",
+            "baseName": "closingMarketValue",
+            "type": "number"
+        },
+        {
+            "name": "metricsValue",
+            "baseName": "metricsValue",
+            "type": "{ [key: string]: number; }"
+        },
+        {
+            "name": "frequency",
+            "baseName": "frequency",
             "type": "string"
         },
         {
-            "name": "code",
-            "baseName": "code",
-            "type": "string"
+            "name": "compositeMembers",
+            "baseName": "compositeMembers",
+            "type": "number"
         },
         {
-            "name": "displayName",
-            "baseName": "displayName",
-            "type": "string"
-        },
-        {
-            "name": "dataTypeId",
-            "baseName": "dataTypeId",
-            "type": "ResourceId"
-        },
-        {
-            "name": "propertyDescription",
-            "baseName": "propertyDescription",
-            "type": "string"
-        },
-        {
-            "name": "derivationFormula",
-            "baseName": "derivationFormula",
-            "type": "string"
+            "name": "compositeMembersWithoutReturn",
+            "baseName": "compositeMembersWithoutReturn",
+            "type": "Array<ResourceId>"
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateDerivedPropertyDefinitionRequest.attributeTypeMap;
+        return AggregatedReturn.attributeTypeMap;
     }
 }
 
-export namespace CreateDerivedPropertyDefinitionRequest {
-    export enum DomainEnum {
-        NotDefined = <any> 'NotDefined',
-        Transaction = <any> 'Transaction',
-        Portfolio = <any> 'Portfolio',
-        Holding = <any> 'Holding',
-        ReferenceHolding = <any> 'ReferenceHolding',
-        TransactionConfiguration = <any> 'TransactionConfiguration',
-        Instrument = <any> 'Instrument',
-        CutLabelDefinition = <any> 'CutLabelDefinition',
-        Analytic = <any> 'Analytic',
-        PortfolioGroup = <any> 'PortfolioGroup',
-        Person = <any> 'Person',
-        AccessMetadata = <any> 'AccessMetadata',
-        Order = <any> 'Order',
-        UnitResult = <any> 'UnitResult',
-        MarketData = <any> 'MarketData',
-        ConfigurationRecipe = <any> 'ConfigurationRecipe',
-        Allocation = <any> 'Allocation',
-        Calendar = <any> 'Calendar',
-        LegalEntity = <any> 'LegalEntity',
-        Placement = <any> 'Placement',
-        Execution = <any> 'Execution',
-        Block = <any> 'Block',
-        Participation = <any> 'Participation',
-        Package = <any> 'Package',
-        OrderInstruction = <any> 'OrderInstruction',
-        CustomEntity = <any> 'CustomEntity'
-    }
-}

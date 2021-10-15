@@ -11,106 +11,81 @@
  */
 
 import { RequestFile } from './models';
-import { ResourceId } from './resourceId';
 
-export class CreateDerivedPropertyDefinitionRequest {
+/**
+* The request used in the AggregatedReturns.
+*/
+export class PerformanceReturnsMetric {
     /**
-    * The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity
+    * The type of the metric. Default to Return
     */
-    'domain': CreateDerivedPropertyDefinitionRequest.DomainEnum;
+    'type'?: string | null;
     /**
-    * The scope that the property exists in.
+    * The given metric for the calculation i.e. 1Y, 1D.
     */
-    'scope': string;
+    'window'?: string | null;
     /**
-    * The code of the property. Together with the domain and scope this uniquely identifies the property.
+    * Bool if the metric is allowed partial results. Deafult to false.
     */
-    'code': string;
+    'allowPartial'?: boolean;
     /**
-    * The display name of the property.
+    * Bool if the metric is annualized. Default to false.
     */
-    'displayName': string;
-    'dataTypeId': ResourceId;
+    'annualised'?: boolean;
     /**
-    * Describes the property
+    * Bool if the metric should consider the fees when is calculated. Default to false.
     */
-    'propertyDescription'?: string | null;
+    'withFee'?: boolean;
     /**
-    * The rule that defines how data is composed for a derived property.
+    * The given seed amount for the calculation of the indicative amount metrics.
     */
-    'derivationFormula'?: string | null;
+    'seedAmount'?: number | null;
+    /**
+    * The alias for the metric.
+    */
+    'alias'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "domain",
-            "baseName": "domain",
-            "type": "CreateDerivedPropertyDefinitionRequest.DomainEnum"
-        },
-        {
-            "name": "scope",
-            "baseName": "scope",
+            "name": "type",
+            "baseName": "type",
             "type": "string"
         },
         {
-            "name": "code",
-            "baseName": "code",
+            "name": "window",
+            "baseName": "window",
             "type": "string"
         },
         {
-            "name": "displayName",
-            "baseName": "displayName",
-            "type": "string"
+            "name": "allowPartial",
+            "baseName": "allowPartial",
+            "type": "boolean"
         },
         {
-            "name": "dataTypeId",
-            "baseName": "dataTypeId",
-            "type": "ResourceId"
+            "name": "annualised",
+            "baseName": "annualised",
+            "type": "boolean"
         },
         {
-            "name": "propertyDescription",
-            "baseName": "propertyDescription",
-            "type": "string"
+            "name": "withFee",
+            "baseName": "withFee",
+            "type": "boolean"
         },
         {
-            "name": "derivationFormula",
-            "baseName": "derivationFormula",
+            "name": "seedAmount",
+            "baseName": "seedAmount",
+            "type": "number"
+        },
+        {
+            "name": "alias",
+            "baseName": "alias",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateDerivedPropertyDefinitionRequest.attributeTypeMap;
+        return PerformanceReturnsMetric.attributeTypeMap;
     }
 }
 
-export namespace CreateDerivedPropertyDefinitionRequest {
-    export enum DomainEnum {
-        NotDefined = <any> 'NotDefined',
-        Transaction = <any> 'Transaction',
-        Portfolio = <any> 'Portfolio',
-        Holding = <any> 'Holding',
-        ReferenceHolding = <any> 'ReferenceHolding',
-        TransactionConfiguration = <any> 'TransactionConfiguration',
-        Instrument = <any> 'Instrument',
-        CutLabelDefinition = <any> 'CutLabelDefinition',
-        Analytic = <any> 'Analytic',
-        PortfolioGroup = <any> 'PortfolioGroup',
-        Person = <any> 'Person',
-        AccessMetadata = <any> 'AccessMetadata',
-        Order = <any> 'Order',
-        UnitResult = <any> 'UnitResult',
-        MarketData = <any> 'MarketData',
-        ConfigurationRecipe = <any> 'ConfigurationRecipe',
-        Allocation = <any> 'Allocation',
-        Calendar = <any> 'Calendar',
-        LegalEntity = <any> 'LegalEntity',
-        Placement = <any> 'Placement',
-        Execution = <any> 'Execution',
-        Block = <any> 'Block',
-        Participation = <any> 'Participation',
-        Package = <any> 'Package',
-        OrderInstruction = <any> 'OrderInstruction',
-        CustomEntity = <any> 'CustomEntity'
-    }
-}
