@@ -5,6 +5,8 @@ export * from './accessControlledResource';
 export * from './actionId';
 export * from './adjustHolding';
 export * from './adjustHoldingRequest';
+export * from './aggregatedReturn';
+export * from './aggregatedReturnsRequest';
 export * from './allocation';
 export * from './allocationRequest';
 export * from './allocationSetRequest';
@@ -66,6 +68,7 @@ export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './performanceReturn';
+export * from './performanceReturnsMetric';
 export * from './perpetualProperty';
 export * from './portfolio';
 export * from './portfolioCashFlow';
@@ -93,6 +96,7 @@ export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
+export * from './resourceListOfAggregatedReturn';
 export * from './resourceListOfAllocation';
 export * from './resourceListOfChange';
 export * from './resourceListOfConstituentsAdjustmentHeader';
@@ -169,6 +173,8 @@ import { AccessControlledResource } from './accessControlledResource';
 import { ActionId } from './actionId';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
+import { AggregatedReturn } from './aggregatedReturn';
+import { AggregatedReturnsRequest } from './aggregatedReturnsRequest';
 import { Allocation } from './allocation';
 import { AllocationRequest } from './allocationRequest';
 import { AllocationSetRequest } from './allocationSetRequest';
@@ -230,6 +236,7 @@ import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceLi
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
 import { PerformanceReturn } from './performanceReturn';
+import { PerformanceReturnsMetric } from './performanceReturnsMetric';
 import { PerpetualProperty } from './perpetualProperty';
 import { Portfolio } from './portfolio';
 import { PortfolioCashFlow } from './portfolioCashFlow';
@@ -257,6 +264,7 @@ import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
+import { ResourceListOfAggregatedReturn } from './resourceListOfAggregatedReturn';
 import { ResourceListOfAllocation } from './resourceListOfAllocation';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
@@ -376,6 +384,8 @@ let typeMap: {[index: string]: any} = {
     "ActionId": ActionId,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingRequest": AdjustHoldingRequest,
+    "AggregatedReturn": AggregatedReturn,
+    "AggregatedReturnsRequest": AggregatedReturnsRequest,
     "Allocation": Allocation,
     "AllocationRequest": AllocationRequest,
     "AllocationSetRequest": AllocationSetRequest,
@@ -437,6 +447,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
     "PerformanceReturn": PerformanceReturn,
+    "PerformanceReturnsMetric": PerformanceReturnsMetric,
     "PerpetualProperty": PerpetualProperty,
     "Portfolio": Portfolio,
     "PortfolioCashFlow": PortfolioCashFlow,
@@ -464,6 +475,7 @@ let typeMap: {[index: string]: any} = {
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
+    "ResourceListOfAggregatedReturn": ResourceListOfAggregatedReturn,
     "ResourceListOfAllocation": ResourceListOfAllocation,
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
