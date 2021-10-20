@@ -11,58 +11,33 @@
  */
 
 import { RequestFile } from './models';
-import { InstrumentIdValue } from './instrumentIdValue';
-import { LusidInstrument } from './lusidInstrument';
-import { Property } from './property';
-import { ResourceId } from './resourceId';
 
-export class InstrumentDefinition {
-    /**
-    * The name of the instrument.
-    */
-    'name': string;
-    /**
-    * A set of identifiers that can be used to identify the instrument. At least one of these must be configured to be a unique identifier.
-    */
-    'identifiers': { [key: string]: InstrumentIdValue; };
-    /**
-    * Set of unique instrument properties and associated values to store with the instrument. Each property must be from the \'Instrument\' domain.
-    */
-    'properties'?: Array<Property> | null;
-    'lookThroughPortfolioId'?: ResourceId;
-    'definition'?: LusidInstrument;
+export class FieldDefinition {
+    'key': string;
+    'isRequired': boolean;
+    'isUnique': boolean;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "key",
+            "baseName": "key",
             "type": "string"
         },
         {
-            "name": "identifiers",
-            "baseName": "identifiers",
-            "type": "{ [key: string]: InstrumentIdValue; }"
+            "name": "isRequired",
+            "baseName": "isRequired",
+            "type": "boolean"
         },
         {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "Array<Property>"
-        },
-        {
-            "name": "lookThroughPortfolioId",
-            "baseName": "lookThroughPortfolioId",
-            "type": "ResourceId"
-        },
-        {
-            "name": "definition",
-            "baseName": "definition",
-            "type": "LusidInstrument"
+            "name": "isUnique",
+            "baseName": "isUnique",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
-        return InstrumentDefinition.attributeTypeMap;
+        return FieldDefinition.attributeTypeMap;
     }
 }
 

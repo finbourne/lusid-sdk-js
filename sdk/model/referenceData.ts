@@ -11,58 +11,29 @@
  */
 
 import { RequestFile } from './models';
-import { InstrumentIdValue } from './instrumentIdValue';
-import { LusidInstrument } from './lusidInstrument';
-import { Property } from './property';
-import { ResourceId } from './resourceId';
+import { FieldDefinition } from './fieldDefinition';
+import { FieldValue } from './fieldValue';
 
-export class InstrumentDefinition {
-    /**
-    * The name of the instrument.
-    */
-    'name': string;
-    /**
-    * A set of identifiers that can be used to identify the instrument. At least one of these must be configured to be a unique identifier.
-    */
-    'identifiers': { [key: string]: InstrumentIdValue; };
-    /**
-    * Set of unique instrument properties and associated values to store with the instrument. Each property must be from the \'Instrument\' domain.
-    */
-    'properties'?: Array<Property> | null;
-    'lookThroughPortfolioId'?: ResourceId;
-    'definition'?: LusidInstrument;
+export class ReferenceData {
+    'fieldDefinitions': Array<FieldDefinition>;
+    'values': Array<FieldValue>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "name",
-            "baseName": "name",
-            "type": "string"
+            "name": "fieldDefinitions",
+            "baseName": "fieldDefinitions",
+            "type": "Array<FieldDefinition>"
         },
         {
-            "name": "identifiers",
-            "baseName": "identifiers",
-            "type": "{ [key: string]: InstrumentIdValue; }"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "Array<Property>"
-        },
-        {
-            "name": "lookThroughPortfolioId",
-            "baseName": "lookThroughPortfolioId",
-            "type": "ResourceId"
-        },
-        {
-            "name": "definition",
-            "baseName": "definition",
-            "type": "LusidInstrument"
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<FieldValue>"
         }    ];
 
     static getAttributeTypeMap() {
-        return InstrumentDefinition.attributeTypeMap;
+        return ReferenceData.attributeTypeMap;
     }
 }
 

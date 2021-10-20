@@ -33,6 +33,8 @@ export * from './deleteInstrumentResponse';
 export * from './deletedEntityResponse';
 export * from './errorDetail';
 export * from './expandedGroup';
+export * from './fieldDefinition';
+export * from './fieldValue';
 export * from './fileResponse';
 export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
@@ -92,6 +94,7 @@ export * from './quoteId';
 export * from './quoteSeriesId';
 export * from './realisedGainLoss';
 export * from './reconciliationBreak';
+export * from './referenceData';
 export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './resourceId';
@@ -201,6 +204,8 @@ import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { ErrorDetail } from './errorDetail';
 import { ExpandedGroup } from './expandedGroup';
+import { FieldDefinition } from './fieldDefinition';
+import { FieldValue } from './fieldValue';
 import { FileResponse } from './fileResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
@@ -260,6 +265,7 @@ import { QuoteId } from './quoteId';
 import { QuoteSeriesId } from './quoteSeriesId';
 import { RealisedGainLoss } from './realisedGainLoss';
 import { ReconciliationBreak } from './reconciliationBreak';
+import { ReferenceData } from './referenceData';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { ResourceId } from './resourceId';
@@ -412,6 +418,8 @@ let typeMap: {[index: string]: any} = {
     "DeletedEntityResponse": DeletedEntityResponse,
     "ErrorDetail": ErrorDetail,
     "ExpandedGroup": ExpandedGroup,
+    "FieldDefinition": FieldDefinition,
+    "FieldValue": FieldValue,
     "FileResponse": FileResponse,
     "GetInstrumentsResponse": GetInstrumentsResponse,
     "GetQuotesResponse": GetQuotesResponse,
@@ -471,6 +479,7 @@ let typeMap: {[index: string]: any} = {
     "QuoteSeriesId": QuoteSeriesId,
     "RealisedGainLoss": RealisedGainLoss,
     "ReconciliationBreak": ReconciliationBreak,
+    "ReferenceData": ReferenceData,
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "ResourceId": ResourceId,
