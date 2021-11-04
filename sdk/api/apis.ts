@@ -14,8 +14,6 @@ export * from './instrumentsApi';
 import { InstrumentsApi } from './instrumentsApi';
 export * from './legalEntitiesApi';
 import { LegalEntitiesApi } from './legalEntitiesApi';
-export * from './loginApi';
-import { LoginApi } from './loginApi';
 export * from './ordersApi';
 import { OrdersApi } from './ordersApi';
 export * from './portfolioGroupsApi';
@@ -41,4 +39,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AllocationsApi, ApplicationMetadataApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, InstrumentsApi, LegalEntitiesApi, LoginApi, OrdersApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, ScopesApi, SearchApi, SystemConfigurationApi, TransactionPortfoliosApi];
+export const APIS = [AllocationsApi, ApplicationMetadataApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, ScopesApi, SearchApi, SystemConfigurationApi, TransactionPortfoliosApi];
