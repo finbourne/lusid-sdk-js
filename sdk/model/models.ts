@@ -60,6 +60,7 @@ export * from './metricValue';
 export * from './order';
 export * from './orderRequest';
 export * from './orderSetRequest';
+export * from './otcConfirmation';
 export * from './outputTransaction';
 export * from './pagedResourceListOfAllocation';
 export * from './pagedResourceListOfCutLabelDefinition';
@@ -231,6 +232,7 @@ import { MetricValue } from './metricValue';
 import { Order } from './order';
 import { OrderRequest } from './orderRequest';
 import { OrderSetRequest } from './orderSetRequest';
+import { OtcConfirmation } from './otcConfirmation';
 import { OutputTransaction } from './outputTransaction';
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
@@ -446,6 +448,7 @@ let typeMap: {[index: string]: any} = {
     "Order": Order,
     "OrderRequest": OrderRequest,
     "OrderSetRequest": OrderSetRequest,
+    "OtcConfirmation": OtcConfirmation,
     "OutputTransaction": OutputTransaction,
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,

@@ -11,137 +11,27 @@
  */
 
 import { RequestFile } from './models';
-import { Link } from './link';
-import { LusidInstrument } from './lusidInstrument';
-import { Property } from './property';
-import { ResourceId } from './resourceId';
-import { Version } from './version';
 
 /**
-* A list of instruments.
+* For the storage of any information pertinent to the confirmation of an OTC trade. e.g the Counterparty Agreement Code
 */
-export class Instrument {
+export class OtcConfirmation {
     /**
-    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+    * The counterparty party agreement code used to identify and retrieve the specific Counterparty Agreement that governs a transaction
     */
-    'href'?: string | null;
-    /**
-    * The unique LUSID Instrument Identifier (LUID) of the instrument.
-    */
-    'lusidInstrumentId': string;
-    'version': Version;
-    /**
-    * The name of the instrument.
-    */
-    'name': string;
-    /**
-    * The set of identifiers that can be used to identify the instrument.
-    */
-    'identifiers': { [key: string]: string; };
-    /**
-    * The requested instrument properties. These will be from the \'Instrument\' domain.
-    */
-    'properties'?: Array<Property> | null;
-    'lookthroughPortfolio'?: ResourceId;
-    'instrumentDefinition'?: LusidInstrument;
-    /**
-    * The state of of the instrument at the asAt datetime of this version of the instrument definition. The available values are: Active, Inactive
-    */
-    'state': Instrument.StateEnum;
-    /**
-    * The nominal asset class of the instrument, e.g. InterestRates, FX, Inflation, Equities, Credit, Commodities, etc. The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Unknown
-    */
-    'assetClass'?: Instrument.AssetClassEnum;
-    /**
-    * The domestic currency, meaning the currency in which the instrument would typically be expected to pay cashflows, e.g. a share in AAPL being USD.
-    */
-    'domCcy'?: string | null;
-    /**
-    * Collection of links.
-    */
-    'links'?: Array<Link> | null;
+    'counterpartyAgreementCode'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "counterpartyAgreementCode",
+            "baseName": "counterpartyAgreementCode",
             "type": "string"
-        },
-        {
-            "name": "lusidInstrumentId",
-            "baseName": "lusidInstrumentId",
-            "type": "string"
-        },
-        {
-            "name": "version",
-            "baseName": "version",
-            "type": "Version"
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string"
-        },
-        {
-            "name": "identifiers",
-            "baseName": "identifiers",
-            "type": "{ [key: string]: string; }"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "Array<Property>"
-        },
-        {
-            "name": "lookthroughPortfolio",
-            "baseName": "lookthroughPortfolio",
-            "type": "ResourceId"
-        },
-        {
-            "name": "instrumentDefinition",
-            "baseName": "instrumentDefinition",
-            "type": "LusidInstrument"
-        },
-        {
-            "name": "state",
-            "baseName": "state",
-            "type": "Instrument.StateEnum"
-        },
-        {
-            "name": "assetClass",
-            "baseName": "assetClass",
-            "type": "Instrument.AssetClassEnum"
-        },
-        {
-            "name": "domCcy",
-            "baseName": "domCcy",
-            "type": "string"
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return Instrument.attributeTypeMap;
+        return OtcConfirmation.attributeTypeMap;
     }
 }
 
-export namespace Instrument {
-    export enum StateEnum {
-        Active = <any> 'Active',
-        Inactive = <any> 'Inactive'
-    }
-    export enum AssetClassEnum {
-        InterestRates = <any> 'InterestRates',
-        Fx = <any> 'FX',
-        Inflation = <any> 'Inflation',
-        Equities = <any> 'Equities',
-        Credit = <any> 'Credit',
-        Commodities = <any> 'Commodities',
-        Unknown = <any> 'Unknown'
-    }
-}
