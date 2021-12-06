@@ -11,8 +11,11 @@ export * from './allocation';
 export * from './allocationRequest';
 export * from './allocationSetRequest';
 export * from './annulQuotesResponse';
+export * from './annulStructuredDataResponse';
 export * from './change';
 export * from './completePortfolio';
+export * from './complexMarketData';
+export * from './complexMarketDataId';
 export * from './constituentsAdjustmentHeader';
 export * from './counterpartyRiskInformation';
 export * from './createCutLabelDefinitionRequest';
@@ -36,6 +39,7 @@ export * from './expandedGroup';
 export * from './fieldDefinition';
 export * from './fieldValue';
 export * from './fileResponse';
+export * from './getComplexMarketDataResponse';
 export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
 export * from './getReferencePortfolioConstituentsResponse';
@@ -141,6 +145,7 @@ export * from './updateInstrumentIdentifierRequest';
 export * from './updatePortfolioGroupRequest';
 export * from './updatePortfolioRequest';
 export * from './updatePropertyDefinitionRequest';
+export * from './upsertComplexMarketDataRequest';
 export * from './upsertInstrumentPropertiesResponse';
 export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
@@ -151,6 +156,7 @@ export * from './upsertQuotesResponse';
 export * from './upsertReferencePortfolioConstituentsRequest';
 export * from './upsertReferencePortfolioConstituentsResponse';
 export * from './upsertReturnsResponse';
+export * from './upsertStructuredDataResponse';
 export * from './upsertTransactionPropertiesResponse';
 export * from './user';
 export * from './version';
@@ -183,8 +189,11 @@ import { Allocation } from './allocation';
 import { AllocationRequest } from './allocationRequest';
 import { AllocationSetRequest } from './allocationSetRequest';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
+import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
+import { ComplexMarketData } from './complexMarketData';
+import { ComplexMarketDataId } from './complexMarketDataId';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
 import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
@@ -208,6 +217,7 @@ import { ExpandedGroup } from './expandedGroup';
 import { FieldDefinition } from './fieldDefinition';
 import { FieldValue } from './fieldValue';
 import { FileResponse } from './fileResponse';
+import { GetComplexMarketDataResponse } from './getComplexMarketDataResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
@@ -313,6 +323,7 @@ import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierR
 import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
 import { UpdatePortfolioRequest } from './updatePortfolioRequest';
 import { UpdatePropertyDefinitionRequest } from './updatePropertyDefinitionRequest';
+import { UpsertComplexMarketDataRequest } from './upsertComplexMarketDataRequest';
 import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentPropertiesResponse';
 import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyRequest';
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
@@ -323,6 +334,7 @@ import { UpsertQuotesResponse } from './upsertQuotesResponse';
 import { UpsertReferencePortfolioConstituentsRequest } from './upsertReferencePortfolioConstituentsRequest';
 import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferencePortfolioConstituentsResponse';
 import { UpsertReturnsResponse } from './upsertReturnsResponse';
+import { UpsertStructuredDataResponse } from './upsertStructuredDataResponse';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
 import { User } from './user';
 import { Version } from './version';
@@ -345,6 +357,7 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
+        "ComplexMarketData.MarketDataTypeEnum": ComplexMarketData.MarketDataTypeEnum,
         "CreateDerivedPropertyDefinitionRequest.DomainEnum": CreateDerivedPropertyDefinitionRequest.DomainEnum,
         "CreateDerivedTransactionPortfolioRequest.AccountingMethodEnum": CreateDerivedTransactionPortfolioRequest.AccountingMethodEnum,
         "CreatePropertyDefinitionRequest.DomainEnum": CreatePropertyDefinitionRequest.DomainEnum,
@@ -399,8 +412,11 @@ let typeMap: {[index: string]: any} = {
     "AllocationRequest": AllocationRequest,
     "AllocationSetRequest": AllocationSetRequest,
     "AnnulQuotesResponse": AnnulQuotesResponse,
+    "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
+    "ComplexMarketData": ComplexMarketData,
+    "ComplexMarketDataId": ComplexMarketDataId,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
     "CounterpartyRiskInformation": CounterpartyRiskInformation,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
@@ -424,6 +440,7 @@ let typeMap: {[index: string]: any} = {
     "FieldDefinition": FieldDefinition,
     "FieldValue": FieldValue,
     "FileResponse": FileResponse,
+    "GetComplexMarketDataResponse": GetComplexMarketDataResponse,
     "GetInstrumentsResponse": GetInstrumentsResponse,
     "GetQuotesResponse": GetQuotesResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
@@ -529,6 +546,7 @@ let typeMap: {[index: string]: any} = {
     "UpdatePortfolioGroupRequest": UpdatePortfolioGroupRequest,
     "UpdatePortfolioRequest": UpdatePortfolioRequest,
     "UpdatePropertyDefinitionRequest": UpdatePropertyDefinitionRequest,
+    "UpsertComplexMarketDataRequest": UpsertComplexMarketDataRequest,
     "UpsertInstrumentPropertiesResponse": UpsertInstrumentPropertiesResponse,
     "UpsertInstrumentPropertyRequest": UpsertInstrumentPropertyRequest,
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,
@@ -539,6 +557,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertReferencePortfolioConstituentsRequest": UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": UpsertReferencePortfolioConstituentsResponse,
     "UpsertReturnsResponse": UpsertReturnsResponse,
+    "UpsertStructuredDataResponse": UpsertStructuredDataResponse,
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
     "User": User,
     "Version": Version,

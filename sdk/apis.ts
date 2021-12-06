@@ -1,5 +1,6 @@
 import {AllocationsApi} from './api/allocationsApi';
 import {ApplicationMetadataApi} from './api/applicationMetadataApi';
+import {ComplexMarketDataApi} from './api/complexMarketDataApi';
 import {CutLabelDefinitionsApi} from './api/cutLabelDefinitionsApi';
 import {DataTypesApi} from './api/dataTypesApi';
 import {DerivedTransactionPortfoliosApi} from './api/derivedTransactionPortfoliosApi';
@@ -21,6 +22,7 @@ import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
 export class Api {
     public allocations:  AllocationsApi
     public applicationMetadata:  ApplicationMetadataApi
+    public complexMarketData:  ComplexMarketDataApi
     public cutLabelDefinitions:  CutLabelDefinitionsApi
     public dataTypes:  DataTypesApi
     public derivedTransactionPortfolios:  DerivedTransactionPortfoliosApi
