@@ -8,6 +8,7 @@ import {EntitiesApi} from './api/entitiesApi';
 import {InstrumentsApi} from './api/instrumentsApi';
 import {LegalEntitiesApi} from './api/legalEntitiesApi';
 import {OrdersApi} from './api/ordersApi';
+import {PersonsApi} from './api/personsApi';
 import {PortfolioGroupsApi} from './api/portfolioGroupsApi';
 import {PortfoliosApi} from './api/portfoliosApi';
 import {PropertyDefinitionsApi} from './api/propertyDefinitionsApi';
@@ -30,6 +31,7 @@ export class Api {
     public instruments:  InstrumentsApi
     public legalEntities:  LegalEntitiesApi
     public orders:  OrdersApi
+    public persons:  PersonsApi
     public portfolioGroups:  PortfolioGroupsApi
     public portfolios:  PortfoliosApi
     public propertyDefinitions:  PropertyDefinitionsApi
