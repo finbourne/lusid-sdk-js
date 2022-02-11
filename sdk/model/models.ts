@@ -126,6 +126,8 @@ export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfScopeDefinition';
 export * from './scopeDefinition';
+export * from './setLegalEntityIdentifiersRequest';
+export * from './setLegalEntityPropertiesRequest';
 export * from './sideConfigurationData';
 export * from './stream';
 export * from './targetTaxLot';
@@ -310,6 +312,8 @@ import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ScopeDefinition } from './scopeDefinition';
+import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
+import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
 import { SideConfigurationData } from './sideConfigurationData';
 import { Stream } from './stream';
 import { TargetTaxLot } from './targetTaxLot';
@@ -539,6 +543,8 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ScopeDefinition": ScopeDefinition,
+    "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
+    "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
     "SideConfigurationData": SideConfigurationData,
     "Stream": Stream,
     "TargetTaxLot": TargetTaxLot,

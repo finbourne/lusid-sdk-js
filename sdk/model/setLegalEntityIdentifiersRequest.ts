@@ -11,37 +11,25 @@
  */
 
 import { RequestFile } from './models';
-import { PortfolioReconciliationRequest } from './portfolioReconciliationRequest';
+import { Property } from './property';
 
-export class PortfoliosReconciliationRequest {
-    'left': PortfolioReconciliationRequest;
-    'right': PortfolioReconciliationRequest;
+export class SetLegalEntityIdentifiersRequest {
     /**
-    * Instrument properties to be included with any identified breaks. These properties will be in the effective and AsAt dates of the left portfolio
+    * Identifiers to set for a Legal Entity. Identifiers not included in the request will not be amended.
     */
-    'instrumentPropertyKeys': Array<string>;
+    'identifiers'?: { [key: string]: Property; } | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "left",
-            "baseName": "left",
-            "type": "PortfolioReconciliationRequest"
-        },
-        {
-            "name": "right",
-            "baseName": "right",
-            "type": "PortfolioReconciliationRequest"
-        },
-        {
-            "name": "instrumentPropertyKeys",
-            "baseName": "instrumentPropertyKeys",
-            "type": "Array<string>"
+            "name": "identifiers",
+            "baseName": "identifiers",
+            "type": "{ [key: string]: Property; }"
         }    ];
 
     static getAttributeTypeMap() {
-        return PortfoliosReconciliationRequest.attributeTypeMap;
+        return SetLegalEntityIdentifiersRequest.attributeTypeMap;
     }
 }
 

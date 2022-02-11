@@ -11,37 +11,25 @@
  */
 
 import { RequestFile } from './models';
-import { PortfolioReconciliationRequest } from './portfolioReconciliationRequest';
+import { Property } from './property';
 
-export class PortfoliosReconciliationRequest {
-    'left': PortfolioReconciliationRequest;
-    'right': PortfolioReconciliationRequest;
+export class SetLegalEntityPropertiesRequest {
     /**
-    * Instrument properties to be included with any identified breaks. These properties will be in the effective and AsAt dates of the left portfolio
+    * Properties to set for a Legal Entity. All time-variant properties must have same EffectiveFrom date. Properties not included in the request will not be amended.
     */
-    'instrumentPropertyKeys': Array<string>;
+    'properties'?: { [key: string]: Property; } | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "left",
-            "baseName": "left",
-            "type": "PortfolioReconciliationRequest"
-        },
-        {
-            "name": "right",
-            "baseName": "right",
-            "type": "PortfolioReconciliationRequest"
-        },
-        {
-            "name": "instrumentPropertyKeys",
-            "baseName": "instrumentPropertyKeys",
-            "type": "Array<string>"
+            "name": "properties",
+            "baseName": "properties",
+            "type": "{ [key: string]: Property; }"
         }    ];
 
     static getAttributeTypeMap() {
-        return PortfoliosReconciliationRequest.attributeTypeMap;
+        return SetLegalEntityPropertiesRequest.attributeTypeMap;
     }
 }
 
