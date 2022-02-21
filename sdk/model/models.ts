@@ -6,17 +6,24 @@ export * from './accessMetadataValue';
 export * from './actionId';
 export * from './adjustHolding';
 export * from './adjustHoldingRequest';
+export * from './aggregateSpec';
 export * from './aggregatedReturn';
 export * from './aggregatedReturnsRequest';
+export * from './aggregationContext';
+export * from './aggregationMeasureFailureDetail';
+export * from './aggregationOptions';
 export * from './allocation';
 export * from './allocationRequest';
 export * from './allocationSetRequest';
 export * from './annulQuotesResponse';
+export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
 export * from './change';
 export * from './completePortfolio';
 export * from './complexMarketData';
 export * from './complexMarketDataId';
+export * from './configurationRecipe';
+export * from './configurationRecipeSnippet';
 export * from './constituentsAdjustmentHeader';
 export * from './counterpartyRiskInformation';
 export * from './createCutLabelDefinitionRequest';
@@ -38,19 +45,23 @@ export * from './deletedEntityResponse';
 export * from './errorDetail';
 export * from './expandedGroup';
 export * from './fieldDefinition';
+export * from './fieldSchema';
 export * from './fieldValue';
 export * from './fileResponse';
 export * from './getComplexMarketDataResponse';
 export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
+export * from './getRecipeResponse';
 export * from './getReferencePortfolioConstituentsResponse';
 export * from './holdingAdjustment';
+export * from './holdingContext';
 export * from './holdingsAdjustment';
 export * from './holdingsAdjustmentHeader';
 export * from './iUnitDefinitionDto';
 export * from './idSelectorDefinition';
 export * from './identifierPartSchema';
 export * from './industryClassifier';
+export * from './inlineValuationRequest';
 export * from './instrument';
 export * from './instrumentDefinition';
 export * from './instrumentIdTypeDescriptor';
@@ -58,11 +69,19 @@ export * from './instrumentIdValue';
 export * from './labelValueSet';
 export * from './legalEntity';
 export * from './link';
+export * from './listAggregationResponse';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
 export * from './lusidValidationProblemDetails';
+export * from './marketContext';
+export * from './marketContextSuppliers';
+export * from './marketDataKeyRule';
+export * from './marketOptions';
 export * from './metricValue';
+export * from './modelOptions';
+export * from './modelSelection';
 export * from './order';
+export * from './orderBySpec';
 export * from './orderRequest';
 export * from './orderSetRequest';
 export * from './otcConfirmation';
@@ -81,6 +100,7 @@ export * from './perpetualProperty';
 export * from './portfolio';
 export * from './portfolioCashFlow';
 export * from './portfolioDetails';
+export * from './portfolioEntityId';
 export * from './portfolioGroup';
 export * from './portfolioGroupProperties';
 export * from './portfolioGroupSearchResult';
@@ -89,10 +109,13 @@ export * from './portfolioProperties';
 export * from './portfolioReconciliationRequest';
 export * from './portfolioSearchResult';
 export * from './portfoliosReconciliationRequest';
+export * from './pricingContext';
+export * from './pricingOptions';
 export * from './processedCommand';
 export * from './property';
 export * from './propertyDefinition';
 export * from './propertyDefinitionSearchResult';
+export * from './propertyFilter';
 export * from './propertyInterval';
 export * from './propertyValue';
 export * from './quote';
@@ -111,6 +134,7 @@ export * from './resourceListOfAllocation';
 export * from './resourceListOfChange';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfDataType';
+export * from './resourceListOfGetRecipeResponse';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
 export * from './resourceListOfInstrumentIdTypeDescriptor';
@@ -125,6 +149,8 @@ export * from './resourceListOfPropertyInterval';
 export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfScopeDefinition';
+export * from './resultDataKeyRule';
+export * from './resultDataSchema';
 export * from './scopeDefinition';
 export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
@@ -161,17 +187,23 @@ export * from './upsertPortfolioGroupAccessMetadataRequest';
 export * from './upsertPortfolioTransactionsResponse';
 export * from './upsertQuoteRequest';
 export * from './upsertQuotesResponse';
+export * from './upsertRecipeRequest';
 export * from './upsertReferencePortfolioConstituentsRequest';
 export * from './upsertReferencePortfolioConstituentsResponse';
 export * from './upsertReturnsResponse';
+export * from './upsertSingleStructuredDataResponse';
 export * from './upsertStructuredDataResponse';
 export * from './upsertTransactionPropertiesResponse';
 export * from './user';
+export * from './valuationRequest';
+export * from './valuationSchedule';
+export * from './vendorModelRule';
 export * from './version';
 export * from './versionSummaryDto';
 export * from './versionedResourceListOfOutputTransaction';
 export * from './versionedResourceListOfPortfolioHolding';
 export * from './versionedResourceListOfTransaction';
+export * from './weightedInstrument';
 
 import * as fs from 'fs';
 
@@ -192,17 +224,24 @@ import { AccessMetadataValue } from './accessMetadataValue';
 import { ActionId } from './actionId';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
+import { AggregateSpec } from './aggregateSpec';
 import { AggregatedReturn } from './aggregatedReturn';
 import { AggregatedReturnsRequest } from './aggregatedReturnsRequest';
+import { AggregationContext } from './aggregationContext';
+import { AggregationMeasureFailureDetail } from './aggregationMeasureFailureDetail';
+import { AggregationOptions } from './aggregationOptions';
 import { Allocation } from './allocation';
 import { AllocationRequest } from './allocationRequest';
 import { AllocationSetRequest } from './allocationSetRequest';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
+import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
 import { ComplexMarketData } from './complexMarketData';
 import { ComplexMarketDataId } from './complexMarketDataId';
+import { ConfigurationRecipe } from './configurationRecipe';
+import { ConfigurationRecipeSnippet } from './configurationRecipeSnippet';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
 import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
@@ -224,19 +263,23 @@ import { DeletedEntityResponse } from './deletedEntityResponse';
 import { ErrorDetail } from './errorDetail';
 import { ExpandedGroup } from './expandedGroup';
 import { FieldDefinition } from './fieldDefinition';
+import { FieldSchema } from './fieldSchema';
 import { FieldValue } from './fieldValue';
 import { FileResponse } from './fileResponse';
 import { GetComplexMarketDataResponse } from './getComplexMarketDataResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
+import { GetRecipeResponse } from './getRecipeResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
 import { HoldingAdjustment } from './holdingAdjustment';
+import { HoldingContext } from './holdingContext';
 import { HoldingsAdjustment } from './holdingsAdjustment';
 import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { IdentifierPartSchema } from './identifierPartSchema';
 import { IndustryClassifier } from './industryClassifier';
+import { InlineValuationRequest } from './inlineValuationRequest';
 import { Instrument } from './instrument';
 import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
@@ -244,11 +287,19 @@ import { InstrumentIdValue } from './instrumentIdValue';
 import { LabelValueSet } from './labelValueSet';
 import { LegalEntity } from './legalEntity';
 import { Link } from './link';
+import { ListAggregationResponse } from './listAggregationResponse';
 import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
+import { MarketContext } from './marketContext';
+import { MarketContextSuppliers } from './marketContextSuppliers';
+import { MarketDataKeyRule } from './marketDataKeyRule';
+import { MarketOptions } from './marketOptions';
 import { MetricValue } from './metricValue';
+import { ModelOptions } from './modelOptions';
+import { ModelSelection } from './modelSelection';
 import { Order } from './order';
+import { OrderBySpec } from './orderBySpec';
 import { OrderRequest } from './orderRequest';
 import { OrderSetRequest } from './orderSetRequest';
 import { OtcConfirmation } from './otcConfirmation';
@@ -267,6 +318,7 @@ import { PerpetualProperty } from './perpetualProperty';
 import { Portfolio } from './portfolio';
 import { PortfolioCashFlow } from './portfolioCashFlow';
 import { PortfolioDetails } from './portfolioDetails';
+import { PortfolioEntityId } from './portfolioEntityId';
 import { PortfolioGroup } from './portfolioGroup';
 import { PortfolioGroupProperties } from './portfolioGroupProperties';
 import { PortfolioGroupSearchResult } from './portfolioGroupSearchResult';
@@ -275,10 +327,13 @@ import { PortfolioProperties } from './portfolioProperties';
 import { PortfolioReconciliationRequest } from './portfolioReconciliationRequest';
 import { PortfolioSearchResult } from './portfolioSearchResult';
 import { PortfoliosReconciliationRequest } from './portfoliosReconciliationRequest';
+import { PricingContext } from './pricingContext';
+import { PricingOptions } from './pricingOptions';
 import { ProcessedCommand } from './processedCommand';
 import { Property } from './property';
 import { PropertyDefinition } from './propertyDefinition';
 import { PropertyDefinitionSearchResult } from './propertyDefinitionSearchResult';
+import { PropertyFilter } from './propertyFilter';
 import { PropertyInterval } from './propertyInterval';
 import { PropertyValue } from './propertyValue';
 import { Quote } from './quote';
@@ -297,6 +352,7 @@ import { ResourceListOfAllocation } from './resourceListOfAllocation';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfDataType } from './resourceListOfDataType';
+import { ResourceListOfGetRecipeResponse } from './resourceListOfGetRecipeResponse';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
 import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
@@ -311,6 +367,8 @@ import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval
 import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
+import { ResultDataKeyRule } from './resultDataKeyRule';
+import { ResultDataSchema } from './resultDataSchema';
 import { ScopeDefinition } from './scopeDefinition';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
@@ -347,17 +405,23 @@ import { UpsertPortfolioGroupAccessMetadataRequest } from './upsertPortfolioGrou
 import { UpsertPortfolioTransactionsResponse } from './upsertPortfolioTransactionsResponse';
 import { UpsertQuoteRequest } from './upsertQuoteRequest';
 import { UpsertQuotesResponse } from './upsertQuotesResponse';
+import { UpsertRecipeRequest } from './upsertRecipeRequest';
 import { UpsertReferencePortfolioConstituentsRequest } from './upsertReferencePortfolioConstituentsRequest';
 import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferencePortfolioConstituentsResponse';
 import { UpsertReturnsResponse } from './upsertReturnsResponse';
+import { UpsertSingleStructuredDataResponse } from './upsertSingleStructuredDataResponse';
 import { UpsertStructuredDataResponse } from './upsertStructuredDataResponse';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
 import { User } from './user';
+import { ValuationRequest } from './valuationRequest';
+import { ValuationSchedule } from './valuationSchedule';
+import { VendorModelRule } from './vendorModelRule';
 import { Version } from './version';
 import { VersionSummaryDto } from './versionSummaryDto';
 import { VersionedResourceListOfOutputTransaction } from './versionedResourceListOfOutputTransaction';
 import { VersionedResourceListOfPortfolioHolding } from './versionedResourceListOfPortfolioHolding';
 import { VersionedResourceListOfTransaction } from './versionedResourceListOfTransaction';
+import { WeightedInstrument } from './weightedInstrument';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -372,6 +436,7 @@ let primitives = [
                  ];
 
 let enumsMap: {[index: string]: any} = {
+        "AggregateSpec.OpEnum": AggregateSpec.OpEnum,
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
         "ComplexMarketData.MarketDataTypeEnum": ComplexMarketData.MarketDataTypeEnum,
         "CreateDerivedPropertyDefinitionRequest.DomainEnum": CreateDerivedPropertyDefinitionRequest.DomainEnum,
@@ -382,6 +447,7 @@ let enumsMap: {[index: string]: any} = {
         "DataType.TypeValueRangeEnum": DataType.TypeValueRangeEnum,
         "DataType.ValueTypeEnum": DataType.ValueTypeEnum,
         "DataType.UnitSchemaEnum": DataType.UnitSchemaEnum,
+        "FieldSchema.TypeEnum": FieldSchema.TypeEnum,
         "GetReferencePortfolioConstituentsResponse.WeightTypeEnum": GetReferencePortfolioConstituentsResponse.WeightTypeEnum,
         "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
         "HoldingsAdjustment.UnmatchedHoldingMethodEnum": HoldingsAdjustment.UnmatchedHoldingMethodEnum,
@@ -390,6 +456,11 @@ let enumsMap: {[index: string]: any} = {
         "Instrument.StateEnum": Instrument.StateEnum,
         "Instrument.AssetClassEnum": Instrument.AssetClassEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
+        "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
+        "ModelOptions.ModelOptionsTypeEnum": ModelOptions.ModelOptionsTypeEnum,
+        "ModelSelection.LibraryEnum": ModelSelection.LibraryEnum,
+        "ModelSelection.ModelEnum": ModelSelection.ModelEnum,
+        "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
@@ -405,6 +476,8 @@ let enumsMap: {[index: string]: any} = {
         "PropertyDefinitionSearchResult.DomainEnum": PropertyDefinitionSearchResult.DomainEnum,
         "PropertyDefinitionSearchResult.LifeTimeEnum": PropertyDefinitionSearchResult.LifeTimeEnum,
         "PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum": PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum,
+        "PropertyFilter.OperatorEnum": PropertyFilter.OperatorEnum,
+        "PropertyFilter.RightOperandTypeEnum": PropertyFilter.RightOperandTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
         "TransactionConfigurationMovementData.MovementTypesEnum": TransactionConfigurationMovementData.MovementTypesEnum,
@@ -414,6 +487,7 @@ let enumsMap: {[index: string]: any} = {
         "TransactionQueryParameters.QueryModeEnum": TransactionQueryParameters.QueryModeEnum,
         "UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum": UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum,
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
+        "VendorModelRule.SupplierEnum": VendorModelRule.SupplierEnum,
 }
 
 let typeMap: {[index: string]: any} = {
@@ -423,17 +497,24 @@ let typeMap: {[index: string]: any} = {
     "ActionId": ActionId,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingRequest": AdjustHoldingRequest,
+    "AggregateSpec": AggregateSpec,
     "AggregatedReturn": AggregatedReturn,
     "AggregatedReturnsRequest": AggregatedReturnsRequest,
+    "AggregationContext": AggregationContext,
+    "AggregationMeasureFailureDetail": AggregationMeasureFailureDetail,
+    "AggregationOptions": AggregationOptions,
     "Allocation": Allocation,
     "AllocationRequest": AllocationRequest,
     "AllocationSetRequest": AllocationSetRequest,
     "AnnulQuotesResponse": AnnulQuotesResponse,
+    "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
     "ComplexMarketData": ComplexMarketData,
     "ComplexMarketDataId": ComplexMarketDataId,
+    "ConfigurationRecipe": ConfigurationRecipe,
+    "ConfigurationRecipeSnippet": ConfigurationRecipeSnippet,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
     "CounterpartyRiskInformation": CounterpartyRiskInformation,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
@@ -455,19 +536,23 @@ let typeMap: {[index: string]: any} = {
     "ErrorDetail": ErrorDetail,
     "ExpandedGroup": ExpandedGroup,
     "FieldDefinition": FieldDefinition,
+    "FieldSchema": FieldSchema,
     "FieldValue": FieldValue,
     "FileResponse": FileResponse,
     "GetComplexMarketDataResponse": GetComplexMarketDataResponse,
     "GetInstrumentsResponse": GetInstrumentsResponse,
     "GetQuotesResponse": GetQuotesResponse,
+    "GetRecipeResponse": GetRecipeResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
     "HoldingAdjustment": HoldingAdjustment,
+    "HoldingContext": HoldingContext,
     "HoldingsAdjustment": HoldingsAdjustment,
     "HoldingsAdjustmentHeader": HoldingsAdjustmentHeader,
     "IUnitDefinitionDto": IUnitDefinitionDto,
     "IdSelectorDefinition": IdSelectorDefinition,
     "IdentifierPartSchema": IdentifierPartSchema,
     "IndustryClassifier": IndustryClassifier,
+    "InlineValuationRequest": InlineValuationRequest,
     "Instrument": Instrument,
     "InstrumentDefinition": InstrumentDefinition,
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
@@ -475,11 +560,19 @@ let typeMap: {[index: string]: any} = {
     "LabelValueSet": LabelValueSet,
     "LegalEntity": LegalEntity,
     "Link": Link,
+    "ListAggregationResponse": ListAggregationResponse,
     "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
+    "MarketContext": MarketContext,
+    "MarketContextSuppliers": MarketContextSuppliers,
+    "MarketDataKeyRule": MarketDataKeyRule,
+    "MarketOptions": MarketOptions,
     "MetricValue": MetricValue,
+    "ModelOptions": ModelOptions,
+    "ModelSelection": ModelSelection,
     "Order": Order,
+    "OrderBySpec": OrderBySpec,
     "OrderRequest": OrderRequest,
     "OrderSetRequest": OrderSetRequest,
     "OtcConfirmation": OtcConfirmation,
@@ -498,6 +591,7 @@ let typeMap: {[index: string]: any} = {
     "Portfolio": Portfolio,
     "PortfolioCashFlow": PortfolioCashFlow,
     "PortfolioDetails": PortfolioDetails,
+    "PortfolioEntityId": PortfolioEntityId,
     "PortfolioGroup": PortfolioGroup,
     "PortfolioGroupProperties": PortfolioGroupProperties,
     "PortfolioGroupSearchResult": PortfolioGroupSearchResult,
@@ -506,10 +600,13 @@ let typeMap: {[index: string]: any} = {
     "PortfolioReconciliationRequest": PortfolioReconciliationRequest,
     "PortfolioSearchResult": PortfolioSearchResult,
     "PortfoliosReconciliationRequest": PortfoliosReconciliationRequest,
+    "PricingContext": PricingContext,
+    "PricingOptions": PricingOptions,
     "ProcessedCommand": ProcessedCommand,
     "Property": Property,
     "PropertyDefinition": PropertyDefinition,
     "PropertyDefinitionSearchResult": PropertyDefinitionSearchResult,
+    "PropertyFilter": PropertyFilter,
     "PropertyInterval": PropertyInterval,
     "PropertyValue": PropertyValue,
     "Quote": Quote,
@@ -528,6 +625,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfDataType": ResourceListOfDataType,
+    "ResourceListOfGetRecipeResponse": ResourceListOfGetRecipeResponse,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
     "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
@@ -542,6 +640,8 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
+    "ResultDataKeyRule": ResultDataKeyRule,
+    "ResultDataSchema": ResultDataSchema,
     "ScopeDefinition": ScopeDefinition,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
@@ -578,17 +678,23 @@ let typeMap: {[index: string]: any} = {
     "UpsertPortfolioTransactionsResponse": UpsertPortfolioTransactionsResponse,
     "UpsertQuoteRequest": UpsertQuoteRequest,
     "UpsertQuotesResponse": UpsertQuotesResponse,
+    "UpsertRecipeRequest": UpsertRecipeRequest,
     "UpsertReferencePortfolioConstituentsRequest": UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": UpsertReferencePortfolioConstituentsResponse,
     "UpsertReturnsResponse": UpsertReturnsResponse,
+    "UpsertSingleStructuredDataResponse": UpsertSingleStructuredDataResponse,
     "UpsertStructuredDataResponse": UpsertStructuredDataResponse,
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
     "User": User,
+    "ValuationRequest": ValuationRequest,
+    "ValuationSchedule": ValuationSchedule,
+    "VendorModelRule": VendorModelRule,
     "Version": Version,
     "VersionSummaryDto": VersionSummaryDto,
     "VersionedResourceListOfOutputTransaction": VersionedResourceListOfOutputTransaction,
     "VersionedResourceListOfPortfolioHolding": VersionedResourceListOfPortfolioHolding,
     "VersionedResourceListOfTransaction": VersionedResourceListOfTransaction,
+    "WeightedInstrument": WeightedInstrument,
 }
 
 export class ObjectSerializer {
