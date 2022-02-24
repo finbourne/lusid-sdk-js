@@ -11,65 +11,118 @@
  */
 
 import { RequestFile } from './models';
-import { Link } from './link';
-import { Order } from './order';
+import { DependencySourceFilter } from './dependencySourceFilter';
 
 /**
-* A paginated list of resource that can be returned from a request.
+* Extends market data key rules to be able to catch dependencies depending on where the dependency comes from, as opposed to what the dependency is asking for.  For example, a market data rule might instruct all rates curves to be retrieved from a particular scope.  This class gives the ability to set different behaviour depending on what is requesting the rates curve.  Using two specific rules, one could instruct rates curves requested by bonds to be retrieved from a different scope than rates curves requested by swaps.
 */
-export class PagedResourceListOfOrder {
+export class MarketDataSpecificRule {
     /**
-    * The next page of results.
+    * The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*)
     */
-    'nextPage'?: string | null;
+    'key': string;
     /**
-    * The previous page of results.
+    * The market data supplier (where the data comes from)
     */
-    'previousPage'?: string | null;
+    'supplier': string;
     /**
-    * The resources to list.
+    * The scope in which the data should be found when using this rule.
     */
-    'values': Array<Order>;
+    'dataScope': string;
     /**
-    * The URI of the resource list.
+    * The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront
     */
-    'href'?: string | null;
+    'quoteType': MarketDataSpecificRule.QuoteTypeEnum;
     /**
-    * Collection of links.
+    * The conceptual qualification for the field, such as bid, mid, or ask.  The field must be one of a defined set for the given supplier, in the same way as it  is for the Finbourne.WebApi.Interface.Dto.Quotes.QuoteSeriesId
     */
-    'links'?: Array<Link> | null;
+    'field': string;
+    /**
+    * Shorthand for the time interval used to select market data. This must be a dot-separated string              nominating a start and end date, for example \'5D.0D\' to look back 5 days from today (0 days ago). The syntax              is <i>int</i><i>char</i>.<i>int</i><i>char</i>, where <i>char</i> is one of D(ay), W(eek), M(onth) or Y(ear).
+    */
+    'quoteInterval'?: string | null;
+    /**
+    * The AsAt predicate specification.
+    */
+    'asAt'?: Date | null;
+    /**
+    * The source of the quote. For a given provider/supplier of market data there may be an additional qualifier, e.g. the exchange or bank that provided the quote
+    */
+    'priceSource'?: string | null;
+    /**
+    * Allows for partial or complete override of the market asset resolved for a dependency  Either a named override or a dot separated string (A.B.C.D.*).  e.g. for Rates curve \'EUR.*\' will replace the resolve MarketAsset \'GBP/12M\', \'GBP/3M\' with the EUR equivalent, if there  are no wildcards in the mask, the mask is taken as the MarketAsset for any dependency matching the rule.
+    */
+    'mask'?: string | null;
+    'dependencySourceFilter': DependencySourceFilter;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "nextPage",
-            "baseName": "nextPage",
+            "name": "key",
+            "baseName": "key",
             "type": "string"
         },
         {
-            "name": "previousPage",
-            "baseName": "previousPage",
+            "name": "supplier",
+            "baseName": "supplier",
             "type": "string"
         },
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<Order>"
-        },
-        {
-            "name": "href",
-            "baseName": "href",
+            "name": "dataScope",
+            "baseName": "dataScope",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
+            "name": "quoteType",
+            "baseName": "quoteType",
+            "type": "MarketDataSpecificRule.QuoteTypeEnum"
+        },
+        {
+            "name": "field",
+            "baseName": "field",
+            "type": "string"
+        },
+        {
+            "name": "quoteInterval",
+            "baseName": "quoteInterval",
+            "type": "string"
+        },
+        {
+            "name": "asAt",
+            "baseName": "asAt",
+            "type": "Date"
+        },
+        {
+            "name": "priceSource",
+            "baseName": "priceSource",
+            "type": "string"
+        },
+        {
+            "name": "mask",
+            "baseName": "mask",
+            "type": "string"
+        },
+        {
+            "name": "dependencySourceFilter",
+            "baseName": "dependencySourceFilter",
+            "type": "DependencySourceFilter"
         }    ];
 
     static getAttributeTypeMap() {
-        return PagedResourceListOfOrder.attributeTypeMap;
+        return MarketDataSpecificRule.attributeTypeMap;
     }
 }
 
+export namespace MarketDataSpecificRule {
+    export enum QuoteTypeEnum {
+        Price = <any> 'Price',
+        Spread = <any> 'Spread',
+        Rate = <any> 'Rate',
+        LogNormalVol = <any> 'LogNormalVol',
+        NormalVol = <any> 'NormalVol',
+        ParSpread = <any> 'ParSpread',
+        IsdaSpread = <any> 'IsdaSpread',
+        Upfront = <any> 'Upfront'
+    }
+}

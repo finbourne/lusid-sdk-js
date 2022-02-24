@@ -42,6 +42,7 @@ export * from './dataType';
 export * from './dateRange';
 export * from './deleteInstrumentResponse';
 export * from './deletedEntityResponse';
+export * from './dependencySourceFilter';
 export * from './errorDetail';
 export * from './expandedGroup';
 export * from './fieldDefinition';
@@ -76,6 +77,7 @@ export * from './lusidValidationProblemDetails';
 export * from './marketContext';
 export * from './marketContextSuppliers';
 export * from './marketDataKeyRule';
+export * from './marketDataSpecificRule';
 export * from './marketOptions';
 export * from './metricValue';
 export * from './modelOptions';
@@ -260,6 +262,7 @@ import { DataType } from './dataType';
 import { DateRange } from './dateRange';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeletedEntityResponse } from './deletedEntityResponse';
+import { DependencySourceFilter } from './dependencySourceFilter';
 import { ErrorDetail } from './errorDetail';
 import { ExpandedGroup } from './expandedGroup';
 import { FieldDefinition } from './fieldDefinition';
@@ -294,6 +297,7 @@ import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MarketContext } from './marketContext';
 import { MarketContextSuppliers } from './marketContextSuppliers';
 import { MarketDataKeyRule } from './marketDataKeyRule';
+import { MarketDataSpecificRule } from './marketDataSpecificRule';
 import { MarketOptions } from './marketOptions';
 import { MetricValue } from './metricValue';
 import { ModelOptions } from './modelOptions';
@@ -457,6 +461,7 @@ let enumsMap: {[index: string]: any} = {
         "Instrument.AssetClassEnum": Instrument.AssetClassEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
         "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
+        "MarketDataSpecificRule.QuoteTypeEnum": MarketDataSpecificRule.QuoteTypeEnum,
         "ModelOptions.ModelOptionsTypeEnum": ModelOptions.ModelOptionsTypeEnum,
         "ModelSelection.LibraryEnum": ModelSelection.LibraryEnum,
         "ModelSelection.ModelEnum": ModelSelection.ModelEnum,
@@ -533,6 +538,7 @@ let typeMap: {[index: string]: any} = {
     "DateRange": DateRange,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeletedEntityResponse": DeletedEntityResponse,
+    "DependencySourceFilter": DependencySourceFilter,
     "ErrorDetail": ErrorDetail,
     "ExpandedGroup": ExpandedGroup,
     "FieldDefinition": FieldDefinition,
@@ -567,6 +573,7 @@ let typeMap: {[index: string]: any} = {
     "MarketContext": MarketContext,
     "MarketContextSuppliers": MarketContextSuppliers,
     "MarketDataKeyRule": MarketDataKeyRule,
+    "MarketDataSpecificRule": MarketDataSpecificRule,
     "MarketOptions": MarketOptions,
     "MetricValue": MetricValue,
     "ModelOptions": ModelOptions,

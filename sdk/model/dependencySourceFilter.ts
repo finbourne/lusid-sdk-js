@@ -11,65 +11,45 @@
  */
 
 import { RequestFile } from './models';
-import { Link } from './link';
-import { Order } from './order';
 
 /**
-* A paginated list of resource that can be returned from a request.
+* Encapsulates parts of a market data rule relating not to the nature of the market data requested, but rather the nature of the thing (instrument/model) that is requesting it.  In the first instance, this includes the instrument type, asset class, and the currency of the underlying instrument.  This can be used to differentiate requests for market data according to the source of the request. See MarketDataSpecificRule.
 */
-export class PagedResourceListOfOrder {
+export class DependencySourceFilter {
     /**
-    * The next page of results.
+    * Specify that a rule should only apply if the market data is requested by an instrument of a given instrument type.  If null, then no filtering on instrument type is applied.
     */
-    'nextPage'?: string | null;
+    'instrumentType'?: string | null;
     /**
-    * The previous page of results.
+    * Specify that a rule should only apply if the market data is requested by an instrument of a given asset class.  If null, then no filtering on asset class is applied.
     */
-    'previousPage'?: string | null;
+    'assetClass'?: string | null;
     /**
-    * The resources to list.
+    * Specify that a rule should only apply if the market data is requested by an instrument with a given domestic currency.  If null, then no filtering on currency is applied.
     */
-    'values': Array<Order>;
-    /**
-    * The URI of the resource list.
-    */
-    'href'?: string | null;
-    /**
-    * Collection of links.
-    */
-    'links'?: Array<Link> | null;
+    'domCcy'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "nextPage",
-            "baseName": "nextPage",
+            "name": "instrumentType",
+            "baseName": "instrumentType",
             "type": "string"
         },
         {
-            "name": "previousPage",
-            "baseName": "previousPage",
+            "name": "assetClass",
+            "baseName": "assetClass",
             "type": "string"
         },
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<Order>"
-        },
-        {
-            "name": "href",
-            "baseName": "href",
+            "name": "domCcy",
+            "baseName": "domCcy",
             "type": "string"
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return PagedResourceListOfOrder.attributeTypeMap;
+        return DependencySourceFilter.attributeTypeMap;
     }
 }
 
