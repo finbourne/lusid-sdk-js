@@ -9,6 +9,7 @@ export * from './adjustHoldingRequest';
 export * from './aggregateSpec';
 export * from './aggregatedReturn';
 export * from './aggregatedReturnsRequest';
+export * from './aggregatedReturnsResponse';
 export * from './aggregationContext';
 export * from './aggregationMeasureFailureDetail';
 export * from './aggregationOptions';
@@ -131,7 +132,6 @@ export * from './referencePortfolioConstituentRequest';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfAccessMetadataValueOf';
-export * from './resourceListOfAggregatedReturn';
 export * from './resourceListOfAllocation';
 export * from './resourceListOfChange';
 export * from './resourceListOfConstituentsAdjustmentHeader';
@@ -229,6 +229,7 @@ import { AdjustHoldingRequest } from './adjustHoldingRequest';
 import { AggregateSpec } from './aggregateSpec';
 import { AggregatedReturn } from './aggregatedReturn';
 import { AggregatedReturnsRequest } from './aggregatedReturnsRequest';
+import { AggregatedReturnsResponse } from './aggregatedReturnsResponse';
 import { AggregationContext } from './aggregationContext';
 import { AggregationMeasureFailureDetail } from './aggregationMeasureFailureDetail';
 import { AggregationOptions } from './aggregationOptions';
@@ -351,7 +352,6 @@ import { ReferencePortfolioConstituentRequest } from './referencePortfolioConsti
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetadataValueOf';
-import { ResourceListOfAggregatedReturn } from './resourceListOfAggregatedReturn';
 import { ResourceListOfAllocation } from './resourceListOfAllocation';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
@@ -506,6 +506,7 @@ let typeMap: {[index: string]: any} = {
     "AggregateSpec": AggregateSpec,
     "AggregatedReturn": AggregatedReturn,
     "AggregatedReturnsRequest": AggregatedReturnsRequest,
+    "AggregatedReturnsResponse": AggregatedReturnsResponse,
     "AggregationContext": AggregationContext,
     "AggregationMeasureFailureDetail": AggregationMeasureFailureDetail,
     "AggregationOptions": AggregationOptions,
@@ -628,7 +629,6 @@ let typeMap: {[index: string]: any} = {
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfAccessMetadataValueOf": ResourceListOfAccessMetadataValueOf,
-    "ResourceListOfAggregatedReturn": ResourceListOfAggregatedReturn,
     "ResourceListOfAllocation": ResourceListOfAllocation,
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
