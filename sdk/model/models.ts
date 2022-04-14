@@ -26,7 +26,14 @@ export * from './complexMarketDataId';
 export * from './configurationRecipe';
 export * from './configurationRecipeSnippet';
 export * from './constituentsAdjustmentHeader';
+export * from './corporateAction';
+export * from './corporateActionSource';
+export * from './corporateActionTransition';
+export * from './corporateActionTransitionComponent';
+export * from './corporateActionTransitionComponentRequest';
+export * from './corporateActionTransitionRequest';
 export * from './counterpartyRiskInformation';
+export * from './createCorporateActionSourceRequest';
 export * from './createCutLabelDefinitionRequest';
 export * from './createDerivedPropertyDefinitionRequest';
 export * from './createDerivedTransactionPortfolioRequest';
@@ -90,6 +97,7 @@ export * from './orderSetRequest';
 export * from './otcConfirmation';
 export * from './outputTransaction';
 export * from './pagedResourceListOfAllocation';
+export * from './pagedResourceListOfCorporateActionSource';
 export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfInstrument';
 export * from './pagedResourceListOfLegalEntity';
@@ -135,6 +143,7 @@ export * from './resourceListOfAccessMetadataValueOf';
 export * from './resourceListOfAllocation';
 export * from './resourceListOfChange';
 export * from './resourceListOfConstituentsAdjustmentHeader';
+export * from './resourceListOfCorporateAction';
 export * from './resourceListOfDataType';
 export * from './resourceListOfGetRecipeResponse';
 export * from './resourceListOfHoldingsAdjustmentHeader';
@@ -178,6 +187,8 @@ export * from './updatePortfolioGroupRequest';
 export * from './updatePortfolioRequest';
 export * from './updatePropertyDefinitionRequest';
 export * from './upsertComplexMarketDataRequest';
+export * from './upsertCorporateActionRequest';
+export * from './upsertCorporateActionsResponse';
 export * from './upsertInstrumentPropertiesResponse';
 export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
@@ -246,7 +257,14 @@ import { ComplexMarketDataId } from './complexMarketDataId';
 import { ConfigurationRecipe } from './configurationRecipe';
 import { ConfigurationRecipeSnippet } from './configurationRecipeSnippet';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
+import { CorporateAction } from './corporateAction';
+import { CorporateActionSource } from './corporateActionSource';
+import { CorporateActionTransition } from './corporateActionTransition';
+import { CorporateActionTransitionComponent } from './corporateActionTransitionComponent';
+import { CorporateActionTransitionComponentRequest } from './corporateActionTransitionComponentRequest';
+import { CorporateActionTransitionRequest } from './corporateActionTransitionRequest';
 import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
+import { CreateCorporateActionSourceRequest } from './createCorporateActionSourceRequest';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
 import { CreateDerivedPropertyDefinitionRequest } from './createDerivedPropertyDefinitionRequest';
 import { CreateDerivedTransactionPortfolioRequest } from './createDerivedTransactionPortfolioRequest';
@@ -310,6 +328,7 @@ import { OrderSetRequest } from './orderSetRequest';
 import { OtcConfirmation } from './otcConfirmation';
 import { OutputTransaction } from './outputTransaction';
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
+import { PagedResourceListOfCorporateActionSource } from './pagedResourceListOfCorporateActionSource';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PagedResourceListOfLegalEntity } from './pagedResourceListOfLegalEntity';
@@ -355,6 +374,7 @@ import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetad
 import { ResourceListOfAllocation } from './resourceListOfAllocation';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
+import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
 import { ResourceListOfDataType } from './resourceListOfDataType';
 import { ResourceListOfGetRecipeResponse } from './resourceListOfGetRecipeResponse';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
@@ -398,6 +418,8 @@ import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
 import { UpdatePortfolioRequest } from './updatePortfolioRequest';
 import { UpdatePropertyDefinitionRequest } from './updatePropertyDefinitionRequest';
 import { UpsertComplexMarketDataRequest } from './upsertComplexMarketDataRequest';
+import { UpsertCorporateActionRequest } from './upsertCorporateActionRequest';
+import { UpsertCorporateActionsResponse } from './upsertCorporateActionsResponse';
 import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentPropertiesResponse';
 import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyRequest';
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
@@ -523,7 +545,14 @@ let typeMap: {[index: string]: any} = {
     "ConfigurationRecipe": ConfigurationRecipe,
     "ConfigurationRecipeSnippet": ConfigurationRecipeSnippet,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
+    "CorporateAction": CorporateAction,
+    "CorporateActionSource": CorporateActionSource,
+    "CorporateActionTransition": CorporateActionTransition,
+    "CorporateActionTransitionComponent": CorporateActionTransitionComponent,
+    "CorporateActionTransitionComponentRequest": CorporateActionTransitionComponentRequest,
+    "CorporateActionTransitionRequest": CorporateActionTransitionRequest,
     "CounterpartyRiskInformation": CounterpartyRiskInformation,
+    "CreateCorporateActionSourceRequest": CreateCorporateActionSourceRequest,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
     "CreateDerivedPropertyDefinitionRequest": CreateDerivedPropertyDefinitionRequest,
     "CreateDerivedTransactionPortfolioRequest": CreateDerivedTransactionPortfolioRequest,
@@ -587,6 +616,7 @@ let typeMap: {[index: string]: any} = {
     "OtcConfirmation": OtcConfirmation,
     "OutputTransaction": OutputTransaction,
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
+    "PagedResourceListOfCorporateActionSource": PagedResourceListOfCorporateActionSource,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PagedResourceListOfLegalEntity": PagedResourceListOfLegalEntity,
@@ -632,6 +662,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfAllocation": ResourceListOfAllocation,
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
+    "ResourceListOfCorporateAction": ResourceListOfCorporateAction,
     "ResourceListOfDataType": ResourceListOfDataType,
     "ResourceListOfGetRecipeResponse": ResourceListOfGetRecipeResponse,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
@@ -675,6 +706,8 @@ let typeMap: {[index: string]: any} = {
     "UpdatePortfolioRequest": UpdatePortfolioRequest,
     "UpdatePropertyDefinitionRequest": UpdatePropertyDefinitionRequest,
     "UpsertComplexMarketDataRequest": UpsertComplexMarketDataRequest,
+    "UpsertCorporateActionRequest": UpsertCorporateActionRequest,
+    "UpsertCorporateActionsResponse": UpsertCorporateActionsResponse,
     "UpsertInstrumentPropertiesResponse": UpsertInstrumentPropertiesResponse,
     "UpsertInstrumentPropertyRequest": UpsertInstrumentPropertyRequest,
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,
