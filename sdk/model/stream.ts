@@ -14,9 +14,9 @@ import { RequestFile } from './models';
 
 export class Stream {
     'canRead'?: boolean;
+    'canWrite'?: boolean;
     'canSeek'?: boolean;
     'canTimeout'?: boolean;
-    'canWrite'?: boolean;
     'length'?: number;
     'position'?: number;
     'readTimeout'?: number;
@@ -31,6 +31,11 @@ export class Stream {
             "type": "boolean"
         },
         {
+            "name": "canWrite",
+            "baseName": "canWrite",
+            "type": "boolean"
+        },
+        {
             "name": "canSeek",
             "baseName": "canSeek",
             "type": "boolean"
@@ -38,11 +43,6 @@ export class Stream {
         {
             "name": "canTimeout",
             "baseName": "canTimeout",
-            "type": "boolean"
-        },
-        {
-            "name": "canWrite",
-            "baseName": "canWrite",
             "type": "boolean"
         },
         {
