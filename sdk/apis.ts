@@ -20,7 +20,6 @@ import {ReconciliationsApi} from './api/reconciliationsApi';
 import {ReferencePortfolioApi} from './api/referencePortfolioApi';
 import {ScopesApi} from './api/scopesApi';
 import {SearchApi} from './api/searchApi';
-import {SequencesApi} from './api/sequencesApi';
 import {SystemConfigurationApi} from './api/systemConfigurationApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
 
@@ -47,7 +46,6 @@ export class Api {
     public referencePortfolio:  ReferencePortfolioApi
     public scopes:  ScopesApi
     public search:  SearchApi
-    public sequences:  SequencesApi
     public systemConfiguration:  SystemConfigurationApi
     public transactionPortfolios:  TransactionPortfoliosApi
 }

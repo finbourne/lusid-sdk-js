@@ -41,7 +41,6 @@ export * from './createPortfolioDetails';
 export * from './createPortfolioGroupRequest';
 export * from './createPropertyDefinitionRequest';
 export * from './createReferencePortfolioRequest';
-export * from './createSequenceRequest';
 export * from './createTransactionPortfolioRequest';
 export * from './creditRating';
 export * from './currencyAndAmount';
@@ -91,7 +90,6 @@ export * from './marketOptions';
 export * from './metricValue';
 export * from './modelOptions';
 export * from './modelSelection';
-export * from './nextValueInSequenceResponse';
 export * from './order';
 export * from './orderBySpec';
 export * from './orderRequest';
@@ -107,7 +105,6 @@ export * from './pagedResourceListOfOrder';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
-export * from './pagedResourceListOfSequenceDefinition';
 export * from './performanceReturn';
 export * from './performanceReturnsMetric';
 export * from './perpetualProperty';
@@ -166,7 +163,6 @@ export * from './resourceListOfScopeDefinition';
 export * from './resultDataSchema';
 export * from './resultKeyRule';
 export * from './scopeDefinition';
-export * from './sequenceDefinition';
 export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
 export * from './sideConfigurationData';
@@ -276,7 +272,6 @@ import { CreatePortfolioDetails } from './createPortfolioDetails';
 import { CreatePortfolioGroupRequest } from './createPortfolioGroupRequest';
 import { CreatePropertyDefinitionRequest } from './createPropertyDefinitionRequest';
 import { CreateReferencePortfolioRequest } from './createReferencePortfolioRequest';
-import { CreateSequenceRequest } from './createSequenceRequest';
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
 import { CreditRating } from './creditRating';
 import { CurrencyAndAmount } from './currencyAndAmount';
@@ -326,7 +321,6 @@ import { MarketOptions } from './marketOptions';
 import { MetricValue } from './metricValue';
 import { ModelOptions } from './modelOptions';
 import { ModelSelection } from './modelSelection';
-import { NextValueInSequenceResponse } from './nextValueInSequenceResponse';
 import { Order } from './order';
 import { OrderBySpec } from './orderBySpec';
 import { OrderRequest } from './orderRequest';
@@ -342,7 +336,6 @@ import { PagedResourceListOfOrder } from './pagedResourceListOfOrder';
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
-import { PagedResourceListOfSequenceDefinition } from './pagedResourceListOfSequenceDefinition';
 import { PerformanceReturn } from './performanceReturn';
 import { PerformanceReturnsMetric } from './performanceReturnsMetric';
 import { PerpetualProperty } from './perpetualProperty';
@@ -401,7 +394,6 @@ import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResultDataSchema } from './resultDataSchema';
 import { ResultKeyRule } from './resultKeyRule';
 import { ScopeDefinition } from './scopeDefinition';
-import { SequenceDefinition } from './sequenceDefinition';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
 import { SideConfigurationData } from './sideConfigurationData';
@@ -569,7 +561,6 @@ let typeMap: {[index: string]: any} = {
     "CreatePortfolioGroupRequest": CreatePortfolioGroupRequest,
     "CreatePropertyDefinitionRequest": CreatePropertyDefinitionRequest,
     "CreateReferencePortfolioRequest": CreateReferencePortfolioRequest,
-    "CreateSequenceRequest": CreateSequenceRequest,
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
     "CreditRating": CreditRating,
     "CurrencyAndAmount": CurrencyAndAmount,
@@ -619,7 +610,6 @@ let typeMap: {[index: string]: any} = {
     "MetricValue": MetricValue,
     "ModelOptions": ModelOptions,
     "ModelSelection": ModelSelection,
-    "NextValueInSequenceResponse": NextValueInSequenceResponse,
     "Order": Order,
     "OrderBySpec": OrderBySpec,
     "OrderRequest": OrderRequest,
@@ -635,7 +625,6 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
-    "PagedResourceListOfSequenceDefinition": PagedResourceListOfSequenceDefinition,
     "PerformanceReturn": PerformanceReturn,
     "PerformanceReturnsMetric": PerformanceReturnsMetric,
     "PerpetualProperty": PerpetualProperty,
@@ -694,7 +683,6 @@ let typeMap: {[index: string]: any} = {
     "ResultDataSchema": ResultDataSchema,
     "ResultKeyRule": ResultKeyRule,
     "ScopeDefinition": ScopeDefinition,
-    "SequenceDefinition": SequenceDefinition,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
     "SideConfigurationData": SideConfigurationData,
