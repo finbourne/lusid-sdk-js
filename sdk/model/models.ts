@@ -1,5 +1,9 @@
 import localVarRequest from 'request';
 
+export * from './a2BBreakdown';
+export * from './a2BCategory';
+export * from './a2BDataRecord';
+export * from './a2BMovementRecord';
 export * from './accessControlledAction';
 export * from './accessControlledResource';
 export * from './accessMetadataValue';
@@ -19,6 +23,7 @@ export * from './allocationSetRequest';
 export * from './annulQuotesResponse';
 export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
+export * from './cashLadderRecord';
 export * from './change';
 export * from './completePortfolio';
 export * from './complexMarketData';
@@ -113,6 +118,7 @@ export * from './performanceReturnsMetric';
 export * from './perpetualProperty';
 export * from './portfolio';
 export * from './portfolioCashFlow';
+export * from './portfolioCashLadder';
 export * from './portfolioDetails';
 export * from './portfolioEntityId';
 export * from './portfolioGroup';
@@ -156,6 +162,7 @@ export * from './resourceListOfOrder';
 export * from './resourceListOfPerformanceReturn';
 export * from './resourceListOfPortfolio';
 export * from './resourceListOfPortfolioCashFlow';
+export * from './resourceListOfPortfolioCashLadder';
 export * from './resourceListOfPortfolioGroup';
 export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfPropertyDefinition';
@@ -217,6 +224,8 @@ export * from './valuationSchedule';
 export * from './vendorModelRule';
 export * from './version';
 export * from './versionSummaryDto';
+export * from './versionedResourceListOfA2BDataRecord';
+export * from './versionedResourceListOfA2BMovementRecord';
 export * from './versionedResourceListOfOutputTransaction';
 export * from './versionedResourceListOfPortfolioHolding';
 export * from './versionedResourceListOfTransaction';
@@ -235,6 +244,10 @@ export interface RequestDetailedFile {
 export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 
+import { A2BBreakdown } from './a2BBreakdown';
+import { A2BCategory } from './a2BCategory';
+import { A2BDataRecord } from './a2BDataRecord';
+import { A2BMovementRecord } from './a2BMovementRecord';
 import { AccessControlledAction } from './accessControlledAction';
 import { AccessControlledResource } from './accessControlledResource';
 import { AccessMetadataValue } from './accessMetadataValue';
@@ -254,6 +267,7 @@ import { AllocationSetRequest } from './allocationSetRequest';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
+import { CashLadderRecord } from './cashLadderRecord';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
 import { ComplexMarketData } from './complexMarketData';
@@ -348,6 +362,7 @@ import { PerformanceReturnsMetric } from './performanceReturnsMetric';
 import { PerpetualProperty } from './perpetualProperty';
 import { Portfolio } from './portfolio';
 import { PortfolioCashFlow } from './portfolioCashFlow';
+import { PortfolioCashLadder } from './portfolioCashLadder';
 import { PortfolioDetails } from './portfolioDetails';
 import { PortfolioEntityId } from './portfolioEntityId';
 import { PortfolioGroup } from './portfolioGroup';
@@ -391,6 +406,7 @@ import { ResourceListOfOrder } from './resourceListOfOrder';
 import { ResourceListOfPerformanceReturn } from './resourceListOfPerformanceReturn';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
 import { ResourceListOfPortfolioCashFlow } from './resourceListOfPortfolioCashFlow';
+import { ResourceListOfPortfolioCashLadder } from './resourceListOfPortfolioCashLadder';
 import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
 import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
@@ -452,6 +468,8 @@ import { ValuationSchedule } from './valuationSchedule';
 import { VendorModelRule } from './vendorModelRule';
 import { Version } from './version';
 import { VersionSummaryDto } from './versionSummaryDto';
+import { VersionedResourceListOfA2BDataRecord } from './versionedResourceListOfA2BDataRecord';
+import { VersionedResourceListOfA2BMovementRecord } from './versionedResourceListOfA2BMovementRecord';
 import { VersionedResourceListOfOutputTransaction } from './versionedResourceListOfOutputTransaction';
 import { VersionedResourceListOfPortfolioHolding } from './versionedResourceListOfPortfolioHolding';
 import { VersionedResourceListOfTransaction } from './versionedResourceListOfTransaction';
@@ -528,6 +546,10 @@ let enumsMap: {[index: string]: any} = {
 }
 
 let typeMap: {[index: string]: any} = {
+    "A2BBreakdown": A2BBreakdown,
+    "A2BCategory": A2BCategory,
+    "A2BDataRecord": A2BDataRecord,
+    "A2BMovementRecord": A2BMovementRecord,
     "AccessControlledAction": AccessControlledAction,
     "AccessControlledResource": AccessControlledResource,
     "AccessMetadataValue": AccessMetadataValue,
@@ -547,6 +569,7 @@ let typeMap: {[index: string]: any} = {
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
+    "CashLadderRecord": CashLadderRecord,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
     "ComplexMarketData": ComplexMarketData,
@@ -641,6 +664,7 @@ let typeMap: {[index: string]: any} = {
     "PerpetualProperty": PerpetualProperty,
     "Portfolio": Portfolio,
     "PortfolioCashFlow": PortfolioCashFlow,
+    "PortfolioCashLadder": PortfolioCashLadder,
     "PortfolioDetails": PortfolioDetails,
     "PortfolioEntityId": PortfolioEntityId,
     "PortfolioGroup": PortfolioGroup,
@@ -684,6 +708,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPerformanceReturn": ResourceListOfPerformanceReturn,
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
     "ResourceListOfPortfolioCashFlow": ResourceListOfPortfolioCashFlow,
+    "ResourceListOfPortfolioCashLadder": ResourceListOfPortfolioCashLadder,
     "ResourceListOfPortfolioGroup": ResourceListOfPortfolioGroup,
     "ResourceListOfProcessedCommand": ResourceListOfProcessedCommand,
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
@@ -745,6 +770,8 @@ let typeMap: {[index: string]: any} = {
     "VendorModelRule": VendorModelRule,
     "Version": Version,
     "VersionSummaryDto": VersionSummaryDto,
+    "VersionedResourceListOfA2BDataRecord": VersionedResourceListOfA2BDataRecord,
+    "VersionedResourceListOfA2BMovementRecord": VersionedResourceListOfA2BMovementRecord,
     "VersionedResourceListOfOutputTransaction": VersionedResourceListOfOutputTransaction,
     "VersionedResourceListOfPortfolioHolding": VersionedResourceListOfPortfolioHolding,
     "VersionedResourceListOfTransaction": VersionedResourceListOfTransaction,
