@@ -516,6 +516,8 @@ let enumsMap: {[index: string]: any} = {
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
+        "Portfolio.AccountingMethodEnum": Portfolio.AccountingMethodEnum,
+        "PortfolioDetails.AccountingMethodEnum": PortfolioDetails.AccountingMethodEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
         "PropertyDefinition.ValueTypeEnum": PropertyDefinition.ValueTypeEnum,
         "PropertyDefinition.TypeEnum": PropertyDefinition.TypeEnum,
