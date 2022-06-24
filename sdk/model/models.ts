@@ -170,6 +170,7 @@ export * from './resourceListOfPropertyInterval';
 export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfScopeDefinition';
+export * from './responseMetaData';
 export * from './resultDataSchema';
 export * from './resultKeyRule';
 export * from './scopeDefinition';
@@ -414,6 +415,7 @@ import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval
 import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
+import { ResponseMetaData } from './responseMetaData';
 import { ResultDataSchema } from './resultDataSchema';
 import { ResultKeyRule } from './resultKeyRule';
 import { ScopeDefinition } from './scopeDefinition';
@@ -718,6 +720,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
+    "ResponseMetaData": ResponseMetaData,
     "ResultDataSchema": ResultDataSchema,
     "ResultKeyRule": ResultKeyRule,
     "ScopeDefinition": ScopeDefinition,

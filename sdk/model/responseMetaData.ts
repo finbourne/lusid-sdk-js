@@ -11,43 +11,54 @@
  */
 
 import { RequestFile } from './models';
-import { Link } from './link';
 
-export class VersionSummaryDto {
-    'apiVersion'?: string | null;
-    'buildVersion'?: string | null;
-    'excelVersion'?: string | null;
+/**
+* Metadata related to an api response
+*/
+export class ResponseMetaData {
     /**
-    * Collection of links.
+    * The type of meta data information being provided
     */
-    'links'?: Array<Link> | null;
+    'type'?: string | null;
+    /**
+    * The description of what occured for this specific piece of meta data
+    */
+    'description'?: string | null;
+    /**
+    * The type of the listed identifiers
+    */
+    'identifierType'?: string | null;
+    /**
+    * The related identifiers that were impacted by this event
+    */
+    'identifiers'?: Array<string> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "apiVersion",
-            "baseName": "apiVersion",
+            "name": "type",
+            "baseName": "type",
             "type": "string"
         },
         {
-            "name": "buildVersion",
-            "baseName": "buildVersion",
+            "name": "description",
+            "baseName": "description",
             "type": "string"
         },
         {
-            "name": "excelVersion",
-            "baseName": "excelVersion",
+            "name": "identifierType",
+            "baseName": "identifierType",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
+            "name": "identifiers",
+            "baseName": "identifiers",
+            "type": "Array<string>"
         }    ];
 
     static getAttributeTypeMap() {
-        return VersionSummaryDto.attributeTypeMap;
+        return ResponseMetaData.attributeTypeMap;
     }
 }
 
