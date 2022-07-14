@@ -11,25 +11,17 @@
  */
 
 import { RequestFile } from './models';
+import { LegalEntity } from './legalEntity';
 import { Link } from './link';
-import { PortfolioSearchResult } from './portfolioSearchResult';
 
 /**
-* A paginated list of resource that can be returned from a request.
+* A collection of resources that can be returned from requests.
 */
-export class PagedResourceListOfPortfolioSearchResult {
-    /**
-    * The next page of results.
-    */
-    'nextPage'?: string | null;
-    /**
-    * The previous page of results.
-    */
-    'previousPage'?: string | null;
+export class ResourceListOfLegalEntity {
     /**
     * The resources to list.
     */
-    'values': Array<PortfolioSearchResult>;
+    'values': Array<LegalEntity>;
     /**
     * The URI of the resource list.
     */
@@ -38,24 +30,22 @@ export class PagedResourceListOfPortfolioSearchResult {
     * Collection of links.
     */
     'links'?: Array<Link> | null;
+    /**
+    * The next page of results.
+    */
+    'nextPage'?: string | null;
+    /**
+    * The previous page of results.
+    */
+    'previousPage'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "nextPage",
-            "baseName": "nextPage",
-            "type": "string"
-        },
-        {
-            "name": "previousPage",
-            "baseName": "previousPage",
-            "type": "string"
-        },
-        {
             "name": "values",
             "baseName": "values",
-            "type": "Array<PortfolioSearchResult>"
+            "type": "Array<LegalEntity>"
         },
         {
             "name": "href",
@@ -66,10 +56,20 @@ export class PagedResourceListOfPortfolioSearchResult {
             "name": "links",
             "baseName": "links",
             "type": "Array<Link>"
+        },
+        {
+            "name": "nextPage",
+            "baseName": "nextPage",
+            "type": "string"
+        },
+        {
+            "name": "previousPage",
+            "baseName": "previousPage",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return PagedResourceListOfPortfolioSearchResult.attributeTypeMap;
+        return ResourceListOfLegalEntity.attributeTypeMap;
     }
 }
 

@@ -158,6 +158,7 @@ export * from './resourceListOfGetRecipeResponse';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
 export * from './resourceListOfInstrumentIdTypeDescriptor';
+export * from './resourceListOfLegalEntity';
 export * from './resourceListOfOrder';
 export * from './resourceListOfPerformanceReturn';
 export * from './resourceListOfPortfolio';
@@ -403,6 +404,7 @@ import { ResourceListOfGetRecipeResponse } from './resourceListOfGetRecipeRespon
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
 import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
+import { ResourceListOfLegalEntity } from './resourceListOfLegalEntity';
 import { ResourceListOfOrder } from './resourceListOfOrder';
 import { ResourceListOfPerformanceReturn } from './resourceListOfPerformanceReturn';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
@@ -708,6 +710,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
     "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
+    "ResourceListOfLegalEntity": ResourceListOfLegalEntity,
     "ResourceListOfOrder": ResourceListOfOrder,
     "ResourceListOfPerformanceReturn": ResourceListOfPerformanceReturn,
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
