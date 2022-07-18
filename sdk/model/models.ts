@@ -57,6 +57,7 @@ export * from './dateRange';
 export * from './deleteInstrumentResponse';
 export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
+export * from './entityIdentifier';
 export * from './errorDetail';
 export * from './expandedGroup';
 export * from './fieldDefinition';
@@ -87,6 +88,7 @@ export * from './link';
 export * from './listAggregationResponse';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
+export * from './lusidUniqueId';
 export * from './lusidValidationProblemDetails';
 export * from './marketContext';
 export * from './marketContextSuppliers';
@@ -146,6 +148,8 @@ export * from './reconciliationBreak';
 export * from './referenceData';
 export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
+export * from './relatedEntity';
+export * from './relationship';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfAccessMetadataValueOf';
@@ -170,6 +174,7 @@ export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfPropertyInterval';
 export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
+export * from './resourceListOfRelationship';
 export * from './resourceListOfScopeDefinition';
 export * from './responseMetaData';
 export * from './resultDataSchema';
@@ -303,6 +308,7 @@ import { DateRange } from './dateRange';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
+import { EntityIdentifier } from './entityIdentifier';
 import { ErrorDetail } from './errorDetail';
 import { ExpandedGroup } from './expandedGroup';
 import { FieldDefinition } from './fieldDefinition';
@@ -333,6 +339,7 @@ import { Link } from './link';
 import { ListAggregationResponse } from './listAggregationResponse';
 import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
+import { LusidUniqueId } from './lusidUniqueId';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MarketContext } from './marketContext';
 import { MarketContextSuppliers } from './marketContextSuppliers';
@@ -392,6 +399,8 @@ import { ReconciliationBreak } from './reconciliationBreak';
 import { ReferenceData } from './referenceData';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
+import { RelatedEntity } from './relatedEntity';
+import { Relationship } from './relationship';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetadataValueOf';
@@ -416,6 +425,7 @@ import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefini
 import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval';
 import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
+import { ResourceListOfRelationship } from './resourceListOfRelationship';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResponseMetaData } from './responseMetaData';
 import { ResultDataSchema } from './resultDataSchema';
@@ -609,6 +619,7 @@ let typeMap: {[index: string]: any} = {
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeletedEntityResponse": DeletedEntityResponse,
     "DependencySourceFilter": DependencySourceFilter,
+    "EntityIdentifier": EntityIdentifier,
     "ErrorDetail": ErrorDetail,
     "ExpandedGroup": ExpandedGroup,
     "FieldDefinition": FieldDefinition,
@@ -639,6 +650,7 @@ let typeMap: {[index: string]: any} = {
     "ListAggregationResponse": ListAggregationResponse,
     "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
+    "LusidUniqueId": LusidUniqueId,
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
     "MarketContext": MarketContext,
     "MarketContextSuppliers": MarketContextSuppliers,
@@ -698,6 +710,8 @@ let typeMap: {[index: string]: any} = {
     "ReferenceData": ReferenceData,
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
+    "RelatedEntity": RelatedEntity,
+    "Relationship": Relationship,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfAccessMetadataValueOf": ResourceListOfAccessMetadataValueOf,
@@ -722,6 +736,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPropertyInterval": ResourceListOfPropertyInterval,
     "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
+    "ResourceListOfRelationship": ResourceListOfRelationship,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ResponseMetaData": ResponseMetaData,
     "ResultDataSchema": ResultDataSchema,
