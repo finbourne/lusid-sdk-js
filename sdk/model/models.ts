@@ -26,6 +26,7 @@ export * from './annulStructuredDataResponse';
 export * from './cashLadderRecord';
 export * from './change';
 export * from './completePortfolio';
+export * from './completeRelationship';
 export * from './complexMarketData';
 export * from './complexMarketDataId';
 export * from './configurationRecipe';
@@ -46,6 +47,8 @@ export * from './createPortfolioDetails';
 export * from './createPortfolioGroupRequest';
 export * from './createPropertyDefinitionRequest';
 export * from './createReferencePortfolioRequest';
+export * from './createRelationshipDefinitionRequest';
+export * from './createRelationshipRequest';
 export * from './createSequenceRequest';
 export * from './createTransactionPortfolioRequest';
 export * from './creditRating';
@@ -55,6 +58,7 @@ export * from './cutLocalTime';
 export * from './dataType';
 export * from './dateRange';
 export * from './deleteInstrumentResponse';
+export * from './deleteRelationshipRequest';
 export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
 export * from './entityIdentifier';
@@ -114,6 +118,7 @@ export * from './pagedResourceListOfOrder';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
+export * from './pagedResourceListOfRelationshipDefinition';
 export * from './pagedResourceListOfSequenceDefinition';
 export * from './performanceReturn';
 export * from './performanceReturnsMetric';
@@ -150,6 +155,7 @@ export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './relatedEntity';
 export * from './relationship';
+export * from './relationshipDefinition';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfAccessMetadataValueOf';
@@ -204,6 +210,7 @@ export * from './updateInstrumentIdentifierRequest';
 export * from './updatePortfolioGroupRequest';
 export * from './updatePortfolioRequest';
 export * from './updatePropertyDefinitionRequest';
+export * from './updateRelationshipDefinitionRequest';
 export * from './upsertComplexMarketDataRequest';
 export * from './upsertCorporateActionRequest';
 export * from './upsertCorporateActionsResponse';
@@ -277,6 +284,7 @@ import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
 import { CashLadderRecord } from './cashLadderRecord';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
+import { CompleteRelationship } from './completeRelationship';
 import { ComplexMarketData } from './complexMarketData';
 import { ComplexMarketDataId } from './complexMarketDataId';
 import { ConfigurationRecipe } from './configurationRecipe';
@@ -297,6 +305,8 @@ import { CreatePortfolioDetails } from './createPortfolioDetails';
 import { CreatePortfolioGroupRequest } from './createPortfolioGroupRequest';
 import { CreatePropertyDefinitionRequest } from './createPropertyDefinitionRequest';
 import { CreateReferencePortfolioRequest } from './createReferencePortfolioRequest';
+import { CreateRelationshipDefinitionRequest } from './createRelationshipDefinitionRequest';
+import { CreateRelationshipRequest } from './createRelationshipRequest';
 import { CreateSequenceRequest } from './createSequenceRequest';
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
 import { CreditRating } from './creditRating';
@@ -306,6 +316,7 @@ import { CutLocalTime } from './cutLocalTime';
 import { DataType } from './dataType';
 import { DateRange } from './dateRange';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
+import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
 import { EntityIdentifier } from './entityIdentifier';
@@ -365,6 +376,7 @@ import { PagedResourceListOfOrder } from './pagedResourceListOfOrder';
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
+import { PagedResourceListOfRelationshipDefinition } from './pagedResourceListOfRelationshipDefinition';
 import { PagedResourceListOfSequenceDefinition } from './pagedResourceListOfSequenceDefinition';
 import { PerformanceReturn } from './performanceReturn';
 import { PerformanceReturnsMetric } from './performanceReturnsMetric';
@@ -401,6 +413,7 @@ import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { RelatedEntity } from './relatedEntity';
 import { Relationship } from './relationship';
+import { RelationshipDefinition } from './relationshipDefinition';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetadataValueOf';
@@ -455,6 +468,7 @@ import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierR
 import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
 import { UpdatePortfolioRequest } from './updatePortfolioRequest';
 import { UpdatePropertyDefinitionRequest } from './updatePropertyDefinitionRequest';
+import { UpdateRelationshipDefinitionRequest } from './updateRelationshipDefinitionRequest';
 import { UpsertComplexMarketDataRequest } from './upsertComplexMarketDataRequest';
 import { UpsertCorporateActionRequest } from './upsertCorporateActionRequest';
 import { UpsertCorporateActionsResponse } from './upsertCorporateActionsResponse';
@@ -588,6 +602,7 @@ let typeMap: {[index: string]: any} = {
     "CashLadderRecord": CashLadderRecord,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
+    "CompleteRelationship": CompleteRelationship,
     "ComplexMarketData": ComplexMarketData,
     "ComplexMarketDataId": ComplexMarketDataId,
     "ConfigurationRecipe": ConfigurationRecipe,
@@ -608,6 +623,8 @@ let typeMap: {[index: string]: any} = {
     "CreatePortfolioGroupRequest": CreatePortfolioGroupRequest,
     "CreatePropertyDefinitionRequest": CreatePropertyDefinitionRequest,
     "CreateReferencePortfolioRequest": CreateReferencePortfolioRequest,
+    "CreateRelationshipDefinitionRequest": CreateRelationshipDefinitionRequest,
+    "CreateRelationshipRequest": CreateRelationshipRequest,
     "CreateSequenceRequest": CreateSequenceRequest,
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
     "CreditRating": CreditRating,
@@ -617,6 +634,7 @@ let typeMap: {[index: string]: any} = {
     "DataType": DataType,
     "DateRange": DateRange,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
+    "DeleteRelationshipRequest": DeleteRelationshipRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
     "DependencySourceFilter": DependencySourceFilter,
     "EntityIdentifier": EntityIdentifier,
@@ -676,6 +694,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
+    "PagedResourceListOfRelationshipDefinition": PagedResourceListOfRelationshipDefinition,
     "PagedResourceListOfSequenceDefinition": PagedResourceListOfSequenceDefinition,
     "PerformanceReturn": PerformanceReturn,
     "PerformanceReturnsMetric": PerformanceReturnsMetric,
@@ -712,6 +731,7 @@ let typeMap: {[index: string]: any} = {
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "RelatedEntity": RelatedEntity,
     "Relationship": Relationship,
+    "RelationshipDefinition": RelationshipDefinition,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfAccessMetadataValueOf": ResourceListOfAccessMetadataValueOf,
@@ -766,6 +786,7 @@ let typeMap: {[index: string]: any} = {
     "UpdatePortfolioGroupRequest": UpdatePortfolioGroupRequest,
     "UpdatePortfolioRequest": UpdatePortfolioRequest,
     "UpdatePropertyDefinitionRequest": UpdatePropertyDefinitionRequest,
+    "UpdateRelationshipDefinitionRequest": UpdateRelationshipDefinitionRequest,
     "UpsertComplexMarketDataRequest": UpsertComplexMarketDataRequest,
     "UpsertCorporateActionRequest": UpsertCorporateActionRequest,
     "UpsertCorporateActionsResponse": UpsertCorporateActionsResponse,
