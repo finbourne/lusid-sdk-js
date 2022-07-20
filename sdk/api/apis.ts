@@ -38,6 +38,10 @@ export * from './reconciliationsApi';
 import { ReconciliationsApi } from './reconciliationsApi';
 export * from './referencePortfolioApi';
 import { ReferencePortfolioApi } from './referencePortfolioApi';
+export * from './relationshipDefinitionsApi';
+import { RelationshipDefinitionsApi } from './relationshipDefinitionsApi';
+export * from './relationshipsApi';
+import { RelationshipsApi } from './relationshipsApi';
 export * from './scopesApi';
 import { ScopesApi } from './scopesApi';
 export * from './searchApi';
@@ -51,4 +55,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AggregationApi, AllocationsApi, ApplicationMetadataApi, ComplexMarketDataApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, PersonsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, ScopesApi, SearchApi, SequencesApi, SystemConfigurationApi, TransactionPortfoliosApi];
+export const APIS = [AggregationApi, AllocationsApi, ApplicationMetadataApi, ComplexMarketDataApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, PersonsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, ScopesApi, SearchApi, SequencesApi, SystemConfigurationApi, TransactionPortfoliosApi];
