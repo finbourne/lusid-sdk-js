@@ -4,6 +4,8 @@ export * from './allocationsApi';
 import { AllocationsApi } from './allocationsApi';
 export * from './applicationMetadataApi';
 import { ApplicationMetadataApi } from './applicationMetadataApi';
+export * from './calendarsApi';
+import { CalendarsApi } from './calendarsApi';
 export * from './complexMarketDataApi';
 import { ComplexMarketDataApi } from './complexMarketDataApi';
 export * from './configurationRecipeApi';
@@ -55,4 +57,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AggregationApi, AllocationsApi, ApplicationMetadataApi, ComplexMarketDataApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, PersonsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, ScopesApi, SearchApi, SequencesApi, SystemConfigurationApi, TransactionPortfoliosApi];
+export const APIS = [AggregationApi, AllocationsApi, ApplicationMetadataApi, CalendarsApi, ComplexMarketDataApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, PersonsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, ScopesApi, SearchApi, SequencesApi, SystemConfigurationApi, TransactionPortfoliosApi];

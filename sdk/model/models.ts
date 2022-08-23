@@ -8,6 +8,8 @@ export * from './accessControlledAction';
 export * from './accessControlledResource';
 export * from './accessMetadataValue';
 export * from './actionId';
+export * from './addBusinessDaysToDateRequest';
+export * from './addBusinessDaysToDateResponse';
 export * from './adjustHolding';
 export * from './adjustHoldingRequest';
 export * from './aggregateSpec';
@@ -23,6 +25,8 @@ export * from './allocationSetRequest';
 export * from './annulQuotesResponse';
 export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
+export * from './calendar';
+export * from './calendarDate';
 export * from './cashLadderRecord';
 export * from './change';
 export * from './completePortfolio';
@@ -39,8 +43,10 @@ export * from './corporateActionTransitionComponent';
 export * from './corporateActionTransitionComponentRequest';
 export * from './corporateActionTransitionRequest';
 export * from './counterpartyRiskInformation';
+export * from './createCalendarRequest';
 export * from './createCorporateActionSourceRequest';
 export * from './createCutLabelDefinitionRequest';
+export * from './createDateRequest';
 export * from './createDerivedPropertyDefinitionRequest';
 export * from './createDerivedTransactionPortfolioRequest';
 export * from './createPortfolioDetails';
@@ -56,7 +62,9 @@ export * from './currencyAndAmount';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
 export * from './dataType';
+export * from './dateAttributes';
 export * from './dateRange';
+export * from './dayOfWeek';
 export * from './deleteInstrumentResponse';
 export * from './deleteRelationshipRequest';
 export * from './deletedEntityResponse';
@@ -86,6 +94,7 @@ export * from './instrument';
 export * from './instrumentDefinition';
 export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
+export * from './isBusinessDayResponse';
 export * from './labelValueSet';
 export * from './legalEntity';
 export * from './link';
@@ -110,6 +119,7 @@ export * from './orderSetRequest';
 export * from './otcConfirmation';
 export * from './outputTransaction';
 export * from './pagedResourceListOfAllocation';
+export * from './pagedResourceListOfCalendar';
 export * from './pagedResourceListOfCorporateActionSource';
 export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfInstrument';
@@ -160,6 +170,7 @@ export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfAccessMetadataValueOf';
 export * from './resourceListOfAllocation';
+export * from './resourceListOfCalendarDate';
 export * from './resourceListOfChange';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfCorporateAction';
@@ -205,6 +216,7 @@ export * from './transactionPropertyMappingRequest';
 export * from './transactionQueryParameters';
 export * from './transactionRequest';
 export * from './transactionSetConfigurationData';
+export * from './updateCalendarRequest';
 export * from './updateCutLabelDefinitionRequest';
 export * from './updateInstrumentIdentifierRequest';
 export * from './updatePortfolioGroupRequest';
@@ -243,6 +255,7 @@ export * from './versionedResourceListOfA2BMovementRecord';
 export * from './versionedResourceListOfOutputTransaction';
 export * from './versionedResourceListOfPortfolioHolding';
 export * from './versionedResourceListOfTransaction';
+export * from './weekendMask';
 export * from './weightedInstrument';
 
 import * as fs from 'fs';
@@ -266,6 +279,8 @@ import { AccessControlledAction } from './accessControlledAction';
 import { AccessControlledResource } from './accessControlledResource';
 import { AccessMetadataValue } from './accessMetadataValue';
 import { ActionId } from './actionId';
+import { AddBusinessDaysToDateRequest } from './addBusinessDaysToDateRequest';
+import { AddBusinessDaysToDateResponse } from './addBusinessDaysToDateResponse';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
 import { AggregateSpec } from './aggregateSpec';
@@ -281,6 +296,8 @@ import { AllocationSetRequest } from './allocationSetRequest';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
+import { Calendar } from './calendar';
+import { CalendarDate } from './calendarDate';
 import { CashLadderRecord } from './cashLadderRecord';
 import { Change } from './change';
 import { CompletePortfolio } from './completePortfolio';
@@ -297,8 +314,10 @@ import { CorporateActionTransitionComponent } from './corporateActionTransitionC
 import { CorporateActionTransitionComponentRequest } from './corporateActionTransitionComponentRequest';
 import { CorporateActionTransitionRequest } from './corporateActionTransitionRequest';
 import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
+import { CreateCalendarRequest } from './createCalendarRequest';
 import { CreateCorporateActionSourceRequest } from './createCorporateActionSourceRequest';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
+import { CreateDateRequest } from './createDateRequest';
 import { CreateDerivedPropertyDefinitionRequest } from './createDerivedPropertyDefinitionRequest';
 import { CreateDerivedTransactionPortfolioRequest } from './createDerivedTransactionPortfolioRequest';
 import { CreatePortfolioDetails } from './createPortfolioDetails';
@@ -314,7 +333,9 @@ import { CurrencyAndAmount } from './currencyAndAmount';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
 import { DataType } from './dataType';
+import { DateAttributes } from './dateAttributes';
 import { DateRange } from './dateRange';
+import { DayOfWeek } from './dayOfWeek';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
@@ -344,6 +365,7 @@ import { Instrument } from './instrument';
 import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
+import { IsBusinessDayResponse } from './isBusinessDayResponse';
 import { LabelValueSet } from './labelValueSet';
 import { LegalEntity } from './legalEntity';
 import { Link } from './link';
@@ -368,6 +390,7 @@ import { OrderSetRequest } from './orderSetRequest';
 import { OtcConfirmation } from './otcConfirmation';
 import { OutputTransaction } from './outputTransaction';
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
+import { PagedResourceListOfCalendar } from './pagedResourceListOfCalendar';
 import { PagedResourceListOfCorporateActionSource } from './pagedResourceListOfCorporateActionSource';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
@@ -418,6 +441,7 @@ import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetadataValueOf';
 import { ResourceListOfAllocation } from './resourceListOfAllocation';
+import { ResourceListOfCalendarDate } from './resourceListOfCalendarDate';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
@@ -463,6 +487,7 @@ import { TransactionPropertyMappingRequest } from './transactionPropertyMappingR
 import { TransactionQueryParameters } from './transactionQueryParameters';
 import { TransactionRequest } from './transactionRequest';
 import { TransactionSetConfigurationData } from './transactionSetConfigurationData';
+import { UpdateCalendarRequest } from './updateCalendarRequest';
 import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionRequest';
 import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierRequest';
 import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
@@ -501,6 +526,7 @@ import { VersionedResourceListOfA2BMovementRecord } from './versionedResourceLis
 import { VersionedResourceListOfOutputTransaction } from './versionedResourceListOfOutputTransaction';
 import { VersionedResourceListOfPortfolioHolding } from './versionedResourceListOfPortfolioHolding';
 import { VersionedResourceListOfTransaction } from './versionedResourceListOfTransaction';
+import { WeekendMask } from './weekendMask';
 import { WeightedInstrument } from './weightedInstrument';
 
 /* tslint:disable:no-unused-variable */
@@ -527,6 +553,7 @@ let enumsMap: {[index: string]: any} = {
         "DataType.TypeValueRangeEnum": DataType.TypeValueRangeEnum,
         "DataType.ValueTypeEnum": DataType.ValueTypeEnum,
         "DataType.UnitSchemaEnum": DataType.UnitSchemaEnum,
+        "DayOfWeek": DayOfWeek,
         "FieldSchema.TypeEnum": FieldSchema.TypeEnum,
         "GetReferencePortfolioConstituentsResponse.WeightTypeEnum": GetReferencePortfolioConstituentsResponse.WeightTypeEnum,
         "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
@@ -584,6 +611,8 @@ let typeMap: {[index: string]: any} = {
     "AccessControlledResource": AccessControlledResource,
     "AccessMetadataValue": AccessMetadataValue,
     "ActionId": ActionId,
+    "AddBusinessDaysToDateRequest": AddBusinessDaysToDateRequest,
+    "AddBusinessDaysToDateResponse": AddBusinessDaysToDateResponse,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingRequest": AdjustHoldingRequest,
     "AggregateSpec": AggregateSpec,
@@ -599,6 +628,8 @@ let typeMap: {[index: string]: any} = {
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
+    "Calendar": Calendar,
+    "CalendarDate": CalendarDate,
     "CashLadderRecord": CashLadderRecord,
     "Change": Change,
     "CompletePortfolio": CompletePortfolio,
@@ -615,8 +646,10 @@ let typeMap: {[index: string]: any} = {
     "CorporateActionTransitionComponentRequest": CorporateActionTransitionComponentRequest,
     "CorporateActionTransitionRequest": CorporateActionTransitionRequest,
     "CounterpartyRiskInformation": CounterpartyRiskInformation,
+    "CreateCalendarRequest": CreateCalendarRequest,
     "CreateCorporateActionSourceRequest": CreateCorporateActionSourceRequest,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
+    "CreateDateRequest": CreateDateRequest,
     "CreateDerivedPropertyDefinitionRequest": CreateDerivedPropertyDefinitionRequest,
     "CreateDerivedTransactionPortfolioRequest": CreateDerivedTransactionPortfolioRequest,
     "CreatePortfolioDetails": CreatePortfolioDetails,
@@ -632,6 +665,7 @@ let typeMap: {[index: string]: any} = {
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
     "DataType": DataType,
+    "DateAttributes": DateAttributes,
     "DateRange": DateRange,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeleteRelationshipRequest": DeleteRelationshipRequest,
@@ -662,6 +696,7 @@ let typeMap: {[index: string]: any} = {
     "InstrumentDefinition": InstrumentDefinition,
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
     "InstrumentIdValue": InstrumentIdValue,
+    "IsBusinessDayResponse": IsBusinessDayResponse,
     "LabelValueSet": LabelValueSet,
     "LegalEntity": LegalEntity,
     "Link": Link,
@@ -686,6 +721,7 @@ let typeMap: {[index: string]: any} = {
     "OtcConfirmation": OtcConfirmation,
     "OutputTransaction": OutputTransaction,
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
+    "PagedResourceListOfCalendar": PagedResourceListOfCalendar,
     "PagedResourceListOfCorporateActionSource": PagedResourceListOfCorporateActionSource,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
@@ -736,6 +772,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfAccessMetadataValueOf": ResourceListOfAccessMetadataValueOf,
     "ResourceListOfAllocation": ResourceListOfAllocation,
+    "ResourceListOfCalendarDate": ResourceListOfCalendarDate,
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfCorporateAction": ResourceListOfCorporateAction,
@@ -781,6 +818,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionQueryParameters": TransactionQueryParameters,
     "TransactionRequest": TransactionRequest,
     "TransactionSetConfigurationData": TransactionSetConfigurationData,
+    "UpdateCalendarRequest": UpdateCalendarRequest,
     "UpdateCutLabelDefinitionRequest": UpdateCutLabelDefinitionRequest,
     "UpdateInstrumentIdentifierRequest": UpdateInstrumentIdentifierRequest,
     "UpdatePortfolioGroupRequest": UpdatePortfolioGroupRequest,
@@ -819,6 +857,7 @@ let typeMap: {[index: string]: any} = {
     "VersionedResourceListOfOutputTransaction": VersionedResourceListOfOutputTransaction,
     "VersionedResourceListOfPortfolioHolding": VersionedResourceListOfPortfolioHolding,
     "VersionedResourceListOfTransaction": VersionedResourceListOfTransaction,
+    "WeekendMask": WeekendMask,
     "WeightedInstrument": WeightedInstrument,
 }
 
