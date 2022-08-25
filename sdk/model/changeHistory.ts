@@ -11,51 +11,81 @@
  */
 
 import { RequestFile } from './models';
+import { ChangeItem } from './changeItem';
+import { Link } from './link';
 
-export class ErrorDetail {
+/**
+* A group of changes made by the same person at the same time.
+*/
+export class ChangeHistory {
     /**
-    * The id of the failed item that this error relates to.
+    * The unique identifier of the user that made the change.
     */
-    'id'?: string | null;
+    'userId': string;
     /**
-    * The type of failure that occurred.
+    * The date/time of the change.
     */
-    'type'?: string | null;
+    'modifiedAsAt': Date;
     /**
-    * Description of the failure that occurred.
+    * The unique identifier of the request that the changes were part of.
     */
-    'detail'?: string | null;
+    'requestId': string;
     /**
-    * Information about the particular instance of the failure (supplied information depends on the type of failure).
+    * The action performed on the transaction, either created, updated, or deleted. The available values are: Create, Update, Delete
     */
-    'errorDetails'?: Array<{ [key: string]: string; }> | null;
+    'action': ChangeHistory.ActionEnum;
+    /**
+    * The collection of changes that were made.
+    */
+    'changes': Array<ChangeItem>;
+    /**
+    * Collection of links.
+    */
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "userId",
+            "baseName": "userId",
             "type": "string"
         },
         {
-            "name": "type",
-            "baseName": "type",
+            "name": "modifiedAsAt",
+            "baseName": "modifiedAsAt",
+            "type": "Date"
+        },
+        {
+            "name": "requestId",
+            "baseName": "requestId",
             "type": "string"
         },
         {
-            "name": "detail",
-            "baseName": "detail",
-            "type": "string"
+            "name": "action",
+            "baseName": "action",
+            "type": "ChangeHistory.ActionEnum"
         },
         {
-            "name": "errorDetails",
-            "baseName": "errorDetails",
-            "type": "Array<{ [key: string]: string; }>"
+            "name": "changes",
+            "baseName": "changes",
+            "type": "Array<ChangeItem>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return ErrorDetail.attributeTypeMap;
+        return ChangeHistory.attributeTypeMap;
     }
 }
 
+export namespace ChangeHistory {
+    export enum ActionEnum {
+        Create = <any> 'Create',
+        Update = <any> 'Update',
+        Delete = <any> 'Delete'
+    }
+}

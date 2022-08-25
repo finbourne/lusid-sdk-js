@@ -29,6 +29,8 @@ export * from './calendar';
 export * from './calendarDate';
 export * from './cashLadderRecord';
 export * from './change';
+export * from './changeHistory';
+export * from './changeItem';
 export * from './completePortfolio';
 export * from './completeRelationship';
 export * from './complexMarketData';
@@ -176,6 +178,7 @@ export * from './resourceListOfAccessMetadataValueOf';
 export * from './resourceListOfAllocation';
 export * from './resourceListOfCalendarDate';
 export * from './resourceListOfChange';
+export * from './resourceListOfChangeHistory';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfCorporateAction';
 export * from './resourceListOfDataType';
@@ -306,6 +309,8 @@ import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CashLadderRecord } from './cashLadderRecord';
 import { Change } from './change';
+import { ChangeHistory } from './changeHistory';
+import { ChangeItem } from './changeItem';
 import { CompletePortfolio } from './completePortfolio';
 import { CompleteRelationship } from './completeRelationship';
 import { ComplexMarketData } from './complexMarketData';
@@ -453,6 +458,7 @@ import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetad
 import { ResourceListOfAllocation } from './resourceListOfAllocation';
 import { ResourceListOfCalendarDate } from './resourceListOfCalendarDate';
 import { ResourceListOfChange } from './resourceListOfChange';
+import { ResourceListOfChangeHistory } from './resourceListOfChangeHistory';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
 import { ResourceListOfDataType } from './resourceListOfDataType';
@@ -555,6 +561,7 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "AggregateSpec.OpEnum": AggregateSpec.OpEnum,
+        "ChangeHistory.ActionEnum": ChangeHistory.ActionEnum,
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
         "ComplexMarketData.MarketDataTypeEnum": ComplexMarketData.MarketDataTypeEnum,
         "CreateDataTypeRequest.TypeValueRangeEnum": CreateDataTypeRequest.TypeValueRangeEnum,
@@ -650,6 +657,8 @@ let typeMap: {[index: string]: any} = {
     "CalendarDate": CalendarDate,
     "CashLadderRecord": CashLadderRecord,
     "Change": Change,
+    "ChangeHistory": ChangeHistory,
+    "ChangeItem": ChangeItem,
     "CompletePortfolio": CompletePortfolio,
     "CompleteRelationship": CompleteRelationship,
     "ComplexMarketData": ComplexMarketData,
@@ -796,6 +805,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfAllocation": ResourceListOfAllocation,
     "ResourceListOfCalendarDate": ResourceListOfCalendarDate,
     "ResourceListOfChange": ResourceListOfChange,
+    "ResourceListOfChangeHistory": ResourceListOfChangeHistory,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfCorporateAction": ResourceListOfCorporateAction,
     "ResourceListOfDataType": ResourceListOfDataType,

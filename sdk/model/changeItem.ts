@@ -12,50 +12,62 @@
 
 import { RequestFile } from './models';
 
-export class ErrorDetail {
+/**
+* Information about a change to a field / property.  At least one of \'PreviousValue\' or \'NewValue\' will be set.
+*/
+export class ChangeItem {
     /**
-    * The id of the failed item that this error relates to.
+    * The name of the field or property that has been changed.
     */
-    'id'?: string | null;
+    'fieldName': string;
     /**
-    * The type of failure that occurred.
+    * The previous value for this field / property.
     */
-    'type'?: string | null;
+    'previousValue'?: string | null;
     /**
-    * Description of the failure that occurred.
+    * The new value for this field / property.
     */
-    'detail'?: string | null;
+    'newValue'?: string | null;
     /**
-    * Information about the particular instance of the failure (supplied information depends on the type of failure).
+    * The market data time, i.e. the time to run the change from.
     */
-    'errorDetails'?: Array<{ [key: string]: string; }> | null;
+    'effectiveFrom'?: Date | null;
+    /**
+    * The market data time, i.e. the time to run the change until.
+    */
+    'effectiveUntil'?: Date | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "fieldName",
+            "baseName": "fieldName",
             "type": "string"
         },
         {
-            "name": "type",
-            "baseName": "type",
+            "name": "previousValue",
+            "baseName": "previousValue",
             "type": "string"
         },
         {
-            "name": "detail",
-            "baseName": "detail",
+            "name": "newValue",
+            "baseName": "newValue",
             "type": "string"
         },
         {
-            "name": "errorDetails",
-            "baseName": "errorDetails",
-            "type": "Array<{ [key: string]: string; }>"
+            "name": "effectiveFrom",
+            "baseName": "effectiveFrom",
+            "type": "Date"
+        },
+        {
+            "name": "effectiveUntil",
+            "baseName": "effectiveUntil",
+            "type": "Date"
         }    ];
 
     static getAttributeTypeMap() {
-        return ErrorDetail.attributeTypeMap;
+        return ChangeItem.attributeTypeMap;
     }
 }
 

@@ -11,51 +11,65 @@
  */
 
 import { RequestFile } from './models';
+import { ChangeHistory } from './changeHistory';
+import { Link } from './link';
 
-export class ErrorDetail {
+/**
+* A collection of resources that can be returned from requests.
+*/
+export class ResourceListOfChangeHistory {
     /**
-    * The id of the failed item that this error relates to.
+    * The resources to list.
     */
-    'id'?: string | null;
+    'values': Array<ChangeHistory>;
     /**
-    * The type of failure that occurred.
+    * The URI of the resource list.
     */
-    'type'?: string | null;
+    'href'?: string | null;
     /**
-    * Description of the failure that occurred.
+    * Collection of links.
     */
-    'detail'?: string | null;
+    'links'?: Array<Link> | null;
     /**
-    * Information about the particular instance of the failure (supplied information depends on the type of failure).
+    * The next page of results.
     */
-    'errorDetails'?: Array<{ [key: string]: string; }> | null;
+    'nextPage'?: string | null;
+    /**
+    * The previous page of results.
+    */
+    'previousPage'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<ChangeHistory>"
+        },
+        {
+            "name": "href",
+            "baseName": "href",
             "type": "string"
         },
         {
-            "name": "type",
-            "baseName": "type",
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
+        },
+        {
+            "name": "nextPage",
+            "baseName": "nextPage",
             "type": "string"
         },
         {
-            "name": "detail",
-            "baseName": "detail",
+            "name": "previousPage",
+            "baseName": "previousPage",
             "type": "string"
-        },
-        {
-            "name": "errorDetails",
-            "baseName": "errorDetails",
-            "type": "Array<{ [key: string]: string; }>"
         }    ];
 
     static getAttributeTypeMap() {
-        return ErrorDetail.attributeTypeMap;
+        return ResourceListOfChangeHistory.attributeTypeMap;
     }
 }
 
