@@ -9,6 +9,7 @@ import {CutLabelDefinitionsApi} from './api/cutLabelDefinitionsApi';
 import {DataTypesApi} from './api/dataTypesApi';
 import {DerivedTransactionPortfoliosApi} from './api/derivedTransactionPortfoliosApi';
 import {EntitiesApi} from './api/entitiesApi';
+import {ExecutionsApi} from './api/executionsApi';
 import {InstrumentsApi} from './api/instrumentsApi';
 import {LegalEntitiesApi} from './api/legalEntitiesApi';
 import {OrdersApi} from './api/ordersApi';
@@ -39,6 +40,7 @@ export class Api {
     public dataTypes:  DataTypesApi
     public derivedTransactionPortfolios:  DerivedTransactionPortfoliosApi
     public entities:  EntitiesApi
+    public executions:  ExecutionsApi
     public instruments:  InstrumentsApi
     public legalEntities:  LegalEntitiesApi
     public orders:  OrdersApi

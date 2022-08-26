@@ -76,6 +76,9 @@ export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
 export * from './entityIdentifier';
 export * from './errorDetail';
+export * from './execution';
+export * from './executionRequest';
+export * from './executionSetRequest';
 export * from './expandedGroup';
 export * from './fieldDefinition';
 export * from './fieldSchema';
@@ -128,6 +131,7 @@ export * from './pagedResourceListOfCalendar';
 export * from './pagedResourceListOfCorporateActionSource';
 export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfDataTypeSummary';
+export * from './pagedResourceListOfExecution';
 export * from './pagedResourceListOfInstrument';
 export * from './pagedResourceListOfLegalEntity';
 export * from './pagedResourceListOfOrder';
@@ -182,6 +186,7 @@ export * from './resourceListOfChangeHistory';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfCorporateAction';
 export * from './resourceListOfDataType';
+export * from './resourceListOfExecution';
 export * from './resourceListOfGetRecipeResponse';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
@@ -356,6 +361,9 @@ import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
 import { EntityIdentifier } from './entityIdentifier';
 import { ErrorDetail } from './errorDetail';
+import { Execution } from './execution';
+import { ExecutionRequest } from './executionRequest';
+import { ExecutionSetRequest } from './executionSetRequest';
 import { ExpandedGroup } from './expandedGroup';
 import { FieldDefinition } from './fieldDefinition';
 import { FieldSchema } from './fieldSchema';
@@ -408,6 +416,7 @@ import { PagedResourceListOfCalendar } from './pagedResourceListOfCalendar';
 import { PagedResourceListOfCorporateActionSource } from './pagedResourceListOfCorporateActionSource';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfDataTypeSummary } from './pagedResourceListOfDataTypeSummary';
+import { PagedResourceListOfExecution } from './pagedResourceListOfExecution';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PagedResourceListOfLegalEntity } from './pagedResourceListOfLegalEntity';
 import { PagedResourceListOfOrder } from './pagedResourceListOfOrder';
@@ -462,6 +471,7 @@ import { ResourceListOfChangeHistory } from './resourceListOfChangeHistory';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
 import { ResourceListOfDataType } from './resourceListOfDataType';
+import { ResourceListOfExecution } from './resourceListOfExecution';
 import { ResourceListOfGetRecipeResponse } from './resourceListOfGetRecipeResponse';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
@@ -703,6 +713,9 @@ let typeMap: {[index: string]: any} = {
     "DependencySourceFilter": DependencySourceFilter,
     "EntityIdentifier": EntityIdentifier,
     "ErrorDetail": ErrorDetail,
+    "Execution": Execution,
+    "ExecutionRequest": ExecutionRequest,
+    "ExecutionSetRequest": ExecutionSetRequest,
     "ExpandedGroup": ExpandedGroup,
     "FieldDefinition": FieldDefinition,
     "FieldSchema": FieldSchema,
@@ -755,6 +768,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfCorporateActionSource": PagedResourceListOfCorporateActionSource,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfDataTypeSummary": PagedResourceListOfDataTypeSummary,
+    "PagedResourceListOfExecution": PagedResourceListOfExecution,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PagedResourceListOfLegalEntity": PagedResourceListOfLegalEntity,
     "PagedResourceListOfOrder": PagedResourceListOfOrder,
@@ -809,6 +823,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfCorporateAction": ResourceListOfCorporateAction,
     "ResourceListOfDataType": ResourceListOfDataType,
+    "ResourceListOfExecution": ResourceListOfExecution,
     "ResourceListOfGetRecipeResponse": ResourceListOfGetRecipeResponse,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
