@@ -25,19 +25,38 @@ export * from './allocationSetRequest';
 export * from './annulQuotesResponse';
 export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
+export * from './barrier';
+export * from './basket';
+export * from './basketAllOf';
+export * from './basketIdentifier';
+export * from './bond';
+export * from './bondAllOf';
 export * from './calendar';
 export * from './calendarDate';
+export * from './capFloor';
+export * from './capFloorAllOf';
 export * from './cashLadderRecord';
+export * from './cashPerpetual';
+export * from './cashPerpetualAllOf';
+export * from './cdsFlowConventions';
+export * from './cdsIndex';
+export * from './cdsIndexAllOf';
+export * from './cdsProtectionDetailSpecification';
 export * from './change';
 export * from './changeHistory';
 export * from './changeItem';
 export * from './completePortfolio';
 export * from './completeRelationship';
+export * from './complexBond';
+export * from './complexBondAllOf';
 export * from './complexMarketData';
 export * from './complexMarketDataId';
+export * from './compounding';
 export * from './configurationRecipe';
 export * from './configurationRecipeSnippet';
 export * from './constituentsAdjustmentHeader';
+export * from './contractForDifference';
+export * from './contractForDifferenceAllOf';
 export * from './corporateAction';
 export * from './corporateActionSource';
 export * from './corporateActionTransition';
@@ -61,7 +80,11 @@ export * from './createRelationshipRequest';
 export * from './createSequenceRequest';
 export * from './createTransactionPortfolioRequest';
 export * from './createUnitDefinition';
+export * from './creditDefaultSwap';
+export * from './creditDefaultSwapAllOf';
 export * from './creditRating';
+export * from './creditSpreadCurveData';
+export * from './creditSpreadCurveDataAllOf';
 export * from './currencyAndAmount';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
@@ -74,16 +97,71 @@ export * from './deleteInstrumentResponse';
 export * from './deleteRelationshipRequest';
 export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
+export * from './discountFactorCurveData';
+export * from './discountFactorCurveDataAllOf';
+export * from './emptyModelOptions';
+export * from './emptyModelOptionsAllOf';
 export * from './entityIdentifier';
+export * from './equity';
+export * from './equityAllOf';
+export * from './equityAllOfIdentifiers';
+export * from './equityCurveByPricesData';
+export * from './equityCurveByPricesDataAllOf';
+export * from './equityModelOptions';
+export * from './equityModelOptionsAllOf';
+export * from './equityOption';
+export * from './equityOptionAllOf';
+export * from './equitySwap';
+export * from './equitySwapAllOf';
+export * from './equityVolSurfaceData';
+export * from './equityVolSurfaceDataAllOf';
 export * from './errorDetail';
+export * from './exchangeTradedOption';
+export * from './exchangeTradedOptionAllOf';
+export * from './exchangeTradedOptionContractDetails';
 export * from './execution';
 export * from './executionRequest';
 export * from './executionSetRequest';
+export * from './exoticInstrument';
+export * from './exoticInstrumentAllOf';
 export * from './expandedGroup';
 export * from './fieldDefinition';
 export * from './fieldSchema';
 export * from './fieldValue';
 export * from './fileResponse';
+export * from './fixedLeg';
+export * from './fixedLegAllOf';
+export * from './fixedLegAllOfOverrides';
+export * from './floatingLeg';
+export * from './floatingLegAllOf';
+export * from './flowConventionName';
+export * from './flowConventions';
+export * from './forwardRateAgreement';
+export * from './forwardRateAgreementAllOf';
+export * from './fundingLeg';
+export * from './fundingLegAllOf';
+export * from './future';
+export * from './futureAllOf';
+export * from './futuresContractDetails';
+export * from './fxForward';
+export * from './fxForwardAllOf';
+export * from './fxForwardCurveByQuoteReference';
+export * from './fxForwardCurveByQuoteReferenceAllOf';
+export * from './fxForwardCurveData';
+export * from './fxForwardCurveDataAllOf';
+export * from './fxForwardModelOptions';
+export * from './fxForwardModelOptionsAllOf';
+export * from './fxForwardPipsCurveData';
+export * from './fxForwardPipsCurveDataAllOf';
+export * from './fxForwardTenorCurveData';
+export * from './fxForwardTenorCurveDataAllOf';
+export * from './fxForwardTenorPipsCurveData';
+export * from './fxForwardTenorPipsCurveDataAllOf';
+export * from './fxOption';
+export * from './fxOptionAllOf';
+export * from './fxSwap';
+export * from './fxSwapAllOf';
+export * from './fxVolSurfaceData';
 export * from './getComplexMarketDataResponse';
 export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
@@ -96,15 +174,31 @@ export * from './holdingsAdjustmentHeader';
 export * from './iUnitDefinitionDto';
 export * from './idSelectorDefinition';
 export * from './identifierPartSchema';
+export * from './indexConvention';
+export * from './indexModelOptions';
+export * from './indexModelOptionsAllOf';
 export * from './industryClassifier';
+export * from './inflationLinkedBond';
+export * from './inflationLinkedBondAllOf';
 export * from './inlineValuationRequest';
 export * from './instrument';
 export * from './instrumentDefinition';
+export * from './instrumentDefinitionFormat';
 export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
+export * from './instrumentLeg';
+export * from './instrumentLegAllOf';
+export * from './interestRateSwap';
+export * from './interestRateSwapAllOf';
+export * from './interestRateSwaption';
+export * from './interestRateSwaptionAllOf';
+export * from './irVolCubeData';
+export * from './irVolCubeDataAllOf';
 export * from './isBusinessDayResponse';
 export * from './labelValueSet';
+export * from './legDefinition';
 export * from './legalEntity';
+export * from './levelStep';
 export * from './link';
 export * from './listAggregationResponse';
 export * from './lusidInstrument';
@@ -116,10 +210,15 @@ export * from './marketContextSuppliers';
 export * from './marketDataKeyRule';
 export * from './marketDataSpecificRule';
 export * from './marketOptions';
+export * from './marketQuote';
 export * from './metricValue';
 export * from './modelOptions';
 export * from './modelSelection';
 export * from './nextValueInSequenceResponse';
+export * from './opaqueMarketData';
+export * from './opaqueMarketDataAllOf';
+export * from './opaqueModelOptions';
+export * from './opaqueModelOptionsAllOf';
 export * from './order';
 export * from './orderBySpec';
 export * from './orderRequest';
@@ -154,8 +253,11 @@ export * from './portfolioGroupSearchResult';
 export * from './portfolioHolding';
 export * from './portfolioProperties';
 export * from './portfolioReconciliationRequest';
+export * from './portfolioResultDataKeyRule';
+export * from './portfolioResultDataKeyRuleAllOf';
 export * from './portfolioSearchResult';
 export * from './portfoliosReconciliationRequest';
+export * from './premium';
 export * from './pricingContext';
 export * from './pricingOptions';
 export * from './processedCommand';
@@ -171,11 +273,15 @@ export * from './quoteSeriesId';
 export * from './realisedGainLoss';
 export * from './reconciliationBreak';
 export * from './referenceData';
+export * from './referenceInstrument';
+export * from './referenceInstrumentAllOf';
 export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './relatedEntity';
 export * from './relationship';
 export * from './relationshipDefinition';
+export * from './repo';
+export * from './repoAllOf';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfAccessMetadataValueOf';
@@ -206,16 +312,25 @@ export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfRelationship';
 export * from './resourceListOfScopeDefinition';
 export * from './responseMetaData';
+export * from './resultDataKeyRule';
+export * from './resultDataKeyRuleAllOf';
 export * from './resultDataSchema';
 export * from './resultKeyRule';
+export * from './schedule';
 export * from './scopeDefinition';
 export * from './sequenceDefinition';
 export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
 export * from './sideConfigurationData';
+export * from './simpleInstrument';
+export * from './simpleInstrumentAllOf';
+export * from './stepSchedule';
 export * from './stream';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
+export * from './termDeposit';
+export * from './termDepositAllOf';
+export * from './touch';
 export * from './transaction';
 export * from './transactionConfigurationData';
 export * from './transactionConfigurationDataRequest';
@@ -271,6 +386,9 @@ export * from './versionedResourceListOfPortfolioHolding';
 export * from './versionedResourceListOfTransaction';
 export * from './weekendMask';
 export * from './weightedInstrument';
+export * from './weightedInstruments';
+export * from './yieldCurveData';
+export * from './yieldCurveDataAllOf';
 
 import * as fs from 'fs';
 
@@ -310,19 +428,38 @@ import { AllocationSetRequest } from './allocationSetRequest';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
+import { Barrier } from './barrier';
+import { Basket } from './basket';
+import { BasketAllOf } from './basketAllOf';
+import { BasketIdentifier } from './basketIdentifier';
+import { Bond } from './bond';
+import { BondAllOf } from './bondAllOf';
 import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
+import { CapFloor } from './capFloor';
+import { CapFloorAllOf } from './capFloorAllOf';
 import { CashLadderRecord } from './cashLadderRecord';
+import { CashPerpetual } from './cashPerpetual';
+import { CashPerpetualAllOf } from './cashPerpetualAllOf';
+import { CdsFlowConventions } from './cdsFlowConventions';
+import { CdsIndex } from './cdsIndex';
+import { CdsIndexAllOf } from './cdsIndexAllOf';
+import { CdsProtectionDetailSpecification } from './cdsProtectionDetailSpecification';
 import { Change } from './change';
 import { ChangeHistory } from './changeHistory';
 import { ChangeItem } from './changeItem';
 import { CompletePortfolio } from './completePortfolio';
 import { CompleteRelationship } from './completeRelationship';
+import { ComplexBond } from './complexBond';
+import { ComplexBondAllOf } from './complexBondAllOf';
 import { ComplexMarketData } from './complexMarketData';
 import { ComplexMarketDataId } from './complexMarketDataId';
+import { Compounding } from './compounding';
 import { ConfigurationRecipe } from './configurationRecipe';
 import { ConfigurationRecipeSnippet } from './configurationRecipeSnippet';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
+import { ContractForDifference } from './contractForDifference';
+import { ContractForDifferenceAllOf } from './contractForDifferenceAllOf';
 import { CorporateAction } from './corporateAction';
 import { CorporateActionSource } from './corporateActionSource';
 import { CorporateActionTransition } from './corporateActionTransition';
@@ -346,7 +483,11 @@ import { CreateRelationshipRequest } from './createRelationshipRequest';
 import { CreateSequenceRequest } from './createSequenceRequest';
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
 import { CreateUnitDefinition } from './createUnitDefinition';
+import { CreditDefaultSwap } from './creditDefaultSwap';
+import { CreditDefaultSwapAllOf } from './creditDefaultSwapAllOf';
 import { CreditRating } from './creditRating';
+import { CreditSpreadCurveData } from './creditSpreadCurveData';
+import { CreditSpreadCurveDataAllOf } from './creditSpreadCurveDataAllOf';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
@@ -359,16 +500,71 @@ import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
+import { DiscountFactorCurveData } from './discountFactorCurveData';
+import { DiscountFactorCurveDataAllOf } from './discountFactorCurveDataAllOf';
+import { EmptyModelOptions } from './emptyModelOptions';
+import { EmptyModelOptionsAllOf } from './emptyModelOptionsAllOf';
 import { EntityIdentifier } from './entityIdentifier';
+import { Equity } from './equity';
+import { EquityAllOf } from './equityAllOf';
+import { EquityAllOfIdentifiers } from './equityAllOfIdentifiers';
+import { EquityCurveByPricesData } from './equityCurveByPricesData';
+import { EquityCurveByPricesDataAllOf } from './equityCurveByPricesDataAllOf';
+import { EquityModelOptions } from './equityModelOptions';
+import { EquityModelOptionsAllOf } from './equityModelOptionsAllOf';
+import { EquityOption } from './equityOption';
+import { EquityOptionAllOf } from './equityOptionAllOf';
+import { EquitySwap } from './equitySwap';
+import { EquitySwapAllOf } from './equitySwapAllOf';
+import { EquityVolSurfaceData } from './equityVolSurfaceData';
+import { EquityVolSurfaceDataAllOf } from './equityVolSurfaceDataAllOf';
 import { ErrorDetail } from './errorDetail';
+import { ExchangeTradedOption } from './exchangeTradedOption';
+import { ExchangeTradedOptionAllOf } from './exchangeTradedOptionAllOf';
+import { ExchangeTradedOptionContractDetails } from './exchangeTradedOptionContractDetails';
 import { Execution } from './execution';
 import { ExecutionRequest } from './executionRequest';
 import { ExecutionSetRequest } from './executionSetRequest';
+import { ExoticInstrument } from './exoticInstrument';
+import { ExoticInstrumentAllOf } from './exoticInstrumentAllOf';
 import { ExpandedGroup } from './expandedGroup';
 import { FieldDefinition } from './fieldDefinition';
 import { FieldSchema } from './fieldSchema';
 import { FieldValue } from './fieldValue';
 import { FileResponse } from './fileResponse';
+import { FixedLeg } from './fixedLeg';
+import { FixedLegAllOf } from './fixedLegAllOf';
+import { FixedLegAllOfOverrides } from './fixedLegAllOfOverrides';
+import { FloatingLeg } from './floatingLeg';
+import { FloatingLegAllOf } from './floatingLegAllOf';
+import { FlowConventionName } from './flowConventionName';
+import { FlowConventions } from './flowConventions';
+import { ForwardRateAgreement } from './forwardRateAgreement';
+import { ForwardRateAgreementAllOf } from './forwardRateAgreementAllOf';
+import { FundingLeg } from './fundingLeg';
+import { FundingLegAllOf } from './fundingLegAllOf';
+import { Future } from './future';
+import { FutureAllOf } from './futureAllOf';
+import { FuturesContractDetails } from './futuresContractDetails';
+import { FxForward } from './fxForward';
+import { FxForwardAllOf } from './fxForwardAllOf';
+import { FxForwardCurveByQuoteReference } from './fxForwardCurveByQuoteReference';
+import { FxForwardCurveByQuoteReferenceAllOf } from './fxForwardCurveByQuoteReferenceAllOf';
+import { FxForwardCurveData } from './fxForwardCurveData';
+import { FxForwardCurveDataAllOf } from './fxForwardCurveDataAllOf';
+import { FxForwardModelOptions } from './fxForwardModelOptions';
+import { FxForwardModelOptionsAllOf } from './fxForwardModelOptionsAllOf';
+import { FxForwardPipsCurveData } from './fxForwardPipsCurveData';
+import { FxForwardPipsCurveDataAllOf } from './fxForwardPipsCurveDataAllOf';
+import { FxForwardTenorCurveData } from './fxForwardTenorCurveData';
+import { FxForwardTenorCurveDataAllOf } from './fxForwardTenorCurveDataAllOf';
+import { FxForwardTenorPipsCurveData } from './fxForwardTenorPipsCurveData';
+import { FxForwardTenorPipsCurveDataAllOf } from './fxForwardTenorPipsCurveDataAllOf';
+import { FxOption } from './fxOption';
+import { FxOptionAllOf } from './fxOptionAllOf';
+import { FxSwap } from './fxSwap';
+import { FxSwapAllOf } from './fxSwapAllOf';
+import { FxVolSurfaceData } from './fxVolSurfaceData';
 import { GetComplexMarketDataResponse } from './getComplexMarketDataResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
@@ -381,15 +577,31 @@ import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { IdentifierPartSchema } from './identifierPartSchema';
+import { IndexConvention } from './indexConvention';
+import { IndexModelOptions } from './indexModelOptions';
+import { IndexModelOptionsAllOf } from './indexModelOptionsAllOf';
 import { IndustryClassifier } from './industryClassifier';
+import { InflationLinkedBond } from './inflationLinkedBond';
+import { InflationLinkedBondAllOf } from './inflationLinkedBondAllOf';
 import { InlineValuationRequest } from './inlineValuationRequest';
 import { Instrument } from './instrument';
 import { InstrumentDefinition } from './instrumentDefinition';
+import { InstrumentDefinitionFormat } from './instrumentDefinitionFormat';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
+import { InstrumentLeg } from './instrumentLeg';
+import { InstrumentLegAllOf } from './instrumentLegAllOf';
+import { InterestRateSwap } from './interestRateSwap';
+import { InterestRateSwapAllOf } from './interestRateSwapAllOf';
+import { InterestRateSwaption } from './interestRateSwaption';
+import { InterestRateSwaptionAllOf } from './interestRateSwaptionAllOf';
+import { IrVolCubeData } from './irVolCubeData';
+import { IrVolCubeDataAllOf } from './irVolCubeDataAllOf';
 import { IsBusinessDayResponse } from './isBusinessDayResponse';
 import { LabelValueSet } from './labelValueSet';
+import { LegDefinition } from './legDefinition';
 import { LegalEntity } from './legalEntity';
+import { LevelStep } from './levelStep';
 import { Link } from './link';
 import { ListAggregationResponse } from './listAggregationResponse';
 import { LusidInstrument } from './lusidInstrument';
@@ -401,10 +613,15 @@ import { MarketContextSuppliers } from './marketContextSuppliers';
 import { MarketDataKeyRule } from './marketDataKeyRule';
 import { MarketDataSpecificRule } from './marketDataSpecificRule';
 import { MarketOptions } from './marketOptions';
+import { MarketQuote } from './marketQuote';
 import { MetricValue } from './metricValue';
 import { ModelOptions } from './modelOptions';
 import { ModelSelection } from './modelSelection';
 import { NextValueInSequenceResponse } from './nextValueInSequenceResponse';
+import { OpaqueMarketData } from './opaqueMarketData';
+import { OpaqueMarketDataAllOf } from './opaqueMarketDataAllOf';
+import { OpaqueModelOptions } from './opaqueModelOptions';
+import { OpaqueModelOptionsAllOf } from './opaqueModelOptionsAllOf';
 import { Order } from './order';
 import { OrderBySpec } from './orderBySpec';
 import { OrderRequest } from './orderRequest';
@@ -439,8 +656,11 @@ import { PortfolioGroupSearchResult } from './portfolioGroupSearchResult';
 import { PortfolioHolding } from './portfolioHolding';
 import { PortfolioProperties } from './portfolioProperties';
 import { PortfolioReconciliationRequest } from './portfolioReconciliationRequest';
+import { PortfolioResultDataKeyRule } from './portfolioResultDataKeyRule';
+import { PortfolioResultDataKeyRuleAllOf } from './portfolioResultDataKeyRuleAllOf';
 import { PortfolioSearchResult } from './portfolioSearchResult';
 import { PortfoliosReconciliationRequest } from './portfoliosReconciliationRequest';
+import { Premium } from './premium';
 import { PricingContext } from './pricingContext';
 import { PricingOptions } from './pricingOptions';
 import { ProcessedCommand } from './processedCommand';
@@ -456,11 +676,15 @@ import { QuoteSeriesId } from './quoteSeriesId';
 import { RealisedGainLoss } from './realisedGainLoss';
 import { ReconciliationBreak } from './reconciliationBreak';
 import { ReferenceData } from './referenceData';
+import { ReferenceInstrument } from './referenceInstrument';
+import { ReferenceInstrumentAllOf } from './referenceInstrumentAllOf';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { RelatedEntity } from './relatedEntity';
 import { Relationship } from './relationship';
 import { RelationshipDefinition } from './relationshipDefinition';
+import { Repo } from './repo';
+import { RepoAllOf } from './repoAllOf';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetadataValueOf';
@@ -491,16 +715,25 @@ import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliatio
 import { ResourceListOfRelationship } from './resourceListOfRelationship';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResponseMetaData } from './responseMetaData';
+import { ResultDataKeyRule } from './resultDataKeyRule';
+import { ResultDataKeyRuleAllOf } from './resultDataKeyRuleAllOf';
 import { ResultDataSchema } from './resultDataSchema';
 import { ResultKeyRule } from './resultKeyRule';
+import { Schedule } from './schedule';
 import { ScopeDefinition } from './scopeDefinition';
 import { SequenceDefinition } from './sequenceDefinition';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
 import { SideConfigurationData } from './sideConfigurationData';
+import { SimpleInstrument } from './simpleInstrument';
+import { SimpleInstrumentAllOf } from './simpleInstrumentAllOf';
+import { StepSchedule } from './stepSchedule';
 import { Stream } from './stream';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
+import { TermDeposit } from './termDeposit';
+import { TermDepositAllOf } from './termDepositAllOf';
+import { Touch } from './touch';
 import { Transaction } from './transaction';
 import { TransactionConfigurationData } from './transactionConfigurationData';
 import { TransactionConfigurationDataRequest } from './transactionConfigurationDataRequest';
@@ -556,6 +789,9 @@ import { VersionedResourceListOfPortfolioHolding } from './versionedResourceList
 import { VersionedResourceListOfTransaction } from './versionedResourceListOfTransaction';
 import { WeekendMask } from './weekendMask';
 import { WeightedInstrument } from './weightedInstrument';
+import { WeightedInstruments } from './weightedInstruments';
+import { YieldCurveData } from './yieldCurveData';
+import { YieldCurveDataAllOf } from './yieldCurveDataAllOf';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -571,9 +807,23 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "AggregateSpec.OpEnum": AggregateSpec.OpEnum,
+        "Basket.InstrumentTypeEnum": Basket.InstrumentTypeEnum,
+        "BasketAllOf.InstrumentTypeEnum": BasketAllOf.InstrumentTypeEnum,
+        "Bond.InstrumentTypeEnum": Bond.InstrumentTypeEnum,
+        "BondAllOf.InstrumentTypeEnum": BondAllOf.InstrumentTypeEnum,
+        "CapFloor.InstrumentTypeEnum": CapFloor.InstrumentTypeEnum,
+        "CapFloorAllOf.InstrumentTypeEnum": CapFloorAllOf.InstrumentTypeEnum,
+        "CashPerpetual.InstrumentTypeEnum": CashPerpetual.InstrumentTypeEnum,
+        "CashPerpetualAllOf.InstrumentTypeEnum": CashPerpetualAllOf.InstrumentTypeEnum,
+        "CdsIndex.InstrumentTypeEnum": CdsIndex.InstrumentTypeEnum,
+        "CdsIndexAllOf.InstrumentTypeEnum": CdsIndexAllOf.InstrumentTypeEnum,
         "ChangeHistory.ActionEnum": ChangeHistory.ActionEnum,
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
+        "ComplexBond.InstrumentTypeEnum": ComplexBond.InstrumentTypeEnum,
+        "ComplexBondAllOf.InstrumentTypeEnum": ComplexBondAllOf.InstrumentTypeEnum,
         "ComplexMarketData.MarketDataTypeEnum": ComplexMarketData.MarketDataTypeEnum,
+        "ContractForDifference.InstrumentTypeEnum": ContractForDifference.InstrumentTypeEnum,
+        "ContractForDifferenceAllOf.InstrumentTypeEnum": ContractForDifferenceAllOf.InstrumentTypeEnum,
         "CreateDataTypeRequest.TypeValueRangeEnum": CreateDataTypeRequest.TypeValueRangeEnum,
         "CreateDataTypeRequest.ValueTypeEnum": CreateDataTypeRequest.ValueTypeEnum,
         "CreateDataTypeRequest.UnitSchemaEnum": CreateDataTypeRequest.UnitSchemaEnum,
@@ -582,6 +832,10 @@ let enumsMap: {[index: string]: any} = {
         "CreatePropertyDefinitionRequest.DomainEnum": CreatePropertyDefinitionRequest.DomainEnum,
         "CreatePropertyDefinitionRequest.LifeTimeEnum": CreatePropertyDefinitionRequest.LifeTimeEnum,
         "CreateTransactionPortfolioRequest.AccountingMethodEnum": CreateTransactionPortfolioRequest.AccountingMethodEnum,
+        "CreditDefaultSwap.InstrumentTypeEnum": CreditDefaultSwap.InstrumentTypeEnum,
+        "CreditDefaultSwapAllOf.InstrumentTypeEnum": CreditDefaultSwapAllOf.InstrumentTypeEnum,
+        "CreditSpreadCurveData.MarketDataTypeEnum": CreditSpreadCurveData.MarketDataTypeEnum,
+        "CreditSpreadCurveDataAllOf.MarketDataTypeEnum": CreditSpreadCurveDataAllOf.MarketDataTypeEnum,
         "DataType.TypeValueRangeEnum": DataType.TypeValueRangeEnum,
         "DataType.ValueTypeEnum": DataType.ValueTypeEnum,
         "DataType.UnitSchemaEnum": DataType.UnitSchemaEnum,
@@ -589,25 +843,99 @@ let enumsMap: {[index: string]: any} = {
         "DataTypeSummary.ValueTypeEnum": DataTypeSummary.ValueTypeEnum,
         "DataTypeSummary.UnitSchemaEnum": DataTypeSummary.UnitSchemaEnum,
         "DayOfWeek": DayOfWeek,
+        "DiscountFactorCurveData.MarketDataTypeEnum": DiscountFactorCurveData.MarketDataTypeEnum,
+        "DiscountFactorCurveDataAllOf.MarketDataTypeEnum": DiscountFactorCurveDataAllOf.MarketDataTypeEnum,
+        "EmptyModelOptions.ModelOptionsTypeEnum": EmptyModelOptions.ModelOptionsTypeEnum,
+        "EmptyModelOptionsAllOf.ModelOptionsTypeEnum": EmptyModelOptionsAllOf.ModelOptionsTypeEnum,
+        "Equity.InstrumentTypeEnum": Equity.InstrumentTypeEnum,
+        "EquityAllOf.InstrumentTypeEnum": EquityAllOf.InstrumentTypeEnum,
+        "EquityCurveByPricesData.MarketDataTypeEnum": EquityCurveByPricesData.MarketDataTypeEnum,
+        "EquityCurveByPricesDataAllOf.MarketDataTypeEnum": EquityCurveByPricesDataAllOf.MarketDataTypeEnum,
+        "EquityModelOptions.ModelOptionsTypeEnum": EquityModelOptions.ModelOptionsTypeEnum,
+        "EquityModelOptionsAllOf.ModelOptionsTypeEnum": EquityModelOptionsAllOf.ModelOptionsTypeEnum,
+        "EquityOption.InstrumentTypeEnum": EquityOption.InstrumentTypeEnum,
+        "EquityOptionAllOf.InstrumentTypeEnum": EquityOptionAllOf.InstrumentTypeEnum,
+        "EquitySwap.InstrumentTypeEnum": EquitySwap.InstrumentTypeEnum,
+        "EquitySwapAllOf.InstrumentTypeEnum": EquitySwapAllOf.InstrumentTypeEnum,
+        "EquityVolSurfaceData.MarketDataTypeEnum": EquityVolSurfaceData.MarketDataTypeEnum,
+        "EquityVolSurfaceDataAllOf.MarketDataTypeEnum": EquityVolSurfaceDataAllOf.MarketDataTypeEnum,
+        "ExchangeTradedOption.InstrumentTypeEnum": ExchangeTradedOption.InstrumentTypeEnum,
+        "ExchangeTradedOptionAllOf.InstrumentTypeEnum": ExchangeTradedOptionAllOf.InstrumentTypeEnum,
+        "ExoticInstrument.InstrumentTypeEnum": ExoticInstrument.InstrumentTypeEnum,
+        "ExoticInstrumentAllOf.InstrumentTypeEnum": ExoticInstrumentAllOf.InstrumentTypeEnum,
         "FieldSchema.TypeEnum": FieldSchema.TypeEnum,
+        "FixedLeg.InstrumentTypeEnum": FixedLeg.InstrumentTypeEnum,
+        "FixedLegAllOf.InstrumentTypeEnum": FixedLegAllOf.InstrumentTypeEnum,
+        "FloatingLeg.InstrumentTypeEnum": FloatingLeg.InstrumentTypeEnum,
+        "FloatingLegAllOf.InstrumentTypeEnum": FloatingLegAllOf.InstrumentTypeEnum,
+        "ForwardRateAgreement.InstrumentTypeEnum": ForwardRateAgreement.InstrumentTypeEnum,
+        "ForwardRateAgreementAllOf.InstrumentTypeEnum": ForwardRateAgreementAllOf.InstrumentTypeEnum,
+        "FundingLeg.InstrumentTypeEnum": FundingLeg.InstrumentTypeEnum,
+        "FundingLegAllOf.InstrumentTypeEnum": FundingLegAllOf.InstrumentTypeEnum,
+        "Future.InstrumentTypeEnum": Future.InstrumentTypeEnum,
+        "FutureAllOf.InstrumentTypeEnum": FutureAllOf.InstrumentTypeEnum,
+        "FxForward.InstrumentTypeEnum": FxForward.InstrumentTypeEnum,
+        "FxForwardAllOf.InstrumentTypeEnum": FxForwardAllOf.InstrumentTypeEnum,
+        "FxForwardCurveByQuoteReference.MarketDataTypeEnum": FxForwardCurveByQuoteReference.MarketDataTypeEnum,
+        "FxForwardCurveByQuoteReferenceAllOf.MarketDataTypeEnum": FxForwardCurveByQuoteReferenceAllOf.MarketDataTypeEnum,
+        "FxForwardCurveData.MarketDataTypeEnum": FxForwardCurveData.MarketDataTypeEnum,
+        "FxForwardCurveDataAllOf.MarketDataTypeEnum": FxForwardCurveDataAllOf.MarketDataTypeEnum,
+        "FxForwardModelOptions.ForwardRateObservableTypeEnum": FxForwardModelOptions.ForwardRateObservableTypeEnum,
+        "FxForwardModelOptions.DiscountingMethodEnum": FxForwardModelOptions.DiscountingMethodEnum,
+        "FxForwardModelOptions.ModelOptionsTypeEnum": FxForwardModelOptions.ModelOptionsTypeEnum,
+        "FxForwardModelOptionsAllOf.ForwardRateObservableTypeEnum": FxForwardModelOptionsAllOf.ForwardRateObservableTypeEnum,
+        "FxForwardModelOptionsAllOf.DiscountingMethodEnum": FxForwardModelOptionsAllOf.DiscountingMethodEnum,
+        "FxForwardModelOptionsAllOf.ModelOptionsTypeEnum": FxForwardModelOptionsAllOf.ModelOptionsTypeEnum,
+        "FxForwardPipsCurveData.MarketDataTypeEnum": FxForwardPipsCurveData.MarketDataTypeEnum,
+        "FxForwardPipsCurveDataAllOf.MarketDataTypeEnum": FxForwardPipsCurveDataAllOf.MarketDataTypeEnum,
+        "FxForwardTenorCurveData.MarketDataTypeEnum": FxForwardTenorCurveData.MarketDataTypeEnum,
+        "FxForwardTenorCurveDataAllOf.MarketDataTypeEnum": FxForwardTenorCurveDataAllOf.MarketDataTypeEnum,
+        "FxForwardTenorPipsCurveData.MarketDataTypeEnum": FxForwardTenorPipsCurveData.MarketDataTypeEnum,
+        "FxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum": FxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum,
+        "FxOption.InstrumentTypeEnum": FxOption.InstrumentTypeEnum,
+        "FxOptionAllOf.InstrumentTypeEnum": FxOptionAllOf.InstrumentTypeEnum,
+        "FxSwap.InstrumentTypeEnum": FxSwap.InstrumentTypeEnum,
+        "FxSwapAllOf.InstrumentTypeEnum": FxSwapAllOf.InstrumentTypeEnum,
+        "FxVolSurfaceData.MarketDataTypeEnum": FxVolSurfaceData.MarketDataTypeEnum,
         "GetReferencePortfolioConstituentsResponse.WeightTypeEnum": GetReferencePortfolioConstituentsResponse.WeightTypeEnum,
         "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
         "HoldingsAdjustment.UnmatchedHoldingMethodEnum": HoldingsAdjustment.UnmatchedHoldingMethodEnum,
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
+        "IndexModelOptions.PortfolioScalingEnum": IndexModelOptions.PortfolioScalingEnum,
+        "IndexModelOptions.ModelOptionsTypeEnum": IndexModelOptions.ModelOptionsTypeEnum,
+        "IndexModelOptionsAllOf.PortfolioScalingEnum": IndexModelOptionsAllOf.PortfolioScalingEnum,
+        "IndexModelOptionsAllOf.ModelOptionsTypeEnum": IndexModelOptionsAllOf.ModelOptionsTypeEnum,
+        "InflationLinkedBond.InstrumentTypeEnum": InflationLinkedBond.InstrumentTypeEnum,
+        "InflationLinkedBondAllOf.InstrumentTypeEnum": InflationLinkedBondAllOf.InstrumentTypeEnum,
         "Instrument.StateEnum": Instrument.StateEnum,
         "Instrument.AssetClassEnum": Instrument.AssetClassEnum,
+        "InstrumentLeg.InstrumentTypeEnum": InstrumentLeg.InstrumentTypeEnum,
+        "InstrumentLegAllOf.InstrumentTypeEnum": InstrumentLegAllOf.InstrumentTypeEnum,
+        "InterestRateSwap.InstrumentTypeEnum": InterestRateSwap.InstrumentTypeEnum,
+        "InterestRateSwapAllOf.InstrumentTypeEnum": InterestRateSwapAllOf.InstrumentTypeEnum,
+        "InterestRateSwaption.InstrumentTypeEnum": InterestRateSwaption.InstrumentTypeEnum,
+        "InterestRateSwaptionAllOf.InstrumentTypeEnum": InterestRateSwaptionAllOf.InstrumentTypeEnum,
+        "IrVolCubeData.MarketDataTypeEnum": IrVolCubeData.MarketDataTypeEnum,
+        "IrVolCubeDataAllOf.MarketDataTypeEnum": IrVolCubeDataAllOf.MarketDataTypeEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
         "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
         "MarketDataSpecificRule.QuoteTypeEnum": MarketDataSpecificRule.QuoteTypeEnum,
+        "MarketQuote.QuoteTypeEnum": MarketQuote.QuoteTypeEnum,
         "ModelOptions.ModelOptionsTypeEnum": ModelOptions.ModelOptionsTypeEnum,
         "ModelSelection.LibraryEnum": ModelSelection.LibraryEnum,
         "ModelSelection.ModelEnum": ModelSelection.ModelEnum,
+        "OpaqueMarketData.MarketDataTypeEnum": OpaqueMarketData.MarketDataTypeEnum,
+        "OpaqueMarketDataAllOf.MarketDataTypeEnum": OpaqueMarketDataAllOf.MarketDataTypeEnum,
+        "OpaqueModelOptions.ModelOptionsTypeEnum": OpaqueModelOptions.ModelOptionsTypeEnum,
+        "OpaqueModelOptionsAllOf.ModelOptionsTypeEnum": OpaqueModelOptionsAllOf.ModelOptionsTypeEnum,
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "Portfolio.AccountingMethodEnum": Portfolio.AccountingMethodEnum,
         "PortfolioDetails.AccountingMethodEnum": PortfolioDetails.AccountingMethodEnum,
+        "PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum": PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum,
+        "PortfolioResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum": PortfolioResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
         "PropertyDefinition.ValueTypeEnum": PropertyDefinition.ValueTypeEnum,
         "PropertyDefinition.TypeEnum": PropertyDefinition.TypeEnum,
@@ -625,7 +953,20 @@ let enumsMap: {[index: string]: any} = {
         "PropertyFilter.RightOperandTypeEnum": PropertyFilter.RightOperandTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
+        "ReferenceInstrument.InstrumentTypeEnum": ReferenceInstrument.InstrumentTypeEnum,
+        "ReferenceInstrumentAllOf.InstrumentTypeEnum": ReferenceInstrumentAllOf.InstrumentTypeEnum,
+        "Repo.InstrumentTypeEnum": Repo.InstrumentTypeEnum,
+        "RepoAllOf.InstrumentTypeEnum": RepoAllOf.InstrumentTypeEnum,
+        "ResultDataKeyRule.ResultKeyRuleTypeEnum": ResultDataKeyRule.ResultKeyRuleTypeEnum,
+        "ResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum": ResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum,
         "ResultKeyRule.ResultKeyRuleTypeEnum": ResultKeyRule.ResultKeyRuleTypeEnum,
+        "Schedule.ScheduleTypeEnum": Schedule.ScheduleTypeEnum,
+        "SimpleInstrument.AssetClassEnum": SimpleInstrument.AssetClassEnum,
+        "SimpleInstrument.InstrumentTypeEnum": SimpleInstrument.InstrumentTypeEnum,
+        "SimpleInstrumentAllOf.AssetClassEnum": SimpleInstrumentAllOf.AssetClassEnum,
+        "SimpleInstrumentAllOf.InstrumentTypeEnum": SimpleInstrumentAllOf.InstrumentTypeEnum,
+        "TermDeposit.InstrumentTypeEnum": TermDeposit.InstrumentTypeEnum,
+        "TermDepositAllOf.InstrumentTypeEnum": TermDepositAllOf.InstrumentTypeEnum,
         "Transaction.TransactionStatusEnum": Transaction.TransactionStatusEnum,
         "TransactionConfigurationMovementData.MovementTypesEnum": TransactionConfigurationMovementData.MovementTypesEnum,
         "TransactionConfigurationMovementDataRequest.MovementTypesEnum": TransactionConfigurationMovementDataRequest.MovementTypesEnum,
@@ -635,6 +976,8 @@ let enumsMap: {[index: string]: any} = {
         "UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum": UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum,
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
         "VendorModelRule.SupplierEnum": VendorModelRule.SupplierEnum,
+        "YieldCurveData.MarketDataTypeEnum": YieldCurveData.MarketDataTypeEnum,
+        "YieldCurveDataAllOf.MarketDataTypeEnum": YieldCurveDataAllOf.MarketDataTypeEnum,
 }
 
 let typeMap: {[index: string]: any} = {
@@ -663,19 +1006,38 @@ let typeMap: {[index: string]: any} = {
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
+    "Barrier": Barrier,
+    "Basket": Basket,
+    "BasketAllOf": BasketAllOf,
+    "BasketIdentifier": BasketIdentifier,
+    "Bond": Bond,
+    "BondAllOf": BondAllOf,
     "Calendar": Calendar,
     "CalendarDate": CalendarDate,
+    "CapFloor": CapFloor,
+    "CapFloorAllOf": CapFloorAllOf,
     "CashLadderRecord": CashLadderRecord,
+    "CashPerpetual": CashPerpetual,
+    "CashPerpetualAllOf": CashPerpetualAllOf,
+    "CdsFlowConventions": CdsFlowConventions,
+    "CdsIndex": CdsIndex,
+    "CdsIndexAllOf": CdsIndexAllOf,
+    "CdsProtectionDetailSpecification": CdsProtectionDetailSpecification,
     "Change": Change,
     "ChangeHistory": ChangeHistory,
     "ChangeItem": ChangeItem,
     "CompletePortfolio": CompletePortfolio,
     "CompleteRelationship": CompleteRelationship,
+    "ComplexBond": ComplexBond,
+    "ComplexBondAllOf": ComplexBondAllOf,
     "ComplexMarketData": ComplexMarketData,
     "ComplexMarketDataId": ComplexMarketDataId,
+    "Compounding": Compounding,
     "ConfigurationRecipe": ConfigurationRecipe,
     "ConfigurationRecipeSnippet": ConfigurationRecipeSnippet,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
+    "ContractForDifference": ContractForDifference,
+    "ContractForDifferenceAllOf": ContractForDifferenceAllOf,
     "CorporateAction": CorporateAction,
     "CorporateActionSource": CorporateActionSource,
     "CorporateActionTransition": CorporateActionTransition,
@@ -699,7 +1061,11 @@ let typeMap: {[index: string]: any} = {
     "CreateSequenceRequest": CreateSequenceRequest,
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
     "CreateUnitDefinition": CreateUnitDefinition,
+    "CreditDefaultSwap": CreditDefaultSwap,
+    "CreditDefaultSwapAllOf": CreditDefaultSwapAllOf,
     "CreditRating": CreditRating,
+    "CreditSpreadCurveData": CreditSpreadCurveData,
+    "CreditSpreadCurveDataAllOf": CreditSpreadCurveDataAllOf,
     "CurrencyAndAmount": CurrencyAndAmount,
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
@@ -711,16 +1077,71 @@ let typeMap: {[index: string]: any} = {
     "DeleteRelationshipRequest": DeleteRelationshipRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
     "DependencySourceFilter": DependencySourceFilter,
+    "DiscountFactorCurveData": DiscountFactorCurveData,
+    "DiscountFactorCurveDataAllOf": DiscountFactorCurveDataAllOf,
+    "EmptyModelOptions": EmptyModelOptions,
+    "EmptyModelOptionsAllOf": EmptyModelOptionsAllOf,
     "EntityIdentifier": EntityIdentifier,
+    "Equity": Equity,
+    "EquityAllOf": EquityAllOf,
+    "EquityAllOfIdentifiers": EquityAllOfIdentifiers,
+    "EquityCurveByPricesData": EquityCurveByPricesData,
+    "EquityCurveByPricesDataAllOf": EquityCurveByPricesDataAllOf,
+    "EquityModelOptions": EquityModelOptions,
+    "EquityModelOptionsAllOf": EquityModelOptionsAllOf,
+    "EquityOption": EquityOption,
+    "EquityOptionAllOf": EquityOptionAllOf,
+    "EquitySwap": EquitySwap,
+    "EquitySwapAllOf": EquitySwapAllOf,
+    "EquityVolSurfaceData": EquityVolSurfaceData,
+    "EquityVolSurfaceDataAllOf": EquityVolSurfaceDataAllOf,
     "ErrorDetail": ErrorDetail,
+    "ExchangeTradedOption": ExchangeTradedOption,
+    "ExchangeTradedOptionAllOf": ExchangeTradedOptionAllOf,
+    "ExchangeTradedOptionContractDetails": ExchangeTradedOptionContractDetails,
     "Execution": Execution,
     "ExecutionRequest": ExecutionRequest,
     "ExecutionSetRequest": ExecutionSetRequest,
+    "ExoticInstrument": ExoticInstrument,
+    "ExoticInstrumentAllOf": ExoticInstrumentAllOf,
     "ExpandedGroup": ExpandedGroup,
     "FieldDefinition": FieldDefinition,
     "FieldSchema": FieldSchema,
     "FieldValue": FieldValue,
     "FileResponse": FileResponse,
+    "FixedLeg": FixedLeg,
+    "FixedLegAllOf": FixedLegAllOf,
+    "FixedLegAllOfOverrides": FixedLegAllOfOverrides,
+    "FloatingLeg": FloatingLeg,
+    "FloatingLegAllOf": FloatingLegAllOf,
+    "FlowConventionName": FlowConventionName,
+    "FlowConventions": FlowConventions,
+    "ForwardRateAgreement": ForwardRateAgreement,
+    "ForwardRateAgreementAllOf": ForwardRateAgreementAllOf,
+    "FundingLeg": FundingLeg,
+    "FundingLegAllOf": FundingLegAllOf,
+    "Future": Future,
+    "FutureAllOf": FutureAllOf,
+    "FuturesContractDetails": FuturesContractDetails,
+    "FxForward": FxForward,
+    "FxForwardAllOf": FxForwardAllOf,
+    "FxForwardCurveByQuoteReference": FxForwardCurveByQuoteReference,
+    "FxForwardCurveByQuoteReferenceAllOf": FxForwardCurveByQuoteReferenceAllOf,
+    "FxForwardCurveData": FxForwardCurveData,
+    "FxForwardCurveDataAllOf": FxForwardCurveDataAllOf,
+    "FxForwardModelOptions": FxForwardModelOptions,
+    "FxForwardModelOptionsAllOf": FxForwardModelOptionsAllOf,
+    "FxForwardPipsCurveData": FxForwardPipsCurveData,
+    "FxForwardPipsCurveDataAllOf": FxForwardPipsCurveDataAllOf,
+    "FxForwardTenorCurveData": FxForwardTenorCurveData,
+    "FxForwardTenorCurveDataAllOf": FxForwardTenorCurveDataAllOf,
+    "FxForwardTenorPipsCurveData": FxForwardTenorPipsCurveData,
+    "FxForwardTenorPipsCurveDataAllOf": FxForwardTenorPipsCurveDataAllOf,
+    "FxOption": FxOption,
+    "FxOptionAllOf": FxOptionAllOf,
+    "FxSwap": FxSwap,
+    "FxSwapAllOf": FxSwapAllOf,
+    "FxVolSurfaceData": FxVolSurfaceData,
     "GetComplexMarketDataResponse": GetComplexMarketDataResponse,
     "GetInstrumentsResponse": GetInstrumentsResponse,
     "GetQuotesResponse": GetQuotesResponse,
@@ -733,15 +1154,31 @@ let typeMap: {[index: string]: any} = {
     "IUnitDefinitionDto": IUnitDefinitionDto,
     "IdSelectorDefinition": IdSelectorDefinition,
     "IdentifierPartSchema": IdentifierPartSchema,
+    "IndexConvention": IndexConvention,
+    "IndexModelOptions": IndexModelOptions,
+    "IndexModelOptionsAllOf": IndexModelOptionsAllOf,
     "IndustryClassifier": IndustryClassifier,
+    "InflationLinkedBond": InflationLinkedBond,
+    "InflationLinkedBondAllOf": InflationLinkedBondAllOf,
     "InlineValuationRequest": InlineValuationRequest,
     "Instrument": Instrument,
     "InstrumentDefinition": InstrumentDefinition,
+    "InstrumentDefinitionFormat": InstrumentDefinitionFormat,
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
     "InstrumentIdValue": InstrumentIdValue,
+    "InstrumentLeg": InstrumentLeg,
+    "InstrumentLegAllOf": InstrumentLegAllOf,
+    "InterestRateSwap": InterestRateSwap,
+    "InterestRateSwapAllOf": InterestRateSwapAllOf,
+    "InterestRateSwaption": InterestRateSwaption,
+    "InterestRateSwaptionAllOf": InterestRateSwaptionAllOf,
+    "IrVolCubeData": IrVolCubeData,
+    "IrVolCubeDataAllOf": IrVolCubeDataAllOf,
     "IsBusinessDayResponse": IsBusinessDayResponse,
     "LabelValueSet": LabelValueSet,
+    "LegDefinition": LegDefinition,
     "LegalEntity": LegalEntity,
+    "LevelStep": LevelStep,
     "Link": Link,
     "ListAggregationResponse": ListAggregationResponse,
     "LusidInstrument": LusidInstrument,
@@ -753,10 +1190,15 @@ let typeMap: {[index: string]: any} = {
     "MarketDataKeyRule": MarketDataKeyRule,
     "MarketDataSpecificRule": MarketDataSpecificRule,
     "MarketOptions": MarketOptions,
+    "MarketQuote": MarketQuote,
     "MetricValue": MetricValue,
     "ModelOptions": ModelOptions,
     "ModelSelection": ModelSelection,
     "NextValueInSequenceResponse": NextValueInSequenceResponse,
+    "OpaqueMarketData": OpaqueMarketData,
+    "OpaqueMarketDataAllOf": OpaqueMarketDataAllOf,
+    "OpaqueModelOptions": OpaqueModelOptions,
+    "OpaqueModelOptionsAllOf": OpaqueModelOptionsAllOf,
     "Order": Order,
     "OrderBySpec": OrderBySpec,
     "OrderRequest": OrderRequest,
@@ -791,8 +1233,11 @@ let typeMap: {[index: string]: any} = {
     "PortfolioHolding": PortfolioHolding,
     "PortfolioProperties": PortfolioProperties,
     "PortfolioReconciliationRequest": PortfolioReconciliationRequest,
+    "PortfolioResultDataKeyRule": PortfolioResultDataKeyRule,
+    "PortfolioResultDataKeyRuleAllOf": PortfolioResultDataKeyRuleAllOf,
     "PortfolioSearchResult": PortfolioSearchResult,
     "PortfoliosReconciliationRequest": PortfoliosReconciliationRequest,
+    "Premium": Premium,
     "PricingContext": PricingContext,
     "PricingOptions": PricingOptions,
     "ProcessedCommand": ProcessedCommand,
@@ -808,11 +1253,15 @@ let typeMap: {[index: string]: any} = {
     "RealisedGainLoss": RealisedGainLoss,
     "ReconciliationBreak": ReconciliationBreak,
     "ReferenceData": ReferenceData,
+    "ReferenceInstrument": ReferenceInstrument,
+    "ReferenceInstrumentAllOf": ReferenceInstrumentAllOf,
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "RelatedEntity": RelatedEntity,
     "Relationship": Relationship,
     "RelationshipDefinition": RelationshipDefinition,
+    "Repo": Repo,
+    "RepoAllOf": RepoAllOf,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfAccessMetadataValueOf": ResourceListOfAccessMetadataValueOf,
@@ -843,16 +1292,25 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfRelationship": ResourceListOfRelationship,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ResponseMetaData": ResponseMetaData,
+    "ResultDataKeyRule": ResultDataKeyRule,
+    "ResultDataKeyRuleAllOf": ResultDataKeyRuleAllOf,
     "ResultDataSchema": ResultDataSchema,
     "ResultKeyRule": ResultKeyRule,
+    "Schedule": Schedule,
     "ScopeDefinition": ScopeDefinition,
     "SequenceDefinition": SequenceDefinition,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
     "SideConfigurationData": SideConfigurationData,
+    "SimpleInstrument": SimpleInstrument,
+    "SimpleInstrumentAllOf": SimpleInstrumentAllOf,
+    "StepSchedule": StepSchedule,
     "Stream": Stream,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
+    "TermDeposit": TermDeposit,
+    "TermDepositAllOf": TermDepositAllOf,
+    "Touch": Touch,
     "Transaction": Transaction,
     "TransactionConfigurationData": TransactionConfigurationData,
     "TransactionConfigurationDataRequest": TransactionConfigurationDataRequest,
@@ -908,6 +1366,9 @@ let typeMap: {[index: string]: any} = {
     "VersionedResourceListOfTransaction": VersionedResourceListOfTransaction,
     "WeekendMask": WeekendMask,
     "WeightedInstrument": WeightedInstrument,
+    "WeightedInstruments": WeightedInstruments,
+    "YieldCurveData": YieldCurveData,
+    "YieldCurveDataAllOf": YieldCurveDataAllOf,
 }
 
 export class ObjectSerializer {
