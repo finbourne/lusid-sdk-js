@@ -11,65 +11,33 @@
  */
 
 import { RequestFile } from './models';
-import { AccessMetadataValue } from './accessMetadataValue';
-import { Link } from './link';
 
-/**
-* A collection of resources that can be returned from requests.
-*/
-export class ResourceListOfAccessMetadataValueOf {
+export class InstrumentSearchProperty {
     /**
-    * The resources to list.
+    * The property key of instrument property to search for. This will be from the \'Instrument\' domain and will take the format {domain}/{scope}/{code} e.g. \'Instrument/system/Isin\' or \'Instrument/MyScope/AssetClass\'.
     */
-    'values': Array<Array<AccessMetadataValue>>;
+    'key': string;
     /**
-    * The URI of the resource list.
+    * The value of the property e.g. \'US0378331005\' or \'Equity\'.
     */
-    'href'?: string | null;
-    /**
-    * Collection of links.
-    */
-    'links'?: Array<Link> | null;
-    /**
-    * The next page of results.
-    */
-    'nextPage'?: string | null;
-    /**
-    * The previous page of results.
-    */
-    'previousPage'?: string | null;
+    'value': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<Array<AccessMetadataValue>>"
-        },
-        {
-            "name": "href",
-            "baseName": "href",
+            "name": "key",
+            "baseName": "key",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
-        },
-        {
-            "name": "nextPage",
-            "baseName": "nextPage",
-            "type": "string"
-        },
-        {
-            "name": "previousPage",
-            "baseName": "previousPage",
+            "name": "value",
+            "baseName": "value",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfAccessMetadataValueOf.attributeTypeMap;
+        return InstrumentSearchProperty.attributeTypeMap;
     }
 }
 

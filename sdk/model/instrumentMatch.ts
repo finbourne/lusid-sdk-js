@@ -11,65 +11,37 @@
  */
 
 import { RequestFile } from './models';
-import { AccessMetadataValue } from './accessMetadataValue';
-import { Link } from './link';
+import { InstrumentDefinition } from './instrumentDefinition';
 
 /**
-* A collection of resources that can be returned from requests.
+* A collection of instrument search results
 */
-export class ResourceListOfAccessMetadataValueOf {
+export class InstrumentMatch {
     /**
-    * The resources to list.
+    * The collection of instruments found by the search which have been mastered within LUSID.
     */
-    'values': Array<Array<AccessMetadataValue>>;
+    'masteredInstruments'?: Array<InstrumentDefinition> | null;
     /**
-    * The URI of the resource list.
+    * The collection of instruments found by the search which have not been mastered within LUSID and instead found via OpenFIGI.
     */
-    'href'?: string | null;
-    /**
-    * Collection of links.
-    */
-    'links'?: Array<Link> | null;
-    /**
-    * The next page of results.
-    */
-    'nextPage'?: string | null;
-    /**
-    * The previous page of results.
-    */
-    'previousPage'?: string | null;
+    'externalInstruments'?: Array<InstrumentDefinition> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<Array<AccessMetadataValue>>"
+            "name": "masteredInstruments",
+            "baseName": "masteredInstruments",
+            "type": "Array<InstrumentDefinition>"
         },
         {
-            "name": "href",
-            "baseName": "href",
-            "type": "string"
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
-        },
-        {
-            "name": "nextPage",
-            "baseName": "nextPage",
-            "type": "string"
-        },
-        {
-            "name": "previousPage",
-            "baseName": "previousPage",
-            "type": "string"
+            "name": "externalInstruments",
+            "baseName": "externalInstruments",
+            "type": "Array<InstrumentDefinition>"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfAccessMetadataValueOf.attributeTypeMap;
+        return InstrumentMatch.attributeTypeMap;
     }
 }
 
