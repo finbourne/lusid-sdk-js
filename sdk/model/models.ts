@@ -188,8 +188,6 @@ export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
 export * from './instrumentLeg';
 export * from './instrumentLegAllOf';
-export * from './instrumentMatch';
-export * from './instrumentSearchProperty';
 export * from './interestRateSwap';
 export * from './interestRateSwapAllOf';
 export * from './interestRateSwaption';
@@ -593,8 +591,6 @@ import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
 import { InstrumentLeg } from './instrumentLeg';
 import { InstrumentLegAllOf } from './instrumentLegAllOf';
-import { InstrumentMatch } from './instrumentMatch';
-import { InstrumentSearchProperty } from './instrumentSearchProperty';
 import { InterestRateSwap } from './interestRateSwap';
 import { InterestRateSwapAllOf } from './interestRateSwapAllOf';
 import { InterestRateSwaption } from './interestRateSwaption';
@@ -1172,8 +1168,6 @@ let typeMap: {[index: string]: any} = {
     "InstrumentIdValue": InstrumentIdValue,
     "InstrumentLeg": InstrumentLeg,
     "InstrumentLegAllOf": InstrumentLegAllOf,
-    "InstrumentMatch": InstrumentMatch,
-    "InstrumentSearchProperty": InstrumentSearchProperty,
     "InterestRateSwap": InterestRateSwap,
     "InterestRateSwapAllOf": InterestRateSwapAllOf,
     "InterestRateSwaption": InterestRateSwaption,
