@@ -8,6 +8,7 @@ export * from './accessControlledAction';
 export * from './accessControlledResource';
 export * from './accessMetadataValue';
 export * from './actionId';
+export * from './actionResultOfPortfolio';
 export * from './addBusinessDaysToDateRequest';
 export * from './addBusinessDaysToDateResponse';
 export * from './adjustHolding';
@@ -221,6 +222,7 @@ export * from './opaqueMarketData';
 export * from './opaqueMarketDataAllOf';
 export * from './opaqueModelOptions';
 export * from './opaqueModelOptionsAllOf';
+export * from './operation';
 export * from './order';
 export * from './orderBySpec';
 export * from './orderRequest';
@@ -307,6 +309,7 @@ export * from './resourceListOfPortfolioCashFlow';
 export * from './resourceListOfPortfolioCashLadder';
 export * from './resourceListOfPortfolioGroup';
 export * from './resourceListOfProcessedCommand';
+export * from './resourceListOfProperty';
 export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfPropertyInterval';
 export * from './resourceListOfQuote';
@@ -413,6 +416,7 @@ import { AccessControlledAction } from './accessControlledAction';
 import { AccessControlledResource } from './accessControlledResource';
 import { AccessMetadataValue } from './accessMetadataValue';
 import { ActionId } from './actionId';
+import { ActionResultOfPortfolio } from './actionResultOfPortfolio';
 import { AddBusinessDaysToDateRequest } from './addBusinessDaysToDateRequest';
 import { AddBusinessDaysToDateResponse } from './addBusinessDaysToDateResponse';
 import { AdjustHolding } from './adjustHolding';
@@ -626,6 +630,7 @@ import { OpaqueMarketData } from './opaqueMarketData';
 import { OpaqueMarketDataAllOf } from './opaqueMarketDataAllOf';
 import { OpaqueModelOptions } from './opaqueModelOptions';
 import { OpaqueModelOptionsAllOf } from './opaqueModelOptionsAllOf';
+import { Operation } from './operation';
 import { Order } from './order';
 import { OrderBySpec } from './orderBySpec';
 import { OrderRequest } from './orderRequest';
@@ -712,6 +717,7 @@ import { ResourceListOfPortfolioCashFlow } from './resourceListOfPortfolioCashFl
 import { ResourceListOfPortfolioCashLadder } from './resourceListOfPortfolioCashLadder';
 import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
 import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand';
+import { ResourceListOfProperty } from './resourceListOfProperty';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
 import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval';
 import { ResourceListOfQuote } from './resourceListOfQuote';
@@ -993,6 +999,7 @@ let typeMap: {[index: string]: any} = {
     "AccessControlledResource": AccessControlledResource,
     "AccessMetadataValue": AccessMetadataValue,
     "ActionId": ActionId,
+    "ActionResultOfPortfolio": ActionResultOfPortfolio,
     "AddBusinessDaysToDateRequest": AddBusinessDaysToDateRequest,
     "AddBusinessDaysToDateResponse": AddBusinessDaysToDateResponse,
     "AdjustHolding": AdjustHolding,
@@ -1205,6 +1212,7 @@ let typeMap: {[index: string]: any} = {
     "OpaqueMarketDataAllOf": OpaqueMarketDataAllOf,
     "OpaqueModelOptions": OpaqueModelOptions,
     "OpaqueModelOptionsAllOf": OpaqueModelOptionsAllOf,
+    "Operation": Operation,
     "Order": Order,
     "OrderBySpec": OrderBySpec,
     "OrderRequest": OrderRequest,
@@ -1291,6 +1299,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPortfolioCashLadder": ResourceListOfPortfolioCashLadder,
     "ResourceListOfPortfolioGroup": ResourceListOfPortfolioGroup,
     "ResourceListOfProcessedCommand": ResourceListOfProcessedCommand,
+    "ResourceListOfProperty": ResourceListOfProperty,
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
     "ResourceListOfPropertyInterval": ResourceListOfPropertyInterval,
     "ResourceListOfQuote": ResourceListOfQuote,
