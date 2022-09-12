@@ -100,6 +100,9 @@ export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
 export * from './discountFactorCurveData';
 export * from './discountFactorCurveDataAllOf';
+export * from './economicDependency';
+export * from './economicDependencyWithComplexMarketData';
+export * from './economicDependencyWithQuote';
 export * from './emptyModelOptions';
 export * from './emptyModelOptionsAllOf';
 export * from './entityIdentifier';
@@ -211,6 +214,7 @@ export * from './lusidValidationProblemDetails';
 export * from './marketContext';
 export * from './marketContextSuppliers';
 export * from './marketDataKeyRule';
+export * from './marketDataOverrides';
 export * from './marketDataSpecificRule';
 export * from './marketOptions';
 export * from './marketQuote';
@@ -508,6 +512,9 @@ import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
 import { DiscountFactorCurveData } from './discountFactorCurveData';
 import { DiscountFactorCurveDataAllOf } from './discountFactorCurveDataAllOf';
+import { EconomicDependency } from './economicDependency';
+import { EconomicDependencyWithComplexMarketData } from './economicDependencyWithComplexMarketData';
+import { EconomicDependencyWithQuote } from './economicDependencyWithQuote';
 import { EmptyModelOptions } from './emptyModelOptions';
 import { EmptyModelOptionsAllOf } from './emptyModelOptionsAllOf';
 import { EntityIdentifier } from './entityIdentifier';
@@ -619,6 +626,7 @@ import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MarketContext } from './marketContext';
 import { MarketContextSuppliers } from './marketContextSuppliers';
 import { MarketDataKeyRule } from './marketDataKeyRule';
+import { MarketDataOverrides } from './marketDataOverrides';
 import { MarketDataSpecificRule } from './marketDataSpecificRule';
 import { MarketOptions } from './marketOptions';
 import { MarketQuote } from './marketQuote';
@@ -855,6 +863,7 @@ let enumsMap: {[index: string]: any} = {
         "DayOfWeek": DayOfWeek,
         "DiscountFactorCurveData.MarketDataTypeEnum": DiscountFactorCurveData.MarketDataTypeEnum,
         "DiscountFactorCurveDataAllOf.MarketDataTypeEnum": DiscountFactorCurveDataAllOf.MarketDataTypeEnum,
+        "EconomicDependency.DependencyTypeEnum": EconomicDependency.DependencyTypeEnum,
         "EmptyModelOptions.ModelOptionsTypeEnum": EmptyModelOptions.ModelOptionsTypeEnum,
         "EmptyModelOptionsAllOf.ModelOptionsTypeEnum": EmptyModelOptionsAllOf.ModelOptionsTypeEnum,
         "Equity.InstrumentTypeEnum": Equity.InstrumentTypeEnum,
@@ -1090,6 +1099,9 @@ let typeMap: {[index: string]: any} = {
     "DependencySourceFilter": DependencySourceFilter,
     "DiscountFactorCurveData": DiscountFactorCurveData,
     "DiscountFactorCurveDataAllOf": DiscountFactorCurveDataAllOf,
+    "EconomicDependency": EconomicDependency,
+    "EconomicDependencyWithComplexMarketData": EconomicDependencyWithComplexMarketData,
+    "EconomicDependencyWithQuote": EconomicDependencyWithQuote,
     "EmptyModelOptions": EmptyModelOptions,
     "EmptyModelOptionsAllOf": EmptyModelOptionsAllOf,
     "EntityIdentifier": EntityIdentifier,
@@ -1201,6 +1213,7 @@ let typeMap: {[index: string]: any} = {
     "MarketContext": MarketContext,
     "MarketContextSuppliers": MarketContextSuppliers,
     "MarketDataKeyRule": MarketDataKeyRule,
+    "MarketDataOverrides": MarketDataOverrides,
     "MarketDataSpecificRule": MarketDataSpecificRule,
     "MarketOptions": MarketOptions,
     "MarketQuote": MarketQuote,
