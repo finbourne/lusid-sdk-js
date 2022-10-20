@@ -11,65 +11,81 @@
  */
 
 import { RequestFile } from './models';
-import { GetRecipeResponse } from './getRecipeResponse';
-import { Link } from './link';
 
-/**
-* A collection of resources that can be returned from requests.
-*/
-export class ResourceListOfGetRecipeResponse {
+export class AddressDefinition {
     /**
-    * The resources to list.
+    * The display name of the address key.
     */
-    'values': Array<GetRecipeResponse>;
+    'displayName'?: string | null;
     /**
-    * The URI of the resource list.
+    * The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json
     */
-    'href'?: string | null;
+    'type'?: AddressDefinition.TypeEnum;
     /**
-    * Collection of links.
+    * The description for this result.
     */
-    'links'?: Array<Link> | null;
+    'description'?: string | null;
     /**
-    * The next page of results.
+    * What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any.
     */
-    'nextPage'?: string | null;
+    'lifeCycleStatus'?: string | null;
     /**
-    * The previous page of results.
+    * If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints.
     */
-    'previousPage'?: string | null;
+    'removalDate'?: Date | null;
+    /**
+    * Contains a link to the documentation for this AddressDefinition in KnowledgeBase.
+    */
+    'documentationLink'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<GetRecipeResponse>"
-        },
-        {
-            "name": "href",
-            "baseName": "href",
+            "name": "displayName",
+            "baseName": "displayName",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
+            "name": "type",
+            "baseName": "type",
+            "type": "AddressDefinition.TypeEnum"
         },
         {
-            "name": "nextPage",
-            "baseName": "nextPage",
+            "name": "description",
+            "baseName": "description",
             "type": "string"
         },
         {
-            "name": "previousPage",
-            "baseName": "previousPage",
+            "name": "lifeCycleStatus",
+            "baseName": "lifeCycleStatus",
+            "type": "string"
+        },
+        {
+            "name": "removalDate",
+            "baseName": "removalDate",
+            "type": "Date"
+        },
+        {
+            "name": "documentationLink",
+            "baseName": "documentationLink",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfGetRecipeResponse.attributeTypeMap;
+        return AddressDefinition.attributeTypeMap;
     }
 }
 
+export namespace AddressDefinition {
+    export enum TypeEnum {
+        String = <any> 'String',
+        Int = <any> 'Int',
+        Decimal = <any> 'Decimal',
+        DateTime = <any> 'DateTime',
+        Boolean = <any> 'Boolean',
+        ResultValue = <any> 'ResultValue',
+        Result0D = <any> 'Result0D',
+        Json = <any> 'Json'
+    }
+}

@@ -11,6 +11,7 @@ export * from './actionId';
 export * from './actionResultOfPortfolio';
 export * from './addBusinessDaysToDateRequest';
 export * from './addBusinessDaysToDateResponse';
+export * from './addressDefinition';
 export * from './adjustHolding';
 export * from './adjustHoldingRequest';
 export * from './aggregateSpec';
@@ -423,6 +424,7 @@ import { ActionId } from './actionId';
 import { ActionResultOfPortfolio } from './actionResultOfPortfolio';
 import { AddBusinessDaysToDateRequest } from './addBusinessDaysToDateRequest';
 import { AddBusinessDaysToDateResponse } from './addBusinessDaysToDateResponse';
+import { AddressDefinition } from './addressDefinition';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
 import { AggregateSpec } from './aggregateSpec';
@@ -824,6 +826,7 @@ let primitives = [
                  ];
 
 let enumsMap: {[index: string]: any} = {
+        "AddressDefinition.TypeEnum": AddressDefinition.TypeEnum,
         "AggregateSpec.OpEnum": AggregateSpec.OpEnum,
         "Basket.InstrumentTypeEnum": Basket.InstrumentTypeEnum,
         "BasketAllOf.InstrumentTypeEnum": BasketAllOf.InstrumentTypeEnum,
@@ -1011,6 +1014,7 @@ let typeMap: {[index: string]: any} = {
     "ActionResultOfPortfolio": ActionResultOfPortfolio,
     "AddBusinessDaysToDateRequest": AddBusinessDaysToDateRequest,
     "AddBusinessDaysToDateResponse": AddBusinessDaysToDateResponse,
+    "AddressDefinition": AddressDefinition,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingRequest": AdjustHoldingRequest,
     "AggregateSpec": AggregateSpec,
