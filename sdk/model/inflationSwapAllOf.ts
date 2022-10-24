@@ -11,63 +11,176 @@
  */
 
 import { RequestFile } from './models';
+import { FlowConventions } from './flowConventions';
 
-export class DateAttributes {
-    'irregular': boolean;
-    'irregularSession': boolean;
-    'newHours': boolean;
-    'activity'?: string | null;
-    'firstOpen'?: string | null;
-    'lastOpen'?: string | null;
-    'firstClose'?: string | null;
-    'lastClose'?: string | null;
+export class InflationSwapAllOf {
+    /**
+    * The start date of the instrument. This is normally synonymous with the trade-date.
+    */
+    'startDate': Date;
+    /**
+    * The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+    */
+    'maturityDate': Date;
+    'flowConventions': FlowConventions;
+    /**
+    * Fixed Rate
+    */
+    'fixedRate': number;
+    /**
+    * Optional cap, needed for LPI swaps. Should not be set for ZCIIS.
+    */
+    'inflationCap'?: number | null;
+    /**
+    * Optional floor, needed for LPI swaps. Should not be set for ZCIIS.
+    */
+    'inflationFloor'?: number | null;
+    /**
+    * Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.
+    */
+    'inflationFrequency'?: string | null;
+    /**
+    * Name
+    */
+    'inflationIndexName': string;
+    /**
+    * silly flag for old swaps    Supported string (enumeration) values are: [Linear, Flat].
+    */
+    'inflationInterpolation'?: string | null;
+    /**
+    * Day of the month that inflation rolls from one month to the next. This is optional and defaults to 1, which is  the typically value for the majority of inflation bonds (exceptions include Japan which rolls on the 10th  and some LatAm bonds which roll on the 15th).
+    */
+    'inflationRollDay'?: number;
+    /**
+    * The notional
+    */
+    'notional': number;
+    /**
+    * Observation Lag, must be a number of Months, typically 3 or 4 but sometimes 8.
+    */
+    'observationLag': string;
+    /**
+    * PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.  If set to Pay, this swap pays inflation and receives fixed.    Supported string (enumeration) values are: [Pay, Receive].
+    */
+    'payReceive'?: string | null;
+    /**
+    * The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap
+    */
+    'instrumentType': InflationSwapAllOf.InstrumentTypeEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "irregular",
-            "baseName": "irregular",
-            "type": "boolean"
+            "name": "startDate",
+            "baseName": "startDate",
+            "type": "Date"
         },
         {
-            "name": "irregularSession",
-            "baseName": "irregularSession",
-            "type": "boolean"
+            "name": "maturityDate",
+            "baseName": "maturityDate",
+            "type": "Date"
         },
         {
-            "name": "newHours",
-            "baseName": "newHours",
-            "type": "boolean"
+            "name": "flowConventions",
+            "baseName": "flowConventions",
+            "type": "FlowConventions"
         },
         {
-            "name": "activity",
-            "baseName": "activity",
+            "name": "fixedRate",
+            "baseName": "fixedRate",
+            "type": "number"
+        },
+        {
+            "name": "inflationCap",
+            "baseName": "inflationCap",
+            "type": "number"
+        },
+        {
+            "name": "inflationFloor",
+            "baseName": "inflationFloor",
+            "type": "number"
+        },
+        {
+            "name": "inflationFrequency",
+            "baseName": "inflationFrequency",
             "type": "string"
         },
         {
-            "name": "firstOpen",
-            "baseName": "firstOpen",
+            "name": "inflationIndexName",
+            "baseName": "inflationIndexName",
             "type": "string"
         },
         {
-            "name": "lastOpen",
-            "baseName": "lastOpen",
+            "name": "inflationInterpolation",
+            "baseName": "inflationInterpolation",
             "type": "string"
         },
         {
-            "name": "firstClose",
-            "baseName": "firstClose",
+            "name": "inflationRollDay",
+            "baseName": "inflationRollDay",
+            "type": "number"
+        },
+        {
+            "name": "notional",
+            "baseName": "notional",
+            "type": "number"
+        },
+        {
+            "name": "observationLag",
+            "baseName": "observationLag",
             "type": "string"
         },
         {
-            "name": "lastClose",
-            "baseName": "lastClose",
+            "name": "payReceive",
+            "baseName": "payReceive",
             "type": "string"
+        },
+        {
+            "name": "instrumentType",
+            "baseName": "instrumentType",
+            "type": "InflationSwapAllOf.InstrumentTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return DateAttributes.attributeTypeMap;
+        return InflationSwapAllOf.attributeTypeMap;
     }
 }
 
+export namespace InflationSwapAllOf {
+    export enum InstrumentTypeEnum {
+        QuotedSecurity = <any> 'QuotedSecurity',
+        InterestRateSwap = <any> 'InterestRateSwap',
+        FxForward = <any> 'FxForward',
+        Future = <any> 'Future',
+        ExoticInstrument = <any> 'ExoticInstrument',
+        FxOption = <any> 'FxOption',
+        CreditDefaultSwap = <any> 'CreditDefaultSwap',
+        InterestRateSwaption = <any> 'InterestRateSwaption',
+        Bond = <any> 'Bond',
+        EquityOption = <any> 'EquityOption',
+        FixedLeg = <any> 'FixedLeg',
+        FloatingLeg = <any> 'FloatingLeg',
+        BespokeCashFlowsLeg = <any> 'BespokeCashFlowsLeg',
+        Unknown = <any> 'Unknown',
+        TermDeposit = <any> 'TermDeposit',
+        ContractForDifference = <any> 'ContractForDifference',
+        EquitySwap = <any> 'EquitySwap',
+        CashPerpetual = <any> 'CashPerpetual',
+        CapFloor = <any> 'CapFloor',
+        CashSettled = <any> 'CashSettled',
+        CdsIndex = <any> 'CdsIndex',
+        Basket = <any> 'Basket',
+        FundingLeg = <any> 'FundingLeg',
+        FxSwap = <any> 'FxSwap',
+        ForwardRateAgreement = <any> 'ForwardRateAgreement',
+        SimpleInstrument = <any> 'SimpleInstrument',
+        Repo = <any> 'Repo',
+        Equity = <any> 'Equity',
+        ExchangeTradedOption = <any> 'ExchangeTradedOption',
+        ReferenceInstrument = <any> 'ReferenceInstrument',
+        ComplexBond = <any> 'ComplexBond',
+        InflationLinkedBond = <any> 'InflationLinkedBond',
+        InflationSwap = <any> 'InflationSwap'
+    }
+}

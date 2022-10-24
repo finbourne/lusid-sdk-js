@@ -185,6 +185,8 @@ export * from './indexModelOptionsAllOf';
 export * from './industryClassifier';
 export * from './inflationLinkedBond';
 export * from './inflationLinkedBondAllOf';
+export * from './inflationSwap';
+export * from './inflationSwapAllOf';
 export * from './inlineValuationRequest';
 export * from './instrument';
 export * from './instrumentDefinition';
@@ -598,6 +600,8 @@ import { IndexModelOptionsAllOf } from './indexModelOptionsAllOf';
 import { IndustryClassifier } from './industryClassifier';
 import { InflationLinkedBond } from './inflationLinkedBond';
 import { InflationLinkedBondAllOf } from './inflationLinkedBondAllOf';
+import { InflationSwap } from './inflationSwap';
+import { InflationSwapAllOf } from './inflationSwapAllOf';
 import { InlineValuationRequest } from './inlineValuationRequest';
 import { Instrument } from './instrument';
 import { InstrumentDefinition } from './instrumentDefinition';
@@ -930,6 +934,8 @@ let enumsMap: {[index: string]: any} = {
         "IndexModelOptionsAllOf.ModelOptionsTypeEnum": IndexModelOptionsAllOf.ModelOptionsTypeEnum,
         "InflationLinkedBond.InstrumentTypeEnum": InflationLinkedBond.InstrumentTypeEnum,
         "InflationLinkedBondAllOf.InstrumentTypeEnum": InflationLinkedBondAllOf.InstrumentTypeEnum,
+        "InflationSwap.InstrumentTypeEnum": InflationSwap.InstrumentTypeEnum,
+        "InflationSwapAllOf.InstrumentTypeEnum": InflationSwapAllOf.InstrumentTypeEnum,
         "Instrument.StateEnum": Instrument.StateEnum,
         "Instrument.AssetClassEnum": Instrument.AssetClassEnum,
         "InstrumentLeg.InstrumentTypeEnum": InstrumentLeg.InstrumentTypeEnum,
@@ -1187,6 +1193,8 @@ let typeMap: {[index: string]: any} = {
     "IndustryClassifier": IndustryClassifier,
     "InflationLinkedBond": InflationLinkedBond,
     "InflationLinkedBondAllOf": InflationLinkedBondAllOf,
+    "InflationSwap": InflationSwap,
+    "InflationSwapAllOf": InflationSwapAllOf,
     "InlineValuationRequest": InlineValuationRequest,
     "Instrument": Instrument,
     "InstrumentDefinition": InstrumentDefinition,
