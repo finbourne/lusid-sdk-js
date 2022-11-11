@@ -190,6 +190,7 @@ export * from './inflationLinkedBondAllOf';
 export * from './inflationSwap';
 export * from './inflationSwapAllOf';
 export * from './inlineValuationRequest';
+export * from './inlineValuationsReconciliationRequest';
 export * from './instrument';
 export * from './instrumentDefinition';
 export * from './instrumentDefinitionFormat';
@@ -211,6 +212,7 @@ export * from './legDefinition';
 export * from './legalEntity';
 export * from './levelStep';
 export * from './link';
+export * from './listAggregationReconciliation';
 export * from './listAggregationResponse';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
@@ -285,6 +287,11 @@ export * from './quoteId';
 export * from './quoteSeriesId';
 export * from './realisedGainLoss';
 export * from './reconciliationBreak';
+export * from './reconciliationLeftRightAddressKeyPair';
+export * from './reconciliationLine';
+export * from './reconciliationRequest';
+export * from './reconciliationResponse';
+export * from './reconciliationRule';
 export * from './referenceData';
 export * from './referenceInstrument';
 export * from './referenceInstrumentAllOf';
@@ -391,6 +398,7 @@ export * from './upsertTransactionPropertiesResponse';
 export * from './user';
 export * from './valuationRequest';
 export * from './valuationSchedule';
+export * from './valuationsReconciliationRequest';
 export * from './vendorModelRule';
 export * from './version';
 export * from './versionSummaryDto';
@@ -608,6 +616,7 @@ import { InflationLinkedBondAllOf } from './inflationLinkedBondAllOf';
 import { InflationSwap } from './inflationSwap';
 import { InflationSwapAllOf } from './inflationSwapAllOf';
 import { InlineValuationRequest } from './inlineValuationRequest';
+import { InlineValuationsReconciliationRequest } from './inlineValuationsReconciliationRequest';
 import { Instrument } from './instrument';
 import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentDefinitionFormat } from './instrumentDefinitionFormat';
@@ -629,6 +638,7 @@ import { LegDefinition } from './legDefinition';
 import { LegalEntity } from './legalEntity';
 import { LevelStep } from './levelStep';
 import { Link } from './link';
+import { ListAggregationReconciliation } from './listAggregationReconciliation';
 import { ListAggregationResponse } from './listAggregationResponse';
 import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
@@ -703,6 +713,11 @@ import { QuoteId } from './quoteId';
 import { QuoteSeriesId } from './quoteSeriesId';
 import { RealisedGainLoss } from './realisedGainLoss';
 import { ReconciliationBreak } from './reconciliationBreak';
+import { ReconciliationLeftRightAddressKeyPair } from './reconciliationLeftRightAddressKeyPair';
+import { ReconciliationLine } from './reconciliationLine';
+import { ReconciliationRequest } from './reconciliationRequest';
+import { ReconciliationResponse } from './reconciliationResponse';
+import { ReconciliationRule } from './reconciliationRule';
 import { ReferenceData } from './referenceData';
 import { ReferenceInstrument } from './referenceInstrument';
 import { ReferenceInstrumentAllOf } from './referenceInstrumentAllOf';
@@ -809,6 +824,7 @@ import { UpsertTransactionPropertiesResponse } from './upsertTransactionProperti
 import { User } from './user';
 import { ValuationRequest } from './valuationRequest';
 import { ValuationSchedule } from './valuationSchedule';
+import { ValuationsReconciliationRequest } from './valuationsReconciliationRequest';
 import { VendorModelRule } from './vendorModelRule';
 import { Version } from './version';
 import { VersionSummaryDto } from './versionSummaryDto';
@@ -987,6 +1003,7 @@ let enumsMap: {[index: string]: any} = {
         "PropertyFilter.RightOperandTypeEnum": PropertyFilter.RightOperandTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
+        "ReconciliationRule.RuleTypeEnum": ReconciliationRule.RuleTypeEnum,
         "ReferenceInstrument.InstrumentTypeEnum": ReferenceInstrument.InstrumentTypeEnum,
         "ReferenceInstrumentAllOf.InstrumentTypeEnum": ReferenceInstrumentAllOf.InstrumentTypeEnum,
         "Repo.InstrumentTypeEnum": Repo.InstrumentTypeEnum,
@@ -1204,6 +1221,7 @@ let typeMap: {[index: string]: any} = {
     "InflationSwap": InflationSwap,
     "InflationSwapAllOf": InflationSwapAllOf,
     "InlineValuationRequest": InlineValuationRequest,
+    "InlineValuationsReconciliationRequest": InlineValuationsReconciliationRequest,
     "Instrument": Instrument,
     "InstrumentDefinition": InstrumentDefinition,
     "InstrumentDefinitionFormat": InstrumentDefinitionFormat,
@@ -1225,6 +1243,7 @@ let typeMap: {[index: string]: any} = {
     "LegalEntity": LegalEntity,
     "LevelStep": LevelStep,
     "Link": Link,
+    "ListAggregationReconciliation": ListAggregationReconciliation,
     "ListAggregationResponse": ListAggregationResponse,
     "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
@@ -1299,6 +1318,11 @@ let typeMap: {[index: string]: any} = {
     "QuoteSeriesId": QuoteSeriesId,
     "RealisedGainLoss": RealisedGainLoss,
     "ReconciliationBreak": ReconciliationBreak,
+    "ReconciliationLeftRightAddressKeyPair": ReconciliationLeftRightAddressKeyPair,
+    "ReconciliationLine": ReconciliationLine,
+    "ReconciliationRequest": ReconciliationRequest,
+    "ReconciliationResponse": ReconciliationResponse,
+    "ReconciliationRule": ReconciliationRule,
     "ReferenceData": ReferenceData,
     "ReferenceInstrument": ReferenceInstrument,
     "ReferenceInstrumentAllOf": ReferenceInstrumentAllOf,
@@ -1405,6 +1429,7 @@ let typeMap: {[index: string]: any} = {
     "User": User,
     "ValuationRequest": ValuationRequest,
     "ValuationSchedule": ValuationSchedule,
+    "ValuationsReconciliationRequest": ValuationsReconciliationRequest,
     "VendorModelRule": VendorModelRule,
     "Version": Version,
     "VersionSummaryDto": VersionSummaryDto,
