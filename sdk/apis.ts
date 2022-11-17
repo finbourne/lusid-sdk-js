@@ -5,6 +5,7 @@ import {CalendarsApi} from './api/calendarsApi';
 import {ComplexMarketDataApi} from './api/complexMarketDataApi';
 import {ConfigurationRecipeApi} from './api/configurationRecipeApi';
 import {CorporateActionSourcesApi} from './api/corporateActionSourcesApi';
+import {CounterpartiesApi} from './api/counterpartiesApi';
 import {CutLabelDefinitionsApi} from './api/cutLabelDefinitionsApi';
 import {DataTypesApi} from './api/dataTypesApi';
 import {DerivedTransactionPortfoliosApi} from './api/derivedTransactionPortfoliosApi';
@@ -36,6 +37,7 @@ export class Api {
     public complexMarketData:  ComplexMarketDataApi
     public configurationRecipe:  ConfigurationRecipeApi
     public corporateActionSources:  CorporateActionSourcesApi
+    public counterparties:  CounterpartiesApi
     public cutLabelDefinitions:  CutLabelDefinitionsApi
     public dataTypes:  DataTypesApi
     public derivedTransactionPortfolios:  DerivedTransactionPortfoliosApi

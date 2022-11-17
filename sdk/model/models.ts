@@ -66,7 +66,9 @@ export * from './corporateActionTransition';
 export * from './corporateActionTransitionComponent';
 export * from './corporateActionTransitionComponentRequest';
 export * from './corporateActionTransitionRequest';
+export * from './counterpartyAgreement';
 export * from './counterpartyRiskInformation';
+export * from './counterpartySignatory';
 export * from './createCalendarRequest';
 export * from './createCorporateActionSourceRequest';
 export * from './createCutLabelDefinitionRequest';
@@ -88,6 +90,7 @@ export * from './creditDefaultSwapAllOf';
 export * from './creditRating';
 export * from './creditSpreadCurveData';
 export * from './creditSpreadCurveDataAllOf';
+export * from './creditSupportAnnex';
 export * from './currencyAndAmount';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
@@ -169,6 +172,8 @@ export * from './fxSwap';
 export * from './fxSwapAllOf';
 export * from './fxVolSurfaceData';
 export * from './getComplexMarketDataResponse';
+export * from './getCounterpartyAgreementResponse';
+export * from './getCreditSupportAnnexResponse';
 export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
 export * from './getRecipeResponse';
@@ -313,6 +318,8 @@ export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfCorporateAction';
 export * from './resourceListOfDataType';
 export * from './resourceListOfExecution';
+export * from './resourceListOfGetCounterpartyAgreementResponse';
+export * from './resourceListOfGetCreditSupportAnnexResponse';
 export * from './resourceListOfGetRecipeResponse';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
@@ -365,6 +372,7 @@ export * from './transactionPropertyMappingRequest';
 export * from './transactionQueryParameters';
 export * from './transactionRequest';
 export * from './transactionSetConfigurationData';
+export * from './typedResourceId';
 export * from './updateCalendarRequest';
 export * from './updateCutLabelDefinitionRequest';
 export * from './updateDataTypeRequest';
@@ -377,6 +385,8 @@ export * from './updateUnitRequest';
 export * from './upsertComplexMarketDataRequest';
 export * from './upsertCorporateActionRequest';
 export * from './upsertCorporateActionsResponse';
+export * from './upsertCounterpartyAgreementRequest';
+export * from './upsertCreditSupportAnnexRequest';
 export * from './upsertInstrumentPropertiesResponse';
 export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
@@ -492,7 +502,9 @@ import { CorporateActionTransition } from './corporateActionTransition';
 import { CorporateActionTransitionComponent } from './corporateActionTransitionComponent';
 import { CorporateActionTransitionComponentRequest } from './corporateActionTransitionComponentRequest';
 import { CorporateActionTransitionRequest } from './corporateActionTransitionRequest';
+import { CounterpartyAgreement } from './counterpartyAgreement';
 import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
+import { CounterpartySignatory } from './counterpartySignatory';
 import { CreateCalendarRequest } from './createCalendarRequest';
 import { CreateCorporateActionSourceRequest } from './createCorporateActionSourceRequest';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
@@ -514,6 +526,7 @@ import { CreditDefaultSwapAllOf } from './creditDefaultSwapAllOf';
 import { CreditRating } from './creditRating';
 import { CreditSpreadCurveData } from './creditSpreadCurveData';
 import { CreditSpreadCurveDataAllOf } from './creditSpreadCurveDataAllOf';
+import { CreditSupportAnnex } from './creditSupportAnnex';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
@@ -595,6 +608,8 @@ import { FxSwap } from './fxSwap';
 import { FxSwapAllOf } from './fxSwapAllOf';
 import { FxVolSurfaceData } from './fxVolSurfaceData';
 import { GetComplexMarketDataResponse } from './getComplexMarketDataResponse';
+import { GetCounterpartyAgreementResponse } from './getCounterpartyAgreementResponse';
+import { GetCreditSupportAnnexResponse } from './getCreditSupportAnnexResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
 import { GetRecipeResponse } from './getRecipeResponse';
@@ -739,6 +754,8 @@ import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfCons
 import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
 import { ResourceListOfDataType } from './resourceListOfDataType';
 import { ResourceListOfExecution } from './resourceListOfExecution';
+import { ResourceListOfGetCounterpartyAgreementResponse } from './resourceListOfGetCounterpartyAgreementResponse';
+import { ResourceListOfGetCreditSupportAnnexResponse } from './resourceListOfGetCreditSupportAnnexResponse';
 import { ResourceListOfGetRecipeResponse } from './resourceListOfGetRecipeResponse';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
@@ -791,6 +808,7 @@ import { TransactionPropertyMappingRequest } from './transactionPropertyMappingR
 import { TransactionQueryParameters } from './transactionQueryParameters';
 import { TransactionRequest } from './transactionRequest';
 import { TransactionSetConfigurationData } from './transactionSetConfigurationData';
+import { TypedResourceId } from './typedResourceId';
 import { UpdateCalendarRequest } from './updateCalendarRequest';
 import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionRequest';
 import { UpdateDataTypeRequest } from './updateDataTypeRequest';
@@ -803,6 +821,8 @@ import { UpdateUnitRequest } from './updateUnitRequest';
 import { UpsertComplexMarketDataRequest } from './upsertComplexMarketDataRequest';
 import { UpsertCorporateActionRequest } from './upsertCorporateActionRequest';
 import { UpsertCorporateActionsResponse } from './upsertCorporateActionsResponse';
+import { UpsertCounterpartyAgreementRequest } from './upsertCounterpartyAgreementRequest';
+import { UpsertCreditSupportAnnexRequest } from './upsertCreditSupportAnnexRequest';
 import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentPropertiesResponse';
 import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyRequest';
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
@@ -1098,7 +1118,9 @@ let typeMap: {[index: string]: any} = {
     "CorporateActionTransitionComponent": CorporateActionTransitionComponent,
     "CorporateActionTransitionComponentRequest": CorporateActionTransitionComponentRequest,
     "CorporateActionTransitionRequest": CorporateActionTransitionRequest,
+    "CounterpartyAgreement": CounterpartyAgreement,
     "CounterpartyRiskInformation": CounterpartyRiskInformation,
+    "CounterpartySignatory": CounterpartySignatory,
     "CreateCalendarRequest": CreateCalendarRequest,
     "CreateCorporateActionSourceRequest": CreateCorporateActionSourceRequest,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
@@ -1120,6 +1142,7 @@ let typeMap: {[index: string]: any} = {
     "CreditRating": CreditRating,
     "CreditSpreadCurveData": CreditSpreadCurveData,
     "CreditSpreadCurveDataAllOf": CreditSpreadCurveDataAllOf,
+    "CreditSupportAnnex": CreditSupportAnnex,
     "CurrencyAndAmount": CurrencyAndAmount,
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
@@ -1200,6 +1223,8 @@ let typeMap: {[index: string]: any} = {
     "FxSwapAllOf": FxSwapAllOf,
     "FxVolSurfaceData": FxVolSurfaceData,
     "GetComplexMarketDataResponse": GetComplexMarketDataResponse,
+    "GetCounterpartyAgreementResponse": GetCounterpartyAgreementResponse,
+    "GetCreditSupportAnnexResponse": GetCreditSupportAnnexResponse,
     "GetInstrumentsResponse": GetInstrumentsResponse,
     "GetQuotesResponse": GetQuotesResponse,
     "GetRecipeResponse": GetRecipeResponse,
@@ -1344,6 +1369,8 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfCorporateAction": ResourceListOfCorporateAction,
     "ResourceListOfDataType": ResourceListOfDataType,
     "ResourceListOfExecution": ResourceListOfExecution,
+    "ResourceListOfGetCounterpartyAgreementResponse": ResourceListOfGetCounterpartyAgreementResponse,
+    "ResourceListOfGetCreditSupportAnnexResponse": ResourceListOfGetCreditSupportAnnexResponse,
     "ResourceListOfGetRecipeResponse": ResourceListOfGetRecipeResponse,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
@@ -1396,6 +1423,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionQueryParameters": TransactionQueryParameters,
     "TransactionRequest": TransactionRequest,
     "TransactionSetConfigurationData": TransactionSetConfigurationData,
+    "TypedResourceId": TypedResourceId,
     "UpdateCalendarRequest": UpdateCalendarRequest,
     "UpdateCutLabelDefinitionRequest": UpdateCutLabelDefinitionRequest,
     "UpdateDataTypeRequest": UpdateDataTypeRequest,
@@ -1408,6 +1436,8 @@ let typeMap: {[index: string]: any} = {
     "UpsertComplexMarketDataRequest": UpsertComplexMarketDataRequest,
     "UpsertCorporateActionRequest": UpsertCorporateActionRequest,
     "UpsertCorporateActionsResponse": UpsertCorporateActionsResponse,
+    "UpsertCounterpartyAgreementRequest": UpsertCounterpartyAgreementRequest,
+    "UpsertCreditSupportAnnexRequest": UpsertCreditSupportAnnexRequest,
     "UpsertInstrumentPropertiesResponse": UpsertInstrumentPropertiesResponse,
     "UpsertInstrumentPropertyRequest": UpsertInstrumentPropertyRequest,
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,

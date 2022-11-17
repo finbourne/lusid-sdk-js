@@ -12,6 +12,8 @@ export * from './configurationRecipeApi';
 import { ConfigurationRecipeApi } from './configurationRecipeApi';
 export * from './corporateActionSourcesApi';
 import { CorporateActionSourcesApi } from './corporateActionSourcesApi';
+export * from './counterpartiesApi';
+import { CounterpartiesApi } from './counterpartiesApi';
 export * from './cutLabelDefinitionsApi';
 import { CutLabelDefinitionsApi } from './cutLabelDefinitionsApi';
 export * from './dataTypesApi';
@@ -59,4 +61,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AggregationApi, AllocationsApi, ApplicationMetadataApi, CalendarsApi, ComplexMarketDataApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, PersonsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, ScopesApi, SearchApi, SequencesApi, SystemConfigurationApi, TransactionPortfoliosApi];
+export const APIS = [AggregationApi, AllocationsApi, ApplicationMetadataApi, CalendarsApi, ComplexMarketDataApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, PersonsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, ScopesApi, SearchApi, SequencesApi, SystemConfigurationApi, TransactionPortfoliosApi];
