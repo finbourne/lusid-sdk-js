@@ -13,6 +13,7 @@ export * from './addBusinessDaysToDateRequest';
 export * from './addBusinessDaysToDateResponse';
 export * from './addressDefinition';
 export * from './adjustHolding';
+export * from './adjustHoldingForDateRequest';
 export * from './adjustHoldingRequest';
 export * from './aggregateSpec';
 export * from './aggregatedReturn';
@@ -32,6 +33,7 @@ export * from './barrier';
 export * from './basket';
 export * from './basketAllOf';
 export * from './basketIdentifier';
+export * from './batchAdjustHoldingsResponse';
 export * from './bond';
 export * from './bondAllOf';
 export * from './calendar';
@@ -179,6 +181,7 @@ export * from './getQuotesResponse';
 export * from './getRecipeResponse';
 export * from './getReferencePortfolioConstituentsResponse';
 export * from './holdingAdjustment';
+export * from './holdingAdjustmentWithDate';
 export * from './holdingContext';
 export * from './holdingsAdjustment';
 export * from './holdingsAdjustmentHeader';
@@ -449,6 +452,7 @@ import { AddBusinessDaysToDateRequest } from './addBusinessDaysToDateRequest';
 import { AddBusinessDaysToDateResponse } from './addBusinessDaysToDateResponse';
 import { AddressDefinition } from './addressDefinition';
 import { AdjustHolding } from './adjustHolding';
+import { AdjustHoldingForDateRequest } from './adjustHoldingForDateRequest';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
 import { AggregateSpec } from './aggregateSpec';
 import { AggregatedReturn } from './aggregatedReturn';
@@ -468,6 +472,7 @@ import { Barrier } from './barrier';
 import { Basket } from './basket';
 import { BasketAllOf } from './basketAllOf';
 import { BasketIdentifier } from './basketIdentifier';
+import { BatchAdjustHoldingsResponse } from './batchAdjustHoldingsResponse';
 import { Bond } from './bond';
 import { BondAllOf } from './bondAllOf';
 import { Calendar } from './calendar';
@@ -615,6 +620,7 @@ import { GetQuotesResponse } from './getQuotesResponse';
 import { GetRecipeResponse } from './getRecipeResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
 import { HoldingAdjustment } from './holdingAdjustment';
+import { HoldingAdjustmentWithDate } from './holdingAdjustmentWithDate';
 import { HoldingContext } from './holdingContext';
 import { HoldingsAdjustment } from './holdingsAdjustment';
 import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
@@ -1065,6 +1071,7 @@ let typeMap: {[index: string]: any} = {
     "AddBusinessDaysToDateResponse": AddBusinessDaysToDateResponse,
     "AddressDefinition": AddressDefinition,
     "AdjustHolding": AdjustHolding,
+    "AdjustHoldingForDateRequest": AdjustHoldingForDateRequest,
     "AdjustHoldingRequest": AdjustHoldingRequest,
     "AggregateSpec": AggregateSpec,
     "AggregatedReturn": AggregatedReturn,
@@ -1084,6 +1091,7 @@ let typeMap: {[index: string]: any} = {
     "Basket": Basket,
     "BasketAllOf": BasketAllOf,
     "BasketIdentifier": BasketIdentifier,
+    "BatchAdjustHoldingsResponse": BatchAdjustHoldingsResponse,
     "Bond": Bond,
     "BondAllOf": BondAllOf,
     "Calendar": Calendar,
@@ -1230,6 +1238,7 @@ let typeMap: {[index: string]: any} = {
     "GetRecipeResponse": GetRecipeResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
     "HoldingAdjustment": HoldingAdjustment,
+    "HoldingAdjustmentWithDate": HoldingAdjustmentWithDate,
     "HoldingContext": HoldingContext,
     "HoldingsAdjustment": HoldingsAdjustment,
     "HoldingsAdjustmentHeader": HoldingsAdjustmentHeader,
