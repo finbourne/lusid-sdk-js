@@ -101,6 +101,7 @@ export * from './dataTypeSummary';
 export * from './dateAttributes';
 export * from './dateRange';
 export * from './dayOfWeek';
+export * from './deleteInstrumentPropertiesResponse';
 export * from './deleteInstrumentResponse';
 export * from './deleteRelationshipRequest';
 export * from './deletedEntityResponse';
@@ -207,6 +208,7 @@ export * from './instrumentIdValue';
 export * from './instrumentLeg';
 export * from './instrumentLegAllOf';
 export * from './instrumentMatch';
+export * from './instrumentProperties';
 export * from './instrumentSearchProperty';
 export * from './interestRateSwap';
 export * from './interestRateSwapAllOf';
@@ -540,6 +542,7 @@ import { DataTypeSummary } from './dataTypeSummary';
 import { DateAttributes } from './dateAttributes';
 import { DateRange } from './dateRange';
 import { DayOfWeek } from './dayOfWeek';
+import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
@@ -646,6 +649,7 @@ import { InstrumentIdValue } from './instrumentIdValue';
 import { InstrumentLeg } from './instrumentLeg';
 import { InstrumentLegAllOf } from './instrumentLegAllOf';
 import { InstrumentMatch } from './instrumentMatch';
+import { InstrumentProperties } from './instrumentProperties';
 import { InstrumentSearchProperty } from './instrumentSearchProperty';
 import { InterestRateSwap } from './interestRateSwap';
 import { InterestRateSwapAllOf } from './interestRateSwapAllOf';
@@ -1158,6 +1162,7 @@ let typeMap: {[index: string]: any} = {
     "DataTypeSummary": DataTypeSummary,
     "DateAttributes": DateAttributes,
     "DateRange": DateRange,
+    "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeleteRelationshipRequest": DeleteRelationshipRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
@@ -1264,6 +1269,7 @@ let typeMap: {[index: string]: any} = {
     "InstrumentLeg": InstrumentLeg,
     "InstrumentLegAllOf": InstrumentLegAllOf,
     "InstrumentMatch": InstrumentMatch,
+    "InstrumentProperties": InstrumentProperties,
     "InstrumentSearchProperty": InstrumentSearchProperty,
     "InterestRateSwap": InterestRateSwap,
     "InterestRateSwapAllOf": InterestRateSwapAllOf,

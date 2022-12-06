@@ -11,39 +11,51 @@
  */
 
 import { RequestFile } from './models';
+import { Link } from './link';
+import { Property } from './property';
+import { Version } from './version';
 
-export class OrderBySpec {
+export class InstrumentProperties {
     /**
-    * The key that uniquely identifies a queryable address in Lusid.
+    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'key': string;
+    'href'?: string | null;
     /**
-    * The available values are: Ascending, Descending
+    * The instrument properties. These will be from the \'Instrument\' domain.
     */
-    'sortOrder': OrderBySpec.SortOrderEnum;
+    'properties'?: { [key: string]: Property; } | null;
+    'version'?: Version;
+    /**
+    * Collection of links.
+    */
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "key",
-            "baseName": "key",
+            "name": "href",
+            "baseName": "href",
             "type": "string"
         },
         {
-            "name": "sortOrder",
-            "baseName": "sortOrder",
-            "type": "OrderBySpec.SortOrderEnum"
+            "name": "properties",
+            "baseName": "properties",
+            "type": "{ [key: string]: Property; }"
+        },
+        {
+            "name": "version",
+            "baseName": "version",
+            "type": "Version"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return OrderBySpec.attributeTypeMap;
+        return InstrumentProperties.attributeTypeMap;
     }
 }
 
-export namespace OrderBySpec {
-    export enum SortOrderEnum {
-        Ascending = <any> 'Ascending',
-        Descending = <any> 'Descending'
-    }
-}

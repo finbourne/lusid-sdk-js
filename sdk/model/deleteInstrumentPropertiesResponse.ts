@@ -11,39 +11,34 @@
  */
 
 import { RequestFile } from './models';
+import { Link } from './link';
 
-export class OrderBySpec {
+export class DeleteInstrumentPropertiesResponse {
     /**
-    * The key that uniquely identifies a queryable address in Lusid.
+    * The as-at datetime at which properties were deleted.
     */
-    'key': string;
+    'asAt': Date;
     /**
-    * The available values are: Ascending, Descending
+    * Collection of links.
     */
-    'sortOrder': OrderBySpec.SortOrderEnum;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "key",
-            "baseName": "key",
-            "type": "string"
+            "name": "asAt",
+            "baseName": "asAt",
+            "type": "Date"
         },
         {
-            "name": "sortOrder",
-            "baseName": "sortOrder",
-            "type": "OrderBySpec.SortOrderEnum"
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return OrderBySpec.attributeTypeMap;
+        return DeleteInstrumentPropertiesResponse.attributeTypeMap;
     }
 }
 
-export namespace OrderBySpec {
-    export enum SortOrderEnum {
-        Ascending = <any> 'Ascending',
-        Descending = <any> 'Descending'
-    }
-}
