@@ -296,6 +296,12 @@ export * from './quote';
 export * from './quoteId';
 export * from './quoteSeriesId';
 export * from './realisedGainLoss';
+export * from './reconcileDateTimeRule';
+export * from './reconcileDateTimeRuleAllOf';
+export * from './reconcileNumericRule';
+export * from './reconcileNumericRuleAllOf';
+export * from './reconcileStringRule';
+export * from './reconcileStringRuleAllOf';
 export * from './reconciliationBreak';
 export * from './reconciliationLeftRightAddressKeyPair';
 export * from './reconciliationLine';
@@ -737,6 +743,12 @@ import { Quote } from './quote';
 import { QuoteId } from './quoteId';
 import { QuoteSeriesId } from './quoteSeriesId';
 import { RealisedGainLoss } from './realisedGainLoss';
+import { ReconcileDateTimeRule } from './reconcileDateTimeRule';
+import { ReconcileDateTimeRuleAllOf } from './reconcileDateTimeRuleAllOf';
+import { ReconcileNumericRule } from './reconcileNumericRule';
+import { ReconcileNumericRuleAllOf } from './reconcileNumericRuleAllOf';
+import { ReconcileStringRule } from './reconcileStringRule';
+import { ReconcileStringRuleAllOf } from './reconcileStringRuleAllOf';
 import { ReconciliationBreak } from './reconciliationBreak';
 import { ReconciliationLeftRightAddressKeyPair } from './reconciliationLeftRightAddressKeyPair';
 import { ReconciliationLine } from './reconciliationLine';
@@ -1033,6 +1045,18 @@ let enumsMap: {[index: string]: any} = {
         "PropertyFilter.RightOperandTypeEnum": PropertyFilter.RightOperandTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
+        "ReconcileDateTimeRule.ComparisonTypeEnum": ReconcileDateTimeRule.ComparisonTypeEnum,
+        "ReconcileDateTimeRule.RuleTypeEnum": ReconcileDateTimeRule.RuleTypeEnum,
+        "ReconcileDateTimeRuleAllOf.ComparisonTypeEnum": ReconcileDateTimeRuleAllOf.ComparisonTypeEnum,
+        "ReconcileDateTimeRuleAllOf.RuleTypeEnum": ReconcileDateTimeRuleAllOf.RuleTypeEnum,
+        "ReconcileNumericRule.ComparisonTypeEnum": ReconcileNumericRule.ComparisonTypeEnum,
+        "ReconcileNumericRule.RuleTypeEnum": ReconcileNumericRule.RuleTypeEnum,
+        "ReconcileNumericRuleAllOf.ComparisonTypeEnum": ReconcileNumericRuleAllOf.ComparisonTypeEnum,
+        "ReconcileNumericRuleAllOf.RuleTypeEnum": ReconcileNumericRuleAllOf.RuleTypeEnum,
+        "ReconcileStringRule.ComparisonTypeEnum": ReconcileStringRule.ComparisonTypeEnum,
+        "ReconcileStringRule.RuleTypeEnum": ReconcileStringRule.RuleTypeEnum,
+        "ReconcileStringRuleAllOf.ComparisonTypeEnum": ReconcileStringRuleAllOf.ComparisonTypeEnum,
+        "ReconcileStringRuleAllOf.RuleTypeEnum": ReconcileStringRuleAllOf.RuleTypeEnum,
         "ReconciliationRule.RuleTypeEnum": ReconciliationRule.RuleTypeEnum,
         "ReferenceInstrument.InstrumentTypeEnum": ReferenceInstrument.InstrumentTypeEnum,
         "ReferenceInstrumentAllOf.InstrumentTypeEnum": ReferenceInstrumentAllOf.InstrumentTypeEnum,
@@ -1357,6 +1381,12 @@ let typeMap: {[index: string]: any} = {
     "QuoteId": QuoteId,
     "QuoteSeriesId": QuoteSeriesId,
     "RealisedGainLoss": RealisedGainLoss,
+    "ReconcileDateTimeRule": ReconcileDateTimeRule,
+    "ReconcileDateTimeRuleAllOf": ReconcileDateTimeRuleAllOf,
+    "ReconcileNumericRule": ReconcileNumericRule,
+    "ReconcileNumericRuleAllOf": ReconcileNumericRuleAllOf,
+    "ReconcileStringRule": ReconcileStringRule,
+    "ReconcileStringRuleAllOf": ReconcileStringRuleAllOf,
     "ReconciliationBreak": ReconciliationBreak,
     "ReconciliationLeftRightAddressKeyPair": ReconciliationLeftRightAddressKeyPair,
     "ReconciliationLine": ReconciliationLine,
