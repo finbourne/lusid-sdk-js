@@ -34,7 +34,6 @@ export * from './basket';
 export * from './basketAllOf';
 export * from './basketIdentifier';
 export * from './batchAdjustHoldingsResponse';
-export * from './batchUpsertPortfolioTransactionsResponse';
 export * from './bond';
 export * from './bondAllOf';
 export * from './calendar';
@@ -482,7 +481,6 @@ import { Basket } from './basket';
 import { BasketAllOf } from './basketAllOf';
 import { BasketIdentifier } from './basketIdentifier';
 import { BatchAdjustHoldingsResponse } from './batchAdjustHoldingsResponse';
-import { BatchUpsertPortfolioTransactionsResponse } from './batchUpsertPortfolioTransactionsResponse';
 import { Bond } from './bond';
 import { BondAllOf } from './bondAllOf';
 import { Calendar } from './calendar';
@@ -1122,7 +1120,6 @@ let typeMap: {[index: string]: any} = {
     "BasketAllOf": BasketAllOf,
     "BasketIdentifier": BasketIdentifier,
     "BatchAdjustHoldingsResponse": BatchAdjustHoldingsResponse,
-    "BatchUpsertPortfolioTransactionsResponse": BatchUpsertPortfolioTransactionsResponse,
     "Bond": Bond,
     "BondAllOf": BondAllOf,
     "Calendar": Calendar,
