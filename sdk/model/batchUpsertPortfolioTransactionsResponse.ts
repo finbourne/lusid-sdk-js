@@ -11,25 +11,55 @@
  */
 
 import { RequestFile } from './models';
-import { AccessMetadataValue } from './accessMetadataValue';
+import { ErrorDetail } from './errorDetail';
+import { Link } from './link';
+import { ResponseMetaData } from './responseMetaData';
+import { Transaction } from './transaction';
 
-export class UpsertPortfolioAccessMetadataRequest {
+export class BatchUpsertPortfolioTransactionsResponse {
     /**
-    * The access control metadata to assign to portfolios that match the identifier
+    * The transactions which have been successfully upserted.
     */
-    'metadata': Array<AccessMetadataValue>;
+    'values'?: { [key: string]: Transaction; } | null;
+    /**
+    * The transactions that could not be upserted along with a reason for their failure.
+    */
+    'failed'?: { [key: string]: ErrorDetail; } | null;
+    /**
+    * Contains warnings related to unresolved instruments or non-existent transaction types for the upserted trades
+    */
+    'metadata'?: { [key: string]: Array<ResponseMetaData>; } | null;
+    /**
+    * Collection of links.
+    */
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
+            "name": "values",
+            "baseName": "values",
+            "type": "{ [key: string]: Transaction; }"
+        },
+        {
+            "name": "failed",
+            "baseName": "failed",
+            "type": "{ [key: string]: ErrorDetail; }"
+        },
+        {
             "name": "metadata",
             "baseName": "metadata",
-            "type": "Array<AccessMetadataValue>"
+            "type": "{ [key: string]: Array<ResponseMetaData>; }"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return UpsertPortfolioAccessMetadataRequest.attributeTypeMap;
+        return BatchUpsertPortfolioTransactionsResponse.attributeTypeMap;
     }
 }
 
