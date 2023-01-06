@@ -95,6 +95,13 @@ export * from './creditSpreadCurveData';
 export * from './creditSpreadCurveDataAllOf';
 export * from './creditSupportAnnex';
 export * from './currencyAndAmount';
+export * from './customEntityDefinition';
+export * from './customEntityDefinitionRequest';
+export * from './customEntityField';
+export * from './customEntityFieldDefinition';
+export * from './customEntityId';
+export * from './customEntityRequest';
+export * from './customEntityResponse';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
 export * from './dataType';
@@ -254,6 +261,8 @@ export * from './outputTransaction';
 export * from './pagedResourceListOfAllocation';
 export * from './pagedResourceListOfCalendar';
 export * from './pagedResourceListOfCorporateActionSource';
+export * from './pagedResourceListOfCustomEntityDefinition';
+export * from './pagedResourceListOfCustomEntityResponse';
 export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfDataTypeSummary';
 export * from './pagedResourceListOfExecution';
@@ -386,6 +395,7 @@ export * from './transactionRequest';
 export * from './transactionSetConfigurationData';
 export * from './typedResourceId';
 export * from './updateCalendarRequest';
+export * from './updateCustomEntityDefinitionRequest';
 export * from './updateCutLabelDefinitionRequest';
 export * from './updateDataTypeRequest';
 export * from './updateInstrumentIdentifierRequest';
@@ -543,6 +553,13 @@ import { CreditSpreadCurveData } from './creditSpreadCurveData';
 import { CreditSpreadCurveDataAllOf } from './creditSpreadCurveDataAllOf';
 import { CreditSupportAnnex } from './creditSupportAnnex';
 import { CurrencyAndAmount } from './currencyAndAmount';
+import { CustomEntityDefinition } from './customEntityDefinition';
+import { CustomEntityDefinitionRequest } from './customEntityDefinitionRequest';
+import { CustomEntityField } from './customEntityField';
+import { CustomEntityFieldDefinition } from './customEntityFieldDefinition';
+import { CustomEntityId } from './customEntityId';
+import { CustomEntityRequest } from './customEntityRequest';
+import { CustomEntityResponse } from './customEntityResponse';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
 import { DataType } from './dataType';
@@ -702,6 +719,8 @@ import { OutputTransaction } from './outputTransaction';
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
 import { PagedResourceListOfCalendar } from './pagedResourceListOfCalendar';
 import { PagedResourceListOfCorporateActionSource } from './pagedResourceListOfCorporateActionSource';
+import { PagedResourceListOfCustomEntityDefinition } from './pagedResourceListOfCustomEntityDefinition';
+import { PagedResourceListOfCustomEntityResponse } from './pagedResourceListOfCustomEntityResponse';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfDataTypeSummary } from './pagedResourceListOfDataTypeSummary';
 import { PagedResourceListOfExecution } from './pagedResourceListOfExecution';
@@ -834,6 +853,7 @@ import { TransactionRequest } from './transactionRequest';
 import { TransactionSetConfigurationData } from './transactionSetConfigurationData';
 import { TypedResourceId } from './typedResourceId';
 import { UpdateCalendarRequest } from './updateCalendarRequest';
+import { UpdateCustomEntityDefinitionRequest } from './updateCustomEntityDefinitionRequest';
 import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionRequest';
 import { UpdateDataTypeRequest } from './updateDataTypeRequest';
 import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierRequest';
@@ -1183,6 +1203,13 @@ let typeMap: {[index: string]: any} = {
     "CreditSpreadCurveDataAllOf": CreditSpreadCurveDataAllOf,
     "CreditSupportAnnex": CreditSupportAnnex,
     "CurrencyAndAmount": CurrencyAndAmount,
+    "CustomEntityDefinition": CustomEntityDefinition,
+    "CustomEntityDefinitionRequest": CustomEntityDefinitionRequest,
+    "CustomEntityField": CustomEntityField,
+    "CustomEntityFieldDefinition": CustomEntityFieldDefinition,
+    "CustomEntityId": CustomEntityId,
+    "CustomEntityRequest": CustomEntityRequest,
+    "CustomEntityResponse": CustomEntityResponse,
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
     "DataType": DataType,
@@ -1341,6 +1368,8 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
     "PagedResourceListOfCalendar": PagedResourceListOfCalendar,
     "PagedResourceListOfCorporateActionSource": PagedResourceListOfCorporateActionSource,
+    "PagedResourceListOfCustomEntityDefinition": PagedResourceListOfCustomEntityDefinition,
+    "PagedResourceListOfCustomEntityResponse": PagedResourceListOfCustomEntityResponse,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfDataTypeSummary": PagedResourceListOfDataTypeSummary,
     "PagedResourceListOfExecution": PagedResourceListOfExecution,
@@ -1473,6 +1502,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionSetConfigurationData": TransactionSetConfigurationData,
     "TypedResourceId": TypedResourceId,
     "UpdateCalendarRequest": UpdateCalendarRequest,
+    "UpdateCustomEntityDefinitionRequest": UpdateCustomEntityDefinitionRequest,
     "UpdateCutLabelDefinitionRequest": UpdateCutLabelDefinitionRequest,
     "UpdateDataTypeRequest": UpdateDataTypeRequest,
     "UpdateInstrumentIdentifierRequest": UpdateInstrumentIdentifierRequest,
