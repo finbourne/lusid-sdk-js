@@ -4,6 +4,8 @@ export * from './allocationsApi';
 import { AllocationsApi } from './allocationsApi';
 export * from './applicationMetadataApi';
 import { ApplicationMetadataApi } from './applicationMetadataApi';
+export * from './blocksApi';
+import { BlocksApi } from './blocksApi';
 export * from './calendarsApi';
 import { CalendarsApi } from './calendarsApi';
 export * from './complexMarketDataApi';
@@ -34,6 +36,8 @@ export * from './legalEntitiesApi';
 import { LegalEntitiesApi } from './legalEntitiesApi';
 export * from './ordersApi';
 import { OrdersApi } from './ordersApi';
+export * from './participationsApi';
+import { ParticipationsApi } from './participationsApi';
 export * from './personsApi';
 import { PersonsApi } from './personsApi';
 export * from './portfolioGroupsApi';
@@ -65,4 +69,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AggregationApi, AllocationsApi, ApplicationMetadataApi, CalendarsApi, ComplexMarketDataApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, PersonsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, ScopesApi, SearchApi, SequencesApi, SystemConfigurationApi, TransactionPortfoliosApi];
+export const APIS = [AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, ParticipationsApi, PersonsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, ScopesApi, SearchApi, SequencesApi, SystemConfigurationApi, TransactionPortfoliosApi];

@@ -1,6 +1,7 @@
 import {AggregationApi} from './api/aggregationApi';
 import {AllocationsApi} from './api/allocationsApi';
 import {ApplicationMetadataApi} from './api/applicationMetadataApi';
+import {BlocksApi} from './api/blocksApi';
 import {CalendarsApi} from './api/calendarsApi';
 import {ComplexMarketDataApi} from './api/complexMarketDataApi';
 import {ConfigurationRecipeApi} from './api/configurationRecipeApi';
@@ -16,6 +17,7 @@ import {ExecutionsApi} from './api/executionsApi';
 import {InstrumentsApi} from './api/instrumentsApi';
 import {LegalEntitiesApi} from './api/legalEntitiesApi';
 import {OrdersApi} from './api/ordersApi';
+import {ParticipationsApi} from './api/participationsApi';
 import {PersonsApi} from './api/personsApi';
 import {PortfolioGroupsApi} from './api/portfolioGroupsApi';
 import {PortfoliosApi} from './api/portfoliosApi';
@@ -35,6 +37,7 @@ export class Api {
     public aggregation:  AggregationApi
     public allocations:  AllocationsApi
     public applicationMetadata:  ApplicationMetadataApi
+    public blocks:  BlocksApi
     public calendars:  CalendarsApi
     public complexMarketData:  ComplexMarketDataApi
     public configurationRecipe:  ConfigurationRecipeApi
@@ -50,6 +53,7 @@ export class Api {
     public instruments:  InstrumentsApi
     public legalEntities:  LegalEntitiesApi
     public orders:  OrdersApi
+    public participations:  ParticipationsApi
     public persons:  PersonsApi
     public portfolioGroups:  PortfolioGroupsApi
     public portfolios:  PortfoliosApi

@@ -6,6 +6,7 @@ export * from './a2BDataRecord';
 export * from './a2BMovementRecord';
 export * from './accessControlledAction';
 export * from './accessControlledResource';
+export * from './accessMetadataOperation';
 export * from './accessMetadataValue';
 export * from './actionId';
 export * from './actionResultOfPortfolio';
@@ -23,9 +24,12 @@ export * from './aggregation';
 export * from './aggregationContext';
 export * from './aggregationMeasureFailureDetail';
 export * from './aggregationOptions';
+export * from './aggregationQuery';
 export * from './allocation';
 export * from './allocationRequest';
 export * from './allocationSetRequest';
+export * from './amortisationEvent';
+export * from './amortisationEventAllOf';
 export * from './annulQuotesResponse';
 export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
@@ -35,12 +39,24 @@ export * from './basketAllOf';
 export * from './basketIdentifier';
 export * from './batchAdjustHoldingsResponse';
 export * from './batchUpsertPortfolioTransactionsResponse';
+export * from './block';
+export * from './blockRequest';
+export * from './blockSetRequest';
 export * from './bond';
 export * from './bondAllOf';
+export * from './bondDefaultEvent';
+export * from './bondDefaultEventAllOf';
 export * from './calendar';
 export * from './calendarDate';
 export * from './capFloor';
 export * from './capFloorAllOf';
+export * from './cashDividendEvent';
+export * from './cashDividendEventAllOf';
+export * from './cashFlowEvent';
+export * from './cashFlowEventAllOf';
+export * from './cashFlowLineage';
+export * from './cashFlowValue';
+export * from './cashFlowValueAllOf';
 export * from './cashLadderRecord';
 export * from './cashPerpetual';
 export * from './cashPerpetualAllOf';
@@ -51,6 +67,8 @@ export * from './cdsProtectionDetailSpecification';
 export * from './change';
 export * from './changeHistory';
 export * from './changeItem';
+export * from './closeEvent';
+export * from './closeEventAllOf';
 export * from './completePortfolio';
 export * from './completeRelationship';
 export * from './complexBond';
@@ -111,6 +129,7 @@ export * from './dateRange';
 export * from './dayOfWeek';
 export * from './deleteInstrumentPropertiesResponse';
 export * from './deleteInstrumentResponse';
+export * from './deleteInstrumentsResponse';
 export * from './deleteRelationshipRequest';
 export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
@@ -142,6 +161,8 @@ export * from './exchangeTradedOptionContractDetails';
 export * from './execution';
 export * from './executionRequest';
 export * from './executionSetRequest';
+export * from './exerciseEvent';
+export * from './exerciseEventAllOf';
 export * from './exoticInstrument';
 export * from './exoticInstrumentAllOf';
 export * from './expandedGroup';
@@ -206,11 +227,18 @@ export * from './inflationLinkedBond';
 export * from './inflationLinkedBondAllOf';
 export * from './inflationSwap';
 export * from './inflationSwapAllOf';
+export * from './informationalErrorEvent';
+export * from './informationalErrorEventAllOf';
+export * from './informationalEvent';
+export * from './informationalEventAllOf';
 export * from './inlineValuationRequest';
 export * from './inlineValuationsReconciliationRequest';
+export * from './inputTransition';
 export * from './instrument';
 export * from './instrumentDefinition';
 export * from './instrumentDefinitionFormat';
+export * from './instrumentEvent';
+export * from './instrumentEventHolder';
 export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
 export * from './instrumentLeg';
@@ -229,6 +257,9 @@ export * from './labelValueSet';
 export * from './legDefinition';
 export * from './legalEntity';
 export * from './levelStep';
+export * from './lifeCycleEventLineage';
+export * from './lifeCycleEventValue';
+export * from './lifeCycleEventValueAllOf';
 export * from './link';
 export * from './listAggregationReconciliation';
 export * from './listAggregationResponse';
@@ -251,6 +282,8 @@ export * from './opaqueMarketData';
 export * from './opaqueMarketDataAllOf';
 export * from './opaqueModelOptions';
 export * from './opaqueModelOptionsAllOf';
+export * from './openEvent';
+export * from './openEventAllOf';
 export * from './operation';
 export * from './order';
 export * from './orderBySpec';
@@ -258,7 +291,9 @@ export * from './orderRequest';
 export * from './orderSetRequest';
 export * from './otcConfirmation';
 export * from './outputTransaction';
+export * from './outputTransition';
 export * from './pagedResourceListOfAllocation';
+export * from './pagedResourceListOfBlock';
 export * from './pagedResourceListOfCalendar';
 export * from './pagedResourceListOfCorporateActionSource';
 export * from './pagedResourceListOfCustomEntityDefinition';
@@ -267,16 +302,23 @@ export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfDataTypeSummary';
 export * from './pagedResourceListOfExecution';
 export * from './pagedResourceListOfInstrument';
+export * from './pagedResourceListOfInstrumentEventHolder';
 export * from './pagedResourceListOfLegalEntity';
 export * from './pagedResourceListOfOrder';
+export * from './pagedResourceListOfParticipation';
+export * from './pagedResourceListOfPerson';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './pagedResourceListOfRelationshipDefinition';
 export * from './pagedResourceListOfSequenceDefinition';
+export * from './participation';
+export * from './participationRequest';
+export * from './participationSetRequest';
 export * from './performanceReturn';
 export * from './performanceReturnsMetric';
 export * from './perpetualProperty';
+export * from './person';
 export * from './portfolio';
 export * from './portfolioCashFlow';
 export * from './portfolioCashLadder';
@@ -305,6 +347,8 @@ export * from './propertyValue';
 export * from './quote';
 export * from './quoteId';
 export * from './quoteSeriesId';
+export * from './rawVendorEvent';
+export * from './rawVendorEventAllOf';
 export * from './realisedGainLoss';
 export * from './reconcileDateTimeRule';
 export * from './reconcileDateTimeRuleAllOf';
@@ -324,14 +368,19 @@ export * from './referenceInstrumentAllOf';
 export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './relatedEntity';
+export * from './relation';
 export * from './relationship';
 export * from './relationshipDefinition';
 export * from './repo';
 export * from './repoAllOf';
+export * from './resetEvent';
+export * from './resetEventAllOf';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfAccessMetadataValueOf';
+export * from './resourceListOfAggregationQuery';
 export * from './resourceListOfAllocation';
+export * from './resourceListOfBlock';
 export * from './resourceListOfCalendarDate';
 export * from './resourceListOfChange';
 export * from './resourceListOfChangeHistory';
@@ -347,7 +396,9 @@ export * from './resourceListOfIUnitDefinitionDto';
 export * from './resourceListOfInstrumentIdTypeDescriptor';
 export * from './resourceListOfLegalEntity';
 export * from './resourceListOfOrder';
+export * from './resourceListOfParticipation';
 export * from './resourceListOfPerformanceReturn';
+export * from './resourceListOfPerson';
 export * from './resourceListOfPortfolio';
 export * from './resourceListOfPortfolioCashFlow';
 export * from './resourceListOfPortfolioCashLadder';
@@ -358,6 +409,7 @@ export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfPropertyInterval';
 export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
+export * from './resourceListOfRelation';
 export * from './resourceListOfRelationship';
 export * from './resourceListOfScopeDefinition';
 export * from './responseMetaData';
@@ -365,15 +417,22 @@ export * from './resultDataKeyRule';
 export * from './resultDataKeyRuleAllOf';
 export * from './resultDataSchema';
 export * from './resultKeyRule';
+export * from './resultValue';
+export * from './resultValueDictionary';
+export * from './resultValueDictionaryAllOf';
 export * from './schedule';
 export * from './scopeDefinition';
 export * from './sequenceDefinition';
 export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
+export * from './setPersonIdentifiersRequest';
+export * from './setPersonPropertiesRequest';
 export * from './sideConfigurationData';
 export * from './simpleInstrument';
 export * from './simpleInstrumentAllOf';
 export * from './stepSchedule';
+export * from './stockSplitEvent';
+export * from './stockSplitEventAllOf';
 export * from './stream';
 export * from './supportedAnalyticsInternalRequest';
 export * from './targetTaxLot';
@@ -393,6 +452,10 @@ export * from './transactionPropertyMappingRequest';
 export * from './transactionQueryParameters';
 export * from './transactionRequest';
 export * from './transactionSetConfigurationData';
+export * from './transitionEvent';
+export * from './transitionEventAllOf';
+export * from './triggerEvent';
+export * from './triggerEventAllOf';
 export * from './typedResourceId';
 export * from './updateCalendarRequest';
 export * from './updateCustomEntityDefinitionRequest';
@@ -409,12 +472,15 @@ export * from './upsertCorporateActionRequest';
 export * from './upsertCorporateActionsResponse';
 export * from './upsertCounterpartyAgreementRequest';
 export * from './upsertCreditSupportAnnexRequest';
+export * from './upsertInstrumentEventRequest';
+export * from './upsertInstrumentEventsResponse';
 export * from './upsertInstrumentPropertiesResponse';
 export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
 export * from './upsertLegalEntityAccessMetadataRequest';
 export * from './upsertLegalEntityRequest';
 export * from './upsertPersonAccessMetadataRequest';
+export * from './upsertPersonRequest';
 export * from './upsertPortfolioAccessMetadataRequest';
 export * from './upsertPortfolioGroupAccessMetadataRequest';
 export * from './upsertPortfolioTransactionsResponse';
@@ -464,6 +530,7 @@ import { A2BDataRecord } from './a2BDataRecord';
 import { A2BMovementRecord } from './a2BMovementRecord';
 import { AccessControlledAction } from './accessControlledAction';
 import { AccessControlledResource } from './accessControlledResource';
+import { AccessMetadataOperation } from './accessMetadataOperation';
 import { AccessMetadataValue } from './accessMetadataValue';
 import { ActionId } from './actionId';
 import { ActionResultOfPortfolio } from './actionResultOfPortfolio';
@@ -481,9 +548,12 @@ import { Aggregation } from './aggregation';
 import { AggregationContext } from './aggregationContext';
 import { AggregationMeasureFailureDetail } from './aggregationMeasureFailureDetail';
 import { AggregationOptions } from './aggregationOptions';
+import { AggregationQuery } from './aggregationQuery';
 import { Allocation } from './allocation';
 import { AllocationRequest } from './allocationRequest';
 import { AllocationSetRequest } from './allocationSetRequest';
+import { AmortisationEvent } from './amortisationEvent';
+import { AmortisationEventAllOf } from './amortisationEventAllOf';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
@@ -493,12 +563,24 @@ import { BasketAllOf } from './basketAllOf';
 import { BasketIdentifier } from './basketIdentifier';
 import { BatchAdjustHoldingsResponse } from './batchAdjustHoldingsResponse';
 import { BatchUpsertPortfolioTransactionsResponse } from './batchUpsertPortfolioTransactionsResponse';
+import { Block } from './block';
+import { BlockRequest } from './blockRequest';
+import { BlockSetRequest } from './blockSetRequest';
 import { Bond } from './bond';
 import { BondAllOf } from './bondAllOf';
+import { BondDefaultEvent } from './bondDefaultEvent';
+import { BondDefaultEventAllOf } from './bondDefaultEventAllOf';
 import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CapFloor } from './capFloor';
 import { CapFloorAllOf } from './capFloorAllOf';
+import { CashDividendEvent } from './cashDividendEvent';
+import { CashDividendEventAllOf } from './cashDividendEventAllOf';
+import { CashFlowEvent } from './cashFlowEvent';
+import { CashFlowEventAllOf } from './cashFlowEventAllOf';
+import { CashFlowLineage } from './cashFlowLineage';
+import { CashFlowValue } from './cashFlowValue';
+import { CashFlowValueAllOf } from './cashFlowValueAllOf';
 import { CashLadderRecord } from './cashLadderRecord';
 import { CashPerpetual } from './cashPerpetual';
 import { CashPerpetualAllOf } from './cashPerpetualAllOf';
@@ -509,6 +591,8 @@ import { CdsProtectionDetailSpecification } from './cdsProtectionDetailSpecifica
 import { Change } from './change';
 import { ChangeHistory } from './changeHistory';
 import { ChangeItem } from './changeItem';
+import { CloseEvent } from './closeEvent';
+import { CloseEventAllOf } from './closeEventAllOf';
 import { CompletePortfolio } from './completePortfolio';
 import { CompleteRelationship } from './completeRelationship';
 import { ComplexBond } from './complexBond';
@@ -569,6 +653,7 @@ import { DateRange } from './dateRange';
 import { DayOfWeek } from './dayOfWeek';
 import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
+import { DeleteInstrumentsResponse } from './deleteInstrumentsResponse';
 import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
@@ -600,6 +685,8 @@ import { ExchangeTradedOptionContractDetails } from './exchangeTradedOptionContr
 import { Execution } from './execution';
 import { ExecutionRequest } from './executionRequest';
 import { ExecutionSetRequest } from './executionSetRequest';
+import { ExerciseEvent } from './exerciseEvent';
+import { ExerciseEventAllOf } from './exerciseEventAllOf';
 import { ExoticInstrument } from './exoticInstrument';
 import { ExoticInstrumentAllOf } from './exoticInstrumentAllOf';
 import { ExpandedGroup } from './expandedGroup';
@@ -664,11 +751,18 @@ import { InflationLinkedBond } from './inflationLinkedBond';
 import { InflationLinkedBondAllOf } from './inflationLinkedBondAllOf';
 import { InflationSwap } from './inflationSwap';
 import { InflationSwapAllOf } from './inflationSwapAllOf';
+import { InformationalErrorEvent } from './informationalErrorEvent';
+import { InformationalErrorEventAllOf } from './informationalErrorEventAllOf';
+import { InformationalEvent } from './informationalEvent';
+import { InformationalEventAllOf } from './informationalEventAllOf';
 import { InlineValuationRequest } from './inlineValuationRequest';
 import { InlineValuationsReconciliationRequest } from './inlineValuationsReconciliationRequest';
+import { InputTransition } from './inputTransition';
 import { Instrument } from './instrument';
 import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentDefinitionFormat } from './instrumentDefinitionFormat';
+import { InstrumentEvent } from './instrumentEvent';
+import { InstrumentEventHolder } from './instrumentEventHolder';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
 import { InstrumentLeg } from './instrumentLeg';
@@ -687,6 +781,9 @@ import { LabelValueSet } from './labelValueSet';
 import { LegDefinition } from './legDefinition';
 import { LegalEntity } from './legalEntity';
 import { LevelStep } from './levelStep';
+import { LifeCycleEventLineage } from './lifeCycleEventLineage';
+import { LifeCycleEventValue } from './lifeCycleEventValue';
+import { LifeCycleEventValueAllOf } from './lifeCycleEventValueAllOf';
 import { Link } from './link';
 import { ListAggregationReconciliation } from './listAggregationReconciliation';
 import { ListAggregationResponse } from './listAggregationResponse';
@@ -709,6 +806,8 @@ import { OpaqueMarketData } from './opaqueMarketData';
 import { OpaqueMarketDataAllOf } from './opaqueMarketDataAllOf';
 import { OpaqueModelOptions } from './opaqueModelOptions';
 import { OpaqueModelOptionsAllOf } from './opaqueModelOptionsAllOf';
+import { OpenEvent } from './openEvent';
+import { OpenEventAllOf } from './openEventAllOf';
 import { Operation } from './operation';
 import { Order } from './order';
 import { OrderBySpec } from './orderBySpec';
@@ -716,7 +815,9 @@ import { OrderRequest } from './orderRequest';
 import { OrderSetRequest } from './orderSetRequest';
 import { OtcConfirmation } from './otcConfirmation';
 import { OutputTransaction } from './outputTransaction';
+import { OutputTransition } from './outputTransition';
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
+import { PagedResourceListOfBlock } from './pagedResourceListOfBlock';
 import { PagedResourceListOfCalendar } from './pagedResourceListOfCalendar';
 import { PagedResourceListOfCorporateActionSource } from './pagedResourceListOfCorporateActionSource';
 import { PagedResourceListOfCustomEntityDefinition } from './pagedResourceListOfCustomEntityDefinition';
@@ -725,16 +826,23 @@ import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutL
 import { PagedResourceListOfDataTypeSummary } from './pagedResourceListOfDataTypeSummary';
 import { PagedResourceListOfExecution } from './pagedResourceListOfExecution';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
+import { PagedResourceListOfInstrumentEventHolder } from './pagedResourceListOfInstrumentEventHolder';
 import { PagedResourceListOfLegalEntity } from './pagedResourceListOfLegalEntity';
 import { PagedResourceListOfOrder } from './pagedResourceListOfOrder';
+import { PagedResourceListOfParticipation } from './pagedResourceListOfParticipation';
+import { PagedResourceListOfPerson } from './pagedResourceListOfPerson';
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
 import { PagedResourceListOfRelationshipDefinition } from './pagedResourceListOfRelationshipDefinition';
 import { PagedResourceListOfSequenceDefinition } from './pagedResourceListOfSequenceDefinition';
+import { Participation } from './participation';
+import { ParticipationRequest } from './participationRequest';
+import { ParticipationSetRequest } from './participationSetRequest';
 import { PerformanceReturn } from './performanceReturn';
 import { PerformanceReturnsMetric } from './performanceReturnsMetric';
 import { PerpetualProperty } from './perpetualProperty';
+import { Person } from './person';
 import { Portfolio } from './portfolio';
 import { PortfolioCashFlow } from './portfolioCashFlow';
 import { PortfolioCashLadder } from './portfolioCashLadder';
@@ -763,6 +871,8 @@ import { PropertyValue } from './propertyValue';
 import { Quote } from './quote';
 import { QuoteId } from './quoteId';
 import { QuoteSeriesId } from './quoteSeriesId';
+import { RawVendorEvent } from './rawVendorEvent';
+import { RawVendorEventAllOf } from './rawVendorEventAllOf';
 import { RealisedGainLoss } from './realisedGainLoss';
 import { ReconcileDateTimeRule } from './reconcileDateTimeRule';
 import { ReconcileDateTimeRuleAllOf } from './reconcileDateTimeRuleAllOf';
@@ -782,14 +892,19 @@ import { ReferenceInstrumentAllOf } from './referenceInstrumentAllOf';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { RelatedEntity } from './relatedEntity';
+import { Relation } from './relation';
 import { Relationship } from './relationship';
 import { RelationshipDefinition } from './relationshipDefinition';
 import { Repo } from './repo';
 import { RepoAllOf } from './repoAllOf';
+import { ResetEvent } from './resetEvent';
+import { ResetEventAllOf } from './resetEventAllOf';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetadataValueOf';
+import { ResourceListOfAggregationQuery } from './resourceListOfAggregationQuery';
 import { ResourceListOfAllocation } from './resourceListOfAllocation';
+import { ResourceListOfBlock } from './resourceListOfBlock';
 import { ResourceListOfCalendarDate } from './resourceListOfCalendarDate';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfChangeHistory } from './resourceListOfChangeHistory';
@@ -805,7 +920,9 @@ import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitio
 import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
 import { ResourceListOfLegalEntity } from './resourceListOfLegalEntity';
 import { ResourceListOfOrder } from './resourceListOfOrder';
+import { ResourceListOfParticipation } from './resourceListOfParticipation';
 import { ResourceListOfPerformanceReturn } from './resourceListOfPerformanceReturn';
+import { ResourceListOfPerson } from './resourceListOfPerson';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
 import { ResourceListOfPortfolioCashFlow } from './resourceListOfPortfolioCashFlow';
 import { ResourceListOfPortfolioCashLadder } from './resourceListOfPortfolioCashLadder';
@@ -816,6 +933,7 @@ import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefini
 import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval';
 import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
+import { ResourceListOfRelation } from './resourceListOfRelation';
 import { ResourceListOfRelationship } from './resourceListOfRelationship';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResponseMetaData } from './responseMetaData';
@@ -823,15 +941,22 @@ import { ResultDataKeyRule } from './resultDataKeyRule';
 import { ResultDataKeyRuleAllOf } from './resultDataKeyRuleAllOf';
 import { ResultDataSchema } from './resultDataSchema';
 import { ResultKeyRule } from './resultKeyRule';
+import { ResultValue } from './resultValue';
+import { ResultValueDictionary } from './resultValueDictionary';
+import { ResultValueDictionaryAllOf } from './resultValueDictionaryAllOf';
 import { Schedule } from './schedule';
 import { ScopeDefinition } from './scopeDefinition';
 import { SequenceDefinition } from './sequenceDefinition';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
+import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
+import { SetPersonPropertiesRequest } from './setPersonPropertiesRequest';
 import { SideConfigurationData } from './sideConfigurationData';
 import { SimpleInstrument } from './simpleInstrument';
 import { SimpleInstrumentAllOf } from './simpleInstrumentAllOf';
 import { StepSchedule } from './stepSchedule';
+import { StockSplitEvent } from './stockSplitEvent';
+import { StockSplitEventAllOf } from './stockSplitEventAllOf';
 import { Stream } from './stream';
 import { SupportedAnalyticsInternalRequest } from './supportedAnalyticsInternalRequest';
 import { TargetTaxLot } from './targetTaxLot';
@@ -851,6 +976,10 @@ import { TransactionPropertyMappingRequest } from './transactionPropertyMappingR
 import { TransactionQueryParameters } from './transactionQueryParameters';
 import { TransactionRequest } from './transactionRequest';
 import { TransactionSetConfigurationData } from './transactionSetConfigurationData';
+import { TransitionEvent } from './transitionEvent';
+import { TransitionEventAllOf } from './transitionEventAllOf';
+import { TriggerEvent } from './triggerEvent';
+import { TriggerEventAllOf } from './triggerEventAllOf';
 import { TypedResourceId } from './typedResourceId';
 import { UpdateCalendarRequest } from './updateCalendarRequest';
 import { UpdateCustomEntityDefinitionRequest } from './updateCustomEntityDefinitionRequest';
@@ -867,12 +996,15 @@ import { UpsertCorporateActionRequest } from './upsertCorporateActionRequest';
 import { UpsertCorporateActionsResponse } from './upsertCorporateActionsResponse';
 import { UpsertCounterpartyAgreementRequest } from './upsertCounterpartyAgreementRequest';
 import { UpsertCreditSupportAnnexRequest } from './upsertCreditSupportAnnexRequest';
+import { UpsertInstrumentEventRequest } from './upsertInstrumentEventRequest';
+import { UpsertInstrumentEventsResponse } from './upsertInstrumentEventsResponse';
 import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentPropertiesResponse';
 import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyRequest';
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
 import { UpsertLegalEntityAccessMetadataRequest } from './upsertLegalEntityAccessMetadataRequest';
 import { UpsertLegalEntityRequest } from './upsertLegalEntityRequest';
 import { UpsertPersonAccessMetadataRequest } from './upsertPersonAccessMetadataRequest';
+import { UpsertPersonRequest } from './upsertPersonRequest';
 import { UpsertPortfolioAccessMetadataRequest } from './upsertPortfolioAccessMetadataRequest';
 import { UpsertPortfolioGroupAccessMetadataRequest } from './upsertPortfolioGroupAccessMetadataRequest';
 import { UpsertPortfolioTransactionsResponse } from './upsertPortfolioTransactionsResponse';
@@ -916,19 +1048,34 @@ let primitives = [
                  ];
 
 let enumsMap: {[index: string]: any} = {
+        "AccessMetadataOperation.OpEnum": AccessMetadataOperation.OpEnum,
         "AddressDefinition.TypeEnum": AddressDefinition.TypeEnum,
         "AggregateSpec.OpEnum": AggregateSpec.OpEnum,
+        "AggregationQuery.TypeEnum": AggregationQuery.TypeEnum,
+        "AggregationQuery.FlattenedTypeEnum": AggregationQuery.FlattenedTypeEnum,
+        "AmortisationEvent.InstrumentEventTypeEnum": AmortisationEvent.InstrumentEventTypeEnum,
+        "AmortisationEventAllOf.InstrumentEventTypeEnum": AmortisationEventAllOf.InstrumentEventTypeEnum,
         "Basket.InstrumentTypeEnum": Basket.InstrumentTypeEnum,
         "BasketAllOf.InstrumentTypeEnum": BasketAllOf.InstrumentTypeEnum,
         "Bond.InstrumentTypeEnum": Bond.InstrumentTypeEnum,
         "BondAllOf.InstrumentTypeEnum": BondAllOf.InstrumentTypeEnum,
+        "BondDefaultEvent.InstrumentEventTypeEnum": BondDefaultEvent.InstrumentEventTypeEnum,
+        "BondDefaultEventAllOf.InstrumentEventTypeEnum": BondDefaultEventAllOf.InstrumentEventTypeEnum,
         "CapFloor.InstrumentTypeEnum": CapFloor.InstrumentTypeEnum,
         "CapFloorAllOf.InstrumentTypeEnum": CapFloorAllOf.InstrumentTypeEnum,
+        "CashDividendEvent.InstrumentEventTypeEnum": CashDividendEvent.InstrumentEventTypeEnum,
+        "CashDividendEventAllOf.InstrumentEventTypeEnum": CashDividendEventAllOf.InstrumentEventTypeEnum,
+        "CashFlowEvent.InstrumentEventTypeEnum": CashFlowEvent.InstrumentEventTypeEnum,
+        "CashFlowEventAllOf.InstrumentEventTypeEnum": CashFlowEventAllOf.InstrumentEventTypeEnum,
+        "CashFlowValue.ResultValueTypeEnum": CashFlowValue.ResultValueTypeEnum,
+        "CashFlowValueAllOf.ResultValueTypeEnum": CashFlowValueAllOf.ResultValueTypeEnum,
         "CashPerpetual.InstrumentTypeEnum": CashPerpetual.InstrumentTypeEnum,
         "CashPerpetualAllOf.InstrumentTypeEnum": CashPerpetualAllOf.InstrumentTypeEnum,
         "CdsIndex.InstrumentTypeEnum": CdsIndex.InstrumentTypeEnum,
         "CdsIndexAllOf.InstrumentTypeEnum": CdsIndexAllOf.InstrumentTypeEnum,
         "ChangeHistory.ActionEnum": ChangeHistory.ActionEnum,
+        "CloseEvent.InstrumentEventTypeEnum": CloseEvent.InstrumentEventTypeEnum,
+        "CloseEventAllOf.InstrumentEventTypeEnum": CloseEventAllOf.InstrumentEventTypeEnum,
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
         "ComplexBond.InstrumentTypeEnum": ComplexBond.InstrumentTypeEnum,
         "ComplexBondAllOf.InstrumentTypeEnum": ComplexBondAllOf.InstrumentTypeEnum,
@@ -973,6 +1120,8 @@ let enumsMap: {[index: string]: any} = {
         "EquityVolSurfaceDataAllOf.MarketDataTypeEnum": EquityVolSurfaceDataAllOf.MarketDataTypeEnum,
         "ExchangeTradedOption.InstrumentTypeEnum": ExchangeTradedOption.InstrumentTypeEnum,
         "ExchangeTradedOptionAllOf.InstrumentTypeEnum": ExchangeTradedOptionAllOf.InstrumentTypeEnum,
+        "ExerciseEvent.InstrumentEventTypeEnum": ExerciseEvent.InstrumentEventTypeEnum,
+        "ExerciseEventAllOf.InstrumentEventTypeEnum": ExerciseEventAllOf.InstrumentEventTypeEnum,
         "ExoticInstrument.InstrumentTypeEnum": ExoticInstrument.InstrumentTypeEnum,
         "ExoticInstrumentAllOf.InstrumentTypeEnum": ExoticInstrumentAllOf.InstrumentTypeEnum,
         "FieldSchema.TypeEnum": FieldSchema.TypeEnum,
@@ -1022,8 +1171,13 @@ let enumsMap: {[index: string]: any} = {
         "InflationLinkedBondAllOf.InstrumentTypeEnum": InflationLinkedBondAllOf.InstrumentTypeEnum,
         "InflationSwap.InstrumentTypeEnum": InflationSwap.InstrumentTypeEnum,
         "InflationSwapAllOf.InstrumentTypeEnum": InflationSwapAllOf.InstrumentTypeEnum,
+        "InformationalErrorEvent.InstrumentEventTypeEnum": InformationalErrorEvent.InstrumentEventTypeEnum,
+        "InformationalErrorEventAllOf.InstrumentEventTypeEnum": InformationalErrorEventAllOf.InstrumentEventTypeEnum,
+        "InformationalEvent.InstrumentEventTypeEnum": InformationalEvent.InstrumentEventTypeEnum,
+        "InformationalEventAllOf.InstrumentEventTypeEnum": InformationalEventAllOf.InstrumentEventTypeEnum,
         "Instrument.StateEnum": Instrument.StateEnum,
         "Instrument.AssetClassEnum": Instrument.AssetClassEnum,
+        "InstrumentEvent.InstrumentEventTypeEnum": InstrumentEvent.InstrumentEventTypeEnum,
         "InstrumentLeg.InstrumentTypeEnum": InstrumentLeg.InstrumentTypeEnum,
         "InstrumentLegAllOf.InstrumentTypeEnum": InstrumentLegAllOf.InstrumentTypeEnum,
         "InterestRateSwap.InstrumentTypeEnum": InterestRateSwap.InstrumentTypeEnum,
@@ -1032,6 +1186,8 @@ let enumsMap: {[index: string]: any} = {
         "InterestRateSwaptionAllOf.InstrumentTypeEnum": InterestRateSwaptionAllOf.InstrumentTypeEnum,
         "IrVolCubeData.MarketDataTypeEnum": IrVolCubeData.MarketDataTypeEnum,
         "IrVolCubeDataAllOf.MarketDataTypeEnum": IrVolCubeDataAllOf.MarketDataTypeEnum,
+        "LifeCycleEventValue.ResultValueTypeEnum": LifeCycleEventValue.ResultValueTypeEnum,
+        "LifeCycleEventValueAllOf.ResultValueTypeEnum": LifeCycleEventValueAllOf.ResultValueTypeEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
         "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
         "MarketDataSpecificRule.QuoteTypeEnum": MarketDataSpecificRule.QuoteTypeEnum,
@@ -1043,6 +1199,8 @@ let enumsMap: {[index: string]: any} = {
         "OpaqueMarketDataAllOf.MarketDataTypeEnum": OpaqueMarketDataAllOf.MarketDataTypeEnum,
         "OpaqueModelOptions.ModelOptionsTypeEnum": OpaqueModelOptions.ModelOptionsTypeEnum,
         "OpaqueModelOptionsAllOf.ModelOptionsTypeEnum": OpaqueModelOptionsAllOf.ModelOptionsTypeEnum,
+        "OpenEvent.InstrumentEventTypeEnum": OpenEvent.InstrumentEventTypeEnum,
+        "OpenEventAllOf.InstrumentEventTypeEnum": OpenEventAllOf.InstrumentEventTypeEnum,
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
@@ -1067,6 +1225,8 @@ let enumsMap: {[index: string]: any} = {
         "PropertyFilter.RightOperandTypeEnum": PropertyFilter.RightOperandTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
+        "RawVendorEvent.InstrumentEventTypeEnum": RawVendorEvent.InstrumentEventTypeEnum,
+        "RawVendorEventAllOf.InstrumentEventTypeEnum": RawVendorEventAllOf.InstrumentEventTypeEnum,
         "ReconcileDateTimeRule.ComparisonTypeEnum": ReconcileDateTimeRule.ComparisonTypeEnum,
         "ReconcileDateTimeRule.RuleTypeEnum": ReconcileDateTimeRule.RuleTypeEnum,
         "ReconcileDateTimeRuleAllOf.ComparisonTypeEnum": ReconcileDateTimeRuleAllOf.ComparisonTypeEnum,
@@ -1084,14 +1244,21 @@ let enumsMap: {[index: string]: any} = {
         "ReferenceInstrumentAllOf.InstrumentTypeEnum": ReferenceInstrumentAllOf.InstrumentTypeEnum,
         "Repo.InstrumentTypeEnum": Repo.InstrumentTypeEnum,
         "RepoAllOf.InstrumentTypeEnum": RepoAllOf.InstrumentTypeEnum,
+        "ResetEvent.InstrumentEventTypeEnum": ResetEvent.InstrumentEventTypeEnum,
+        "ResetEventAllOf.InstrumentEventTypeEnum": ResetEventAllOf.InstrumentEventTypeEnum,
         "ResultDataKeyRule.ResultKeyRuleTypeEnum": ResultDataKeyRule.ResultKeyRuleTypeEnum,
         "ResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum": ResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum,
         "ResultKeyRule.ResultKeyRuleTypeEnum": ResultKeyRule.ResultKeyRuleTypeEnum,
+        "ResultValue.ResultValueTypeEnum": ResultValue.ResultValueTypeEnum,
+        "ResultValueDictionary.ResultValueTypeEnum": ResultValueDictionary.ResultValueTypeEnum,
+        "ResultValueDictionaryAllOf.ResultValueTypeEnum": ResultValueDictionaryAllOf.ResultValueTypeEnum,
         "Schedule.ScheduleTypeEnum": Schedule.ScheduleTypeEnum,
         "SimpleInstrument.AssetClassEnum": SimpleInstrument.AssetClassEnum,
         "SimpleInstrument.InstrumentTypeEnum": SimpleInstrument.InstrumentTypeEnum,
         "SimpleInstrumentAllOf.AssetClassEnum": SimpleInstrumentAllOf.AssetClassEnum,
         "SimpleInstrumentAllOf.InstrumentTypeEnum": SimpleInstrumentAllOf.InstrumentTypeEnum,
+        "StockSplitEvent.InstrumentEventTypeEnum": StockSplitEvent.InstrumentEventTypeEnum,
+        "StockSplitEventAllOf.InstrumentEventTypeEnum": StockSplitEventAllOf.InstrumentEventTypeEnum,
         "TermDeposit.InstrumentTypeEnum": TermDeposit.InstrumentTypeEnum,
         "TermDepositAllOf.InstrumentTypeEnum": TermDepositAllOf.InstrumentTypeEnum,
         "Transaction.TransactionStatusEnum": Transaction.TransactionStatusEnum,
@@ -1100,6 +1267,10 @@ let enumsMap: {[index: string]: any} = {
         "TransactionConfigurationTypeAlias.TransactionRolesEnum": TransactionConfigurationTypeAlias.TransactionRolesEnum,
         "TransactionPrice.TypeEnum": TransactionPrice.TypeEnum,
         "TransactionQueryParameters.QueryModeEnum": TransactionQueryParameters.QueryModeEnum,
+        "TransitionEvent.InstrumentEventTypeEnum": TransitionEvent.InstrumentEventTypeEnum,
+        "TransitionEventAllOf.InstrumentEventTypeEnum": TransitionEventAllOf.InstrumentEventTypeEnum,
+        "TriggerEvent.InstrumentEventTypeEnum": TriggerEvent.InstrumentEventTypeEnum,
+        "TriggerEventAllOf.InstrumentEventTypeEnum": TriggerEventAllOf.InstrumentEventTypeEnum,
         "UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum": UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum,
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
         "VendorModelRule.SupplierEnum": VendorModelRule.SupplierEnum,
@@ -1114,6 +1285,7 @@ let typeMap: {[index: string]: any} = {
     "A2BMovementRecord": A2BMovementRecord,
     "AccessControlledAction": AccessControlledAction,
     "AccessControlledResource": AccessControlledResource,
+    "AccessMetadataOperation": AccessMetadataOperation,
     "AccessMetadataValue": AccessMetadataValue,
     "ActionId": ActionId,
     "ActionResultOfPortfolio": ActionResultOfPortfolio,
@@ -1131,9 +1303,12 @@ let typeMap: {[index: string]: any} = {
     "AggregationContext": AggregationContext,
     "AggregationMeasureFailureDetail": AggregationMeasureFailureDetail,
     "AggregationOptions": AggregationOptions,
+    "AggregationQuery": AggregationQuery,
     "Allocation": Allocation,
     "AllocationRequest": AllocationRequest,
     "AllocationSetRequest": AllocationSetRequest,
+    "AmortisationEvent": AmortisationEvent,
+    "AmortisationEventAllOf": AmortisationEventAllOf,
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
@@ -1143,12 +1318,24 @@ let typeMap: {[index: string]: any} = {
     "BasketIdentifier": BasketIdentifier,
     "BatchAdjustHoldingsResponse": BatchAdjustHoldingsResponse,
     "BatchUpsertPortfolioTransactionsResponse": BatchUpsertPortfolioTransactionsResponse,
+    "Block": Block,
+    "BlockRequest": BlockRequest,
+    "BlockSetRequest": BlockSetRequest,
     "Bond": Bond,
     "BondAllOf": BondAllOf,
+    "BondDefaultEvent": BondDefaultEvent,
+    "BondDefaultEventAllOf": BondDefaultEventAllOf,
     "Calendar": Calendar,
     "CalendarDate": CalendarDate,
     "CapFloor": CapFloor,
     "CapFloorAllOf": CapFloorAllOf,
+    "CashDividendEvent": CashDividendEvent,
+    "CashDividendEventAllOf": CashDividendEventAllOf,
+    "CashFlowEvent": CashFlowEvent,
+    "CashFlowEventAllOf": CashFlowEventAllOf,
+    "CashFlowLineage": CashFlowLineage,
+    "CashFlowValue": CashFlowValue,
+    "CashFlowValueAllOf": CashFlowValueAllOf,
     "CashLadderRecord": CashLadderRecord,
     "CashPerpetual": CashPerpetual,
     "CashPerpetualAllOf": CashPerpetualAllOf,
@@ -1159,6 +1346,8 @@ let typeMap: {[index: string]: any} = {
     "Change": Change,
     "ChangeHistory": ChangeHistory,
     "ChangeItem": ChangeItem,
+    "CloseEvent": CloseEvent,
+    "CloseEventAllOf": CloseEventAllOf,
     "CompletePortfolio": CompletePortfolio,
     "CompleteRelationship": CompleteRelationship,
     "ComplexBond": ComplexBond,
@@ -1218,6 +1407,7 @@ let typeMap: {[index: string]: any} = {
     "DateRange": DateRange,
     "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
+    "DeleteInstrumentsResponse": DeleteInstrumentsResponse,
     "DeleteRelationshipRequest": DeleteRelationshipRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
     "DependencySourceFilter": DependencySourceFilter,
@@ -1249,6 +1439,8 @@ let typeMap: {[index: string]: any} = {
     "Execution": Execution,
     "ExecutionRequest": ExecutionRequest,
     "ExecutionSetRequest": ExecutionSetRequest,
+    "ExerciseEvent": ExerciseEvent,
+    "ExerciseEventAllOf": ExerciseEventAllOf,
     "ExoticInstrument": ExoticInstrument,
     "ExoticInstrumentAllOf": ExoticInstrumentAllOf,
     "ExpandedGroup": ExpandedGroup,
@@ -1313,11 +1505,18 @@ let typeMap: {[index: string]: any} = {
     "InflationLinkedBondAllOf": InflationLinkedBondAllOf,
     "InflationSwap": InflationSwap,
     "InflationSwapAllOf": InflationSwapAllOf,
+    "InformationalErrorEvent": InformationalErrorEvent,
+    "InformationalErrorEventAllOf": InformationalErrorEventAllOf,
+    "InformationalEvent": InformationalEvent,
+    "InformationalEventAllOf": InformationalEventAllOf,
     "InlineValuationRequest": InlineValuationRequest,
     "InlineValuationsReconciliationRequest": InlineValuationsReconciliationRequest,
+    "InputTransition": InputTransition,
     "Instrument": Instrument,
     "InstrumentDefinition": InstrumentDefinition,
     "InstrumentDefinitionFormat": InstrumentDefinitionFormat,
+    "InstrumentEvent": InstrumentEvent,
+    "InstrumentEventHolder": InstrumentEventHolder,
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
     "InstrumentIdValue": InstrumentIdValue,
     "InstrumentLeg": InstrumentLeg,
@@ -1336,6 +1535,9 @@ let typeMap: {[index: string]: any} = {
     "LegDefinition": LegDefinition,
     "LegalEntity": LegalEntity,
     "LevelStep": LevelStep,
+    "LifeCycleEventLineage": LifeCycleEventLineage,
+    "LifeCycleEventValue": LifeCycleEventValue,
+    "LifeCycleEventValueAllOf": LifeCycleEventValueAllOf,
     "Link": Link,
     "ListAggregationReconciliation": ListAggregationReconciliation,
     "ListAggregationResponse": ListAggregationResponse,
@@ -1358,6 +1560,8 @@ let typeMap: {[index: string]: any} = {
     "OpaqueMarketDataAllOf": OpaqueMarketDataAllOf,
     "OpaqueModelOptions": OpaqueModelOptions,
     "OpaqueModelOptionsAllOf": OpaqueModelOptionsAllOf,
+    "OpenEvent": OpenEvent,
+    "OpenEventAllOf": OpenEventAllOf,
     "Operation": Operation,
     "Order": Order,
     "OrderBySpec": OrderBySpec,
@@ -1365,7 +1569,9 @@ let typeMap: {[index: string]: any} = {
     "OrderSetRequest": OrderSetRequest,
     "OtcConfirmation": OtcConfirmation,
     "OutputTransaction": OutputTransaction,
+    "OutputTransition": OutputTransition,
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
+    "PagedResourceListOfBlock": PagedResourceListOfBlock,
     "PagedResourceListOfCalendar": PagedResourceListOfCalendar,
     "PagedResourceListOfCorporateActionSource": PagedResourceListOfCorporateActionSource,
     "PagedResourceListOfCustomEntityDefinition": PagedResourceListOfCustomEntityDefinition,
@@ -1374,16 +1580,23 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfDataTypeSummary": PagedResourceListOfDataTypeSummary,
     "PagedResourceListOfExecution": PagedResourceListOfExecution,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
+    "PagedResourceListOfInstrumentEventHolder": PagedResourceListOfInstrumentEventHolder,
     "PagedResourceListOfLegalEntity": PagedResourceListOfLegalEntity,
     "PagedResourceListOfOrder": PagedResourceListOfOrder,
+    "PagedResourceListOfParticipation": PagedResourceListOfParticipation,
+    "PagedResourceListOfPerson": PagedResourceListOfPerson,
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
     "PagedResourceListOfRelationshipDefinition": PagedResourceListOfRelationshipDefinition,
     "PagedResourceListOfSequenceDefinition": PagedResourceListOfSequenceDefinition,
+    "Participation": Participation,
+    "ParticipationRequest": ParticipationRequest,
+    "ParticipationSetRequest": ParticipationSetRequest,
     "PerformanceReturn": PerformanceReturn,
     "PerformanceReturnsMetric": PerformanceReturnsMetric,
     "PerpetualProperty": PerpetualProperty,
+    "Person": Person,
     "Portfolio": Portfolio,
     "PortfolioCashFlow": PortfolioCashFlow,
     "PortfolioCashLadder": PortfolioCashLadder,
@@ -1412,6 +1625,8 @@ let typeMap: {[index: string]: any} = {
     "Quote": Quote,
     "QuoteId": QuoteId,
     "QuoteSeriesId": QuoteSeriesId,
+    "RawVendorEvent": RawVendorEvent,
+    "RawVendorEventAllOf": RawVendorEventAllOf,
     "RealisedGainLoss": RealisedGainLoss,
     "ReconcileDateTimeRule": ReconcileDateTimeRule,
     "ReconcileDateTimeRuleAllOf": ReconcileDateTimeRuleAllOf,
@@ -1431,14 +1646,19 @@ let typeMap: {[index: string]: any} = {
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "RelatedEntity": RelatedEntity,
+    "Relation": Relation,
     "Relationship": Relationship,
     "RelationshipDefinition": RelationshipDefinition,
     "Repo": Repo,
     "RepoAllOf": RepoAllOf,
+    "ResetEvent": ResetEvent,
+    "ResetEventAllOf": ResetEventAllOf,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfAccessMetadataValueOf": ResourceListOfAccessMetadataValueOf,
+    "ResourceListOfAggregationQuery": ResourceListOfAggregationQuery,
     "ResourceListOfAllocation": ResourceListOfAllocation,
+    "ResourceListOfBlock": ResourceListOfBlock,
     "ResourceListOfCalendarDate": ResourceListOfCalendarDate,
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfChangeHistory": ResourceListOfChangeHistory,
@@ -1454,7 +1674,9 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
     "ResourceListOfLegalEntity": ResourceListOfLegalEntity,
     "ResourceListOfOrder": ResourceListOfOrder,
+    "ResourceListOfParticipation": ResourceListOfParticipation,
     "ResourceListOfPerformanceReturn": ResourceListOfPerformanceReturn,
+    "ResourceListOfPerson": ResourceListOfPerson,
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
     "ResourceListOfPortfolioCashFlow": ResourceListOfPortfolioCashFlow,
     "ResourceListOfPortfolioCashLadder": ResourceListOfPortfolioCashLadder,
@@ -1465,6 +1687,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPropertyInterval": ResourceListOfPropertyInterval,
     "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
+    "ResourceListOfRelation": ResourceListOfRelation,
     "ResourceListOfRelationship": ResourceListOfRelationship,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ResponseMetaData": ResponseMetaData,
@@ -1472,15 +1695,22 @@ let typeMap: {[index: string]: any} = {
     "ResultDataKeyRuleAllOf": ResultDataKeyRuleAllOf,
     "ResultDataSchema": ResultDataSchema,
     "ResultKeyRule": ResultKeyRule,
+    "ResultValue": ResultValue,
+    "ResultValueDictionary": ResultValueDictionary,
+    "ResultValueDictionaryAllOf": ResultValueDictionaryAllOf,
     "Schedule": Schedule,
     "ScopeDefinition": ScopeDefinition,
     "SequenceDefinition": SequenceDefinition,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
+    "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
+    "SetPersonPropertiesRequest": SetPersonPropertiesRequest,
     "SideConfigurationData": SideConfigurationData,
     "SimpleInstrument": SimpleInstrument,
     "SimpleInstrumentAllOf": SimpleInstrumentAllOf,
     "StepSchedule": StepSchedule,
+    "StockSplitEvent": StockSplitEvent,
+    "StockSplitEventAllOf": StockSplitEventAllOf,
     "Stream": Stream,
     "SupportedAnalyticsInternalRequest": SupportedAnalyticsInternalRequest,
     "TargetTaxLot": TargetTaxLot,
@@ -1500,6 +1730,10 @@ let typeMap: {[index: string]: any} = {
     "TransactionQueryParameters": TransactionQueryParameters,
     "TransactionRequest": TransactionRequest,
     "TransactionSetConfigurationData": TransactionSetConfigurationData,
+    "TransitionEvent": TransitionEvent,
+    "TransitionEventAllOf": TransitionEventAllOf,
+    "TriggerEvent": TriggerEvent,
+    "TriggerEventAllOf": TriggerEventAllOf,
     "TypedResourceId": TypedResourceId,
     "UpdateCalendarRequest": UpdateCalendarRequest,
     "UpdateCustomEntityDefinitionRequest": UpdateCustomEntityDefinitionRequest,
@@ -1516,12 +1750,15 @@ let typeMap: {[index: string]: any} = {
     "UpsertCorporateActionsResponse": UpsertCorporateActionsResponse,
     "UpsertCounterpartyAgreementRequest": UpsertCounterpartyAgreementRequest,
     "UpsertCreditSupportAnnexRequest": UpsertCreditSupportAnnexRequest,
+    "UpsertInstrumentEventRequest": UpsertInstrumentEventRequest,
+    "UpsertInstrumentEventsResponse": UpsertInstrumentEventsResponse,
     "UpsertInstrumentPropertiesResponse": UpsertInstrumentPropertiesResponse,
     "UpsertInstrumentPropertyRequest": UpsertInstrumentPropertyRequest,
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,
     "UpsertLegalEntityAccessMetadataRequest": UpsertLegalEntityAccessMetadataRequest,
     "UpsertLegalEntityRequest": UpsertLegalEntityRequest,
     "UpsertPersonAccessMetadataRequest": UpsertPersonAccessMetadataRequest,
+    "UpsertPersonRequest": UpsertPersonRequest,
     "UpsertPortfolioAccessMetadataRequest": UpsertPortfolioAccessMetadataRequest,
     "UpsertPortfolioGroupAccessMetadataRequest": UpsertPortfolioGroupAccessMetadataRequest,
     "UpsertPortfolioTransactionsResponse": UpsertPortfolioTransactionsResponse,
