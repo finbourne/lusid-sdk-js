@@ -11,87 +11,54 @@
  */
 
 import { RequestFile } from './models';
+import { CustomEntityResponse } from './customEntityResponse';
+import { ErrorDetail } from './errorDetail';
+import { Link } from './link';
 
-export class TriggerEventAllOf {
+export class UpsertCustomEntitiesResponse {
     /**
-    * The underlying price level that triggers the event
+    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'level': number;
+    'href'?: string | null;
     /**
-    * The type of the trigger; valid options are Knock-In, Knock-Out, Touch or No-Touch
+    * The custom-entities which have been successfully updated or created.
     */
-    'triggerType': string;
+    'values'?: { [key: string]: CustomEntityResponse; } | null;
     /**
-    * The direction of the trigger; valid options are Up and Down
+    * The custom-entities that could not be updated or created or were left unchanged without error along with a reason for their failure.
     */
-    'triggerDirection': string;
+    'failed'?: { [key: string]: ErrorDetail; } | null;
     /**
-    * The date the trigger happens at.
+    * Collection of links.
     */
-    'triggerDate': Date;
-    /**
-    * The date the trigger takes effect.
-    */
-    'maturityDate': Date;
-    /**
-    * The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent
-    */
-    'instrumentEventType': TriggerEventAllOf.InstrumentEventTypeEnum;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "level",
-            "baseName": "level",
-            "type": "number"
-        },
-        {
-            "name": "triggerType",
-            "baseName": "triggerType",
+            "name": "href",
+            "baseName": "href",
             "type": "string"
         },
         {
-            "name": "triggerDirection",
-            "baseName": "triggerDirection",
-            "type": "string"
+            "name": "values",
+            "baseName": "values",
+            "type": "{ [key: string]: CustomEntityResponse; }"
         },
         {
-            "name": "triggerDate",
-            "baseName": "triggerDate",
-            "type": "Date"
+            "name": "failed",
+            "baseName": "failed",
+            "type": "{ [key: string]: ErrorDetail; }"
         },
         {
-            "name": "maturityDate",
-            "baseName": "maturityDate",
-            "type": "Date"
-        },
-        {
-            "name": "instrumentEventType",
-            "baseName": "instrumentEventType",
-            "type": "TriggerEventAllOf.InstrumentEventTypeEnum"
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return TriggerEventAllOf.attributeTypeMap;
+        return UpsertCustomEntitiesResponse.attributeTypeMap;
     }
 }
 
-export namespace TriggerEventAllOf {
-    export enum InstrumentEventTypeEnum {
-        TransitionEvent = <any> 'TransitionEvent',
-        InformationalEvent = <any> 'InformationalEvent',
-        OpenEvent = <any> 'OpenEvent',
-        CloseEvent = <any> 'CloseEvent',
-        StockSplitEvent = <any> 'StockSplitEvent',
-        BondDefaultEvent = <any> 'BondDefaultEvent',
-        CashDividendEvent = <any> 'CashDividendEvent',
-        AmortisationEvent = <any> 'AmortisationEvent',
-        CashFlowEvent = <any> 'CashFlowEvent',
-        ExerciseEvent = <any> 'ExerciseEvent',
-        ResetEvent = <any> 'ResetEvent',
-        TriggerEvent = <any> 'TriggerEvent',
-        RawVendorEvent = <any> 'RawVendorEvent',
-        InformationalErrorEvent = <any> 'InformationalErrorEvent'
-    }
-}
