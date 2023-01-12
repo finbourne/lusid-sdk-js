@@ -40,9 +40,6 @@ export class PortfolioDetails {
     * The amortisation method the portfolio is using in the calculation. This can be \'NoAmortisation\', \'StraightLine\' or \'EffectiveYield\'.
     */
     'amortisationMethod'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
