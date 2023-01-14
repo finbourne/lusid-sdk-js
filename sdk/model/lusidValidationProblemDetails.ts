@@ -12,21 +12,9 @@
 
 import { RequestFile } from './models';
 
-/**
-* A description of a problem that has arisen whilst validating a request
-*/
 export class LusidValidationProblemDetails {
-    /**
-    * The name of the error
-    */
     'name': string;
-    /**
-    * Any additional informational information available about the nature and detail of the problem
-    */
     'errorDetails'?: Array<{ [key: string]: string; }> | null;
-    /**
-    * Get the error code of the response
-    */
     'code': number;
     'errors'?: { [key: string]: Array<string>; } | null;
     'type'?: string | null;
