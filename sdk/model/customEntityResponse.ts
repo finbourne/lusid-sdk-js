@@ -47,9 +47,6 @@ export class CustomEntityResponse {
     * A set of relationships associated to the custom entity.
     */
     'relationships': Array<Relationship>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

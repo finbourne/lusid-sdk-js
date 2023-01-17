@@ -82,9 +82,6 @@ export class Allocation {
     * The counterparty for this allocation.
     */
     'counterparty'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
