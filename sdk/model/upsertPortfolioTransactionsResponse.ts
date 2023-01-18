@@ -25,9 +25,6 @@ export class UpsertPortfolioTransactionsResponse {
     * Contains warnings related to unresolved instruments or non-existent transaction types for the upserted trades
     */
     'metadata'?: { [key: string]: Array<ResponseMetaData>; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
