@@ -28,9 +28,6 @@ export class UpsertQuotesResponse {
     * The quotes that could not be updated or inserted along with a reason for their failure.
     */
     'failed'?: { [key: string]: ErrorDetail; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
