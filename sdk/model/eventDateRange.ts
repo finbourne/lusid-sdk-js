@@ -11,221 +11,30 @@
  */
 
 import { RequestFile } from './models';
-import { FlowConventions } from './flowConventions';
 
-export class InflationLinkedBondAllOf {
-    /**
-    * The start date of the bond.
-    */
-    'startDate': Date;
-    /**
-    * The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
-    */
-    'maturityDate': Date;
-    'flowConventions': FlowConventions;
-    /**
-    * Simple coupon rate.
-    */
-    'couponRate': number;
-    /**
-    * External market codes and identifiers for the bond, e.g. ISIN.
-    */
-    'identifiers'?: { [key: string]: string; } | null;
-    /**
-    * The domestic currency of the instrument.
-    */
-    'domCcy': string;
-    /**
-    * BaseCPI value. This is optional, if not provided the BaseCPI value will be calculated from the BaseCPIDate,  If that too is not present the StartDate will be used.  Note that both BaseCPI and BaseCPIDate cannot be set.  Some bonds are issued with a BaseCPI date that does not correspond to the StartDate CPI value, in this  case the value should be provided here or with the BaseCPIDate.
-    */
-    'baseCPI'?: number | null;
-    /**
-    * BaseCPIDate. This is optional, if not provided the BaseCPI value will taken from the BaseCPI property,  if that too is not present than the StartDate will be used.  If present, the BaseCPI is calculated for this date, note this is an un-lagged date (similar to StartDate)  so the Bond ObservationLag will be applied to this date when calculating the CPI.  Note that both BaseCPI and BaseCPIDate cannot be set.  Some bonds are issued with a BaseCPI date that does not correspond to the StartDate CPI value, in this  case the value should be provided here or with the actual BaseCPI.
-    */
-    'baseCPIDate'?: Date | null;
-    /**
-    * The calculation type applied to the bond coupon and principal amount.  The default CalculationType is `Standard` and currently this is the only value supported.    Supported string (enumeration) values are: [Standard, Quarterly, Ratio].
-    */
-    'calculationType'?: string | null;
-    /**
-    * Number of Good Business Days before the next coupon payment, in which the bond goes ex-dividend.  This is not common in inflation linked bonds but has been seen with (for example) bonds issued by  the Bank of Thailand.
-    */
-    'exDividendDays'?: number | null;
-    /**
-    * Number of decimal places used to round IndexRatio. This defaults to 5 if not set.
-    */
-    'indexPrecision'?: number;
-    /**
-    * Name of the index, e.g. UKRPI.
-    */
-    'inflationIndexName': string;
-    /**
-    * Inflation Interpolation. This is optional and defaults to Linear if not set.    Supported string (enumeration) values are: [Linear, Flat].
-    */
-    'inflationInterpolation'?: string | null;
-    /**
-    * Day of the month that inflation rolls from one month to the next. This is optional and defaults to 1, which is  the typically value for the majority of inflation bonds (exceptions include Japan which rolls on the 10th  and some LatAm bonds which roll on the 15th).
-    */
-    'inflationRollDay'?: number;
-    /**
-    * Observation lag. This is a Tenor that must have units of Month.  This field is typically 3 or 4 months, but can vary, older bonds have 8 months lag.  For Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid.
-    */
-    'observationLag'?: string | null;
-    /**
-    * The face-value or principal for the bond at outset.
-    */
-    'principal': number;
-    /**
-    * If true then the principal is protected in that the redemption amount will be at least the face value (Principal).  This is typically set to true for inflation linked bonds issued by the United States and France (for example).  This is typically set to false for inflation linked bonds issued by the United Kingdom (post 2005).  For other sovereigns this can vary from issue to issue.  If not set this property defaults to true.  This is sometimes referred to as Deflation protection or an inflation floor of 0%.
-    */
-    'principalProtection'?: boolean;
-    /**
-    * StubType. Most Inflation linked bonds have a ShortFront stub type so this is the default, however in some cases  with a long front stub LongFront should be selected.  StubType Both is not supported for InflationLinkedBonds.    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both].
-    */
-    'stubType'?: string | null;
-    /**
-    * The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap
-    */
-    'instrumentType': InflationLinkedBondAllOf.InstrumentTypeEnum;
+/**
+* A standard representation of the effective date range for the event, used for display, filtering and windowing use cases.  The start and end values for the eventDateRange are mapped from the particular dates contained within the specific  InstrumentEvent schema.  Note that the start and end values may be identical for some types of events.
+*/
+export class EventDateRange {
+    'start'?: Date;
+    'end'?: Date;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "startDate",
-            "baseName": "startDate",
+            "name": "start",
+            "baseName": "start",
             "type": "Date"
         },
         {
-            "name": "maturityDate",
-            "baseName": "maturityDate",
+            "name": "end",
+            "baseName": "end",
             "type": "Date"
-        },
-        {
-            "name": "flowConventions",
-            "baseName": "flowConventions",
-            "type": "FlowConventions"
-        },
-        {
-            "name": "couponRate",
-            "baseName": "couponRate",
-            "type": "number"
-        },
-        {
-            "name": "identifiers",
-            "baseName": "identifiers",
-            "type": "{ [key: string]: string; }"
-        },
-        {
-            "name": "domCcy",
-            "baseName": "domCcy",
-            "type": "string"
-        },
-        {
-            "name": "baseCPI",
-            "baseName": "baseCPI",
-            "type": "number"
-        },
-        {
-            "name": "baseCPIDate",
-            "baseName": "baseCPIDate",
-            "type": "Date"
-        },
-        {
-            "name": "calculationType",
-            "baseName": "calculationType",
-            "type": "string"
-        },
-        {
-            "name": "exDividendDays",
-            "baseName": "exDividendDays",
-            "type": "number"
-        },
-        {
-            "name": "indexPrecision",
-            "baseName": "indexPrecision",
-            "type": "number"
-        },
-        {
-            "name": "inflationIndexName",
-            "baseName": "inflationIndexName",
-            "type": "string"
-        },
-        {
-            "name": "inflationInterpolation",
-            "baseName": "inflationInterpolation",
-            "type": "string"
-        },
-        {
-            "name": "inflationRollDay",
-            "baseName": "inflationRollDay",
-            "type": "number"
-        },
-        {
-            "name": "observationLag",
-            "baseName": "observationLag",
-            "type": "string"
-        },
-        {
-            "name": "principal",
-            "baseName": "principal",
-            "type": "number"
-        },
-        {
-            "name": "principalProtection",
-            "baseName": "principalProtection",
-            "type": "boolean"
-        },
-        {
-            "name": "stubType",
-            "baseName": "stubType",
-            "type": "string"
-        },
-        {
-            "name": "instrumentType",
-            "baseName": "instrumentType",
-            "type": "InflationLinkedBondAllOf.InstrumentTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return InflationLinkedBondAllOf.attributeTypeMap;
+        return EventDateRange.attributeTypeMap;
     }
 }
 
-export namespace InflationLinkedBondAllOf {
-    export enum InstrumentTypeEnum {
-        QuotedSecurity = <any> 'QuotedSecurity',
-        InterestRateSwap = <any> 'InterestRateSwap',
-        FxForward = <any> 'FxForward',
-        Future = <any> 'Future',
-        ExoticInstrument = <any> 'ExoticInstrument',
-        FxOption = <any> 'FxOption',
-        CreditDefaultSwap = <any> 'CreditDefaultSwap',
-        InterestRateSwaption = <any> 'InterestRateSwaption',
-        Bond = <any> 'Bond',
-        EquityOption = <any> 'EquityOption',
-        FixedLeg = <any> 'FixedLeg',
-        FloatingLeg = <any> 'FloatingLeg',
-        BespokeCashFlowsLeg = <any> 'BespokeCashFlowsLeg',
-        Unknown = <any> 'Unknown',
-        TermDeposit = <any> 'TermDeposit',
-        ContractForDifference = <any> 'ContractForDifference',
-        EquitySwap = <any> 'EquitySwap',
-        CashPerpetual = <any> 'CashPerpetual',
-        CapFloor = <any> 'CapFloor',
-        CashSettled = <any> 'CashSettled',
-        CdsIndex = <any> 'CdsIndex',
-        Basket = <any> 'Basket',
-        FundingLeg = <any> 'FundingLeg',
-        FxSwap = <any> 'FxSwap',
-        ForwardRateAgreement = <any> 'ForwardRateAgreement',
-        SimpleInstrument = <any> 'SimpleInstrument',
-        Repo = <any> 'Repo',
-        Equity = <any> 'Equity',
-        ExchangeTradedOption = <any> 'ExchangeTradedOption',
-        ReferenceInstrument = <any> 'ReferenceInstrument',
-        ComplexBond = <any> 'ComplexBond',
-        InflationLinkedBond = <any> 'InflationLinkedBond',
-        InflationSwap = <any> 'InflationSwap'
-    }
-}
