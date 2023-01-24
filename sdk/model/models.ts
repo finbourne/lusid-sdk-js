@@ -155,7 +155,6 @@ export * from './equitySwapAllOf';
 export * from './equityVolSurfaceData';
 export * from './equityVolSurfaceDataAllOf';
 export * from './errorDetail';
-export * from './eventDateRange';
 export * from './exchangeTradedOption';
 export * from './exchangeTradedOptionAllOf';
 export * from './exchangeTradedOptionContractDetails';
@@ -681,7 +680,6 @@ import { EquitySwapAllOf } from './equitySwapAllOf';
 import { EquityVolSurfaceData } from './equityVolSurfaceData';
 import { EquityVolSurfaceDataAllOf } from './equityVolSurfaceDataAllOf';
 import { ErrorDetail } from './errorDetail';
-import { EventDateRange } from './eventDateRange';
 import { ExchangeTradedOption } from './exchangeTradedOption';
 import { ExchangeTradedOptionAllOf } from './exchangeTradedOptionAllOf';
 import { ExchangeTradedOptionContractDetails } from './exchangeTradedOptionContractDetails';
@@ -1437,7 +1435,6 @@ let typeMap: {[index: string]: any} = {
     "EquityVolSurfaceData": EquityVolSurfaceData,
     "EquityVolSurfaceDataAllOf": EquityVolSurfaceDataAllOf,
     "ErrorDetail": ErrorDetail,
-    "EventDateRange": EventDateRange,
     "ExchangeTradedOption": ExchangeTradedOption,
     "ExchangeTradedOptionAllOf": ExchangeTradedOptionAllOf,
     "ExchangeTradedOptionContractDetails": ExchangeTradedOptionContractDetails,
