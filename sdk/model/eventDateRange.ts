@@ -11,79 +11,30 @@
  */
 
 import { RequestFile } from './models';
-import { LusidInstrument } from './lusidInstrument';
-import { MarketQuote } from './marketQuote';
 
-export class YieldCurveDataAllOf {
-    /**
-    * Base date
-    */
-    'baseDate': Date;
-    /**
-    * The set of instruments that define the curve.
-    */
-    'instruments': Array<LusidInstrument>;
-    /**
-    * The market quotes corresponding to the the instruments used to define the curve
-    */
-    'quotes': Array<MarketQuote>;
-    /**
-    * Description of the complex market data\'s lineage e.g. \'FundAccountant_GreenQuality\'.
-    */
-    'lineage'?: string | null;
-    /**
-    * The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData
-    */
-    'marketDataType': YieldCurveDataAllOf.MarketDataTypeEnum;
+/**
+* A standard representation of the effective date range for the event, used for display, filtering and windowing use cases.  The start and end values for the eventDateRange are mapped from the particular dates contained within the specific  InstrumentEvent schema.  Note that the start and end values may be identical for some types of events.
+*/
+export class EventDateRange {
+    'start'?: Date;
+    'end'?: Date;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "baseDate",
-            "baseName": "baseDate",
+            "name": "start",
+            "baseName": "start",
             "type": "Date"
         },
         {
-            "name": "instruments",
-            "baseName": "instruments",
-            "type": "Array<LusidInstrument>"
-        },
-        {
-            "name": "quotes",
-            "baseName": "quotes",
-            "type": "Array<MarketQuote>"
-        },
-        {
-            "name": "lineage",
-            "baseName": "lineage",
-            "type": "string"
-        },
-        {
-            "name": "marketDataType",
-            "baseName": "marketDataType",
-            "type": "YieldCurveDataAllOf.MarketDataTypeEnum"
+            "name": "end",
+            "baseName": "end",
+            "type": "Date"
         }    ];
 
     static getAttributeTypeMap() {
-        return YieldCurveDataAllOf.attributeTypeMap;
+        return EventDateRange.attributeTypeMap;
     }
 }
 
-export namespace YieldCurveDataAllOf {
-    export enum MarketDataTypeEnum {
-        DiscountFactorCurveData = <any> 'DiscountFactorCurveData',
-        EquityVolSurfaceData = <any> 'EquityVolSurfaceData',
-        FxVolSurfaceData = <any> 'FxVolSurfaceData',
-        IrVolCubeData = <any> 'IrVolCubeData',
-        OpaqueMarketData = <any> 'OpaqueMarketData',
-        YieldCurveData = <any> 'YieldCurveData',
-        FxForwardCurveData = <any> 'FxForwardCurveData',
-        FxForwardPipsCurveData = <any> 'FxForwardPipsCurveData',
-        FxForwardTenorCurveData = <any> 'FxForwardTenorCurveData',
-        FxForwardTenorPipsCurveData = <any> 'FxForwardTenorPipsCurveData',
-        FxForwardCurveByQuoteReference = <any> 'FxForwardCurveByQuoteReference',
-        CreditSpreadCurveData = <any> 'CreditSpreadCurveData',
-        EquityCurveByPricesData = <any> 'EquityCurveByPricesData'
-    }
-}
