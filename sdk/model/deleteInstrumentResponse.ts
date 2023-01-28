@@ -22,9 +22,6 @@ export class DeleteInstrumentResponse {
     * The as-at datetime at which the instrument was deleted.
     */
     'asAt': Date;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

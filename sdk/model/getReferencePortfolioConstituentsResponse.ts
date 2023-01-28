@@ -33,9 +33,6 @@ export class GetReferencePortfolioConstituentsResponse {
     * The Uri that returns the same result as the original request,  but may include resolved as at time(s).
     */
     'href'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
