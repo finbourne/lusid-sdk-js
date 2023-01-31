@@ -25,9 +25,6 @@ export class AnnulSingleStructuredDataResponse {
     * The time at which the identifier was annulled
     */
     'value'?: Date;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
