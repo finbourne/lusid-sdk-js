@@ -11,54 +11,84 @@
  */
 
 import { RequestFile } from './models';
+import { LegalEntity } from './legalEntity';
+import { Property } from './property';
+import { ResourceId } from './resourceId';
 
-/**
-* Link class.
-*/
-export class Link {
+export class CustodianAccount {
+    'custodianAccountId': ResourceId;
     /**
-    * Relation of link.
+    * The account status. Can be Active, Inactive or Deleted. Defaults to Active.
     */
-    'relation': string;
+    'status': string;
     /**
-    * Href of link.
+    * The Custodian Account Number
     */
-    'href': string;
+    'accountNumber': string;
     /**
-    * Description of link.
+    * The identifiable name given to the Custodian Account
     */
-    'description'?: string | null;
+    'accountName': string;
     /**
-    * Http method of link.
+    * The Accounting method to be used
     */
-    'method': string;
+    'accountingMethod': string;
+    /**
+    * The Currency for the Account
+    */
+    'currency': string;
+    /**
+    * Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the \'CustodianAccount\' domain.
+    */
+    'properties'?: { [key: string]: Property; } | null;
+    'custodian': LegalEntity;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "relation",
-            "baseName": "relation",
+            "name": "custodianAccountId",
+            "baseName": "custodianAccountId",
+            "type": "ResourceId"
+        },
+        {
+            "name": "status",
+            "baseName": "status",
             "type": "string"
         },
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "accountNumber",
+            "baseName": "accountNumber",
             "type": "string"
         },
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "accountName",
+            "baseName": "accountName",
             "type": "string"
         },
         {
-            "name": "method",
-            "baseName": "method",
+            "name": "accountingMethod",
+            "baseName": "accountingMethod",
             "type": "string"
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string"
+        },
+        {
+            "name": "properties",
+            "baseName": "properties",
+            "type": "{ [key: string]: Property; }"
+        },
+        {
+            "name": "custodian",
+            "baseName": "custodian",
+            "type": "LegalEntity"
         }    ];
 
     static getAttributeTypeMap() {
-        return Link.attributeTypeMap;
+        return CustodianAccount.attributeTypeMap;
     }
 }
 
