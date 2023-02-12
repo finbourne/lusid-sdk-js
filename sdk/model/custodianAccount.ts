@@ -11,65 +11,84 @@
  */
 
 import { RequestFile } from './models';
-import { Link } from './link';
-import { Quote } from './quote';
+import { LegalEntity } from './legalEntity';
+import { Property } from './property';
+import { ResourceId } from './resourceId';
 
-/**
-* A collection of resources that can be returned from requests.
-*/
-export class ResourceListOfQuote {
+export class CustodianAccount {
+    'custodianAccountId': ResourceId;
     /**
-    * The resources to list.
+    * The account status. Can be Active, Inactive or Deleted. Defaults to Active.
     */
-    'values': Array<Quote>;
+    'status': string;
     /**
-    * The URI of the resource list.
+    * The Custodian Account Number
     */
-    'href'?: string | null;
+    'accountNumber': string;
     /**
-    * Collection of links.
+    * The identifiable name given to the Custodian Account
     */
-    'links'?: Array<Link> | null;
+    'accountName': string;
     /**
-    * The next page of results.
+    * The Accounting method to be used
     */
-    'nextPage'?: string | null;
+    'accountingMethod': string;
     /**
-    * The previous page of results.
+    * The Currency for the Account
     */
-    'previousPage'?: string | null;
+    'currency': string;
+    /**
+    * Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the \'CustodianAccount\' domain.
+    */
+    'properties'?: { [key: string]: Property; } | null;
+    'custodian': LegalEntity;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<Quote>"
+            "name": "custodianAccountId",
+            "baseName": "custodianAccountId",
+            "type": "ResourceId"
         },
         {
-            "name": "href",
-            "baseName": "href",
+            "name": "status",
+            "baseName": "status",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
-        },
-        {
-            "name": "nextPage",
-            "baseName": "nextPage",
+            "name": "accountNumber",
+            "baseName": "accountNumber",
             "type": "string"
         },
         {
-            "name": "previousPage",
-            "baseName": "previousPage",
+            "name": "accountName",
+            "baseName": "accountName",
             "type": "string"
+        },
+        {
+            "name": "accountingMethod",
+            "baseName": "accountingMethod",
+            "type": "string"
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string"
+        },
+        {
+            "name": "properties",
+            "baseName": "properties",
+            "type": "{ [key: string]: Property; }"
+        },
+        {
+            "name": "custodian",
+            "baseName": "custodian",
+            "type": "LegalEntity"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfQuote.attributeTypeMap;
+        return CustodianAccount.attributeTypeMap;
     }
 }
 
