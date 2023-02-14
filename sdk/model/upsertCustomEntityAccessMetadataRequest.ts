@@ -12,64 +12,24 @@
 
 import { RequestFile } from './models';
 import { AccessMetadataValue } from './accessMetadataValue';
-import { Link } from './link';
 
-/**
-* A collection of resources that can be returned from requests.
-*/
-export class ResourceListOfAccessMetadataValueOf {
+export class UpsertCustomEntityAccessMetadataRequest {
     /**
-    * The resources to list.
+    * The access control metadata to assign to a CustomEntity that matches the identifier
     */
-    'values': Array<Array<AccessMetadataValue>>;
-    /**
-    * The URI of the resource list.
-    */
-    'href'?: string | null;
-    /**
-    * Collection of links.
-    */
-    'links'?: Array<Link> | null;
-    /**
-    * The next page of results.
-    */
-    'nextPage'?: string | null;
-    /**
-    * The previous page of results.
-    */
-    'previousPage'?: string | null;
+    'metadata'?: Array<AccessMetadataValue> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<Array<AccessMetadataValue>>"
-        },
-        {
-            "name": "href",
-            "baseName": "href",
-            "type": "string"
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
-        },
-        {
-            "name": "nextPage",
-            "baseName": "nextPage",
-            "type": "string"
-        },
-        {
-            "name": "previousPage",
-            "baseName": "previousPage",
-            "type": "string"
+            "name": "metadata",
+            "baseName": "metadata",
+            "type": "Array<AccessMetadataValue>"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfAccessMetadataValueOf.attributeTypeMap;
+        return UpsertCustomEntityAccessMetadataRequest.attributeTypeMap;
     }
 }
 
