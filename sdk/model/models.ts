@@ -344,6 +344,7 @@ export * from './propertyDefinition';
 export * from './propertyDefinitionSearchResult';
 export * from './propertyFilter';
 export * from './propertyInterval';
+export * from './propertySchema';
 export * from './propertyValue';
 export * from './quote';
 export * from './quoteId';
@@ -413,6 +414,8 @@ export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfRelation';
 export * from './resourceListOfRelationship';
 export * from './resourceListOfScopeDefinition';
+export * from './resourceListOfString';
+export * from './resourceListOfValueType';
 export * from './responseMetaData';
 export * from './resultDataKeyRule';
 export * from './resultDataKeyRuleAllOf';
@@ -422,6 +425,7 @@ export * from './resultValue';
 export * from './resultValueDictionary';
 export * from './resultValueDictionaryAllOf';
 export * from './schedule';
+export * from './schema';
 export * from './scopeDefinition';
 export * from './sequenceDefinition';
 export * from './setLegalEntityIdentifiersRequest';
@@ -500,6 +504,7 @@ export * from './user';
 export * from './valuationRequest';
 export * from './valuationSchedule';
 export * from './valuationsReconciliationRequest';
+export * from './valueType';
 export * from './vendorModelRule';
 export * from './version';
 export * from './versionSummaryDto';
@@ -871,6 +876,7 @@ import { PropertyDefinition } from './propertyDefinition';
 import { PropertyDefinitionSearchResult } from './propertyDefinitionSearchResult';
 import { PropertyFilter } from './propertyFilter';
 import { PropertyInterval } from './propertyInterval';
+import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { Quote } from './quote';
 import { QuoteId } from './quoteId';
@@ -940,6 +946,8 @@ import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliatio
 import { ResourceListOfRelation } from './resourceListOfRelation';
 import { ResourceListOfRelationship } from './resourceListOfRelationship';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
+import { ResourceListOfString } from './resourceListOfString';
+import { ResourceListOfValueType } from './resourceListOfValueType';
 import { ResponseMetaData } from './responseMetaData';
 import { ResultDataKeyRule } from './resultDataKeyRule';
 import { ResultDataKeyRuleAllOf } from './resultDataKeyRuleAllOf';
@@ -949,6 +957,7 @@ import { ResultValue } from './resultValue';
 import { ResultValueDictionary } from './resultValueDictionary';
 import { ResultValueDictionaryAllOf } from './resultValueDictionaryAllOf';
 import { Schedule } from './schedule';
+import { Schema } from './schema';
 import { ScopeDefinition } from './scopeDefinition';
 import { SequenceDefinition } from './sequenceDefinition';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
@@ -1027,6 +1036,7 @@ import { User } from './user';
 import { ValuationRequest } from './valuationRequest';
 import { ValuationSchedule } from './valuationSchedule';
 import { ValuationsReconciliationRequest } from './valuationsReconciliationRequest';
+import { ValueType } from './valueType';
 import { VendorModelRule } from './vendorModelRule';
 import { Version } from './version';
 import { VersionSummaryDto } from './versionSummaryDto';
@@ -1279,6 +1289,7 @@ let enumsMap: {[index: string]: any} = {
         "TriggerEventAllOf.InstrumentEventTypeEnum": TriggerEventAllOf.InstrumentEventTypeEnum,
         "UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum": UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum,
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
+        "ValueType": ValueType,
         "VendorModelRule.SupplierEnum": VendorModelRule.SupplierEnum,
         "YieldCurveData.MarketDataTypeEnum": YieldCurveData.MarketDataTypeEnum,
         "YieldCurveDataAllOf.MarketDataTypeEnum": YieldCurveDataAllOf.MarketDataTypeEnum,
@@ -1628,6 +1639,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyDefinitionSearchResult": PropertyDefinitionSearchResult,
     "PropertyFilter": PropertyFilter,
     "PropertyInterval": PropertyInterval,
+    "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
     "Quote": Quote,
     "QuoteId": QuoteId,
@@ -1697,6 +1709,8 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfRelation": ResourceListOfRelation,
     "ResourceListOfRelationship": ResourceListOfRelationship,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
+    "ResourceListOfString": ResourceListOfString,
+    "ResourceListOfValueType": ResourceListOfValueType,
     "ResponseMetaData": ResponseMetaData,
     "ResultDataKeyRule": ResultDataKeyRule,
     "ResultDataKeyRuleAllOf": ResultDataKeyRuleAllOf,
@@ -1706,6 +1720,7 @@ let typeMap: {[index: string]: any} = {
     "ResultValueDictionary": ResultValueDictionary,
     "ResultValueDictionaryAllOf": ResultValueDictionaryAllOf,
     "Schedule": Schedule,
+    "Schema": Schema,
     "ScopeDefinition": ScopeDefinition,
     "SequenceDefinition": SequenceDefinition,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
