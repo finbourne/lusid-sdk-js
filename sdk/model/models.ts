@@ -113,7 +113,6 @@ export * from './creditSpreadCurveData';
 export * from './creditSpreadCurveDataAllOf';
 export * from './creditSupportAnnex';
 export * from './currencyAndAmount';
-export * from './custodianAccount';
 export * from './customEntityDefinition';
 export * from './customEntityDefinitionRequest';
 export * from './customEntityField';
@@ -646,7 +645,6 @@ import { CreditSpreadCurveData } from './creditSpreadCurveData';
 import { CreditSpreadCurveDataAllOf } from './creditSpreadCurveDataAllOf';
 import { CreditSupportAnnex } from './creditSupportAnnex';
 import { CurrencyAndAmount } from './currencyAndAmount';
-import { CustodianAccount } from './custodianAccount';
 import { CustomEntityDefinition } from './customEntityDefinition';
 import { CustomEntityDefinitionRequest } from './customEntityDefinitionRequest';
 import { CustomEntityField } from './customEntityField';
@@ -1411,7 +1409,6 @@ let typeMap: {[index: string]: any} = {
     "CreditSpreadCurveDataAllOf": CreditSpreadCurveDataAllOf,
     "CreditSupportAnnex": CreditSupportAnnex,
     "CurrencyAndAmount": CurrencyAndAmount,
-    "CustodianAccount": CustodianAccount,
     "CustomEntityDefinition": CustomEntityDefinition,
     "CustomEntityDefinitionRequest": CustomEntityDefinitionRequest,
     "CustomEntityField": CustomEntityField,
