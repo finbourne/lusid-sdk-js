@@ -86,9 +86,6 @@ export class Allocation {
     * The executions associated with this allocation
     */
     'executionIds'?: Array<ResourceId> | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
