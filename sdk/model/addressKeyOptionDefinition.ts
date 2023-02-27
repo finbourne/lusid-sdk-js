@@ -11,65 +11,63 @@
  */
 
 import { RequestFile } from './models';
-import { Link } from './link';
-import { Portfolio } from './portfolio';
 
 /**
-* A collection of resources that can be returned from requests.
+* The definition of an Address Key Option
 */
-export class ResourceListOfPortfolio {
+export class AddressKeyOptionDefinition {
     /**
-    * The resources to list.
+    * The name of the option
     */
-    'values': Array<Portfolio>;
+    'name': string;
     /**
-    * The URI of the resource list.
+    * The type of the option
     */
-    'href'?: string | null;
+    'type': string;
     /**
-    * Collection of links.
+    * Is this option required or optional?
     */
-    'links'?: Array<Link> | null;
+    'optional': boolean;
     /**
-    * The next page of results.
+    * If the option is a string or enum, the allowed set of values it can take.
     */
-    'nextPage'?: string | null;
+    'allowedValueSet'?: Array<string> | null;
     /**
-    * The previous page of results.
+    * If the option is not required, what is the default value?
     */
-    'previousPage'?: string | null;
+    'defaultValue'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<Portfolio>"
-        },
-        {
-            "name": "href",
-            "baseName": "href",
+            "name": "name",
+            "baseName": "name",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
-        },
-        {
-            "name": "nextPage",
-            "baseName": "nextPage",
+            "name": "type",
+            "baseName": "type",
             "type": "string"
         },
         {
-            "name": "previousPage",
-            "baseName": "previousPage",
+            "name": "optional",
+            "baseName": "optional",
+            "type": "boolean"
+        },
+        {
+            "name": "allowedValueSet",
+            "baseName": "allowedValueSet",
+            "type": "Array<string>"
+        },
+        {
+            "name": "defaultValue",
+            "baseName": "defaultValue",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return ResourceListOfPortfolio.attributeTypeMap;
+        return AddressKeyOptionDefinition.attributeTypeMap;
     }
 }
 
