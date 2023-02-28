@@ -12,26 +12,62 @@
 
 import { RequestFile } from './models';
 
-export class DateRange {
-    'fromDate': Date;
-    'untilDate'?: Date | null;
+/**
+* The definition of an Address Key Option
+*/
+export class AddressKeyOptionDefinition {
+    /**
+    * The name of the option
+    */
+    'name': string;
+    /**
+    * The type of the option
+    */
+    'type': string;
+    /**
+    * Is this option required or optional?
+    */
+    'optional': boolean;
+    /**
+    * If the option is a string or enum, the allowed set of values it can take.
+    */
+    'allowedValueSet'?: Array<string> | null;
+    /**
+    * If the option is not required, what is the default value?
+    */
+    'defaultValue'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "fromDate",
-            "baseName": "fromDate",
-            "type": "Date"
+            "name": "name",
+            "baseName": "name",
+            "type": "string"
         },
         {
-            "name": "untilDate",
-            "baseName": "untilDate",
-            "type": "Date"
+            "name": "type",
+            "baseName": "type",
+            "type": "string"
+        },
+        {
+            "name": "optional",
+            "baseName": "optional",
+            "type": "boolean"
+        },
+        {
+            "name": "allowedValueSet",
+            "baseName": "allowedValueSet",
+            "type": "Array<string>"
+        },
+        {
+            "name": "defaultValue",
+            "baseName": "defaultValue",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return DateRange.attributeTypeMap;
+        return AddressKeyOptionDefinition.attributeTypeMap;
     }
 }
 
