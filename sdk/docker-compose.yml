@@ -27,6 +27,7 @@ services:
       - FBN_PROXY_USERNAME=user
       - FBN_LUSID_API_URL=${FBN_BASE_API_URL}/api
       - FBN_PROXY_PASSWORD=password
+      - FBN_ACCESS_TOKEN
     volumes:
       - .:/usr/src
       - /usr/src/node_modules
