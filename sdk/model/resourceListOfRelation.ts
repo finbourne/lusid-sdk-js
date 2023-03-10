@@ -14,29 +14,11 @@ import { RequestFile } from './models';
 import { Link } from './link';
 import { Relation } from './relation';
 
-/**
-* A collection of resources that can be returned from requests.
-*/
 export class ResourceListOfRelation {
-    /**
-    * The resources to list.
-    */
     'values': Array<Relation>;
-    /**
-    * The URI of the resource list.
-    */
     'href'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
-    /**
-    * The next page of results.
-    */
     'nextPage'?: string | null;
-    /**
-    * The previous page of results.
-    */
     'previousPage'?: string | null;
 
     static discriminator: string | undefined = undefined;
