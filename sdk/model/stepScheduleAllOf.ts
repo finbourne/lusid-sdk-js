@@ -11,102 +11,63 @@
  */
 
 import { RequestFile } from './models';
-import { FixedLegAllOfOverrides } from './fixedLegAllOfOverrides';
-import { LegDefinition } from './legDefinition';
+import { LevelStep } from './levelStep';
 
-export class FloatingLegAllOf {
+export class StepScheduleAllOf {
     /**
-    * The start date of the instrument. This is normally synonymous with the trade-date.
+    * The type of shift or adjustment that the quantity represents.    Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage].
     */
-    'startDate': Date;
+    'levelType': string;
     /**
-    * The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+    * The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread].
     */
-    'maturityDate': Date;
-    'legDefinition': LegDefinition;
+    'stepScheduleType': string;
     /**
-    * Scaling factor to apply to leg quantities.
+    * The level steps which are applied.
     */
-    'notional': number;
-    'overrides'?: FixedLegAllOfOverrides | null;
+    'steps': Array<LevelStep>;
     /**
-    * The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap
+    * The available values are: Fixed, Float, Optionality, Step, Exercise, FxRate, Invalid
     */
-    'instrumentType': FloatingLegAllOf.InstrumentTypeEnum;
+    'scheduleType': StepScheduleAllOf.ScheduleTypeEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "startDate",
-            "baseName": "startDate",
-            "type": "Date"
+            "name": "levelType",
+            "baseName": "levelType",
+            "type": "string"
         },
         {
-            "name": "maturityDate",
-            "baseName": "maturityDate",
-            "type": "Date"
+            "name": "stepScheduleType",
+            "baseName": "stepScheduleType",
+            "type": "string"
         },
         {
-            "name": "legDefinition",
-            "baseName": "legDefinition",
-            "type": "LegDefinition"
+            "name": "steps",
+            "baseName": "steps",
+            "type": "Array<LevelStep>"
         },
         {
-            "name": "notional",
-            "baseName": "notional",
-            "type": "number"
-        },
-        {
-            "name": "overrides",
-            "baseName": "overrides",
-            "type": "FixedLegAllOfOverrides"
-        },
-        {
-            "name": "instrumentType",
-            "baseName": "instrumentType",
-            "type": "FloatingLegAllOf.InstrumentTypeEnum"
+            "name": "scheduleType",
+            "baseName": "scheduleType",
+            "type": "StepScheduleAllOf.ScheduleTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return FloatingLegAllOf.attributeTypeMap;
+        return StepScheduleAllOf.attributeTypeMap;
     }
 }
 
-export namespace FloatingLegAllOf {
-    export enum InstrumentTypeEnum {
-        QuotedSecurity = <any> 'QuotedSecurity',
-        InterestRateSwap = <any> 'InterestRateSwap',
-        FxForward = <any> 'FxForward',
-        Future = <any> 'Future',
-        ExoticInstrument = <any> 'ExoticInstrument',
-        FxOption = <any> 'FxOption',
-        CreditDefaultSwap = <any> 'CreditDefaultSwap',
-        InterestRateSwaption = <any> 'InterestRateSwaption',
-        Bond = <any> 'Bond',
-        EquityOption = <any> 'EquityOption',
-        FixedLeg = <any> 'FixedLeg',
-        FloatingLeg = <any> 'FloatingLeg',
-        BespokeCashFlowsLeg = <any> 'BespokeCashFlowsLeg',
-        Unknown = <any> 'Unknown',
-        TermDeposit = <any> 'TermDeposit',
-        ContractForDifference = <any> 'ContractForDifference',
-        EquitySwap = <any> 'EquitySwap',
-        CashPerpetual = <any> 'CashPerpetual',
-        CapFloor = <any> 'CapFloor',
-        CashSettled = <any> 'CashSettled',
-        CdsIndex = <any> 'CdsIndex',
-        Basket = <any> 'Basket',
-        FundingLeg = <any> 'FundingLeg',
-        FxSwap = <any> 'FxSwap',
-        ForwardRateAgreement = <any> 'ForwardRateAgreement',
-        SimpleInstrument = <any> 'SimpleInstrument',
-        Repo = <any> 'Repo',
-        Equity = <any> 'Equity',
-        ExchangeTradedOption = <any> 'ExchangeTradedOption',
-        ReferenceInstrument = <any> 'ReferenceInstrument',
-        ComplexBond = <any> 'ComplexBond',
-        InflationLinkedBond = <any> 'InflationLinkedBond',
-        InflationSwap = <any> 'InflationSwap'
+export namespace StepScheduleAllOf {
+    export enum ScheduleTypeEnum {
+        Fixed = <any> 'Fixed',
+        Float = <any> 'Float',
+        Optionality = <any> 'Optionality',
+        Step = <any> 'Step',
+        Exercise = <any> 'Exercise',
+        FxRate = <any> 'FxRate',
+        Invalid = <any> 'Invalid'
     }
 }
