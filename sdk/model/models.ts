@@ -13,6 +13,7 @@ export * from './actionResultOfPortfolio';
 export * from './addBusinessDaysToDateRequest';
 export * from './addBusinessDaysToDateResponse';
 export * from './addressDefinition';
+export * from './addressKeyFilter';
 export * from './adjustHolding';
 export * from './adjustHoldingForDateRequest';
 export * from './adjustHoldingRequest';
@@ -57,6 +58,8 @@ export * from './cashFlowEventAllOf';
 export * from './cashFlowLineage';
 export * from './cashFlowValue';
 export * from './cashFlowValueAllOf';
+export * from './cashFlowValueSet';
+export * from './cashFlowValueSetAllOf';
 export * from './cashLadderRecord';
 export * from './cashPerpetual';
 export * from './cashPerpetualAllOf';
@@ -428,8 +431,22 @@ export * from './resultDataKeyRuleAllOf';
 export * from './resultDataSchema';
 export * from './resultKeyRule';
 export * from './resultValue';
+export * from './resultValue0D';
+export * from './resultValue0DAllOf';
+export * from './resultValueBool';
+export * from './resultValueBoolAllOf';
+export * from './resultValueCurrency';
+export * from './resultValueCurrencyAllOf';
+export * from './resultValueDateTimeOffset';
+export * from './resultValueDateTimeOffsetAllOf';
+export * from './resultValueDecimal';
+export * from './resultValueDecimalAllOf';
 export * from './resultValueDictionary';
 export * from './resultValueDictionaryAllOf';
+export * from './resultValueInt';
+export * from './resultValueIntAllOf';
+export * from './resultValueString';
+export * from './resultValueStringAllOf';
 export * from './schedule';
 export * from './schema';
 export * from './scopeDefinition';
@@ -554,6 +571,7 @@ import { ActionResultOfPortfolio } from './actionResultOfPortfolio';
 import { AddBusinessDaysToDateRequest } from './addBusinessDaysToDateRequest';
 import { AddBusinessDaysToDateResponse } from './addBusinessDaysToDateResponse';
 import { AddressDefinition } from './addressDefinition';
+import { AddressKeyFilter } from './addressKeyFilter';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingForDateRequest } from './adjustHoldingForDateRequest';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
@@ -598,6 +616,8 @@ import { CashFlowEventAllOf } from './cashFlowEventAllOf';
 import { CashFlowLineage } from './cashFlowLineage';
 import { CashFlowValue } from './cashFlowValue';
 import { CashFlowValueAllOf } from './cashFlowValueAllOf';
+import { CashFlowValueSet } from './cashFlowValueSet';
+import { CashFlowValueSetAllOf } from './cashFlowValueSetAllOf';
 import { CashLadderRecord } from './cashLadderRecord';
 import { CashPerpetual } from './cashPerpetual';
 import { CashPerpetualAllOf } from './cashPerpetualAllOf';
@@ -969,8 +989,22 @@ import { ResultDataKeyRuleAllOf } from './resultDataKeyRuleAllOf';
 import { ResultDataSchema } from './resultDataSchema';
 import { ResultKeyRule } from './resultKeyRule';
 import { ResultValue } from './resultValue';
+import { ResultValue0D } from './resultValue0D';
+import { ResultValue0DAllOf } from './resultValue0DAllOf';
+import { ResultValueBool } from './resultValueBool';
+import { ResultValueBoolAllOf } from './resultValueBoolAllOf';
+import { ResultValueCurrency } from './resultValueCurrency';
+import { ResultValueCurrencyAllOf } from './resultValueCurrencyAllOf';
+import { ResultValueDateTimeOffset } from './resultValueDateTimeOffset';
+import { ResultValueDateTimeOffsetAllOf } from './resultValueDateTimeOffsetAllOf';
+import { ResultValueDecimal } from './resultValueDecimal';
+import { ResultValueDecimalAllOf } from './resultValueDecimalAllOf';
 import { ResultValueDictionary } from './resultValueDictionary';
 import { ResultValueDictionaryAllOf } from './resultValueDictionaryAllOf';
+import { ResultValueInt } from './resultValueInt';
+import { ResultValueIntAllOf } from './resultValueIntAllOf';
+import { ResultValueString } from './resultValueString';
+import { ResultValueStringAllOf } from './resultValueStringAllOf';
 import { Schedule } from './schedule';
 import { Schema } from './schema';
 import { ScopeDefinition } from './scopeDefinition';
@@ -1103,6 +1137,8 @@ let enumsMap: {[index: string]: any} = {
         "CashFlowEventAllOf.InstrumentEventTypeEnum": CashFlowEventAllOf.InstrumentEventTypeEnum,
         "CashFlowValue.ResultValueTypeEnum": CashFlowValue.ResultValueTypeEnum,
         "CashFlowValueAllOf.ResultValueTypeEnum": CashFlowValueAllOf.ResultValueTypeEnum,
+        "CashFlowValueSet.ResultValueTypeEnum": CashFlowValueSet.ResultValueTypeEnum,
+        "CashFlowValueSetAllOf.ResultValueTypeEnum": CashFlowValueSetAllOf.ResultValueTypeEnum,
         "CashPerpetual.InstrumentTypeEnum": CashPerpetual.InstrumentTypeEnum,
         "CashPerpetualAllOf.InstrumentTypeEnum": CashPerpetualAllOf.InstrumentTypeEnum,
         "CdsIndex.InstrumentTypeEnum": CdsIndex.InstrumentTypeEnum,
@@ -1284,8 +1320,22 @@ let enumsMap: {[index: string]: any} = {
         "ResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum": ResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum,
         "ResultKeyRule.ResultKeyRuleTypeEnum": ResultKeyRule.ResultKeyRuleTypeEnum,
         "ResultValue.ResultValueTypeEnum": ResultValue.ResultValueTypeEnum,
+        "ResultValue0D.ResultValueTypeEnum": ResultValue0D.ResultValueTypeEnum,
+        "ResultValue0DAllOf.ResultValueTypeEnum": ResultValue0DAllOf.ResultValueTypeEnum,
+        "ResultValueBool.ResultValueTypeEnum": ResultValueBool.ResultValueTypeEnum,
+        "ResultValueBoolAllOf.ResultValueTypeEnum": ResultValueBoolAllOf.ResultValueTypeEnum,
+        "ResultValueCurrency.ResultValueTypeEnum": ResultValueCurrency.ResultValueTypeEnum,
+        "ResultValueCurrencyAllOf.ResultValueTypeEnum": ResultValueCurrencyAllOf.ResultValueTypeEnum,
+        "ResultValueDateTimeOffset.ResultValueTypeEnum": ResultValueDateTimeOffset.ResultValueTypeEnum,
+        "ResultValueDateTimeOffsetAllOf.ResultValueTypeEnum": ResultValueDateTimeOffsetAllOf.ResultValueTypeEnum,
+        "ResultValueDecimal.ResultValueTypeEnum": ResultValueDecimal.ResultValueTypeEnum,
+        "ResultValueDecimalAllOf.ResultValueTypeEnum": ResultValueDecimalAllOf.ResultValueTypeEnum,
         "ResultValueDictionary.ResultValueTypeEnum": ResultValueDictionary.ResultValueTypeEnum,
         "ResultValueDictionaryAllOf.ResultValueTypeEnum": ResultValueDictionaryAllOf.ResultValueTypeEnum,
+        "ResultValueInt.ResultValueTypeEnum": ResultValueInt.ResultValueTypeEnum,
+        "ResultValueIntAllOf.ResultValueTypeEnum": ResultValueIntAllOf.ResultValueTypeEnum,
+        "ResultValueString.ResultValueTypeEnum": ResultValueString.ResultValueTypeEnum,
+        "ResultValueStringAllOf.ResultValueTypeEnum": ResultValueStringAllOf.ResultValueTypeEnum,
         "Schedule.ScheduleTypeEnum": Schedule.ScheduleTypeEnum,
         "SimpleInstrument.AssetClassEnum": SimpleInstrument.AssetClassEnum,
         "SimpleInstrument.InstrumentTypeEnum": SimpleInstrument.InstrumentTypeEnum,
@@ -1329,6 +1379,7 @@ let typeMap: {[index: string]: any} = {
     "AddBusinessDaysToDateRequest": AddBusinessDaysToDateRequest,
     "AddBusinessDaysToDateResponse": AddBusinessDaysToDateResponse,
     "AddressDefinition": AddressDefinition,
+    "AddressKeyFilter": AddressKeyFilter,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingForDateRequest": AdjustHoldingForDateRequest,
     "AdjustHoldingRequest": AdjustHoldingRequest,
@@ -1373,6 +1424,8 @@ let typeMap: {[index: string]: any} = {
     "CashFlowLineage": CashFlowLineage,
     "CashFlowValue": CashFlowValue,
     "CashFlowValueAllOf": CashFlowValueAllOf,
+    "CashFlowValueSet": CashFlowValueSet,
+    "CashFlowValueSetAllOf": CashFlowValueSetAllOf,
     "CashLadderRecord": CashLadderRecord,
     "CashPerpetual": CashPerpetual,
     "CashPerpetualAllOf": CashPerpetualAllOf,
@@ -1743,8 +1796,22 @@ let typeMap: {[index: string]: any} = {
     "ResultDataSchema": ResultDataSchema,
     "ResultKeyRule": ResultKeyRule,
     "ResultValue": ResultValue,
+    "ResultValue0D": ResultValue0D,
+    "ResultValue0DAllOf": ResultValue0DAllOf,
+    "ResultValueBool": ResultValueBool,
+    "ResultValueBoolAllOf": ResultValueBoolAllOf,
+    "ResultValueCurrency": ResultValueCurrency,
+    "ResultValueCurrencyAllOf": ResultValueCurrencyAllOf,
+    "ResultValueDateTimeOffset": ResultValueDateTimeOffset,
+    "ResultValueDateTimeOffsetAllOf": ResultValueDateTimeOffsetAllOf,
+    "ResultValueDecimal": ResultValueDecimal,
+    "ResultValueDecimalAllOf": ResultValueDecimalAllOf,
     "ResultValueDictionary": ResultValueDictionary,
     "ResultValueDictionaryAllOf": ResultValueDictionaryAllOf,
+    "ResultValueInt": ResultValueInt,
+    "ResultValueIntAllOf": ResultValueIntAllOf,
+    "ResultValueString": ResultValueString,
+    "ResultValueStringAllOf": ResultValueStringAllOf,
     "Schedule": Schedule,
     "Schema": Schema,
     "ScopeDefinition": ScopeDefinition,
