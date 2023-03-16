@@ -11,138 +11,63 @@
  */
 
 import { RequestFile } from './models';
-import { CreateUnitDefinition } from './createUnitDefinition';
-import { ReferenceData } from './referenceData';
 
-export class CreateDataTypeRequest {
+/**
+* The definition of an Address Key Option
+*/
+export class AddressKeyOptionDefinition {
     /**
-    * The scope that the data type will be created in.
+    * The name of the option
     */
-    'scope': string;
+    'name': string;
     /**
-    * The code of the data type. Together with the scope this uniquely defines the data type.
+    * The type of the option
     */
-    'code': string;
+    'type': string;
     /**
-    * Indicates the range of data acceptable by a data type. The available values are: Open, Closed
+    * Is this option required or optional?
     */
-    'typeValueRange': CreateDataTypeRequest.TypeValueRangeEnum;
+    'optional': boolean;
     /**
-    * The display name of the data type.
+    * If the option is a string or enum, the allowed set of values it can take.
     */
-    'displayName': string;
+    'allowedValueSet'?: Array<string> | null;
     /**
-    * The description of the data type.
+    * If the option is not required, what is the default value?
     */
-    'description': string;
-    /**
-    * The expected type of the values. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText
-    */
-    'valueType': CreateDataTypeRequest.ValueTypeEnum;
-    /**
-    * The acceptable set of values for this data type. Only applies to \'open\' value type range.
-    */
-    'acceptableValues'?: Array<string> | null;
-    /**
-    * The schema of the data type\'s units. The available values are: NoUnits, Basic, Iso4217Currency
-    */
-    'unitSchema'?: CreateDataTypeRequest.UnitSchemaEnum;
-    /**
-    * The definitions of the acceptable units.
-    */
-    'acceptableUnits'?: Array<CreateUnitDefinition> | null;
-    'referenceData'?: ReferenceData;
+    'defaultValue'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "scope",
-            "baseName": "scope",
+            "name": "name",
+            "baseName": "name",
             "type": "string"
         },
         {
-            "name": "code",
-            "baseName": "code",
+            "name": "type",
+            "baseName": "type",
             "type": "string"
         },
         {
-            "name": "typeValueRange",
-            "baseName": "typeValueRange",
-            "type": "CreateDataTypeRequest.TypeValueRangeEnum"
+            "name": "optional",
+            "baseName": "optional",
+            "type": "boolean"
         },
         {
-            "name": "displayName",
-            "baseName": "displayName",
-            "type": "string"
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string"
-        },
-        {
-            "name": "valueType",
-            "baseName": "valueType",
-            "type": "CreateDataTypeRequest.ValueTypeEnum"
-        },
-        {
-            "name": "acceptableValues",
-            "baseName": "acceptableValues",
+            "name": "allowedValueSet",
+            "baseName": "allowedValueSet",
             "type": "Array<string>"
         },
         {
-            "name": "unitSchema",
-            "baseName": "unitSchema",
-            "type": "CreateDataTypeRequest.UnitSchemaEnum"
-        },
-        {
-            "name": "acceptableUnits",
-            "baseName": "acceptableUnits",
-            "type": "Array<CreateUnitDefinition>"
-        },
-        {
-            "name": "referenceData",
-            "baseName": "referenceData",
-            "type": "ReferenceData"
+            "name": "defaultValue",
+            "baseName": "defaultValue",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateDataTypeRequest.attributeTypeMap;
+        return AddressKeyOptionDefinition.attributeTypeMap;
     }
 }
 
-export namespace CreateDataTypeRequest {
-    export enum TypeValueRangeEnum {
-        Open = <any> 'Open',
-        Closed = <any> 'Closed'
-    }
-    export enum ValueTypeEnum {
-        String = <any> 'String',
-        Int = <any> 'Int',
-        Decimal = <any> 'Decimal',
-        DateTime = <any> 'DateTime',
-        Boolean = <any> 'Boolean',
-        Map = <any> 'Map',
-        List = <any> 'List',
-        PropertyArray = <any> 'PropertyArray',
-        Percentage = <any> 'Percentage',
-        Code = <any> 'Code',
-        Id = <any> 'Id',
-        Uri = <any> 'Uri',
-        CurrencyAndAmount = <any> 'CurrencyAndAmount',
-        TradePrice = <any> 'TradePrice',
-        Currency = <any> 'Currency',
-        MetricValue = <any> 'MetricValue',
-        ResourceId = <any> 'ResourceId',
-        ResultValue = <any> 'ResultValue',
-        CutLocalTime = <any> 'CutLocalTime',
-        DateOrCutLabel = <any> 'DateOrCutLabel',
-        UnindexedText = <any> 'UnindexedText'
-    }
-    export enum UnitSchemaEnum {
-        NoUnits = <any> 'NoUnits',
-        Basic = <any> 'Basic',
-        Iso4217Currency = <any> 'Iso4217Currency'
-    }
-}
