@@ -11,25 +11,54 @@
  */
 
 import { RequestFile } from './models';
-import { Property } from './property';
+import { ErrorDetail } from './errorDetail';
+import { LegalEntity } from './legalEntity';
+import { Link } from './link';
 
-export class SetLegalEntityPropertiesRequest {
+export class UpsertLegalEntitiesResponse {
     /**
-    * Properties to set for a Legal Entity. All time-variant properties must have same EffectiveFrom date. Properties not included in the request will not be amended.
+    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
     */
-    'properties'?: { [key: string]: Property; } | null;
+    'href'?: string | null;
+    /**
+    * The legal entities which have been successfully updated or created.
+    */
+    'values'?: { [key: string]: LegalEntity; } | null;
+    /**
+    * The legal entities that could not be updated or created or were left unchanged without error along with a reason for their failure.
+    */
+    'failed'?: { [key: string]: ErrorDetail; } | null;
+    /**
+    * Collection of links.
+    */
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "{ [key: string]: Property; }"
+            "name": "href",
+            "baseName": "href",
+            "type": "string"
+        },
+        {
+            "name": "values",
+            "baseName": "values",
+            "type": "{ [key: string]: LegalEntity; }"
+        },
+        {
+            "name": "failed",
+            "baseName": "failed",
+            "type": "{ [key: string]: ErrorDetail; }"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return SetLegalEntityPropertiesRequest.attributeTypeMap;
+        return UpsertLegalEntitiesResponse.attributeTypeMap;
     }
 }
 
