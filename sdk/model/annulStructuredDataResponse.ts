@@ -30,9 +30,6 @@ export class AnnulStructuredDataResponse {
     * The set of values where removal failed, with a description as to why that is the case, e.g. badly formed request
     */
     'failed'?: { [key: string]: ErrorDetail; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

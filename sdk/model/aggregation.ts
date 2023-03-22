@@ -24,9 +24,6 @@ export class Aggregation {
     'aggregationCurrency'?: string | null;
     'dataSchema'?: ResultDataSchema;
     'aggregationFailures'?: Array<AggregationMeasureFailureDetail> | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
