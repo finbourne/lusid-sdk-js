@@ -23,9 +23,6 @@ export class AggregatedReturnsResponse {
     * Aggregated returns grouped by ReturnId
     */
     'results'?: { [key: string]: Array<AggregatedReturn>; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

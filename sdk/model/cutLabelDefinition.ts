@@ -21,9 +21,6 @@ export class CutLabelDefinition {
     'cutLocalTime'?: CutLocalTime;
     'timeZone'?: string | null;
     'href'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
