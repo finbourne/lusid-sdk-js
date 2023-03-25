@@ -37,9 +37,6 @@ export class CorporateActionSource {
     * The list of instrument scopes used as the scope resolution strategy when resolving instruments of upserted corporate actions.
     */
     'instrumentScopes'?: Array<string> | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
