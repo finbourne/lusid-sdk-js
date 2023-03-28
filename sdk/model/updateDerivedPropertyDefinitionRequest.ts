@@ -11,45 +11,49 @@
  */
 
 import { RequestFile } from './models';
-import { PerpetualProperty } from './perpetualProperty';
-import { TransactionConfigurationMovementData } from './transactionConfigurationMovementData';
-import { TransactionConfigurationTypeAlias } from './transactionConfigurationTypeAlias';
+import { ResourceId } from './resourceId';
 
-export class TransactionConfigurationData {
+export class UpdateDerivedPropertyDefinitionRequest {
     /**
-    * List of transaction types that map to this specific transaction configuration
+    * The display name of the property.
     */
-    'aliases': Array<TransactionConfigurationTypeAlias>;
+    'displayName': string;
+    'dataTypeId': ResourceId;
     /**
-    * Movement data for the transaction type
+    * Describes the property
     */
-    'movements': Array<TransactionConfigurationMovementData>;
+    'propertyDescription'?: string | null;
     /**
-    * Properties attached to the transaction type
+    * The rule that defines how data is composed for a derived property.
     */
-    'properties'?: { [key: string]: PerpetualProperty; } | null;
+    'derivationFormula': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "aliases",
-            "baseName": "aliases",
-            "type": "Array<TransactionConfigurationTypeAlias>"
+            "name": "displayName",
+            "baseName": "displayName",
+            "type": "string"
         },
         {
-            "name": "movements",
-            "baseName": "movements",
-            "type": "Array<TransactionConfigurationMovementData>"
+            "name": "dataTypeId",
+            "baseName": "dataTypeId",
+            "type": "ResourceId"
         },
         {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "{ [key: string]: PerpetualProperty; }"
+            "name": "propertyDescription",
+            "baseName": "propertyDescription",
+            "type": "string"
+        },
+        {
+            "name": "derivationFormula",
+            "baseName": "derivationFormula",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return TransactionConfigurationData.attributeTypeMap;
+        return UpdateDerivedPropertyDefinitionRequest.attributeTypeMap;
     }
 }
 
