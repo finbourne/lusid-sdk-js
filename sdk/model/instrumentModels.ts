@@ -11,22 +11,46 @@
  */
 
 import { RequestFile } from './models';
-import { ResourceId } from './resourceId';
+import { Link } from './link';
 
-export class CreatePortfolioDetails {
-    'corporateActionSourceId'?: ResourceId;
+/**
+* Supported pricing models for an instrument.
+*/
+export class InstrumentModels {
+    /**
+    * The unique LUSID Instrument Identifier (LUID) of the instrument.
+    */
+    'instrumentId'?: string | null;
+    /**
+    * The pricing models supported by the instrument e.g. \'Discounting\'.
+    */
+    'supportedModels'?: Array<string> | null;
+    /**
+    * Collection of links.
+    */
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "corporateActionSourceId",
-            "baseName": "corporateActionSourceId",
-            "type": "ResourceId"
+            "name": "instrumentId",
+            "baseName": "instrumentId",
+            "type": "string"
+        },
+        {
+            "name": "supportedModels",
+            "baseName": "supportedModels",
+            "type": "Array<string>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return CreatePortfolioDetails.attributeTypeMap;
+        return InstrumentModels.attributeTypeMap;
     }
 }
 
