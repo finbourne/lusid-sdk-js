@@ -11,140 +11,32 @@
  */
 
 import { RequestFile } from './models';
-import { A2BCategory } from './a2BCategory';
-import { PerpetualProperty } from './perpetualProperty';
-import { Property } from './property';
-import { ResourceId } from './resourceId';
-import { ResponseMetaData } from './responseMetaData';
 
 /**
-* A2B Record - shows values on, and changes between two dates: A and B
+* Base class for representing market data options in LUSID.  Abstractly, these are any options that one should be able to specify for ComplexMarketData entities.  For example, CurveOptions allows one to decide how the data provided in a discountFactorCurve is interpolated.  This base class should not be directly instantiated;  each supported MarketDataOptionsType has a corresponding inherited class.
 */
-export class A2BDataRecord {
-    'portfolioId'?: ResourceId;
+export class MarketDataOptions {
     /**
-    * The code for the type of the holding e.g. P, B, C, R, F etc.
+    * The available values are: CurveOptions
     */
-    'holdingType'?: string | null;
-    /**
-    * The unique Lusid Instrument Id (LUID) of the instrument that the holding is in.
-    */
-    'instrumentScope'?: string | null;
-    /**
-    * The unique Lusid Instrument Id (LUID) of the instrument that the holding is in.
-    */
-    'instrumentUid'?: string | null;
-    /**
-    * The sub-holding properties which identify the holding. Each property will be from the \'Transaction\' domain. These are configured on a transaction portfolio.
-    */
-    'subHoldingKeys'?: { [key: string]: PerpetualProperty; } | null;
-    /**
-    * The holding currency.
-    */
-    'currency'?: string | null;
-    /**
-    * The unique identifier for the transaction.
-    */
-    'transactionId'?: string | null;
-    'start'?: A2BCategory;
-    'flows'?: A2BCategory;
-    'gains'?: A2BCategory;
-    'carry'?: A2BCategory;
-    'end'?: A2BCategory;
-    /**
-    * The properties which have been requested to be decorated onto the holding. These will be from the \'Instrument\' domain.
-    */
-    'properties'?: { [key: string]: Property; } | null;
-    /**
-    * Arbitrary string that can be used to cross reference an entry in the A2B report with activity in the A2B-Movements. This should be used purely as a token. The content should not be relied upon.
-    */
-    'groupId'?: string | null;
-    /**
-    * Any errors with the record are reported here.
-    */
-    'errors'?: Array<ResponseMetaData> | null;
+    'marketDataOptionsType': MarketDataOptions.MarketDataOptionsTypeEnum;
 
-    static discriminator: string | undefined = undefined;
+    static discriminator: string | undefined = "marketDataOptionsType";
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "portfolioId",
-            "baseName": "portfolioId",
-            "type": "ResourceId"
-        },
-        {
-            "name": "holdingType",
-            "baseName": "holdingType",
-            "type": "string"
-        },
-        {
-            "name": "instrumentScope",
-            "baseName": "instrumentScope",
-            "type": "string"
-        },
-        {
-            "name": "instrumentUid",
-            "baseName": "instrumentUid",
-            "type": "string"
-        },
-        {
-            "name": "subHoldingKeys",
-            "baseName": "subHoldingKeys",
-            "type": "{ [key: string]: PerpetualProperty; }"
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "string"
-        },
-        {
-            "name": "transactionId",
-            "baseName": "transactionId",
-            "type": "string"
-        },
-        {
-            "name": "start",
-            "baseName": "start",
-            "type": "A2BCategory"
-        },
-        {
-            "name": "flows",
-            "baseName": "flows",
-            "type": "A2BCategory"
-        },
-        {
-            "name": "gains",
-            "baseName": "gains",
-            "type": "A2BCategory"
-        },
-        {
-            "name": "carry",
-            "baseName": "carry",
-            "type": "A2BCategory"
-        },
-        {
-            "name": "end",
-            "baseName": "end",
-            "type": "A2BCategory"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "{ [key: string]: Property; }"
-        },
-        {
-            "name": "groupId",
-            "baseName": "groupId",
-            "type": "string"
-        },
-        {
-            "name": "errors",
-            "baseName": "errors",
-            "type": "Array<ResponseMetaData>"
+            "name": "marketDataOptionsType",
+            "baseName": "marketDataOptionsType",
+            "type": "MarketDataOptions.MarketDataOptionsTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return A2BDataRecord.attributeTypeMap;
+        return MarketDataOptions.attributeTypeMap;
     }
 }
 
+export namespace MarketDataOptions {
+    export enum MarketDataOptionsTypeEnum {
+        CurveOptions = <any> 'CurveOptions'
+    }
+}

@@ -280,6 +280,7 @@ export * from './mappingRule';
 export * from './marketContext';
 export * from './marketContextSuppliers';
 export * from './marketDataKeyRule';
+export * from './marketDataOptions';
 export * from './marketDataOverrides';
 export * from './marketDataSpecificRule';
 export * from './marketOptions';
@@ -842,6 +843,7 @@ import { MappingRule } from './mappingRule';
 import { MarketContext } from './marketContext';
 import { MarketContextSuppliers } from './marketContextSuppliers';
 import { MarketDataKeyRule } from './marketDataKeyRule';
+import { MarketDataOptions } from './marketDataOptions';
 import { MarketDataOverrides } from './marketDataOverrides';
 import { MarketDataSpecificRule } from './marketDataSpecificRule';
 import { MarketOptions } from './marketOptions';
@@ -1268,6 +1270,7 @@ let enumsMap: {[index: string]: any} = {
         "LifeCycleEventValueAllOf.ResultValueTypeEnum": LifeCycleEventValueAllOf.ResultValueTypeEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
         "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
+        "MarketDataOptions.MarketDataOptionsTypeEnum": MarketDataOptions.MarketDataOptionsTypeEnum,
         "MarketDataSpecificRule.QuoteTypeEnum": MarketDataSpecificRule.QuoteTypeEnum,
         "MarketQuote.QuoteTypeEnum": MarketQuote.QuoteTypeEnum,
         "ModelOptions.ModelOptionsTypeEnum": ModelOptions.ModelOptionsTypeEnum,
@@ -1653,6 +1656,7 @@ let typeMap: {[index: string]: any} = {
     "MarketContext": MarketContext,
     "MarketContextSuppliers": MarketContextSuppliers,
     "MarketDataKeyRule": MarketDataKeyRule,
+    "MarketDataOptions": MarketDataOptions,
     "MarketDataOverrides": MarketDataOverrides,
     "MarketDataSpecificRule": MarketDataSpecificRule,
     "MarketOptions": MarketOptions,
