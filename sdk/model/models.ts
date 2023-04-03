@@ -1282,7 +1282,6 @@ let enumsMap: {[index: string]: any} = {
         "OpaqueModelOptionsAllOf.ModelOptionsTypeEnum": OpaqueModelOptionsAllOf.ModelOptionsTypeEnum,
         "OpenEvent.InstrumentEventTypeEnum": OpenEvent.InstrumentEventTypeEnum,
         "OpenEventAllOf.InstrumentEventTypeEnum": OpenEventAllOf.InstrumentEventTypeEnum,
-        "Operation.OpEnum": Operation.OpEnum,
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
