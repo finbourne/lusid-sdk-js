@@ -19,7 +19,6 @@ import {LegalEntitiesApi} from './api/legalEntitiesApi';
 import {OrdersApi} from './api/ordersApi';
 import {ParticipationsApi} from './api/participationsApi';
 import {PersonsApi} from './api/personsApi';
-import {PlacementsApi} from './api/placementsApi';
 import {PortfolioGroupsApi} from './api/portfolioGroupsApi';
 import {PortfoliosApi} from './api/portfoliosApi';
 import {PropertyDefinitionsApi} from './api/propertyDefinitionsApi';
@@ -57,7 +56,6 @@ export class Api {
     public orders:  OrdersApi
     public participations:  ParticipationsApi
     public persons:  PersonsApi
-    public placements:  PlacementsApi
     public portfolioGroups:  PortfolioGroupsApi
     public portfolios:  PortfoliosApi
     public propertyDefinitions:  PropertyDefinitionsApi
