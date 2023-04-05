@@ -318,6 +318,7 @@ export * from './pagedResourceListOfLegalEntity';
 export * from './pagedResourceListOfOrder';
 export * from './pagedResourceListOfParticipation';
 export * from './pagedResourceListOfPerson';
+export * from './pagedResourceListOfPlacement';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
@@ -330,6 +331,9 @@ export * from './performanceReturn';
 export * from './performanceReturnsMetric';
 export * from './perpetualProperty';
 export * from './person';
+export * from './placement';
+export * from './placementRequest';
+export * from './placementSetRequest';
 export * from './portfolio';
 export * from './portfolioCashFlow';
 export * from './portfolioCashLadder';
@@ -413,6 +417,7 @@ export * from './resourceListOfOrder';
 export * from './resourceListOfParticipation';
 export * from './resourceListOfPerformanceReturn';
 export * from './resourceListOfPerson';
+export * from './resourceListOfPlacement';
 export * from './resourceListOfPortfolio';
 export * from './resourceListOfPortfolioCashFlow';
 export * from './resourceListOfPortfolioCashLadder';
@@ -881,6 +886,7 @@ import { PagedResourceListOfLegalEntity } from './pagedResourceListOfLegalEntity
 import { PagedResourceListOfOrder } from './pagedResourceListOfOrder';
 import { PagedResourceListOfParticipation } from './pagedResourceListOfParticipation';
 import { PagedResourceListOfPerson } from './pagedResourceListOfPerson';
+import { PagedResourceListOfPlacement } from './pagedResourceListOfPlacement';
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
@@ -893,6 +899,9 @@ import { PerformanceReturn } from './performanceReturn';
 import { PerformanceReturnsMetric } from './performanceReturnsMetric';
 import { PerpetualProperty } from './perpetualProperty';
 import { Person } from './person';
+import { Placement } from './placement';
+import { PlacementRequest } from './placementRequest';
+import { PlacementSetRequest } from './placementSetRequest';
 import { Portfolio } from './portfolio';
 import { PortfolioCashFlow } from './portfolioCashFlow';
 import { PortfolioCashLadder } from './portfolioCashLadder';
@@ -976,6 +985,7 @@ import { ResourceListOfOrder } from './resourceListOfOrder';
 import { ResourceListOfParticipation } from './resourceListOfParticipation';
 import { ResourceListOfPerformanceReturn } from './resourceListOfPerformanceReturn';
 import { ResourceListOfPerson } from './resourceListOfPerson';
+import { ResourceListOfPlacement } from './resourceListOfPlacement';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
 import { ResourceListOfPortfolioCashFlow } from './resourceListOfPortfolioCashFlow';
 import { ResourceListOfPortfolioCashLadder } from './resourceListOfPortfolioCashLadder';
@@ -1694,6 +1704,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfOrder": PagedResourceListOfOrder,
     "PagedResourceListOfParticipation": PagedResourceListOfParticipation,
     "PagedResourceListOfPerson": PagedResourceListOfPerson,
+    "PagedResourceListOfPlacement": PagedResourceListOfPlacement,
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
@@ -1706,6 +1717,9 @@ let typeMap: {[index: string]: any} = {
     "PerformanceReturnsMetric": PerformanceReturnsMetric,
     "PerpetualProperty": PerpetualProperty,
     "Person": Person,
+    "Placement": Placement,
+    "PlacementRequest": PlacementRequest,
+    "PlacementSetRequest": PlacementSetRequest,
     "Portfolio": Portfolio,
     "PortfolioCashFlow": PortfolioCashFlow,
     "PortfolioCashLadder": PortfolioCashLadder,
@@ -1789,6 +1803,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfParticipation": ResourceListOfParticipation,
     "ResourceListOfPerformanceReturn": ResourceListOfPerformanceReturn,
     "ResourceListOfPerson": ResourceListOfPerson,
+    "ResourceListOfPlacement": ResourceListOfPlacement,
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
     "ResourceListOfPortfolioCashFlow": ResourceListOfPortfolioCashFlow,
     "ResourceListOfPortfolioCashLadder": ResourceListOfPortfolioCashLadder,
