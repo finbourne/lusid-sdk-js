@@ -270,6 +270,7 @@ export * from './lifeCycleEventValueAllOf';
 export * from './link';
 export * from './listAggregationReconciliation';
 export * from './listAggregationResponse';
+export * from './loanPeriod';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
 export * from './lusidUniqueId';
@@ -464,6 +465,8 @@ export * from './setLegalEntityPropertiesRequest';
 export * from './setPersonIdentifiersRequest';
 export * from './setPersonPropertiesRequest';
 export * from './sideConfigurationData';
+export * from './simpleCashFlowLoan';
+export * from './simpleCashFlowLoanAllOf';
 export * from './simpleInstrument';
 export * from './simpleInstrumentAllOf';
 export * from './stepSchedule';
@@ -838,6 +841,7 @@ import { LifeCycleEventValueAllOf } from './lifeCycleEventValueAllOf';
 import { Link } from './link';
 import { ListAggregationReconciliation } from './listAggregationReconciliation';
 import { ListAggregationResponse } from './listAggregationResponse';
+import { LoanPeriod } from './loanPeriod';
 import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidUniqueId } from './lusidUniqueId';
@@ -1032,6 +1036,8 @@ import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesReque
 import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
 import { SetPersonPropertiesRequest } from './setPersonPropertiesRequest';
 import { SideConfigurationData } from './sideConfigurationData';
+import { SimpleCashFlowLoan } from './simpleCashFlowLoan';
+import { SimpleCashFlowLoanAllOf } from './simpleCashFlowLoanAllOf';
 import { SimpleInstrument } from './simpleInstrument';
 import { SimpleInstrumentAllOf } from './simpleInstrumentAllOf';
 import { StepSchedule } from './stepSchedule';
@@ -1358,6 +1364,8 @@ let enumsMap: {[index: string]: any} = {
         "ResultValueString.ResultValueTypeEnum": ResultValueString.ResultValueTypeEnum,
         "ResultValueStringAllOf.ResultValueTypeEnum": ResultValueStringAllOf.ResultValueTypeEnum,
         "Schedule.ScheduleTypeEnum": Schedule.ScheduleTypeEnum,
+        "SimpleCashFlowLoan.InstrumentTypeEnum": SimpleCashFlowLoan.InstrumentTypeEnum,
+        "SimpleCashFlowLoanAllOf.InstrumentTypeEnum": SimpleCashFlowLoanAllOf.InstrumentTypeEnum,
         "SimpleInstrument.AssetClassEnum": SimpleInstrument.AssetClassEnum,
         "SimpleInstrument.InstrumentTypeEnum": SimpleInstrument.InstrumentTypeEnum,
         "SimpleInstrumentAllOf.AssetClassEnum": SimpleInstrumentAllOf.AssetClassEnum,
@@ -1656,6 +1664,7 @@ let typeMap: {[index: string]: any} = {
     "Link": Link,
     "ListAggregationReconciliation": ListAggregationReconciliation,
     "ListAggregationResponse": ListAggregationResponse,
+    "LoanPeriod": LoanPeriod,
     "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
     "LusidUniqueId": LusidUniqueId,
@@ -1850,6 +1859,8 @@ let typeMap: {[index: string]: any} = {
     "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
     "SetPersonPropertiesRequest": SetPersonPropertiesRequest,
     "SideConfigurationData": SideConfigurationData,
+    "SimpleCashFlowLoan": SimpleCashFlowLoan,
+    "SimpleCashFlowLoanAllOf": SimpleCashFlowLoanAllOf,
     "SimpleInstrument": SimpleInstrument,
     "SimpleInstrumentAllOf": SimpleInstrumentAllOf,
     "StepSchedule": StepSchedule,
