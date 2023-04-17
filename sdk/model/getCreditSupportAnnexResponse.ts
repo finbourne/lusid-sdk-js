@@ -25,9 +25,6 @@ export class GetCreditSupportAnnexResponse {
     * The credit support annex that could not be updated or inserted along with a reason for failure.
     */
     'failed'?: { [key: string]: ErrorDetail; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

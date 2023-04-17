@@ -32,9 +32,6 @@ export class HoldingsAdjustment {
     * The holding adjustments.
     */
     'adjustments': Array<HoldingAdjustment>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
