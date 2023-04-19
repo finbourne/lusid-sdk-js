@@ -38,9 +38,6 @@ export class ChangeHistory {
     * The collection of changes that were made.
     */
     'changes': Array<ChangeItem>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
