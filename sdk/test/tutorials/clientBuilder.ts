@@ -1,4 +1,4 @@
-import { AuthenticationMethod, Client, Source } from '../../client/client'
+import { AuthenticationMethod, LusidClient, Source } from '../../client/client'
 
 
 if (process.env["FBN_ACCESS_TOKEN"]) {
@@ -7,7 +7,7 @@ if (process.env["FBN_ACCESS_TOKEN"]) {
   var authMethod = AuthenticationMethod.RefreshingToken
 };
 
-export var client = new Client(
+export var client = new LusidClient(
   [Source.Environment, 'FBN_TOKEN_URL'],
   [Source.Environment, 'FBN_USERNAME'],
   [Source.Environment, 'FBN_PASSWORD'],
