@@ -111,11 +111,11 @@ class Oauth2 {
 
 /*
 To get connected with LUSID all you need to do is create a new client from
-the Client class below. This class handles storage of the location of each
+the LusidClient class below. This class handles storage of the location of each
 of the credentials, OAuth2.0 token refresh logic and is populated with every
 one of LUSIDs APIs and their methods.
 */
-export class Client {
+export class LusidClient {
   // The authentication method to use.
   private authMethod: AuthenticationMethod;
 
