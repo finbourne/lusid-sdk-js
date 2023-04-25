@@ -17,25 +17,10 @@ import { Version } from './version';
 
 export class VersionedResourceListOfA2BMovementRecord {
     'version': Version;
-    /**
-    * The resources to list.
-    */
     'values': Array<A2BMovementRecord>;
-    /**
-    * The URI of the resource list.
-    */
     'href'?: string | null;
-    /**
-    * The next page of results.
-    */
     'nextPage'?: string | null;
-    /**
-    * The previous page of results.
-    */
     'previousPage'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
