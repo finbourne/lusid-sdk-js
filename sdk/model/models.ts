@@ -456,6 +456,7 @@ export * from './resultValueInt';
 export * from './resultValueIntAllOf';
 export * from './resultValueString';
 export * from './resultValueStringAllOf';
+export * from './roundingConvention';
 export * from './schedule';
 export * from './schema';
 export * from './scopeDefinition';
@@ -1027,6 +1028,7 @@ import { ResultValueInt } from './resultValueInt';
 import { ResultValueIntAllOf } from './resultValueIntAllOf';
 import { ResultValueString } from './resultValueString';
 import { ResultValueStringAllOf } from './resultValueStringAllOf';
+import { RoundingConvention } from './roundingConvention';
 import { Schedule } from './schedule';
 import { Schema } from './schema';
 import { ScopeDefinition } from './scopeDefinition';
@@ -1850,6 +1852,7 @@ let typeMap: {[index: string]: any} = {
     "ResultValueIntAllOf": ResultValueIntAllOf,
     "ResultValueString": ResultValueString,
     "ResultValueStringAllOf": ResultValueStringAllOf,
+    "RoundingConvention": RoundingConvention,
     "Schedule": Schedule,
     "Schema": Schema,
     "ScopeDefinition": ScopeDefinition,
