@@ -25,9 +25,6 @@ export class InstrumentModels {
     * The pricing models supported by the instrument e.g. \'Discounting\'.
     */
     'supportedModels'?: Array<string> | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
