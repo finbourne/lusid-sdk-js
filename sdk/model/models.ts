@@ -20,6 +20,7 @@ export * from './adjustHoldingForDateRequest';
 export * from './adjustHoldingRequest';
 export * from './aggregateSpec';
 export * from './aggregatedReturn';
+export * from './aggregatedReturnsDispersionRequest';
 export * from './aggregatedReturnsRequest';
 export * from './aggregatedReturnsResponse';
 export * from './aggregation';
@@ -79,6 +80,8 @@ export * from './complexBond';
 export * from './complexBondAllOf';
 export * from './complexMarketData';
 export * from './complexMarketDataId';
+export * from './compositeDispersion';
+export * from './compositeDispersionResponse';
 export * from './compounding';
 export * from './configurationRecipe';
 export * from './configurationRecipeSnippet';
@@ -592,6 +595,7 @@ import { AdjustHoldingForDateRequest } from './adjustHoldingForDateRequest';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
 import { AggregateSpec } from './aggregateSpec';
 import { AggregatedReturn } from './aggregatedReturn';
+import { AggregatedReturnsDispersionRequest } from './aggregatedReturnsDispersionRequest';
 import { AggregatedReturnsRequest } from './aggregatedReturnsRequest';
 import { AggregatedReturnsResponse } from './aggregatedReturnsResponse';
 import { Aggregation } from './aggregation';
@@ -651,6 +655,8 @@ import { ComplexBond } from './complexBond';
 import { ComplexBondAllOf } from './complexBondAllOf';
 import { ComplexMarketData } from './complexMarketData';
 import { ComplexMarketDataId } from './complexMarketDataId';
+import { CompositeDispersion } from './compositeDispersion';
+import { CompositeDispersionResponse } from './compositeDispersionResponse';
 import { Compounding } from './compounding';
 import { ConfigurationRecipe } from './configurationRecipe';
 import { ConfigurationRecipeSnippet } from './configurationRecipeSnippet';
@@ -1417,6 +1423,7 @@ let typeMap: {[index: string]: any} = {
     "AdjustHoldingRequest": AdjustHoldingRequest,
     "AggregateSpec": AggregateSpec,
     "AggregatedReturn": AggregatedReturn,
+    "AggregatedReturnsDispersionRequest": AggregatedReturnsDispersionRequest,
     "AggregatedReturnsRequest": AggregatedReturnsRequest,
     "AggregatedReturnsResponse": AggregatedReturnsResponse,
     "Aggregation": Aggregation,
@@ -1476,6 +1483,8 @@ let typeMap: {[index: string]: any} = {
     "ComplexBondAllOf": ComplexBondAllOf,
     "ComplexMarketData": ComplexMarketData,
     "ComplexMarketDataId": ComplexMarketDataId,
+    "CompositeDispersion": CompositeDispersion,
+    "CompositeDispersionResponse": CompositeDispersionResponse,
     "Compounding": Compounding,
     "ConfigurationRecipe": ConfigurationRecipe,
     "ConfigurationRecipeSnippet": ConfigurationRecipeSnippet,
