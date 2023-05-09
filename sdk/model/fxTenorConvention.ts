@@ -11,28 +11,36 @@
  */
 
 import { RequestFile } from './models';
-import { BlockRequest } from './blockRequest';
 
 /**
-* A request to create or update multiple Blocks.
+* A wrapper of conventions that should be used when interpreting tenors in the context of FX.  For instance, can be used to control how tenors are interpreted on an FxForwardTenorCurveData instance.
 */
-export class BlockSetRequest {
+export class FxTenorConvention {
     /**
-    * A collection of BlockRequests.
+    * The code of the holiday calendar that should be used when interpreting FX tenors.
     */
-    'requests'?: Array<BlockRequest> | null;
+    'calendarCode': string;
+    /**
+    * The minimum number of business days that must pass within this calendar when calculating the spot date.
+    */
+    'spotDays': number;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "requests",
-            "baseName": "requests",
-            "type": "Array<BlockRequest>"
+            "name": "calendarCode",
+            "baseName": "calendarCode",
+            "type": "string"
+        },
+        {
+            "name": "spotDays",
+            "baseName": "spotDays",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return BlockSetRequest.attributeTypeMap;
+        return FxTenorConvention.attributeTypeMap;
     }
 }
 
