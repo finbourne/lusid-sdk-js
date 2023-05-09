@@ -33,9 +33,6 @@ export class PortfolioCashLadder {
     * The records that could not be returned along with a reason for their failure.
     */
     'failed'?: { [key: string]: ErrorDetail; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
