@@ -211,7 +211,6 @@ export * from './fxOption';
 export * from './fxOptionAllOf';
 export * from './fxSwap';
 export * from './fxSwapAllOf';
-export * from './fxTenorConvention';
 export * from './fxVolSurfaceData';
 export * from './getComplexMarketDataResponse';
 export * from './getCounterpartyAgreementResponse';
@@ -787,7 +786,6 @@ import { FxOption } from './fxOption';
 import { FxOptionAllOf } from './fxOptionAllOf';
 import { FxSwap } from './fxSwap';
 import { FxSwapAllOf } from './fxSwapAllOf';
-import { FxTenorConvention } from './fxTenorConvention';
 import { FxVolSurfaceData } from './fxVolSurfaceData';
 import { GetComplexMarketDataResponse } from './getComplexMarketDataResponse';
 import { GetCounterpartyAgreementResponse } from './getCounterpartyAgreementResponse';
@@ -1615,7 +1613,6 @@ let typeMap: {[index: string]: any} = {
     "FxOptionAllOf": FxOptionAllOf,
     "FxSwap": FxSwap,
     "FxSwapAllOf": FxSwapAllOf,
-    "FxTenorConvention": FxTenorConvention,
     "FxVolSurfaceData": FxVolSurfaceData,
     "GetComplexMarketDataResponse": GetComplexMarketDataResponse,
     "GetCounterpartyAgreementResponse": GetCounterpartyAgreementResponse,
