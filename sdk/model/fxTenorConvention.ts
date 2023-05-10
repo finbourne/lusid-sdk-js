@@ -11,25 +11,36 @@
  */
 
 import { RequestFile } from './models';
-import { Property } from './property';
 
-export class SetPersonPropertiesRequest {
+/**
+* A wrapper of conventions that should be used when interpreting tenors in the context of FX.  For instance, can be used to control how tenors are interpreted on an FxForwardTenorCurveData instance.
+*/
+export class FxTenorConvention {
     /**
-    * Properties to set for a Person. All time-variant properties must have same EffectiveFrom date. Properties not included in the request will not be amended.
+    * The code of the holiday calendar that should be used when interpreting FX tenors.
     */
-    'properties': { [key: string]: Property; };
+    'calendarCode': string;
+    /**
+    * The minimum number of business days that must pass within this calendar when calculating the spot date.
+    */
+    'spotDays': number;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "{ [key: string]: Property; }"
+            "name": "calendarCode",
+            "baseName": "calendarCode",
+            "type": "string"
+        },
+        {
+            "name": "spotDays",
+            "baseName": "spotDays",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return SetPersonPropertiesRequest.attributeTypeMap;
+        return FxTenorConvention.attributeTypeMap;
     }
 }
 
