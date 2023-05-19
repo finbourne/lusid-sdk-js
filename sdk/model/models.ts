@@ -53,6 +53,8 @@ export * from './calendar';
 export * from './calendarDate';
 export * from './capFloor';
 export * from './capFloorAllOf';
+export * from './cashDependency';
+export * from './cashDependencyAllOf';
 export * from './cashDividendEvent';
 export * from './cashDividendEventAllOf';
 export * from './cashFlowEvent';
@@ -143,6 +145,8 @@ export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
 export * from './discountFactorCurveData';
 export * from './discountFactorCurveDataAllOf';
+export * from './discountingDependency';
+export * from './discountingDependencyAllOf';
 export * from './economicDependency';
 export * from './economicDependencyWithComplexMarketData';
 export * from './economicDependencyWithQuote';
@@ -154,12 +158,16 @@ export * from './equityAllOf';
 export * from './equityAllOfIdentifiers';
 export * from './equityCurveByPricesData';
 export * from './equityCurveByPricesDataAllOf';
+export * from './equityCurveDependency';
+export * from './equityCurveDependencyAllOf';
 export * from './equityModelOptions';
 export * from './equityModelOptionsAllOf';
 export * from './equityOption';
 export * from './equityOptionAllOf';
 export * from './equitySwap';
 export * from './equitySwapAllOf';
+export * from './equityVolDependency';
+export * from './equityVolDependencyAllOf';
 export * from './equityVolSurfaceData';
 export * from './equityVolSurfaceDataAllOf';
 export * from './errorDetail';
@@ -193,6 +201,8 @@ export * from './fundingLegAllOf';
 export * from './future';
 export * from './futureAllOf';
 export * from './futuresContractDetails';
+export * from './fxDependency';
+export * from './fxDependencyAllOf';
 export * from './fxForward';
 export * from './fxForwardAllOf';
 export * from './fxForwardCurveByQuoteReference';
@@ -207,11 +217,15 @@ export * from './fxForwardTenorCurveData';
 export * from './fxForwardTenorCurveDataAllOf';
 export * from './fxForwardTenorPipsCurveData';
 export * from './fxForwardTenorPipsCurveDataAllOf';
+export * from './fxForwardsDependency';
+export * from './fxForwardsDependencyAllOf';
 export * from './fxOption';
 export * from './fxOptionAllOf';
 export * from './fxSwap';
 export * from './fxSwapAllOf';
 export * from './fxTenorConvention';
+export * from './fxVolDependency';
+export * from './fxVolDependencyAllOf';
 export * from './fxVolSurfaceData';
 export * from './getComplexMarketDataResponse';
 export * from './getCounterpartyAgreementResponse';
@@ -232,6 +246,8 @@ export * from './identifierPartSchema';
 export * from './indexConvention';
 export * from './indexModelOptions';
 export * from './indexModelOptionsAllOf';
+export * from './indexProjectionDependency';
+export * from './indexProjectionDependencyAllOf';
 export * from './industryClassifier';
 export * from './inflationLinkedBond';
 export * from './inflationLinkedBondAllOf';
@@ -263,6 +279,8 @@ export * from './interestRateSwaption';
 export * from './interestRateSwaptionAllOf';
 export * from './irVolCubeData';
 export * from './irVolCubeDataAllOf';
+export * from './irVolDependency';
+export * from './irVolDependencyAllOf';
 export * from './isBusinessDayResponse';
 export * from './labelValueSet';
 export * from './legDefinition';
@@ -294,6 +312,8 @@ export * from './metricValue';
 export * from './modelOptions';
 export * from './modelSelection';
 export * from './nextValueInSequenceResponse';
+export * from './opaqueDependency';
+export * from './opaqueDependencyAllOf';
 export * from './opaqueMarketData';
 export * from './opaqueMarketDataAllOf';
 export * from './opaqueModelOptions';
@@ -366,6 +386,8 @@ export * from './propertyInterval';
 export * from './propertySchema';
 export * from './propertyValue';
 export * from './quote';
+export * from './quoteDependency';
+export * from './quoteDependencyAllOf';
 export * from './quoteId';
 export * from './quoteSeriesId';
 export * from './rawVendorEvent';
@@ -629,6 +651,8 @@ import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CapFloor } from './capFloor';
 import { CapFloorAllOf } from './capFloorAllOf';
+import { CashDependency } from './cashDependency';
+import { CashDependencyAllOf } from './cashDependencyAllOf';
 import { CashDividendEvent } from './cashDividendEvent';
 import { CashDividendEventAllOf } from './cashDividendEventAllOf';
 import { CashFlowEvent } from './cashFlowEvent';
@@ -719,6 +743,8 @@ import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
 import { DiscountFactorCurveData } from './discountFactorCurveData';
 import { DiscountFactorCurveDataAllOf } from './discountFactorCurveDataAllOf';
+import { DiscountingDependency } from './discountingDependency';
+import { DiscountingDependencyAllOf } from './discountingDependencyAllOf';
 import { EconomicDependency } from './economicDependency';
 import { EconomicDependencyWithComplexMarketData } from './economicDependencyWithComplexMarketData';
 import { EconomicDependencyWithQuote } from './economicDependencyWithQuote';
@@ -730,12 +756,16 @@ import { EquityAllOf } from './equityAllOf';
 import { EquityAllOfIdentifiers } from './equityAllOfIdentifiers';
 import { EquityCurveByPricesData } from './equityCurveByPricesData';
 import { EquityCurveByPricesDataAllOf } from './equityCurveByPricesDataAllOf';
+import { EquityCurveDependency } from './equityCurveDependency';
+import { EquityCurveDependencyAllOf } from './equityCurveDependencyAllOf';
 import { EquityModelOptions } from './equityModelOptions';
 import { EquityModelOptionsAllOf } from './equityModelOptionsAllOf';
 import { EquityOption } from './equityOption';
 import { EquityOptionAllOf } from './equityOptionAllOf';
 import { EquitySwap } from './equitySwap';
 import { EquitySwapAllOf } from './equitySwapAllOf';
+import { EquityVolDependency } from './equityVolDependency';
+import { EquityVolDependencyAllOf } from './equityVolDependencyAllOf';
 import { EquityVolSurfaceData } from './equityVolSurfaceData';
 import { EquityVolSurfaceDataAllOf } from './equityVolSurfaceDataAllOf';
 import { ErrorDetail } from './errorDetail';
@@ -769,6 +799,8 @@ import { FundingLegAllOf } from './fundingLegAllOf';
 import { Future } from './future';
 import { FutureAllOf } from './futureAllOf';
 import { FuturesContractDetails } from './futuresContractDetails';
+import { FxDependency } from './fxDependency';
+import { FxDependencyAllOf } from './fxDependencyAllOf';
 import { FxForward } from './fxForward';
 import { FxForwardAllOf } from './fxForwardAllOf';
 import { FxForwardCurveByQuoteReference } from './fxForwardCurveByQuoteReference';
@@ -783,11 +815,15 @@ import { FxForwardTenorCurveData } from './fxForwardTenorCurveData';
 import { FxForwardTenorCurveDataAllOf } from './fxForwardTenorCurveDataAllOf';
 import { FxForwardTenorPipsCurveData } from './fxForwardTenorPipsCurveData';
 import { FxForwardTenorPipsCurveDataAllOf } from './fxForwardTenorPipsCurveDataAllOf';
+import { FxForwardsDependency } from './fxForwardsDependency';
+import { FxForwardsDependencyAllOf } from './fxForwardsDependencyAllOf';
 import { FxOption } from './fxOption';
 import { FxOptionAllOf } from './fxOptionAllOf';
 import { FxSwap } from './fxSwap';
 import { FxSwapAllOf } from './fxSwapAllOf';
 import { FxTenorConvention } from './fxTenorConvention';
+import { FxVolDependency } from './fxVolDependency';
+import { FxVolDependencyAllOf } from './fxVolDependencyAllOf';
 import { FxVolSurfaceData } from './fxVolSurfaceData';
 import { GetComplexMarketDataResponse } from './getComplexMarketDataResponse';
 import { GetCounterpartyAgreementResponse } from './getCounterpartyAgreementResponse';
@@ -808,6 +844,8 @@ import { IdentifierPartSchema } from './identifierPartSchema';
 import { IndexConvention } from './indexConvention';
 import { IndexModelOptions } from './indexModelOptions';
 import { IndexModelOptionsAllOf } from './indexModelOptionsAllOf';
+import { IndexProjectionDependency } from './indexProjectionDependency';
+import { IndexProjectionDependencyAllOf } from './indexProjectionDependencyAllOf';
 import { IndustryClassifier } from './industryClassifier';
 import { InflationLinkedBond } from './inflationLinkedBond';
 import { InflationLinkedBondAllOf } from './inflationLinkedBondAllOf';
@@ -839,6 +877,8 @@ import { InterestRateSwaption } from './interestRateSwaption';
 import { InterestRateSwaptionAllOf } from './interestRateSwaptionAllOf';
 import { IrVolCubeData } from './irVolCubeData';
 import { IrVolCubeDataAllOf } from './irVolCubeDataAllOf';
+import { IrVolDependency } from './irVolDependency';
+import { IrVolDependencyAllOf } from './irVolDependencyAllOf';
 import { IsBusinessDayResponse } from './isBusinessDayResponse';
 import { LabelValueSet } from './labelValueSet';
 import { LegDefinition } from './legDefinition';
@@ -870,6 +910,8 @@ import { MetricValue } from './metricValue';
 import { ModelOptions } from './modelOptions';
 import { ModelSelection } from './modelSelection';
 import { NextValueInSequenceResponse } from './nextValueInSequenceResponse';
+import { OpaqueDependency } from './opaqueDependency';
+import { OpaqueDependencyAllOf } from './opaqueDependencyAllOf';
 import { OpaqueMarketData } from './opaqueMarketData';
 import { OpaqueMarketDataAllOf } from './opaqueMarketDataAllOf';
 import { OpaqueModelOptions } from './opaqueModelOptions';
@@ -942,6 +984,8 @@ import { PropertyInterval } from './propertyInterval';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { Quote } from './quote';
+import { QuoteDependency } from './quoteDependency';
+import { QuoteDependencyAllOf } from './quoteDependencyAllOf';
 import { QuoteId } from './quoteId';
 import { QuoteSeriesId } from './quoteSeriesId';
 import { RawVendorEvent } from './rawVendorEvent';
@@ -1167,6 +1211,8 @@ let enumsMap: {[index: string]: any} = {
         "BondDefaultEventAllOf.InstrumentEventTypeEnum": BondDefaultEventAllOf.InstrumentEventTypeEnum,
         "CapFloor.InstrumentTypeEnum": CapFloor.InstrumentTypeEnum,
         "CapFloorAllOf.InstrumentTypeEnum": CapFloorAllOf.InstrumentTypeEnum,
+        "CashDependency.DependencyTypeEnum": CashDependency.DependencyTypeEnum,
+        "CashDependencyAllOf.DependencyTypeEnum": CashDependencyAllOf.DependencyTypeEnum,
         "CashDividendEvent.InstrumentEventTypeEnum": CashDividendEvent.InstrumentEventTypeEnum,
         "CashDividendEventAllOf.InstrumentEventTypeEnum": CashDividendEventAllOf.InstrumentEventTypeEnum,
         "CashFlowEvent.InstrumentEventTypeEnum": CashFlowEvent.InstrumentEventTypeEnum,
@@ -1209,6 +1255,8 @@ let enumsMap: {[index: string]: any} = {
         "DayOfWeek": DayOfWeek,
         "DiscountFactorCurveData.MarketDataTypeEnum": DiscountFactorCurveData.MarketDataTypeEnum,
         "DiscountFactorCurveDataAllOf.MarketDataTypeEnum": DiscountFactorCurveDataAllOf.MarketDataTypeEnum,
+        "DiscountingDependency.DependencyTypeEnum": DiscountingDependency.DependencyTypeEnum,
+        "DiscountingDependencyAllOf.DependencyTypeEnum": DiscountingDependencyAllOf.DependencyTypeEnum,
         "EconomicDependency.DependencyTypeEnum": EconomicDependency.DependencyTypeEnum,
         "EmptyModelOptions.ModelOptionsTypeEnum": EmptyModelOptions.ModelOptionsTypeEnum,
         "EmptyModelOptionsAllOf.ModelOptionsTypeEnum": EmptyModelOptionsAllOf.ModelOptionsTypeEnum,
@@ -1216,12 +1264,16 @@ let enumsMap: {[index: string]: any} = {
         "EquityAllOf.InstrumentTypeEnum": EquityAllOf.InstrumentTypeEnum,
         "EquityCurveByPricesData.MarketDataTypeEnum": EquityCurveByPricesData.MarketDataTypeEnum,
         "EquityCurveByPricesDataAllOf.MarketDataTypeEnum": EquityCurveByPricesDataAllOf.MarketDataTypeEnum,
+        "EquityCurveDependency.DependencyTypeEnum": EquityCurveDependency.DependencyTypeEnum,
+        "EquityCurveDependencyAllOf.DependencyTypeEnum": EquityCurveDependencyAllOf.DependencyTypeEnum,
         "EquityModelOptions.ModelOptionsTypeEnum": EquityModelOptions.ModelOptionsTypeEnum,
         "EquityModelOptionsAllOf.ModelOptionsTypeEnum": EquityModelOptionsAllOf.ModelOptionsTypeEnum,
         "EquityOption.InstrumentTypeEnum": EquityOption.InstrumentTypeEnum,
         "EquityOptionAllOf.InstrumentTypeEnum": EquityOptionAllOf.InstrumentTypeEnum,
         "EquitySwap.InstrumentTypeEnum": EquitySwap.InstrumentTypeEnum,
         "EquitySwapAllOf.InstrumentTypeEnum": EquitySwapAllOf.InstrumentTypeEnum,
+        "EquityVolDependency.DependencyTypeEnum": EquityVolDependency.DependencyTypeEnum,
+        "EquityVolDependencyAllOf.DependencyTypeEnum": EquityVolDependencyAllOf.DependencyTypeEnum,
         "EquityVolSurfaceData.MarketDataTypeEnum": EquityVolSurfaceData.MarketDataTypeEnum,
         "EquityVolSurfaceDataAllOf.MarketDataTypeEnum": EquityVolSurfaceDataAllOf.MarketDataTypeEnum,
         "ExchangeTradedOption.InstrumentTypeEnum": ExchangeTradedOption.InstrumentTypeEnum,
@@ -1241,6 +1293,8 @@ let enumsMap: {[index: string]: any} = {
         "FundingLegAllOf.InstrumentTypeEnum": FundingLegAllOf.InstrumentTypeEnum,
         "Future.InstrumentTypeEnum": Future.InstrumentTypeEnum,
         "FutureAllOf.InstrumentTypeEnum": FutureAllOf.InstrumentTypeEnum,
+        "FxDependency.DependencyTypeEnum": FxDependency.DependencyTypeEnum,
+        "FxDependencyAllOf.DependencyTypeEnum": FxDependencyAllOf.DependencyTypeEnum,
         "FxForward.InstrumentTypeEnum": FxForward.InstrumentTypeEnum,
         "FxForwardAllOf.InstrumentTypeEnum": FxForwardAllOf.InstrumentTypeEnum,
         "FxForwardCurveByQuoteReference.MarketDataTypeEnum": FxForwardCurveByQuoteReference.MarketDataTypeEnum,
@@ -1259,10 +1313,14 @@ let enumsMap: {[index: string]: any} = {
         "FxForwardTenorCurveDataAllOf.MarketDataTypeEnum": FxForwardTenorCurveDataAllOf.MarketDataTypeEnum,
         "FxForwardTenorPipsCurveData.MarketDataTypeEnum": FxForwardTenorPipsCurveData.MarketDataTypeEnum,
         "FxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum": FxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum,
+        "FxForwardsDependency.DependencyTypeEnum": FxForwardsDependency.DependencyTypeEnum,
+        "FxForwardsDependencyAllOf.DependencyTypeEnum": FxForwardsDependencyAllOf.DependencyTypeEnum,
         "FxOption.InstrumentTypeEnum": FxOption.InstrumentTypeEnum,
         "FxOptionAllOf.InstrumentTypeEnum": FxOptionAllOf.InstrumentTypeEnum,
         "FxSwap.InstrumentTypeEnum": FxSwap.InstrumentTypeEnum,
         "FxSwapAllOf.InstrumentTypeEnum": FxSwapAllOf.InstrumentTypeEnum,
+        "FxVolDependency.DependencyTypeEnum": FxVolDependency.DependencyTypeEnum,
+        "FxVolDependencyAllOf.DependencyTypeEnum": FxVolDependencyAllOf.DependencyTypeEnum,
         "FxVolSurfaceData.MarketDataTypeEnum": FxVolSurfaceData.MarketDataTypeEnum,
         "GetReferencePortfolioConstituentsResponse.WeightTypeEnum": GetReferencePortfolioConstituentsResponse.WeightTypeEnum,
         "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
@@ -1273,6 +1331,8 @@ let enumsMap: {[index: string]: any} = {
         "IndexModelOptions.ModelOptionsTypeEnum": IndexModelOptions.ModelOptionsTypeEnum,
         "IndexModelOptionsAllOf.PortfolioScalingEnum": IndexModelOptionsAllOf.PortfolioScalingEnum,
         "IndexModelOptionsAllOf.ModelOptionsTypeEnum": IndexModelOptionsAllOf.ModelOptionsTypeEnum,
+        "IndexProjectionDependency.DependencyTypeEnum": IndexProjectionDependency.DependencyTypeEnum,
+        "IndexProjectionDependencyAllOf.DependencyTypeEnum": IndexProjectionDependencyAllOf.DependencyTypeEnum,
         "InflationLinkedBond.InstrumentTypeEnum": InflationLinkedBond.InstrumentTypeEnum,
         "InflationLinkedBondAllOf.InstrumentTypeEnum": InflationLinkedBondAllOf.InstrumentTypeEnum,
         "InflationSwap.InstrumentTypeEnum": InflationSwap.InstrumentTypeEnum,
@@ -1292,6 +1352,8 @@ let enumsMap: {[index: string]: any} = {
         "InterestRateSwaptionAllOf.InstrumentTypeEnum": InterestRateSwaptionAllOf.InstrumentTypeEnum,
         "IrVolCubeData.MarketDataTypeEnum": IrVolCubeData.MarketDataTypeEnum,
         "IrVolCubeDataAllOf.MarketDataTypeEnum": IrVolCubeDataAllOf.MarketDataTypeEnum,
+        "IrVolDependency.DependencyTypeEnum": IrVolDependency.DependencyTypeEnum,
+        "IrVolDependencyAllOf.DependencyTypeEnum": IrVolDependencyAllOf.DependencyTypeEnum,
         "LifeCycleEventValue.ResultValueTypeEnum": LifeCycleEventValue.ResultValueTypeEnum,
         "LifeCycleEventValueAllOf.ResultValueTypeEnum": LifeCycleEventValueAllOf.ResultValueTypeEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
@@ -1302,6 +1364,8 @@ let enumsMap: {[index: string]: any} = {
         "ModelOptions.ModelOptionsTypeEnum": ModelOptions.ModelOptionsTypeEnum,
         "ModelSelection.LibraryEnum": ModelSelection.LibraryEnum,
         "ModelSelection.ModelEnum": ModelSelection.ModelEnum,
+        "OpaqueDependency.DependencyTypeEnum": OpaqueDependency.DependencyTypeEnum,
+        "OpaqueDependencyAllOf.DependencyTypeEnum": OpaqueDependencyAllOf.DependencyTypeEnum,
         "OpaqueMarketData.MarketDataTypeEnum": OpaqueMarketData.MarketDataTypeEnum,
         "OpaqueMarketDataAllOf.MarketDataTypeEnum": OpaqueMarketDataAllOf.MarketDataTypeEnum,
         "OpaqueModelOptions.ModelOptionsTypeEnum": OpaqueModelOptions.ModelOptionsTypeEnum,
@@ -1330,6 +1394,8 @@ let enumsMap: {[index: string]: any} = {
         "PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum": PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum,
         "PropertyFilter.OperatorEnum": PropertyFilter.OperatorEnum,
         "PropertyFilter.RightOperandTypeEnum": PropertyFilter.RightOperandTypeEnum,
+        "QuoteDependency.DependencyTypeEnum": QuoteDependency.DependencyTypeEnum,
+        "QuoteDependencyAllOf.DependencyTypeEnum": QuoteDependencyAllOf.DependencyTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
         "RawVendorEvent.InstrumentEventTypeEnum": RawVendorEvent.InstrumentEventTypeEnum,
@@ -1458,6 +1524,8 @@ let typeMap: {[index: string]: any} = {
     "CalendarDate": CalendarDate,
     "CapFloor": CapFloor,
     "CapFloorAllOf": CapFloorAllOf,
+    "CashDependency": CashDependency,
+    "CashDependencyAllOf": CashDependencyAllOf,
     "CashDividendEvent": CashDividendEvent,
     "CashDividendEventAllOf": CashDividendEventAllOf,
     "CashFlowEvent": CashFlowEvent,
@@ -1547,6 +1615,8 @@ let typeMap: {[index: string]: any} = {
     "DependencySourceFilter": DependencySourceFilter,
     "DiscountFactorCurveData": DiscountFactorCurveData,
     "DiscountFactorCurveDataAllOf": DiscountFactorCurveDataAllOf,
+    "DiscountingDependency": DiscountingDependency,
+    "DiscountingDependencyAllOf": DiscountingDependencyAllOf,
     "EconomicDependency": EconomicDependency,
     "EconomicDependencyWithComplexMarketData": EconomicDependencyWithComplexMarketData,
     "EconomicDependencyWithQuote": EconomicDependencyWithQuote,
@@ -1558,12 +1628,16 @@ let typeMap: {[index: string]: any} = {
     "EquityAllOfIdentifiers": EquityAllOfIdentifiers,
     "EquityCurveByPricesData": EquityCurveByPricesData,
     "EquityCurveByPricesDataAllOf": EquityCurveByPricesDataAllOf,
+    "EquityCurveDependency": EquityCurveDependency,
+    "EquityCurveDependencyAllOf": EquityCurveDependencyAllOf,
     "EquityModelOptions": EquityModelOptions,
     "EquityModelOptionsAllOf": EquityModelOptionsAllOf,
     "EquityOption": EquityOption,
     "EquityOptionAllOf": EquityOptionAllOf,
     "EquitySwap": EquitySwap,
     "EquitySwapAllOf": EquitySwapAllOf,
+    "EquityVolDependency": EquityVolDependency,
+    "EquityVolDependencyAllOf": EquityVolDependencyAllOf,
     "EquityVolSurfaceData": EquityVolSurfaceData,
     "EquityVolSurfaceDataAllOf": EquityVolSurfaceDataAllOf,
     "ErrorDetail": ErrorDetail,
@@ -1597,6 +1671,8 @@ let typeMap: {[index: string]: any} = {
     "Future": Future,
     "FutureAllOf": FutureAllOf,
     "FuturesContractDetails": FuturesContractDetails,
+    "FxDependency": FxDependency,
+    "FxDependencyAllOf": FxDependencyAllOf,
     "FxForward": FxForward,
     "FxForwardAllOf": FxForwardAllOf,
     "FxForwardCurveByQuoteReference": FxForwardCurveByQuoteReference,
@@ -1611,11 +1687,15 @@ let typeMap: {[index: string]: any} = {
     "FxForwardTenorCurveDataAllOf": FxForwardTenorCurveDataAllOf,
     "FxForwardTenorPipsCurveData": FxForwardTenorPipsCurveData,
     "FxForwardTenorPipsCurveDataAllOf": FxForwardTenorPipsCurveDataAllOf,
+    "FxForwardsDependency": FxForwardsDependency,
+    "FxForwardsDependencyAllOf": FxForwardsDependencyAllOf,
     "FxOption": FxOption,
     "FxOptionAllOf": FxOptionAllOf,
     "FxSwap": FxSwap,
     "FxSwapAllOf": FxSwapAllOf,
     "FxTenorConvention": FxTenorConvention,
+    "FxVolDependency": FxVolDependency,
+    "FxVolDependencyAllOf": FxVolDependencyAllOf,
     "FxVolSurfaceData": FxVolSurfaceData,
     "GetComplexMarketDataResponse": GetComplexMarketDataResponse,
     "GetCounterpartyAgreementResponse": GetCounterpartyAgreementResponse,
@@ -1636,6 +1716,8 @@ let typeMap: {[index: string]: any} = {
     "IndexConvention": IndexConvention,
     "IndexModelOptions": IndexModelOptions,
     "IndexModelOptionsAllOf": IndexModelOptionsAllOf,
+    "IndexProjectionDependency": IndexProjectionDependency,
+    "IndexProjectionDependencyAllOf": IndexProjectionDependencyAllOf,
     "IndustryClassifier": IndustryClassifier,
     "InflationLinkedBond": InflationLinkedBond,
     "InflationLinkedBondAllOf": InflationLinkedBondAllOf,
@@ -1667,6 +1749,8 @@ let typeMap: {[index: string]: any} = {
     "InterestRateSwaptionAllOf": InterestRateSwaptionAllOf,
     "IrVolCubeData": IrVolCubeData,
     "IrVolCubeDataAllOf": IrVolCubeDataAllOf,
+    "IrVolDependency": IrVolDependency,
+    "IrVolDependencyAllOf": IrVolDependencyAllOf,
     "IsBusinessDayResponse": IsBusinessDayResponse,
     "LabelValueSet": LabelValueSet,
     "LegDefinition": LegDefinition,
@@ -1698,6 +1782,8 @@ let typeMap: {[index: string]: any} = {
     "ModelOptions": ModelOptions,
     "ModelSelection": ModelSelection,
     "NextValueInSequenceResponse": NextValueInSequenceResponse,
+    "OpaqueDependency": OpaqueDependency,
+    "OpaqueDependencyAllOf": OpaqueDependencyAllOf,
     "OpaqueMarketData": OpaqueMarketData,
     "OpaqueMarketDataAllOf": OpaqueMarketDataAllOf,
     "OpaqueModelOptions": OpaqueModelOptions,
@@ -1770,6 +1856,8 @@ let typeMap: {[index: string]: any} = {
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
     "Quote": Quote,
+    "QuoteDependency": QuoteDependency,
+    "QuoteDependencyAllOf": QuoteDependencyAllOf,
     "QuoteId": QuoteId,
     "QuoteSeriesId": QuoteSeriesId,
     "RawVendorEvent": RawVendorEvent,
