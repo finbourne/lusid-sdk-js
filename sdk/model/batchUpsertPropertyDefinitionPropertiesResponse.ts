@@ -11,59 +11,45 @@
  */
 
 import { RequestFile } from './models';
+import { ErrorDetail } from './errorDetail';
+import { Link } from './link';
+import { Property } from './property';
 
-export class AggregateSpec {
+export class BatchUpsertPropertyDefinitionPropertiesResponse {
     /**
-    * The key that uniquely identifies a queryable address in Lusid.
+    * The as-at datetime at which properties were created or updated.
     */
-    'key': string;
+    'values': { [key: string]: Property; };
     /**
-    * The available values are: Sum, Proportion, Average, Count, Min, Max, Value, SumOfPositiveValues, SumOfNegativeValues, SumOfAbsoluteValues, ProportionOfAbsoluteValues, SumCumulativeInAdvance, SumCumulativeInArrears
+    * The as-at datetime at which properties were created or updated.
     */
-    'op': AggregateSpec.OpEnum;
+    'failed': { [key: string]: ErrorDetail; };
     /**
-    * Additional options to apply when performing computations. Options that do not apply to the Key will be  ignored. Option values can be boolean, numeric, string or date-time.
+    * Collection of links.
     */
-    'options'?: { [key: string]: object; } | null;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "key",
-            "baseName": "key",
-            "type": "string"
+            "name": "values",
+            "baseName": "values",
+            "type": "{ [key: string]: Property; }"
         },
         {
-            "name": "op",
-            "baseName": "op",
-            "type": "AggregateSpec.OpEnum"
+            "name": "failed",
+            "baseName": "failed",
+            "type": "{ [key: string]: ErrorDetail; }"
         },
         {
-            "name": "options",
-            "baseName": "options",
-            "type": "{ [key: string]: object; }"
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return AggregateSpec.attributeTypeMap;
+        return BatchUpsertPropertyDefinitionPropertiesResponse.attributeTypeMap;
     }
 }
 
-export namespace AggregateSpec {
-    export enum OpEnum {
-        Sum = <any> 'Sum',
-        Proportion = <any> 'Proportion',
-        Average = <any> 'Average',
-        Count = <any> 'Count',
-        Min = <any> 'Min',
-        Max = <any> 'Max',
-        Value = <any> 'Value',
-        SumOfPositiveValues = <any> 'SumOfPositiveValues',
-        SumOfNegativeValues = <any> 'SumOfNegativeValues',
-        SumOfAbsoluteValues = <any> 'SumOfAbsoluteValues',
-        ProportionOfAbsoluteValues = <any> 'ProportionOfAbsoluteValues',
-        SumCumulativeInAdvance = <any> 'SumCumulativeInAdvance',
-        SumCumulativeInArrears = <any> 'SumCumulativeInArrears'
-    }
-}
