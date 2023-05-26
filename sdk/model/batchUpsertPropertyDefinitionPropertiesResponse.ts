@@ -24,9 +24,6 @@ export class BatchUpsertPropertyDefinitionPropertiesResponse {
     * The as-at datetime at which properties were created or updated.
     */
     'failed': { [key: string]: ErrorDetail; };
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
