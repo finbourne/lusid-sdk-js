@@ -56,9 +56,6 @@ export class PortfolioCashFlow {
     'costBasisReportingCurrency': CurrencyAndAmount;
     'transaction'?: Transaction;
     'unrealisedGainLossReportingCurrency': CurrencyAndAmount;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
