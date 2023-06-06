@@ -42,9 +42,6 @@ export class PortfolioGroupSearchResult {
     */
     'subGroups'?: Array<ResourceId> | null;
     'version'?: Version;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
