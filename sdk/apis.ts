@@ -1,3 +1,4 @@
+import {AddressKeyDefinitionApi} from './api/addressKeyDefinitionApi';
 import {AggregationApi} from './api/aggregationApi';
 import {AllocationsApi} from './api/allocationsApi';
 import {ApplicationMetadataApi} from './api/applicationMetadataApi';
@@ -36,6 +37,7 @@ import {SystemConfigurationApi} from './api/systemConfigurationApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
 
 export class Api {
+    public addressKeyDefinition:  AddressKeyDefinitionApi
     public aggregation:  AggregationApi
     public allocations:  AllocationsApi
     public applicationMetadata:  ApplicationMetadataApi
