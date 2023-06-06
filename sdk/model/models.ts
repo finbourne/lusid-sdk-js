@@ -331,7 +331,6 @@ export * from './orderSetRequest';
 export * from './otcConfirmation';
 export * from './outputTransaction';
 export * from './outputTransition';
-export * from './pagedResourceListOfAddressKeyDefinition';
 export * from './pagedResourceListOfAllocation';
 export * from './pagedResourceListOfBlock';
 export * from './pagedResourceListOfCalendar';
@@ -933,7 +932,6 @@ import { OrderSetRequest } from './orderSetRequest';
 import { OtcConfirmation } from './otcConfirmation';
 import { OutputTransaction } from './outputTransaction';
 import { OutputTransition } from './outputTransition';
-import { PagedResourceListOfAddressKeyDefinition } from './pagedResourceListOfAddressKeyDefinition';
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
 import { PagedResourceListOfBlock } from './pagedResourceListOfBlock';
 import { PagedResourceListOfCalendar } from './pagedResourceListOfCalendar';
@@ -1809,7 +1807,6 @@ let typeMap: {[index: string]: any} = {
     "OtcConfirmation": OtcConfirmation,
     "OutputTransaction": OutputTransaction,
     "OutputTransition": OutputTransition,
-    "PagedResourceListOfAddressKeyDefinition": PagedResourceListOfAddressKeyDefinition,
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
     "PagedResourceListOfBlock": PagedResourceListOfBlock,
     "PagedResourceListOfCalendar": PagedResourceListOfCalendar,
