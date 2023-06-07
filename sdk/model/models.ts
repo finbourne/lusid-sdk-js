@@ -84,6 +84,9 @@ export * from './complexBond';
 export * from './complexBondAllOf';
 export * from './complexMarketData';
 export * from './complexMarketDataId';
+export * from './complianceTemplate';
+export * from './complianceTemplateParameter';
+export * from './complianceTemplateVariation';
 export * from './compositeDispersion';
 export * from './compositeDispersionResponse';
 export * from './compounding';
@@ -334,6 +337,7 @@ export * from './outputTransition';
 export * from './pagedResourceListOfAllocation';
 export * from './pagedResourceListOfBlock';
 export * from './pagedResourceListOfCalendar';
+export * from './pagedResourceListOfComplianceTemplate';
 export * from './pagedResourceListOfCorporateActionSource';
 export * from './pagedResourceListOfCustomEntityDefinition';
 export * from './pagedResourceListOfCustomEntityResponse';
@@ -685,6 +689,9 @@ import { ComplexBond } from './complexBond';
 import { ComplexBondAllOf } from './complexBondAllOf';
 import { ComplexMarketData } from './complexMarketData';
 import { ComplexMarketDataId } from './complexMarketDataId';
+import { ComplianceTemplate } from './complianceTemplate';
+import { ComplianceTemplateParameter } from './complianceTemplateParameter';
+import { ComplianceTemplateVariation } from './complianceTemplateVariation';
 import { CompositeDispersion } from './compositeDispersion';
 import { CompositeDispersionResponse } from './compositeDispersionResponse';
 import { Compounding } from './compounding';
@@ -935,6 +942,7 @@ import { OutputTransition } from './outputTransition';
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
 import { PagedResourceListOfBlock } from './pagedResourceListOfBlock';
 import { PagedResourceListOfCalendar } from './pagedResourceListOfCalendar';
+import { PagedResourceListOfComplianceTemplate } from './pagedResourceListOfComplianceTemplate';
 import { PagedResourceListOfCorporateActionSource } from './pagedResourceListOfCorporateActionSource';
 import { PagedResourceListOfCustomEntityDefinition } from './pagedResourceListOfCustomEntityDefinition';
 import { PagedResourceListOfCustomEntityResponse } from './pagedResourceListOfCustomEntityResponse';
@@ -1561,6 +1569,9 @@ let typeMap: {[index: string]: any} = {
     "ComplexBondAllOf": ComplexBondAllOf,
     "ComplexMarketData": ComplexMarketData,
     "ComplexMarketDataId": ComplexMarketDataId,
+    "ComplianceTemplate": ComplianceTemplate,
+    "ComplianceTemplateParameter": ComplianceTemplateParameter,
+    "ComplianceTemplateVariation": ComplianceTemplateVariation,
     "CompositeDispersion": CompositeDispersion,
     "CompositeDispersionResponse": CompositeDispersionResponse,
     "Compounding": Compounding,
@@ -1810,6 +1821,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
     "PagedResourceListOfBlock": PagedResourceListOfBlock,
     "PagedResourceListOfCalendar": PagedResourceListOfCalendar,
+    "PagedResourceListOfComplianceTemplate": PagedResourceListOfComplianceTemplate,
     "PagedResourceListOfCorporateActionSource": PagedResourceListOfCorporateActionSource,
     "PagedResourceListOfCustomEntityDefinition": PagedResourceListOfCustomEntityDefinition,
     "PagedResourceListOfCustomEntityResponse": PagedResourceListOfCustomEntityResponse,
