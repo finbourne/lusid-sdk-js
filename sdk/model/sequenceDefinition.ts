@@ -44,9 +44,6 @@ export class SequenceDefinition {
     * The pattern to be used to generate next values in the sequence.
     */
     'pattern'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
