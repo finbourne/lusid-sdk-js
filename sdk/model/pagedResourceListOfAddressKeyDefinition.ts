@@ -11,76 +11,65 @@
  */
 
 import { RequestFile } from './models';
+import { AddressKeyDefinition } from './addressKeyDefinition';
+import { Link } from './link';
 
-export class EquityVolDependencyAllOf {
+/**
+* A paginated list of resource that can be returned from a request.
+*/
+export class PagedResourceListOfAddressKeyDefinition {
     /**
-    * The code identifying the corresponding equity, e.g. US0378331005 if the MarketIdentifier was set to ISIN
+    * The next page of results.
     */
-    'code': string;
+    'nextPage'?: string | null;
     /**
-    * The domestic currency of the instrument declaring this dependency.
+    * The previous page of results.
     */
-    'domesticCurrency': string;
+    'previousPage'?: string | null;
     /**
-    * Volatility type e.g. \"LN\" and \"N\" for log-normal and normal volatility.
+    * The resources to list.
     */
-    'volType': string;
+    'values': Array<AddressKeyDefinition>;
     /**
-    * The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.
+    * The URI of the resource list.
     */
-    'date': Date;
+    'href'?: string | null;
     /**
-    * The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor
+    * Collection of links.
     */
-    'dependencyType': EquityVolDependencyAllOf.DependencyTypeEnum;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "code",
-            "baseName": "code",
+            "name": "nextPage",
+            "baseName": "nextPage",
             "type": "string"
         },
         {
-            "name": "domesticCurrency",
-            "baseName": "domesticCurrency",
+            "name": "previousPage",
+            "baseName": "previousPage",
             "type": "string"
         },
         {
-            "name": "volType",
-            "baseName": "volType",
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<AddressKeyDefinition>"
+        },
+        {
+            "name": "href",
+            "baseName": "href",
             "type": "string"
         },
         {
-            "name": "date",
-            "baseName": "date",
-            "type": "Date"
-        },
-        {
-            "name": "dependencyType",
-            "baseName": "dependencyType",
-            "type": "EquityVolDependencyAllOf.DependencyTypeEnum"
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return EquityVolDependencyAllOf.attributeTypeMap;
+        return PagedResourceListOfAddressKeyDefinition.attributeTypeMap;
     }
 }
 
-export namespace EquityVolDependencyAllOf {
-    export enum DependencyTypeEnum {
-        OpaqueDependency = <any> 'OpaqueDependency',
-        CashDependency = <any> 'CashDependency',
-        DiscountingDependency = <any> 'DiscountingDependency',
-        EquityCurveDependency = <any> 'EquityCurveDependency',
-        EquityVolDependency = <any> 'EquityVolDependency',
-        FxDependency = <any> 'FxDependency',
-        FxForwardsDependency = <any> 'FxForwardsDependency',
-        FxVolDependency = <any> 'FxVolDependency',
-        IndexProjectionDependency = <any> 'IndexProjectionDependency',
-        IrVolDependency = <any> 'IrVolDependency',
-        QuoteDependency = <any> 'QuoteDependency',
-        Vendor = <any> 'Vendor'
-    }
-}
