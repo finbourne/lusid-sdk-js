@@ -25,9 +25,6 @@ export class PortfolioGroupProperties {
     */
     'properties'?: { [key: string]: Property; } | null;
     'version'?: Version;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
