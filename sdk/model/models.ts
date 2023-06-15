@@ -24,7 +24,6 @@ export * from './aggregatedReturn';
 export * from './aggregatedReturnsDispersionRequest';
 export * from './aggregatedReturnsRequest';
 export * from './aggregatedReturnsResponse';
-export * from './aggregation';
 export * from './aggregationContext';
 export * from './aggregationMeasureFailureDetail';
 export * from './aggregationOptions';
@@ -245,7 +244,6 @@ export * from './holdingAdjustmentWithDate';
 export * from './holdingContext';
 export * from './holdingsAdjustment';
 export * from './holdingsAdjustmentHeader';
-export * from './iDataRecord';
 export * from './iUnitDefinitionDto';
 export * from './idSelectorDefinition';
 export * from './identifierPartSchema';
@@ -509,7 +507,6 @@ export * from './stepScheduleAllOf';
 export * from './stockSplitEvent';
 export * from './stockSplitEventAllOf';
 export * from './stream';
-export * from './supportedAnalyticsInternalRequest';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './termDeposit';
@@ -630,7 +627,6 @@ import { AggregatedReturn } from './aggregatedReturn';
 import { AggregatedReturnsDispersionRequest } from './aggregatedReturnsDispersionRequest';
 import { AggregatedReturnsRequest } from './aggregatedReturnsRequest';
 import { AggregatedReturnsResponse } from './aggregatedReturnsResponse';
-import { Aggregation } from './aggregation';
 import { AggregationContext } from './aggregationContext';
 import { AggregationMeasureFailureDetail } from './aggregationMeasureFailureDetail';
 import { AggregationOptions } from './aggregationOptions';
@@ -851,7 +847,6 @@ import { HoldingAdjustmentWithDate } from './holdingAdjustmentWithDate';
 import { HoldingContext } from './holdingContext';
 import { HoldingsAdjustment } from './holdingsAdjustment';
 import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
-import { IDataRecord } from './iDataRecord';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { IdentifierPartSchema } from './identifierPartSchema';
@@ -1115,7 +1110,6 @@ import { StepScheduleAllOf } from './stepScheduleAllOf';
 import { StockSplitEvent } from './stockSplitEvent';
 import { StockSplitEventAllOf } from './stockSplitEventAllOf';
 import { Stream } from './stream';
-import { SupportedAnalyticsInternalRequest } from './supportedAnalyticsInternalRequest';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { TermDeposit } from './termDeposit';
@@ -1511,7 +1505,6 @@ let typeMap: {[index: string]: any} = {
     "AggregatedReturnsDispersionRequest": AggregatedReturnsDispersionRequest,
     "AggregatedReturnsRequest": AggregatedReturnsRequest,
     "AggregatedReturnsResponse": AggregatedReturnsResponse,
-    "Aggregation": Aggregation,
     "AggregationContext": AggregationContext,
     "AggregationMeasureFailureDetail": AggregationMeasureFailureDetail,
     "AggregationOptions": AggregationOptions,
@@ -1731,7 +1724,6 @@ let typeMap: {[index: string]: any} = {
     "HoldingContext": HoldingContext,
     "HoldingsAdjustment": HoldingsAdjustment,
     "HoldingsAdjustmentHeader": HoldingsAdjustmentHeader,
-    "IDataRecord": IDataRecord,
     "IUnitDefinitionDto": IUnitDefinitionDto,
     "IdSelectorDefinition": IdSelectorDefinition,
     "IdentifierPartSchema": IdentifierPartSchema,
@@ -1995,7 +1987,6 @@ let typeMap: {[index: string]: any} = {
     "StockSplitEvent": StockSplitEvent,
     "StockSplitEventAllOf": StockSplitEventAllOf,
     "Stream": Stream,
-    "SupportedAnalyticsInternalRequest": SupportedAnalyticsInternalRequest,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "TermDeposit": TermDeposit,
