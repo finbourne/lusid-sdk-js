@@ -15,6 +15,8 @@ export * from './addBusinessDaysToDateResponse';
 export * from './addressDefinition';
 export * from './addressKeyDefinition';
 export * from './addressKeyFilter';
+export * from './addressKeyList';
+export * from './addressKeyListAllOf';
 export * from './addressKeyOptionDefinition';
 export * from './adjustHolding';
 export * from './adjustHoldingForDateRequest';
@@ -142,6 +144,8 @@ export * from './dataTypeSummary';
 export * from './dateAttributes';
 export * from './dateRange';
 export * from './dayOfWeek';
+export * from './decimalList';
+export * from './decimalListAllOf';
 export * from './deleteInstrumentPropertiesResponse';
 export * from './deleteInstrumentResponse';
 export * from './deleteInstrumentsResponse';
@@ -273,6 +277,8 @@ export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
 export * from './instrumentLeg';
 export * from './instrumentLegAllOf';
+export * from './instrumentList';
+export * from './instrumentListAllOf';
 export * from './instrumentMatch';
 export * from './instrumentModels';
 export * from './instrumentProperties';
@@ -353,6 +359,7 @@ export * from './pagedResourceListOfPlacement';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
+export * from './pagedResourceListOfReferenceListResponse';
 export * from './pagedResourceListOfRelationshipDefinition';
 export * from './pagedResourceListOfSequenceDefinition';
 export * from './participation';
@@ -371,9 +378,12 @@ export * from './portfolioCashLadder';
 export * from './portfolioDetails';
 export * from './portfolioEntityId';
 export * from './portfolioGroup';
+export * from './portfolioGroupIdList';
+export * from './portfolioGroupIdListAllOf';
 export * from './portfolioGroupProperties';
 export * from './portfolioGroupSearchResult';
 export * from './portfolioHolding';
+export * from './portfolioIdList';
 export * from './portfolioProperties';
 export * from './portfolioReconciliationRequest';
 export * from './portfolioResultDataKeyRule';
@@ -415,6 +425,9 @@ export * from './reconciliationRule';
 export * from './referenceData';
 export * from './referenceInstrument';
 export * from './referenceInstrumentAllOf';
+export * from './referenceList';
+export * from './referenceListRequest';
+export * from './referenceListResponse';
 export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './relatedEntity';
@@ -507,6 +520,7 @@ export * from './stepScheduleAllOf';
 export * from './stockSplitEvent';
 export * from './stockSplitEventAllOf';
 export * from './stream';
+export * from './stringList';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './termDeposit';
@@ -618,6 +632,8 @@ import { AddBusinessDaysToDateResponse } from './addBusinessDaysToDateResponse';
 import { AddressDefinition } from './addressDefinition';
 import { AddressKeyDefinition } from './addressKeyDefinition';
 import { AddressKeyFilter } from './addressKeyFilter';
+import { AddressKeyList } from './addressKeyList';
+import { AddressKeyListAllOf } from './addressKeyListAllOf';
 import { AddressKeyOptionDefinition } from './addressKeyOptionDefinition';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingForDateRequest } from './adjustHoldingForDateRequest';
@@ -745,6 +761,8 @@ import { DataTypeSummary } from './dataTypeSummary';
 import { DateAttributes } from './dateAttributes';
 import { DateRange } from './dateRange';
 import { DayOfWeek } from './dayOfWeek';
+import { DecimalList } from './decimalList';
+import { DecimalListAllOf } from './decimalListAllOf';
 import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeleteInstrumentsResponse } from './deleteInstrumentsResponse';
@@ -876,6 +894,8 @@ import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
 import { InstrumentLeg } from './instrumentLeg';
 import { InstrumentLegAllOf } from './instrumentLegAllOf';
+import { InstrumentList } from './instrumentList';
+import { InstrumentListAllOf } from './instrumentListAllOf';
 import { InstrumentMatch } from './instrumentMatch';
 import { InstrumentModels } from './instrumentModels';
 import { InstrumentProperties } from './instrumentProperties';
@@ -956,6 +976,7 @@ import { PagedResourceListOfPlacement } from './pagedResourceListOfPlacement';
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
+import { PagedResourceListOfReferenceListResponse } from './pagedResourceListOfReferenceListResponse';
 import { PagedResourceListOfRelationshipDefinition } from './pagedResourceListOfRelationshipDefinition';
 import { PagedResourceListOfSequenceDefinition } from './pagedResourceListOfSequenceDefinition';
 import { Participation } from './participation';
@@ -974,9 +995,12 @@ import { PortfolioCashLadder } from './portfolioCashLadder';
 import { PortfolioDetails } from './portfolioDetails';
 import { PortfolioEntityId } from './portfolioEntityId';
 import { PortfolioGroup } from './portfolioGroup';
+import { PortfolioGroupIdList } from './portfolioGroupIdList';
+import { PortfolioGroupIdListAllOf } from './portfolioGroupIdListAllOf';
 import { PortfolioGroupProperties } from './portfolioGroupProperties';
 import { PortfolioGroupSearchResult } from './portfolioGroupSearchResult';
 import { PortfolioHolding } from './portfolioHolding';
+import { PortfolioIdList } from './portfolioIdList';
 import { PortfolioProperties } from './portfolioProperties';
 import { PortfolioReconciliationRequest } from './portfolioReconciliationRequest';
 import { PortfolioResultDataKeyRule } from './portfolioResultDataKeyRule';
@@ -1018,6 +1042,9 @@ import { ReconciliationRule } from './reconciliationRule';
 import { ReferenceData } from './referenceData';
 import { ReferenceInstrument } from './referenceInstrument';
 import { ReferenceInstrumentAllOf } from './referenceInstrumentAllOf';
+import { ReferenceList } from './referenceList';
+import { ReferenceListRequest } from './referenceListRequest';
+import { ReferenceListResponse } from './referenceListResponse';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { RelatedEntity } from './relatedEntity';
@@ -1110,6 +1137,7 @@ import { StepScheduleAllOf } from './stepScheduleAllOf';
 import { StockSplitEvent } from './stockSplitEvent';
 import { StockSplitEventAllOf } from './stockSplitEventAllOf';
 import { Stream } from './stream';
+import { StringList } from './stringList';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { TermDeposit } from './termDeposit';
@@ -1208,6 +1236,8 @@ let primitives = [
 let enumsMap: {[index: string]: any} = {
         "AccessMetadataOperation.OpEnum": AccessMetadataOperation.OpEnum,
         "AddressDefinition.TypeEnum": AddressDefinition.TypeEnum,
+        "AddressKeyList.ReferenceListTypeEnum": AddressKeyList.ReferenceListTypeEnum,
+        "AddressKeyListAllOf.ReferenceListTypeEnum": AddressKeyListAllOf.ReferenceListTypeEnum,
         "AggregateSpec.OpEnum": AggregateSpec.OpEnum,
         "AggregationQuery.TypeEnum": AggregationQuery.TypeEnum,
         "AggregationQuery.FlattenedTypeEnum": AggregationQuery.FlattenedTypeEnum,
@@ -1263,6 +1293,8 @@ let enumsMap: {[index: string]: any} = {
         "DataTypeSummary.ValueTypeEnum": DataTypeSummary.ValueTypeEnum,
         "DataTypeSummary.UnitSchemaEnum": DataTypeSummary.UnitSchemaEnum,
         "DayOfWeek": DayOfWeek,
+        "DecimalList.ReferenceListTypeEnum": DecimalList.ReferenceListTypeEnum,
+        "DecimalListAllOf.ReferenceListTypeEnum": DecimalListAllOf.ReferenceListTypeEnum,
         "DiscountFactorCurveData.MarketDataTypeEnum": DiscountFactorCurveData.MarketDataTypeEnum,
         "DiscountFactorCurveDataAllOf.MarketDataTypeEnum": DiscountFactorCurveDataAllOf.MarketDataTypeEnum,
         "DiscountingDependency.DependencyTypeEnum": DiscountingDependency.DependencyTypeEnum,
@@ -1356,6 +1388,8 @@ let enumsMap: {[index: string]: any} = {
         "InstrumentEvent.InstrumentEventTypeEnum": InstrumentEvent.InstrumentEventTypeEnum,
         "InstrumentLeg.InstrumentTypeEnum": InstrumentLeg.InstrumentTypeEnum,
         "InstrumentLegAllOf.InstrumentTypeEnum": InstrumentLegAllOf.InstrumentTypeEnum,
+        "InstrumentList.ReferenceListTypeEnum": InstrumentList.ReferenceListTypeEnum,
+        "InstrumentListAllOf.ReferenceListTypeEnum": InstrumentListAllOf.ReferenceListTypeEnum,
         "InterestRateSwap.InstrumentTypeEnum": InterestRateSwap.InstrumentTypeEnum,
         "InterestRateSwapAllOf.InstrumentTypeEnum": InterestRateSwapAllOf.InstrumentTypeEnum,
         "InterestRateSwaption.InstrumentTypeEnum": InterestRateSwaption.InstrumentTypeEnum,
@@ -1387,6 +1421,9 @@ let enumsMap: {[index: string]: any} = {
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "Portfolio.AccountingMethodEnum": Portfolio.AccountingMethodEnum,
         "PortfolioDetails.AccountingMethodEnum": PortfolioDetails.AccountingMethodEnum,
+        "PortfolioGroupIdList.ReferenceListTypeEnum": PortfolioGroupIdList.ReferenceListTypeEnum,
+        "PortfolioGroupIdListAllOf.ReferenceListTypeEnum": PortfolioGroupIdListAllOf.ReferenceListTypeEnum,
+        "PortfolioIdList.ReferenceListTypeEnum": PortfolioIdList.ReferenceListTypeEnum,
         "PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum": PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum,
         "PortfolioResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum": PortfolioResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
@@ -1425,6 +1462,7 @@ let enumsMap: {[index: string]: any} = {
         "ReconciliationRule.RuleTypeEnum": ReconciliationRule.RuleTypeEnum,
         "ReferenceInstrument.InstrumentTypeEnum": ReferenceInstrument.InstrumentTypeEnum,
         "ReferenceInstrumentAllOf.InstrumentTypeEnum": ReferenceInstrumentAllOf.InstrumentTypeEnum,
+        "ReferenceList.ReferenceListTypeEnum": ReferenceList.ReferenceListTypeEnum,
         "Repo.InstrumentTypeEnum": Repo.InstrumentTypeEnum,
         "RepoAllOf.InstrumentTypeEnum": RepoAllOf.InstrumentTypeEnum,
         "ResetEvent.InstrumentEventTypeEnum": ResetEvent.InstrumentEventTypeEnum,
@@ -1460,6 +1498,7 @@ let enumsMap: {[index: string]: any} = {
         "StepScheduleAllOf.ScheduleTypeEnum": StepScheduleAllOf.ScheduleTypeEnum,
         "StockSplitEvent.InstrumentEventTypeEnum": StockSplitEvent.InstrumentEventTypeEnum,
         "StockSplitEventAllOf.InstrumentEventTypeEnum": StockSplitEventAllOf.InstrumentEventTypeEnum,
+        "StringList.ReferenceListTypeEnum": StringList.ReferenceListTypeEnum,
         "TermDeposit.InstrumentTypeEnum": TermDeposit.InstrumentTypeEnum,
         "TermDepositAllOf.InstrumentTypeEnum": TermDepositAllOf.InstrumentTypeEnum,
         "Transaction.TransactionStatusEnum": Transaction.TransactionStatusEnum,
@@ -1496,6 +1535,8 @@ let typeMap: {[index: string]: any} = {
     "AddressDefinition": AddressDefinition,
     "AddressKeyDefinition": AddressKeyDefinition,
     "AddressKeyFilter": AddressKeyFilter,
+    "AddressKeyList": AddressKeyList,
+    "AddressKeyListAllOf": AddressKeyListAllOf,
     "AddressKeyOptionDefinition": AddressKeyOptionDefinition,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingForDateRequest": AdjustHoldingForDateRequest,
@@ -1622,6 +1663,8 @@ let typeMap: {[index: string]: any} = {
     "DataTypeSummary": DataTypeSummary,
     "DateAttributes": DateAttributes,
     "DateRange": DateRange,
+    "DecimalList": DecimalList,
+    "DecimalListAllOf": DecimalListAllOf,
     "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeleteInstrumentsResponse": DeleteInstrumentsResponse,
@@ -1753,6 +1796,8 @@ let typeMap: {[index: string]: any} = {
     "InstrumentIdValue": InstrumentIdValue,
     "InstrumentLeg": InstrumentLeg,
     "InstrumentLegAllOf": InstrumentLegAllOf,
+    "InstrumentList": InstrumentList,
+    "InstrumentListAllOf": InstrumentListAllOf,
     "InstrumentMatch": InstrumentMatch,
     "InstrumentModels": InstrumentModels,
     "InstrumentProperties": InstrumentProperties,
@@ -1833,6 +1878,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
+    "PagedResourceListOfReferenceListResponse": PagedResourceListOfReferenceListResponse,
     "PagedResourceListOfRelationshipDefinition": PagedResourceListOfRelationshipDefinition,
     "PagedResourceListOfSequenceDefinition": PagedResourceListOfSequenceDefinition,
     "Participation": Participation,
@@ -1851,9 +1897,12 @@ let typeMap: {[index: string]: any} = {
     "PortfolioDetails": PortfolioDetails,
     "PortfolioEntityId": PortfolioEntityId,
     "PortfolioGroup": PortfolioGroup,
+    "PortfolioGroupIdList": PortfolioGroupIdList,
+    "PortfolioGroupIdListAllOf": PortfolioGroupIdListAllOf,
     "PortfolioGroupProperties": PortfolioGroupProperties,
     "PortfolioGroupSearchResult": PortfolioGroupSearchResult,
     "PortfolioHolding": PortfolioHolding,
+    "PortfolioIdList": PortfolioIdList,
     "PortfolioProperties": PortfolioProperties,
     "PortfolioReconciliationRequest": PortfolioReconciliationRequest,
     "PortfolioResultDataKeyRule": PortfolioResultDataKeyRule,
@@ -1895,6 +1944,9 @@ let typeMap: {[index: string]: any} = {
     "ReferenceData": ReferenceData,
     "ReferenceInstrument": ReferenceInstrument,
     "ReferenceInstrumentAllOf": ReferenceInstrumentAllOf,
+    "ReferenceList": ReferenceList,
+    "ReferenceListRequest": ReferenceListRequest,
+    "ReferenceListResponse": ReferenceListResponse,
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "RelatedEntity": RelatedEntity,
@@ -1987,6 +2039,7 @@ let typeMap: {[index: string]: any} = {
     "StockSplitEvent": StockSplitEvent,
     "StockSplitEventAllOf": StockSplitEventAllOf,
     "Stream": Stream,
+    "StringList": StringList,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "TermDeposit": TermDeposit,
