@@ -84,9 +84,6 @@ export class PropertyDefinition {
     * Set of unique property definition properties and associated values to store with the property definition. Each property must be from the \'PropertyDefinition\' domain.
     */
     'properties'?: { [key: string]: Property; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
