@@ -18,9 +18,6 @@ export class Schema {
     'entity'?: string | null;
     'href'?: string | null;
     'values'?: { [key: string]: FieldSchema; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

@@ -29,9 +29,6 @@ export class ComplianceTemplate {
     * Variation details of a Compliance Template
     */
     'variations': Array<ComplianceTemplateVariation>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
