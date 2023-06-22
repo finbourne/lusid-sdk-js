@@ -85,8 +85,6 @@ export * from './complexBond';
 export * from './complexBondAllOf';
 export * from './complexMarketData';
 export * from './complexMarketDataId';
-export * from './complianceParameter';
-export * from './complianceRuleResponse';
 export * from './complianceTemplate';
 export * from './complianceTemplateParameter';
 export * from './complianceTemplateVariation';
@@ -344,7 +342,6 @@ export * from './pagedResourceListOfAddressKeyDefinition';
 export * from './pagedResourceListOfAllocation';
 export * from './pagedResourceListOfBlock';
 export * from './pagedResourceListOfCalendar';
-export * from './pagedResourceListOfComplianceRuleResponse';
 export * from './pagedResourceListOfComplianceTemplate';
 export * from './pagedResourceListOfCorporateActionSource';
 export * from './pagedResourceListOfCustomEntityDefinition';
@@ -560,7 +557,6 @@ export * from './updatePropertyDefinitionRequest';
 export * from './updateRelationshipDefinitionRequest';
 export * from './updateUnitRequest';
 export * from './upsertComplexMarketDataRequest';
-export * from './upsertComplianceRuleRequest';
 export * from './upsertCorporateActionRequest';
 export * from './upsertCorporateActionsResponse';
 export * from './upsertCounterpartyAgreementRequest';
@@ -706,8 +702,6 @@ import { ComplexBond } from './complexBond';
 import { ComplexBondAllOf } from './complexBondAllOf';
 import { ComplexMarketData } from './complexMarketData';
 import { ComplexMarketDataId } from './complexMarketDataId';
-import { ComplianceParameter } from './complianceParameter';
-import { ComplianceRuleResponse } from './complianceRuleResponse';
 import { ComplianceTemplate } from './complianceTemplate';
 import { ComplianceTemplateParameter } from './complianceTemplateParameter';
 import { ComplianceTemplateVariation } from './complianceTemplateVariation';
@@ -965,7 +959,6 @@ import { PagedResourceListOfAddressKeyDefinition } from './pagedResourceListOfAd
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
 import { PagedResourceListOfBlock } from './pagedResourceListOfBlock';
 import { PagedResourceListOfCalendar } from './pagedResourceListOfCalendar';
-import { PagedResourceListOfComplianceRuleResponse } from './pagedResourceListOfComplianceRuleResponse';
 import { PagedResourceListOfComplianceTemplate } from './pagedResourceListOfComplianceTemplate';
 import { PagedResourceListOfCorporateActionSource } from './pagedResourceListOfCorporateActionSource';
 import { PagedResourceListOfCustomEntityDefinition } from './pagedResourceListOfCustomEntityDefinition';
@@ -1181,7 +1174,6 @@ import { UpdatePropertyDefinitionRequest } from './updatePropertyDefinitionReque
 import { UpdateRelationshipDefinitionRequest } from './updateRelationshipDefinitionRequest';
 import { UpdateUnitRequest } from './updateUnitRequest';
 import { UpsertComplexMarketDataRequest } from './upsertComplexMarketDataRequest';
-import { UpsertComplianceRuleRequest } from './upsertComplianceRuleRequest';
 import { UpsertCorporateActionRequest } from './upsertCorporateActionRequest';
 import { UpsertCorporateActionsResponse } from './upsertCorporateActionsResponse';
 import { UpsertCounterpartyAgreementRequest } from './upsertCounterpartyAgreementRequest';
@@ -1613,8 +1605,6 @@ let typeMap: {[index: string]: any} = {
     "ComplexBondAllOf": ComplexBondAllOf,
     "ComplexMarketData": ComplexMarketData,
     "ComplexMarketDataId": ComplexMarketDataId,
-    "ComplianceParameter": ComplianceParameter,
-    "ComplianceRuleResponse": ComplianceRuleResponse,
     "ComplianceTemplate": ComplianceTemplate,
     "ComplianceTemplateParameter": ComplianceTemplateParameter,
     "ComplianceTemplateVariation": ComplianceTemplateVariation,
@@ -1871,7 +1861,6 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
     "PagedResourceListOfBlock": PagedResourceListOfBlock,
     "PagedResourceListOfCalendar": PagedResourceListOfCalendar,
-    "PagedResourceListOfComplianceRuleResponse": PagedResourceListOfComplianceRuleResponse,
     "PagedResourceListOfComplianceTemplate": PagedResourceListOfComplianceTemplate,
     "PagedResourceListOfCorporateActionSource": PagedResourceListOfCorporateActionSource,
     "PagedResourceListOfCustomEntityDefinition": PagedResourceListOfCustomEntityDefinition,
@@ -2087,7 +2076,6 @@ let typeMap: {[index: string]: any} = {
     "UpdateRelationshipDefinitionRequest": UpdateRelationshipDefinitionRequest,
     "UpdateUnitRequest": UpdateUnitRequest,
     "UpsertComplexMarketDataRequest": UpsertComplexMarketDataRequest,
-    "UpsertComplianceRuleRequest": UpsertComplianceRuleRequest,
     "UpsertCorporateActionRequest": UpsertCorporateActionRequest,
     "UpsertCorporateActionsResponse": UpsertCorporateActionsResponse,
     "UpsertCounterpartyAgreementRequest": UpsertCounterpartyAgreementRequest,
