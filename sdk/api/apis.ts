@@ -72,6 +72,8 @@ export * from './searchApi';
 import { SearchApi } from './searchApi';
 export * from './sequencesApi';
 import { SequencesApi } from './sequencesApi';
+export * from './structuredResultDataApi';
+import { StructuredResultDataApi } from './structuredResultDataApi';
 export * from './systemConfigurationApi';
 import { SystemConfigurationApi } from './systemConfigurationApi';
 export * from './transactionPortfoliosApi';
@@ -79,4 +81,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ComplianceGenericApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, SchemasApi, ScopesApi, SearchApi, SequencesApi, SystemConfigurationApi, TransactionPortfoliosApi];
+export const APIS = [AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ComplianceGenericApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, SchemasApi, ScopesApi, SearchApi, SequencesApi, StructuredResultDataApi, SystemConfigurationApi, TransactionPortfoliosApi];
