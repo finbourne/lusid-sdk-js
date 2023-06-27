@@ -11,65 +11,72 @@
  */
 
 import { RequestFile } from './models';
-import { CorporateActionSource } from './corporateActionSource';
-import { Link } from './link';
 
 /**
-* A paginated list of resource that can be returned from a request.
+* A set of conventions that describe the conventions for an inflation index.
 */
-export class PagedResourceListOfCorporateActionSource {
+export class InflationIndexConventions {
     /**
-    * The next page of results.
+    * Name of the index, e.g. UKRPI.
     */
-    'nextPage'?: string | null;
+    'inflationIndexName': string;
     /**
-    * The previous page of results.
+    * Currency of the inflation index convention.
     */
-    'previousPage'?: string | null;
+    'currency': string;
     /**
-    * The resources to list.
+    * Observation lag. This is a string that must have units of Month.  This field is typically 3 or 4 months, but can vary, older bonds and swaps have 8 months lag.  For Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid.
     */
-    'values': Array<CorporateActionSource>;
+    'observationLag': string;
     /**
-    * The URI of the resource list.
+    * Inflation Interpolation. This is optional and defaults to Linear if not set.    Supported string (enumeration) values are: [Linear, Flat].
     */
-    'href'?: string | null;
+    'inflationInterpolation'?: string | null;
     /**
-    * Collection of links.
+    * Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.
     */
-    'links'?: Array<Link> | null;
+    'inflationFrequency'?: string | null;
+    /**
+    * Day of the month that inflation rolls from one month to the next. This is optional and defaults to 1, which is  the typically value for the majority of inflation bonds (exceptions include Japan which rolls on the 10th  and some LatAm bonds which roll on the 15th).
+    */
+    'inflationRollDay'?: number;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "nextPage",
-            "baseName": "nextPage",
+            "name": "inflationIndexName",
+            "baseName": "inflationIndexName",
             "type": "string"
         },
         {
-            "name": "previousPage",
-            "baseName": "previousPage",
+            "name": "currency",
+            "baseName": "currency",
             "type": "string"
         },
         {
-            "name": "values",
-            "baseName": "values",
-            "type": "Array<CorporateActionSource>"
-        },
-        {
-            "name": "href",
-            "baseName": "href",
+            "name": "observationLag",
+            "baseName": "observationLag",
             "type": "string"
         },
         {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
+            "name": "inflationInterpolation",
+            "baseName": "inflationInterpolation",
+            "type": "string"
+        },
+        {
+            "name": "inflationFrequency",
+            "baseName": "inflationFrequency",
+            "type": "string"
+        },
+        {
+            "name": "inflationRollDay",
+            "baseName": "inflationRollDay",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return PagedResourceListOfCorporateActionSource.attributeTypeMap;
+        return InflationIndexConventions.attributeTypeMap;
     }
 }
 
