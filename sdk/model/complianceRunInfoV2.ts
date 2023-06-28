@@ -11,90 +11,40 @@
  */
 
 import { RequestFile } from './models';
+import { ResourceId } from './resourceId';
 
-/**
-* A set of conventions that describe the conventions for calculation of payments made on rates interbank lending and similar.  Based on ISDA 2006 conventions and similar documentation. Please see the knowledge base for further documentation.
-*/
-export class IndexConvention {
-    /**
-    * The reference rate name for fixings.
-    */
-    'fixingReference': string;
-    /**
-    * Number of days between spot and publication of the rate.
-    */
-    'publicationDayLag': number;
-    /**
-    * The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year.
-    */
-    'paymentTenor': string;
-    /**
-    * when calculating the fraction of a year between two dates, what convention is used to represent the number of days in a year  and difference between them.  For more information on day counts, see [knowledge base article KA-01798](https://support.lusid.com/knowledgebase/article/KA-01798)                Supported string (enumeration) values are: [Actual360, Act360, MoneyMarket, Actual365, Act365, Thirty360, ThirtyU360, Bond, ThirtyE360, EuroBond, ActualActual, ActAct, ActActIsda, ActActIsma, ActActIcma, OneOne, Act364, Act365F, Act365L, Act365_25, Act252, Bus252, NL360, NL365].
-    */
-    'dayCountConvention': string;
-    /**
-    * Currency of the index convention.
-    */
-    'currency': string;
-    /**
-    * The name of the index for which this represents the conventions of.  For instance, \"SOFR\", \"LIBOR\", \"EURIBOR\", etc.  Defaults to \"INDEX\" if not specified.
-    */
-    'indexName'?: string | null;
-    /**
-    * The scope used when updating or inserting the convention.
-    */
-    'scope'?: string | null;
-    /**
-    * The code of the convention.
-    */
-    'code'?: string | null;
+export class ComplianceRunInfoV2 {
+    'runId': ResourceId;
+    'instigatedAt': Date;
+    'completedAt': Date;
+    'schedule': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "fixingReference",
-            "baseName": "fixingReference",
-            "type": "string"
+            "name": "runId",
+            "baseName": "runId",
+            "type": "ResourceId"
         },
         {
-            "name": "publicationDayLag",
-            "baseName": "publicationDayLag",
-            "type": "number"
+            "name": "instigatedAt",
+            "baseName": "instigatedAt",
+            "type": "Date"
         },
         {
-            "name": "paymentTenor",
-            "baseName": "paymentTenor",
-            "type": "string"
+            "name": "completedAt",
+            "baseName": "completedAt",
+            "type": "Date"
         },
         {
-            "name": "dayCountConvention",
-            "baseName": "dayCountConvention",
-            "type": "string"
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "string"
-        },
-        {
-            "name": "indexName",
-            "baseName": "indexName",
-            "type": "string"
-        },
-        {
-            "name": "scope",
-            "baseName": "scope",
-            "type": "string"
-        },
-        {
-            "name": "code",
-            "baseName": "code",
+            "name": "schedule",
+            "baseName": "schedule",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return IndexConvention.attributeTypeMap;
+        return ComplianceRunInfoV2.attributeTypeMap;
     }
 }
 
