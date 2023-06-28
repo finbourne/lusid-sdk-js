@@ -32,9 +32,6 @@ export class ReferenceListResponse {
     'tags'?: Array<string> | null;
     'referenceList': ReferenceList;
     'version': Version;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
