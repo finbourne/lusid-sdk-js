@@ -86,8 +86,11 @@ export * from './complexBondAllOf';
 export * from './complexMarketData';
 export * from './complexMarketDataId';
 export * from './complianceParameter';
+export * from './complianceRuleBreakdown';
 export * from './complianceRuleResponse';
 export * from './complianceRunInfoV2';
+export * from './complianceRunSummary';
+export * from './complianceSummaryRuleResult';
 export * from './complianceTemplate';
 export * from './complianceTemplateParameter';
 export * from './complianceTemplateVariation';
@@ -710,8 +713,11 @@ import { ComplexBondAllOf } from './complexBondAllOf';
 import { ComplexMarketData } from './complexMarketData';
 import { ComplexMarketDataId } from './complexMarketDataId';
 import { ComplianceParameter } from './complianceParameter';
+import { ComplianceRuleBreakdown } from './complianceRuleBreakdown';
 import { ComplianceRuleResponse } from './complianceRuleResponse';
 import { ComplianceRunInfoV2 } from './complianceRunInfoV2';
+import { ComplianceRunSummary } from './complianceRunSummary';
+import { ComplianceSummaryRuleResult } from './complianceSummaryRuleResult';
 import { ComplianceTemplate } from './complianceTemplate';
 import { ComplianceTemplateParameter } from './complianceTemplateParameter';
 import { ComplianceTemplateVariation } from './complianceTemplateVariation';
@@ -1620,8 +1626,11 @@ let typeMap: {[index: string]: any} = {
     "ComplexMarketData": ComplexMarketData,
     "ComplexMarketDataId": ComplexMarketDataId,
     "ComplianceParameter": ComplianceParameter,
+    "ComplianceRuleBreakdown": ComplianceRuleBreakdown,
     "ComplianceRuleResponse": ComplianceRuleResponse,
     "ComplianceRunInfoV2": ComplianceRunInfoV2,
+    "ComplianceRunSummary": ComplianceRunSummary,
+    "ComplianceSummaryRuleResult": ComplianceSummaryRuleResult,
     "ComplianceTemplate": ComplianceTemplate,
     "ComplianceTemplateParameter": ComplianceTemplateParameter,
     "ComplianceTemplateVariation": ComplianceTemplateVariation,
