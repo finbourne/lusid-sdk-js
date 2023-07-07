@@ -310,6 +310,8 @@ export * from './link';
 export * from './listAggregationReconciliation';
 export * from './listAggregationResponse';
 export * from './loanPeriod';
+export * from './lookUpPricingModelOptions';
+export * from './lookUpPricingModelOptionsAllOf';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
 export * from './lusidUniqueId';
@@ -939,6 +941,8 @@ import { Link } from './link';
 import { ListAggregationReconciliation } from './listAggregationReconciliation';
 import { ListAggregationResponse } from './listAggregationResponse';
 import { LoanPeriod } from './loanPeriod';
+import { LookUpPricingModelOptions } from './lookUpPricingModelOptions';
+import { LookUpPricingModelOptionsAllOf } from './lookUpPricingModelOptionsAllOf';
 import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidUniqueId } from './lusidUniqueId';
@@ -1424,6 +1428,8 @@ let enumsMap: {[index: string]: any} = {
         "IrVolDependencyAllOf.DependencyTypeEnum": IrVolDependencyAllOf.DependencyTypeEnum,
         "LifeCycleEventValue.ResultValueTypeEnum": LifeCycleEventValue.ResultValueTypeEnum,
         "LifeCycleEventValueAllOf.ResultValueTypeEnum": LifeCycleEventValueAllOf.ResultValueTypeEnum,
+        "LookUpPricingModelOptions.ModelOptionsTypeEnum": LookUpPricingModelOptions.ModelOptionsTypeEnum,
+        "LookUpPricingModelOptionsAllOf.ModelOptionsTypeEnum": LookUpPricingModelOptionsAllOf.ModelOptionsTypeEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
         "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
         "MarketDataOptions.MarketDataOptionsTypeEnum": MarketDataOptions.MarketDataOptionsTypeEnum,
@@ -1853,6 +1859,8 @@ let typeMap: {[index: string]: any} = {
     "ListAggregationReconciliation": ListAggregationReconciliation,
     "ListAggregationResponse": ListAggregationResponse,
     "LoanPeriod": LoanPeriod,
+    "LookUpPricingModelOptions": LookUpPricingModelOptions,
+    "LookUpPricingModelOptionsAllOf": LookUpPricingModelOptionsAllOf,
     "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
     "LusidUniqueId": LusidUniqueId,
