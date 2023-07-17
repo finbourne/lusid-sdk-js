@@ -14,29 +14,11 @@ import { RequestFile } from './models';
 import { Link } from './link';
 import { PortfolioCashLadder } from './portfolioCashLadder';
 
-/**
-* A collection of resources that can be returned from requests.
-*/
 export class ResourceListOfPortfolioCashLadder {
-    /**
-    * The resources to list.
-    */
     'values': Array<PortfolioCashLadder>;
-    /**
-    * The URI of the resource list.
-    */
     'href'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
-    /**
-    * The next page of results.
-    */
     'nextPage'?: string | null;
-    /**
-    * The previous page of results.
-    */
     'previousPage'?: string | null;
 
     static discriminator: string | undefined = undefined;
