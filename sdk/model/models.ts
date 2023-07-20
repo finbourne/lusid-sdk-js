@@ -13,10 +13,14 @@ export * from './actionResultOfPortfolio';
 export * from './addBusinessDaysToDateRequest';
 export * from './addBusinessDaysToDateResponse';
 export * from './addressDefinition';
+export * from './addressKeyComplianceParameter';
+export * from './addressKeyComplianceParameterAllOf';
 export * from './addressKeyDefinition';
 export * from './addressKeyFilter';
 export * from './addressKeyList';
 export * from './addressKeyListAllOf';
+export * from './addressKeyListComplianceParameter';
+export * from './addressKeyListComplianceParameterAllOf';
 export * from './addressKeyOptionDefinition';
 export * from './adjustHolding';
 export * from './adjustHoldingForDateRequest';
@@ -52,6 +56,9 @@ export * from './bond';
 export * from './bondAllOf';
 export * from './bondDefaultEvent';
 export * from './bondDefaultEventAllOf';
+export * from './boolComplianceParameter';
+export * from './boolComplianceParameterAllOf';
+export * from './boolListComplianceParameter';
 export * from './calendar';
 export * from './calendarDate';
 export * from './capFloor';
@@ -149,9 +156,15 @@ export * from './dataType';
 export * from './dataTypeSummary';
 export * from './dateAttributes';
 export * from './dateRange';
+export * from './dateTimeComplianceParameter';
+export * from './dateTimeComplianceParameterAllOf';
+export * from './dateTimeListComplianceParameter';
 export * from './dayOfWeek';
+export * from './decimalComplianceParameter';
+export * from './decimalComplianceParameterAllOf';
 export * from './decimalList';
 export * from './decimalListAllOf';
+export * from './decimalListComplianceParameter';
 export * from './deleteInstrumentPropertiesResponse';
 export * from './deleteInstrumentResponse';
 export * from './deleteInstrumentsResponse';
@@ -388,12 +401,16 @@ export * from './portfolioCashLadder';
 export * from './portfolioDetails';
 export * from './portfolioEntityId';
 export * from './portfolioGroup';
+export * from './portfolioGroupIdComplianceParameter';
 export * from './portfolioGroupIdList';
 export * from './portfolioGroupIdListAllOf';
+export * from './portfolioGroupIdListComplianceParameter';
 export * from './portfolioGroupProperties';
 export * from './portfolioGroupSearchResult';
 export * from './portfolioHolding';
+export * from './portfolioIdComplianceParameter';
 export * from './portfolioIdList';
+export * from './portfolioIdListComplianceParameter';
 export * from './portfolioProperties';
 export * from './portfolioReconciliationRequest';
 export * from './portfolioResultDataKeyRule';
@@ -409,6 +426,9 @@ export * from './propertyDefinition';
 export * from './propertyDefinitionSearchResult';
 export * from './propertyFilter';
 export * from './propertyInterval';
+export * from './propertyKeyComplianceParameter';
+export * from './propertyKeyComplianceParameterAllOf';
+export * from './propertyKeyListComplianceParameter';
 export * from './propertySchema';
 export * from './propertyValue';
 export * from './quote';
@@ -533,7 +553,10 @@ export * from './stepScheduleAllOf';
 export * from './stockSplitEvent';
 export * from './stockSplitEventAllOf';
 export * from './stream';
+export * from './stringComplianceParameter';
+export * from './stringComplianceParameterAllOf';
 export * from './stringList';
+export * from './stringListComplianceParameter';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './termDeposit';
@@ -644,10 +667,14 @@ import { ActionResultOfPortfolio } from './actionResultOfPortfolio';
 import { AddBusinessDaysToDateRequest } from './addBusinessDaysToDateRequest';
 import { AddBusinessDaysToDateResponse } from './addBusinessDaysToDateResponse';
 import { AddressDefinition } from './addressDefinition';
+import { AddressKeyComplianceParameter } from './addressKeyComplianceParameter';
+import { AddressKeyComplianceParameterAllOf } from './addressKeyComplianceParameterAllOf';
 import { AddressKeyDefinition } from './addressKeyDefinition';
 import { AddressKeyFilter } from './addressKeyFilter';
 import { AddressKeyList } from './addressKeyList';
 import { AddressKeyListAllOf } from './addressKeyListAllOf';
+import { AddressKeyListComplianceParameter } from './addressKeyListComplianceParameter';
+import { AddressKeyListComplianceParameterAllOf } from './addressKeyListComplianceParameterAllOf';
 import { AddressKeyOptionDefinition } from './addressKeyOptionDefinition';
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingForDateRequest } from './adjustHoldingForDateRequest';
@@ -683,6 +710,9 @@ import { Bond } from './bond';
 import { BondAllOf } from './bondAllOf';
 import { BondDefaultEvent } from './bondDefaultEvent';
 import { BondDefaultEventAllOf } from './bondDefaultEventAllOf';
+import { BoolComplianceParameter } from './boolComplianceParameter';
+import { BoolComplianceParameterAllOf } from './boolComplianceParameterAllOf';
+import { BoolListComplianceParameter } from './boolListComplianceParameter';
 import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CapFloor } from './capFloor';
@@ -780,9 +810,15 @@ import { DataType } from './dataType';
 import { DataTypeSummary } from './dataTypeSummary';
 import { DateAttributes } from './dateAttributes';
 import { DateRange } from './dateRange';
+import { DateTimeComplianceParameter } from './dateTimeComplianceParameter';
+import { DateTimeComplianceParameterAllOf } from './dateTimeComplianceParameterAllOf';
+import { DateTimeListComplianceParameter } from './dateTimeListComplianceParameter';
 import { DayOfWeek } from './dayOfWeek';
+import { DecimalComplianceParameter } from './decimalComplianceParameter';
+import { DecimalComplianceParameterAllOf } from './decimalComplianceParameterAllOf';
 import { DecimalList } from './decimalList';
 import { DecimalListAllOf } from './decimalListAllOf';
+import { DecimalListComplianceParameter } from './decimalListComplianceParameter';
 import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeleteInstrumentsResponse } from './deleteInstrumentsResponse';
@@ -1019,12 +1055,16 @@ import { PortfolioCashLadder } from './portfolioCashLadder';
 import { PortfolioDetails } from './portfolioDetails';
 import { PortfolioEntityId } from './portfolioEntityId';
 import { PortfolioGroup } from './portfolioGroup';
+import { PortfolioGroupIdComplianceParameter } from './portfolioGroupIdComplianceParameter';
 import { PortfolioGroupIdList } from './portfolioGroupIdList';
 import { PortfolioGroupIdListAllOf } from './portfolioGroupIdListAllOf';
+import { PortfolioGroupIdListComplianceParameter } from './portfolioGroupIdListComplianceParameter';
 import { PortfolioGroupProperties } from './portfolioGroupProperties';
 import { PortfolioGroupSearchResult } from './portfolioGroupSearchResult';
 import { PortfolioHolding } from './portfolioHolding';
+import { PortfolioIdComplianceParameter } from './portfolioIdComplianceParameter';
 import { PortfolioIdList } from './portfolioIdList';
+import { PortfolioIdListComplianceParameter } from './portfolioIdListComplianceParameter';
 import { PortfolioProperties } from './portfolioProperties';
 import { PortfolioReconciliationRequest } from './portfolioReconciliationRequest';
 import { PortfolioResultDataKeyRule } from './portfolioResultDataKeyRule';
@@ -1040,6 +1080,9 @@ import { PropertyDefinition } from './propertyDefinition';
 import { PropertyDefinitionSearchResult } from './propertyDefinitionSearchResult';
 import { PropertyFilter } from './propertyFilter';
 import { PropertyInterval } from './propertyInterval';
+import { PropertyKeyComplianceParameter } from './propertyKeyComplianceParameter';
+import { PropertyKeyComplianceParameterAllOf } from './propertyKeyComplianceParameterAllOf';
+import { PropertyKeyListComplianceParameter } from './propertyKeyListComplianceParameter';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { Quote } from './quote';
@@ -1164,7 +1207,10 @@ import { StepScheduleAllOf } from './stepScheduleAllOf';
 import { StockSplitEvent } from './stockSplitEvent';
 import { StockSplitEventAllOf } from './stockSplitEventAllOf';
 import { Stream } from './stream';
+import { StringComplianceParameter } from './stringComplianceParameter';
+import { StringComplianceParameterAllOf } from './stringComplianceParameterAllOf';
 import { StringList } from './stringList';
+import { StringListComplianceParameter } from './stringListComplianceParameter';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { TermDeposit } from './termDeposit';
@@ -1264,8 +1310,12 @@ let primitives = [
 let enumsMap: {[index: string]: any} = {
         "AccessMetadataOperation.OpEnum": AccessMetadataOperation.OpEnum,
         "AddressDefinition.TypeEnum": AddressDefinition.TypeEnum,
+        "AddressKeyComplianceParameter.ComplianceParameterTypeEnum": AddressKeyComplianceParameter.ComplianceParameterTypeEnum,
+        "AddressKeyComplianceParameterAllOf.ComplianceParameterTypeEnum": AddressKeyComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "AddressKeyList.ReferenceListTypeEnum": AddressKeyList.ReferenceListTypeEnum,
         "AddressKeyListAllOf.ReferenceListTypeEnum": AddressKeyListAllOf.ReferenceListTypeEnum,
+        "AddressKeyListComplianceParameter.ComplianceParameterTypeEnum": AddressKeyListComplianceParameter.ComplianceParameterTypeEnum,
+        "AddressKeyListComplianceParameterAllOf.ComplianceParameterTypeEnum": AddressKeyListComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "AggregateSpec.OpEnum": AggregateSpec.OpEnum,
         "AggregationQuery.TypeEnum": AggregationQuery.TypeEnum,
         "AggregationQuery.FlattenedTypeEnum": AggregationQuery.FlattenedTypeEnum,
@@ -1277,6 +1327,9 @@ let enumsMap: {[index: string]: any} = {
         "BondAllOf.InstrumentTypeEnum": BondAllOf.InstrumentTypeEnum,
         "BondDefaultEvent.InstrumentEventTypeEnum": BondDefaultEvent.InstrumentEventTypeEnum,
         "BondDefaultEventAllOf.InstrumentEventTypeEnum": BondDefaultEventAllOf.InstrumentEventTypeEnum,
+        "BoolComplianceParameter.ComplianceParameterTypeEnum": BoolComplianceParameter.ComplianceParameterTypeEnum,
+        "BoolComplianceParameterAllOf.ComplianceParameterTypeEnum": BoolComplianceParameterAllOf.ComplianceParameterTypeEnum,
+        "BoolListComplianceParameter.ComplianceParameterTypeEnum": BoolListComplianceParameter.ComplianceParameterTypeEnum,
         "CapFloor.InstrumentTypeEnum": CapFloor.InstrumentTypeEnum,
         "CapFloorAllOf.InstrumentTypeEnum": CapFloorAllOf.InstrumentTypeEnum,
         "CashDependency.DependencyTypeEnum": CashDependency.DependencyTypeEnum,
@@ -1300,7 +1353,7 @@ let enumsMap: {[index: string]: any} = {
         "ComplexBond.InstrumentTypeEnum": ComplexBond.InstrumentTypeEnum,
         "ComplexBondAllOf.InstrumentTypeEnum": ComplexBondAllOf.InstrumentTypeEnum,
         "ComplexMarketData.MarketDataTypeEnum": ComplexMarketData.MarketDataTypeEnum,
-        "ComplianceParameter.ParameterTypeEnum": ComplianceParameter.ParameterTypeEnum,
+        "ComplianceParameter.ComplianceParameterTypeEnum": ComplianceParameter.ComplianceParameterTypeEnum,
         "ContractForDifference.InstrumentTypeEnum": ContractForDifference.InstrumentTypeEnum,
         "ContractForDifferenceAllOf.InstrumentTypeEnum": ContractForDifferenceAllOf.InstrumentTypeEnum,
         "CreateDataTypeRequest.TypeValueRangeEnum": CreateDataTypeRequest.TypeValueRangeEnum,
@@ -1321,9 +1374,15 @@ let enumsMap: {[index: string]: any} = {
         "DataTypeSummary.TypeValueRangeEnum": DataTypeSummary.TypeValueRangeEnum,
         "DataTypeSummary.ValueTypeEnum": DataTypeSummary.ValueTypeEnum,
         "DataTypeSummary.UnitSchemaEnum": DataTypeSummary.UnitSchemaEnum,
+        "DateTimeComplianceParameter.ComplianceParameterTypeEnum": DateTimeComplianceParameter.ComplianceParameterTypeEnum,
+        "DateTimeComplianceParameterAllOf.ComplianceParameterTypeEnum": DateTimeComplianceParameterAllOf.ComplianceParameterTypeEnum,
+        "DateTimeListComplianceParameter.ComplianceParameterTypeEnum": DateTimeListComplianceParameter.ComplianceParameterTypeEnum,
         "DayOfWeek": DayOfWeek,
+        "DecimalComplianceParameter.ComplianceParameterTypeEnum": DecimalComplianceParameter.ComplianceParameterTypeEnum,
+        "DecimalComplianceParameterAllOf.ComplianceParameterTypeEnum": DecimalComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "DecimalList.ReferenceListTypeEnum": DecimalList.ReferenceListTypeEnum,
         "DecimalListAllOf.ReferenceListTypeEnum": DecimalListAllOf.ReferenceListTypeEnum,
+        "DecimalListComplianceParameter.ComplianceParameterTypeEnum": DecimalListComplianceParameter.ComplianceParameterTypeEnum,
         "DiscountFactorCurveData.MarketDataTypeEnum": DiscountFactorCurveData.MarketDataTypeEnum,
         "DiscountFactorCurveDataAllOf.MarketDataTypeEnum": DiscountFactorCurveDataAllOf.MarketDataTypeEnum,
         "DiscountingDependency.DependencyTypeEnum": DiscountingDependency.DependencyTypeEnum,
@@ -1452,9 +1511,13 @@ let enumsMap: {[index: string]: any} = {
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "Portfolio.AccountingMethodEnum": Portfolio.AccountingMethodEnum,
         "PortfolioDetails.AccountingMethodEnum": PortfolioDetails.AccountingMethodEnum,
+        "PortfolioGroupIdComplianceParameter.ComplianceParameterTypeEnum": PortfolioGroupIdComplianceParameter.ComplianceParameterTypeEnum,
         "PortfolioGroupIdList.ReferenceListTypeEnum": PortfolioGroupIdList.ReferenceListTypeEnum,
         "PortfolioGroupIdListAllOf.ReferenceListTypeEnum": PortfolioGroupIdListAllOf.ReferenceListTypeEnum,
+        "PortfolioGroupIdListComplianceParameter.ComplianceParameterTypeEnum": PortfolioGroupIdListComplianceParameter.ComplianceParameterTypeEnum,
+        "PortfolioIdComplianceParameter.ComplianceParameterTypeEnum": PortfolioIdComplianceParameter.ComplianceParameterTypeEnum,
         "PortfolioIdList.ReferenceListTypeEnum": PortfolioIdList.ReferenceListTypeEnum,
+        "PortfolioIdListComplianceParameter.ComplianceParameterTypeEnum": PortfolioIdListComplianceParameter.ComplianceParameterTypeEnum,
         "PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum": PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum,
         "PortfolioResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum": PortfolioResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
@@ -1472,6 +1535,9 @@ let enumsMap: {[index: string]: any} = {
         "PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum": PropertyDefinitionSearchResult.PropertyDefinitionTypeEnum,
         "PropertyFilter.OperatorEnum": PropertyFilter.OperatorEnum,
         "PropertyFilter.RightOperandTypeEnum": PropertyFilter.RightOperandTypeEnum,
+        "PropertyKeyComplianceParameter.ComplianceParameterTypeEnum": PropertyKeyComplianceParameter.ComplianceParameterTypeEnum,
+        "PropertyKeyComplianceParameterAllOf.ComplianceParameterTypeEnum": PropertyKeyComplianceParameterAllOf.ComplianceParameterTypeEnum,
+        "PropertyKeyListComplianceParameter.ComplianceParameterTypeEnum": PropertyKeyListComplianceParameter.ComplianceParameterTypeEnum,
         "QuoteDependency.DependencyTypeEnum": QuoteDependency.DependencyTypeEnum,
         "QuoteDependencyAllOf.DependencyTypeEnum": QuoteDependencyAllOf.DependencyTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
@@ -1529,7 +1595,10 @@ let enumsMap: {[index: string]: any} = {
         "StepScheduleAllOf.ScheduleTypeEnum": StepScheduleAllOf.ScheduleTypeEnum,
         "StockSplitEvent.InstrumentEventTypeEnum": StockSplitEvent.InstrumentEventTypeEnum,
         "StockSplitEventAllOf.InstrumentEventTypeEnum": StockSplitEventAllOf.InstrumentEventTypeEnum,
+        "StringComplianceParameter.ComplianceParameterTypeEnum": StringComplianceParameter.ComplianceParameterTypeEnum,
+        "StringComplianceParameterAllOf.ComplianceParameterTypeEnum": StringComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "StringList.ReferenceListTypeEnum": StringList.ReferenceListTypeEnum,
+        "StringListComplianceParameter.ComplianceParameterTypeEnum": StringListComplianceParameter.ComplianceParameterTypeEnum,
         "TermDeposit.InstrumentTypeEnum": TermDeposit.InstrumentTypeEnum,
         "TermDepositAllOf.InstrumentTypeEnum": TermDepositAllOf.InstrumentTypeEnum,
         "Transaction.TransactionStatusEnum": Transaction.TransactionStatusEnum,
@@ -1564,10 +1633,14 @@ let typeMap: {[index: string]: any} = {
     "AddBusinessDaysToDateRequest": AddBusinessDaysToDateRequest,
     "AddBusinessDaysToDateResponse": AddBusinessDaysToDateResponse,
     "AddressDefinition": AddressDefinition,
+    "AddressKeyComplianceParameter": AddressKeyComplianceParameter,
+    "AddressKeyComplianceParameterAllOf": AddressKeyComplianceParameterAllOf,
     "AddressKeyDefinition": AddressKeyDefinition,
     "AddressKeyFilter": AddressKeyFilter,
     "AddressKeyList": AddressKeyList,
     "AddressKeyListAllOf": AddressKeyListAllOf,
+    "AddressKeyListComplianceParameter": AddressKeyListComplianceParameter,
+    "AddressKeyListComplianceParameterAllOf": AddressKeyListComplianceParameterAllOf,
     "AddressKeyOptionDefinition": AddressKeyOptionDefinition,
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingForDateRequest": AdjustHoldingForDateRequest,
@@ -1603,6 +1676,9 @@ let typeMap: {[index: string]: any} = {
     "BondAllOf": BondAllOf,
     "BondDefaultEvent": BondDefaultEvent,
     "BondDefaultEventAllOf": BondDefaultEventAllOf,
+    "BoolComplianceParameter": BoolComplianceParameter,
+    "BoolComplianceParameterAllOf": BoolComplianceParameterAllOf,
+    "BoolListComplianceParameter": BoolListComplianceParameter,
     "Calendar": Calendar,
     "CalendarDate": CalendarDate,
     "CapFloor": CapFloor,
@@ -1700,8 +1776,14 @@ let typeMap: {[index: string]: any} = {
     "DataTypeSummary": DataTypeSummary,
     "DateAttributes": DateAttributes,
     "DateRange": DateRange,
+    "DateTimeComplianceParameter": DateTimeComplianceParameter,
+    "DateTimeComplianceParameterAllOf": DateTimeComplianceParameterAllOf,
+    "DateTimeListComplianceParameter": DateTimeListComplianceParameter,
+    "DecimalComplianceParameter": DecimalComplianceParameter,
+    "DecimalComplianceParameterAllOf": DecimalComplianceParameterAllOf,
     "DecimalList": DecimalList,
     "DecimalListAllOf": DecimalListAllOf,
+    "DecimalListComplianceParameter": DecimalListComplianceParameter,
     "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeleteInstrumentsResponse": DeleteInstrumentsResponse,
@@ -1938,12 +2020,16 @@ let typeMap: {[index: string]: any} = {
     "PortfolioDetails": PortfolioDetails,
     "PortfolioEntityId": PortfolioEntityId,
     "PortfolioGroup": PortfolioGroup,
+    "PortfolioGroupIdComplianceParameter": PortfolioGroupIdComplianceParameter,
     "PortfolioGroupIdList": PortfolioGroupIdList,
     "PortfolioGroupIdListAllOf": PortfolioGroupIdListAllOf,
+    "PortfolioGroupIdListComplianceParameter": PortfolioGroupIdListComplianceParameter,
     "PortfolioGroupProperties": PortfolioGroupProperties,
     "PortfolioGroupSearchResult": PortfolioGroupSearchResult,
     "PortfolioHolding": PortfolioHolding,
+    "PortfolioIdComplianceParameter": PortfolioIdComplianceParameter,
     "PortfolioIdList": PortfolioIdList,
+    "PortfolioIdListComplianceParameter": PortfolioIdListComplianceParameter,
     "PortfolioProperties": PortfolioProperties,
     "PortfolioReconciliationRequest": PortfolioReconciliationRequest,
     "PortfolioResultDataKeyRule": PortfolioResultDataKeyRule,
@@ -1959,6 +2045,9 @@ let typeMap: {[index: string]: any} = {
     "PropertyDefinitionSearchResult": PropertyDefinitionSearchResult,
     "PropertyFilter": PropertyFilter,
     "PropertyInterval": PropertyInterval,
+    "PropertyKeyComplianceParameter": PropertyKeyComplianceParameter,
+    "PropertyKeyComplianceParameterAllOf": PropertyKeyComplianceParameterAllOf,
+    "PropertyKeyListComplianceParameter": PropertyKeyListComplianceParameter,
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
     "Quote": Quote,
@@ -2083,7 +2172,10 @@ let typeMap: {[index: string]: any} = {
     "StockSplitEvent": StockSplitEvent,
     "StockSplitEventAllOf": StockSplitEventAllOf,
     "Stream": Stream,
+    "StringComplianceParameter": StringComplianceParameter,
+    "StringComplianceParameterAllOf": StringComplianceParameterAllOf,
     "StringList": StringList,
+    "StringListComplianceParameter": StringListComplianceParameter,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "TermDeposit": TermDeposit,
