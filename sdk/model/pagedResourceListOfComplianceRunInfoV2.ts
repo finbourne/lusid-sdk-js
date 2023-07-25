@@ -11,42 +11,65 @@
  */
 
 import { RequestFile } from './models';
+import { ComplianceRunInfoV2 } from './complianceRunInfoV2';
+import { Link } from './link';
 
-export class UpdateInstrumentIdentifierRequest {
+/**
+* A paginated list of resource that can be returned from a request.
+*/
+export class PagedResourceListOfComplianceRunInfoV2 {
     /**
-    * The allowable instrument identifier to update, insert or remove e.g. \'Figi\'.
+    * The next page of results.
     */
-    'type': string;
+    'nextPage'?: string | null;
     /**
-    * The new value of the allowable instrument identifier. If unspecified the identifier will be removed from the instrument.
+    * The previous page of results.
     */
-    'value'?: string | null;
+    'previousPage'?: string | null;
     /**
-    * The effective datetime from which the identifier should be updated, inserted or removed. Defaults to the current LUSID system datetime if not specified.
+    * The resources to list.
     */
-    'effectiveAt'?: string | null;
+    'values': Array<ComplianceRunInfoV2>;
+    /**
+    * The URI of the resource list.
+    */
+    'href'?: string | null;
+    /**
+    * Collection of links.
+    */
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "type",
-            "baseName": "type",
+            "name": "nextPage",
+            "baseName": "nextPage",
             "type": "string"
         },
         {
-            "name": "value",
-            "baseName": "value",
+            "name": "previousPage",
+            "baseName": "previousPage",
             "type": "string"
         },
         {
-            "name": "effectiveAt",
-            "baseName": "effectiveAt",
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<ComplianceRunInfoV2>"
+        },
+        {
+            "name": "href",
+            "baseName": "href",
             "type": "string"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return UpdateInstrumentIdentifierRequest.attributeTypeMap;
+        return PagedResourceListOfComplianceRunInfoV2.attributeTypeMap;
     }
 }
 

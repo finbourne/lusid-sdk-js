@@ -365,6 +365,7 @@ export * from './pagedResourceListOfAllocation';
 export * from './pagedResourceListOfBlock';
 export * from './pagedResourceListOfCalendar';
 export * from './pagedResourceListOfComplianceRuleResponse';
+export * from './pagedResourceListOfComplianceRunInfoV2';
 export * from './pagedResourceListOfComplianceTemplate';
 export * from './pagedResourceListOfCorporateActionSource';
 export * from './pagedResourceListOfCustomEntityDefinition';
@@ -1019,6 +1020,7 @@ import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
 import { PagedResourceListOfBlock } from './pagedResourceListOfBlock';
 import { PagedResourceListOfCalendar } from './pagedResourceListOfCalendar';
 import { PagedResourceListOfComplianceRuleResponse } from './pagedResourceListOfComplianceRuleResponse';
+import { PagedResourceListOfComplianceRunInfoV2 } from './pagedResourceListOfComplianceRunInfoV2';
 import { PagedResourceListOfComplianceTemplate } from './pagedResourceListOfComplianceTemplate';
 import { PagedResourceListOfCorporateActionSource } from './pagedResourceListOfCorporateActionSource';
 import { PagedResourceListOfCustomEntityDefinition } from './pagedResourceListOfCustomEntityDefinition';
@@ -1984,6 +1986,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfBlock": PagedResourceListOfBlock,
     "PagedResourceListOfCalendar": PagedResourceListOfCalendar,
     "PagedResourceListOfComplianceRuleResponse": PagedResourceListOfComplianceRuleResponse,
+    "PagedResourceListOfComplianceRunInfoV2": PagedResourceListOfComplianceRunInfoV2,
     "PagedResourceListOfComplianceTemplate": PagedResourceListOfComplianceTemplate,
     "PagedResourceListOfCorporateActionSource": PagedResourceListOfCorporateActionSource,
     "PagedResourceListOfCustomEntityDefinition": PagedResourceListOfCustomEntityDefinition,
