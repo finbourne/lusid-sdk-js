@@ -11,6 +11,7 @@ import {CorporateActionSourcesApi} from './api/corporateActionSourcesApi';
 import {CounterpartiesApi} from './api/counterpartiesApi';
 import {CustomEntitiesApi} from './api/customEntitiesApi';
 import {CustomEntityDefinitionsApi} from './api/customEntityDefinitionsApi';
+import {CustomEntityTypesApi} from './api/customEntityTypesApi';
 import {CutLabelDefinitionsApi} from './api/cutLabelDefinitionsApi';
 import {DataTypesApi} from './api/dataTypesApi';
 import {DerivedTransactionPortfoliosApi} from './api/derivedTransactionPortfoliosApi';
@@ -53,6 +54,7 @@ export class Api {
     public counterparties:  CounterpartiesApi
     public customEntities:  CustomEntitiesApi
     public customEntityDefinitions:  CustomEntityDefinitionsApi
+    public customEntityTypes:  CustomEntityTypesApi
     public cutLabelDefinitions:  CutLabelDefinitionsApi
     public dataTypes:  DataTypesApi
     public derivedTransactionPortfolios:  DerivedTransactionPortfoliosApi

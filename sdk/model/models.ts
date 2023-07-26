@@ -121,6 +121,7 @@ export * from './counterpartySignatory';
 export * from './createAddressKeyDefinitionRequest';
 export * from './createCalendarRequest';
 export * from './createCorporateActionSourceRequest';
+export * from './createCustomEntityTypeRequest';
 export * from './createCutLabelDefinitionRequest';
 export * from './createDataTypeRequest';
 export * from './createDateRequest';
@@ -150,6 +151,7 @@ export * from './customEntityFieldDefinition';
 export * from './customEntityId';
 export * from './customEntityRequest';
 export * from './customEntityResponse';
+export * from './customEntityType';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
 export * from './dataType';
@@ -370,6 +372,7 @@ export * from './pagedResourceListOfComplianceTemplate';
 export * from './pagedResourceListOfCorporateActionSource';
 export * from './pagedResourceListOfCustomEntityDefinition';
 export * from './pagedResourceListOfCustomEntityResponse';
+export * from './pagedResourceListOfCustomEntityType';
 export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfDataTypeSummary';
 export * from './pagedResourceListOfExecution';
@@ -584,6 +587,7 @@ export * from './triggerEventAllOf';
 export * from './typedResourceId';
 export * from './updateCalendarRequest';
 export * from './updateCustomEntityDefinitionRequest';
+export * from './updateCustomEntityTypeRequest';
 export * from './updateCutLabelDefinitionRequest';
 export * from './updateDataTypeRequest';
 export * from './updateDerivedPropertyDefinitionRequest';
@@ -776,6 +780,7 @@ import { CounterpartySignatory } from './counterpartySignatory';
 import { CreateAddressKeyDefinitionRequest } from './createAddressKeyDefinitionRequest';
 import { CreateCalendarRequest } from './createCalendarRequest';
 import { CreateCorporateActionSourceRequest } from './createCorporateActionSourceRequest';
+import { CreateCustomEntityTypeRequest } from './createCustomEntityTypeRequest';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
 import { CreateDataTypeRequest } from './createDataTypeRequest';
 import { CreateDateRequest } from './createDateRequest';
@@ -805,6 +810,7 @@ import { CustomEntityFieldDefinition } from './customEntityFieldDefinition';
 import { CustomEntityId } from './customEntityId';
 import { CustomEntityRequest } from './customEntityRequest';
 import { CustomEntityResponse } from './customEntityResponse';
+import { CustomEntityType } from './customEntityType';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
 import { DataType } from './dataType';
@@ -1025,6 +1031,7 @@ import { PagedResourceListOfComplianceTemplate } from './pagedResourceListOfComp
 import { PagedResourceListOfCorporateActionSource } from './pagedResourceListOfCorporateActionSource';
 import { PagedResourceListOfCustomEntityDefinition } from './pagedResourceListOfCustomEntityDefinition';
 import { PagedResourceListOfCustomEntityResponse } from './pagedResourceListOfCustomEntityResponse';
+import { PagedResourceListOfCustomEntityType } from './pagedResourceListOfCustomEntityType';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfDataTypeSummary } from './pagedResourceListOfDataTypeSummary';
 import { PagedResourceListOfExecution } from './pagedResourceListOfExecution';
@@ -1239,6 +1246,7 @@ import { TriggerEventAllOf } from './triggerEventAllOf';
 import { TypedResourceId } from './typedResourceId';
 import { UpdateCalendarRequest } from './updateCalendarRequest';
 import { UpdateCustomEntityDefinitionRequest } from './updateCustomEntityDefinitionRequest';
+import { UpdateCustomEntityTypeRequest } from './updateCustomEntityTypeRequest';
 import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionRequest';
 import { UpdateDataTypeRequest } from './updateDataTypeRequest';
 import { UpdateDerivedPropertyDefinitionRequest } from './updateDerivedPropertyDefinitionRequest';
@@ -1743,6 +1751,7 @@ let typeMap: {[index: string]: any} = {
     "CreateAddressKeyDefinitionRequest": CreateAddressKeyDefinitionRequest,
     "CreateCalendarRequest": CreateCalendarRequest,
     "CreateCorporateActionSourceRequest": CreateCorporateActionSourceRequest,
+    "CreateCustomEntityTypeRequest": CreateCustomEntityTypeRequest,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
     "CreateDataTypeRequest": CreateDataTypeRequest,
     "CreateDateRequest": CreateDateRequest,
@@ -1772,6 +1781,7 @@ let typeMap: {[index: string]: any} = {
     "CustomEntityId": CustomEntityId,
     "CustomEntityRequest": CustomEntityRequest,
     "CustomEntityResponse": CustomEntityResponse,
+    "CustomEntityType": CustomEntityType,
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
     "DataType": DataType,
@@ -1991,6 +2001,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfCorporateActionSource": PagedResourceListOfCorporateActionSource,
     "PagedResourceListOfCustomEntityDefinition": PagedResourceListOfCustomEntityDefinition,
     "PagedResourceListOfCustomEntityResponse": PagedResourceListOfCustomEntityResponse,
+    "PagedResourceListOfCustomEntityType": PagedResourceListOfCustomEntityType,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfDataTypeSummary": PagedResourceListOfDataTypeSummary,
     "PagedResourceListOfExecution": PagedResourceListOfExecution,
@@ -2205,6 +2216,7 @@ let typeMap: {[index: string]: any} = {
     "TypedResourceId": TypedResourceId,
     "UpdateCalendarRequest": UpdateCalendarRequest,
     "UpdateCustomEntityDefinitionRequest": UpdateCustomEntityDefinitionRequest,
+    "UpdateCustomEntityTypeRequest": UpdateCustomEntityTypeRequest,
     "UpdateCutLabelDefinitionRequest": UpdateCutLabelDefinitionRequest,
     "UpdateDataTypeRequest": UpdateDataTypeRequest,
     "UpdateDerivedPropertyDefinitionRequest": UpdateDerivedPropertyDefinitionRequest,
