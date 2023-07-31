@@ -383,6 +383,7 @@ export * from './pagedResourceListOfOrder';
 export * from './pagedResourceListOfParticipation';
 export * from './pagedResourceListOfPerson';
 export * from './pagedResourceListOfPlacement';
+export * from './pagedResourceListOfPortfolioGroup';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
@@ -502,7 +503,6 @@ export * from './resourceListOfPlacement';
 export * from './resourceListOfPortfolio';
 export * from './resourceListOfPortfolioCashFlow';
 export * from './resourceListOfPortfolioCashLadder';
-export * from './resourceListOfPortfolioGroup';
 export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfProperty';
 export * from './resourceListOfPropertyDefinition';
@@ -1042,6 +1042,7 @@ import { PagedResourceListOfOrder } from './pagedResourceListOfOrder';
 import { PagedResourceListOfParticipation } from './pagedResourceListOfParticipation';
 import { PagedResourceListOfPerson } from './pagedResourceListOfPerson';
 import { PagedResourceListOfPlacement } from './pagedResourceListOfPlacement';
+import { PagedResourceListOfPortfolioGroup } from './pagedResourceListOfPortfolioGroup';
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
@@ -1161,7 +1162,6 @@ import { ResourceListOfPlacement } from './resourceListOfPlacement';
 import { ResourceListOfPortfolio } from './resourceListOfPortfolio';
 import { ResourceListOfPortfolioCashFlow } from './resourceListOfPortfolioCashFlow';
 import { ResourceListOfPortfolioCashLadder } from './resourceListOfPortfolioCashLadder';
-import { ResourceListOfPortfolioGroup } from './resourceListOfPortfolioGroup';
 import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand';
 import { ResourceListOfProperty } from './resourceListOfProperty';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
@@ -2012,6 +2012,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfParticipation": PagedResourceListOfParticipation,
     "PagedResourceListOfPerson": PagedResourceListOfPerson,
     "PagedResourceListOfPlacement": PagedResourceListOfPlacement,
+    "PagedResourceListOfPortfolioGroup": PagedResourceListOfPortfolioGroup,
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
@@ -2131,7 +2132,6 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPortfolio": ResourceListOfPortfolio,
     "ResourceListOfPortfolioCashFlow": ResourceListOfPortfolioCashFlow,
     "ResourceListOfPortfolioCashLadder": ResourceListOfPortfolioCashLadder,
-    "ResourceListOfPortfolioGroup": ResourceListOfPortfolioGroup,
     "ResourceListOfProcessedCommand": ResourceListOfProcessedCommand,
     "ResourceListOfProperty": ResourceListOfProperty,
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
