@@ -5,7 +5,7 @@ import {ApplicationMetadataApi} from './api/applicationMetadataApi';
 import {BlocksApi} from './api/blocksApi';
 import {CalendarsApi} from './api/calendarsApi';
 import {ComplexMarketDataApi} from './api/complexMarketDataApi';
-import {ComplianceApi} from './api/complianceApi';
+import {ComplianceGenericApi} from './api/complianceGenericApi';
 import {ConfigurationRecipeApi} from './api/configurationRecipeApi';
 import {CorporateActionSourcesApi} from './api/corporateActionSourcesApi';
 import {CounterpartiesApi} from './api/counterpartiesApi';
@@ -48,7 +48,7 @@ export class Api {
     public blocks:  BlocksApi
     public calendars:  CalendarsApi
     public complexMarketData:  ComplexMarketDataApi
-    public compliance:  ComplianceApi
+    public complianceGeneric:  ComplianceGenericApi
     public configurationRecipe:  ConfigurationRecipeApi
     public corporateActionSources:  CorporateActionSourcesApi
     public counterparties:  CounterpartiesApi
