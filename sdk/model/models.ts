@@ -101,6 +101,9 @@ export * from './complianceSummaryRuleResult';
 export * from './complianceTemplate';
 export * from './complianceTemplateParameter';
 export * from './complianceTemplateVariation';
+export * from './compositeBreakdown';
+export * from './compositeBreakdownRequest';
+export * from './compositeBreakdownResponse';
 export * from './compositeDispersion';
 export * from './compositeDispersionResponse';
 export * from './compounding';
@@ -420,6 +423,7 @@ export * from './portfolioProperties';
 export * from './portfolioReconciliationRequest';
 export * from './portfolioResultDataKeyRule';
 export * from './portfolioResultDataKeyRuleAllOf';
+export * from './portfolioReturnBreakdown';
 export * from './portfolioSearchResult';
 export * from './portfoliosReconciliationRequest';
 export * from './premium';
@@ -760,6 +764,9 @@ import { ComplianceSummaryRuleResult } from './complianceSummaryRuleResult';
 import { ComplianceTemplate } from './complianceTemplate';
 import { ComplianceTemplateParameter } from './complianceTemplateParameter';
 import { ComplianceTemplateVariation } from './complianceTemplateVariation';
+import { CompositeBreakdown } from './compositeBreakdown';
+import { CompositeBreakdownRequest } from './compositeBreakdownRequest';
+import { CompositeBreakdownResponse } from './compositeBreakdownResponse';
 import { CompositeDispersion } from './compositeDispersion';
 import { CompositeDispersionResponse } from './compositeDispersionResponse';
 import { Compounding } from './compounding';
@@ -1079,6 +1086,7 @@ import { PortfolioProperties } from './portfolioProperties';
 import { PortfolioReconciliationRequest } from './portfolioReconciliationRequest';
 import { PortfolioResultDataKeyRule } from './portfolioResultDataKeyRule';
 import { PortfolioResultDataKeyRuleAllOf } from './portfolioResultDataKeyRuleAllOf';
+import { PortfolioReturnBreakdown } from './portfolioReturnBreakdown';
 import { PortfolioSearchResult } from './portfolioSearchResult';
 import { PortfoliosReconciliationRequest } from './portfoliosReconciliationRequest';
 import { Premium } from './premium';
@@ -1731,6 +1739,9 @@ let typeMap: {[index: string]: any} = {
     "ComplianceTemplate": ComplianceTemplate,
     "ComplianceTemplateParameter": ComplianceTemplateParameter,
     "ComplianceTemplateVariation": ComplianceTemplateVariation,
+    "CompositeBreakdown": CompositeBreakdown,
+    "CompositeBreakdownRequest": CompositeBreakdownRequest,
+    "CompositeBreakdownResponse": CompositeBreakdownResponse,
     "CompositeDispersion": CompositeDispersion,
     "CompositeDispersionResponse": CompositeDispersionResponse,
     "Compounding": Compounding,
@@ -2049,6 +2060,7 @@ let typeMap: {[index: string]: any} = {
     "PortfolioReconciliationRequest": PortfolioReconciliationRequest,
     "PortfolioResultDataKeyRule": PortfolioResultDataKeyRule,
     "PortfolioResultDataKeyRuleAllOf": PortfolioResultDataKeyRuleAllOf,
+    "PortfolioReturnBreakdown": PortfolioReturnBreakdown,
     "PortfolioSearchResult": PortfolioSearchResult,
     "PortfoliosReconciliationRequest": PortfoliosReconciliationRequest,
     "Premium": Premium,
