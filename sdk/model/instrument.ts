@@ -65,9 +65,6 @@ export class Instrument {
     * A set of relationships associated to the instrument.
     */
     'relationships'?: Array<Relationship> | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
