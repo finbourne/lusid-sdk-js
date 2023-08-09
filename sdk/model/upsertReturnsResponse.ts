@@ -32,9 +32,6 @@ export class UpsertReturnsResponse {
     * The set of values that could not be retrieved due along with a reason for this, e.g badly formed request.
     */
     'failed'?: Array<{ [key: string]: ErrorDetail; }> | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
