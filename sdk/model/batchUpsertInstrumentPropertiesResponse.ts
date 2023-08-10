@@ -11,28 +11,54 @@
  */
 
 import { RequestFile } from './models';
-import { WeightedInstrument } from './weightedInstrument';
+import { ErrorDetail } from './errorDetail';
+import { Link } from './link';
+import { Property } from './property';
 
-/**
-* Class that models a set of instruments of which each has some quantity and can be identified by a unique label.
-*/
-export class WeightedInstruments {
+export class BatchUpsertInstrumentPropertiesResponse {
     /**
-    * The instruments that are held in the set.
+    * The properties that have been successfully upserted
     */
-    'instruments': Array<WeightedInstrument>;
+    'values': { [key: string]: Array<Property>; };
+    /**
+    * The properties that could not be upserted along with a reason for their failure.
+    */
+    'failed': { [key: string]: ErrorDetail; };
+    /**
+    * The as-at datetime at which properties were created or updated.
+    */
+    'asAtDate': Date;
+    /**
+    * Collection of links.
+    */
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "instruments",
-            "baseName": "instruments",
-            "type": "Array<WeightedInstrument>"
+            "name": "values",
+            "baseName": "values",
+            "type": "{ [key: string]: Array<Property>; }"
+        },
+        {
+            "name": "failed",
+            "baseName": "failed",
+            "type": "{ [key: string]: ErrorDetail; }"
+        },
+        {
+            "name": "asAtDate",
+            "baseName": "asAtDate",
+            "type": "Date"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return WeightedInstruments.attributeTypeMap;
+        return BatchUpsertInstrumentPropertiesResponse.attributeTypeMap;
     }
 }
 
