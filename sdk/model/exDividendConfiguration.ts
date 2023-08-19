@@ -11,54 +11,45 @@
  */
 
 import { RequestFile } from './models';
-import { Property } from './property';
-import { ResourceId } from './resourceId';
-import { WeekendMask } from './weekendMask';
 
-export class Calendar {
-    'href'?: string | null;
-    'id': ResourceId;
-    'type': string;
-    'weekendMask': WeekendMask;
-    'sourceProvider': string;
-    'properties': Array<Property>;
+/**
+* Configure the ex-dividend periods for the instrument.
+*/
+export class ExDividendConfiguration {
+    /**
+    * Is the ex-dividend period counted in business days or calendar days.  Defaults to true if not set.
+    */
+    'useBusinessDays'?: boolean;
+    /**
+    * Number of days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, than there is no ex-dividend period.
+    */
+    'exDividendDays': number;
+    /**
+    * Does the accrued interest go negative in the ex-dividend period, or does it go to zero.  Defaults to true if not set.
+    */
+    'returnNegativeAccrued'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "href",
-            "baseName": "href",
-            "type": "string"
+            "name": "useBusinessDays",
+            "baseName": "useBusinessDays",
+            "type": "boolean"
         },
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "ResourceId"
+            "name": "exDividendDays",
+            "baseName": "exDividendDays",
+            "type": "number"
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "string"
-        },
-        {
-            "name": "weekendMask",
-            "baseName": "weekendMask",
-            "type": "WeekendMask"
-        },
-        {
-            "name": "sourceProvider",
-            "baseName": "sourceProvider",
-            "type": "string"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "Array<Property>"
+            "name": "returnNegativeAccrued",
+            "baseName": "returnNegativeAccrued",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
-        return Calendar.attributeTypeMap;
+        return ExDividendConfiguration.attributeTypeMap;
     }
 }
 
