@@ -95,10 +95,12 @@ export * from './complexMarketData';
 export * from './complexMarketDataId';
 export * from './complianceParameter';
 export * from './complianceRuleBreakdown';
+export * from './complianceRuleBreakdownRequest';
 export * from './complianceRuleResponse';
 export * from './complianceRunInfoV2';
 export * from './complianceRunSummary';
 export * from './complianceSummaryRuleResult';
+export * from './complianceSummaryRuleResultRequest';
 export * from './complianceTemplate';
 export * from './complianceTemplateParameter';
 export * from './complianceTemplateVariation';
@@ -605,6 +607,7 @@ export * from './updateRelationshipDefinitionRequest';
 export * from './updateUnitRequest';
 export * from './upsertComplexMarketDataRequest';
 export * from './upsertComplianceRuleRequest';
+export * from './upsertComplianceRunSummaryRequest';
 export * from './upsertCorporateActionRequest';
 export * from './upsertCorporateActionsResponse';
 export * from './upsertCounterpartyAgreementRequest';
@@ -760,10 +763,12 @@ import { ComplexMarketData } from './complexMarketData';
 import { ComplexMarketDataId } from './complexMarketDataId';
 import { ComplianceParameter } from './complianceParameter';
 import { ComplianceRuleBreakdown } from './complianceRuleBreakdown';
+import { ComplianceRuleBreakdownRequest } from './complianceRuleBreakdownRequest';
 import { ComplianceRuleResponse } from './complianceRuleResponse';
 import { ComplianceRunInfoV2 } from './complianceRunInfoV2';
 import { ComplianceRunSummary } from './complianceRunSummary';
 import { ComplianceSummaryRuleResult } from './complianceSummaryRuleResult';
+import { ComplianceSummaryRuleResultRequest } from './complianceSummaryRuleResultRequest';
 import { ComplianceTemplate } from './complianceTemplate';
 import { ComplianceTemplateParameter } from './complianceTemplateParameter';
 import { ComplianceTemplateVariation } from './complianceTemplateVariation';
@@ -1270,6 +1275,7 @@ import { UpdateRelationshipDefinitionRequest } from './updateRelationshipDefinit
 import { UpdateUnitRequest } from './updateUnitRequest';
 import { UpsertComplexMarketDataRequest } from './upsertComplexMarketDataRequest';
 import { UpsertComplianceRuleRequest } from './upsertComplianceRuleRequest';
+import { UpsertComplianceRunSummaryRequest } from './upsertComplianceRunSummaryRequest';
 import { UpsertCorporateActionRequest } from './upsertCorporateActionRequest';
 import { UpsertCorporateActionsResponse } from './upsertCorporateActionsResponse';
 import { UpsertCounterpartyAgreementRequest } from './upsertCounterpartyAgreementRequest';
@@ -1737,10 +1743,12 @@ let typeMap: {[index: string]: any} = {
     "ComplexMarketDataId": ComplexMarketDataId,
     "ComplianceParameter": ComplianceParameter,
     "ComplianceRuleBreakdown": ComplianceRuleBreakdown,
+    "ComplianceRuleBreakdownRequest": ComplianceRuleBreakdownRequest,
     "ComplianceRuleResponse": ComplianceRuleResponse,
     "ComplianceRunInfoV2": ComplianceRunInfoV2,
     "ComplianceRunSummary": ComplianceRunSummary,
     "ComplianceSummaryRuleResult": ComplianceSummaryRuleResult,
+    "ComplianceSummaryRuleResultRequest": ComplianceSummaryRuleResultRequest,
     "ComplianceTemplate": ComplianceTemplate,
     "ComplianceTemplateParameter": ComplianceTemplateParameter,
     "ComplianceTemplateVariation": ComplianceTemplateVariation,
@@ -2246,6 +2254,7 @@ let typeMap: {[index: string]: any} = {
     "UpdateUnitRequest": UpdateUnitRequest,
     "UpsertComplexMarketDataRequest": UpsertComplexMarketDataRequest,
     "UpsertComplianceRuleRequest": UpsertComplianceRuleRequest,
+    "UpsertComplianceRunSummaryRequest": UpsertComplianceRunSummaryRequest,
     "UpsertCorporateActionRequest": UpsertCorporateActionRequest,
     "UpsertCorporateActionsResponse": UpsertCorporateActionsResponse,
     "UpsertCounterpartyAgreementRequest": UpsertCounterpartyAgreementRequest,
