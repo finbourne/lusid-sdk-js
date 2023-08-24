@@ -11,65 +11,54 @@
  */
 
 import { RequestFile } from './models';
-import { CloseEventAllOf } from './closeEventAllOf';
-import { InstrumentEvent } from './instrumentEvent';
 
 /**
-* The termination of an instrument.  In some cases termination can happen over a range of dates e.g. american option exercise.  In most cases the startDate == endDate
+* Record describing an upfront payment entity.
 */
-export class CloseEvent extends InstrumentEvent {
+export class UpFrontPayment {
     /**
-    * The first date on which the instrument could close
+    * The upfront amount.
     */
-    'startDate'?: Date;
+    'amount': number;
     /**
-    * The last date on which the instrument could close
+    * The upfront currency.
     */
-    'endDate'?: Date;
+    'currency': string;
     /**
-    * The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent
+    * Date when the upfront is paid.
     */
-    'instrumentEventType': CloseEvent.InstrumentEventTypeEnum;
+    'payDate': Date;
+    /**
+    * Is it pay or receive.    Supported string (enumeration) values are: [Pay, Receive].
+    */
+    'payReceive': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "startDate",
-            "baseName": "startDate",
+            "name": "amount",
+            "baseName": "amount",
+            "type": "number"
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string"
+        },
+        {
+            "name": "payDate",
+            "baseName": "payDate",
             "type": "Date"
         },
         {
-            "name": "endDate",
-            "baseName": "endDate",
-            "type": "Date"
-        },
-        {
-            "name": "instrumentEventType",
-            "baseName": "instrumentEventType",
-            "type": "CloseEvent.InstrumentEventTypeEnum"
+            "name": "payReceive",
+            "baseName": "payReceive",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(CloseEvent.attributeTypeMap);
+        return UpFrontPayment.attributeTypeMap;
     }
 }
 
-export namespace CloseEvent {
-    export enum InstrumentEventTypeEnum {
-        TransitionEvent = <any> 'TransitionEvent',
-        InformationalEvent = <any> 'InformationalEvent',
-        OpenEvent = <any> 'OpenEvent',
-        CloseEvent = <any> 'CloseEvent',
-        StockSplitEvent = <any> 'StockSplitEvent',
-        BondDefaultEvent = <any> 'BondDefaultEvent',
-        CashDividendEvent = <any> 'CashDividendEvent',
-        AmortisationEvent = <any> 'AmortisationEvent',
-        CashFlowEvent = <any> 'CashFlowEvent',
-        ExerciseEvent = <any> 'ExerciseEvent',
-        ResetEvent = <any> 'ResetEvent',
-        TriggerEvent = <any> 'TriggerEvent',
-        RawVendorEvent = <any> 'RawVendorEvent',
-        InformationalErrorEvent = <any> 'InformationalErrorEvent'
-    }
-}
