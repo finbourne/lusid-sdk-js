@@ -13,33 +13,12 @@
 import { RequestFile } from './models';
 import { Link } from './link';
 
-/**
-* The schema of an contributing part of a valid LUSID resource identifier
-*/
 export class IdentifierPartSchema {
-    /**
-    * The typical index in the identifier in which this part appears
-    */
     'index': number;
-    /**
-    * The name of the identifier part that can/should be provided for this resource type
-    */
     'name': string;
-    /**
-    * The display name of the identifier part
-    */
     'displayName': string;
-    /**
-    * A brief description of the point of this identifier part
-    */
     'description': string;
-    /**
-    * Whether a value is required to be provided
-    */
     'required': boolean;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
