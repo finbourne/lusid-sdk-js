@@ -642,6 +642,8 @@ export * from './valuationRequest';
 export * from './valuationSchedule';
 export * from './valuationsReconciliationRequest';
 export * from './valueType';
+export * from './vendorDependency';
+export * from './vendorDependencyAllOf';
 export * from './vendorModelRule';
 export * from './version';
 export * from './versionSummaryDto';
@@ -1311,6 +1313,8 @@ import { ValuationRequest } from './valuationRequest';
 import { ValuationSchedule } from './valuationSchedule';
 import { ValuationsReconciliationRequest } from './valuationsReconciliationRequest';
 import { ValueType } from './valueType';
+import { VendorDependency } from './vendorDependency';
+import { VendorDependencyAllOf } from './vendorDependencyAllOf';
 import { VendorModelRule } from './vendorModelRule';
 import { Version } from './version';
 import { VersionSummaryDto } from './versionSummaryDto';
@@ -1644,6 +1648,8 @@ let enumsMap: {[index: string]: any} = {
         "UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum": UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum,
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
         "ValueType": ValueType,
+        "VendorDependency.DependencyTypeEnum": VendorDependency.DependencyTypeEnum,
+        "VendorDependencyAllOf.DependencyTypeEnum": VendorDependencyAllOf.DependencyTypeEnum,
         "VendorModelRule.SupplierEnum": VendorModelRule.SupplierEnum,
         "YieldCurveData.MarketDataTypeEnum": YieldCurveData.MarketDataTypeEnum,
         "YieldCurveDataAllOf.MarketDataTypeEnum": YieldCurveDataAllOf.MarketDataTypeEnum,
@@ -2290,6 +2296,8 @@ let typeMap: {[index: string]: any} = {
     "ValuationRequest": ValuationRequest,
     "ValuationSchedule": ValuationSchedule,
     "ValuationsReconciliationRequest": ValuationsReconciliationRequest,
+    "VendorDependency": VendorDependency,
+    "VendorDependencyAllOf": VendorDependencyAllOf,
     "VendorModelRule": VendorModelRule,
     "Version": Version,
     "VersionSummaryDto": VersionSummaryDto,
