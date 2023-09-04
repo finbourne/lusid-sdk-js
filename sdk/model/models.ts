@@ -179,6 +179,9 @@ export * from './deleteInstrumentsResponse';
 export * from './deleteRelationshipRequest';
 export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
+export * from './dialect';
+export * from './dialectId';
+export * from './dialectSchema';
 export * from './discountFactorCurveData';
 export * from './discountFactorCurveDataAllOf';
 export * from './discountingDependency';
@@ -382,6 +385,7 @@ export * from './pagedResourceListOfCustomEntityResponse';
 export * from './pagedResourceListOfCustomEntityType';
 export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfDataTypeSummary';
+export * from './pagedResourceListOfDialectId';
 export * from './pagedResourceListOfExecution';
 export * from './pagedResourceListOfInstrument';
 export * from './pagedResourceListOfInstrumentEventHolder';
@@ -397,6 +401,7 @@ export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './pagedResourceListOfReferenceListResponse';
 export * from './pagedResourceListOfRelationshipDefinition';
 export * from './pagedResourceListOfSequenceDefinition';
+export * from './pagedResourceListOfTranslationScriptId';
 export * from './participation';
 export * from './participationRequest';
 export * from './participationSetRequest';
@@ -590,6 +595,13 @@ export * from './transactionSetConfigurationData';
 export * from './transactionsReconciliationsResponse';
 export * from './transitionEvent';
 export * from './transitionEventAllOf';
+export * from './translateEntitiesInlinedRequest';
+export * from './translateEntitiesRequest';
+export * from './translateEntitiesResponse';
+export * from './translationInput';
+export * from './translationResult';
+export * from './translationScript';
+export * from './translationScriptId';
 export * from './triggerEvent';
 export * from './triggerEventAllOf';
 export * from './typedResourceId';
@@ -850,6 +862,9 @@ import { DeleteInstrumentsResponse } from './deleteInstrumentsResponse';
 import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
+import { Dialect } from './dialect';
+import { DialectId } from './dialectId';
+import { DialectSchema } from './dialectSchema';
 import { DiscountFactorCurveData } from './discountFactorCurveData';
 import { DiscountFactorCurveDataAllOf } from './discountFactorCurveDataAllOf';
 import { DiscountingDependency } from './discountingDependency';
@@ -1053,6 +1068,7 @@ import { PagedResourceListOfCustomEntityResponse } from './pagedResourceListOfCu
 import { PagedResourceListOfCustomEntityType } from './pagedResourceListOfCustomEntityType';
 import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutLabelDefinition';
 import { PagedResourceListOfDataTypeSummary } from './pagedResourceListOfDataTypeSummary';
+import { PagedResourceListOfDialectId } from './pagedResourceListOfDialectId';
 import { PagedResourceListOfExecution } from './pagedResourceListOfExecution';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PagedResourceListOfInstrumentEventHolder } from './pagedResourceListOfInstrumentEventHolder';
@@ -1068,6 +1084,7 @@ import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResour
 import { PagedResourceListOfReferenceListResponse } from './pagedResourceListOfReferenceListResponse';
 import { PagedResourceListOfRelationshipDefinition } from './pagedResourceListOfRelationshipDefinition';
 import { PagedResourceListOfSequenceDefinition } from './pagedResourceListOfSequenceDefinition';
+import { PagedResourceListOfTranslationScriptId } from './pagedResourceListOfTranslationScriptId';
 import { Participation } from './participation';
 import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
@@ -1261,6 +1278,13 @@ import { TransactionSetConfigurationData } from './transactionSetConfigurationDa
 import { TransactionsReconciliationsResponse } from './transactionsReconciliationsResponse';
 import { TransitionEvent } from './transitionEvent';
 import { TransitionEventAllOf } from './transitionEventAllOf';
+import { TranslateEntitiesInlinedRequest } from './translateEntitiesInlinedRequest';
+import { TranslateEntitiesRequest } from './translateEntitiesRequest';
+import { TranslateEntitiesResponse } from './translateEntitiesResponse';
+import { TranslationInput } from './translationInput';
+import { TranslationResult } from './translationResult';
+import { TranslationScript } from './translationScript';
+import { TranslationScriptId } from './translationScriptId';
 import { TriggerEvent } from './triggerEvent';
 import { TriggerEventAllOf } from './triggerEventAllOf';
 import { TypedResourceId } from './typedResourceId';
@@ -1834,6 +1858,9 @@ let typeMap: {[index: string]: any} = {
     "DeleteRelationshipRequest": DeleteRelationshipRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
     "DependencySourceFilter": DependencySourceFilter,
+    "Dialect": Dialect,
+    "DialectId": DialectId,
+    "DialectSchema": DialectSchema,
     "DiscountFactorCurveData": DiscountFactorCurveData,
     "DiscountFactorCurveDataAllOf": DiscountFactorCurveDataAllOf,
     "DiscountingDependency": DiscountingDependency,
@@ -2037,6 +2064,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfCustomEntityType": PagedResourceListOfCustomEntityType,
     "PagedResourceListOfCutLabelDefinition": PagedResourceListOfCutLabelDefinition,
     "PagedResourceListOfDataTypeSummary": PagedResourceListOfDataTypeSummary,
+    "PagedResourceListOfDialectId": PagedResourceListOfDialectId,
     "PagedResourceListOfExecution": PagedResourceListOfExecution,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PagedResourceListOfInstrumentEventHolder": PagedResourceListOfInstrumentEventHolder,
@@ -2052,6 +2080,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfReferenceListResponse": PagedResourceListOfReferenceListResponse,
     "PagedResourceListOfRelationshipDefinition": PagedResourceListOfRelationshipDefinition,
     "PagedResourceListOfSequenceDefinition": PagedResourceListOfSequenceDefinition,
+    "PagedResourceListOfTranslationScriptId": PagedResourceListOfTranslationScriptId,
     "Participation": Participation,
     "ParticipationRequest": ParticipationRequest,
     "ParticipationSetRequest": ParticipationSetRequest,
@@ -2245,6 +2274,13 @@ let typeMap: {[index: string]: any} = {
     "TransactionsReconciliationsResponse": TransactionsReconciliationsResponse,
     "TransitionEvent": TransitionEvent,
     "TransitionEventAllOf": TransitionEventAllOf,
+    "TranslateEntitiesInlinedRequest": TranslateEntitiesInlinedRequest,
+    "TranslateEntitiesRequest": TranslateEntitiesRequest,
+    "TranslateEntitiesResponse": TranslateEntitiesResponse,
+    "TranslationInput": TranslationInput,
+    "TranslationResult": TranslationResult,
+    "TranslationScript": TranslationScript,
+    "TranslationScriptId": TranslationScriptId,
     "TriggerEvent": TriggerEvent,
     "TriggerEventAllOf": TriggerEventAllOf,
     "TypedResourceId": TypedResourceId,

@@ -70,6 +70,8 @@ export * from './schemasApi';
 import { SchemasApi } from './schemasApi';
 export * from './scopesApi';
 import { ScopesApi } from './scopesApi';
+export * from './scriptedTranslationApi';
+import { ScriptedTranslationApi } from './scriptedTranslationApi';
 export * from './searchApi';
 import { SearchApi } from './searchApi';
 export * from './sequencesApi';
@@ -83,4 +85,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, SchemasApi, ScopesApi, SearchApi, SequencesApi, StructuredResultDataApi, SystemConfigurationApi, TransactionPortfoliosApi];
+export const APIS = [AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, SchemasApi, ScopesApi, ScriptedTranslationApi, SearchApi, SequencesApi, StructuredResultDataApi, SystemConfigurationApi, TransactionPortfoliosApi];

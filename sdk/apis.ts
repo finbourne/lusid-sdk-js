@@ -34,6 +34,7 @@ import {RelationshipDefinitionsApi} from './api/relationshipDefinitionsApi';
 import {RelationshipsApi} from './api/relationshipsApi';
 import {SchemasApi} from './api/schemasApi';
 import {ScopesApi} from './api/scopesApi';
+import {ScriptedTranslationApi} from './api/scriptedTranslationApi';
 import {SearchApi} from './api/searchApi';
 import {SequencesApi} from './api/sequencesApi';
 import {StructuredResultDataApi} from './api/structuredResultDataApi';
@@ -77,6 +78,7 @@ export class Api {
     public relationships:  RelationshipsApi
     public schemas:  SchemasApi
     public scopes:  ScopesApi
+    public scriptedTranslation:  ScriptedTranslationApi
     public search:  SearchApi
     public sequences:  SequencesApi
     public structuredResultData:  StructuredResultDataApi
