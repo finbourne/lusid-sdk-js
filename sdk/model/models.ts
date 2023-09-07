@@ -402,7 +402,6 @@ export * from './pagedResourceListOfReferenceListResponse';
 export * from './pagedResourceListOfRelationshipDefinition';
 export * from './pagedResourceListOfSequenceDefinition';
 export * from './pagedResourceListOfTranslationScriptId';
-export * from './pagedResourceListOfVirtualRow';
 export * from './participation';
 export * from './participationRequest';
 export * from './participationSetRequest';
@@ -663,7 +662,6 @@ export * from './versionedResourceListOfA2BMovementRecord';
 export * from './versionedResourceListOfOutputTransaction';
 export * from './versionedResourceListOfPortfolioHolding';
 export * from './versionedResourceListOfTransaction';
-export * from './virtualRow';
 export * from './weekendMask';
 export * from './weightedInstrument';
 export * from './weightedInstruments';
@@ -1085,7 +1083,6 @@ import { PagedResourceListOfReferenceListResponse } from './pagedResourceListOfR
 import { PagedResourceListOfRelationshipDefinition } from './pagedResourceListOfRelationshipDefinition';
 import { PagedResourceListOfSequenceDefinition } from './pagedResourceListOfSequenceDefinition';
 import { PagedResourceListOfTranslationScriptId } from './pagedResourceListOfTranslationScriptId';
-import { PagedResourceListOfVirtualRow } from './pagedResourceListOfVirtualRow';
 import { Participation } from './participation';
 import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
@@ -1346,7 +1343,6 @@ import { VersionedResourceListOfA2BMovementRecord } from './versionedResourceLis
 import { VersionedResourceListOfOutputTransaction } from './versionedResourceListOfOutputTransaction';
 import { VersionedResourceListOfPortfolioHolding } from './versionedResourceListOfPortfolioHolding';
 import { VersionedResourceListOfTransaction } from './versionedResourceListOfTransaction';
-import { VirtualRow } from './virtualRow';
 import { WeekendMask } from './weekendMask';
 import { WeightedInstrument } from './weightedInstrument';
 import { WeightedInstruments } from './weightedInstruments';
@@ -2079,7 +2075,6 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfRelationshipDefinition": PagedResourceListOfRelationshipDefinition,
     "PagedResourceListOfSequenceDefinition": PagedResourceListOfSequenceDefinition,
     "PagedResourceListOfTranslationScriptId": PagedResourceListOfTranslationScriptId,
-    "PagedResourceListOfVirtualRow": PagedResourceListOfVirtualRow,
     "Participation": Participation,
     "ParticipationRequest": ParticipationRequest,
     "ParticipationSetRequest": ParticipationSetRequest,
@@ -2339,7 +2334,6 @@ let typeMap: {[index: string]: any} = {
     "VersionedResourceListOfOutputTransaction": VersionedResourceListOfOutputTransaction,
     "VersionedResourceListOfPortfolioHolding": VersionedResourceListOfPortfolioHolding,
     "VersionedResourceListOfTransaction": VersionedResourceListOfTransaction,
-    "VirtualRow": VirtualRow,
     "WeekendMask": WeekendMask,
     "WeightedInstrument": WeightedInstrument,
     "WeightedInstruments": WeightedInstruments,
