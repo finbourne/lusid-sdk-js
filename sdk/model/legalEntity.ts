@@ -51,9 +51,6 @@ export class LegalEntity {
     'relationships'?: Array<Relationship> | null;
     'counterpartyRiskInformation'?: CounterpartyRiskInformation;
     'version'?: Version;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
