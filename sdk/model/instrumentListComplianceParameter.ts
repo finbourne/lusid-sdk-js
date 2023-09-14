@@ -11,158 +11,54 @@
  */
 
 import { RequestFile } from './models';
-import { Link } from './link';
-import { LusidInstrument } from './lusidInstrument';
-import { Property } from './property';
-import { Relationship } from './relationship';
+import { AddressKeyListComplianceParameterAllOf } from './addressKeyListComplianceParameterAllOf';
+import { ComplianceParameter } from './complianceParameter';
 import { ResourceId } from './resourceId';
-import { Version } from './version';
 
-/**
-* A list of instruments.
-*/
-export class Instrument {
+export class InstrumentListComplianceParameter extends ComplianceParameter {
+    'value': ResourceId;
     /**
-    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+    * The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter
     */
-    'href'?: string | null;
-    /**
-    * The scope in which the instrument lies.
-    */
-    'scope'?: string | null;
-    /**
-    * The unique LUSID Instrument Identifier (LUID) of the instrument.
-    */
-    'lusidInstrumentId': string;
-    'version': Version;
-    /**
-    * The name of the instrument.
-    */
-    'name': string;
-    /**
-    * The set of identifiers that can be used to identify the instrument.
-    */
-    'identifiers': { [key: string]: string; };
-    /**
-    * The requested instrument properties. These will be from the \'Instrument\' domain.
-    */
-    'properties'?: Array<Property> | null;
-    'lookthroughPortfolio'?: ResourceId;
-    'instrumentDefinition'?: LusidInstrument;
-    /**
-    * The state of of the instrument at the asAt datetime of this version of the instrument definition. The available values are: Active, Inactive, Deleted
-    */
-    'state': Instrument.StateEnum;
-    /**
-    * The nominal asset class of the instrument, e.g. InterestRates, FX, Inflation, Equities, Credit, Commodities, etc. The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown
-    */
-    'assetClass'?: Instrument.AssetClassEnum;
-    /**
-    * The domestic currency, meaning the currency in which the instrument would typically be expected to pay cashflows, e.g. a share in AAPL being USD.
-    */
-    'domCcy'?: string | null;
-    /**
-    * A set of relationships associated to the instrument.
-    */
-    'relationships'?: Array<Relationship> | null;
-    /**
-    * Collection of links.
-    */
-    'links'?: Array<Link> | null;
+    'complianceParameterType': InstrumentListComplianceParameter.ComplianceParameterTypeEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "href",
-            "baseName": "href",
-            "type": "string"
-        },
-        {
-            "name": "scope",
-            "baseName": "scope",
-            "type": "string"
-        },
-        {
-            "name": "lusidInstrumentId",
-            "baseName": "lusidInstrumentId",
-            "type": "string"
-        },
-        {
-            "name": "version",
-            "baseName": "version",
-            "type": "Version"
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string"
-        },
-        {
-            "name": "identifiers",
-            "baseName": "identifiers",
-            "type": "{ [key: string]: string; }"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "Array<Property>"
-        },
-        {
-            "name": "lookthroughPortfolio",
-            "baseName": "lookthroughPortfolio",
+            "name": "value",
+            "baseName": "value",
             "type": "ResourceId"
         },
         {
-            "name": "instrumentDefinition",
-            "baseName": "instrumentDefinition",
-            "type": "LusidInstrument"
-        },
-        {
-            "name": "state",
-            "baseName": "state",
-            "type": "Instrument.StateEnum"
-        },
-        {
-            "name": "assetClass",
-            "baseName": "assetClass",
-            "type": "Instrument.AssetClassEnum"
-        },
-        {
-            "name": "domCcy",
-            "baseName": "domCcy",
-            "type": "string"
-        },
-        {
-            "name": "relationships",
-            "baseName": "relationships",
-            "type": "Array<Relationship>"
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
+            "name": "complianceParameterType",
+            "baseName": "complianceParameterType",
+            "type": "InstrumentListComplianceParameter.ComplianceParameterTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return Instrument.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(InstrumentListComplianceParameter.attributeTypeMap);
     }
 }
 
-export namespace Instrument {
-    export enum StateEnum {
-        Active = <any> 'Active',
-        Inactive = <any> 'Inactive',
-        Deleted = <any> 'Deleted'
-    }
-    export enum AssetClassEnum {
-        InterestRates = <any> 'InterestRates',
-        Fx = <any> 'FX',
-        Inflation = <any> 'Inflation',
-        Equities = <any> 'Equities',
-        Credit = <any> 'Credit',
-        Commodities = <any> 'Commodities',
-        Money = <any> 'Money',
-        Unknown = <any> 'Unknown'
+export namespace InstrumentListComplianceParameter {
+    export enum ComplianceParameterTypeEnum {
+        BoolComplianceParameter = <any> 'BoolComplianceParameter',
+        StringComplianceParameter = <any> 'StringComplianceParameter',
+        DecimalComplianceParameter = <any> 'DecimalComplianceParameter',
+        DateTimeComplianceParameter = <any> 'DateTimeComplianceParameter',
+        PropertyKeyComplianceParameter = <any> 'PropertyKeyComplianceParameter',
+        AddressKeyComplianceParameter = <any> 'AddressKeyComplianceParameter',
+        PortfolioIdComplianceParameter = <any> 'PortfolioIdComplianceParameter',
+        PortfolioGroupIdComplianceParameter = <any> 'PortfolioGroupIdComplianceParameter',
+        StringListComplianceParameter = <any> 'StringListComplianceParameter',
+        BoolListComplianceParameter = <any> 'BoolListComplianceParameter',
+        DateTimeListComplianceParameter = <any> 'DateTimeListComplianceParameter',
+        DecimalListComplianceParameter = <any> 'DecimalListComplianceParameter',
+        PropertyKeyListComplianceParameter = <any> 'PropertyKeyListComplianceParameter',
+        AddressKeyListComplianceParameter = <any> 'AddressKeyListComplianceParameter',
+        PortfolioIdListComplianceParameter = <any> 'PortfolioIdListComplianceParameter',
+        PortfolioGroupIdListComplianceParameter = <any> 'PortfolioGroupIdListComplianceParameter',
+        InstrumentListComplianceParameter = <any> 'InstrumentListComplianceParameter'
     }
 }

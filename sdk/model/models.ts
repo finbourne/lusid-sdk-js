@@ -311,6 +311,7 @@ export * from './instrumentLeg';
 export * from './instrumentLegAllOf';
 export * from './instrumentList';
 export * from './instrumentListAllOf';
+export * from './instrumentListComplianceParameter';
 export * from './instrumentMatch';
 export * from './instrumentModels';
 export * from './instrumentProperties';
@@ -993,6 +994,7 @@ import { InstrumentLeg } from './instrumentLeg';
 import { InstrumentLegAllOf } from './instrumentLegAllOf';
 import { InstrumentList } from './instrumentList';
 import { InstrumentListAllOf } from './instrumentListAllOf';
+import { InstrumentListComplianceParameter } from './instrumentListComplianceParameter';
 import { InstrumentMatch } from './instrumentMatch';
 import { InstrumentModels } from './instrumentModels';
 import { InstrumentProperties } from './instrumentProperties';
@@ -1534,6 +1536,7 @@ let enumsMap: {[index: string]: any} = {
         "InstrumentLegAllOf.InstrumentTypeEnum": InstrumentLegAllOf.InstrumentTypeEnum,
         "InstrumentList.ReferenceListTypeEnum": InstrumentList.ReferenceListTypeEnum,
         "InstrumentListAllOf.ReferenceListTypeEnum": InstrumentListAllOf.ReferenceListTypeEnum,
+        "InstrumentListComplianceParameter.ComplianceParameterTypeEnum": InstrumentListComplianceParameter.ComplianceParameterTypeEnum,
         "InterestRateSwap.InstrumentTypeEnum": InterestRateSwap.InstrumentTypeEnum,
         "InterestRateSwapAllOf.InstrumentTypeEnum": InterestRateSwapAllOf.InstrumentTypeEnum,
         "InterestRateSwaption.InstrumentTypeEnum": InterestRateSwaption.InstrumentTypeEnum,
@@ -1986,6 +1989,7 @@ let typeMap: {[index: string]: any} = {
     "InstrumentLegAllOf": InstrumentLegAllOf,
     "InstrumentList": InstrumentList,
     "InstrumentListAllOf": InstrumentListAllOf,
+    "InstrumentListComplianceParameter": InstrumentListComplianceParameter,
     "InstrumentMatch": InstrumentMatch,
     "InstrumentModels": InstrumentModels,
     "InstrumentProperties": InstrumentProperties,
