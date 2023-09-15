@@ -28,9 +28,6 @@ export class BatchUpsertInstrumentPropertiesResponse {
     * The as-at datetime at which properties were created or updated.
     */
     'asAtDate': Date;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
