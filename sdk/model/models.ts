@@ -372,6 +372,7 @@ export * from './openEventAllOf';
 export * from './operation';
 export * from './order';
 export * from './orderBySpec';
+export * from './orderFlowConfiguration';
 export * from './orderRequest';
 export * from './orderSetRequest';
 export * from './otcConfirmation';
@@ -1059,6 +1060,7 @@ import { OpenEventAllOf } from './openEventAllOf';
 import { Operation } from './operation';
 import { Order } from './order';
 import { OrderBySpec } from './orderBySpec';
+import { OrderFlowConfiguration } from './orderFlowConfiguration';
 import { OrderRequest } from './orderRequest';
 import { OrderSetRequest } from './orderSetRequest';
 import { OtcConfirmation } from './otcConfirmation';
@@ -2062,6 +2064,7 @@ let typeMap: {[index: string]: any} = {
     "Operation": Operation,
     "Order": Order,
     "OrderBySpec": OrderBySpec,
+    "OrderFlowConfiguration": OrderFlowConfiguration,
     "OrderRequest": OrderRequest,
     "OrderSetRequest": OrderSetRequest,
     "OtcConfirmation": OtcConfirmation,

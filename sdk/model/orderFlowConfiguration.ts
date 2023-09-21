@@ -12,59 +12,20 @@
 
 import { RequestFile } from './models';
 
-export class CashDependencyAllOf {
-    /**
-    * The Currency that is depended upon.
-    */
-    'currency': string;
-    /**
-    * The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.
-    */
-    'date': Date;
-    /**
-    * The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency
-    */
-    'dependencyType': CashDependencyAllOf.DependencyTypeEnum;
+export class OrderFlowConfiguration {
+    'includeEntityTypes': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "currency",
-            "baseName": "currency",
+            "name": "includeEntityTypes",
+            "baseName": "includeEntityTypes",
             "type": "string"
-        },
-        {
-            "name": "date",
-            "baseName": "date",
-            "type": "Date"
-        },
-        {
-            "name": "dependencyType",
-            "baseName": "dependencyType",
-            "type": "CashDependencyAllOf.DependencyTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return CashDependencyAllOf.attributeTypeMap;
+        return OrderFlowConfiguration.attributeTypeMap;
     }
 }
 
-export namespace CashDependencyAllOf {
-    export enum DependencyTypeEnum {
-        OpaqueDependency = <any> 'OpaqueDependency',
-        CashDependency = <any> 'CashDependency',
-        DiscountingDependency = <any> 'DiscountingDependency',
-        EquityCurveDependency = <any> 'EquityCurveDependency',
-        EquityVolDependency = <any> 'EquityVolDependency',
-        FxDependency = <any> 'FxDependency',
-        FxForwardsDependency = <any> 'FxForwardsDependency',
-        FxVolDependency = <any> 'FxVolDependency',
-        IndexProjectionDependency = <any> 'IndexProjectionDependency',
-        IrVolDependency = <any> 'IrVolDependency',
-        QuoteDependency = <any> 'QuoteDependency',
-        Vendor = <any> 'Vendor',
-        CalendarDependency = <any> 'CalendarDependency',
-        InflationFixingDependency = <any> 'InflationFixingDependency'
-    }
-}
