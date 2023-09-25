@@ -14,29 +14,11 @@ import { RequestFile } from './models';
 import { Link } from './link';
 import { PortfolioSearchResult } from './portfolioSearchResult';
 
-/**
-* A paginated list of resource that can be returned from a request.
-*/
 export class PagedResourceListOfPortfolioSearchResult {
-    /**
-    * The next page of results.
-    */
     'nextPage'?: string | null;
-    /**
-    * The previous page of results.
-    */
     'previousPage'?: string | null;
-    /**
-    * The resources to list.
-    */
     'values': Array<PortfolioSearchResult>;
-    /**
-    * The URI of the resource list.
-    */
     'href'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

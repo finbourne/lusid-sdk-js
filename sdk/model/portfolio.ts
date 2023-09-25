@@ -76,9 +76,6 @@ export class Portfolio {
     * The scope of the transaction types.
     */
     'transactionTypeScope'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
