@@ -373,6 +373,24 @@ export * from './operation';
 export * from './order';
 export * from './orderBySpec';
 export * from './orderFlowConfiguration';
+export * from './orderGraphBlock';
+export * from './orderGraphBlockAllocationDetail';
+export * from './orderGraphBlockAllocationSynopsis';
+export * from './orderGraphBlockExecutionDetail';
+export * from './orderGraphBlockExecutionSynopsis';
+export * from './orderGraphBlockOrderDetail';
+export * from './orderGraphBlockOrderSynopsis';
+export * from './orderGraphBlockPlacementDetail';
+export * from './orderGraphBlockPlacementSynopsis';
+export * from './orderGraphPlacement';
+export * from './orderGraphPlacementAllocationDetail';
+export * from './orderGraphPlacementAllocationSynopsis';
+export * from './orderGraphPlacementChildPlacementDetail';
+export * from './orderGraphPlacementExecutionDetail';
+export * from './orderGraphPlacementExecutionSynopsis';
+export * from './orderGraphPlacementOrderDetail';
+export * from './orderGraphPlacementOrderSynopsis';
+export * from './orderGraphPlacementPlacementSynopsis';
 export * from './orderRequest';
 export * from './orderSetRequest';
 export * from './otcConfirmation';
@@ -397,6 +415,8 @@ export * from './pagedResourceListOfInstrument';
 export * from './pagedResourceListOfInstrumentEventHolder';
 export * from './pagedResourceListOfLegalEntity';
 export * from './pagedResourceListOfOrder';
+export * from './pagedResourceListOfOrderGraphBlock';
+export * from './pagedResourceListOfOrderGraphPlacement';
 export * from './pagedResourceListOfParticipation';
 export * from './pagedResourceListOfPerson';
 export * from './pagedResourceListOfPlacement';
@@ -1061,6 +1081,24 @@ import { Operation } from './operation';
 import { Order } from './order';
 import { OrderBySpec } from './orderBySpec';
 import { OrderFlowConfiguration } from './orderFlowConfiguration';
+import { OrderGraphBlock } from './orderGraphBlock';
+import { OrderGraphBlockAllocationDetail } from './orderGraphBlockAllocationDetail';
+import { OrderGraphBlockAllocationSynopsis } from './orderGraphBlockAllocationSynopsis';
+import { OrderGraphBlockExecutionDetail } from './orderGraphBlockExecutionDetail';
+import { OrderGraphBlockExecutionSynopsis } from './orderGraphBlockExecutionSynopsis';
+import { OrderGraphBlockOrderDetail } from './orderGraphBlockOrderDetail';
+import { OrderGraphBlockOrderSynopsis } from './orderGraphBlockOrderSynopsis';
+import { OrderGraphBlockPlacementDetail } from './orderGraphBlockPlacementDetail';
+import { OrderGraphBlockPlacementSynopsis } from './orderGraphBlockPlacementSynopsis';
+import { OrderGraphPlacement } from './orderGraphPlacement';
+import { OrderGraphPlacementAllocationDetail } from './orderGraphPlacementAllocationDetail';
+import { OrderGraphPlacementAllocationSynopsis } from './orderGraphPlacementAllocationSynopsis';
+import { OrderGraphPlacementChildPlacementDetail } from './orderGraphPlacementChildPlacementDetail';
+import { OrderGraphPlacementExecutionDetail } from './orderGraphPlacementExecutionDetail';
+import { OrderGraphPlacementExecutionSynopsis } from './orderGraphPlacementExecutionSynopsis';
+import { OrderGraphPlacementOrderDetail } from './orderGraphPlacementOrderDetail';
+import { OrderGraphPlacementOrderSynopsis } from './orderGraphPlacementOrderSynopsis';
+import { OrderGraphPlacementPlacementSynopsis } from './orderGraphPlacementPlacementSynopsis';
 import { OrderRequest } from './orderRequest';
 import { OrderSetRequest } from './orderSetRequest';
 import { OtcConfirmation } from './otcConfirmation';
@@ -1085,6 +1123,8 @@ import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PagedResourceListOfInstrumentEventHolder } from './pagedResourceListOfInstrumentEventHolder';
 import { PagedResourceListOfLegalEntity } from './pagedResourceListOfLegalEntity';
 import { PagedResourceListOfOrder } from './pagedResourceListOfOrder';
+import { PagedResourceListOfOrderGraphBlock } from './pagedResourceListOfOrderGraphBlock';
+import { PagedResourceListOfOrderGraphPlacement } from './pagedResourceListOfOrderGraphPlacement';
 import { PagedResourceListOfParticipation } from './pagedResourceListOfParticipation';
 import { PagedResourceListOfPerson } from './pagedResourceListOfPerson';
 import { PagedResourceListOfPlacement } from './pagedResourceListOfPlacement';
@@ -2065,6 +2105,24 @@ let typeMap: {[index: string]: any} = {
     "Order": Order,
     "OrderBySpec": OrderBySpec,
     "OrderFlowConfiguration": OrderFlowConfiguration,
+    "OrderGraphBlock": OrderGraphBlock,
+    "OrderGraphBlockAllocationDetail": OrderGraphBlockAllocationDetail,
+    "OrderGraphBlockAllocationSynopsis": OrderGraphBlockAllocationSynopsis,
+    "OrderGraphBlockExecutionDetail": OrderGraphBlockExecutionDetail,
+    "OrderGraphBlockExecutionSynopsis": OrderGraphBlockExecutionSynopsis,
+    "OrderGraphBlockOrderDetail": OrderGraphBlockOrderDetail,
+    "OrderGraphBlockOrderSynopsis": OrderGraphBlockOrderSynopsis,
+    "OrderGraphBlockPlacementDetail": OrderGraphBlockPlacementDetail,
+    "OrderGraphBlockPlacementSynopsis": OrderGraphBlockPlacementSynopsis,
+    "OrderGraphPlacement": OrderGraphPlacement,
+    "OrderGraphPlacementAllocationDetail": OrderGraphPlacementAllocationDetail,
+    "OrderGraphPlacementAllocationSynopsis": OrderGraphPlacementAllocationSynopsis,
+    "OrderGraphPlacementChildPlacementDetail": OrderGraphPlacementChildPlacementDetail,
+    "OrderGraphPlacementExecutionDetail": OrderGraphPlacementExecutionDetail,
+    "OrderGraphPlacementExecutionSynopsis": OrderGraphPlacementExecutionSynopsis,
+    "OrderGraphPlacementOrderDetail": OrderGraphPlacementOrderDetail,
+    "OrderGraphPlacementOrderSynopsis": OrderGraphPlacementOrderSynopsis,
+    "OrderGraphPlacementPlacementSynopsis": OrderGraphPlacementPlacementSynopsis,
     "OrderRequest": OrderRequest,
     "OrderSetRequest": OrderSetRequest,
     "OtcConfirmation": OtcConfirmation,
@@ -2089,6 +2147,8 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfInstrumentEventHolder": PagedResourceListOfInstrumentEventHolder,
     "PagedResourceListOfLegalEntity": PagedResourceListOfLegalEntity,
     "PagedResourceListOfOrder": PagedResourceListOfOrder,
+    "PagedResourceListOfOrderGraphBlock": PagedResourceListOfOrderGraphBlock,
+    "PagedResourceListOfOrderGraphPlacement": PagedResourceListOfOrderGraphPlacement,
     "PagedResourceListOfParticipation": PagedResourceListOfParticipation,
     "PagedResourceListOfPerson": PagedResourceListOfPerson,
     "PagedResourceListOfPlacement": PagedResourceListOfPlacement,

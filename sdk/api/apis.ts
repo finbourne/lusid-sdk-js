@@ -40,6 +40,8 @@ export * from './instrumentsApi';
 import { InstrumentsApi } from './instrumentsApi';
 export * from './legalEntitiesApi';
 import { LegalEntitiesApi } from './legalEntitiesApi';
+export * from './orderGraphApi';
+import { OrderGraphApi } from './orderGraphApi';
 export * from './ordersApi';
 import { OrdersApi } from './ordersApi';
 export * from './participationsApi';
@@ -85,4 +87,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, SchemasApi, ScopesApi, ScriptedTranslationApi, SearchApi, SequencesApi, StructuredResultDataApi, SystemConfigurationApi, TransactionPortfoliosApi];
+export const APIS = [AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentsApi, LegalEntitiesApi, OrderGraphApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, SchemasApi, ScopesApi, ScriptedTranslationApi, SearchApi, SequencesApi, StructuredResultDataApi, SystemConfigurationApi, TransactionPortfoliosApi];
