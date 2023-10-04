@@ -14,29 +14,11 @@ import { RequestFile } from './models';
 import { Block } from './block';
 import { Link } from './link';
 
-/**
-* A collection of resources that can be returned from requests.
-*/
 export class ResourceListOfBlock {
-    /**
-    * The resources to list.
-    */
     'values': Array<Block>;
-    /**
-    * The URI of the resource list.
-    */
     'href'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
-    /**
-    * The next page of results.
-    */
     'nextPage'?: string | null;
-    /**
-    * The previous page of results.
-    */
     'previousPage'?: string | null;
 
     static discriminator: string | undefined = undefined;
