@@ -605,6 +605,8 @@ export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './termDeposit';
 export * from './termDepositAllOf';
+export * from './totalReturnSwap';
+export * from './totalReturnSwapAllOf';
 export * from './touch';
 export * from './transaction';
 export * from './transactionConfigurationData';
@@ -632,6 +634,7 @@ export * from './translationScriptId';
 export * from './triggerEvent';
 export * from './triggerEventAllOf';
 export * from './typedResourceId';
+export * from './underlyingLeg';
 export * from './updateCalendarRequest';
 export * from './updateCustomEntityDefinitionRequest';
 export * from './updateCustomEntityTypeRequest';
@@ -1313,6 +1316,8 @@ import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { TermDeposit } from './termDeposit';
 import { TermDepositAllOf } from './termDepositAllOf';
+import { TotalReturnSwap } from './totalReturnSwap';
+import { TotalReturnSwapAllOf } from './totalReturnSwapAllOf';
 import { Touch } from './touch';
 import { Transaction } from './transaction';
 import { TransactionConfigurationData } from './transactionConfigurationData';
@@ -1340,6 +1345,7 @@ import { TranslationScriptId } from './translationScriptId';
 import { TriggerEvent } from './triggerEvent';
 import { TriggerEventAllOf } from './triggerEventAllOf';
 import { TypedResourceId } from './typedResourceId';
+import { UnderlyingLeg } from './underlyingLeg';
 import { UpdateCalendarRequest } from './updateCalendarRequest';
 import { UpdateCustomEntityDefinitionRequest } from './updateCustomEntityDefinitionRequest';
 import { UpdateCustomEntityTypeRequest } from './updateCustomEntityTypeRequest';
@@ -1714,6 +1720,8 @@ let enumsMap: {[index: string]: any} = {
         "StringListComplianceParameter.ComplianceParameterTypeEnum": StringListComplianceParameter.ComplianceParameterTypeEnum,
         "TermDeposit.InstrumentTypeEnum": TermDeposit.InstrumentTypeEnum,
         "TermDepositAllOf.InstrumentTypeEnum": TermDepositAllOf.InstrumentTypeEnum,
+        "TotalReturnSwap.InstrumentTypeEnum": TotalReturnSwap.InstrumentTypeEnum,
+        "TotalReturnSwapAllOf.InstrumentTypeEnum": TotalReturnSwapAllOf.InstrumentTypeEnum,
         "Transaction.TransactionStatusEnum": Transaction.TransactionStatusEnum,
         "TransactionConfigurationMovementData.MovementTypesEnum": TransactionConfigurationMovementData.MovementTypesEnum,
         "TransactionConfigurationMovementDataRequest.MovementTypesEnum": TransactionConfigurationMovementDataRequest.MovementTypesEnum,
@@ -2337,6 +2345,8 @@ let typeMap: {[index: string]: any} = {
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "TermDeposit": TermDeposit,
     "TermDepositAllOf": TermDepositAllOf,
+    "TotalReturnSwap": TotalReturnSwap,
+    "TotalReturnSwapAllOf": TotalReturnSwapAllOf,
     "Touch": Touch,
     "Transaction": Transaction,
     "TransactionConfigurationData": TransactionConfigurationData,
@@ -2364,6 +2374,7 @@ let typeMap: {[index: string]: any} = {
     "TriggerEvent": TriggerEvent,
     "TriggerEventAllOf": TriggerEventAllOf,
     "TypedResourceId": TypedResourceId,
+    "UnderlyingLeg": UnderlyingLeg,
     "UpdateCalendarRequest": UpdateCalendarRequest,
     "UpdateCustomEntityDefinitionRequest": UpdateCustomEntityDefinitionRequest,
     "UpdateCustomEntityTypeRequest": UpdateCustomEntityTypeRequest,
