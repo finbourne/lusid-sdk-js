@@ -36,9 +36,6 @@ export class DataType {
     'unitSchema'?: DataType.UnitSchemaEnum;
     'acceptableUnits'?: Array<IUnitDefinitionDto> | null;
     'referenceData'?: ReferenceData;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
