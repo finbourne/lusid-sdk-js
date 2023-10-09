@@ -18,9 +18,6 @@ export class NextValueInSequenceResponse {
     * The next set of values for the specified Sequence.
     */
     'values': Array<string>;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

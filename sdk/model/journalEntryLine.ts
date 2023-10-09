@@ -100,9 +100,6 @@ export class JournalEntryLine {
     * Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.
     */
     'sourceLevels'?: Array<string> | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
