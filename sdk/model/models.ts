@@ -99,6 +99,8 @@ export * from './complianceParameter';
 export * from './complianceRuleBreakdown';
 export * from './complianceRuleBreakdownRequest';
 export * from './complianceRuleResponse';
+export * from './complianceRuleResultDetail';
+export * from './complianceRuleResultPortfolioDetail';
 export * from './complianceRunInfoV2';
 export * from './complianceRunSummary';
 export * from './complianceSummaryRuleResult';
@@ -175,6 +177,7 @@ export * from './decimalComplianceParameterAllOf';
 export * from './decimalList';
 export * from './decimalListAllOf';
 export * from './decimalListComplianceParameter';
+export * from './decoratedComplianceRunSummary';
 export * from './deleteInstrumentPropertiesResponse';
 export * from './deleteInstrumentResponse';
 export * from './deleteInstrumentsResponse';
@@ -813,6 +816,8 @@ import { ComplianceParameter } from './complianceParameter';
 import { ComplianceRuleBreakdown } from './complianceRuleBreakdown';
 import { ComplianceRuleBreakdownRequest } from './complianceRuleBreakdownRequest';
 import { ComplianceRuleResponse } from './complianceRuleResponse';
+import { ComplianceRuleResultDetail } from './complianceRuleResultDetail';
+import { ComplianceRuleResultPortfolioDetail } from './complianceRuleResultPortfolioDetail';
 import { ComplianceRunInfoV2 } from './complianceRunInfoV2';
 import { ComplianceRunSummary } from './complianceRunSummary';
 import { ComplianceSummaryRuleResult } from './complianceSummaryRuleResult';
@@ -889,6 +894,7 @@ import { DecimalComplianceParameterAllOf } from './decimalComplianceParameterAll
 import { DecimalList } from './decimalList';
 import { DecimalListAllOf } from './decimalListAllOf';
 import { DecimalListComplianceParameter } from './decimalListComplianceParameter';
+import { DecoratedComplianceRunSummary } from './decoratedComplianceRunSummary';
 import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeleteInstrumentsResponse } from './deleteInstrumentsResponse';
@@ -1846,6 +1852,8 @@ let typeMap: {[index: string]: any} = {
     "ComplianceRuleBreakdown": ComplianceRuleBreakdown,
     "ComplianceRuleBreakdownRequest": ComplianceRuleBreakdownRequest,
     "ComplianceRuleResponse": ComplianceRuleResponse,
+    "ComplianceRuleResultDetail": ComplianceRuleResultDetail,
+    "ComplianceRuleResultPortfolioDetail": ComplianceRuleResultPortfolioDetail,
     "ComplianceRunInfoV2": ComplianceRunInfoV2,
     "ComplianceRunSummary": ComplianceRunSummary,
     "ComplianceSummaryRuleResult": ComplianceSummaryRuleResult,
@@ -1921,6 +1929,7 @@ let typeMap: {[index: string]: any} = {
     "DecimalList": DecimalList,
     "DecimalListAllOf": DecimalListAllOf,
     "DecimalListComplianceParameter": DecimalListComplianceParameter,
+    "DecoratedComplianceRunSummary": DecoratedComplianceRunSummary,
     "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeleteInstrumentsResponse": DeleteInstrumentsResponse,
