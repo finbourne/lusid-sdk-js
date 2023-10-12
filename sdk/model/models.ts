@@ -296,6 +296,8 @@ export * from './industryClassifier';
 export * from './inflationFixingDependency';
 export * from './inflationFixingDependencyAllOf';
 export * from './inflationIndexConventions';
+export * from './inflationLeg';
+export * from './inflationLegAllOf';
 export * from './inflationLinkedBond';
 export * from './inflationLinkedBondAllOf';
 export * from './inflationSwap';
@@ -1013,6 +1015,8 @@ import { IndustryClassifier } from './industryClassifier';
 import { InflationFixingDependency } from './inflationFixingDependency';
 import { InflationFixingDependencyAllOf } from './inflationFixingDependencyAllOf';
 import { InflationIndexConventions } from './inflationIndexConventions';
+import { InflationLeg } from './inflationLeg';
+import { InflationLegAllOf } from './inflationLegAllOf';
 import { InflationLinkedBond } from './inflationLinkedBond';
 import { InflationLinkedBondAllOf } from './inflationLinkedBondAllOf';
 import { InflationSwap } from './inflationSwap';
@@ -1593,6 +1597,8 @@ let enumsMap: {[index: string]: any} = {
         "IndexProjectionDependencyAllOf.DependencyTypeEnum": IndexProjectionDependencyAllOf.DependencyTypeEnum,
         "InflationFixingDependency.DependencyTypeEnum": InflationFixingDependency.DependencyTypeEnum,
         "InflationFixingDependencyAllOf.DependencyTypeEnum": InflationFixingDependencyAllOf.DependencyTypeEnum,
+        "InflationLeg.InstrumentTypeEnum": InflationLeg.InstrumentTypeEnum,
+        "InflationLegAllOf.InstrumentTypeEnum": InflationLegAllOf.InstrumentTypeEnum,
         "InflationLinkedBond.InstrumentTypeEnum": InflationLinkedBond.InstrumentTypeEnum,
         "InflationLinkedBondAllOf.InstrumentTypeEnum": InflationLinkedBondAllOf.InstrumentTypeEnum,
         "InflationSwap.InstrumentTypeEnum": InflationSwap.InstrumentTypeEnum,
@@ -2048,6 +2054,8 @@ let typeMap: {[index: string]: any} = {
     "InflationFixingDependency": InflationFixingDependency,
     "InflationFixingDependencyAllOf": InflationFixingDependencyAllOf,
     "InflationIndexConventions": InflationIndexConventions,
+    "InflationLeg": InflationLeg,
+    "InflationLegAllOf": InflationLegAllOf,
     "InflationLinkedBond": InflationLinkedBond,
     "InflationLinkedBondAllOf": InflationLinkedBondAllOf,
     "InflationSwap": InflationSwap,
