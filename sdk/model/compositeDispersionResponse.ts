@@ -23,9 +23,6 @@ export class CompositeDispersionResponse {
     * Dispersion returns calculation grouped by ReturnId
     */
     'results'?: { [key: string]: Array<CompositeDispersion>; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
