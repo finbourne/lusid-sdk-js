@@ -12,25 +12,10 @@
 
 import { RequestFile } from './models';
 
-/**
-* Link class.
-*/
 export class Link {
-    /**
-    * Relation of link.
-    */
     'relation': string;
-    /**
-    * Href of link.
-    */
     'href': string;
-    /**
-    * Description of link.
-    */
     'description'?: string | null;
-    /**
-    * Http method of link.
-    */
     'method': string;
 
     static discriminator: string | undefined = undefined;
