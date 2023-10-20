@@ -23,9 +23,6 @@ export class CompositeBreakdownResponse {
     * The Composite calculation with the constituens which were included.
     */
     'results': { [key: string]: Array<CompositeBreakdown>; };
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
