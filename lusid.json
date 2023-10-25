@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.640",
+    "version": "1.0.641",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -39222,7 +39222,8 @@
                         "currency": "GBP"
                       },
                       "currency": "ZZZ",
-                      "holdingTypeName": "Position"
+                      "holdingTypeName": "Position",
+                      "holdingId": 1
                     }
                   ],
                   "links": []
@@ -39270,7 +39271,8 @@
                         "currency": "GBP"
                       },
                       "currency": "ZZZ",
-                      "holdingTypeName": "Position"
+                      "holdingTypeName": "Position",
+                      "holdingId": 1
                     }
                   ],
                   "links": []
@@ -39318,7 +39320,8 @@
                         "currency": "GBP"
                       },
                       "currency": "ZZZ",
-                      "holdingTypeName": "Position"
+                      "holdingTypeName": "Position",
+                      "holdingId": 1
                     }
                   ],
                   "links": []
@@ -42220,7 +42223,10 @@
                       "source": "",
                       "transactionStatus": "Cancelled",
                       "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00",
+                      "holdingIds": [
+                        1
+                      ]
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -42376,6 +42382,9 @@
                             "currency": "GBP"
                           }
                         }
+                      ],
+                      "holdingIds": [
+                        1
                       ]
                     }
                   ],
@@ -42442,7 +42451,10 @@
                       "source": "",
                       "transactionStatus": "Cancelled",
                       "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00",
+                      "holdingIds": [
+                        1
+                      ]
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -42598,6 +42610,9 @@
                             "currency": "GBP"
                           }
                         }
+                      ],
+                      "holdingIds": [
+                        1
                       ]
                     }
                   ],
@@ -42664,7 +42679,10 @@
                       "source": "",
                       "transactionStatus": "Cancelled",
                       "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00",
+                      "holdingIds": [
+                        1
+                      ]
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -42820,6 +42838,9 @@
                             "currency": "GBP"
                           }
                         }
+                      ],
+                      "holdingIds": [
+                        1
                       ]
                     }
                   ],
@@ -72469,7 +72490,8 @@
                         "currency": "GBP"
                       },
                       "currency": "ZZZ",
-                      "holdingTypeName": "Position"
+                      "holdingTypeName": "Position",
+                      "holdingId": 1
                     }
                   ],
                   "links": []
@@ -72517,7 +72539,8 @@
                         "currency": "GBP"
                       },
                       "currency": "ZZZ",
-                      "holdingTypeName": "Position"
+                      "holdingTypeName": "Position",
+                      "holdingId": 1
                     }
                   ],
                   "links": []
@@ -72565,7 +72588,8 @@
                         "currency": "GBP"
                       },
                       "currency": "ZZZ",
-                      "holdingTypeName": "Position"
+                      "holdingTypeName": "Position",
+                      "holdingId": 1
                     }
                   ],
                   "links": []
@@ -75038,7 +75062,10 @@
                       "source": "",
                       "transactionStatus": "Cancelled",
                       "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00",
+                      "holdingIds": [
+                        1
+                      ]
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -75194,6 +75221,9 @@
                             "currency": "GBP"
                           }
                         }
+                      ],
+                      "holdingIds": [
+                        1
                       ]
                     }
                   ],
@@ -75260,7 +75290,10 @@
                       "source": "",
                       "transactionStatus": "Cancelled",
                       "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00",
+                      "holdingIds": [
+                        1
+                      ]
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -75416,6 +75449,9 @@
                             "currency": "GBP"
                           }
                         }
+                      ],
+                      "holdingIds": [
+                        1
                       ]
                     }
                   ],
@@ -75482,7 +75518,10 @@
                       "source": "",
                       "transactionStatus": "Cancelled",
                       "entryDateTime": "2018-08-04T12:22:06.0000000+00:00",
-                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00"
+                      "cancelDateTime": "2018-08-04T12:25:14.0000000+00:00",
+                      "holdingIds": [
+                        1
+                      ]
                     },
                     {
                       "transactionId": "TXN-00002",
@@ -75638,6 +75677,9 @@
                             "currency": "GBP"
                           }
                         }
+                      ],
+                      "holdingIds": [
+                        1
                       ]
                     }
                   ],
@@ -88666,7 +88708,7 @@
               },
               "calculationType": {
                 "type": "string",
-                "description": "The calculation type applied to the bond coupon and principal amount.\r\nThe default CalculationType is `Standard`.\r\n\r\nSupported string (enumeration) values are: [Standard, Quarterly, Ratio].",
+                "description": "The calculation type applied to the bond coupon and principal amount.\r\nThe default CalculationType is `Standard`.\r\n\r\nSupported string (enumeration) values are: [Standard, Quarterly, Ratio, Brazil].",
                 "nullable": true
               },
               "exDividendDays": {
@@ -92365,6 +92407,15 @@
             },
             "description": "The collection of realised gains or losses resulting from relevant transactions e.g. a sale transaction. The cost used in calculating the realised gain or loss is determined by the accounting method defined when the transaction portfolio is created.",
             "nullable": true
+          },
+          "holdingIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "The collection of single identifiers for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -94921,6 +94972,12 @@
           "holdingTypeName": {
             "type": "string",
             "description": "The decoded type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc.",
+            "nullable": true
+          },
+          "holdingId": {
+            "type": "integer",
+            "description": "A single identifier for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio.",
+            "format": "int64",
             "nullable": true
           }
         },
