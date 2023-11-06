@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.678",
+    "version": "1.0.679",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -81192,7 +81192,7 @@
           "compoundingMethod": {
             "minLength": 1,
             "type": "string",
-            "description": "If the interest rate is simple or compounded.\r\n\r\nSupported string (enumeration) values are: [Average, Compounded]."
+            "description": "If the interest rate is simple, compounded or using a pre-computed compounded index.\r\n\r\nSupported string (enumeration) values are: [Average, Compounded, CompoundedIndex]."
           },
           "resetFrequency": {
             "minLength": 1,
@@ -81208,7 +81208,7 @@
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "Defines how the computed leg spread is applied to compounded rate.\r\nIt applies only when CompoundingMethod = ‘Compounded‘.\r\n\r\nSupported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].",
+            "description": "Defines how the computed leg spread is applied to compounded rate.\r\nIt applies only when CompoundingMethod = ‘Compounded‘.\r\n\r\nAvailable compounding methods:\r\n\r\n| Method | Description |\r\n| ------ | ----------- |\r\n| Straight | Compounding rate in each compound period includes the spread. |\r\n| Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |\r\n| SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |\r\n\r\nThe values \"IsdaCompounding\", \"NoCompounding\", \"IsdaFlatCompounding\", and \"None\" are accepted for compatibility\r\nwith existing instruments and their use is discouraged.\r\n\r\nSupported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].",
             "nullable": true
           }
         },
@@ -86486,8 +86486,10 @@
                 "$ref": "#/components/schemas/LusidInstrument"
               },
               "calculationType": {
+                "maxLength": 32,
+                "minLength": 0,
                 "type": "string",
-                "description": "Calculation type for some Future instruments which have non-standard methodology.\r\nOptional, if not set defaults as follows:\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"IR\" or \"BB\" set to ASX_BankBills\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"YT\" set to ASX_3Year\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"VT\" set to ASX_5Year\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"XT\" set to ASX_10Year\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"LT\" set to ASX_20Year\r\n- otherwise set to Standard\r\n\r\nSpecific calculation types for ASX bond futures are:\r\n- [Standard] The default calculation type, which does not fit into any of the categories below.\r\n- [ASX_BankBills] Used for AUD and NZD futures “IR” and “BB” on ASX. 90D Bank Bills.\r\n- [ASX_3Year] Used for “YT” on ASX. 3YR semi-annual bond (6 coupons) @ 6%.\r\n- [ASX_5Year] Used for “VT” on ASX. 5yr semi-annual bond (10 coupons) @ 2%.\r\n- [ASX_10Year] Used for “XT” on ASX. 10yr semi-annual bond (20 coupons) @ 6%.\r\n- [ASX_20Year] Used for “LT” on ASX. 20yr semi-annual bond (40 coupons) @ 4%.\r\n\r\nSupported string (enumeration) values are: [Standard, ASX_BankBills, ASX_3Year, ASX_5Year, ASX_10Year, ASX_20Year, B3_DI1].",
+                "description": "Calculation type for some Future instruments which have non-standard methodology.\r\nOptional, if not set defaults as follows:\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"IR\" or \"BB\" set to ASX_BankBills\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"YT\" set to ASX_3Year\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"VT\" set to ASX_5Year\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"XT\" set to ASX_10Year\r\n- If ExchangeCode is \"ASX\" and ContractCode is \"LT\" set to ASX_20Year\r\n- otherwise set to Standard\r\n\r\nSpecific calculation types for bond and interest rate futures are:\r\n- [Standard] The default calculation type, which does not fit into any of the categories below.\r\n- [ASX_BankBills] Used for AUD and NZD futures “IR” and “BB” on ASX. 90D Bank Bills.\r\n- [ASX_3Year] Used for “YT” on ASX. 3YR semi-annual bond (6 coupons) @ 6%.\r\n- [ASX_5Year] Used for “VT” on ASX. 5yr semi-annual bond (10 coupons) @ 2%.\r\n- [ASX_10Year] Used for “XT” on ASX. 10yr semi-annual bond (20 coupons) @ 6%.\r\n- [ASX_20Year] Used for “LT” on ASX. 20yr semi-annual bond (40 coupons) @ 4%.\r\n- [B3_DI1] Used for “DI1” on B3. Average of 1D interbank deposit rates.\r\n  - For futures with this calculation type, quote values are expected to be specified as a percentage.\r\n    For example, a quoted rate of 13.205% should be specified as a quote of 13.205 with a face value of 100.\r\n\r\nSupported string (enumeration) values are: [Standard, ASX_BankBills, ASX_3Year, ASX_5Year, ASX_10Year, ASX_20Year, B3_DI1].",
                 "nullable": true
               },
               "instrumentType": {
