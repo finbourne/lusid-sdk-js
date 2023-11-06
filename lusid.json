@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.679",
+    "version": "1.0.680",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -3668,7 +3668,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     },
                     {
                       "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode2",
@@ -3692,7 +3703,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/calendar/testscope",
@@ -3727,7 +3749,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     },
                     {
                       "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode2",
@@ -3751,7 +3784,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/calendar/testscope",
@@ -3786,7 +3830,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     },
                     {
                       "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode2",
@@ -3810,7 +3865,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/calendar/testscope",
@@ -4012,7 +4078,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               },
               "application/json": {
@@ -4041,7 +4118,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               },
               "text/json": {
@@ -4070,7 +4158,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               }
             }
@@ -4235,7 +4334,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     },
                     {
                       "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode2",
@@ -4259,7 +4369,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/calendar/testscope",
@@ -4294,7 +4415,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     },
                     {
                       "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode2",
@@ -4318,7 +4450,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/calendar/testscope",
@@ -4353,7 +4496,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     },
                     {
                       "href": "https://myco.lusid.com/api/api/calendar/testscope/testcode2",
@@ -4377,7 +4531,18 @@
                             "labelValue": "CBTR"
                           }
                         }
-                      ]
+                      ],
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "CalendarUser1",
+                        "requestIdCreated": "CalendarRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "CalendarUser2",
+                        "requestIdModified": "CalendarRequestId2",
+                        "asAtVersionNumber": 2
+                      }
                     }
                   ],
                   "href": "https://myco.lusid.com/api/api/calendar/testscope",
@@ -4512,7 +4677,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               },
               "application/json": {
@@ -4541,7 +4717,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               },
               "text/json": {
@@ -4570,7 +4757,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               }
             }
@@ -4774,7 +4972,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               },
               "application/json": {
@@ -4803,7 +5012,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               },
               "text/json": {
@@ -4832,7 +5052,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               }
             }
@@ -4938,7 +5169,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               },
               "application/json": {
@@ -4967,7 +5209,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               },
               "text/json": {
@@ -4996,7 +5249,18 @@
                         "labelValue": "CBTR"
                       }
                     }
-                  ]
+                  ],
+                  "version": {
+                    "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                    "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                    "userIdCreated": "CalendarUser1",
+                    "requestIdCreated": "CalendarRequestId1",
+                    "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                    "userIdModified": "CalendarUser2",
+                    "requestIdModified": "CalendarRequestId2",
+                    "asAtVersionNumber": 2
+                  }
                 }
               }
             }
@@ -79122,6 +79386,9 @@
             "items": {
               "$ref": "#/components/schemas/Property"
             }
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
           }
         },
         "additionalProperties": false
