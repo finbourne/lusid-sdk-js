@@ -56,6 +56,8 @@ export * from './blockRequest';
 export * from './blockSetRequest';
 export * from './bond';
 export * from './bondAllOf';
+export * from './bondCouponEvent';
+export * from './bondCouponEventAllOf';
 export * from './bondDefaultEvent';
 export * from './bondDefaultEventAllOf';
 export * from './boolComplianceParameter';
@@ -776,6 +778,8 @@ import { BlockRequest } from './blockRequest';
 import { BlockSetRequest } from './blockSetRequest';
 import { Bond } from './bond';
 import { BondAllOf } from './bondAllOf';
+import { BondCouponEvent } from './bondCouponEvent';
+import { BondCouponEventAllOf } from './bondCouponEventAllOf';
 import { BondDefaultEvent } from './bondDefaultEvent';
 import { BondDefaultEventAllOf } from './bondDefaultEventAllOf';
 import { BoolComplianceParameter } from './boolComplianceParameter';
@@ -1457,6 +1461,8 @@ let enumsMap: {[index: string]: any} = {
         "BasketAllOf.InstrumentTypeEnum": BasketAllOf.InstrumentTypeEnum,
         "Bond.InstrumentTypeEnum": Bond.InstrumentTypeEnum,
         "BondAllOf.InstrumentTypeEnum": BondAllOf.InstrumentTypeEnum,
+        "BondCouponEvent.InstrumentEventTypeEnum": BondCouponEvent.InstrumentEventTypeEnum,
+        "BondCouponEventAllOf.InstrumentEventTypeEnum": BondCouponEventAllOf.InstrumentEventTypeEnum,
         "BondDefaultEvent.InstrumentEventTypeEnum": BondDefaultEvent.InstrumentEventTypeEnum,
         "BondDefaultEventAllOf.InstrumentEventTypeEnum": BondDefaultEventAllOf.InstrumentEventTypeEnum,
         "BoolComplianceParameter.ComplianceParameterTypeEnum": BoolComplianceParameter.ComplianceParameterTypeEnum,
@@ -1817,6 +1823,8 @@ let typeMap: {[index: string]: any} = {
     "BlockSetRequest": BlockSetRequest,
     "Bond": Bond,
     "BondAllOf": BondAllOf,
+    "BondCouponEvent": BondCouponEvent,
+    "BondCouponEventAllOf": BondCouponEventAllOf,
     "BondDefaultEvent": BondDefaultEvent,
     "BondDefaultEventAllOf": BondDefaultEventAllOf,
     "BoolComplianceParameter": BoolComplianceParameter,
