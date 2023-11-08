@@ -3,7 +3,6 @@
 # secrets
 .npmrc
 *secrets*
-*temp*
 !.github/**
 
 # compiled output
