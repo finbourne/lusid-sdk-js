@@ -38,9 +38,6 @@ export class DataType {
     'acceptableUnits'?: Array<IUnitDefinitionDto> | null;
     'referenceData'?: ReferenceData;
     'version'?: Version;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
