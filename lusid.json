@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.691",
+    "version": "1.0.692",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -101414,10 +101414,11 @@
             "enum": [
               "Price",
               "Yield",
-              "Spread"
+              "Spread",
+              "CashFlowPerUnit"
             ],
             "type": "string",
-            "description": "The available values are: Price, Yield, Spread"
+            "description": "The available values are: Price, Yield, Spread, CashFlowPerUnit"
           }
         },
         "additionalProperties": false
