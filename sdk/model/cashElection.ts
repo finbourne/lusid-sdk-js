@@ -11,93 +11,81 @@
  */
 
 import { RequestFile } from './models';
-import { InstrumentEvent } from './instrumentEvent';
-import { ResetEventAllOf } from './resetEventAllOf';
 
 /**
-* Definition of a reset event.  This is an event that describes a reset or fixing for an instrument such as the floating payment on  a swap cash flow.
+* Cash election for Events that result in a cash payment.
 */
-export class ResetEvent extends InstrumentEvent {
+export class CashElection {
     /**
-    * The quantity associated with the reset. This will only be populated if the information is known.
+    * Unique key used to identify this election.
     */
-    'value'?: number | null;
+    'electionKey': string;
     /**
-    * The type of the reset; e.g. RIC, Currency-pair
+    * The exchange rate if this is not the declared CashElection.  Defaults to 1 if Election is Declared.
     */
-    'resetType': string;
+    'exchangeRate'?: number;
     /**
-    * Fixing identification source, if available.
+    * The payment rate for this CashElection.
     */
-    'fixingSource'?: string | null;
+    'dividendRate': number;
     /**
-    * What is the event status, is it a known (ie historic) or unknown (ie projected) event?
+    * Has this election been chosen.  Only one Election may be Chosen per Event.
     */
-    'eventStatus': string;
+    'isChosen'?: boolean;
     /**
-    * The date the reset fixes, or is observed upon.
+    * Is this the declared CashElection.  Only one Election may be Declared per Event.
     */
-    'fixingDate': Date;
+    'isDeclared'?: boolean;
     /**
-    * The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent
+    * Is this election the default.  Only one Election may be Default per Event
     */
-    'instrumentEventType': ResetEvent.InstrumentEventTypeEnum;
+    'isDefault'?: boolean;
+    /**
+    * The payment currency for this CashElection.
+    */
+    'dividendCurrency': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "value",
-            "baseName": "value",
+            "name": "electionKey",
+            "baseName": "electionKey",
+            "type": "string"
+        },
+        {
+            "name": "exchangeRate",
+            "baseName": "exchangeRate",
             "type": "number"
         },
         {
-            "name": "resetType",
-            "baseName": "resetType",
+            "name": "dividendRate",
+            "baseName": "dividendRate",
+            "type": "number"
+        },
+        {
+            "name": "isChosen",
+            "baseName": "isChosen",
+            "type": "boolean"
+        },
+        {
+            "name": "isDeclared",
+            "baseName": "isDeclared",
+            "type": "boolean"
+        },
+        {
+            "name": "isDefault",
+            "baseName": "isDefault",
+            "type": "boolean"
+        },
+        {
+            "name": "dividendCurrency",
+            "baseName": "dividendCurrency",
             "type": "string"
-        },
-        {
-            "name": "fixingSource",
-            "baseName": "fixingSource",
-            "type": "string"
-        },
-        {
-            "name": "eventStatus",
-            "baseName": "eventStatus",
-            "type": "string"
-        },
-        {
-            "name": "fixingDate",
-            "baseName": "fixingDate",
-            "type": "Date"
-        },
-        {
-            "name": "instrumentEventType",
-            "baseName": "instrumentEventType",
-            "type": "ResetEvent.InstrumentEventTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(ResetEvent.attributeTypeMap);
+        return CashElection.attributeTypeMap;
     }
 }
 
-export namespace ResetEvent {
-    export enum InstrumentEventTypeEnum {
-        TransitionEvent = <any> 'TransitionEvent',
-        InformationalEvent = <any> 'InformationalEvent',
-        OpenEvent = <any> 'OpenEvent',
-        CloseEvent = <any> 'CloseEvent',
-        StockSplitEvent = <any> 'StockSplitEvent',
-        BondDefaultEvent = <any> 'BondDefaultEvent',
-        CashDividendEvent = <any> 'CashDividendEvent',
-        AmortisationEvent = <any> 'AmortisationEvent',
-        CashFlowEvent = <any> 'CashFlowEvent',
-        ExerciseEvent = <any> 'ExerciseEvent',
-        ResetEvent = <any> 'ResetEvent',
-        TriggerEvent = <any> 'TriggerEvent',
-        RawVendorEvent = <any> 'RawVendorEvent',
-        InformationalErrorEvent = <any> 'InformationalErrorEvent',
-        BondCouponEvent = <any> 'BondCouponEvent'
-    }
-}

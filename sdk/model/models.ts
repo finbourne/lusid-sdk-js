@@ -73,6 +73,7 @@ export * from './cashDependency';
 export * from './cashDependencyAllOf';
 export * from './cashDividendEvent';
 export * from './cashDividendEventAllOf';
+export * from './cashElection';
 export * from './cashFlowEvent';
 export * from './cashFlowEventAllOf';
 export * from './cashFlowLineage';
@@ -795,6 +796,7 @@ import { CashDependency } from './cashDependency';
 import { CashDependencyAllOf } from './cashDependencyAllOf';
 import { CashDividendEvent } from './cashDividendEvent';
 import { CashDividendEventAllOf } from './cashDividendEventAllOf';
+import { CashElection } from './cashElection';
 import { CashFlowEvent } from './cashFlowEvent';
 import { CashFlowEventAllOf } from './cashFlowEventAllOf';
 import { CashFlowLineage } from './cashFlowLineage';
@@ -1840,6 +1842,7 @@ let typeMap: {[index: string]: any} = {
     "CashDependencyAllOf": CashDependencyAllOf,
     "CashDividendEvent": CashDividendEvent,
     "CashDividendEventAllOf": CashDividendEventAllOf,
+    "CashElection": CashElection,
     "CashFlowEvent": CashFlowEvent,
     "CashFlowEventAllOf": CashFlowEventAllOf,
     "CashFlowLineage": CashFlowLineage,
