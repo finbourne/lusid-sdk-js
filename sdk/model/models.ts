@@ -43,6 +43,7 @@ export * from './amortisationEventAllOf';
 export * from './annulQuotesResponse';
 export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
+export * from './assetLeg';
 export * from './barrier';
 export * from './basket';
 export * from './basketAllOf';
@@ -645,7 +646,6 @@ export * from './translationScriptId';
 export * from './triggerEvent';
 export * from './triggerEventAllOf';
 export * from './typedResourceId';
-export * from './underlyingLeg';
 export * from './updateCalendarRequest';
 export * from './updateCustomEntityDefinitionRequest';
 export * from './updateCustomEntityTypeRequest';
@@ -766,6 +766,7 @@ import { AmortisationEventAllOf } from './amortisationEventAllOf';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
+import { AssetLeg } from './assetLeg';
 import { Barrier } from './barrier';
 import { Basket } from './basket';
 import { BasketAllOf } from './basketAllOf';
@@ -1368,7 +1369,6 @@ import { TranslationScriptId } from './translationScriptId';
 import { TriggerEvent } from './triggerEvent';
 import { TriggerEventAllOf } from './triggerEventAllOf';
 import { TypedResourceId } from './typedResourceId';
-import { UnderlyingLeg } from './underlyingLeg';
 import { UpdateCalendarRequest } from './updateCalendarRequest';
 import { UpdateCustomEntityDefinitionRequest } from './updateCustomEntityDefinitionRequest';
 import { UpdateCustomEntityTypeRequest } from './updateCustomEntityTypeRequest';
@@ -1813,6 +1813,7 @@ let typeMap: {[index: string]: any} = {
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
+    "AssetLeg": AssetLeg,
     "Barrier": Barrier,
     "Basket": Basket,
     "BasketAllOf": BasketAllOf,
@@ -2414,7 +2415,6 @@ let typeMap: {[index: string]: any} = {
     "TriggerEvent": TriggerEvent,
     "TriggerEventAllOf": TriggerEventAllOf,
     "TypedResourceId": TypedResourceId,
-    "UnderlyingLeg": UnderlyingLeg,
     "UpdateCalendarRequest": UpdateCalendarRequest,
     "UpdateCustomEntityDefinitionRequest": UpdateCustomEntityDefinitionRequest,
     "UpdateCustomEntityTypeRequest": UpdateCustomEntityTypeRequest,
