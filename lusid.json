@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.728",
+    "version": "1.0.729",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -28527,6 +28527,7 @@
                               "code": "ORD00000123"
                             },
                             "complianceState": "Passed",
+                            "approvalState": "Approved",
                             "portfolioId": {
                               "scope": "MyScope",
                               "code": "MyPortfolio"
@@ -28539,6 +28540,7 @@
                               "code": "ORD00000456"
                             },
                             "complianceState": "Failed",
+                            "approvalState": "Approved",
                             "portfolioId": {
                               "scope": "MyScope",
                               "code": "MyPortfolio"
@@ -28669,6 +28671,7 @@
                               "code": "ORD00000123"
                             },
                             "complianceState": "Passed",
+                            "approvalState": "Approved",
                             "portfolioId": {
                               "scope": "MyScope",
                               "code": "MyPortfolio"
@@ -28681,6 +28684,7 @@
                               "code": "ORD00000456"
                             },
                             "complianceState": "Failed",
+                            "approvalState": "Approved",
                             "portfolioId": {
                               "scope": "MyScope",
                               "code": "MyPortfolio"
@@ -28811,6 +28815,7 @@
                               "code": "ORD00000123"
                             },
                             "complianceState": "Passed",
+                            "approvalState": "Approved",
                             "portfolioId": {
                               "scope": "MyScope",
                               "code": "MyPortfolio"
@@ -28823,6 +28828,7 @@
                               "code": "ORD00000456"
                             },
                             "complianceState": "Failed",
+                            "approvalState": "Approved",
                             "portfolioId": {
                               "scope": "MyScope",
                               "code": "MyPortfolio"
@@ -92350,6 +92356,7 @@
         "required": [
           "allocated",
           "block",
+          "derivedApprovalState",
           "derivedComplianceState",
           "derivedState",
           "executed",
@@ -92382,6 +92389,11 @@
             "minLength": 1,
             "type": "string",
             "description": "The overall compliance state of a block, derived from the block's orders. Possible values are 'Pending', 'Failed', 'Manually approved' and 'Passed'."
+          },
+          "derivedApprovalState": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The overall approval state of a block, derived from approval of the block's orders. Possible values are 'Pending', 'Approved' and 'Rejected'."
           }
         },
         "additionalProperties": false
@@ -92456,6 +92468,7 @@
       },
       "OrderGraphBlockOrderDetail": {
         "required": [
+          "approvalState",
           "complianceState",
           "id"
         ],
@@ -92468,6 +92481,11 @@
             "minLength": 1,
             "type": "string",
             "description": "The compliance state of this order. Possible values are 'Pending', 'Failed', 'Manually approved' and 'Passed'."
+          },
+          "approvalState": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The approval state of this order. Possible values are 'Pending', 'Rejected' and 'Approved'."
           },
           "portfolioId": {
             "$ref": "#/components/schemas/ResourceId"
