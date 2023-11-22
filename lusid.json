@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.729",
+    "version": "1.0.730",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -8863,6 +8863,10 @@
                         "code": "OrderCode"
                       }
                     ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
                     "ruleBreakdown": {
                       "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                         "groupStatus": "failed",
@@ -8879,10 +8883,6 @@
                               }
                             }
                           ]
-                        },
-                        "parametersUsed": {
-                          "UpperBound": "30",
-                          "LowerBound": "0"
                         },
                         "missingDataInformation": [
                           "No Missing Data"
@@ -8929,6 +8929,10 @@
                         "code": "OrderCode"
                       }
                     ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
                     "ruleBreakdown": {
                       "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                         "groupStatus": "failed",
@@ -8945,10 +8949,6 @@
                               }
                             }
                           ]
-                        },
-                        "parametersUsed": {
-                          "UpperBound": "30",
-                          "LowerBound": "0"
                         },
                         "missingDataInformation": [
                           "No Missing Data"
@@ -8995,6 +8995,10 @@
                         "code": "OrderCode"
                       }
                     ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
                     "ruleBreakdown": {
                       "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                         "groupStatus": "failed",
@@ -9011,10 +9015,6 @@
                               }
                             }
                           ]
-                        },
-                        "parametersUsed": {
-                          "UpperBound": "30",
-                          "LowerBound": "0"
                         },
                         "missingDataInformation": [
                           "No Missing Data"
@@ -9061,6 +9061,10 @@
                         "code": "OrderCode"
                       }
                     ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
                     "ruleBreakdown": {
                       "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                         "groupStatus": "failed",
@@ -9077,10 +9081,6 @@
                               }
                             }
                           ]
-                        },
-                        "parametersUsed": {
-                          "UpperBound": "30",
-                          "LowerBound": "0"
                         },
                         "missingDataInformation": [
                           "No Missing Data"
@@ -9133,6 +9133,10 @@
                           "code": "OrderCode"
                         }
                       ],
+                      "parametersUsed": {
+                        "UpperBound": "30",
+                        "LowerBound": "0"
+                      },
                       "ruleBreakdown": {
                         "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                           "groupStatus": "failed",
@@ -9149,10 +9153,6 @@
                                 }
                               }
                             ]
-                          },
-                          "parametersUsed": {
-                            "UpperBound": "30",
-                            "LowerBound": "0"
                           },
                           "missingDataInformation": [
                             "No Missing Data"
@@ -9199,6 +9199,10 @@
                           "code": "OrderCode"
                         }
                       ],
+                      "parametersUsed": {
+                        "UpperBound": "30",
+                        "LowerBound": "0"
+                      },
                       "ruleBreakdown": {
                         "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                           "groupStatus": "failed",
@@ -9215,10 +9219,6 @@
                                 }
                               }
                             ]
-                          },
-                          "parametersUsed": {
-                            "UpperBound": "30",
-                            "LowerBound": "0"
                           },
                           "missingDataInformation": [
                             "No Missing Data"
@@ -9265,6 +9265,10 @@
                           "code": "OrderCode"
                         }
                       ],
+                      "parametersUsed": {
+                        "UpperBound": "30",
+                        "LowerBound": "0"
+                      },
                       "ruleBreakdown": {
                         "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                           "groupStatus": "failed",
@@ -9281,10 +9285,6 @@
                                 }
                               }
                             ]
-                          },
-                          "parametersUsed": {
-                            "UpperBound": "30",
-                            "LowerBound": "0"
                           },
                           "missingDataInformation": [
                             "No Missing Data"
@@ -9410,6 +9410,10 @@
                           "code": "OrderCode"
                         }
                       ],
+                      "parametersUsed": {
+                        "UpperBound": "30",
+                        "LowerBound": "0"
+                      },
                       "ruleBreakdown": {
                         "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                           "groupStatus": "failed",
@@ -9426,10 +9430,6 @@
                                 }
                               }
                             ]
-                          },
-                          "parametersUsed": {
-                            "UpperBound": "30",
-                            "LowerBound": "0"
                           },
                           "missingDataInformation": [
                             "No Missing Data"
@@ -9476,6 +9476,10 @@
                           "code": "OrderCode"
                         }
                       ],
+                      "parametersUsed": {
+                        "UpperBound": "30",
+                        "LowerBound": "0"
+                      },
                       "ruleBreakdown": {
                         "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                           "groupStatus": "failed",
@@ -9492,10 +9496,6 @@
                                 }
                               }
                             ]
-                          },
-                          "parametersUsed": {
-                            "UpperBound": "30",
-                            "LowerBound": "0"
                           },
                           "missingDataInformation": [
                             "No Missing Data"
@@ -9542,6 +9542,10 @@
                           "code": "OrderCode"
                         }
                       ],
+                      "parametersUsed": {
+                        "UpperBound": "30",
+                        "LowerBound": "0"
+                      },
                       "ruleBreakdown": {
                         "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
                           "groupStatus": "failed",
@@ -9558,10 +9562,6 @@
                                 }
                               }
                             ]
-                          },
-                          "parametersUsed": {
-                            "UpperBound": "30",
-                            "LowerBound": "0"
                           },
                           "missingDataInformation": [
                             "No Missing Data"
@@ -81071,7 +81071,6 @@
         "required": [
           "groupStatus",
           "missingDataInformation",
-          "parametersUsed",
           "propertiesUsed",
           "resultsUsed"
         ],
@@ -81097,12 +81096,6 @@
               }
             }
           },
-          "parametersUsed": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
           "missingDataInformation": {
             "type": "array",
             "items": {
@@ -81116,7 +81109,6 @@
         "required": [
           "groupStatus",
           "missingDataInformation",
-          "parametersUsed",
           "propertiesUsed",
           "resultsUsed"
         ],
@@ -81141,12 +81133,6 @@
               "items": {
                 "$ref": "#/components/schemas/Property"
               }
-            }
-          },
-          "parametersUsed": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
             }
           },
           "missingDataInformation": {
@@ -81360,6 +81346,7 @@
         "required": [
           "affectedOrders",
           "affectedPortfolios",
+          "parametersUsed",
           "ruleBreakdown",
           "ruleId",
           "ruleStatus",
@@ -81392,6 +81379,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
+            }
+          },
+          "parametersUsed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
             }
           },
           "ruleBreakdown": {
@@ -81407,6 +81400,7 @@
         "required": [
           "affectedOrders",
           "affectedPortfolios",
+          "parametersUsed",
           "ruleBreakdown",
           "ruleId",
           "ruleStatus",
@@ -81441,6 +81435,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
+            }
+          },
+          "parametersUsed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
             }
           },
           "ruleBreakdown": {
