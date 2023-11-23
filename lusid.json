@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.737",
+    "version": "1.0.738",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -54167,7 +54167,8 @@
                       "calendarScope": "CoppClarkHolidayCalendars",
                       "conventionScope": "Conventions"
                     },
-                    "specificRules": []
+                    "specificRules": [],
+                    "groupedMarketRules": []
                   },
                   "pricing": {
                     "modelRules": [],
@@ -54234,7 +54235,8 @@
                       "calendarScope": "CoppClarkHolidayCalendars",
                       "conventionScope": "Conventions"
                     },
-                    "specificRules": []
+                    "specificRules": [],
+                    "groupedMarketRules": []
                   },
                   "pricing": {
                     "modelRules": [],
@@ -54301,7 +54303,8 @@
                       "calendarScope": "CoppClarkHolidayCalendars",
                       "conventionScope": "Conventions"
                     },
-                    "specificRules": []
+                    "specificRules": [],
+                    "groupedMarketRules": []
                   },
                   "pricing": {
                     "modelRules": [],
@@ -54368,7 +54371,8 @@
                       "calendarScope": "CoppClarkHolidayCalendars",
                       "conventionScope": "Conventions"
                     },
-                    "specificRules": []
+                    "specificRules": [],
+                    "groupedMarketRules": []
                   },
                   "pricing": {
                     "modelRules": [],
@@ -54533,7 +54537,8 @@
                             "calendarScope": "CoppClarkHolidayCalendars",
                             "conventionScope": "Conventions"
                           },
-                          "specificRules": []
+                          "specificRules": [],
+                          "groupedMarketRules": []
                         },
                         "pricing": {
                           "modelRules": [
@@ -54607,7 +54612,8 @@
                             "calendarScope": "CoppClarkHolidayCalendars",
                             "conventionScope": "Conventions"
                           },
-                          "specificRules": []
+                          "specificRules": [],
+                          "groupedMarketRules": []
                         },
                         "pricing": {
                           "modelRules": [],
@@ -54687,7 +54693,8 @@
                             "calendarScope": "CoppClarkHolidayCalendars",
                             "conventionScope": "Conventions"
                           },
-                          "specificRules": []
+                          "specificRules": [],
+                          "groupedMarketRules": []
                         },
                         "pricing": {
                           "modelRules": [
@@ -54761,7 +54768,8 @@
                             "calendarScope": "CoppClarkHolidayCalendars",
                             "conventionScope": "Conventions"
                           },
-                          "specificRules": []
+                          "specificRules": [],
+                          "groupedMarketRules": []
                         },
                         "pricing": {
                           "modelRules": [],
@@ -54841,7 +54849,8 @@
                             "calendarScope": "CoppClarkHolidayCalendars",
                             "conventionScope": "Conventions"
                           },
-                          "specificRules": []
+                          "specificRules": [],
+                          "groupedMarketRules": []
                         },
                         "pricing": {
                           "modelRules": [
@@ -54915,7 +54924,8 @@
                             "calendarScope": "CoppClarkHolidayCalendars",
                             "conventionScope": "Conventions"
                           },
-                          "specificRules": []
+                          "specificRules": [],
+                          "groupedMarketRules": []
                         },
                         "pricing": {
                           "modelRules": [],
@@ -55082,7 +55092,8 @@
                         "calendarScope": "CoppClarkHolidayCalendars",
                         "conventionScope": "Conventions"
                       },
-                      "specificRules": []
+                      "specificRules": [],
+                      "groupedMarketRules": []
                     },
                     "pricing": {
                       "modelRules": [
@@ -55161,7 +55172,8 @@
                         "calendarScope": "CoppClarkHolidayCalendars",
                         "conventionScope": "Conventions"
                       },
-                      "specificRules": []
+                      "specificRules": [],
+                      "groupedMarketRules": []
                     },
                     "pricing": {
                       "modelRules": [
@@ -55240,7 +55252,8 @@
                         "calendarScope": "CoppClarkHolidayCalendars",
                         "conventionScope": "Conventions"
                       },
-                      "specificRules": []
+                      "specificRules": [],
+                      "groupedMarketRules": []
                     },
                     "pricing": {
                       "modelRules": [
@@ -88635,6 +88648,29 @@
         },
         "additionalProperties": false
       },
+      "GroupOfMarketDataKeyRules": {
+        "required": [
+          "marketDataKeyRuleGroupOperation",
+          "marketRules"
+        ],
+        "type": "object",
+        "properties": {
+          "marketDataKeyRuleGroupOperation": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The operation that will be used to process the collection of market data items and failures found on resolution\r\ninto a single market data item or failure to be used."
+          },
+          "marketRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketDataKeyRule"
+            },
+            "description": "The rules that should be grouped together in market data resolution."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a collection of MarketDataKeyRules that should be resolved together when resolving market data.\r\nThat is, market data resolution will always attempt to resolve with all rules in the group\r\nbefore deciding what market data to return."
+      },
       "HoldingAdjustment": {
         "required": [
           "instrumentUid",
@@ -91661,6 +91697,14 @@
               "$ref": "#/components/schemas/MarketDataSpecificRule"
             },
             "description": "Extends market data key rules to be able to catch dependencies depending on where the dependency comes from, as opposed to what the dependency is asking for.\r\nUsing two specific rules, one could instruct rates curves requested by bonds to be retrieved from a different scope than rates curves requested by swaps.\r\nWARNING: The use of specific rules impacts performance. Where possible, one should use MarketDataKeyRules only.",
+            "nullable": true
+          },
+          "groupedMarketRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GroupOfMarketDataKeyRules"
+            },
+            "description": "The list of groups of rules that will be used in market data resolution.\r\nRules given within a group will, if the group is being used to resolve data,\r\nall be applied with the results of those individual resolution attempts combined into a single result.\r\nThe method for combining results is determined by the operation detailed in the GroupOfMarketDataKeyRules.\r\n            \r\nNotes:\r\n- When resolving MarketData, MarketRules will be applied first followed by GroupedMarketRules\r\nif data could not be found using only the MarketRules provided.\r\n- GroupedMarketRules can only be used for resolving data from the QuoteStore.\r\n            \r\nCaution: As every rule in a given group will be applied in resolution if the group is applied,\r\ngroups are computationally expensive for market data resolution.\r\nTherefore, heuristically, rule groups should be kept as small as possible.",
             "nullable": true
           }
         },

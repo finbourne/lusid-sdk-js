@@ -11,124 +11,37 @@
  */
 
 import { RequestFile } from './models';
-import { LusidInstrument } from './lusidInstrument';
-import { SimpleInstrumentAllOf } from './simpleInstrumentAllOf';
+import { MarketDataKeyRule } from './marketDataKeyRule';
 
 /**
-* LUSID representation of a Simple Instrument, used as a basic definition of a generic instrument.  No analytics can be obtained for this.
+* Represents a collection of MarketDataKeyRules that should be resolved together when resolving market data.  That is, market data resolution will always attempt to resolve with all rules in the group  before deciding what market data to return.
 */
-export class SimpleInstrument extends LusidInstrument {
+export class GroupOfMarketDataKeyRules {
     /**
-    * The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+    * The operation that will be used to process the collection of market data items and failures found on resolution  into a single market data item or failure to be used.
     */
-    'maturityDate'?: Date;
+    'marketDataKeyRuleGroupOperation': string;
     /**
-    * The domestic currency.
+    * The rules that should be grouped together in market data resolution.
     */
-    'domCcy': string;
-    /**
-    * The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown
-    */
-    'assetClass': SimpleInstrument.AssetClassEnum;
-    /**
-    * The set of foreign currencies, if any (optional).
-    */
-    'fgnCcys'?: Array<string> | null;
-    /**
-    * The Instrument type of the simple instrument.
-    */
-    'simpleInstrumentType': string;
-    /**
-    * The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg
-    */
-    'instrumentType': SimpleInstrument.InstrumentTypeEnum;
+    'marketRules': Array<MarketDataKeyRule>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "maturityDate",
-            "baseName": "maturityDate",
-            "type": "Date"
-        },
-        {
-            "name": "domCcy",
-            "baseName": "domCcy",
+            "name": "marketDataKeyRuleGroupOperation",
+            "baseName": "marketDataKeyRuleGroupOperation",
             "type": "string"
         },
         {
-            "name": "assetClass",
-            "baseName": "assetClass",
-            "type": "SimpleInstrument.AssetClassEnum"
-        },
-        {
-            "name": "fgnCcys",
-            "baseName": "fgnCcys",
-            "type": "Array<string>"
-        },
-        {
-            "name": "simpleInstrumentType",
-            "baseName": "simpleInstrumentType",
-            "type": "string"
-        },
-        {
-            "name": "instrumentType",
-            "baseName": "instrumentType",
-            "type": "SimpleInstrument.InstrumentTypeEnum"
+            "name": "marketRules",
+            "baseName": "marketRules",
+            "type": "Array<MarketDataKeyRule>"
         }    ];
 
     static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(SimpleInstrument.attributeTypeMap);
+        return GroupOfMarketDataKeyRules.attributeTypeMap;
     }
 }
 
-export namespace SimpleInstrument {
-    export enum AssetClassEnum {
-        InterestRates = <any> 'InterestRates',
-        Fx = <any> 'FX',
-        Inflation = <any> 'Inflation',
-        Equities = <any> 'Equities',
-        Credit = <any> 'Credit',
-        Commodities = <any> 'Commodities',
-        Money = <any> 'Money',
-        Unknown = <any> 'Unknown'
-    }
-    export enum InstrumentTypeEnum {
-        QuotedSecurity = <any> 'QuotedSecurity',
-        InterestRateSwap = <any> 'InterestRateSwap',
-        FxForward = <any> 'FxForward',
-        Future = <any> 'Future',
-        ExoticInstrument = <any> 'ExoticInstrument',
-        FxOption = <any> 'FxOption',
-        CreditDefaultSwap = <any> 'CreditDefaultSwap',
-        InterestRateSwaption = <any> 'InterestRateSwaption',
-        Bond = <any> 'Bond',
-        EquityOption = <any> 'EquityOption',
-        FixedLeg = <any> 'FixedLeg',
-        FloatingLeg = <any> 'FloatingLeg',
-        BespokeCashFlowsLeg = <any> 'BespokeCashFlowsLeg',
-        Unknown = <any> 'Unknown',
-        TermDeposit = <any> 'TermDeposit',
-        ContractForDifference = <any> 'ContractForDifference',
-        EquitySwap = <any> 'EquitySwap',
-        CashPerpetual = <any> 'CashPerpetual',
-        CapFloor = <any> 'CapFloor',
-        CashSettled = <any> 'CashSettled',
-        CdsIndex = <any> 'CdsIndex',
-        Basket = <any> 'Basket',
-        FundingLeg = <any> 'FundingLeg',
-        FxSwap = <any> 'FxSwap',
-        ForwardRateAgreement = <any> 'ForwardRateAgreement',
-        SimpleInstrument = <any> 'SimpleInstrument',
-        Repo = <any> 'Repo',
-        Equity = <any> 'Equity',
-        ExchangeTradedOption = <any> 'ExchangeTradedOption',
-        ReferenceInstrument = <any> 'ReferenceInstrument',
-        ComplexBond = <any> 'ComplexBond',
-        InflationLinkedBond = <any> 'InflationLinkedBond',
-        InflationSwap = <any> 'InflationSwap',
-        SimpleCashFlowLoan = <any> 'SimpleCashFlowLoan',
-        TotalReturnSwap = <any> 'TotalReturnSwap',
-        InflationLeg = <any> 'InflationLeg'
-    }
-}
