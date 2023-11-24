@@ -23,9 +23,6 @@ export class CutLabelDefinition {
     'timeZone'?: string | null;
     'href'?: string | null;
     'version'?: Version;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

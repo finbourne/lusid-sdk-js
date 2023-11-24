@@ -24,9 +24,6 @@ export class TranslateEntitiesResponse {
     * The error details corresponding to entities that failed to be translated.
     */
     'failed'?: { [key: string]: ErrorDetail; } | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
