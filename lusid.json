@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.747",
+    "version": "1.0.748",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -11508,7 +11508,8 @@
                     ],
                     "instrumentEventType": "TransitionEvent"
                   },
-                  "properties": []
+                  "properties": [],
+                  "sequenceNumber": 0
                 }
               ]
             },
@@ -11552,7 +11553,8 @@
                     ],
                     "instrumentEventType": "TransitionEvent"
                   },
-                  "properties": []
+                  "properties": [],
+                  "sequenceNumber": 0
                 }
               ]
             },
@@ -11596,7 +11598,8 @@
                     ],
                     "instrumentEventType": "TransitionEvent"
                   },
-                  "properties": []
+                  "properties": [],
+                  "sequenceNumber": 0
                 }
               ]
             },
@@ -11640,7 +11643,8 @@
                     ],
                     "instrumentEventType": "TransitionEvent"
                   },
-                  "properties": []
+                  "properties": [],
+                  "sequenceNumber": 0
                 }
               ]
             }
@@ -90117,6 +90121,11 @@
             },
             "description": "The properties attached to this instrument event.",
             "nullable": true
+          },
+          "sequenceNumber": {
+            "type": "integer",
+            "description": "The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.",
+            "format": "int32"
           }
         },
         "additionalProperties": false,
@@ -103131,6 +103140,11 @@
             },
             "description": "The properties attached to this instrument event.",
             "nullable": true
+          },
+          "sequenceNumber": {
+            "type": "integer",
+            "description": "The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.",
+            "format": "int32"
           }
         },
         "additionalProperties": false
