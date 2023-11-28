@@ -48,9 +48,6 @@ export class PortfolioDetails {
     * The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.
     */
     'cashGainLossCalculationDate'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;

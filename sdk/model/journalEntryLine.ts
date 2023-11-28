@@ -108,9 +108,6 @@ export class JournalEntryLine {
     * Indicates if the Journal Entry Line is operating against a Long or Short holding.
     */
     'holdingSign'?: string | null;
-    /**
-    * Collection of links.
-    */
     'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
