@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.753",
+    "version": "1.0.754",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -175,7 +175,9 @@
                       "properties": {},
                       "movementName": "Open",
                       "holdingType": "C",
-                      "economicBucket": "NA_Cost"
+                      "economicBucket": "NA_Cost",
+                      "movementSign": "Long",
+                      "holdingSign": "NA"
                     }
                   ],
                   "href": "http://example.com",
@@ -221,7 +223,9 @@
                       "properties": {},
                       "movementName": "Open",
                       "holdingType": "C",
-                      "economicBucket": "NA_Cost"
+                      "economicBucket": "NA_Cost",
+                      "movementSign": "Long",
+                      "holdingSign": "NA"
                     }
                   ],
                   "href": "http://example.com",
@@ -267,7 +271,9 @@
                       "properties": {},
                       "movementName": "Open",
                       "holdingType": "C",
-                      "economicBucket": "NA_Cost"
+                      "economicBucket": "NA_Cost",
+                      "movementSign": "Long",
+                      "holdingSign": "NA"
                     }
                   ],
                   "href": "http://example.com",
@@ -90938,6 +90944,16 @@
               "type": "string"
             },
             "description": "Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.",
+            "nullable": true
+          },
+          "movementSign": {
+            "type": "string",
+            "description": "Indicates if the Journal Entry Line corresponds to a Long or Short movement.",
+            "nullable": true
+          },
+          "holdingSign": {
+            "type": "string",
+            "description": "Indicates if the Journal Entry Line is operating against a Long or Short holding.",
             "nullable": true
           },
           "links": {
