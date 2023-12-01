@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.765",
+    "version": "1.0.767",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1363,7 +1363,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing allocations from a previous call to list allocations.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing allocations from a previous call to list allocations.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
@@ -1380,16 +1380,6 @@
               "items": {
                 "type": "string"
               }
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             },
             "x-nullable": true
           },
@@ -3597,7 +3587,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
@@ -4253,23 +4243,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing calendars from a previous call to list calendars.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
           },
           {
             "name": "limit",
@@ -8671,7 +8651,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
@@ -10146,23 +10126,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "Optional. The pagination token to use to continue listing compliance runs from a previous call to list compliance runs.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "Optional. When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
           },
           {
             "name": "limit",
@@ -17673,23 +17643,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing data type summaries. This\r\nvalue is returned from the previous call. If a pagination token is provided, the filter, sortBy\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing data type summaries. This\r\nvalue is returned from the previous call. If a pagination token is provided, the filter, sortBy\r\nand asAt fields must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
           },
           {
             "name": "limit",
@@ -17836,16 +17796,6 @@
               "items": {
                 "type": "string"
               }
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "Optional. When paginating, skip this number of results",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             },
             "x-nullable": true
           },
@@ -20221,7 +20171,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing instruments; this value is returned from\r\n             the previous call. If a pagination token is provided, the <i>sortBy</i>, <i>filter</i>, <i>effectiveAt</i> and\r\n             <i>asAt</i> fields must not have changed since the original request. Also, a <i>start</i> value cannot be\r\n             provided. For more information, see https://support.lusid.com/knowledgebase/article/KA-01915.",
+            "description": "The pagination token to use to continue listing instruments; this value is returned from\r\n             the previous call. If a pagination token is provided, the <i>sortBy</i>, <i>filter</i>, <i>effectiveAt</i> and\r\n             <i>asAt</i> fields must not have changed since the original request.\r\n             For more information, see https://support.lusid.com/knowledgebase/article/KA-01915.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
@@ -20238,16 +20188,6 @@
               "items": {
                 "type": "string"
               }
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             },
             "x-nullable": true
           },
@@ -30042,7 +29982,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing orders from a previous call to list orders.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing orders from a previous call to list orders.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
@@ -30059,16 +29999,6 @@
               "items": {
                 "type": "string"
               }
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             },
             "x-nullable": true
           },
@@ -32138,7 +32068,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\n            value is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\n            value is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
@@ -32674,23 +32604,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\n            value is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing persons from a previous call to list persons. This\r\n            value is returned from the previous call. If a pagination token is provided the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
           },
           {
             "name": "limit",
@@ -43203,23 +43123,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing portfolios; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing portfolios; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
           },
           {
             "name": "limit",
@@ -43905,16 +43815,6 @@
               "items": {
                 "type": "string"
               }
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "Optional. When paginating, skip this number of results",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             },
             "x-nullable": true
           },
@@ -46948,23 +46848,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing portfolios. This\r\nvalue is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\nand asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing portfolios. This\r\nvalue is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\nand asAt fields must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
           },
           {
             "name": "limit",
@@ -53545,23 +53435,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing quotes from a previous call to list quotes.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing quotes from a previous call to list quotes.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
           },
           {
             "name": "limit",
@@ -53822,7 +53702,7 @@
           "Quotes"
         ],
         "summary": "[DEPRECATED] ListQuotes: List quotes",
-        "description": "List all the quotes from a single scope at the specified date/time\r\nPlease use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope",
+        "description": "List all the quotes from a single scope at the specified date/time\r\nPlease use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope",
         "operationId": "ListQuotes",
         "parameters": [
           {
@@ -53850,23 +53730,13 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing quotes from a previous call to list quotes.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing quotes from a previous call to list quotes.\r\n            This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields\r\n            must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "When paginating, skip this number of results.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
           },
           {
             "name": "limit",
@@ -58725,16 +58595,6 @@
             "x-nullable": true
           },
           {
-            "name": "start",
-            "in": "query",
-            "description": "Optional. When paginating, skip this number of results",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
-          },
-          {
             "name": "limit",
             "in": "query",
             "description": "Optional. When paginating, limit the number of returned results to this many.",
@@ -58996,6 +58856,17 @@
                   "schema": {
                     "type": "JsonSchema",
                     "body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"Identifier\": {\n      \"type\": \"string\",\n      \"pattern\": \"/^[a-f\\\\d]{4}(?:[a-f\\\\d]{4}-){4}[a-f\\\\d]{12}$/i\"\n    },\n    \"AssetClass\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Rates\",\n        \"Fx\",\n        \"Equity\",\n        \"Credit\"\n      ]\n    },\n    \"StartDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"MaturityDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"Notional\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"Identifier\",\n    \"AssetClass\",\n    \"StartDate\",\n    \"MaturityDate\",\n    \"Notional\"\n  ]\n}"
+                  },
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -59015,6 +58886,17 @@
                   "schema": {
                     "type": "JsonSchema",
                     "body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"Identifier\": {\n      \"type\": \"string\",\n      \"pattern\": \"/^[a-f\\\\d]{4}(?:[a-f\\\\d]{4}-){4}[a-f\\\\d]{12}$/i\"\n    },\n    \"AssetClass\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Rates\",\n        \"Fx\",\n        \"Equity\",\n        \"Credit\"\n      ]\n    },\n    \"StartDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"MaturityDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"Notional\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"Identifier\",\n    \"AssetClass\",\n    \"StartDate\",\n    \"MaturityDate\",\n    \"Notional\"\n  ]\n}"
+                  },
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -59034,6 +58916,17 @@
                   "schema": {
                     "type": "JsonSchema",
                     "body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"Identifier\": {\n      \"type\": \"string\",\n      \"pattern\": \"/^[a-f\\\\d]{4}(?:[a-f\\\\d]{4}-){4}[a-f\\\\d]{12}$/i\"\n    },\n    \"AssetClass\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Rates\",\n        \"Fx\",\n        \"Equity\",\n        \"Credit\"\n      ]\n    },\n    \"StartDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"MaturityDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"Notional\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"Identifier\",\n    \"AssetClass\",\n    \"StartDate\",\n    \"MaturityDate\",\n    \"Notional\"\n  ]\n}"
+                  },
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
                   }
                 }
               }
@@ -59364,6 +59257,17 @@
                   "schema": {
                     "type": "JsonSchema",
                     "body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"Identifier\": {\n      \"type\": \"string\",\n      \"pattern\": \"/^[a-f\\\\d]{4}(?:[a-f\\\\d]{4}-){4}[a-f\\\\d]{12}$/i\"\n    },\n    \"AssetClass\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Rates\",\n        \"Fx\",\n        \"Equity\",\n        \"Credit\"\n      ]\n    },\n    \"StartDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"MaturityDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"Notional\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"Identifier\",\n    \"AssetClass\",\n    \"StartDate\",\n    \"MaturityDate\",\n    \"Notional\"\n  ]\n}"
+                  },
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -59383,6 +59287,17 @@
                   "schema": {
                     "type": "JsonSchema",
                     "body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"Identifier\": {\n      \"type\": \"string\",\n      \"pattern\": \"/^[a-f\\\\d]{4}(?:[a-f\\\\d]{4}-){4}[a-f\\\\d]{12}$/i\"\n    },\n    \"AssetClass\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Rates\",\n        \"Fx\",\n        \"Equity\",\n        \"Credit\"\n      ]\n    },\n    \"StartDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"MaturityDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"Notional\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"Identifier\",\n    \"AssetClass\",\n    \"StartDate\",\n    \"MaturityDate\",\n    \"Notional\"\n  ]\n}"
+                  },
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
                   }
                 }
               },
@@ -59402,6 +59317,17 @@
                   "schema": {
                     "type": "JsonSchema",
                     "body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"Identifier\": {\n      \"type\": \"string\",\n      \"pattern\": \"/^[a-f\\\\d]{4}(?:[a-f\\\\d]{4}-){4}[a-f\\\\d]{12}$/i\"\n    },\n    \"AssetClass\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"Rates\",\n        \"Fx\",\n        \"Equity\",\n        \"Credit\"\n      ]\n    },\n    \"StartDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"MaturityDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"Notional\": {\n      \"type\": \"number\"\n    }\n  },\n  \"required\": [\n    \"Identifier\",\n    \"AssetClass\",\n    \"StartDate\",\n    \"MaturityDate\",\n    \"Notional\"\n  ]\n}"
+                  },
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
                   }
                 }
               }
@@ -59526,7 +59452,18 @@
                     "code": "example-code",
                     "version": "0.0.1"
                   },
-                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }"
+                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }",
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
+                  }
                 }
               },
               "application/json": {
@@ -59539,7 +59476,18 @@
                     "code": "example-code",
                     "version": "0.0.1"
                   },
-                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }"
+                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }",
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
+                  }
                 }
               },
               "text/json": {
@@ -59552,7 +59500,18 @@
                     "code": "example-code",
                     "version": "0.0.1"
                   },
-                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }"
+                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }",
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
+                  }
                 }
               }
             }
@@ -59828,7 +59787,18 @@
                     "code": "example-code",
                     "version": "0.0.1"
                   },
-                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }"
+                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }",
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
+                  }
                 }
               },
               "application/json": {
@@ -59841,7 +59811,18 @@
                     "code": "example-code",
                     "version": "0.0.1"
                   },
-                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }"
+                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }",
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
+                  }
                 }
               },
               "text/json": {
@@ -59854,7 +59835,18 @@
                     "code": "example-code",
                     "version": "0.0.1"
                   },
-                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }"
+                  "body": "export function entryPoint() { return { scriptInterfaceVersion: 1, translate: Translate }; } function Translate(input){ const fxfwd = JSON.parse(input);  fxfwd[\"endDate\"] = fxfwd[\"maturityDate\"];  delete fxfwd[\"maturityDate\"];  return JSON.stringify(fxfwd); }",
+                  "version": {
+                    "effectiveFrom": "2019-01-01T12:00:00.0000000+00:00",
+                    "asAtDate": "2019-01-01T12:00:00.0100000+00:00",
+                    "asAtCreated": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdCreated": "UserId1",
+                    "requestIdCreated": "RequestId1",
+                    "asAtModified": "2019-01-01T12:00:00.0100000+00:00",
+                    "userIdModified": "UserId1",
+                    "requestIdModified": "RequestId2",
+                    "asAtVersionNumber": 1
+                  }
                 }
               }
             }
@@ -61848,16 +61840,6 @@
             "x-nullable": true
           },
           {
-            "name": "start",
-            "in": "query",
-            "description": "Optional. When paginating, skip this number of results",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
-          },
-          {
             "name": "limit",
             "in": "query",
             "description": "Optional. When paginating, limit the number of returned results to this many.",
@@ -61881,7 +61863,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.\r\nIf a pagination token is provided the sortBy, filter, and asAt fields\r\nmust not have changed since the original request. Also, if set, a start value cannot be provided.",
+            "description": "The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.\r\nIf a pagination token is provided the sortBy, filter, and asAt fields\r\nmust not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
@@ -84761,6 +84743,9 @@
           },
           "schema": {
             "$ref": "#/components/schemas/DialectSchema"
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
           }
         },
         "additionalProperties": false,
@@ -101854,6 +101839,9 @@
             "minLength": 0,
             "type": "string",
             "description": "Body of the translation script, i.e. the actual translation code."
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
           }
         },
         "additionalProperties": false
