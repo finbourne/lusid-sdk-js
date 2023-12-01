@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "1.0.754",
+    "version": "1.0.765",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -30026,7 +30026,7 @@
           "Orders"
         ],
         "summary": "[EARLY ACCESS] ListOrders: List Orders",
-        "description": "Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).",
+        "description": "Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).",
         "operationId": "ListOrders",
         "parameters": [
           {
@@ -30111,7 +30111,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Orders in scope.",
+            "description": "Orders.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -30610,7 +30610,7 @@
           "Orders"
         ],
         "summary": "[EARLY ACCESS] GetOrder: Get Order",
-        "description": "Fetch an Order that matches the specified identifier",
+        "description": "Fetch an Order that matches the specified identifier.",
         "operationId": "GetOrder",
         "parameters": [
           {
@@ -58899,7 +58899,7 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/Dialect"
+                "$ref": "#/components/schemas/UpsertDialectRequest"
               },
               "example": {
                 "id": {
@@ -58918,7 +58918,7 @@
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Dialect"
+                "$ref": "#/components/schemas/UpsertDialectRequest"
               },
               "example": {
                 "id": {
@@ -58937,7 +58937,7 @@
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Dialect"
+                "$ref": "#/components/schemas/UpsertDialectRequest"
               },
               "example": {
                 "id": {
@@ -58956,7 +58956,7 @@
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Dialect"
+                "$ref": "#/components/schemas/UpsertDialectRequest"
               },
               "example": {
                 "id": {
@@ -59459,7 +59459,7 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/TranslationScript"
+                "$ref": "#/components/schemas/UpsertTranslationScriptRequest"
               },
               "example": {
                 "id": {
@@ -59472,7 +59472,7 @@
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TranslationScript"
+                "$ref": "#/components/schemas/UpsertTranslationScriptRequest"
               },
               "example": {
                 "id": {
@@ -59485,7 +59485,7 @@
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/TranslationScript"
+                "$ref": "#/components/schemas/UpsertTranslationScriptRequest"
               },
               "example": {
                 "id": {
@@ -59498,7 +59498,7 @@
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/TranslationScript"
+                "$ref": "#/components/schemas/UpsertTranslationScriptRequest"
               },
               "example": {
                 "id": {
@@ -79343,7 +79343,7 @@
               },
               "initialCouponDate": {
                 "type": "string",
-                "description": "Optional. If set, this is the date at which the bond begins to accrue interest, if not set then the bond begins to accrue on the StartDate.",
+                "description": "Optional and to be DEPRECATED. If set, this is the date at which the bond begins to accrue interest. Instead, this information should be entered in the field StartDate.",
                 "format": "date-time",
                 "nullable": true
               },
@@ -81090,14 +81090,16 @@
         "properties": {
           "groupStatus": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "description": "The status of this subset of results."
           },
           "resultsUsed": {
             "type": "object",
             "additionalProperties": {
               "type": "number",
               "format": "double"
-            }
+            },
+            "description": "Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule."
           },
           "propertiesUsed": {
             "type": "object",
@@ -81106,13 +81108,15 @@
               "items": {
                 "$ref": "#/components/schemas/Property"
               }
-            }
+            },
+            "description": "Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule"
           },
           "missingDataInformation": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "List of string information detailing data that was missing from contributions processed in this rule"
           }
         },
         "additionalProperties": false
@@ -102583,6 +102587,22 @@
         },
         "additionalProperties": false
       },
+      "UpsertDialectRequest": {
+        "required": [
+          "id",
+          "schema"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/DialectId"
+          },
+          "schema": {
+            "$ref": "#/components/schemas/DialectSchema"
+          }
+        },
+        "additionalProperties": false
+      },
       "UpsertInstrumentEventRequest": {
         "required": [
           "instrumentEvent",
@@ -103255,6 +103275,25 @@
               "$ref": "#/components/schemas/Link"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpsertTranslationScriptRequest": {
+        "required": [
+          "body",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/TranslationScriptId"
+          },
+          "body": {
+            "maxLength": 500000,
+            "minLength": 0,
+            "type": "string",
+            "description": "Body of the translation script, i.e. the actual translation code."
           }
         },
         "additionalProperties": false
@@ -104152,7 +104191,7 @@
     },
     {
       "name": "Orders",
-      "description": "Methods for interacting with Orders. An Order represents an investor's instruction to a broker or similar agent to but or sell a single security. Orders are treated monotemporally; any updates are effective at the as-at time of update, and its not possible to make retroactive (or forward) changes."
+      "description": "Methods for interacting with Orders. An Order represents an investor's instruction to a broker or similar agent to buy or sell a single security. Orders are treated monotemporally; any updates are effective at the as-at time of update, and it's not possible to make retroactive (or forward) changes."
     },
     {
       "name": "Packages",

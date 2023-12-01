@@ -671,6 +671,7 @@ export * from './upsertCounterpartyAgreementRequest';
 export * from './upsertCreditSupportAnnexRequest';
 export * from './upsertCustomEntitiesResponse';
 export * from './upsertCustomEntityAccessMetadataRequest';
+export * from './upsertDialectRequest';
 export * from './upsertInstrumentEventRequest';
 export * from './upsertInstrumentEventsResponse';
 export * from './upsertInstrumentPropertiesResponse';
@@ -693,6 +694,7 @@ export * from './upsertReturnsResponse';
 export * from './upsertSingleStructuredDataResponse';
 export * from './upsertStructuredDataResponse';
 export * from './upsertTransactionPropertiesResponse';
+export * from './upsertTranslationScriptRequest';
 export * from './user';
 export * from './valuationRequest';
 export * from './valuationSchedule';
@@ -1398,6 +1400,7 @@ import { UpsertCounterpartyAgreementRequest } from './upsertCounterpartyAgreemen
 import { UpsertCreditSupportAnnexRequest } from './upsertCreditSupportAnnexRequest';
 import { UpsertCustomEntitiesResponse } from './upsertCustomEntitiesResponse';
 import { UpsertCustomEntityAccessMetadataRequest } from './upsertCustomEntityAccessMetadataRequest';
+import { UpsertDialectRequest } from './upsertDialectRequest';
 import { UpsertInstrumentEventRequest } from './upsertInstrumentEventRequest';
 import { UpsertInstrumentEventsResponse } from './upsertInstrumentEventsResponse';
 import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentPropertiesResponse';
@@ -1420,6 +1423,7 @@ import { UpsertReturnsResponse } from './upsertReturnsResponse';
 import { UpsertSingleStructuredDataResponse } from './upsertSingleStructuredDataResponse';
 import { UpsertStructuredDataResponse } from './upsertStructuredDataResponse';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
+import { UpsertTranslationScriptRequest } from './upsertTranslationScriptRequest';
 import { User } from './user';
 import { ValuationRequest } from './valuationRequest';
 import { ValuationSchedule } from './valuationSchedule';
@@ -2450,6 +2454,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertCreditSupportAnnexRequest": UpsertCreditSupportAnnexRequest,
     "UpsertCustomEntitiesResponse": UpsertCustomEntitiesResponse,
     "UpsertCustomEntityAccessMetadataRequest": UpsertCustomEntityAccessMetadataRequest,
+    "UpsertDialectRequest": UpsertDialectRequest,
     "UpsertInstrumentEventRequest": UpsertInstrumentEventRequest,
     "UpsertInstrumentEventsResponse": UpsertInstrumentEventsResponse,
     "UpsertInstrumentPropertiesResponse": UpsertInstrumentPropertiesResponse,
@@ -2472,6 +2477,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertSingleStructuredDataResponse": UpsertSingleStructuredDataResponse,
     "UpsertStructuredDataResponse": UpsertStructuredDataResponse,
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
+    "UpsertTranslationScriptRequest": UpsertTranslationScriptRequest,
     "User": User,
     "ValuationRequest": ValuationRequest,
     "ValuationSchedule": ValuationSchedule,
