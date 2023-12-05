@@ -8,6 +8,8 @@ export * from './accessControlledAction';
 export * from './accessControlledResource';
 export * from './accessMetadataOperation';
 export * from './accessMetadataValue';
+export * from './accumulationEvent';
+export * from './accumulationEventAllOf';
 export * from './actionId';
 export * from './actionResultOfPortfolio';
 export * from './addBusinessDaysToDateRequest';
@@ -737,6 +739,8 @@ import { AccessControlledAction } from './accessControlledAction';
 import { AccessControlledResource } from './accessControlledResource';
 import { AccessMetadataOperation } from './accessMetadataOperation';
 import { AccessMetadataValue } from './accessMetadataValue';
+import { AccumulationEvent } from './accumulationEvent';
+import { AccumulationEventAllOf } from './accumulationEventAllOf';
 import { ActionId } from './actionId';
 import { ActionResultOfPortfolio } from './actionResultOfPortfolio';
 import { AddBusinessDaysToDateRequest } from './addBusinessDaysToDateRequest';
@@ -1459,6 +1463,8 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "AccessMetadataOperation.OpEnum": AccessMetadataOperation.OpEnum,
+        "AccumulationEvent.InstrumentEventTypeEnum": AccumulationEvent.InstrumentEventTypeEnum,
+        "AccumulationEventAllOf.InstrumentEventTypeEnum": AccumulationEventAllOf.InstrumentEventTypeEnum,
         "AddressDefinition.TypeEnum": AddressDefinition.TypeEnum,
         "AddressKeyComplianceParameter.ComplianceParameterTypeEnum": AddressKeyComplianceParameter.ComplianceParameterTypeEnum,
         "AddressKeyComplianceParameterAllOf.ComplianceParameterTypeEnum": AddressKeyComplianceParameterAllOf.ComplianceParameterTypeEnum,
@@ -1792,6 +1798,8 @@ let typeMap: {[index: string]: any} = {
     "AccessControlledResource": AccessControlledResource,
     "AccessMetadataOperation": AccessMetadataOperation,
     "AccessMetadataValue": AccessMetadataValue,
+    "AccumulationEvent": AccumulationEvent,
+    "AccumulationEventAllOf": AccumulationEventAllOf,
     "ActionId": ActionId,
     "ActionResultOfPortfolio": ActionResultOfPortfolio,
     "AddBusinessDaysToDateRequest": AddBusinessDaysToDateRequest,
