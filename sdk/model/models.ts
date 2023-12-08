@@ -63,6 +63,8 @@ export * from './bondCouponEvent';
 export * from './bondCouponEventAllOf';
 export * from './bondDefaultEvent';
 export * from './bondDefaultEventAllOf';
+export * from './bondPrincipalEvent';
+export * from './bondPrincipalEventAllOf';
 export * from './boolComplianceParameter';
 export * from './boolComplianceParameterAllOf';
 export * from './boolListComplianceParameter';
@@ -794,6 +796,8 @@ import { BondCouponEvent } from './bondCouponEvent';
 import { BondCouponEventAllOf } from './bondCouponEventAllOf';
 import { BondDefaultEvent } from './bondDefaultEvent';
 import { BondDefaultEventAllOf } from './bondDefaultEventAllOf';
+import { BondPrincipalEvent } from './bondPrincipalEvent';
+import { BondPrincipalEventAllOf } from './bondPrincipalEventAllOf';
 import { BoolComplianceParameter } from './boolComplianceParameter';
 import { BoolComplianceParameterAllOf } from './boolComplianceParameterAllOf';
 import { BoolListComplianceParameter } from './boolListComplianceParameter';
@@ -1485,6 +1489,8 @@ let enumsMap: {[index: string]: any} = {
         "BondCouponEventAllOf.InstrumentEventTypeEnum": BondCouponEventAllOf.InstrumentEventTypeEnum,
         "BondDefaultEvent.InstrumentEventTypeEnum": BondDefaultEvent.InstrumentEventTypeEnum,
         "BondDefaultEventAllOf.InstrumentEventTypeEnum": BondDefaultEventAllOf.InstrumentEventTypeEnum,
+        "BondPrincipalEvent.InstrumentEventTypeEnum": BondPrincipalEvent.InstrumentEventTypeEnum,
+        "BondPrincipalEventAllOf.InstrumentEventTypeEnum": BondPrincipalEventAllOf.InstrumentEventTypeEnum,
         "BoolComplianceParameter.ComplianceParameterTypeEnum": BoolComplianceParameter.ComplianceParameterTypeEnum,
         "BoolComplianceParameterAllOf.ComplianceParameterTypeEnum": BoolComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "BoolListComplianceParameter.ComplianceParameterTypeEnum": BoolListComplianceParameter.ComplianceParameterTypeEnum,
@@ -1853,6 +1859,8 @@ let typeMap: {[index: string]: any} = {
     "BondCouponEventAllOf": BondCouponEventAllOf,
     "BondDefaultEvent": BondDefaultEvent,
     "BondDefaultEventAllOf": BondDefaultEventAllOf,
+    "BondPrincipalEvent": BondPrincipalEvent,
+    "BondPrincipalEventAllOf": BondPrincipalEventAllOf,
     "BoolComplianceParameter": BoolComplianceParameter,
     "BoolComplianceParameterAllOf": BoolComplianceParameterAllOf,
     "BoolListComplianceParameter": BoolListComplianceParameter,
