@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.11",
+    "version": "2.0.15",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -77821,10 +77821,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -79042,10 +79043,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -79829,10 +79831,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -79905,10 +79908,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -79968,10 +79972,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -80401,10 +80406,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -80501,10 +80507,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -81160,10 +81167,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -85387,6 +85395,92 @@
         ],
         "description": "For indicating a dependency on discounting for a given currency.\r\nE.g Valuing a Bond with the Discounting model will declare a DiscountingDependency\r\nfor the domestic currency of the bond to account for the time-value of the future cashFlows of the bond."
       },
+      "DividendOptionEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "cashElections",
+              "exDate",
+              "instrumentEventType",
+              "paymentDate",
+              "securityElections"
+            ],
+            "type": "object",
+            "properties": {
+              "announcementDate": {
+                "type": "string",
+                "description": "Date on which the dividend was announced / declared.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "cashElections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CashElection"
+                },
+                "description": "CashElection for this DividendReinvestmentEvent"
+              },
+              "exDate": {
+                "type": "string",
+                "description": "The first business day on which the dividend is not owed to the buying party.\r\nTypically this is T-1 from the RecordDate.",
+                "format": "date-time"
+              },
+              "paymentDate": {
+                "type": "string",
+                "description": "The date the company pays out dividends to shareholders.",
+                "format": "date-time"
+              },
+              "recordDate": {
+                "type": "string",
+                "description": "Date you have to be the holder of record in order to participate in the tender.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "securityElections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SecurityElection"
+                },
+                "description": "SecurityElection for this DividendReinvestmentEvent"
+              },
+              "securitySettlementDate": {
+                "type": "string",
+                "description": "Date on which the dividend was the security settles.  Equal to the PaymentDate if not provided.",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InformationalEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent",
+                  "TriggerEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent",
+                  "BondCouponEvent",
+                  "DividendReinvestmentEvent",
+                  "AccumulationEvent",
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+              }
+            }
+          }
+        ],
+        "description": "DVOP"
+      },
       "DividendReinvestmentEvent": {
         "allOf": [
           {
@@ -85457,10 +85551,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -86750,10 +86845,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -90042,10 +90138,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -90110,10 +90207,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -90448,10 +90546,11 @@
               "BondCouponEvent",
               "DividendReinvestmentEvent",
               "AccumulationEvent",
-              "BondPrincipalEvent"
+              "BondPrincipalEvent",
+              "DividendOptionEvent"
             ],
             "type": "string",
-            "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+            "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
           }
         },
         "additionalProperties": false,
@@ -92721,10 +92820,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -97268,10 +97368,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -98403,10 +98504,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -100508,8 +100610,11 @@
           },
           "price": {
             "type": "number",
-            "description": "Price per unit of the security.",
+            "description": "Price per unit of the security. At least one of UnitsRatio or Price must be provided.",
             "format": "double"
+          },
+          "unitsRatio": {
+            "$ref": "#/components/schemas/UnitsRatio"
           }
         },
         "additionalProperties": false,
@@ -100961,10 +101066,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -102160,10 +102266,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -102404,10 +102511,11 @@
                   "BondCouponEvent",
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
-                  "BondPrincipalEvent"
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
               }
             }
           }
@@ -102446,6 +102554,27 @@
         },
         "additionalProperties": false,
         "description": "Represents the user-defined identifier for a Legal Entity or Person.\r\nUsers can define their own, scoped identifiers for Legal Entities and Persons using identifier properties.\r\nFor example,\r\nwhen used to identify a Person, the identifier defined by Person/myScope/username would be represented as\r\n {\r\n   \"idTypeScope\": \"myScope\",\r\n   \"idTypeCode\": \"username\",\r\n   \"code\": \"john_doe_001\"\r\n }"
+      },
+      "UnitsRatio": {
+        "required": [
+          "input",
+          "output"
+        ],
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "number",
+            "description": "Input amount.  Denominator of the Ratio",
+            "format": "double"
+          },
+          "output": {
+            "type": "number",
+            "description": "Output amount. Numerator of the Ratio",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "todo: what even is this"
       },
       "UpdateCalendarRequest": {
         "required": [
