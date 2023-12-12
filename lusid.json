@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.16",
+    "version": "2.0.20",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -80946,7 +80946,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Credit Default Swap Index (CDX)."
+        "description": "LUSID representation of a Credit Default Swap Index (CDX).\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see https://support.lusid.com/knowledgebase/article/KA-02252.\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | ProtectionLeg | Payments made by the protection seller in the case of default across all CDS instruments in the index. |\r\n| 2 | PremiumLeg | The premium payments made by the protection buyer across all CDS instruments in the index. |"
       },
       "CdsProtectionDetailSpecification": {
         "required": [
@@ -83832,7 +83832,7 @@
             }
           }
         ],
-        "description": "LUSID representation of a Credit Default Swap (CDS)."
+        "description": "LUSID representation of a Credit Default Swap (CDS).\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see https://support.lusid.com/knowledgebase/article/KA-02252.\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | ProtectionLeg | Cash flows occurring in the case of default. |\r\n| 2 | PremiumLeg | The premium payments made by the protection buyer. |"
       },
       "CreditRating": {
         "required": [
@@ -86205,7 +86205,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an Equity Swap."
+        "description": "LUSID representation of an Equity Swap.\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see https://support.lusid.com/knowledgebase/article/KA-02252.\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | EquityLeg | Cash flows relating to the performance of the underlying equity. |\r\n| 2 | FundingLeg | The funding leg of the swap. |\r\n| 3 | EquityDividendLeg | Cash flows relating to dividend payments on the underlying equity (optional). |"
       },
       "EquityVolDependency": {
         "allOf": [
@@ -87995,7 +87995,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an FX Forward.\r\nIncluding FX Spot and Non-Deliverable Forwards."
+        "description": "LUSID representation of an FX Forward.\r\nIncluding FX Spot and Non-Deliverable Forwards.\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see https://support.lusid.com/knowledgebase/article/KA-02252.\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | DomesticLeg | Cash flows in the domestic currency of the forward. |\r\n| 2 | ForeignLeg | Cash flows in the foreign currency of the forward (not present for non-deliverable forwards). |"
       },
       "FxForwardCurveByQuoteReference": {
         "allOf": [
@@ -88755,7 +88755,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an FX Swap. Composed of two FX Forwards."
+        "description": "LUSID representation of an FX Swap. Composed of two FX Forwards.\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see https://support.lusid.com/knowledgebase/article/KA-02252.\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | NearDomesticLeg | Cash flows in the domestic currency for the near forward. |\r\n| 2 | NearForeignLeg | Cash flows in the foreign currency for the near forward (not present for non-deliverable forwards). |\r\n| 3 | FarDomesticLeg | Cash flows in the domestic currency for the far forward. |\r\n| 4 | FarForeignLeg | Cash flows in the foreign currency for the far forward (not present for non-deliverable forwards). |"
       },
       "FxTenorConvention": {
         "required": [
@@ -90088,7 +90088,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an Inflation Swap.\r\nThe implementation supports the following swap types:\r\n* Zero Coupon inflation swap, with a single payment at maturity.\r\n* LPI Swap (capped and floored)\r\n* Year on Year inflation swap"
+        "description": "LUSID representation of an Inflation Swap.\r\nThe implementation supports the following swap types:\r\n* Zero Coupon inflation swap, with a single payment at maturity.\r\n* LPI Swap (capped and floored)\r\n* Year on Year inflation swap\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see https://support.lusid.com/knowledgebase/article/KA-02252.\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | InflationLeg | Cash flows with a rate relating to an underlying inflation index. |\r\n| 2 | FixedLeg | Cash flows with a fixed rate. |"
       },
       "InformationalErrorEvent": {
         "allOf": [
@@ -91004,7 +91004,7 @@
             }
           }
         ],
-        "description": "LUSID representation of an Interest Rate Swap, including:\r\n\r\n  * Vanilla (single currency fixed-float non-amortising)\r\n  * CrossCurrency (>1 currency is used by the swap legs)\r\n  * Basis (single currency, floating-floating legs of different tenors)\r\n  * Amortising (the swap has 1+ leg with amortised notional)"
+        "description": "LUSID representation of an Interest Rate Swap, including:\r\n\r\n  * Vanilla (single currency fixed-float non-amortising)\r\n  * CrossCurrency (>1 currency is used by the swap legs)\r\n  * Basis (single currency, floating-floating legs of different tenors)\r\n  * Amortising (the swap has 1+ leg with amortised notional)\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see https://support.lusid.com/knowledgebase/article/KA-02252.\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | Pay/Receive | Cash flows representing the pay/receive leg. |\r\n| 2 | Receive/Pay | Cash flows representing the receive/pay leg. |\r\n| 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |"
       },
       "InterestRateSwaption": {
         "allOf": [
@@ -101489,7 +101489,7 @@
             }
           }
         ],
-        "description": "A swap in which one party makes payments based on leg rates (fixed or floating) while the other party makes payments based on the return of an underlying instrument.\r\nThe underlying instrument can be provided as an inline economic definition or as a reference instrument pointing to an already upserted instrument.\r\nA reference instrument in this case would consist of instrument scope, instrument id and instrument id type (ISIN, LUID etc.)"
+        "description": "A swap in which one party makes payments based on leg rates (fixed or floating) while the other party makes payments based on the return of an underlying instrument.\r\nThe underlying instrument can be provided as an inline economic definition or as a reference instrument pointing to an already upserted instrument.\r\nA reference instrument in this case would consist of instrument scope, instrument id and instrument id type (ISIN, LUID etc.).\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see https://support.lusid.com/knowledgebase/article/KA-02252.\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | AssetLeg | Cash flows relating to the returns generated by an underlying bond. |\r\n| 2 | FundingLeg | The funding leg of the swap. |"
       },
       "Touch": {
         "required": [
