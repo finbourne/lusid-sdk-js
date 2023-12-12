@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.20",
+    "version": "2.0.27",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -6081,6 +6081,20 @@
                     "spotDaysCalculationType": "SingleCalendar",
                     "marketDataType": "FxForwardTenorPipsCurveData"
                   }
+                },
+                "third-item": {
+                  "marketDataId": {
+                    "provider": "Lusid",
+                    "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                    "marketAsset": "USD/JPY/FxVol/Ln"
+                  },
+                  "marketData": {
+                    "baseDate": "2021-01-20T00:00:00.0000000+00:00",
+                    "assetType": "FxVol",
+                    "lineage": "Some-market-data-provider-or-other",
+                    "volatility": 0.15,
+                    "marketDataType": "ConstantVolatilitySurface"
+                  }
                 }
               }
             },
@@ -6161,6 +6175,20 @@
                     "calendars": [],
                     "spotDaysCalculationType": "SingleCalendar",
                     "marketDataType": "FxForwardTenorPipsCurveData"
+                  }
+                },
+                "third-item": {
+                  "marketDataId": {
+                    "provider": "Lusid",
+                    "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                    "marketAsset": "USD/JPY/FxVol/Ln"
+                  },
+                  "marketData": {
+                    "baseDate": "2021-01-20T00:00:00.0000000+00:00",
+                    "assetType": "FxVol",
+                    "lineage": "Some-market-data-provider-or-other",
+                    "volatility": 0.15,
+                    "marketDataType": "ConstantVolatilitySurface"
                   }
                 }
               }
@@ -6243,6 +6271,20 @@
                     "spotDaysCalculationType": "SingleCalendar",
                     "marketDataType": "FxForwardTenorPipsCurveData"
                   }
+                },
+                "third-item": {
+                  "marketDataId": {
+                    "provider": "Lusid",
+                    "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                    "marketAsset": "USD/JPY/FxVol/Ln"
+                  },
+                  "marketData": {
+                    "baseDate": "2021-01-20T00:00:00.0000000+00:00",
+                    "assetType": "FxVol",
+                    "lineage": "Some-market-data-provider-or-other",
+                    "volatility": 0.15,
+                    "marketDataType": "ConstantVolatilitySurface"
+                  }
                 }
               }
             },
@@ -6323,6 +6365,20 @@
                     "calendars": [],
                     "spotDaysCalculationType": "SingleCalendar",
                     "marketDataType": "FxForwardTenorPipsCurveData"
+                  }
+                },
+                "third-item": {
+                  "marketDataId": {
+                    "provider": "Lusid",
+                    "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                    "marketAsset": "USD/JPY/FxVol/Ln"
+                  },
+                  "marketData": {
+                    "baseDate": "2021-01-20T00:00:00.0000000+00:00",
+                    "assetType": "FxVol",
+                    "lineage": "Some-market-data-provider-or-other",
+                    "volatility": 0.15,
+                    "marketDataType": "ConstantVolatilitySurface"
                   }
                 }
               }
@@ -31944,8 +32000,8 @@
                     "value": {
                       "labelValueSet": {
                         "values": [
-                          "CustomerServiceRepresentative",
-                          "SalesRepresentative"
+                          "SalesRepresentative",
+                          "CustomerServiceRepresentative"
                         ]
                       }
                     },
@@ -31993,8 +32049,8 @@
                     "value": {
                       "labelValueSet": {
                         "values": [
-                          "CustomerServiceRepresentative",
-                          "SalesRepresentative"
+                          "SalesRepresentative",
+                          "CustomerServiceRepresentative"
                         ]
                       }
                     },
@@ -32042,8 +32098,8 @@
                     "value": {
                       "labelValueSet": {
                         "values": [
-                          "CustomerServiceRepresentative",
-                          "SalesRepresentative"
+                          "SalesRepresentative",
+                          "CustomerServiceRepresentative"
                         ]
                       }
                     },
@@ -32091,8 +32147,8 @@
                     "value": {
                       "labelValueSet": {
                         "values": [
-                          "CustomerServiceRepresentative",
-                          "SalesRepresentative"
+                          "SalesRepresentative",
+                          "CustomerServiceRepresentative"
                         ]
                       }
                     },
@@ -32151,8 +32207,8 @@
                       "value": {
                         "labelValueSet": {
                           "values": [
-                            "CustomerServiceRepresentative",
-                            "SalesRepresentative"
+                            "SalesRepresentative",
+                            "CustomerServiceRepresentative"
                           ]
                         }
                       },
@@ -32214,8 +32270,8 @@
                       "value": {
                         "labelValueSet": {
                           "values": [
-                            "CustomerServiceRepresentative",
-                            "SalesRepresentative"
+                            "SalesRepresentative",
+                            "CustomerServiceRepresentative"
                           ]
                         }
                       },
@@ -32277,8 +32333,8 @@
                       "value": {
                         "labelValueSet": {
                           "values": [
-                            "CustomerServiceRepresentative",
-                            "SalesRepresentative"
+                            "SalesRepresentative",
+                            "CustomerServiceRepresentative"
                           ]
                         }
                       },
@@ -32474,8 +32530,8 @@
                           "value": {
                             "labelValueSet": {
                               "values": [
-                                "CustomerServiceRepresentative",
-                                "SalesRepresentative"
+                                "SalesRepresentative",
+                                "CustomerServiceRepresentative"
                               ]
                             }
                           },
@@ -32602,8 +32658,8 @@
                           "value": {
                             "labelValueSet": {
                               "values": [
-                                "CustomerServiceRepresentative",
-                                "SalesRepresentative"
+                                "SalesRepresentative",
+                                "CustomerServiceRepresentative"
                               ]
                             }
                           },
@@ -32730,8 +32786,8 @@
                           "value": {
                             "labelValueSet": {
                               "values": [
-                                "CustomerServiceRepresentative",
-                                "SalesRepresentative"
+                                "SalesRepresentative",
+                                "CustomerServiceRepresentative"
                               ]
                             }
                           },
@@ -33010,8 +33066,8 @@
                           "value": {
                             "labelValueSet": {
                               "values": [
-                                "CustomerServiceRepresentative",
-                                "SalesRepresentative"
+                                "SalesRepresentative",
+                                "CustomerServiceRepresentative"
                               ]
                             }
                           },
@@ -33138,8 +33194,8 @@
                           "value": {
                             "labelValueSet": {
                               "values": [
-                                "CustomerServiceRepresentative",
-                                "SalesRepresentative"
+                                "SalesRepresentative",
+                                "CustomerServiceRepresentative"
                               ]
                             }
                           },
@@ -33266,8 +33322,8 @@
                           "value": {
                             "labelValueSet": {
                               "values": [
-                                "CustomerServiceRepresentative",
-                                "SalesRepresentative"
+                                "SalesRepresentative",
+                                "CustomerServiceRepresentative"
                               ]
                             }
                           },
@@ -33522,8 +33578,8 @@
                       "value": {
                         "labelValueSet": {
                           "values": [
-                            "CustomerServiceRepresentative",
-                            "SalesRepresentative"
+                            "SalesRepresentative",
+                            "CustomerServiceRepresentative"
                           ]
                         }
                       },
@@ -33585,8 +33641,8 @@
                       "value": {
                         "labelValueSet": {
                           "values": [
-                            "CustomerServiceRepresentative",
-                            "SalesRepresentative"
+                            "SalesRepresentative",
+                            "CustomerServiceRepresentative"
                           ]
                         }
                       },
@@ -33648,8 +33704,8 @@
                       "value": {
                         "labelValueSet": {
                           "values": [
-                            "CustomerServiceRepresentative",
-                            "SalesRepresentative"
+                            "SalesRepresentative",
+                            "CustomerServiceRepresentative"
                           ]
                         }
                       },
@@ -81423,10 +81479,11 @@
               "FxForwardTenorPipsCurveData",
               "FxForwardCurveByQuoteReference",
               "CreditSpreadCurveData",
-              "EquityCurveByPricesData"
+              "EquityCurveByPricesData",
+              "ConstantVolatilitySurface"
             ],
             "type": "string",
-            "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+            "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
           }
         },
         "additionalProperties": false,
@@ -82298,6 +82355,66 @@
         },
         "additionalProperties": false,
         "description": "The Configuration or Calculation Recipe controls how LUSID processes a given request.\r\nThis can be used to change where market data used in pricing is loaded from and in what order, or which model is used to\r\nprice a given instrument as well as how aggregation will process the produced results."
+      },
+      "ConstantVolatilitySurface": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "assetType",
+              "baseDate",
+              "marketDataType",
+              "volatility"
+            ],
+            "type": "object",
+            "properties": {
+              "baseDate": {
+                "type": "string",
+                "description": "Base date of the engine - this is the reference date for resolution of tenors.",
+                "format": "date-time"
+              },
+              "assetType": {
+                "minLength": 1,
+                "type": "string",
+                "description": "What is the asset that the engine is for.\r\nSupported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque]."
+              },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "nullable": true
+              },
+              "volatility": {
+                "type": "number",
+                "description": "Volatility value.",
+                "format": "double"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData",
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
+                ],
+                "type": "string",
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
+              }
+            }
+          }
+        ],
+        "description": "Market Data required to build a volatility surface for pricing.\r\nSingle constant volatility point."
       },
       "ConstituentsAdjustmentHeader": {
         "type": "object",
@@ -83383,6 +83500,11 @@
             "type": "string",
             "description": "Describes the property",
             "nullable": true
+          },
+          "collectionType": {
+            "type": "string",
+            "description": "Describes whether a collection property should behave as a set or as an array.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -83943,10 +84065,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -85338,10 +85461,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -85851,10 +85975,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -86322,10 +86447,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -88074,10 +88200,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -88153,10 +88280,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -88288,10 +88416,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -88438,10 +88567,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -88529,10 +88659,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -88892,10 +89023,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -89170,7 +89302,7 @@
           "marketDataKeyRuleGroupOperation": {
             "minLength": 1,
             "type": "string",
-            "description": "The operation that will be used to process the collection of market data items and failures found on resolution\r\ninto a single market data item or failure to be used."
+            "description": "The operation that will be used to process the collection of market data items and failures found on resolution\r\ninto a single market data item or failure to be used.\r\nSupported values: [FirstLatest, AverageOfQuotesFound, AverageOfAllQuotes, FirstMinimum, FirstMaximum]"
           },
           "marketRules": {
             "type": "array",
@@ -91143,10 +91275,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -91458,7 +91591,6 @@
         "properties": {
           "values": {
             "minItems": 1,
-            "uniqueItems": true,
             "type": "array",
             "items": {
               "type": "string"
@@ -92738,10 +92870,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
@@ -96743,6 +96876,11 @@
           "derivationFormula": {
             "type": "string",
             "description": "The rule that defines how data is composed for a derived property.",
+            "nullable": true
+          },
+          "collectionType": {
+            "type": "string",
+            "description": "Describes whether a collection property should behave as a set or as an array.",
             "nullable": true
           },
           "properties": {
@@ -104621,10 +104759,11 @@
                   "FxForwardTenorPipsCurveData",
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
-                  "EquityCurveByPricesData"
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface"
                 ],
                 "type": "string",
-                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData"
+                "description": "The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface"
               }
             }
           }
