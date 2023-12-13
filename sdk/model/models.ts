@@ -721,6 +721,7 @@ export * from './versionedResourceListOfTransaction';
 export * from './virtualRow';
 export * from './weekendMask';
 export * from './weightedInstrument';
+export * from './weightedInstrumentInLineLookupIdentifiers';
 export * from './weightedInstruments';
 export * from './yieldCurveData';
 export * from './yieldCurveDataAllOf';
@@ -1459,6 +1460,7 @@ import { VersionedResourceListOfTransaction } from './versionedResourceListOfTra
 import { VirtualRow } from './virtualRow';
 import { WeekendMask } from './weekendMask';
 import { WeightedInstrument } from './weightedInstrument';
+import { WeightedInstrumentInLineLookupIdentifiers } from './weightedInstrumentInLineLookupIdentifiers';
 import { WeightedInstruments } from './weightedInstruments';
 import { YieldCurveData } from './yieldCurveData';
 import { YieldCurveDataAllOf } from './yieldCurveDataAllOf';
@@ -2529,6 +2531,7 @@ let typeMap: {[index: string]: any} = {
     "VirtualRow": VirtualRow,
     "WeekendMask": WeekendMask,
     "WeightedInstrument": WeightedInstrument,
+    "WeightedInstrumentInLineLookupIdentifiers": WeightedInstrumentInLineLookupIdentifiers,
     "WeightedInstruments": WeightedInstruments,
     "YieldCurveData": YieldCurveData,
     "YieldCurveDataAllOf": YieldCurveDataAllOf,

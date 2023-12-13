@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.27",
+    "version": "2.0.32",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1106,7 +1106,8 @@
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                       "instrumentType": "FxForward"
-                    }
+                    },
+                    "inLineLookupIdentifiers": {}
                   }
                 ]
               }
@@ -1162,7 +1163,8 @@
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                       "instrumentType": "FxForward"
-                    }
+                    },
+                    "inLineLookupIdentifiers": {}
                   }
                 ]
               }
@@ -1218,7 +1220,8 @@
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                       "instrumentType": "FxForward"
-                    }
+                    },
+                    "inLineLookupIdentifiers": {}
                   }
                 ]
               }
@@ -1274,7 +1277,8 @@
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                       "instrumentType": "FxForward"
-                    }
+                    },
+                    "inLineLookupIdentifiers": {}
                   }
                 ]
               }
@@ -44429,7 +44433,8 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "instrumentType": "FxForward"
-                      }
+                      },
+                      "inLineLookupIdentifiers": {}
                     }
                   ]
                 },
@@ -44480,7 +44485,8 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "instrumentType": "FxForward"
-                      }
+                      },
+                      "inLineLookupIdentifiers": {}
                     }
                   ]
                 },
@@ -44540,7 +44546,8 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "instrumentType": "FxForward"
-                      }
+                      },
+                      "inLineLookupIdentifiers": {}
                     }
                   ]
                 },
@@ -44591,7 +44598,8 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "instrumentType": "FxForward"
-                      }
+                      },
+                      "inLineLookupIdentifiers": {}
                     }
                   ]
                 },
@@ -44651,7 +44659,8 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "instrumentType": "FxForward"
-                      }
+                      },
+                      "inLineLookupIdentifiers": {}
                     }
                   ]
                 },
@@ -44702,7 +44711,8 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "instrumentType": "FxForward"
-                      }
+                      },
+                      "inLineLookupIdentifiers": {}
                     }
                   ]
                 },
@@ -44762,7 +44772,8 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "instrumentType": "FxForward"
-                      }
+                      },
+                      "inLineLookupIdentifiers": {}
                     }
                   ]
                 },
@@ -44813,7 +44824,8 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "instrumentType": "FxForward"
-                      }
+                      },
+                      "inLineLookupIdentifiers": {}
                     }
                   ]
                 },
@@ -101878,10 +101890,12 @@
               "UnsettledCashTypes",
               "Carry",
               "CarryAsPnl",
-              "VariationMargin"
+              "VariationMargin",
+              "Capital",
+              "Fee"
             ],
             "type": "string",
-            "description": ". The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, UnsettledCashTypes, Carry, CarryAsPnl, VariationMargin"
+            "description": ". The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, UnsettledCashTypes, Carry, CarryAsPnl, VariationMargin, Capital, Fee"
           },
           "side": {
             "minLength": 1,
@@ -101952,10 +101966,12 @@
               "UnsettledCashTypes",
               "Carry",
               "CarryAsPnl",
-              "VariationMargin"
+              "VariationMargin",
+              "Capital",
+              "Fee"
             ],
             "type": "string",
-            "description": ". The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, UnsettledCashTypes, Carry, CarryAsPnl, VariationMargin"
+            "description": ". The available values are: Settlement, Traded, StockMovement, FutureCash, Commitment, Receivable, CashSettlement, CashForward, CashCommitment, CashReceivable, Accrual, CashAccrual, ForwardFx, CashFxForward, UnsettledCashTypes, Carry, CarryAsPnl, VariationMargin, Capital, Fee"
           },
           "side": {
             "minLength": 1,
@@ -104680,6 +104696,47 @@
           },
           "instrument": {
             "$ref": "#/components/schemas/LusidInstrument"
+          },
+          "inLineLookupIdentifiers": {
+            "type": "object",
+            "properties": {
+              "LusidInstrumentId": {
+                "type": "string"
+              },
+              "Isin": {
+                "type": "string"
+              },
+              "Sedol": {
+                "type": "string"
+              },
+              "Cusip": {
+                "type": "string"
+              },
+              "ClientInternal": {
+                "type": "string"
+              },
+              "Figi": {
+                "type": "string"
+              },
+              "RIC": {
+                "type": "string"
+              },
+              "QuotePermId": {
+                "type": "string"
+              },
+              "REDCode": {
+                "type": "string"
+              },
+              "BBGId": {
+                "type": "string"
+              },
+              "ICECode": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "description": "External market codes and identifiers for the equity, e.g. IBM.\r\nRequired for valuation via SimpleStatic (look-up pricing).\r\nValuation will not succeed without a matching quote.",
+            "nullable": true
           }
         },
         "additionalProperties": false,

@@ -12,50 +12,83 @@
 
 import { RequestFile } from './models';
 
-export class DeleteRelationshipRequest {
-    /**
-    * The identifier of the source entity of the relationship to be deleted.
-    */
-    'sourceEntityId': { [key: string]: string; };
-    /**
-    * The identifier of the target entity of the relationship to be deleted.
-    */
-    'targetEntityId': { [key: string]: string; };
-    /**
-    * The effective date of the relationship to be deleted
-    */
-    'effectiveFrom'?: string | null;
-    /**
-    * The effective datetime until which the relationship will be deleted. If not supplied the deletion will be permanent.
-    */
-    'effectiveUntil'?: string | null;
+/**
+* External market codes and identifiers for the equity, e.g. IBM.  Required for valuation via SimpleStatic (look-up pricing).  Valuation will not succeed without a matching quote.
+*/
+export class WeightedInstrumentInLineLookupIdentifiers {
+    'lusidInstrumentId'?: string;
+    'isin'?: string;
+    'sedol'?: string;
+    'cusip'?: string;
+    'clientInternal'?: string;
+    'figi'?: string;
+    'rIC'?: string;
+    'quotePermId'?: string;
+    'rEDCode'?: string;
+    'bBGId'?: string;
+    'iCECode'?: string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "sourceEntityId",
-            "baseName": "sourceEntityId",
-            "type": "{ [key: string]: string; }"
-        },
-        {
-            "name": "targetEntityId",
-            "baseName": "targetEntityId",
-            "type": "{ [key: string]: string; }"
-        },
-        {
-            "name": "effectiveFrom",
-            "baseName": "effectiveFrom",
+            "name": "lusidInstrumentId",
+            "baseName": "LusidInstrumentId",
             "type": "string"
         },
         {
-            "name": "effectiveUntil",
-            "baseName": "effectiveUntil",
+            "name": "isin",
+            "baseName": "Isin",
+            "type": "string"
+        },
+        {
+            "name": "sedol",
+            "baseName": "Sedol",
+            "type": "string"
+        },
+        {
+            "name": "cusip",
+            "baseName": "Cusip",
+            "type": "string"
+        },
+        {
+            "name": "clientInternal",
+            "baseName": "ClientInternal",
+            "type": "string"
+        },
+        {
+            "name": "figi",
+            "baseName": "Figi",
+            "type": "string"
+        },
+        {
+            "name": "rIC",
+            "baseName": "RIC",
+            "type": "string"
+        },
+        {
+            "name": "quotePermId",
+            "baseName": "QuotePermId",
+            "type": "string"
+        },
+        {
+            "name": "rEDCode",
+            "baseName": "REDCode",
+            "type": "string"
+        },
+        {
+            "name": "bBGId",
+            "baseName": "BBGId",
+            "type": "string"
+        },
+        {
+            "name": "iCECode",
+            "baseName": "ICECode",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return DeleteRelationshipRequest.attributeTypeMap;
+        return WeightedInstrumentInLineLookupIdentifiers.attributeTypeMap;
     }
 }
 
