@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.32",
+    "version": "2.0.35",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -95016,9 +95016,6 @@
           },
           "orderId": {
             "$ref": "#/components/schemas/ResourceId"
-          },
-          "version": {
-            "$ref": "#/components/schemas/Version"
           }
         },
         "additionalProperties": false,
