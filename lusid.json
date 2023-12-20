@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.53",
+    "version": "2.0.55",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -9148,7 +9148,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ComplianceRunSummary"
+                  "$ref": "#/components/schemas/UpsertComplianceRunSummaryResult"
                 },
                 "example": {
                   "runId": {
@@ -9214,7 +9214,7 @@
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ComplianceRunSummary"
+                  "$ref": "#/components/schemas/UpsertComplianceRunSummaryResult"
                 },
                 "example": {
                   "runId": {
@@ -9280,284 +9280,7 @@
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ComplianceRunSummary"
-                },
-                "example": {
-                  "runId": {
-                    "scope": "SomeScope",
-                    "code": "run-1"
-                  },
-                  "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
-                  "completedAt": "2020-01-05T00:00:01.0000000+00:00",
-                  "schedule": "PreTrade",
-                  "results": [
-                    {
-                      "ruleId": {
-                        "scope": "SomeScope",
-                        "code": "rule-1"
-                      },
-                      "templateId": {
-                        "scope": "system",
-                        "code": "template-1"
-                      },
-                      "variation": "standard",
-                      "ruleStatus": "passed",
-                      "affectedPortfolios": [
-                        {
-                          "scope": "PortfolioScope",
-                          "code": "PortfolioCode"
-                        }
-                      ],
-                      "affectedOrders": [
-                        {
-                          "scope": "OrderScope",
-                          "code": "OrderCode"
-                        }
-                      ],
-                      "parametersUsed": {
-                        "UpperBound": "30",
-                        "LowerBound": "0"
-                      },
-                      "ruleBreakdown": {
-                        "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
-                          "groupStatus": "failed",
-                          "resultsUsed": {
-                            "Valuation/PV": 650,
-                            "Exposure/PV": 650
-                          },
-                          "propertiesUsed": {
-                            "Instrument/data/Issuer": [
-                              {
-                                "key": "Instrument/data/Issuer",
-                                "value": {
-                                  "labelValue": "ABC"
-                                }
-                              }
-                            ]
-                          },
-                          "missingDataInformation": [
-                            "No Missing Data"
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "EarlyAccess"
-      }
-    },
-    "/api/compliance/runs/summary/{runScope}/{runCode}": {
-      "get": {
-        "tags": [
-          "Compliance"
-        ],
-        "summary": "[EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.",
-        "description": "Specify a run scope and code from a previously run compliance check to get summarised results.",
-        "operationId": "GetComplianceRunSummary",
-        "parameters": [
-          {
-            "name": "runScope",
-            "in": "path",
-            "description": "Required: Run Scope.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "runCode",
-            "in": "path",
-            "description": "Required: Run Code.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "The requested compliance run summary.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComplianceRunSummary"
-                },
-                "example": {
-                  "runId": {
-                    "scope": "SomeScope",
-                    "code": "run-1"
-                  },
-                  "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
-                  "completedAt": "2020-01-05T00:00:01.0000000+00:00",
-                  "schedule": "PreTrade",
-                  "results": [
-                    {
-                      "ruleId": {
-                        "scope": "SomeScope",
-                        "code": "rule-1"
-                      },
-                      "templateId": {
-                        "scope": "system",
-                        "code": "template-1"
-                      },
-                      "variation": "standard",
-                      "ruleStatus": "passed",
-                      "affectedPortfolios": [
-                        {
-                          "scope": "PortfolioScope",
-                          "code": "PortfolioCode"
-                        }
-                      ],
-                      "affectedOrders": [
-                        {
-                          "scope": "OrderScope",
-                          "code": "OrderCode"
-                        }
-                      ],
-                      "parametersUsed": {
-                        "UpperBound": "30",
-                        "LowerBound": "0"
-                      },
-                      "ruleBreakdown": {
-                        "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
-                          "groupStatus": "failed",
-                          "resultsUsed": {
-                            "Valuation/PV": 650,
-                            "Exposure/PV": 650
-                          },
-                          "propertiesUsed": {
-                            "Instrument/data/Issuer": [
-                              {
-                                "key": "Instrument/data/Issuer",
-                                "value": {
-                                  "labelValue": "ABC"
-                                }
-                              }
-                            ]
-                          },
-                          "missingDataInformation": [
-                            "No Missing Data"
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComplianceRunSummary"
-                },
-                "example": {
-                  "runId": {
-                    "scope": "SomeScope",
-                    "code": "run-1"
-                  },
-                  "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
-                  "completedAt": "2020-01-05T00:00:01.0000000+00:00",
-                  "schedule": "PreTrade",
-                  "results": [
-                    {
-                      "ruleId": {
-                        "scope": "SomeScope",
-                        "code": "rule-1"
-                      },
-                      "templateId": {
-                        "scope": "system",
-                        "code": "template-1"
-                      },
-                      "variation": "standard",
-                      "ruleStatus": "passed",
-                      "affectedPortfolios": [
-                        {
-                          "scope": "PortfolioScope",
-                          "code": "PortfolioCode"
-                        }
-                      ],
-                      "affectedOrders": [
-                        {
-                          "scope": "OrderScope",
-                          "code": "OrderCode"
-                        }
-                      ],
-                      "parametersUsed": {
-                        "UpperBound": "30",
-                        "LowerBound": "0"
-                      },
-                      "ruleBreakdown": {
-                        "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
-                          "groupStatus": "failed",
-                          "resultsUsed": {
-                            "Valuation/PV": 650,
-                            "Exposure/PV": 650
-                          },
-                          "propertiesUsed": {
-                            "Instrument/data/Issuer": [
-                              {
-                                "key": "Instrument/data/Issuer",
-                                "value": {
-                                  "labelValue": "ABC"
-                                }
-                              }
-                            ]
-                          },
-                          "missingDataInformation": [
-                            "No Missing Data"
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ComplianceRunSummary"
+                  "$ref": "#/components/schemas/UpsertComplianceRunSummaryResult"
                 },
                 "example": {
                   "runId": {
@@ -9667,9 +9390,9 @@
         "tags": [
           "Compliance"
         ],
-        "summary": "[EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.",
+        "summary": "[EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.",
         "description": "Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.",
-        "operationId": "GetComplianceRuleResultDetails",
+        "operationId": "GetComplianceRuleResult",
         "parameters": [
           {
             "name": "runScope",
@@ -9726,7 +9449,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ComplianceRunSummary"
+                  "$ref": "#/components/schemas/ComplianceRuleResultV2"
                 },
                 "example": {
                   "runId": {
@@ -9736,63 +9459,61 @@
                   "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
                   "completedAt": "2020-01-05T00:00:01.0000000+00:00",
                   "schedule": "PreTrade",
-                  "results": [
-                    {
-                      "ruleId": {
-                        "scope": "SomeScope",
-                        "code": "rule-1"
-                      },
-                      "templateId": {
-                        "scope": "system",
-                        "code": "template-1"
-                      },
-                      "variation": "standard",
-                      "ruleStatus": "passed",
-                      "affectedPortfolios": [
-                        {
-                          "scope": "PortfolioScope",
-                          "code": "PortfolioCode"
-                        }
-                      ],
-                      "affectedOrders": [
-                        {
-                          "scope": "OrderScope",
-                          "code": "OrderCode"
-                        }
-                      ],
-                      "parametersUsed": {
-                        "UpperBound": "30",
-                        "LowerBound": "0"
-                      },
-                      "ruleBreakdown": {
-                        "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
-                          "groupStatus": "failed",
-                          "resultsUsed": {
-                            "Valuation/PV": 650,
-                            "Exposure/PV": 650
-                          },
-                          "propertiesUsed": {
-                            "Instrument/data/Issuer": [
-                              {
-                                "key": "Instrument/data/Issuer",
-                                "value": {
-                                  "labelValue": "ABC"
-                                }
+                  "ruleResult": {
+                    "ruleId": {
+                      "scope": "SomeScope",
+                      "code": "rule-1"
+                    },
+                    "templateId": {
+                      "scope": "system",
+                      "code": "template-1"
+                    },
+                    "variation": "standard",
+                    "ruleStatus": "passed",
+                    "affectedPortfolios": [
+                      {
+                        "scope": "PortfolioScope",
+                        "code": "PortfolioCode"
+                      }
+                    ],
+                    "affectedOrders": [
+                      {
+                        "scope": "OrderScope",
+                        "code": "OrderCode"
+                      }
+                    ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
+                    "ruleBreakdown": {
+                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                        "groupStatus": "failed",
+                        "resultsUsed": {
+                          "Valuation/PV": 650,
+                          "Exposure/PV": 650
+                        },
+                        "propertiesUsed": {
+                          "Instrument/data/Issuer": [
+                            {
+                              "key": "Instrument/data/Issuer",
+                              "value": {
+                                "labelValue": "ABC"
                               }
-                            ]
-                          },
-                          "missingDataInformation": [
-                            "No Missing Data"
+                            }
                           ]
-                        }
+                        },
+                        "missingDataInformation": [
+                          "No Missing Data"
+                        ]
                       }
                     }
-                  ]
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ComplianceRunSummary"
+                  "$ref": "#/components/schemas/ComplianceRuleResultV2"
                 },
                 "example": {
                   "runId": {
@@ -9802,63 +9523,61 @@
                   "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
                   "completedAt": "2020-01-05T00:00:01.0000000+00:00",
                   "schedule": "PreTrade",
-                  "results": [
-                    {
-                      "ruleId": {
-                        "scope": "SomeScope",
-                        "code": "rule-1"
-                      },
-                      "templateId": {
-                        "scope": "system",
-                        "code": "template-1"
-                      },
-                      "variation": "standard",
-                      "ruleStatus": "passed",
-                      "affectedPortfolios": [
-                        {
-                          "scope": "PortfolioScope",
-                          "code": "PortfolioCode"
-                        }
-                      ],
-                      "affectedOrders": [
-                        {
-                          "scope": "OrderScope",
-                          "code": "OrderCode"
-                        }
-                      ],
-                      "parametersUsed": {
-                        "UpperBound": "30",
-                        "LowerBound": "0"
-                      },
-                      "ruleBreakdown": {
-                        "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
-                          "groupStatus": "failed",
-                          "resultsUsed": {
-                            "Valuation/PV": 650,
-                            "Exposure/PV": 650
-                          },
-                          "propertiesUsed": {
-                            "Instrument/data/Issuer": [
-                              {
-                                "key": "Instrument/data/Issuer",
-                                "value": {
-                                  "labelValue": "ABC"
-                                }
+                  "ruleResult": {
+                    "ruleId": {
+                      "scope": "SomeScope",
+                      "code": "rule-1"
+                    },
+                    "templateId": {
+                      "scope": "system",
+                      "code": "template-1"
+                    },
+                    "variation": "standard",
+                    "ruleStatus": "passed",
+                    "affectedPortfolios": [
+                      {
+                        "scope": "PortfolioScope",
+                        "code": "PortfolioCode"
+                      }
+                    ],
+                    "affectedOrders": [
+                      {
+                        "scope": "OrderScope",
+                        "code": "OrderCode"
+                      }
+                    ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
+                    "ruleBreakdown": {
+                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                        "groupStatus": "failed",
+                        "resultsUsed": {
+                          "Valuation/PV": 650,
+                          "Exposure/PV": 650
+                        },
+                        "propertiesUsed": {
+                          "Instrument/data/Issuer": [
+                            {
+                              "key": "Instrument/data/Issuer",
+                              "value": {
+                                "labelValue": "ABC"
                               }
-                            ]
-                          },
-                          "missingDataInformation": [
-                            "No Missing Data"
+                            }
                           ]
-                        }
+                        },
+                        "missingDataInformation": [
+                          "No Missing Data"
+                        ]
                       }
                     }
-                  ]
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ComplianceRunSummary"
+                  "$ref": "#/components/schemas/ComplianceRuleResultV2"
                 },
                 "example": {
                   "runId": {
@@ -9868,58 +9587,56 @@
                   "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
                   "completedAt": "2020-01-05T00:00:01.0000000+00:00",
                   "schedule": "PreTrade",
-                  "results": [
-                    {
-                      "ruleId": {
-                        "scope": "SomeScope",
-                        "code": "rule-1"
-                      },
-                      "templateId": {
-                        "scope": "system",
-                        "code": "template-1"
-                      },
-                      "variation": "standard",
-                      "ruleStatus": "passed",
-                      "affectedPortfolios": [
-                        {
-                          "scope": "PortfolioScope",
-                          "code": "PortfolioCode"
-                        }
-                      ],
-                      "affectedOrders": [
-                        {
-                          "scope": "OrderScope",
-                          "code": "OrderCode"
-                        }
-                      ],
-                      "parametersUsed": {
-                        "UpperBound": "30",
-                        "LowerBound": "0"
-                      },
-                      "ruleBreakdown": {
-                        "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
-                          "groupStatus": "failed",
-                          "resultsUsed": {
-                            "Valuation/PV": 650,
-                            "Exposure/PV": 650
-                          },
-                          "propertiesUsed": {
-                            "Instrument/data/Issuer": [
-                              {
-                                "key": "Instrument/data/Issuer",
-                                "value": {
-                                  "labelValue": "ABC"
-                                }
+                  "ruleResult": {
+                    "ruleId": {
+                      "scope": "SomeScope",
+                      "code": "rule-1"
+                    },
+                    "templateId": {
+                      "scope": "system",
+                      "code": "template-1"
+                    },
+                    "variation": "standard",
+                    "ruleStatus": "passed",
+                    "affectedPortfolios": [
+                      {
+                        "scope": "PortfolioScope",
+                        "code": "PortfolioCode"
+                      }
+                    ],
+                    "affectedOrders": [
+                      {
+                        "scope": "OrderScope",
+                        "code": "OrderCode"
+                      }
+                    ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
+                    "ruleBreakdown": {
+                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                        "groupStatus": "failed",
+                        "resultsUsed": {
+                          "Valuation/PV": 650,
+                          "Exposure/PV": 650
+                        },
+                        "propertiesUsed": {
+                          "Instrument/data/Issuer": [
+                            {
+                              "key": "Instrument/data/Issuer",
+                              "value": {
+                                "labelValue": "ABC"
                               }
-                            ]
-                          },
-                          "missingDataInformation": [
-                            "No Missing Data"
+                            }
                           ]
-                        }
+                        },
+                        "missingDataInformation": [
+                          "No Missing Data"
+                        ]
                       }
                     }
-                  ]
+                  }
                 }
               }
             }
@@ -81805,6 +81522,37 @@
         },
         "additionalProperties": false
       },
+      "ComplianceRuleResultV2": {
+        "required": [
+          "completedAt",
+          "instigatedAt",
+          "ruleResult",
+          "runId",
+          "schedule"
+        ],
+        "type": "object",
+        "properties": {
+          "runId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "instigatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "schedule": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "ruleResult": {
+            "$ref": "#/components/schemas/ComplianceSummaryRuleResult"
+          }
+        },
+        "additionalProperties": false
+      },
       "ComplianceRunInfoV2": {
         "required": [
           "completedAt",
@@ -81833,40 +81581,6 @@
           "instigatedBy": {
             "minLength": 1,
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ComplianceRunSummary": {
-        "required": [
-          "completedAt",
-          "instigatedAt",
-          "results",
-          "runId",
-          "schedule"
-        ],
-        "type": "object",
-        "properties": {
-          "runId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "instigatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "completedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "schedule": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ComplianceSummaryRuleResult"
-            }
           }
         },
         "additionalProperties": false
@@ -103173,6 +102887,40 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ComplianceSummaryRuleResultRequest"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpsertComplianceRunSummaryResult": {
+        "required": [
+          "completedAt",
+          "instigatedAt",
+          "results",
+          "runId",
+          "schedule"
+        ],
+        "type": "object",
+        "properties": {
+          "runId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "instigatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "schedule": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceSummaryRuleResult"
             }
           }
         },
