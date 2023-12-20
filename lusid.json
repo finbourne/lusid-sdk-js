@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.55",
+    "version": "2.0.57",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -71986,6 +71986,11 @@
                   "value": "newscope",
                   "path": "/transactiontypescope",
                   "op": "add"
+                },
+                {
+                  "value": "TransactionDate",
+                  "path": "/cashGainLossCalculationDate",
+                  "op": "add"
                 }
               ]
             },
@@ -72012,6 +72017,11 @@
                 {
                   "value": "newscope",
                   "path": "/transactiontypescope",
+                  "op": "add"
+                },
+                {
+                  "value": "TransactionDate",
+                  "path": "/cashGainLossCalculationDate",
                   "op": "add"
                 }
               ]
@@ -72040,6 +72050,11 @@
                   "value": "newscope",
                   "path": "/transactiontypescope",
                   "op": "add"
+                },
+                {
+                  "value": "TransactionDate",
+                  "path": "/cashGainLossCalculationDate",
+                  "op": "add"
                 }
               ]
             },
@@ -72066,6 +72081,11 @@
                 {
                   "value": "newscope",
                   "path": "/transactiontypescope",
+                  "op": "add"
+                },
+                {
+                  "value": "TransactionDate",
+                  "path": "/cashGainLossCalculationDate",
                   "op": "add"
                 }
               ]
@@ -81905,12 +81925,7 @@
       },
       "CompositeDispersion": {
         "required": [
-          "dispersionCalculation",
-          "effectiveAt",
-          "firstQuartile",
-          "range",
-          "thirdQuartile",
-          "variance"
+          "effectiveAt"
         ],
         "type": "object",
         "properties": {
@@ -81922,27 +81937,32 @@
           "dispersionCalculation": {
             "type": "number",
             "description": "The result for the dispersion calculation on the given effectiveAt.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "variance": {
             "type": "number",
             "description": "The variance on the given effectiveAt.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "firstQuartile": {
             "type": "number",
             "description": "First Quartile (Q1) =  (lower quartile) = the middle of the bottom half of the returns.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "thirdQuartile": {
             "type": "number",
             "description": "Third Quartile (Q3) =  (higher quartile) = the middle of the top half of the returns.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "range": {
             "type": "number",
             "description": "Highest return - Lowest return.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "constituentsInScope": {
             "type": "array",
