@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.68",
+    "version": "2.0.74",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -8916,8 +8916,8 @@
                       "UpperBound": "30",
                       "LowerBound": "0"
                     },
-                    "ruleBreakdown": {
-                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                    "ruleBreakdown": [
+                      {
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -8935,9 +8935,26 @@
                         },
                         "missingDataInformation": [
                           "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial"
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information"
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2"
+                          }
                         ]
                       }
-                    }
+                    ]
                   }
                 ]
               }
@@ -8982,8 +8999,8 @@
                       "UpperBound": "30",
                       "LowerBound": "0"
                     },
-                    "ruleBreakdown": {
-                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                    "ruleBreakdown": [
+                      {
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -9001,9 +9018,26 @@
                         },
                         "missingDataInformation": [
                           "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial"
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information"
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2"
+                          }
                         ]
                       }
-                    }
+                    ]
                   }
                 ]
               }
@@ -9048,8 +9082,8 @@
                       "UpperBound": "30",
                       "LowerBound": "0"
                     },
-                    "ruleBreakdown": {
-                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                    "ruleBreakdown": [
+                      {
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -9067,9 +9101,26 @@
                         },
                         "missingDataInformation": [
                           "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial"
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information"
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2"
+                          }
                         ]
                       }
-                    }
+                    ]
                   }
                 ]
               }
@@ -9114,8 +9165,8 @@
                       "UpperBound": "30",
                       "LowerBound": "0"
                     },
-                    "ruleBreakdown": {
-                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                    "ruleBreakdown": [
+                      {
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -9133,9 +9184,26 @@
                         },
                         "missingDataInformation": [
                           "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial"
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information"
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2"
+                          }
                         ]
                       }
-                    }
+                    ]
                   }
                 ]
               }
@@ -9186,8 +9254,8 @@
                         "UpperBound": "30",
                         "LowerBound": "0"
                       },
-                      "ruleBreakdown": {
-                        "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                      "ruleBreakdown": [
+                        {
                           "groupStatus": "failed",
                           "resultsUsed": {
                             "Valuation/PV": 650,
@@ -9205,9 +9273,26 @@
                           },
                           "missingDataInformation": [
                             "No Missing Data"
+                          ],
+                          "lineage": [
+                            {
+                              "index": 0,
+                              "label": "Initial",
+                              "subLabel": "Initial"
+                            },
+                            {
+                              "index": 1,
+                              "label": "Step1",
+                              "subLabel": "SomeStep1Information"
+                            },
+                            {
+                              "index": 2,
+                              "label": "Step2",
+                              "subLabel": "Step2"
+                            }
                           ]
                         }
-                      }
+                      ]
                     }
                   ]
                 }
@@ -9252,8 +9337,8 @@
                         "UpperBound": "30",
                         "LowerBound": "0"
                       },
-                      "ruleBreakdown": {
-                        "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                      "ruleBreakdown": [
+                        {
                           "groupStatus": "failed",
                           "resultsUsed": {
                             "Valuation/PV": 650,
@@ -9271,9 +9356,26 @@
                           },
                           "missingDataInformation": [
                             "No Missing Data"
+                          ],
+                          "lineage": [
+                            {
+                              "index": 0,
+                              "label": "Initial",
+                              "subLabel": "Initial"
+                            },
+                            {
+                              "index": 1,
+                              "label": "Step1",
+                              "subLabel": "SomeStep1Information"
+                            },
+                            {
+                              "index": 2,
+                              "label": "Step2",
+                              "subLabel": "Step2"
+                            }
                           ]
                         }
-                      }
+                      ]
                     }
                   ]
                 }
@@ -9318,8 +9420,8 @@
                         "UpperBound": "30",
                         "LowerBound": "0"
                       },
-                      "ruleBreakdown": {
-                        "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                      "ruleBreakdown": [
+                        {
                           "groupStatus": "failed",
                           "resultsUsed": {
                             "Valuation/PV": 650,
@@ -9337,9 +9439,26 @@
                           },
                           "missingDataInformation": [
                             "No Missing Data"
+                          ],
+                          "lineage": [
+                            {
+                              "index": 0,
+                              "label": "Initial",
+                              "subLabel": "Initial"
+                            },
+                            {
+                              "index": 1,
+                              "label": "Step1",
+                              "subLabel": "SomeStep1Information"
+                            },
+                            {
+                              "index": 2,
+                              "label": "Step2",
+                              "subLabel": "Step2"
+                            }
                           ]
                         }
-                      }
+                      ]
                     }
                   ]
                 }
@@ -9486,8 +9605,8 @@
                       "UpperBound": "30",
                       "LowerBound": "0"
                     },
-                    "ruleBreakdown": {
-                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                    "ruleBreakdown": [
+                      {
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -9505,9 +9624,26 @@
                         },
                         "missingDataInformation": [
                           "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial"
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information"
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2"
+                          }
                         ]
                       }
-                    }
+                    ]
                   }
                 }
               },
@@ -9550,8 +9686,8 @@
                       "UpperBound": "30",
                       "LowerBound": "0"
                     },
-                    "ruleBreakdown": {
-                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                    "ruleBreakdown": [
+                      {
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -9569,9 +9705,26 @@
                         },
                         "missingDataInformation": [
                           "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial"
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information"
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2"
+                          }
                         ]
                       }
-                    }
+                    ]
                   }
                 }
               },
@@ -9614,8 +9767,8 @@
                       "UpperBound": "30",
                       "LowerBound": "0"
                     },
-                    "ruleBreakdown": {
-                      "[LUID_ABC,LUID_ABC,PortfolioScope/PortfolioCode,ExcludeCash,Initial]": {
+                    "ruleBreakdown": [
+                      {
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -9633,9 +9786,26 @@
                         },
                         "missingDataInformation": [
                           "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial"
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information"
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2"
+                          }
                         ]
                       }
-                    }
+                    ]
                   }
                 }
               }
@@ -62791,7 +62961,12 @@
                 },
                 "instrumentScopes": [],
                 "amortisationMethod": "NoAmortisation",
-                "transactionTypeScope": "SomeScope"
+                "transactionTypeScope": "SomeScope",
+                "instrumentEventConfiguration": {
+                  "transactionTemplateScopes": [
+                    "default"
+                  ]
+                }
               }
             },
             "application/json": {
@@ -62831,7 +63006,12 @@
                 },
                 "instrumentScopes": [],
                 "amortisationMethod": "NoAmortisation",
-                "transactionTypeScope": "SomeScope"
+                "transactionTypeScope": "SomeScope",
+                "instrumentEventConfiguration": {
+                  "transactionTemplateScopes": [
+                    "default"
+                  ]
+                }
               }
             },
             "text/json": {
@@ -62871,7 +63051,12 @@
                 },
                 "instrumentScopes": [],
                 "amortisationMethod": "NoAmortisation",
-                "transactionTypeScope": "SomeScope"
+                "transactionTypeScope": "SomeScope",
+                "instrumentEventConfiguration": {
+                  "transactionTemplateScopes": [
+                    "default"
+                  ]
+                }
               }
             },
             "application/*+json": {
@@ -62911,7 +63096,12 @@
                 },
                 "instrumentScopes": [],
                 "amortisationMethod": "NoAmortisation",
-                "transactionTypeScope": "SomeScope"
+                "transactionTypeScope": "SomeScope",
+                "instrumentEventConfiguration": {
+                  "transactionTemplateScopes": [
+                    "default"
+                  ]
+                }
               }
             }
           },
@@ -74545,6 +74735,16 @@
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string"
             }
+          },
+          {
+            "name": "preserveProperties",
+            "in": "query",
+            "description": "If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-nullable": true
           }
         ],
         "requestBody": {
@@ -75043,6 +75243,16 @@
               "type": "string",
               "default": "Partial"
             }
+          },
+          {
+            "name": "preserveProperties",
+            "in": "query",
+            "description": "If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-nullable": true
           }
         ],
         "requestBody": {
@@ -81141,6 +81351,15 @@
             "description": "If the portfolio is a transaction portfolio or derived transaction portfolio, this is the base currency of the portfolio.",
             "nullable": true
           },
+          "subHoldingKeys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+            },
+            "description": "The sub holding key properties configured for the portfolio",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -81417,6 +81636,7 @@
       "ComplianceRuleBreakdown": {
         "required": [
           "groupStatus",
+          "lineage",
           "missingDataInformation",
           "propertiesUsed",
           "resultsUsed"
@@ -81452,6 +81672,12 @@
               "type": "string"
             },
             "description": "List of string information detailing data that was missing from contributions processed in this rule"
+          },
+          "lineage": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineageMember"
+            }
           }
         },
         "additionalProperties": false
@@ -81459,6 +81685,7 @@
       "ComplianceRuleBreakdownRequest": {
         "required": [
           "groupStatus",
+          "lineage",
           "missingDataInformation",
           "propertiesUsed",
           "resultsUsed"
@@ -81490,6 +81717,12 @@
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "lineage": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineageMember"
             }
           }
         },
@@ -81735,8 +81968,8 @@
             }
           },
           "ruleBreakdown": {
-            "type": "object",
-            "additionalProperties": {
+            "type": "array",
+            "items": {
               "$ref": "#/components/schemas/ComplianceRuleBreakdown"
             }
           }
@@ -81791,8 +82024,8 @@
             }
           },
           "ruleBreakdown": {
-            "type": "object",
-            "additionalProperties": {
+            "type": "array",
+            "items": {
               "$ref": "#/components/schemas/ComplianceRuleBreakdownRequest"
             }
           }
@@ -83660,6 +83893,9 @@
             "type": "string",
             "description": "The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.",
             "nullable": true
+          },
+          "instrumentEventConfiguration": {
+            "$ref": "#/components/schemas/InstrumentEventConfiguration"
           }
         },
         "additionalProperties": false
@@ -90541,6 +90777,19 @@
           "propertyName": "instrumentEventType"
         }
       },
+      "InstrumentEventConfiguration": {
+        "type": "object",
+        "properties": {
+          "transactionTemplateScopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "InstrumentEventHolder": {
         "required": [
           "description",
@@ -91695,6 +91944,34 @@
           }
         ],
         "description": "The instrument life cycle event result value type"
+      },
+      "LineageMember": {
+        "required": [
+          "index",
+          "label",
+          "subLabel"
+        ],
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Index to demonstrate position of lineage member in overall lineage",
+            "format": "int32"
+          },
+          "label": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string",
+            "description": "Label of the step corresponding to this lineage member"
+          },
+          "subLabel": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string",
+            "description": "SubLabel of the step corresponding to this lineage member"
+          }
+        },
+        "additionalProperties": false
       },
       "Link": {
         "required": [
@@ -93126,6 +93403,11 @@
           "portfolioName": {
             "type": "string",
             "description": "The name of the order's referenced Portfolio.",
+            "nullable": true
+          },
+          "orderApprovalTaskId": {
+            "type": "string",
+            "description": "The task id associated with the approval state of the order.",
             "nullable": true
           }
         },
@@ -95363,6 +95645,9 @@
             "description": "The scope of the transaction types.",
             "nullable": true
           },
+          "instrumentEventConfiguration": {
+            "$ref": "#/components/schemas/InstrumentEventConfiguration"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -95577,6 +95862,9 @@
             "type": "string",
             "description": "The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.",
             "nullable": true
+          },
+          "instrumentEventConfiguration": {
+            "$ref": "#/components/schemas/InstrumentEventConfiguration"
           },
           "links": {
             "type": "array",

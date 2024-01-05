@@ -330,6 +330,7 @@ export * from './instrument';
 export * from './instrumentDefinition';
 export * from './instrumentDefinitionFormat';
 export * from './instrumentEvent';
+export * from './instrumentEventConfiguration';
 export * from './instrumentEventHolder';
 export * from './instrumentIdTypeDescriptor';
 export * from './instrumentIdValue';
@@ -360,6 +361,7 @@ export * from './levelStep';
 export * from './lifeCycleEventLineage';
 export * from './lifeCycleEventValue';
 export * from './lifeCycleEventValueAllOf';
+export * from './lineageMember';
 export * from './link';
 export * from './listAggregationReconciliation';
 export * from './listAggregationResponse';
@@ -1070,6 +1072,7 @@ import { Instrument } from './instrument';
 import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentDefinitionFormat } from './instrumentDefinitionFormat';
 import { InstrumentEvent } from './instrumentEvent';
+import { InstrumentEventConfiguration } from './instrumentEventConfiguration';
 import { InstrumentEventHolder } from './instrumentEventHolder';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
 import { InstrumentIdValue } from './instrumentIdValue';
@@ -1100,6 +1103,7 @@ import { LevelStep } from './levelStep';
 import { LifeCycleEventLineage } from './lifeCycleEventLineage';
 import { LifeCycleEventValue } from './lifeCycleEventValue';
 import { LifeCycleEventValueAllOf } from './lifeCycleEventValueAllOf';
+import { LineageMember } from './lineageMember';
 import { Link } from './link';
 import { ListAggregationReconciliation } from './listAggregationReconciliation';
 import { ListAggregationResponse } from './listAggregationResponse';
@@ -2143,6 +2147,7 @@ let typeMap: {[index: string]: any} = {
     "InstrumentDefinition": InstrumentDefinition,
     "InstrumentDefinitionFormat": InstrumentDefinitionFormat,
     "InstrumentEvent": InstrumentEvent,
+    "InstrumentEventConfiguration": InstrumentEventConfiguration,
     "InstrumentEventHolder": InstrumentEventHolder,
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
     "InstrumentIdValue": InstrumentIdValue,
@@ -2173,6 +2178,7 @@ let typeMap: {[index: string]: any} = {
     "LifeCycleEventLineage": LifeCycleEventLineage,
     "LifeCycleEventValue": LifeCycleEventValue,
     "LifeCycleEventValueAllOf": LifeCycleEventValueAllOf,
+    "LineageMember": LineageMember,
     "Link": Link,
     "ListAggregationReconciliation": ListAggregationReconciliation,
     "ListAggregationResponse": ListAggregationResponse,
