@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.92",
+    "version": "2.0.93",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -72553,10 +72553,12 @@
                     }
                   },
                   "properties": {
-                    "Holding/Entity/Name": {
-                      "key": "Holding/Entity/Name",
+                    "Holding/ibor/CurrentMarketValue": {
+                      "key": "Holding/ibor/CurrentMarketValue",
                       "value": {
-                        "labelValue": "Financial Entity"
+                        "metricValue": {
+                          "value": 1000
+                        }
                       }
                     }
                   },
@@ -72599,10 +72601,12 @@
                     }
                   },
                   "properties": {
-                    "Holding/Entity/Name": {
-                      "key": "Holding/Entity/Name",
+                    "Holding/ibor/CurrentMarketValue": {
+                      "key": "Holding/ibor/CurrentMarketValue",
                       "value": {
-                        "labelValue": "Financial Entity"
+                        "metricValue": {
+                          "value": 1000
+                        }
                       }
                     }
                   },
@@ -72645,10 +72649,12 @@
                     }
                   },
                   "properties": {
-                    "Holding/Entity/Name": {
-                      "key": "Holding/Entity/Name",
+                    "Holding/ibor/CurrentMarketValue": {
+                      "key": "Holding/ibor/CurrentMarketValue",
                       "value": {
-                        "labelValue": "Financial Entity"
+                        "metricValue": {
+                          "value": 1000
+                        }
                       }
                     }
                   },
@@ -72691,10 +72697,12 @@
                     }
                   },
                   "properties": {
-                    "Holding/Entity/Name": {
-                      "key": "Holding/Entity/Name",
+                    "Holding/ibor/CurrentMarketValue": {
+                      "key": "Holding/ibor/CurrentMarketValue",
                       "value": {
-                        "labelValue": "Financial Entity"
+                        "metricValue": {
+                          "value": 1000
+                        }
                       }
                     }
                   },
@@ -72857,10 +72865,12 @@
                     }
                   },
                   "properties": {
-                    "Holding/Entity/Name": {
-                      "key": "Holding/Entity/Name",
+                    "Holding/ibor/CurrentMarketValue": {
+                      "key": "Holding/ibor/CurrentMarketValue",
                       "value": {
-                        "labelValue": "Financial Entity"
+                        "metricValue": {
+                          "value": 1000
+                        }
                       }
                     }
                   },
@@ -72903,10 +72913,12 @@
                     }
                   },
                   "properties": {
-                    "Holding/Entity/Name": {
-                      "key": "Holding/Entity/Name",
+                    "Holding/ibor/CurrentMarketValue": {
+                      "key": "Holding/ibor/CurrentMarketValue",
                       "value": {
-                        "labelValue": "Financial Entity"
+                        "metricValue": {
+                          "value": 1000
+                        }
                       }
                     }
                   },
@@ -72949,10 +72961,12 @@
                     }
                   },
                   "properties": {
-                    "Holding/Entity/Name": {
-                      "key": "Holding/Entity/Name",
+                    "Holding/ibor/CurrentMarketValue": {
+                      "key": "Holding/ibor/CurrentMarketValue",
                       "value": {
-                        "labelValue": "Financial Entity"
+                        "metricValue": {
+                          "value": 1000
+                        }
                       }
                     }
                   },
@@ -72995,10 +73009,12 @@
                     }
                   },
                   "properties": {
-                    "Holding/Entity/Name": {
-                      "key": "Holding/Entity/Name",
+                    "Holding/ibor/CurrentMarketValue": {
+                      "key": "Holding/ibor/CurrentMarketValue",
                       "value": {
-                        "labelValue": "Financial Entity"
+                        "metricValue": {
+                          "value": 1000
+                        }
                       }
                     }
                   },
