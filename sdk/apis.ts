@@ -21,6 +21,7 @@ import {ExecutionsApi} from './api/executionsApi';
 import {InstrumentsApi} from './api/instrumentsApi';
 import {LegalEntitiesApi} from './api/legalEntitiesApi';
 import {OrderGraphApi} from './api/orderGraphApi';
+import {OrderManagementApi} from './api/orderManagementApi';
 import {OrdersApi} from './api/ordersApi';
 import {ParticipationsApi} from './api/participationsApi';
 import {PersonsApi} from './api/personsApi';
@@ -67,6 +68,7 @@ export class Api {
     public instruments:  InstrumentsApi
     public legalEntities:  LegalEntitiesApi
     public orderGraph:  OrderGraphApi
+    public orderManagement:  OrderManagementApi
     public orders:  OrdersApi
     public participations:  ParticipationsApi
     public persons:  PersonsApi

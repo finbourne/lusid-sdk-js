@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.93",
+    "version": "2.0.104",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -30251,6 +30251,439 @@
                       "calculatedAveragePrice": 12401.26
                     }
                   ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/ordermanagement/placeblocks": {
+      "post": {
+        "tags": [
+          "Order Management"
+        ],
+        "summary": "[EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.",
+        "description": "The referenced block's existence will be verified.",
+        "operationId": "PlaceBlocks",
+        "requestBody": {
+          "description": "The request containing the blocks to the placed.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaceBlocksRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "PLAC00000123"
+                    },
+                    "blockIds": [
+                      {
+                        "scope": "MyScope",
+                        "code": "BLOCK00000123"
+                      }
+                    ],
+                    "properties": {
+                      "Placement/MyScope/SomePlacementProperty": {
+                        "key": "Placement/MyScope/SomePlacementProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "Instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "state": "New",
+                    "side": "Buy",
+                    "timeInForce": "GoodTilCancel",
+                    "type": "Limit",
+                    "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 12413.33,
+                      "currency": "USD"
+                    },
+                    "stopPrice": {
+                      "amount": 124335.33,
+                      "currency": "USD"
+                    },
+                    "counterparty": "SomeCounterparty",
+                    "entryType": "Manual"
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaceBlocksRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "PLAC00000123"
+                    },
+                    "blockIds": [
+                      {
+                        "scope": "MyScope",
+                        "code": "BLOCK00000123"
+                      }
+                    ],
+                    "properties": {
+                      "Placement/MyScope/SomePlacementProperty": {
+                        "key": "Placement/MyScope/SomePlacementProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "Instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "state": "New",
+                    "side": "Buy",
+                    "timeInForce": "GoodTilCancel",
+                    "type": "Limit",
+                    "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 12413.33,
+                      "currency": "USD"
+                    },
+                    "stopPrice": {
+                      "amount": 124335.33,
+                      "currency": "USD"
+                    },
+                    "counterparty": "SomeCounterparty",
+                    "entryType": "Manual"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaceBlocksRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "PLAC00000123"
+                    },
+                    "blockIds": [
+                      {
+                        "scope": "MyScope",
+                        "code": "BLOCK00000123"
+                      }
+                    ],
+                    "properties": {
+                      "Placement/MyScope/SomePlacementProperty": {
+                        "key": "Placement/MyScope/SomePlacementProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "Instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "state": "New",
+                    "side": "Buy",
+                    "timeInForce": "GoodTilCancel",
+                    "type": "Limit",
+                    "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 12413.33,
+                      "currency": "USD"
+                    },
+                    "stopPrice": {
+                      "amount": 124335.33,
+                      "currency": "USD"
+                    },
+                    "counterparty": "SomeCounterparty",
+                    "entryType": "Manual"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaceBlocksRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "id": {
+                      "scope": "MyScope",
+                      "code": "PLAC00000123"
+                    },
+                    "blockIds": [
+                      {
+                        "scope": "MyScope",
+                        "code": "BLOCK00000123"
+                      }
+                    ],
+                    "properties": {
+                      "Placement/MyScope/SomePlacementProperty": {
+                        "key": "Placement/MyScope/SomePlacementProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "Instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "state": "New",
+                    "side": "Buy",
+                    "timeInForce": "GoodTilCancel",
+                    "type": "Limit",
+                    "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 12413.33,
+                      "currency": "USD"
+                    },
+                    "stopPrice": {
+                      "amount": 124335.33,
+                      "currency": "USD"
+                    },
+                    "counterparty": "SomeCounterparty",
+                    "entryType": "Manual"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The block placements.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPlacement"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "id": {
+                        "scope": "MyScope",
+                        "code": "PLAC00000123"
+                      },
+                      "blockIds": [
+                        {
+                          "scope": "MyScope",
+                          "code": "BLOC00000123"
+                        }
+                      ],
+                      "properties": {
+                        "Allocation/MyScope/SomeAllocationProperty": {
+                          "key": "Allocation/MyScope/SomeAllocationProperty",
+                          "value": {
+                            "labelValue": "XYZ000034567"
+                          }
+                        }
+                      },
+                      "instrumentIdentifiers": {
+                        "Instrument/default/Currency": "GBP"
+                      },
+                      "quantity": 100.5,
+                      "state": "New",
+                      "side": "Buy",
+                      "timeInForce": "GoodTilCancel",
+                      "type": "Limit",
+                      "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                      "limitPrice": {
+                        "amount": 12413.33,
+                        "currency": "USD"
+                      },
+                      "stopPrice": {
+                        "amount": 51244.33,
+                        "currency": "USD"
+                      },
+                      "counterparty": "SomeCounterparty",
+                      "entryType": "Manual",
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "PlacementUser1",
+                        "requestIdCreated": "PlacementRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "PlacementUser2",
+                        "requestIdModified": "PlacementRequestId2",
+                        "asAtVersionNumber": 2
+                      }
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/placeblocks",
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPlacement"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "id": {
+                        "scope": "MyScope",
+                        "code": "PLAC00000123"
+                      },
+                      "blockIds": [
+                        {
+                          "scope": "MyScope",
+                          "code": "BLOC00000123"
+                        }
+                      ],
+                      "properties": {
+                        "Allocation/MyScope/SomeAllocationProperty": {
+                          "key": "Allocation/MyScope/SomeAllocationProperty",
+                          "value": {
+                            "labelValue": "XYZ000034567"
+                          }
+                        }
+                      },
+                      "instrumentIdentifiers": {
+                        "Instrument/default/Currency": "GBP"
+                      },
+                      "quantity": 100.5,
+                      "state": "New",
+                      "side": "Buy",
+                      "timeInForce": "GoodTilCancel",
+                      "type": "Limit",
+                      "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                      "limitPrice": {
+                        "amount": 12413.33,
+                        "currency": "USD"
+                      },
+                      "stopPrice": {
+                        "amount": 51244.33,
+                        "currency": "USD"
+                      },
+                      "counterparty": "SomeCounterparty",
+                      "entryType": "Manual",
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "PlacementUser1",
+                        "requestIdCreated": "PlacementRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "PlacementUser2",
+                        "requestIdModified": "PlacementRequestId2",
+                        "asAtVersionNumber": 2
+                      }
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/placeblocks",
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfPlacement"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "id": {
+                        "scope": "MyScope",
+                        "code": "PLAC00000123"
+                      },
+                      "blockIds": [
+                        {
+                          "scope": "MyScope",
+                          "code": "BLOC00000123"
+                        }
+                      ],
+                      "properties": {
+                        "Allocation/MyScope/SomeAllocationProperty": {
+                          "key": "Allocation/MyScope/SomeAllocationProperty",
+                          "value": {
+                            "labelValue": "XYZ000034567"
+                          }
+                        }
+                      },
+                      "instrumentIdentifiers": {
+                        "Instrument/default/Currency": "GBP"
+                      },
+                      "quantity": 100.5,
+                      "state": "New",
+                      "side": "Buy",
+                      "timeInForce": "GoodTilCancel",
+                      "type": "Limit",
+                      "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                      "limitPrice": {
+                        "amount": 12413.33,
+                        "currency": "USD"
+                      },
+                      "stopPrice": {
+                        "amount": 51244.33,
+                        "currency": "USD"
+                      },
+                      "counterparty": "SomeCounterparty",
+                      "entryType": "Manual",
+                      "version": {
+                        "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                        "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                        "userIdCreated": "PlacementUser1",
+                        "requestIdCreated": "PlacementRequestId1",
+                        "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                        "userIdModified": "PlacementUser2",
+                        "requestIdModified": "PlacementRequestId2",
+                        "asAtVersionNumber": 2
+                      }
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/placeblocks",
                   "links": []
                 }
               }
@@ -74755,10 +75188,10 @@
           {
             "name": "preserveProperties",
             "in": "query",
-            "description": "If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties.",
+            "description": "If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-nullable": true
           }
@@ -75263,10 +75696,10 @@
           {
             "name": "preserveProperties",
             "in": "query",
-            "description": "If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties.",
+            "description": "If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-nullable": true
           }
@@ -77947,10 +78380,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -79169,10 +79603,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -79957,10 +80392,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -80034,10 +80470,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -80098,10 +80535,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -80532,10 +80970,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -80633,10 +81072,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -81293,10 +81733,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -85697,10 +86138,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -85778,10 +86220,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -87074,10 +87517,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -90373,10 +90817,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -90442,10 +90887,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -90781,10 +91227,11 @@
               "DividendReinvestmentEvent",
               "AccumulationEvent",
               "BondPrincipalEvent",
-              "DividendOptionEvent"
+              "DividendOptionEvent",
+              "MaturityEvent"
             ],
             "type": "string",
-            "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+            "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
           }
         },
         "additionalProperties": false,
@@ -92819,6 +93266,54 @@
         "additionalProperties": false,
         "description": "The market quote for an observable which will be used to calibrate the market data,\r\nincluding the format of the quote.\r\ne.g. a volatility quote for a specific strike and expiry\r\nthe par rate of a swap\r\n            \r\nThis is a slimmed down version of a full Quote that can be stored in our QuoteStore to\r\nremove lineage, price source etc. for ease of use when creating complex market data."
       },
+      "MaturityEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InstrumentEvent"
+          },
+          {
+            "required": [
+              "instrumentEventType",
+              "maturityDate"
+            ],
+            "type": "object",
+            "properties": {
+              "maturityDate": {
+                "type": "string",
+                "description": "Maturity date of the instrument",
+                "format": "date-time"
+              },
+              "instrumentEventType": {
+                "enum": [
+                  "TransitionEvent",
+                  "InformationalEvent",
+                  "OpenEvent",
+                  "CloseEvent",
+                  "StockSplitEvent",
+                  "BondDefaultEvent",
+                  "CashDividendEvent",
+                  "AmortisationEvent",
+                  "CashFlowEvent",
+                  "ExerciseEvent",
+                  "ResetEvent",
+                  "TriggerEvent",
+                  "RawVendorEvent",
+                  "InformationalErrorEvent",
+                  "BondCouponEvent",
+                  "DividendReinvestmentEvent",
+                  "AccumulationEvent",
+                  "BondPrincipalEvent",
+                  "DividendOptionEvent",
+                  "MaturityEvent"
+                ],
+                "type": "string",
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
+              }
+            }
+          }
+        ],
+        "description": "Definition of a Maturity Event\r\nThis is an event that describes the maturity of the instrument."
+      },
       "MetricValue": {
         "type": "object",
         "properties": {
@@ -93102,10 +93597,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -93425,6 +93921,9 @@
             "type": "string",
             "description": "The task id associated with the approval state of the order.",
             "nullable": true
+          },
+          "orderApprovalTaskDefinitionId": {
+            "$ref": "#/components/schemas/ResourceId"
           }
         },
         "additionalProperties": false
@@ -95320,6 +95819,24 @@
           },
           "version": {
             "$ref": "#/components/schemas/Version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlaceBlocksRequest": {
+        "required": [
+          "requests"
+        ],
+        "type": "object",
+        "properties": {
+          "requests": {
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlacementRequest"
+            },
+            "description": "A collection of PlacementRequest."
           }
         },
         "additionalProperties": false
@@ -97665,10 +98182,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -98801,10 +99319,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -101363,10 +101882,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -102567,10 +103087,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
@@ -102812,10 +103333,11 @@
                   "DividendReinvestmentEvent",
                   "AccumulationEvent",
                   "BondPrincipalEvent",
-                  "DividendOptionEvent"
+                  "DividendOptionEvent",
+                  "MaturityEvent"
                 ],
                 "type": "string",
-                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent"
+                "description": "The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent"
               }
             }
           }
