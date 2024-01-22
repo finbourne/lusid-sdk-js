@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.113",
+    "version": "2.0.118",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -8940,17 +8940,23 @@
                           {
                             "index": 0,
                             "label": "Initial",
-                            "subLabel": "Initial"
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 1,
                             "label": "Step1",
-                            "subLabel": "SomeStep1Information"
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 2,
                             "label": "Step2",
-                            "subLabel": "Step2"
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
                           }
                         ]
                       }
@@ -9023,17 +9029,23 @@
                           {
                             "index": 0,
                             "label": "Initial",
-                            "subLabel": "Initial"
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 1,
                             "label": "Step1",
-                            "subLabel": "SomeStep1Information"
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 2,
                             "label": "Step2",
-                            "subLabel": "Step2"
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
                           }
                         ]
                       }
@@ -9106,17 +9118,23 @@
                           {
                             "index": 0,
                             "label": "Initial",
-                            "subLabel": "Initial"
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 1,
                             "label": "Step1",
-                            "subLabel": "SomeStep1Information"
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 2,
                             "label": "Step2",
-                            "subLabel": "Step2"
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
                           }
                         ]
                       }
@@ -9189,17 +9207,23 @@
                           {
                             "index": 0,
                             "label": "Initial",
-                            "subLabel": "Initial"
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 1,
                             "label": "Step1",
-                            "subLabel": "SomeStep1Information"
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 2,
                             "label": "Step2",
-                            "subLabel": "Step2"
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
                           }
                         ]
                       }
@@ -9278,17 +9302,23 @@
                             {
                               "index": 0,
                               "label": "Initial",
-                              "subLabel": "Initial"
+                              "subLabel": "Initial",
+                              "infoType": "",
+                              "information": ""
                             },
                             {
                               "index": 1,
                               "label": "Step1",
-                              "subLabel": "SomeStep1Information"
+                              "subLabel": "SomeStep1Information",
+                              "infoType": "",
+                              "information": ""
                             },
                             {
                               "index": 2,
                               "label": "Step2",
-                              "subLabel": "Step2"
+                              "subLabel": "Step2",
+                              "infoType": "",
+                              "information": ""
                             }
                           ]
                         }
@@ -9361,17 +9391,23 @@
                             {
                               "index": 0,
                               "label": "Initial",
-                              "subLabel": "Initial"
+                              "subLabel": "Initial",
+                              "infoType": "",
+                              "information": ""
                             },
                             {
                               "index": 1,
                               "label": "Step1",
-                              "subLabel": "SomeStep1Information"
+                              "subLabel": "SomeStep1Information",
+                              "infoType": "",
+                              "information": ""
                             },
                             {
                               "index": 2,
                               "label": "Step2",
-                              "subLabel": "Step2"
+                              "subLabel": "Step2",
+                              "infoType": "",
+                              "information": ""
                             }
                           ]
                         }
@@ -9444,17 +9480,23 @@
                             {
                               "index": 0,
                               "label": "Initial",
-                              "subLabel": "Initial"
+                              "subLabel": "Initial",
+                              "infoType": "",
+                              "information": ""
                             },
                             {
                               "index": 1,
                               "label": "Step1",
-                              "subLabel": "SomeStep1Information"
+                              "subLabel": "SomeStep1Information",
+                              "infoType": "",
+                              "information": ""
                             },
                             {
                               "index": 2,
                               "label": "Step2",
-                              "subLabel": "Step2"
+                              "subLabel": "Step2",
+                              "infoType": "",
+                              "information": ""
                             }
                           ]
                         }
@@ -9629,17 +9671,23 @@
                           {
                             "index": 0,
                             "label": "Initial",
-                            "subLabel": "Initial"
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 1,
                             "label": "Step1",
-                            "subLabel": "SomeStep1Information"
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 2,
                             "label": "Step2",
-                            "subLabel": "Step2"
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
                           }
                         ]
                       }
@@ -9710,17 +9758,23 @@
                           {
                             "index": 0,
                             "label": "Initial",
-                            "subLabel": "Initial"
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 1,
                             "label": "Step1",
-                            "subLabel": "SomeStep1Information"
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 2,
                             "label": "Step2",
-                            "subLabel": "Step2"
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
                           }
                         ]
                       }
@@ -9791,17 +9845,23 @@
                           {
                             "index": 0,
                             "label": "Initial",
-                            "subLabel": "Initial"
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 1,
                             "label": "Step1",
-                            "subLabel": "SomeStep1Information"
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
                           },
                           {
                             "index": 2,
                             "label": "Step2",
-                            "subLabel": "Step2"
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
                           }
                         ]
                       }
@@ -11736,7 +11796,8 @@
                     "instrumentEventType": "TransitionEvent"
                   },
                   "properties": [],
-                  "sequenceNumber": 0
+                  "sequenceNumber": 0,
+                  "participationType": "thing"
                 }
               ]
             },
@@ -11781,7 +11842,8 @@
                     "instrumentEventType": "TransitionEvent"
                   },
                   "properties": [],
-                  "sequenceNumber": 0
+                  "sequenceNumber": 0,
+                  "participationType": "thing"
                 }
               ]
             },
@@ -11826,7 +11888,8 @@
                     "instrumentEventType": "TransitionEvent"
                   },
                   "properties": [],
-                  "sequenceNumber": 0
+                  "sequenceNumber": 0,
+                  "participationType": "thing"
                 }
               ]
             },
@@ -11871,7 +11934,8 @@
                     "instrumentEventType": "TransitionEvent"
                   },
                   "properties": [],
-                  "sequenceNumber": 0
+                  "sequenceNumber": 0,
+                  "participationType": "thing"
                 }
               ]
             }
@@ -80984,7 +81048,6 @@
       "CashElection": {
         "required": [
           "dividendCurrency",
-          "dividendRate",
           "electionKey"
         ],
         "type": "object",
@@ -81002,7 +81065,8 @@
           "dividendRate": {
             "type": "number",
             "description": "The payment rate for this CashElection.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "isChosen": {
             "type": "boolean",
@@ -91317,6 +91381,12 @@
             "type": "integer",
             "description": "The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.",
             "format": "int32"
+          },
+          "participationType": {
+            "type": "string",
+            "description": "Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary.",
+            "default": "Mandatory",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -92432,6 +92502,20 @@
             "minLength": 0,
             "type": "string",
             "description": "SubLabel of the step corresponding to this lineage member"
+          },
+          "infoType": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string",
+            "description": "Optional. Type of Information",
+            "nullable": true
+          },
+          "information": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string",
+            "description": "Optional. Information for the step corresponding to this lineage member, of type InfoType",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -104088,6 +104172,12 @@
             "type": "integer",
             "description": "The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.",
             "format": "int32"
+          },
+          "participationType": {
+            "type": "string",
+            "description": "Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary.",
+            "default": "Mandatory",
+            "nullable": true
           }
         },
         "additionalProperties": false
