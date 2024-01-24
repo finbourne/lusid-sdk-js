@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.120",
+    "version": "2.0.123",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1108,6 +1108,7 @@
                       "refSpotRate": 1.5,
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "bookedAsSpot": false,
                       "instrumentType": "FxForward"
                     },
                     "inLineLookupIdentifiers": {}
@@ -1165,6 +1166,7 @@
                       "refSpotRate": 1.5,
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "bookedAsSpot": false,
                       "instrumentType": "FxForward"
                     },
                     "inLineLookupIdentifiers": {}
@@ -1222,6 +1224,7 @@
                       "refSpotRate": 1.5,
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "bookedAsSpot": false,
                       "instrumentType": "FxForward"
                     },
                     "inLineLookupIdentifiers": {}
@@ -1279,6 +1282,7 @@
                       "refSpotRate": 1.5,
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                      "bookedAsSpot": false,
                       "instrumentType": "FxForward"
                     },
                     "inLineLookupIdentifiers": {}
@@ -44903,6 +44907,7 @@
                         "refSpotRate": 1.5,
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "bookedAsSpot": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -44955,6 +44960,7 @@
                         "refSpotRate": 132,
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "bookedAsSpot": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -45016,6 +45022,7 @@
                         "refSpotRate": 1.5,
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "bookedAsSpot": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -45068,6 +45075,7 @@
                         "refSpotRate": 132,
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "bookedAsSpot": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -45129,6 +45137,7 @@
                         "refSpotRate": 1.5,
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "bookedAsSpot": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -45181,6 +45190,7 @@
                         "refSpotRate": 132,
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "bookedAsSpot": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -45242,6 +45252,7 @@
                         "refSpotRate": 1.5,
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "bookedAsSpot": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -45294,6 +45305,7 @@
                         "refSpotRate": 132,
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                        "bookedAsSpot": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -88685,6 +88697,10 @@
                 "type": "string",
                 "description": "The settlement currency.\r\nIf provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards.",
                 "nullable": true
+              },
+              "bookedAsSpot": {
+                "type": "boolean",
+                "description": "Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.\r\nFor information purposes only, this is not used by LUSID and does not impact any valuation, analytics, cashflows or events."
               },
               "instrumentType": {
                 "enum": [
