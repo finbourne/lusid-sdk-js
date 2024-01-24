@@ -11,78 +11,55 @@
  */
 
 import { RequestFile } from './models';
+import { ComplianceParameter } from './complianceParameter';
+import { FilterPredicateComplianceParameterAllOf } from './filterPredicateComplianceParameterAllOf';
 
-export class FxVolDependencyAllOf {
+export class GroupFilterPredicateComplianceParameter extends ComplianceParameter {
+    'value': string;
     /**
-    * DomesticCurrency is the first currency in a currency pair quote e.g. eur-gbp, eur is the domestic currency.
+    * The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter
     */
-    'domesticCurrency': string;
-    /**
-    * ForeignCurrency is the second currency in a currency pair quote e.g. eur-gbp, gbp is the foreign currency.
-    */
-    'foreignCurrency': string;
-    /**
-    * Volatility type e.g. \"LN\" and \"N\" for log-normal and normal volatility.
-    */
-    'volType': string;
-    /**
-    * The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date.
-    */
-    'date': Date;
-    /**
-    * The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency
-    */
-    'dependencyType': FxVolDependencyAllOf.DependencyTypeEnum;
+    'complianceParameterType': GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "domesticCurrency",
-            "baseName": "domesticCurrency",
+            "name": "value",
+            "baseName": "value",
             "type": "string"
         },
         {
-            "name": "foreignCurrency",
-            "baseName": "foreignCurrency",
-            "type": "string"
-        },
-        {
-            "name": "volType",
-            "baseName": "volType",
-            "type": "string"
-        },
-        {
-            "name": "date",
-            "baseName": "date",
-            "type": "Date"
-        },
-        {
-            "name": "dependencyType",
-            "baseName": "dependencyType",
-            "type": "FxVolDependencyAllOf.DependencyTypeEnum"
+            "name": "complianceParameterType",
+            "baseName": "complianceParameterType",
+            "type": "GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return FxVolDependencyAllOf.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(GroupFilterPredicateComplianceParameter.attributeTypeMap);
     }
 }
 
-export namespace FxVolDependencyAllOf {
-    export enum DependencyTypeEnum {
-        OpaqueDependency = <any> 'OpaqueDependency',
-        CashDependency = <any> 'CashDependency',
-        DiscountingDependency = <any> 'DiscountingDependency',
-        EquityCurveDependency = <any> 'EquityCurveDependency',
-        EquityVolDependency = <any> 'EquityVolDependency',
-        FxDependency = <any> 'FxDependency',
-        FxForwardsDependency = <any> 'FxForwardsDependency',
-        FxVolDependency = <any> 'FxVolDependency',
-        IndexProjectionDependency = <any> 'IndexProjectionDependency',
-        IrVolDependency = <any> 'IrVolDependency',
-        QuoteDependency = <any> 'QuoteDependency',
-        Vendor = <any> 'Vendor',
-        CalendarDependency = <any> 'CalendarDependency',
-        InflationFixingDependency = <any> 'InflationFixingDependency'
+export namespace GroupFilterPredicateComplianceParameter {
+    export enum ComplianceParameterTypeEnum {
+        BoolComplianceParameter = <any> 'BoolComplianceParameter',
+        StringComplianceParameter = <any> 'StringComplianceParameter',
+        DecimalComplianceParameter = <any> 'DecimalComplianceParameter',
+        DateTimeComplianceParameter = <any> 'DateTimeComplianceParameter',
+        PropertyKeyComplianceParameter = <any> 'PropertyKeyComplianceParameter',
+        AddressKeyComplianceParameter = <any> 'AddressKeyComplianceParameter',
+        PortfolioIdComplianceParameter = <any> 'PortfolioIdComplianceParameter',
+        PortfolioGroupIdComplianceParameter = <any> 'PortfolioGroupIdComplianceParameter',
+        StringListComplianceParameter = <any> 'StringListComplianceParameter',
+        BoolListComplianceParameter = <any> 'BoolListComplianceParameter',
+        DateTimeListComplianceParameter = <any> 'DateTimeListComplianceParameter',
+        DecimalListComplianceParameter = <any> 'DecimalListComplianceParameter',
+        PropertyKeyListComplianceParameter = <any> 'PropertyKeyListComplianceParameter',
+        AddressKeyListComplianceParameter = <any> 'AddressKeyListComplianceParameter',
+        PortfolioIdListComplianceParameter = <any> 'PortfolioIdListComplianceParameter',
+        PortfolioGroupIdListComplianceParameter = <any> 'PortfolioGroupIdListComplianceParameter',
+        InstrumentListComplianceParameter = <any> 'InstrumentListComplianceParameter',
+        FilterPredicateComplianceParameter = <any> 'FilterPredicateComplianceParameter',
+        GroupFilterPredicateComplianceParameter = <any> 'GroupFilterPredicateComplianceParameter'
     }
 }

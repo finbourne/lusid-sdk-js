@@ -295,6 +295,7 @@ export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
 export * from './getRecipeResponse';
 export * from './getReferencePortfolioConstituentsResponse';
+export * from './groupFilterPredicateComplianceParameter';
 export * from './groupOfMarketDataKeyRules';
 export * from './holdingAdjustment';
 export * from './holdingAdjustmentWithDate';
@@ -1040,6 +1041,7 @@ import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
 import { GetRecipeResponse } from './getRecipeResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
+import { GroupFilterPredicateComplianceParameter } from './groupFilterPredicateComplianceParameter';
 import { GroupOfMarketDataKeyRules } from './groupOfMarketDataKeyRules';
 import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingAdjustmentWithDate } from './holdingAdjustmentWithDate';
@@ -1652,6 +1654,7 @@ let enumsMap: {[index: string]: any} = {
         "FxVolSurfaceData.MarketDataTypeEnum": FxVolSurfaceData.MarketDataTypeEnum,
         "GetReferencePortfolioConstituentsResponse.WeightTypeEnum": GetReferencePortfolioConstituentsResponse.WeightTypeEnum,
         "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
+        "GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum": GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum,
         "HoldingsAdjustment.UnmatchedHoldingMethodEnum": HoldingsAdjustment.UnmatchedHoldingMethodEnum,
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
@@ -2120,6 +2123,7 @@ let typeMap: {[index: string]: any} = {
     "GetQuotesResponse": GetQuotesResponse,
     "GetRecipeResponse": GetRecipeResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
+    "GroupFilterPredicateComplianceParameter": GroupFilterPredicateComplianceParameter,
     "GroupOfMarketDataKeyRules": GroupOfMarketDataKeyRules,
     "HoldingAdjustment": HoldingAdjustment,
     "HoldingAdjustmentWithDate": HoldingAdjustmentWithDate,
