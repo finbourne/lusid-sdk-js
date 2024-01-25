@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.128",
+    "version": "2.0.130",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -82963,6 +82963,9 @@
           },
           "holding": {
             "$ref": "#/components/schemas/HoldingContext"
+          },
+          "translation": {
+            "$ref": "#/components/schemas/TranslationContext"
           }
         },
         "additionalProperties": false,
@@ -101566,6 +101569,39 @@
         "additionalProperties": false,
         "description": "A list of scopes."
       },
+      "ScriptMapReference": {
+        "required": [
+          "code",
+          "key",
+          "scope"
+        ],
+        "type": "object",
+        "properties": {
+          "scope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The scope of the configuration store entry where the translation map is located."
+          },
+          "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The code of the configuration store entry where the translation map is located."
+          },
+          "key": {
+            "maxLength": 256,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The key of the configuration store entry where the translation map is located."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Provides information about the location of a script map within the configuration store"
+      },
       "SecurityElection": {
         "required": [
           "electionKey",
@@ -103342,6 +103378,19 @@
           }
         },
         "additionalProperties": false
+      },
+      "TranslationContext": {
+        "type": "object",
+        "properties": {
+          "disableScriptedTranslation": {
+            "type": "boolean"
+          },
+          "scriptMap": {
+            "$ref": "#/components/schemas/ScriptMapReference"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Options for overriding default scripted translation configuration."
       },
       "TranslationInput": {
         "required": [

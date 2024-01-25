@@ -612,6 +612,7 @@ export * from './roundingConvention';
 export * from './schedule';
 export * from './schema';
 export * from './scopeDefinition';
+export * from './scriptMapReference';
 export * from './securityElection';
 export * from './sequenceDefinition';
 export * from './setLegalEntityIdentifiersRequest';
@@ -657,6 +658,7 @@ export * from './transitionEventAllOf';
 export * from './translateEntitiesInlinedRequest';
 export * from './translateEntitiesRequest';
 export * from './translateEntitiesResponse';
+export * from './translationContext';
 export * from './translationInput';
 export * from './translationResult';
 export * from './translationScript';
@@ -1358,6 +1360,7 @@ import { RoundingConvention } from './roundingConvention';
 import { Schedule } from './schedule';
 import { Schema } from './schema';
 import { ScopeDefinition } from './scopeDefinition';
+import { ScriptMapReference } from './scriptMapReference';
 import { SecurityElection } from './securityElection';
 import { SequenceDefinition } from './sequenceDefinition';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
@@ -1403,6 +1406,7 @@ import { TransitionEventAllOf } from './transitionEventAllOf';
 import { TranslateEntitiesInlinedRequest } from './translateEntitiesInlinedRequest';
 import { TranslateEntitiesRequest } from './translateEntitiesRequest';
 import { TranslateEntitiesResponse } from './translateEntitiesResponse';
+import { TranslationContext } from './translationContext';
 import { TranslationInput } from './translationInput';
 import { TranslationResult } from './translationResult';
 import { TranslationScript } from './translationScript';
@@ -2440,6 +2444,7 @@ let typeMap: {[index: string]: any} = {
     "Schedule": Schedule,
     "Schema": Schema,
     "ScopeDefinition": ScopeDefinition,
+    "ScriptMapReference": ScriptMapReference,
     "SecurityElection": SecurityElection,
     "SequenceDefinition": SequenceDefinition,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
@@ -2485,6 +2490,7 @@ let typeMap: {[index: string]: any} = {
     "TranslateEntitiesInlinedRequest": TranslateEntitiesInlinedRequest,
     "TranslateEntitiesRequest": TranslateEntitiesRequest,
     "TranslateEntitiesResponse": TranslateEntitiesResponse,
+    "TranslationContext": TranslationContext,
     "TranslationInput": TranslationInput,
     "TranslationResult": TranslationResult,
     "TranslationScript": TranslationScript,
