@@ -68,6 +68,7 @@ export * from './bondPrincipalEventAllOf';
 export * from './boolComplianceParameter';
 export * from './boolComplianceParameterAllOf';
 export * from './boolListComplianceParameter';
+export * from './branchStep';
 export * from './calendar';
 export * from './calendarDate';
 export * from './calendarDependency';
@@ -112,6 +113,7 @@ export * from './complianceRuleResultDetail';
 export * from './complianceRuleResultPortfolioDetail';
 export * from './complianceRuleResultV2';
 export * from './complianceRunInfoV2';
+export * from './complianceStep';
 export * from './complianceSummaryRuleResult';
 export * from './complianceSummaryRuleResultRequest';
 export * from './complianceTemplate';
@@ -248,6 +250,7 @@ export * from './fieldValue';
 export * from './fileResponse';
 export * from './filterPredicateComplianceParameter';
 export * from './filterPredicateComplianceParameterAllOf';
+export * from './filterStep';
 export * from './fixedLeg';
 export * from './fixedLegAllOf';
 export * from './fixedLegAllOfOverrides';
@@ -295,7 +298,9 @@ export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
 export * from './getRecipeResponse';
 export * from './getReferencePortfolioConstituentsResponse';
+export * from './groupByStep';
 export * from './groupFilterPredicateComplianceParameter';
+export * from './groupFilterStep';
 export * from './groupOfMarketDataKeyRules';
 export * from './holdingAdjustment';
 export * from './holdingAdjustmentWithDate';
@@ -514,6 +519,7 @@ export * from './quoteSeriesId';
 export * from './rawVendorEvent';
 export * from './rawVendorEventAllOf';
 export * from './realisedGainLoss';
+export * from './recombineStep';
 export * from './reconcileDateTimeRule';
 export * from './reconcileDateTimeRuleAllOf';
 export * from './reconcileNumericRule';
@@ -816,6 +822,7 @@ import { BondPrincipalEventAllOf } from './bondPrincipalEventAllOf';
 import { BoolComplianceParameter } from './boolComplianceParameter';
 import { BoolComplianceParameterAllOf } from './boolComplianceParameterAllOf';
 import { BoolListComplianceParameter } from './boolListComplianceParameter';
+import { BranchStep } from './branchStep';
 import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CalendarDependency } from './calendarDependency';
@@ -860,6 +867,7 @@ import { ComplianceRuleResultDetail } from './complianceRuleResultDetail';
 import { ComplianceRuleResultPortfolioDetail } from './complianceRuleResultPortfolioDetail';
 import { ComplianceRuleResultV2 } from './complianceRuleResultV2';
 import { ComplianceRunInfoV2 } from './complianceRunInfoV2';
+import { ComplianceStep } from './complianceStep';
 import { ComplianceSummaryRuleResult } from './complianceSummaryRuleResult';
 import { ComplianceSummaryRuleResultRequest } from './complianceSummaryRuleResultRequest';
 import { ComplianceTemplate } from './complianceTemplate';
@@ -996,6 +1004,7 @@ import { FieldValue } from './fieldValue';
 import { FileResponse } from './fileResponse';
 import { FilterPredicateComplianceParameter } from './filterPredicateComplianceParameter';
 import { FilterPredicateComplianceParameterAllOf } from './filterPredicateComplianceParameterAllOf';
+import { FilterStep } from './filterStep';
 import { FixedLeg } from './fixedLeg';
 import { FixedLegAllOf } from './fixedLegAllOf';
 import { FixedLegAllOfOverrides } from './fixedLegAllOfOverrides';
@@ -1043,7 +1052,9 @@ import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
 import { GetRecipeResponse } from './getRecipeResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
+import { GroupByStep } from './groupByStep';
 import { GroupFilterPredicateComplianceParameter } from './groupFilterPredicateComplianceParameter';
+import { GroupFilterStep } from './groupFilterStep';
 import { GroupOfMarketDataKeyRules } from './groupOfMarketDataKeyRules';
 import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingAdjustmentWithDate } from './holdingAdjustmentWithDate';
@@ -1262,6 +1273,7 @@ import { QuoteSeriesId } from './quoteSeriesId';
 import { RawVendorEvent } from './rawVendorEvent';
 import { RawVendorEventAllOf } from './rawVendorEventAllOf';
 import { RealisedGainLoss } from './realisedGainLoss';
+import { RecombineStep } from './recombineStep';
 import { ReconcileDateTimeRule } from './reconcileDateTimeRule';
 import { ReconcileDateTimeRuleAllOf } from './reconcileDateTimeRuleAllOf';
 import { ReconcileNumericRule } from './reconcileNumericRule';
@@ -1524,6 +1536,7 @@ let enumsMap: {[index: string]: any} = {
         "BoolComplianceParameter.ComplianceParameterTypeEnum": BoolComplianceParameter.ComplianceParameterTypeEnum,
         "BoolComplianceParameterAllOf.ComplianceParameterTypeEnum": BoolComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "BoolListComplianceParameter.ComplianceParameterTypeEnum": BoolListComplianceParameter.ComplianceParameterTypeEnum,
+        "BranchStep.ComplianceStepTypeEnum": BranchStep.ComplianceStepTypeEnum,
         "CalendarDependency.DependencyTypeEnum": CalendarDependency.DependencyTypeEnum,
         "CalendarDependencyAllOf.DependencyTypeEnum": CalendarDependencyAllOf.DependencyTypeEnum,
         "CapFloor.InstrumentTypeEnum": CapFloor.InstrumentTypeEnum,
@@ -1550,6 +1563,7 @@ let enumsMap: {[index: string]: any} = {
         "ComplexBondAllOf.InstrumentTypeEnum": ComplexBondAllOf.InstrumentTypeEnum,
         "ComplexMarketData.MarketDataTypeEnum": ComplexMarketData.MarketDataTypeEnum,
         "ComplianceParameter.ComplianceParameterTypeEnum": ComplianceParameter.ComplianceParameterTypeEnum,
+        "ComplianceStep.ComplianceStepTypeEnum": ComplianceStep.ComplianceStepTypeEnum,
         "ConstantVolatilitySurface.MarketDataTypeEnum": ConstantVolatilitySurface.MarketDataTypeEnum,
         "ConstantVolatilitySurfaceAllOf.MarketDataTypeEnum": ConstantVolatilitySurfaceAllOf.MarketDataTypeEnum,
         "ContractForDifference.InstrumentTypeEnum": ContractForDifference.InstrumentTypeEnum,
@@ -1617,6 +1631,7 @@ let enumsMap: {[index: string]: any} = {
         "FieldSchema.TypeEnum": FieldSchema.TypeEnum,
         "FilterPredicateComplianceParameter.ComplianceParameterTypeEnum": FilterPredicateComplianceParameter.ComplianceParameterTypeEnum,
         "FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum": FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum,
+        "FilterStep.ComplianceStepTypeEnum": FilterStep.ComplianceStepTypeEnum,
         "FixedLeg.InstrumentTypeEnum": FixedLeg.InstrumentTypeEnum,
         "FixedLegAllOf.InstrumentTypeEnum": FixedLegAllOf.InstrumentTypeEnum,
         "FloatingLeg.InstrumentTypeEnum": FloatingLeg.InstrumentTypeEnum,
@@ -1658,7 +1673,9 @@ let enumsMap: {[index: string]: any} = {
         "FxVolSurfaceData.MarketDataTypeEnum": FxVolSurfaceData.MarketDataTypeEnum,
         "GetReferencePortfolioConstituentsResponse.WeightTypeEnum": GetReferencePortfolioConstituentsResponse.WeightTypeEnum,
         "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
+        "GroupByStep.ComplianceStepTypeEnum": GroupByStep.ComplianceStepTypeEnum,
         "GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum": GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum,
+        "GroupFilterStep.ComplianceStepTypeEnum": GroupFilterStep.ComplianceStepTypeEnum,
         "HoldingsAdjustment.UnmatchedHoldingMethodEnum": HoldingsAdjustment.UnmatchedHoldingMethodEnum,
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
@@ -1756,6 +1773,7 @@ let enumsMap: {[index: string]: any} = {
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
         "RawVendorEvent.InstrumentEventTypeEnum": RawVendorEvent.InstrumentEventTypeEnum,
         "RawVendorEventAllOf.InstrumentEventTypeEnum": RawVendorEventAllOf.InstrumentEventTypeEnum,
+        "RecombineStep.ComplianceStepTypeEnum": RecombineStep.ComplianceStepTypeEnum,
         "ReconcileDateTimeRule.ComparisonTypeEnum": ReconcileDateTimeRule.ComparisonTypeEnum,
         "ReconcileDateTimeRule.RuleTypeEnum": ReconcileDateTimeRule.RuleTypeEnum,
         "ReconcileDateTimeRuleAllOf.ComparisonTypeEnum": ReconcileDateTimeRuleAllOf.ComparisonTypeEnum,
@@ -1901,6 +1919,7 @@ let typeMap: {[index: string]: any} = {
     "BoolComplianceParameter": BoolComplianceParameter,
     "BoolComplianceParameterAllOf": BoolComplianceParameterAllOf,
     "BoolListComplianceParameter": BoolListComplianceParameter,
+    "BranchStep": BranchStep,
     "Calendar": Calendar,
     "CalendarDate": CalendarDate,
     "CalendarDependency": CalendarDependency,
@@ -1945,6 +1964,7 @@ let typeMap: {[index: string]: any} = {
     "ComplianceRuleResultPortfolioDetail": ComplianceRuleResultPortfolioDetail,
     "ComplianceRuleResultV2": ComplianceRuleResultV2,
     "ComplianceRunInfoV2": ComplianceRunInfoV2,
+    "ComplianceStep": ComplianceStep,
     "ComplianceSummaryRuleResult": ComplianceSummaryRuleResult,
     "ComplianceSummaryRuleResultRequest": ComplianceSummaryRuleResultRequest,
     "ComplianceTemplate": ComplianceTemplate,
@@ -2080,6 +2100,7 @@ let typeMap: {[index: string]: any} = {
     "FileResponse": FileResponse,
     "FilterPredicateComplianceParameter": FilterPredicateComplianceParameter,
     "FilterPredicateComplianceParameterAllOf": FilterPredicateComplianceParameterAllOf,
+    "FilterStep": FilterStep,
     "FixedLeg": FixedLeg,
     "FixedLegAllOf": FixedLegAllOf,
     "FixedLegAllOfOverrides": FixedLegAllOfOverrides,
@@ -2127,7 +2148,9 @@ let typeMap: {[index: string]: any} = {
     "GetQuotesResponse": GetQuotesResponse,
     "GetRecipeResponse": GetRecipeResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
+    "GroupByStep": GroupByStep,
     "GroupFilterPredicateComplianceParameter": GroupFilterPredicateComplianceParameter,
+    "GroupFilterStep": GroupFilterStep,
     "GroupOfMarketDataKeyRules": GroupOfMarketDataKeyRules,
     "HoldingAdjustment": HoldingAdjustment,
     "HoldingAdjustmentWithDate": HoldingAdjustmentWithDate,
@@ -2346,6 +2369,7 @@ let typeMap: {[index: string]: any} = {
     "RawVendorEvent": RawVendorEvent,
     "RawVendorEventAllOf": RawVendorEventAllOf,
     "RealisedGainLoss": RealisedGainLoss,
+    "RecombineStep": RecombineStep,
     "ReconcileDateTimeRule": ReconcileDateTimeRule,
     "ReconcileDateTimeRuleAllOf": ReconcileDateTimeRuleAllOf,
     "ReconcileNumericRule": ReconcileNumericRule,

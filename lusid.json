@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.131",
+    "version": "2.0.135",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -10521,7 +10521,93 @@
                           "acceptedAddressKeys": {
                             "scope": "system",
                             "code": "DefaultComplianceAcceptedAddressKeysList"
-                          }
+                          },
+                          "steps": [
+                            {
+                              "label": "ExcludingCash",
+                              "groupedParameters": {
+                                "Default": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "FilterStep"
+                            },
+                            {
+                              "label": "GroupByProperty",
+                              "groupedParameters": {
+                                "Default": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "GroupByStep"
+                            },
+                            {
+                              "label": "BranchByProperty",
+                              "groupedParameters": {
+                                "Default": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "BranchStep"
+                            },
+                            {
+                              "label": "Compare",
+                              "groupedParameters": {
+                                "Limit": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ],
+                                "Warning": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "GroupFilterStep"
+                            }
+                          ]
                         }
                       ],
                       "links": [
@@ -10581,7 +10667,93 @@
                           "acceptedAddressKeys": {
                             "scope": "system",
                             "code": "DefaultComplianceAcceptedAddressKeysList"
-                          }
+                          },
+                          "steps": [
+                            {
+                              "label": "ExcludingCash",
+                              "groupedParameters": {
+                                "Default": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "FilterStep"
+                            },
+                            {
+                              "label": "GroupByProperty",
+                              "groupedParameters": {
+                                "Default": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "GroupByStep"
+                            },
+                            {
+                              "label": "BranchByProperty",
+                              "groupedParameters": {
+                                "Default": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "BranchStep"
+                            },
+                            {
+                              "label": "Compare",
+                              "groupedParameters": {
+                                "Limit": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ],
+                                "Warning": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "GroupFilterStep"
+                            }
+                          ]
                         }
                       ],
                       "links": [
@@ -10641,7 +10813,93 @@
                           "acceptedAddressKeys": {
                             "scope": "system",
                             "code": "DefaultComplianceAcceptedAddressKeysList"
-                          }
+                          },
+                          "steps": [
+                            {
+                              "label": "ExcludingCash",
+                              "groupedParameters": {
+                                "Default": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "FilterStep"
+                            },
+                            {
+                              "label": "GroupByProperty",
+                              "groupedParameters": {
+                                "Default": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "GroupByStep"
+                            },
+                            {
+                              "label": "BranchByProperty",
+                              "groupedParameters": {
+                                "Default": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "BranchStep"
+                            },
+                            {
+                              "label": "Compare",
+                              "groupedParameters": {
+                                "Limit": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ],
+                                "Warning": [
+                                  {
+                                    "name": "Param1Name",
+                                    "description": "Parameter 1 Description",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "name": "Param2Name",
+                                    "description": "Parameter 2 Description",
+                                    "type": "addressKey"
+                                  }
+                                ]
+                              },
+                              "complianceStepType": "GroupFilterStep"
+                            }
+                          ]
                         }
                       ],
                       "links": [
@@ -10788,7 +11046,93 @@
                       "acceptedAddressKeys": {
                         "scope": "system",
                         "code": "DefaultComplianceAcceptedAddressKeysList"
-                      }
+                      },
+                      "steps": [
+                        {
+                          "label": "ExcludingCash",
+                          "groupedParameters": {
+                            "Default": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "FilterStep"
+                        },
+                        {
+                          "label": "GroupByProperty",
+                          "groupedParameters": {
+                            "Default": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "GroupByStep"
+                        },
+                        {
+                          "label": "BranchByProperty",
+                          "groupedParameters": {
+                            "Default": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "BranchStep"
+                        },
+                        {
+                          "label": "Compare",
+                          "groupedParameters": {
+                            "Limit": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ],
+                            "Warning": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "GroupFilterStep"
+                        }
+                      ]
                     }
                   ],
                   "links": [
@@ -10842,7 +11186,93 @@
                       "acceptedAddressKeys": {
                         "scope": "system",
                         "code": "DefaultComplianceAcceptedAddressKeysList"
-                      }
+                      },
+                      "steps": [
+                        {
+                          "label": "ExcludingCash",
+                          "groupedParameters": {
+                            "Default": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "FilterStep"
+                        },
+                        {
+                          "label": "GroupByProperty",
+                          "groupedParameters": {
+                            "Default": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "GroupByStep"
+                        },
+                        {
+                          "label": "BranchByProperty",
+                          "groupedParameters": {
+                            "Default": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "BranchStep"
+                        },
+                        {
+                          "label": "Compare",
+                          "groupedParameters": {
+                            "Limit": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ],
+                            "Warning": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "GroupFilterStep"
+                        }
+                      ]
                     }
                   ],
                   "links": [
@@ -10896,7 +11326,93 @@
                       "acceptedAddressKeys": {
                         "scope": "system",
                         "code": "DefaultComplianceAcceptedAddressKeysList"
-                      }
+                      },
+                      "steps": [
+                        {
+                          "label": "ExcludingCash",
+                          "groupedParameters": {
+                            "Default": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "FilterStep"
+                        },
+                        {
+                          "label": "GroupByProperty",
+                          "groupedParameters": {
+                            "Default": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "GroupByStep"
+                        },
+                        {
+                          "label": "BranchByProperty",
+                          "groupedParameters": {
+                            "Default": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "BranchStep"
+                        },
+                        {
+                          "label": "Compare",
+                          "groupedParameters": {
+                            "Limit": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ],
+                            "Warning": [
+                              {
+                                "name": "Param1Name",
+                                "description": "Parameter 1 Description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "Param2Name",
+                                "description": "Parameter 2 Description",
+                                "type": "addressKey"
+                              }
+                            ]
+                          },
+                          "complianceStepType": "GroupFilterStep"
+                        }
+                      ]
                     }
                   ],
                   "links": [
@@ -78809,6 +79325,7 @@
       },
       "AddressKeyOptionDefinition": {
         "required": [
+          "description",
           "name",
           "optional",
           "type"
@@ -78824,6 +79341,11 @@
             "minLength": 1,
             "type": "string",
             "description": "The type of the option"
+          },
+          "description": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The description of the option"
           },
           "optional": {
             "type": "boolean",
@@ -80711,6 +81233,43 @@
           }
         ]
       },
+      "BranchStep": {
+        "required": [
+          "complianceStepType",
+          "groupedParameters",
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The label of the compliance step"
+          },
+          "groupedParameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ComplianceTemplateParameter"
+              }
+            },
+            "description": "Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters"
+          },
+          "complianceStepType": {
+            "enum": [
+              "FilterStep",
+              "GroupByStep",
+              "GroupFilterStep",
+              "BranchStep",
+              "RecombineStep"
+            ],
+            "type": "string",
+            "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+          }
+        },
+        "additionalProperties": false
+      },
       "Calendar": {
         "required": [
           "id",
@@ -82460,6 +83019,29 @@
         },
         "additionalProperties": false
       },
+      "ComplianceStep": {
+        "required": [
+          "complianceStepType"
+        ],
+        "type": "object",
+        "properties": {
+          "complianceStepType": {
+            "enum": [
+              "FilterStep",
+              "GroupByStep",
+              "GroupFilterStep",
+              "BranchStep",
+              "RecombineStep"
+            ],
+            "type": "string",
+            "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+          }
+        },
+        "additionalProperties": false,
+        "discriminator": {
+          "propertyName": "complianceStepType"
+        }
+      },
       "ComplianceSummaryRuleResult": {
         "required": [
           "affectedOrders",
@@ -82643,7 +83225,8 @@
           "description",
           "label",
           "properties",
-          "requiredParameters"
+          "requiredParameters",
+          "steps"
         ],
         "type": "object",
         "properties": {
@@ -82673,6 +83256,13 @@
           },
           "acceptedAddressKeys": {
             "$ref": "#/components/schemas/ResourceId"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceStep"
+            },
+            "description": "The steps expressed in this template, with their required parameters"
           }
         },
         "additionalProperties": false
@@ -87897,6 +88487,43 @@
           }
         ]
       },
+      "FilterStep": {
+        "required": [
+          "complianceStepType",
+          "groupedParameters",
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The label of the compliance step"
+          },
+          "groupedParameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ComplianceTemplateParameter"
+              }
+            },
+            "description": "Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters"
+          },
+          "complianceStepType": {
+            "enum": [
+              "FilterStep",
+              "GroupByStep",
+              "GroupFilterStep",
+              "BranchStep",
+              "RecombineStep"
+            ],
+            "type": "string",
+            "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+          }
+        },
+        "additionalProperties": false
+      },
       "FixedLeg": {
         "allOf": [
           {
@@ -89931,6 +90558,43 @@
         },
         "additionalProperties": false
       },
+      "GroupByStep": {
+        "required": [
+          "complianceStepType",
+          "groupedParameters",
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The label of the compliance step"
+          },
+          "groupedParameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ComplianceTemplateParameter"
+              }
+            },
+            "description": "Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters"
+          },
+          "complianceStepType": {
+            "enum": [
+              "FilterStep",
+              "GroupByStep",
+              "GroupFilterStep",
+              "BranchStep",
+              "RecombineStep"
+            ],
+            "type": "string",
+            "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+          }
+        },
+        "additionalProperties": false
+      },
       "GroupFilterPredicateComplianceParameter": {
         "allOf": [
           {
@@ -89975,6 +90639,43 @@
             }
           }
         ]
+      },
+      "GroupFilterStep": {
+        "required": [
+          "complianceStepType",
+          "groupedParameters",
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The label of the compliance step"
+          },
+          "groupedParameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ComplianceTemplateParameter"
+              }
+            },
+            "description": "Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters"
+          },
+          "complianceStepType": {
+            "enum": [
+              "FilterStep",
+              "GroupByStep",
+              "GroupFilterStep",
+              "BranchStep",
+              "RecombineStep"
+            ],
+            "type": "string",
+            "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+          }
+        },
+        "additionalProperties": false
       },
       "GroupOfMarketDataKeyRules": {
         "required": [
@@ -98421,6 +99122,43 @@
           },
           "realisedCurrency": {
             "$ref": "#/components/schemas/CurrencyAndAmount"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecombineStep": {
+        "required": [
+          "complianceStepType",
+          "groupedParameters",
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The label of the compliance step"
+          },
+          "groupedParameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ComplianceTemplateParameter"
+              }
+            },
+            "description": "Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters"
+          },
+          "complianceStepType": {
+            "enum": [
+              "FilterStep",
+              "GroupByStep",
+              "GroupFilterStep",
+              "BranchStep",
+              "RecombineStep"
+            ],
+            "type": "string",
+            "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
           }
         },
         "additionalProperties": false
