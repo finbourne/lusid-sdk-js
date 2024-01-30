@@ -1,4 +1,3 @@
-import {AborApi} from './api/aborApi';
 import {AddressKeyDefinitionApi} from './api/addressKeyDefinitionApi';
 import {AggregationApi} from './api/aggregationApi';
 import {AllocationsApi} from './api/allocationsApi';
@@ -45,7 +44,6 @@ import {SystemConfigurationApi} from './api/systemConfigurationApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
 
 export class Api {
-    public abor:  AborApi
     public addressKeyDefinition:  AddressKeyDefinitionApi
     public aggregation:  AggregationApi
     public allocations:  AllocationsApi
