@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.148",
+    "version": "2.0.149",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -81713,7 +81713,7 @@
             "maxLength": 16,
             "minLength": 0,
             "type": "string",
-            "description": "The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products",
+            "description": "The frequency at which the reference bonds are updated, this defaults to 6M, but can be 3M, exp for historically issued products.\r\n\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)",
             "nullable": true
           },
           "currency": {
@@ -83219,7 +83219,7 @@
           "resetFrequency": {
             "minLength": 1,
             "type": "string",
-            "description": "The interest payment frequency."
+            "description": "The interest payment frequency.\r\n\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)"
           },
           "shift": {
             "type": "integer",
@@ -84953,7 +84953,7 @@
                 "items": {
                   "type": "string"
                 },
-                "description": "The tenors for which the rates apply"
+                "description": "The tenors for which the rates apply\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)"
               },
               "spreads": {
                 "type": "array",
@@ -88494,7 +88494,7 @@
           "tenor": {
             "minLength": 1,
             "type": "string",
-            "description": "Tenor for the convention name."
+            "description": "Tenor for the convention name.\r\n\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)"
           }
         },
         "additionalProperties": false,
@@ -88519,7 +88519,7 @@
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
-            "description": "When generating a multiperiod flow, or when the maturity of the flow is not given but the start date is,\r\nthe tenor is the time-step from the anchor-date to the nominal maturity of the flow prior to any adjustment."
+            "description": "When generating a multiperiod flow, or when the maturity of the flow is not given but the start date is,\r\nthe tenor is the time-step from the anchor-date to the nominal maturity of the flow prior to any adjustment.\r\n\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)"
           },
           "dayCountConvention": {
             "maxLength": 50,
@@ -89179,7 +89179,7 @@
                 "items": {
                   "type": "string"
                 },
-                "description": "Tenors for which the forward rates apply"
+                "description": "Tenors for which the forward rates apply.\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)"
               },
               "quoteReferences": {
                 "type": "array",
@@ -89548,7 +89548,7 @@
                 "items": {
                   "type": "string"
                 },
-                "description": "Tenors for which the forward rates apply"
+                "description": "Tenors for which the forward rates apply.\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)"
               },
               "rates": {
                 "type": "array",
@@ -89640,7 +89640,7 @@
                 "items": {
                   "type": "string"
                 },
-                "description": "Tenors for which the forward rates apply"
+                "description": "Tenors for which the forward rates apply.\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)"
               },
               "pipRates": {
                 "type": "array",
@@ -90829,7 +90829,7 @@
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year."
+            "description": "The tenor of the payment. For an OIS index this is always 1 day. For other indices, e.g. LIBOR it will have a variable tenor typically between 1 day and 1 year.\r\n\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)"
           },
           "dayCountConvention": {
             "maxLength": 32,
@@ -91067,7 +91067,7 @@
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "Observation lag. This is a string that must have units of Month.\r\nThis field is typically 3 or 4 months, but can vary, older bonds and swaps have 8 months lag.\r\nFor Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid."
+            "description": "Observation lag. This is a string that must have units of Month.\r\nThis field is typically 3 or 4 months, but can vary, older bonds and swaps have 8 months lag.\r\nFor Bonds with a calculation type of Ratio, this property, if set, must be 0Invalid.\r\n\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)"
           },
           "inflationInterpolation": {
             "maxLength": 32,
@@ -91080,7 +91080,7 @@
             "maxLength": 32,
             "minLength": 0,
             "type": "string",
-            "description": "Frequency of inflation updated. Optional and defaults to Monthly which is the most common.\r\nHowever both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.",
+            "description": "Frequency of inflation updated. Optional and defaults to Monthly which is the most common.\r\nHowever both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.\r\n\r\nFor more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)",
             "nullable": true
           },
           "inflationRollDay": {
