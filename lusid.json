@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.144",
+    "version": "2.0.147",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -88958,6 +88958,32 @@
         "additionalProperties": false,
         "description": "Most, if not all, information about contracts is standardized. See, e.g. https://www.cmegroup.com/ for\r\ncommon codes and similar data. This appears to be in common use by well known market information providers, e.g. Bloomberg and Refinitiv."
       },
+      "FxConventions": {
+        "required": [
+          "domCcy",
+          "fgnCcy",
+          "fixingReference"
+        ],
+        "type": "object",
+        "properties": {
+          "fgnCcy": {
+            "type": "string",
+            "description": "The foreign currency"
+          },
+          "domCcy": {
+            "type": "string",
+            "description": "The domestic currency"
+          },
+          "fixingReference": {
+            "maxLength": 64,
+            "minLength": 0,
+            "type": "string",
+            "description": "The reference name used to find the desired quote"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The conventions for the calculation of FX fixings, where the fixing rate is expected to be the amount of\r\nDomCcy per unit of FgnCcy.\r\nAs an example, assume the required fixing is the WM/R 4pm mid closing rate for the USD amount per 1 EUR.\r\nThis is published with RIC EURUSDFIXM=WM, which would be the FixingReference, with FgnCcy EUR and DomCcy USD."
+      },
       "FxDependency": {
         "allOf": [
           {
@@ -89671,6 +89697,52 @@
           }
         ],
         "description": "Contains data (i.e. tenors and pips + metadata) for building fx forward curves (when combined with a spot rate and a date to build on)"
+      },
+      "FxLinkedNotionalSchedule": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Schedule"
+          },
+          {
+            "required": [
+              "fxConventions",
+              "scheduleType",
+              "varyingNotionalCurrency",
+              "varyingNotionalFixingDates"
+            ],
+            "type": "object",
+            "properties": {
+              "fxConventions": {
+                "$ref": "#/components/schemas/FxConventions"
+              },
+              "varyingNotionalCurrency": {
+                "type": "string",
+                "description": "The currency of the varying notional amount."
+              },
+              "varyingNotionalFixingDates": {
+                "$ref": "#/components/schemas/RelativeDateOffset"
+              },
+              "varyingNotionalInterimExchangePaymentDates": {
+                "$ref": "#/components/schemas/RelativeDateOffset"
+              },
+              "scheduleType": {
+                "enum": [
+                  "FixedSchedule",
+                  "FloatSchedule",
+                  "OptionalitySchedule",
+                  "StepSchedule",
+                  "Exercise",
+                  "FxRateSchedule",
+                  "FxLinkedNotionalSchedule",
+                  "Invalid"
+                ],
+                "type": "string",
+                "description": "The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid"
+              }
+            }
+          }
+        ],
+        "description": "Schedule for notional changes based on the change in FX rate.\r\nUsed in the representation of a resettable cross currency interest rate swap."
       },
       "FxOption": {
         "allOf": [
@@ -92700,6 +92772,14 @@
           "lastCouponType": {
             "type": "string",
             "description": "Optional coupon type setting for the last coupon, can be used with Stub coupons.\r\nIf set to \"ProRata\" (the default), the coupon year fraction is calculated as normal,\r\nhowever if set to \"Full\" the year fraction is overwritten with the standard year fraction\r\nfor a regular ful\" coupon. Note this does not use the day count convention but rather is defined\r\ndirectly from the tenor (i.e. a quarterly leg will be set to 0.25).\r\n\r\nSupported string (enumeration) values are: [ProRata, Full].",
+            "nullable": true
+          },
+          "fxLinkedNotionalSchedule": {
+            "$ref": "#/components/schemas/FxLinkedNotionalSchedule"
+          },
+          "intermediateNotionalExchange": {
+            "type": "boolean",
+            "description": "Indicates whether there are intermediate notional exchanges.",
             "nullable": true
           }
         },
@@ -99590,6 +99670,27 @@
         },
         "additionalProperties": false
       },
+      "RelativeDateOffset": {
+        "required": [
+          "businessDayConvention",
+          "days"
+        ],
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "integer",
+            "description": "The number of business days to add to the anchor date.",
+            "format": "int32"
+          },
+          "businessDayConvention": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.\r\n\r\nSupported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a date offset which is relative to some anchor date."
+      },
       "Repo": {
         "allOf": [
           {
@@ -101803,10 +101904,11 @@
               "StepSchedule",
               "Exercise",
               "FxRateSchedule",
+              "FxLinkedNotionalSchedule",
               "Invalid"
             ],
             "type": "string",
-            "description": "The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid"
+            "description": "The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid"
           }
         },
         "additionalProperties": false,
@@ -102312,10 +102414,11 @@
                   "StepSchedule",
                   "Exercise",
                   "FxRateSchedule",
+                  "FxLinkedNotionalSchedule",
                   "Invalid"
                 ],
                 "type": "string",
-                "description": "The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid"
+                "description": "The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid"
               }
             }
           }

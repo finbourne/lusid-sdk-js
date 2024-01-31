@@ -266,6 +266,7 @@ export * from './fundingLegAllOf';
 export * from './future';
 export * from './futureAllOf';
 export * from './futuresContractDetails';
+export * from './fxConventions';
 export * from './fxDependency';
 export * from './fxDependencyAllOf';
 export * from './fxForward';
@@ -284,6 +285,8 @@ export * from './fxForwardTenorPipsCurveData';
 export * from './fxForwardTenorPipsCurveDataAllOf';
 export * from './fxForwardsDependency';
 export * from './fxForwardsDependencyAllOf';
+export * from './fxLinkedNotionalSchedule';
+export * from './fxLinkedNotionalScheduleAllOf';
 export * from './fxOption';
 export * from './fxOptionAllOf';
 export * from './fxSwap';
@@ -545,6 +548,7 @@ export * from './relatedEntity';
 export * from './relation';
 export * from './relationship';
 export * from './relationshipDefinition';
+export * from './relativeDateOffset';
 export * from './repo';
 export * from './repoAllOf';
 export * from './resetEvent';
@@ -1019,6 +1023,7 @@ import { FundingLegAllOf } from './fundingLegAllOf';
 import { Future } from './future';
 import { FutureAllOf } from './futureAllOf';
 import { FuturesContractDetails } from './futuresContractDetails';
+import { FxConventions } from './fxConventions';
 import { FxDependency } from './fxDependency';
 import { FxDependencyAllOf } from './fxDependencyAllOf';
 import { FxForward } from './fxForward';
@@ -1037,6 +1042,8 @@ import { FxForwardTenorPipsCurveData } from './fxForwardTenorPipsCurveData';
 import { FxForwardTenorPipsCurveDataAllOf } from './fxForwardTenorPipsCurveDataAllOf';
 import { FxForwardsDependency } from './fxForwardsDependency';
 import { FxForwardsDependencyAllOf } from './fxForwardsDependencyAllOf';
+import { FxLinkedNotionalSchedule } from './fxLinkedNotionalSchedule';
+import { FxLinkedNotionalScheduleAllOf } from './fxLinkedNotionalScheduleAllOf';
 import { FxOption } from './fxOption';
 import { FxOptionAllOf } from './fxOptionAllOf';
 import { FxSwap } from './fxSwap';
@@ -1298,6 +1305,7 @@ import { RelatedEntity } from './relatedEntity';
 import { Relation } from './relation';
 import { Relationship } from './relationship';
 import { RelationshipDefinition } from './relationshipDefinition';
+import { RelativeDateOffset } from './relativeDateOffset';
 import { Repo } from './repo';
 import { RepoAllOf } from './repoAllOf';
 import { ResetEvent } from './resetEvent';
@@ -1663,6 +1671,8 @@ let enumsMap: {[index: string]: any} = {
         "FxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum": FxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum,
         "FxForwardsDependency.DependencyTypeEnum": FxForwardsDependency.DependencyTypeEnum,
         "FxForwardsDependencyAllOf.DependencyTypeEnum": FxForwardsDependencyAllOf.DependencyTypeEnum,
+        "FxLinkedNotionalSchedule.ScheduleTypeEnum": FxLinkedNotionalSchedule.ScheduleTypeEnum,
+        "FxLinkedNotionalScheduleAllOf.ScheduleTypeEnum": FxLinkedNotionalScheduleAllOf.ScheduleTypeEnum,
         "FxOption.InstrumentTypeEnum": FxOption.InstrumentTypeEnum,
         "FxOptionAllOf.InstrumentTypeEnum": FxOptionAllOf.InstrumentTypeEnum,
         "FxSwap.InstrumentTypeEnum": FxSwap.InstrumentTypeEnum,
@@ -2116,6 +2126,7 @@ let typeMap: {[index: string]: any} = {
     "Future": Future,
     "FutureAllOf": FutureAllOf,
     "FuturesContractDetails": FuturesContractDetails,
+    "FxConventions": FxConventions,
     "FxDependency": FxDependency,
     "FxDependencyAllOf": FxDependencyAllOf,
     "FxForward": FxForward,
@@ -2134,6 +2145,8 @@ let typeMap: {[index: string]: any} = {
     "FxForwardTenorPipsCurveDataAllOf": FxForwardTenorPipsCurveDataAllOf,
     "FxForwardsDependency": FxForwardsDependency,
     "FxForwardsDependencyAllOf": FxForwardsDependencyAllOf,
+    "FxLinkedNotionalSchedule": FxLinkedNotionalSchedule,
+    "FxLinkedNotionalScheduleAllOf": FxLinkedNotionalScheduleAllOf,
     "FxOption": FxOption,
     "FxOptionAllOf": FxOptionAllOf,
     "FxSwap": FxSwap,
@@ -2395,6 +2408,7 @@ let typeMap: {[index: string]: any} = {
     "Relation": Relation,
     "Relationship": Relationship,
     "RelationshipDefinition": RelationshipDefinition,
+    "RelativeDateOffset": RelativeDateOffset,
     "Repo": Repo,
     "RepoAllOf": RepoAllOf,
     "ResetEvent": ResetEvent,
