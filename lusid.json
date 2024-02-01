@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.150",
+    "version": "2.0.151",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -30484,6 +30484,602 @@
                       "calculatedAveragePrice": 12401.26
                     }
                   ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/ordermanagement/createorders": {
+      "post": {
+        "tags": [
+          "Order Management"
+        ],
+        "summary": "[EARLY ACCESS] CreateOrders: Create Block and Order pairs",
+        "description": "Create new block and order pairs.",
+        "operationId": "CreateOrders",
+        "requestBody": {
+          "description": "The collection of block and order requests.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlockAndOrderCreateRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "blockId": {
+                      "scope": "MyScope",
+                      "code": "BLOCK00000123"
+                    },
+                    "orderId": {
+                      "scope": "MyScope",
+                      "code": "ORDER00000123"
+                    },
+                    "orderProperties": {
+                      "Order/MyScope/SomeOrderProperty": {
+                        "key": "Order/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "blockProperties": {
+                      "Block/MyScope/SomeOrderProperty": {
+                        "key": "Block/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "Instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "state": "New",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "date": "1999-06-05T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 534,
+                      "currency": "USD"
+                    }
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlockAndOrderCreateRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "blockId": {
+                      "scope": "MyScope",
+                      "code": "BLOCK00000123"
+                    },
+                    "orderId": {
+                      "scope": "MyScope",
+                      "code": "ORDER00000123"
+                    },
+                    "orderProperties": {
+                      "Order/MyScope/SomeOrderProperty": {
+                        "key": "Order/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "blockProperties": {
+                      "Block/MyScope/SomeOrderProperty": {
+                        "key": "Block/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "Instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "state": "New",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "date": "1999-06-05T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 534,
+                      "currency": "USD"
+                    }
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlockAndOrderCreateRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "blockId": {
+                      "scope": "MyScope",
+                      "code": "BLOCK00000123"
+                    },
+                    "orderId": {
+                      "scope": "MyScope",
+                      "code": "ORDER00000123"
+                    },
+                    "orderProperties": {
+                      "Order/MyScope/SomeOrderProperty": {
+                        "key": "Order/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "blockProperties": {
+                      "Block/MyScope/SomeOrderProperty": {
+                        "key": "Block/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "Instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "state": "New",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "date": "1999-06-05T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 534,
+                      "currency": "USD"
+                    }
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlockAndOrderCreateRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "blockId": {
+                      "scope": "MyScope",
+                      "code": "BLOCK00000123"
+                    },
+                    "orderId": {
+                      "scope": "MyScope",
+                      "code": "ORDER00000123"
+                    },
+                    "orderProperties": {
+                      "Order/MyScope/SomeOrderProperty": {
+                        "key": "Order/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "blockProperties": {
+                      "Block/MyScope/SomeOrderProperty": {
+                        "key": "Block/MyScope/SomeOrderProperty",
+                        "value": {
+                          "labelValue": "XYZ000034567"
+                        }
+                      }
+                    },
+                    "instrumentIdentifiers": {
+                      "Instrument/default/Currency": "GBP"
+                    },
+                    "quantity": 100,
+                    "side": "Buy",
+                    "state": "New",
+                    "type": "Limit",
+                    "timeInForce": "GoodTilCancel",
+                    "date": "1999-06-05T00:00:00.0000000+00:00",
+                    "limitPrice": {
+                      "amount": 534,
+                      "currency": "USD"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "A collection of block and order pairs.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfBlockAndOrder"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "block": {
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "BLOC00000123"
+                        },
+                        "orderIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "ORDER00000123"
+                          }
+                        ],
+                        "properties": {
+                          "Allocation/MyScope/SomeAllocationProperty": {
+                            "key": "Allocation/MyScope/SomeAllocationProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "lusidInstrumentId": "LUID_1234567",
+                        "quantity": 100.5,
+                        "side": "Buy",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 12413.33,
+                          "currency": "USD"
+                        },
+                        "stopPrice": {
+                          "amount": 12376.33,
+                          "currency": "USD"
+                        },
+                        "version": {
+                          "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                          "userIdCreated": "BlockUser1",
+                          "requestIdCreated": "BlockRequestId1",
+                          "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                          "userIdModified": "BlockUser2",
+                          "requestIdModified": "BlockRequestId2",
+                          "asAtVersionNumber": 2
+                        }
+                      },
+                      "order": {
+                        "properties": {
+                          "Order/MyScope/SomeOrderProperty": {
+                            "key": "Order/MyScope/SomeOrderProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "version": {
+                          "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                          "userIdCreated": "OrderUser1",
+                          "requestIdCreated": "OrderRequestId1",
+                          "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                          "userIdModified": "OrderUser2",
+                          "requestIdModified": "OrderRequestId2",
+                          "asAtVersionNumber": 2
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "quantity": 100,
+                        "side": "Buy",
+                        "orderBookId": {
+                          "scope": "MyScope",
+                          "code": "UKEQ-Orders"
+                        },
+                        "portfolioId": {
+                          "scope": "MyScope",
+                          "code": "testPortfolio"
+                        },
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "ORD00000123"
+                        },
+                        "state": "New",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "date": "1999-06-05T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 534,
+                          "currency": "USD"
+                        },
+                        "orderInstructionId": {
+                          "scope": "MyScope",
+                          "code": "Instruction-06"
+                        },
+                        "packageId": {
+                          "scope": "MyScope",
+                          "code": "UKEQ-Package"
+                        }
+                      }
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/createorders",
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfBlockAndOrder"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "block": {
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "BLOC00000123"
+                        },
+                        "orderIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "ORDER00000123"
+                          }
+                        ],
+                        "properties": {
+                          "Allocation/MyScope/SomeAllocationProperty": {
+                            "key": "Allocation/MyScope/SomeAllocationProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "lusidInstrumentId": "LUID_1234567",
+                        "quantity": 100.5,
+                        "side": "Buy",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 12413.33,
+                          "currency": "USD"
+                        },
+                        "stopPrice": {
+                          "amount": 12376.33,
+                          "currency": "USD"
+                        },
+                        "version": {
+                          "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                          "userIdCreated": "BlockUser1",
+                          "requestIdCreated": "BlockRequestId1",
+                          "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                          "userIdModified": "BlockUser2",
+                          "requestIdModified": "BlockRequestId2",
+                          "asAtVersionNumber": 2
+                        }
+                      },
+                      "order": {
+                        "properties": {
+                          "Order/MyScope/SomeOrderProperty": {
+                            "key": "Order/MyScope/SomeOrderProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "version": {
+                          "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                          "userIdCreated": "OrderUser1",
+                          "requestIdCreated": "OrderRequestId1",
+                          "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                          "userIdModified": "OrderUser2",
+                          "requestIdModified": "OrderRequestId2",
+                          "asAtVersionNumber": 2
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "quantity": 100,
+                        "side": "Buy",
+                        "orderBookId": {
+                          "scope": "MyScope",
+                          "code": "UKEQ-Orders"
+                        },
+                        "portfolioId": {
+                          "scope": "MyScope",
+                          "code": "testPortfolio"
+                        },
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "ORD00000123"
+                        },
+                        "state": "New",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "date": "1999-06-05T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 534,
+                          "currency": "USD"
+                        },
+                        "orderInstructionId": {
+                          "scope": "MyScope",
+                          "code": "Instruction-06"
+                        },
+                        "packageId": {
+                          "scope": "MyScope",
+                          "code": "UKEQ-Package"
+                        }
+                      }
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/createorders",
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfBlockAndOrder"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "block": {
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "BLOC00000123"
+                        },
+                        "orderIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "ORDER00000123"
+                          }
+                        ],
+                        "properties": {
+                          "Allocation/MyScope/SomeAllocationProperty": {
+                            "key": "Allocation/MyScope/SomeAllocationProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "lusidInstrumentId": "LUID_1234567",
+                        "quantity": 100.5,
+                        "side": "Buy",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "createdDate": "2006-04-11T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 12413.33,
+                          "currency": "USD"
+                        },
+                        "stopPrice": {
+                          "amount": 12376.33,
+                          "currency": "USD"
+                        },
+                        "version": {
+                          "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                          "userIdCreated": "BlockUser1",
+                          "requestIdCreated": "BlockRequestId1",
+                          "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                          "userIdModified": "BlockUser2",
+                          "requestIdModified": "BlockRequestId2",
+                          "asAtVersionNumber": 2
+                        }
+                      },
+                      "order": {
+                        "properties": {
+                          "Order/MyScope/SomeOrderProperty": {
+                            "key": "Order/MyScope/SomeOrderProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "version": {
+                          "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                          "userIdCreated": "OrderUser1",
+                          "requestIdCreated": "OrderRequestId1",
+                          "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                          "userIdModified": "OrderUser2",
+                          "requestIdModified": "OrderRequestId2",
+                          "asAtVersionNumber": 2
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "quantity": 100,
+                        "side": "Buy",
+                        "orderBookId": {
+                          "scope": "MyScope",
+                          "code": "UKEQ-Orders"
+                        },
+                        "portfolioId": {
+                          "scope": "MyScope",
+                          "code": "testPortfolio"
+                        },
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "ORD00000123"
+                        },
+                        "state": "New",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "date": "1999-06-05T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 534,
+                          "currency": "USD"
+                        },
+                        "orderInstructionId": {
+                          "scope": "MyScope",
+                          "code": "Instruction-06"
+                        },
+                        "packageId": {
+                          "scope": "MyScope",
+                          "code": "UKEQ-Package"
+                        }
+                      }
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/createorders",
                   "links": []
                 }
               }
@@ -80440,6 +81036,133 @@
         "additionalProperties": false,
         "description": "A block of orders for the same instrument, intended to record for example a trader's aggregation\r\nof outstanding orders at a given time."
       },
+      "BlockAndOrder": {
+        "required": [
+          "block",
+          "order"
+        ],
+        "type": "object",
+        "properties": {
+          "block": {
+            "$ref": "#/components/schemas/Block"
+          },
+          "order": {
+            "$ref": "#/components/schemas/Order"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BlockAndOrderCreateRequest": {
+        "required": [
+          "requests"
+        ],
+        "type": "object",
+        "properties": {
+          "requests": {
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BlockAndOrderRequest"
+            },
+            "description": "A collection of BlockAndOrderRequest."
+          }
+        },
+        "additionalProperties": false
+      },
+      "BlockAndOrderRequest": {
+        "required": [
+          "blockId",
+          "instrumentIdentifiers",
+          "orderId",
+          "quantity",
+          "side"
+        ],
+        "type": "object",
+        "properties": {
+          "blockId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "orderId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "orderProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "description": "Client-defined properties associated with this order.",
+            "nullable": true
+          },
+          "blockProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "description": "Client-defined properties associated with this block.",
+            "nullable": true
+          },
+          "instrumentIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "The instrument ordered."
+          },
+          "quantity": {
+            "type": "number",
+            "description": "The quantity of given instrument ordered.",
+            "format": "double"
+          },
+          "side": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The client's representation of the order's side (buy, sell, short, etc)"
+          },
+          "orderBookId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "portfolioId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "state": {
+            "type": "string",
+            "description": "The order's state (examples: New, PartiallyFilled, ...)",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "The order's type (examples: Limit, Market, ...)",
+            "nullable": true
+          },
+          "timeInForce": {
+            "type": "string",
+            "description": "The order's time in force (examples: Day, GoodTilCancel, ...)",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "description": "The date on which the order was made",
+            "format": "date-time"
+          },
+          "price": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "limitPrice": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "stopPrice": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "orderInstruction": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "package": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
       "BlockRequest": {
         "required": [
           "createdDate",
@@ -100098,6 +100821,41 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Block"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResourceListOfBlockAndOrder": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BlockAndOrder"
             }
           },
           "href": {
