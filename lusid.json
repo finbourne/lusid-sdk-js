@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.159",
+    "version": "2.0.162",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -55698,7 +55698,6 @@
                       "applyIso4217Rounding": false
                     }
                   },
-                  "inheritedRecipes": [],
                   "description": "",
                   "holding": {
                     "taxLotLevelHoldings": true
@@ -55766,7 +55765,6 @@
                       "applyIso4217Rounding": false
                     }
                   },
-                  "inheritedRecipes": [],
                   "description": "",
                   "holding": {
                     "taxLotLevelHoldings": true
@@ -55834,7 +55832,6 @@
                       "applyIso4217Rounding": false
                     }
                   },
-                  "inheritedRecipes": [],
                   "description": "",
                   "holding": {
                     "taxLotLevelHoldings": true
@@ -55902,7 +55899,6 @@
                       "applyIso4217Rounding": false
                     }
                   },
-                  "inheritedRecipes": [],
                   "description": "",
                   "holding": {
                     "taxLotLevelHoldings": true
@@ -56080,7 +56076,6 @@
                             "applyIso4217Rounding": false
                           }
                         },
-                        "inheritedRecipes": [],
                         "description": "",
                         "holding": {
                           "taxLotLevelHoldings": true
@@ -56143,7 +56138,6 @@
                             "applyIso4217Rounding": false
                           }
                         },
-                        "inheritedRecipes": [],
                         "description": "",
                         "holding": {
                           "taxLotLevelHoldings": true
@@ -56236,7 +56230,6 @@
                             "applyIso4217Rounding": false
                           }
                         },
-                        "inheritedRecipes": [],
                         "description": "",
                         "holding": {
                           "taxLotLevelHoldings": true
@@ -56299,7 +56292,6 @@
                             "applyIso4217Rounding": false
                           }
                         },
-                        "inheritedRecipes": [],
                         "description": "",
                         "holding": {
                           "taxLotLevelHoldings": true
@@ -56392,7 +56384,6 @@
                             "applyIso4217Rounding": false
                           }
                         },
-                        "inheritedRecipes": [],
                         "description": "",
                         "holding": {
                           "taxLotLevelHoldings": true
@@ -56455,7 +56446,6 @@
                             "applyIso4217Rounding": false
                           }
                         },
-                        "inheritedRecipes": [],
                         "description": "",
                         "holding": {
                           "taxLotLevelHoldings": true
@@ -56635,7 +56625,6 @@
                         "applyIso4217Rounding": false
                       }
                     },
-                    "inheritedRecipes": [],
                     "description": "",
                     "holding": {
                       "taxLotLevelHoldings": true
@@ -56715,7 +56704,6 @@
                         "applyIso4217Rounding": false
                       }
                     },
-                    "inheritedRecipes": [],
                     "description": "",
                     "holding": {
                       "taxLotLevelHoldings": true
@@ -56795,7 +56783,6 @@
                         "applyIso4217Rounding": false
                       }
                     },
-                    "inheritedRecipes": [],
                     "description": "",
                     "holding": {
                       "taxLotLevelHoldings": true
@@ -84526,14 +84513,6 @@
           },
           "aggregation": {
             "$ref": "#/components/schemas/AggregationContext"
-          },
-          "inheritedRecipes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceId"
-            },
-            "description": "A list of parent recipes (scope,code) that can be used to share functionality between recipes. For instance one might use common recipes to set up\r\npricing for individual asset classes, e.g. rates or credit, and then combine them into a single recipe to be used by an exotics desk in conjunction with\r\nsome overrides that it requires for models or other pricing options.",
-            "nullable": true
           },
           "description": {
             "maxLength": 1024,
