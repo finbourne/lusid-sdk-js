@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.162",
+    "version": "2.0.167",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -508,9 +508,10 @@
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                   "tenor": "1D",
-                  "rollConvention": "F",
+                  "rollConvention": "None",
                   "holidayCalendars": [],
-                  "valuationDateTimes": []
+                  "valuationDateTimes": [],
+                  "businessDayConvention": "F"
                 }
               }
             },
@@ -564,9 +565,10 @@
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                   "tenor": "1D",
-                  "rollConvention": "F",
+                  "rollConvention": "None",
                   "holidayCalendars": [],
-                  "valuationDateTimes": []
+                  "valuationDateTimes": [],
+                  "businessDayConvention": "F"
                 }
               }
             },
@@ -620,9 +622,10 @@
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                   "tenor": "1D",
-                  "rollConvention": "F",
+                  "rollConvention": "None",
                   "holidayCalendars": [],
-                  "valuationDateTimes": []
+                  "valuationDateTimes": [],
+                  "businessDayConvention": "F"
                 }
               }
             },
@@ -676,9 +679,10 @@
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                   "tenor": "1D",
-                  "rollConvention": "F",
+                  "rollConvention": "None",
                   "holidayCalendars": [],
-                  "valuationDateTimes": []
+                  "valuationDateTimes": [],
+                  "businessDayConvention": "F"
                 }
               }
             }
@@ -787,9 +791,10 @@
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                   "tenor": "1D",
-                  "rollConvention": "F",
+                  "rollConvention": "None",
                   "holidayCalendars": [],
-                  "valuationDateTimes": []
+                  "valuationDateTimes": [],
+                  "businessDayConvention": "F"
                 },
                 "instruments": [
                   {
@@ -845,9 +850,10 @@
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                   "tenor": "1D",
-                  "rollConvention": "F",
+                  "rollConvention": "None",
                   "holidayCalendars": [],
-                  "valuationDateTimes": []
+                  "valuationDateTimes": [],
+                  "businessDayConvention": "F"
                 },
                 "instruments": [
                   {
@@ -903,9 +909,10 @@
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                   "tenor": "1D",
-                  "rollConvention": "F",
+                  "rollConvention": "None",
                   "holidayCalendars": [],
-                  "valuationDateTimes": []
+                  "valuationDateTimes": [],
+                  "businessDayConvention": "F"
                 },
                 "instruments": [
                   {
@@ -961,9 +968,10 @@
                   "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                   "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                   "tenor": "1D",
-                  "rollConvention": "F",
+                  "rollConvention": "None",
                   "holidayCalendars": [],
-                  "valuationDateTimes": []
+                  "valuationDateTimes": [],
+                  "businessDayConvention": "F"
                 },
                 "instruments": [
                   {
@@ -5555,12 +5563,13 @@
                 "effectiveFrom": "2020-01-01",
                 "effectiveAt": "2021-01-01",
                 "tenor": "1M",
-                "rollConvention": "F",
+                "rollConvention": "None",
                 "holidayCalendars": [
                   "GBP",
                   "USD"
                 ],
-                "valuationDateTimes": []
+                "valuationDateTimes": [],
+                "businessDayConvention": "F"
               }
             },
             "application/json": {
@@ -5571,12 +5580,13 @@
                 "effectiveFrom": "2020-01-01",
                 "effectiveAt": "2021-01-01",
                 "tenor": "1M",
-                "rollConvention": "F",
+                "rollConvention": "None",
                 "holidayCalendars": [
                   "GBP",
                   "USD"
                 ],
-                "valuationDateTimes": []
+                "valuationDateTimes": [],
+                "businessDayConvention": "F"
               }
             },
             "text/json": {
@@ -5587,12 +5597,13 @@
                 "effectiveFrom": "2020-01-01",
                 "effectiveAt": "2021-01-01",
                 "tenor": "1M",
-                "rollConvention": "F",
+                "rollConvention": "None",
                 "holidayCalendars": [
                   "GBP",
                   "USD"
                 ],
-                "valuationDateTimes": []
+                "valuationDateTimes": [],
+                "businessDayConvention": "F"
               }
             },
             "application/*+json": {
@@ -5603,12 +5614,13 @@
                 "effectiveFrom": "2020-01-01",
                 "effectiveAt": "2021-01-01",
                 "tenor": "1M",
-                "rollConvention": "F",
+                "rollConvention": "None",
                 "holidayCalendars": [
                   "GBP",
                   "USD"
                 ],
-                "valuationDateTimes": []
+                "valuationDateTimes": [],
+                "businessDayConvention": "F"
               }
             }
           },
@@ -44918,9 +44930,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "right": {
@@ -44964,9 +44977,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "leftToRightMapping": [],
@@ -45033,9 +45047,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "right": {
@@ -45079,9 +45094,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "leftToRightMapping": [],
@@ -45148,9 +45164,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "right": {
@@ -45194,9 +45211,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "leftToRightMapping": [],
@@ -45263,9 +45281,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "right": {
@@ -45309,9 +45328,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "leftToRightMapping": [],
@@ -45650,9 +45670,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   },
                   "instruments": [
                     {
@@ -45703,9 +45724,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   },
                   "instruments": [
                     {
@@ -45765,9 +45787,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   },
                   "instruments": [
                     {
@@ -45818,9 +45841,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   },
                   "instruments": [
                     {
@@ -45880,9 +45904,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   },
                   "instruments": [
                     {
@@ -45933,9 +45958,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   },
                   "instruments": [
                     {
@@ -45995,9 +46021,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   },
                   "instruments": [
                     {
@@ -46048,9 +46075,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   },
                   "instruments": [
                     {
@@ -46832,9 +46860,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "right": {
@@ -46878,9 +46907,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "leftToRightMapping": [],
@@ -46935,9 +46965,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "right": {
@@ -46981,9 +47012,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "leftToRightMapping": [],
@@ -47038,9 +47070,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "right": {
@@ -47084,9 +47117,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "leftToRightMapping": [],
@@ -47141,9 +47175,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "right": {
@@ -47187,9 +47222,10 @@
                     "effectiveFrom": "2018-03-05T00:00:00.0000000+00:00",
                     "effectiveAt": "2018-03-05T00:00:00.0000000+00:00",
                     "tenor": "1D",
-                    "rollConvention": "F",
+                    "rollConvention": "None",
                     "holidayCalendars": [],
-                    "valuationDateTimes": []
+                    "valuationDateTimes": [],
+                    "businessDayConvention": "F"
                   }
                 },
                 "leftToRightMapping": [],
@@ -106767,7 +106803,7 @@
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
-            "description": "When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.\r\nIn that case, the RollConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.",
+            "description": "When Tenor is given and is \"1M\" or longer, this specifies the rule which should be used to generate the date schedule.  \r\nFor example, \"EndOfMonth\" to generate end of month dates, or \"1\" to specify the first day of the applicable month.",
             "nullable": true
           },
           "holidayCalendars": {
@@ -106784,6 +106820,13 @@
               "type": "string"
             },
             "description": "If given, this is the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given.",
+            "nullable": true
+          },
+          "businessDayConvention": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "When Tenor is given and is not equal to \"1D\", there may be cases where \"date + tenor\" land on non-business days around month end.\r\nIn that case, the BusinessDayConvention, e.g. modified following \"MF\" would be applied to determine the next GBD.",
             "nullable": true
           }
         },
