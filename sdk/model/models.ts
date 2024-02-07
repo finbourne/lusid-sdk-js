@@ -55,11 +55,12 @@ export * from './batchUpsertInstrumentPropertiesResponse';
 export * from './batchUpsertPortfolioTransactionsResponse';
 export * from './batchUpsertPropertyDefinitionPropertiesResponse';
 export * from './block';
-export * from './blockAndOrder';
-export * from './blockAndOrderCreateRequest';
-export * from './blockAndOrderRequest';
+export * from './blockAndOrders';
+export * from './blockAndOrdersCreateRequest';
+export * from './blockAndOrdersRequest';
 export * from './blockRequest';
 export * from './blockSetRequest';
+export * from './blockedOrderRequest';
 export * from './bond';
 export * from './bondAllOf';
 export * from './bondCouponEvent';
@@ -564,7 +565,7 @@ export * from './resourceListOfAddressKeyDefinition';
 export * from './resourceListOfAggregationQuery';
 export * from './resourceListOfAllocation';
 export * from './resourceListOfBlock';
-export * from './resourceListOfBlockAndOrder';
+export * from './resourceListOfBlockAndOrders';
 export * from './resourceListOfCalendarDate';
 export * from './resourceListOfChange';
 export * from './resourceListOfChangeHistory';
@@ -818,11 +819,12 @@ import { BatchUpsertInstrumentPropertiesResponse } from './batchUpsertInstrument
 import { BatchUpsertPortfolioTransactionsResponse } from './batchUpsertPortfolioTransactionsResponse';
 import { BatchUpsertPropertyDefinitionPropertiesResponse } from './batchUpsertPropertyDefinitionPropertiesResponse';
 import { Block } from './block';
-import { BlockAndOrder } from './blockAndOrder';
-import { BlockAndOrderCreateRequest } from './blockAndOrderCreateRequest';
-import { BlockAndOrderRequest } from './blockAndOrderRequest';
+import { BlockAndOrders } from './blockAndOrders';
+import { BlockAndOrdersCreateRequest } from './blockAndOrdersCreateRequest';
+import { BlockAndOrdersRequest } from './blockAndOrdersRequest';
 import { BlockRequest } from './blockRequest';
 import { BlockSetRequest } from './blockSetRequest';
+import { BlockedOrderRequest } from './blockedOrderRequest';
 import { Bond } from './bond';
 import { BondAllOf } from './bondAllOf';
 import { BondCouponEvent } from './bondCouponEvent';
@@ -1327,7 +1329,7 @@ import { ResourceListOfAddressKeyDefinition } from './resourceListOfAddressKeyDe
 import { ResourceListOfAggregationQuery } from './resourceListOfAggregationQuery';
 import { ResourceListOfAllocation } from './resourceListOfAllocation';
 import { ResourceListOfBlock } from './resourceListOfBlock';
-import { ResourceListOfBlockAndOrder } from './resourceListOfBlockAndOrder';
+import { ResourceListOfBlockAndOrders } from './resourceListOfBlockAndOrders';
 import { ResourceListOfCalendarDate } from './resourceListOfCalendarDate';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfChangeHistory } from './resourceListOfChangeHistory';
@@ -1928,11 +1930,12 @@ let typeMap: {[index: string]: any} = {
     "BatchUpsertPortfolioTransactionsResponse": BatchUpsertPortfolioTransactionsResponse,
     "BatchUpsertPropertyDefinitionPropertiesResponse": BatchUpsertPropertyDefinitionPropertiesResponse,
     "Block": Block,
-    "BlockAndOrder": BlockAndOrder,
-    "BlockAndOrderCreateRequest": BlockAndOrderCreateRequest,
-    "BlockAndOrderRequest": BlockAndOrderRequest,
+    "BlockAndOrders": BlockAndOrders,
+    "BlockAndOrdersCreateRequest": BlockAndOrdersCreateRequest,
+    "BlockAndOrdersRequest": BlockAndOrdersRequest,
     "BlockRequest": BlockRequest,
     "BlockSetRequest": BlockSetRequest,
+    "BlockedOrderRequest": BlockedOrderRequest,
     "Bond": Bond,
     "BondAllOf": BondAllOf,
     "BondCouponEvent": BondCouponEvent,
@@ -2436,7 +2439,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfAggregationQuery": ResourceListOfAggregationQuery,
     "ResourceListOfAllocation": ResourceListOfAllocation,
     "ResourceListOfBlock": ResourceListOfBlock,
-    "ResourceListOfBlockAndOrder": ResourceListOfBlockAndOrder,
+    "ResourceListOfBlockAndOrders": ResourceListOfBlockAndOrders,
     "ResourceListOfCalendarDate": ResourceListOfCalendarDate,
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfChangeHistory": ResourceListOfChangeHistory,
