@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.178",
+    "version": "2.0.180",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -88181,6 +88181,11 @@
               "domCcy": {
                 "type": "string",
                 "description": "The domestic currency of the instrument."
+              },
+              "lotSize": {
+                "type": "integer",
+                "description": "Equity LotSize, the minimum number of shares that can be bought at once.\r\nOptional, if set must be non-negative, if not set defaults to 1.\r\n\r\nNote this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.",
+                "format": "int32"
               },
               "instrumentType": {
                 "enum": [
