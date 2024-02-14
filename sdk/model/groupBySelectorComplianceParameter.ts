@@ -11,27 +11,56 @@
  */
 
 import { RequestFile } from './models';
+import { ComplianceParameter } from './complianceParameter';
+import { FilterPredicateComplianceParameterAllOf } from './filterPredicateComplianceParameterAllOf';
 
-/**
-* A list of scopes.
-*/
-export class ScopeDefinition {
+export class GroupBySelectorComplianceParameter extends ComplianceParameter {
+    'value': string;
     /**
-    * The unique identifier for the scope.
+    * The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter
     */
-    'scope': string;
+    'complianceParameterType': GroupBySelectorComplianceParameter.ComplianceParameterTypeEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "scope",
-            "baseName": "scope",
+            "name": "value",
+            "baseName": "value",
             "type": "string"
+        },
+        {
+            "name": "complianceParameterType",
+            "baseName": "complianceParameterType",
+            "type": "GroupBySelectorComplianceParameter.ComplianceParameterTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return ScopeDefinition.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(GroupBySelectorComplianceParameter.attributeTypeMap);
     }
 }
 
+export namespace GroupBySelectorComplianceParameter {
+    export enum ComplianceParameterTypeEnum {
+        BoolComplianceParameter = <any> 'BoolComplianceParameter',
+        StringComplianceParameter = <any> 'StringComplianceParameter',
+        DecimalComplianceParameter = <any> 'DecimalComplianceParameter',
+        DateTimeComplianceParameter = <any> 'DateTimeComplianceParameter',
+        PropertyKeyComplianceParameter = <any> 'PropertyKeyComplianceParameter',
+        AddressKeyComplianceParameter = <any> 'AddressKeyComplianceParameter',
+        PortfolioIdComplianceParameter = <any> 'PortfolioIdComplianceParameter',
+        PortfolioGroupIdComplianceParameter = <any> 'PortfolioGroupIdComplianceParameter',
+        StringListComplianceParameter = <any> 'StringListComplianceParameter',
+        BoolListComplianceParameter = <any> 'BoolListComplianceParameter',
+        DateTimeListComplianceParameter = <any> 'DateTimeListComplianceParameter',
+        DecimalListComplianceParameter = <any> 'DecimalListComplianceParameter',
+        PropertyKeyListComplianceParameter = <any> 'PropertyKeyListComplianceParameter',
+        AddressKeyListComplianceParameter = <any> 'AddressKeyListComplianceParameter',
+        PortfolioIdListComplianceParameter = <any> 'PortfolioIdListComplianceParameter',
+        PortfolioGroupIdListComplianceParameter = <any> 'PortfolioGroupIdListComplianceParameter',
+        InstrumentListComplianceParameter = <any> 'InstrumentListComplianceParameter',
+        FilterPredicateComplianceParameter = <any> 'FilterPredicateComplianceParameter',
+        GroupFilterPredicateComplianceParameter = <any> 'GroupFilterPredicateComplianceParameter',
+        GroupBySelectorComplianceParameter = <any> 'GroupBySelectorComplianceParameter'
+    }
+}
