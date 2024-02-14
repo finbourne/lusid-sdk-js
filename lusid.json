@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.188",
+    "version": "2.0.193",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -97594,7 +97594,7 @@
           },
           "allowPartial": {
             "type": "boolean",
-            "description": "Bool if the metric is allowed partial results. Deafult to false."
+            "description": "Bool if the metric is allowed partial results. Default to false."
           },
           "annualised": {
             "type": "boolean",
@@ -106483,7 +106483,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "The details of the quote including its unique identifier, value and lineage."
+        "description": "The details of the quote including its unique identifier, value and lineage.\r\nPlease note the Unit field on MetricValue is nullable on the upsert but there\r\nis validation within the quote store to make sure this field is populated.\r\nIn the absence of a real unit then we recommend putting something in line with\r\nthe data in QuoteId.QuoteSeriesId.quoteType e.g. InterestRate."
       },
       "UpsertQuotesResponse": {
         "type": "object",
