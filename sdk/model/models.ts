@@ -285,6 +285,8 @@ export * from './fxForwardModelOptions';
 export * from './fxForwardModelOptionsAllOf';
 export * from './fxForwardPipsCurveData';
 export * from './fxForwardPipsCurveDataAllOf';
+export * from './fxForwardSettlementEvent';
+export * from './fxForwardSettlementEventAllOf';
 export * from './fxForwardTenorCurveData';
 export * from './fxForwardTenorCurveDataAllOf';
 export * from './fxForwardTenorPipsCurveData';
@@ -1052,6 +1054,8 @@ import { FxForwardModelOptions } from './fxForwardModelOptions';
 import { FxForwardModelOptionsAllOf } from './fxForwardModelOptionsAllOf';
 import { FxForwardPipsCurveData } from './fxForwardPipsCurveData';
 import { FxForwardPipsCurveDataAllOf } from './fxForwardPipsCurveDataAllOf';
+import { FxForwardSettlementEvent } from './fxForwardSettlementEvent';
+import { FxForwardSettlementEventAllOf } from './fxForwardSettlementEventAllOf';
 import { FxForwardTenorCurveData } from './fxForwardTenorCurveData';
 import { FxForwardTenorCurveDataAllOf } from './fxForwardTenorCurveDataAllOf';
 import { FxForwardTenorPipsCurveData } from './fxForwardTenorPipsCurveData';
@@ -1687,6 +1691,8 @@ let enumsMap: {[index: string]: any} = {
         "FxForwardModelOptionsAllOf.ModelOptionsTypeEnum": FxForwardModelOptionsAllOf.ModelOptionsTypeEnum,
         "FxForwardPipsCurveData.MarketDataTypeEnum": FxForwardPipsCurveData.MarketDataTypeEnum,
         "FxForwardPipsCurveDataAllOf.MarketDataTypeEnum": FxForwardPipsCurveDataAllOf.MarketDataTypeEnum,
+        "FxForwardSettlementEvent.InstrumentEventTypeEnum": FxForwardSettlementEvent.InstrumentEventTypeEnum,
+        "FxForwardSettlementEventAllOf.InstrumentEventTypeEnum": FxForwardSettlementEventAllOf.InstrumentEventTypeEnum,
         "FxForwardTenorCurveData.MarketDataTypeEnum": FxForwardTenorCurveData.MarketDataTypeEnum,
         "FxForwardTenorCurveDataAllOf.MarketDataTypeEnum": FxForwardTenorCurveDataAllOf.MarketDataTypeEnum,
         "FxForwardTenorPipsCurveData.MarketDataTypeEnum": FxForwardTenorPipsCurveData.MarketDataTypeEnum,
@@ -2168,6 +2174,8 @@ let typeMap: {[index: string]: any} = {
     "FxForwardModelOptionsAllOf": FxForwardModelOptionsAllOf,
     "FxForwardPipsCurveData": FxForwardPipsCurveData,
     "FxForwardPipsCurveDataAllOf": FxForwardPipsCurveDataAllOf,
+    "FxForwardSettlementEvent": FxForwardSettlementEvent,
+    "FxForwardSettlementEventAllOf": FxForwardSettlementEventAllOf,
     "FxForwardTenorCurveData": FxForwardTenorCurveData,
     "FxForwardTenorCurveDataAllOf": FxForwardTenorCurveDataAllOf,
     "FxForwardTenorPipsCurveData": FxForwardTenorPipsCurveData,
