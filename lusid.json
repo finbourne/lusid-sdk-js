@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.207",
+    "version": "2.0.210",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -56067,7 +56067,7 @@
           "Configuration Recipe"
         ],
         "summary": "ListConfigurationRecipes: List the set of Configuration Recipes",
-        "description": "List the set of configuration recipes at the specified date/time and scope",
+        "description": "List the set of configuration recipes at the specified date/time and scope. Note this only returns recipes stored directly and does not include any recipes expanded from recipe composers.",
         "operationId": "ListConfigurationRecipes",
         "parameters": [
           {
@@ -82360,10 +82360,11 @@
                   "GroupByStep",
                   "GroupFilterStep",
                   "BranchStep",
-                  "RecombineStep"
+                  "RecombineStep",
+                  "CheckStep"
                 ],
                 "type": "string",
-                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep"
               }
             }
           }
@@ -83435,6 +83436,55 @@
         "additionalProperties": false,
         "description": "Information about a change to a field / property.\r\nAt least one of 'PreviousValue' or 'NewValue' will be set."
       },
+      "CheckStep": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplianceStep"
+          },
+          {
+            "required": [
+              "complianceStepType",
+              "label",
+              "limitCheckParameters",
+              "warningCheckParameters"
+            ],
+            "type": "object",
+            "properties": {
+              "label": {
+                "minLength": 1,
+                "type": "string",
+                "description": "The label of the compliance step"
+              },
+              "limitCheckParameters": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ComplianceTemplateParameter"
+                },
+                "description": "Parameters required for an absolute limit check"
+              },
+              "warningCheckParameters": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ComplianceTemplateParameter"
+                },
+                "description": "Parameters required for a warning limit check"
+              },
+              "complianceStepType": {
+                "enum": [
+                  "FilterStep",
+                  "GroupByStep",
+                  "GroupFilterStep",
+                  "BranchStep",
+                  "RecombineStep",
+                  "CheckStep"
+                ],
+                "type": "string",
+                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep"
+              }
+            }
+          }
+        ]
+      },
       "CloseEvent": {
         "allOf": [
           {
@@ -84138,10 +84188,11 @@
               "GroupByStep",
               "GroupFilterStep",
               "BranchStep",
-              "RecombineStep"
+              "RecombineStep",
+              "CheckStep"
             ],
             "type": "string",
-            "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+            "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep"
           }
         },
         "additionalProperties": false,
@@ -89637,10 +89688,11 @@
                   "GroupByStep",
                   "GroupFilterStep",
                   "BranchStep",
-                  "RecombineStep"
+                  "RecombineStep",
+                  "CheckStep"
                 ],
                 "type": "string",
-                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep"
               }
             }
           }
@@ -90581,7 +90633,7 @@
               },
               "bookedAsSpot": {
                 "type": "boolean",
-                "description": "Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.\r\nFor information purposes only, this is not used by LUSID and does not impact any valuation, analytics, cashflows or events."
+                "description": "Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.\r\nFor information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors."
               },
               "instrumentType": {
                 "enum": [
@@ -92030,10 +92082,11 @@
                   "GroupByStep",
                   "GroupFilterStep",
                   "BranchStep",
-                  "RecombineStep"
+                  "RecombineStep",
+                  "CheckStep"
                 ],
                 "type": "string",
-                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep"
               }
             }
           }
@@ -92124,10 +92177,11 @@
                   "GroupByStep",
                   "GroupFilterStep",
                   "BranchStep",
-                  "RecombineStep"
+                  "RecombineStep",
+                  "CheckStep"
                 ],
                 "type": "string",
-                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep"
               }
             }
           }
@@ -100455,10 +100509,11 @@
                   "GroupByStep",
                   "GroupFilterStep",
                   "BranchStep",
-                  "RecombineStep"
+                  "RecombineStep",
+                  "CheckStep"
                 ],
                 "type": "string",
-                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep"
+                "description": ". The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep"
               }
             }
           }
@@ -107928,7 +107983,7 @@
     },
     {
       "name": "Configuration Recipe",
-      "description": "Methods for the storage and retrieval of Configuration Recipe documents. Read more about these in the LUSID Knowledge Base here https://support.lusid.com/what-is-a-lusid-recipe-and-how-is-it-used."
+      "description": "Methods for the storage and retrieval of Configuration Recipe and Composer documents. Read more about these in the LUSID Knowledge Base here https://support.lusid.com/what-is-a-lusid-recipe-and-how-is-it-used."
     },
     {
       "name": "Conventions",
@@ -108041,10 +108096,6 @@
     {
       "name": "Quotes",
       "description": "Methods for the storage and retrieval of Quotes. Read more about Quotes in the LUSID Knowledge Base here https://support.lusid.com/what-is-a-quote."
-    },
-    {
-      "name": "Recipe Composer",
-      "description": "Methods for the storage, retrieval and resolving of Recipe Composers."
     },
     {
       "name": "Reconciliations",
@@ -108166,7 +108217,6 @@
       "Portfolios",
       "Property Definitions",
       "Quotes",
-      "Recipe Composer",
       "Reconciliations",
       "Reference Portfolio",
       "ReferenceLists",

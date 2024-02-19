@@ -102,6 +102,8 @@ export * from './cdsProtectionDetailSpecification';
 export * from './change';
 export * from './changeHistory';
 export * from './changeItem';
+export * from './checkStep';
+export * from './checkStepAllOf';
 export * from './closeEvent';
 export * from './closeEventAllOf';
 export * from './completePortfolio';
@@ -314,7 +316,6 @@ export * from './groupBySelectorComplianceParameter';
 export * from './groupByStep';
 export * from './groupFilterPredicateComplianceParameter';
 export * from './groupFilterStep';
-export * from './groupFilterStepAllOf';
 export * from './groupOfMarketDataKeyRules';
 export * from './holdingAdjustment';
 export * from './holdingAdjustmentWithDate';
@@ -871,6 +872,8 @@ import { CdsProtectionDetailSpecification } from './cdsProtectionDetailSpecifica
 import { Change } from './change';
 import { ChangeHistory } from './changeHistory';
 import { ChangeItem } from './changeItem';
+import { CheckStep } from './checkStep';
+import { CheckStepAllOf } from './checkStepAllOf';
 import { CloseEvent } from './closeEvent';
 import { CloseEventAllOf } from './closeEventAllOf';
 import { CompletePortfolio } from './completePortfolio';
@@ -1083,7 +1086,6 @@ import { GroupBySelectorComplianceParameter } from './groupBySelectorComplianceP
 import { GroupByStep } from './groupByStep';
 import { GroupFilterPredicateComplianceParameter } from './groupFilterPredicateComplianceParameter';
 import { GroupFilterStep } from './groupFilterStep';
-import { GroupFilterStepAllOf } from './groupFilterStepAllOf';
 import { GroupOfMarketDataKeyRules } from './groupOfMarketDataKeyRules';
 import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingAdjustmentWithDate } from './holdingAdjustmentWithDate';
@@ -1587,6 +1589,8 @@ let enumsMap: {[index: string]: any} = {
         "CdsIndex.InstrumentTypeEnum": CdsIndex.InstrumentTypeEnum,
         "CdsIndexAllOf.InstrumentTypeEnum": CdsIndexAllOf.InstrumentTypeEnum,
         "ChangeHistory.ActionEnum": ChangeHistory.ActionEnum,
+        "CheckStep.ComplianceStepTypeEnum": CheckStep.ComplianceStepTypeEnum,
+        "CheckStepAllOf.ComplianceStepTypeEnum": CheckStepAllOf.ComplianceStepTypeEnum,
         "CloseEvent.InstrumentEventTypeEnum": CloseEvent.InstrumentEventTypeEnum,
         "CloseEventAllOf.InstrumentEventTypeEnum": CloseEventAllOf.InstrumentEventTypeEnum,
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
@@ -1714,7 +1718,6 @@ let enumsMap: {[index: string]: any} = {
         "GroupByStep.ComplianceStepTypeEnum": GroupByStep.ComplianceStepTypeEnum,
         "GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum": GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum,
         "GroupFilterStep.ComplianceStepTypeEnum": GroupFilterStep.ComplianceStepTypeEnum,
-        "GroupFilterStepAllOf.ComplianceStepTypeEnum": GroupFilterStepAllOf.ComplianceStepTypeEnum,
         "HoldingsAdjustment.UnmatchedHoldingMethodEnum": HoldingsAdjustment.UnmatchedHoldingMethodEnum,
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
@@ -1992,6 +1995,8 @@ let typeMap: {[index: string]: any} = {
     "Change": Change,
     "ChangeHistory": ChangeHistory,
     "ChangeItem": ChangeItem,
+    "CheckStep": CheckStep,
+    "CheckStepAllOf": CheckStepAllOf,
     "CloseEvent": CloseEvent,
     "CloseEventAllOf": CloseEventAllOf,
     "CompletePortfolio": CompletePortfolio,
@@ -2203,7 +2208,6 @@ let typeMap: {[index: string]: any} = {
     "GroupByStep": GroupByStep,
     "GroupFilterPredicateComplianceParameter": GroupFilterPredicateComplianceParameter,
     "GroupFilterStep": GroupFilterStep,
-    "GroupFilterStepAllOf": GroupFilterStepAllOf,
     "GroupOfMarketDataKeyRules": GroupOfMarketDataKeyRules,
     "HoldingAdjustment": HoldingAdjustment,
     "HoldingAdjustmentWithDate": HoldingAdjustmentWithDate,
