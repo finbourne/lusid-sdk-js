@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.213",
+    "version": "2.0.215",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -10294,18 +10294,6 @@
                                   "type": "addressKey"
                                 }
                               ],
-                              "warningCheckParameters": [
-                                {
-                                  "name": "Param1Name",
-                                  "description": "Parameter 1 Description",
-                                  "type": "string"
-                                },
-                                {
-                                  "name": "Param2Name",
-                                  "description": "Parameter 2 Description",
-                                  "type": "addressKey"
-                                }
-                              ],
                               "complianceStepType": "GroupFilterStep"
                             }
                           ]
@@ -10432,18 +10420,6 @@
                                   "type": "addressKey"
                                 }
                               ],
-                              "warningCheckParameters": [
-                                {
-                                  "name": "Param1Name",
-                                  "description": "Parameter 1 Description",
-                                  "type": "string"
-                                },
-                                {
-                                  "name": "Param2Name",
-                                  "description": "Parameter 2 Description",
-                                  "type": "addressKey"
-                                }
-                              ],
                               "complianceStepType": "GroupFilterStep"
                             }
                           ]
@@ -10559,18 +10535,6 @@
                             {
                               "label": "Compare",
                               "limitCheckParameters": [
-                                {
-                                  "name": "Param1Name",
-                                  "description": "Parameter 1 Description",
-                                  "type": "string"
-                                },
-                                {
-                                  "name": "Param2Name",
-                                  "description": "Parameter 2 Description",
-                                  "type": "addressKey"
-                                }
-                              ],
-                              "warningCheckParameters": [
                                 {
                                   "name": "Param1Name",
                                   "description": "Parameter 1 Description",
@@ -10795,18 +10759,6 @@
                               "type": "addressKey"
                             }
                           ],
-                          "warningCheckParameters": [
-                            {
-                              "name": "Param1Name",
-                              "description": "Parameter 1 Description",
-                              "type": "string"
-                            },
-                            {
-                              "name": "Param2Name",
-                              "description": "Parameter 2 Description",
-                              "type": "addressKey"
-                            }
-                          ],
                           "complianceStepType": "GroupFilterStep"
                         }
                       ]
@@ -10927,18 +10879,6 @@
                               "type": "addressKey"
                             }
                           ],
-                          "warningCheckParameters": [
-                            {
-                              "name": "Param1Name",
-                              "description": "Parameter 1 Description",
-                              "type": "string"
-                            },
-                            {
-                              "name": "Param2Name",
-                              "description": "Parameter 2 Description",
-                              "type": "addressKey"
-                            }
-                          ],
                           "complianceStepType": "GroupFilterStep"
                         }
                       ]
@@ -11048,18 +10988,6 @@
                         {
                           "label": "Compare",
                           "limitCheckParameters": [
-                            {
-                              "name": "Param1Name",
-                              "description": "Parameter 1 Description",
-                              "type": "string"
-                            },
-                            {
-                              "name": "Param2Name",
-                              "description": "Parameter 2 Description",
-                              "type": "addressKey"
-                            }
-                          ],
-                          "warningCheckParameters": [
                             {
                               "name": "Param1Name",
                               "description": "Parameter 1 Description",
