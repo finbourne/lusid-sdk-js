@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.215",
+    "version": "2.0.219",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -103685,8 +103685,7 @@
       },
       "SecurityElection": {
         "required": [
-          "electionKey",
-          "price"
+          "electionKey"
         ],
         "type": "object",
         "properties": {
@@ -103705,8 +103704,9 @@
           },
           "price": {
             "type": "number",
-            "description": "Price per unit of the security. At least one of UnitsRatio or Price must be provided.",
-            "format": "double"
+            "description": "Price per unit of the security. At least one of UnitsRatio or Price must be provided.\r\nPrice must non-zero.",
+            "format": "double",
+            "nullable": true
           },
           "unitsRatio": {
             "$ref": "#/components/schemas/UnitsRatio"
@@ -105701,7 +105701,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "todo: what even is this"
+        "description": "The number of units you have after the event (output) for a given number of units you have prior to the event (input)."
       },
       "UpdateCalendarRequest": {
         "required": [
