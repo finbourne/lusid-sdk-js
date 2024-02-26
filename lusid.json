@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.228",
+    "version": "2.0.229",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -30867,7 +30867,7 @@
                       ]
                     }
                   ],
-                  "href": "https://myco.lusid.com/api/api/ordermanagement/createordersforneworexistingblock",
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/createorders",
                   "links": []
                 }
               },
@@ -30972,7 +30972,7 @@
                       ]
                     }
                   ],
-                  "href": "https://myco.lusid.com/api/api/ordermanagement/createordersforneworexistingblock",
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/createorders",
                   "links": []
                 }
               },
@@ -31077,7 +31077,382 @@
                       ]
                     }
                   ],
-                  "href": "https://myco.lusid.com/api/api/ordermanagement/createordersforneworexistingblock",
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/createorders",
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/ordermanagement/moveorders": {
+      "post": {
+        "tags": [
+          "Order Management"
+        ],
+        "summary": "[EARLY ACCESS] MoveOrders: Move orders to new or existing block",
+        "description": "Move an order to a block, creating the block if it does not already exist. \r\nThis will fail if the block exists and already references orders with differing fields to the upsert request.",
+        "operationId": "MoveOrders",
+        "requestBody": {
+          "description": "The collection of order and destination block ids.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveOrdersToDifferentBlocksRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "destinationBlockId": {
+                      "scope": "MyScope",
+                      "code": "BLOCK00000123"
+                    },
+                    "orderId": {
+                      "scope": "MyScope",
+                      "code": "ORDER00000123"
+                    }
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveOrdersToDifferentBlocksRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "destinationBlockId": {
+                      "scope": "MyScope",
+                      "code": "BLOCK00000123"
+                    },
+                    "orderId": {
+                      "scope": "MyScope",
+                      "code": "ORDER00000123"
+                    }
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveOrdersToDifferentBlocksRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "destinationBlockId": {
+                      "scope": "MyScope",
+                      "code": "BLOCK00000123"
+                    },
+                    "orderId": {
+                      "scope": "MyScope",
+                      "code": "ORDER00000123"
+                    }
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveOrdersToDifferentBlocksRequest"
+              },
+              "example": {
+                "requests": [
+                  {
+                    "destinationBlockId": {
+                      "scope": "MyScope",
+                      "code": "BLOCK00000123"
+                    },
+                    "orderId": {
+                      "scope": "MyScope",
+                      "code": "ORDER00000123"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A collection of block and order pairs for each order moved into a block, and the Id of the order's previous block (if any).",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfMovedOrderToDifferentBlockResponse"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "destinationBlock": {
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "BLOCK00000123"
+                        },
+                        "orderIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "ORDER00000123"
+                          },
+                          {
+                            "scope": "MyScope",
+                            "code": "ORDER00000124"
+                          }
+                        ],
+                        "properties": {
+                          "Block/MyScope/SomeOrderProperty": {
+                            "key": "Block/MyScope/SomeOrderProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "quantity": 250,
+                        "side": "Buy",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "createdDate": "1999-06-05T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 534,
+                          "currency": "USD"
+                        }
+                      },
+                      "order": {
+                        "properties": {
+                          "Order/MyScope/SomeOrderProperty": {
+                            "key": "Order/MyScope/SomeOrderProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "quantity": 100,
+                        "side": "Buy",
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "ORDER00000123"
+                        },
+                        "state": "New",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "date": "0001-01-01T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 534,
+                          "currency": "USD"
+                        }
+                      },
+                      "sourceBlockId": {
+                        "scope": "MyScope",
+                        "code": "BLOCK00000122"
+                      }
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/moveorders",
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfMovedOrderToDifferentBlockResponse"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "destinationBlock": {
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "BLOCK00000123"
+                        },
+                        "orderIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "ORDER00000123"
+                          },
+                          {
+                            "scope": "MyScope",
+                            "code": "ORDER00000124"
+                          }
+                        ],
+                        "properties": {
+                          "Block/MyScope/SomeOrderProperty": {
+                            "key": "Block/MyScope/SomeOrderProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "quantity": 250,
+                        "side": "Buy",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "createdDate": "1999-06-05T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 534,
+                          "currency": "USD"
+                        }
+                      },
+                      "order": {
+                        "properties": {
+                          "Order/MyScope/SomeOrderProperty": {
+                            "key": "Order/MyScope/SomeOrderProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "quantity": 100,
+                        "side": "Buy",
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "ORDER00000123"
+                        },
+                        "state": "New",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "date": "0001-01-01T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 534,
+                          "currency": "USD"
+                        }
+                      },
+                      "sourceBlockId": {
+                        "scope": "MyScope",
+                        "code": "BLOCK00000122"
+                      }
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/moveorders",
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfMovedOrderToDifferentBlockResponse"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "destinationBlock": {
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "BLOCK00000123"
+                        },
+                        "orderIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "ORDER00000123"
+                          },
+                          {
+                            "scope": "MyScope",
+                            "code": "ORDER00000124"
+                          }
+                        ],
+                        "properties": {
+                          "Block/MyScope/SomeOrderProperty": {
+                            "key": "Block/MyScope/SomeOrderProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "quantity": 250,
+                        "side": "Buy",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "createdDate": "1999-06-05T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 534,
+                          "currency": "USD"
+                        }
+                      },
+                      "order": {
+                        "properties": {
+                          "Order/MyScope/SomeOrderProperty": {
+                            "key": "Order/MyScope/SomeOrderProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "quantity": 100,
+                        "side": "Buy",
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "ORDER00000123"
+                        },
+                        "state": "New",
+                        "type": "Limit",
+                        "timeInForce": "GoodTilCancel",
+                        "date": "0001-01-01T00:00:00.0000000+00:00",
+                        "limitPrice": {
+                          "amount": 534,
+                          "currency": "USD"
+                        }
+                      },
+                      "sourceBlockId": {
+                        "scope": "MyScope",
+                        "code": "BLOCK00000122"
+                      }
+                    }
+                  ],
+                  "href": "https://myco.lusid.com/api/api/ordermanagement/moveorders",
                   "links": []
                 }
               }
@@ -81615,6 +81990,22 @@
         "additionalProperties": false,
         "description": "A block of orders for the same instrument, intended to record for example a trader's aggregation\r\nof outstanding orders at a given time."
       },
+      "BlockAndOrderIdRequest": {
+        "required": [
+          "destinationBlockId",
+          "orderId"
+        ],
+        "type": "object",
+        "properties": {
+          "destinationBlockId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "orderId": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
       "BlockAndOrders": {
         "required": [
           "block",
@@ -95544,6 +95935,39 @@
         "additionalProperties": false,
         "description": "The combination of a library to use and a model in that library that defines which pricing code will evaluate instruments\r\nhaving a particular type/class. This allows us to control the model type and library for a given instrument."
       },
+      "MovedOrderToDifferentBlockResponse": {
+        "type": "object",
+        "properties": {
+          "destinationBlock": {
+            "$ref": "#/components/schemas/Block"
+          },
+          "order": {
+            "$ref": "#/components/schemas/Order"
+          },
+          "sourceBlockId": {
+            "$ref": "#/components/schemas/ResourceId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MoveOrdersToDifferentBlocksRequest": {
+        "required": [
+          "requests"
+        ],
+        "type": "object",
+        "properties": {
+          "requests": {
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BlockAndOrderIdRequest"
+            },
+            "description": "A collection of BlockAndOrderId."
+          }
+        },
+        "additionalProperties": false
+      },
       "NextValueInSequenceResponse": {
         "required": [
           "values"
@@ -102320,6 +102744,41 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Mapping"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResourceListOfMovedOrderToDifferentBlockResponse": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MovedOrderToDifferentBlockResponse"
             }
           },
           "href": {
