@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.229",
+    "version": "2.0.230",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -81429,7 +81429,6 @@
             "required": [
               "amountReduced",
               "domCcy",
-              "eventStatus",
               "instrumentEventType",
               "paymentDate",
               "payReceive"
@@ -81449,11 +81448,6 @@
                 "minLength": 1,
                 "type": "string",
                 "description": "Is this event in relation to the Pay or Receive leg"
-              },
-              "eventStatus": {
-                "minLength": 1,
-                "type": "string",
-                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
               },
               "paymentDate": {
                 "type": "string",
@@ -83100,7 +83094,6 @@
           {
             "required": [
               "cashFlowValue",
-              "eventStatus",
               "eventType",
               "instrumentEventType"
             ],
@@ -83114,11 +83107,6 @@
                 "type": "string",
                 "description": "What type of internal event does this represent; coupon, principal, premium etc.",
                 "readOnly": true
-              },
-              "eventStatus": {
-                "minLength": 1,
-                "type": "string",
-                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
               },
               "instrumentEventType": {
                 "enum": [
@@ -89644,7 +89632,6 @@
           {
             "required": [
               "anchorDate",
-              "eventStatus",
               "instrument",
               "instrumentEventType"
             ],
@@ -89652,11 +89639,6 @@
             "properties": {
               "instrument": {
                 "$ref": "#/components/schemas/LusidInstrument"
-              },
-              "eventStatus": {
-                "minLength": 1,
-                "type": "string",
-                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
               },
               "anchorDate": {
                 "type": "string",
@@ -93529,7 +93511,6 @@
           {
             "required": [
               "anchorDate",
-              "eventStatus",
               "eventType",
               "instrumentEventType"
             ],
@@ -93540,11 +93521,6 @@
                 "type": "string",
                 "description": "What type of internal event does this represent; reset, exercise, amortisation etc.",
                 "readOnly": true
-              },
-              "eventStatus": {
-                "minLength": 1,
-                "type": "string",
-                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
               },
               "anchorDate": {
                 "type": "string",
@@ -100714,7 +100690,6 @@
           {
             "required": [
               "effectiveAt",
-              "eventStatus",
               "eventType",
               "eventValue",
               "instrumentEventType"
@@ -100733,11 +100708,6 @@
                 "minLength": 1,
                 "type": "string",
                 "description": "What type of internal event does this represent; reset, exercise, amortisation etc."
-              },
-              "eventStatus": {
-                "minLength": 1,
-                "type": "string",
-                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
               },
               "instrumentEventType": {
                 "enum": [
@@ -101908,7 +101878,6 @@
           },
           {
             "required": [
-              "eventStatus",
               "fixingDate",
               "instrumentEventType",
               "resetType"
@@ -101930,11 +101899,6 @@
                 "type": "string",
                 "description": "Fixing identification source, if available.",
                 "nullable": true
-              },
-              "eventStatus": {
-                "minLength": 1,
-                "type": "string",
-                "description": "What is the event status, is it a known (ie historic) or unknown (ie projected) event?"
               },
               "fixingDate": {
                 "type": "string",
