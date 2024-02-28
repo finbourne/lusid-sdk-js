@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.232",
+    "version": "2.0.233",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -64902,6 +64902,286 @@
         "x-fbn-apistatus": "Stable"
       }
     },
+    "/api/transactionportfolios/{scope}/{code}/$batchtradetickets": {
+      "post": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets",
+        "description": "Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally\r\na transaction that makes use of the two.",
+        "operationId": "BatchCreateTradeTickets",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n            the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "the trade tickets to create",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LusidTradeTicket"
+                }
+              },
+              "example": [
+                {
+                  "transactionId": "TradeTicket-1111111",
+                  "transactionType": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "Instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "bookedAsSpot": false,
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
+                }
+              ]
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LusidTradeTicket"
+                }
+              },
+              "example": [
+                {
+                  "transactionId": "TradeTicket-1111111",
+                  "transactionType": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "Instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "bookedAsSpot": false,
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
+                }
+              ]
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LusidTradeTicket"
+                }
+              },
+              "example": [
+                {
+                  "transactionId": "TradeTicket-1111111",
+                  "transactionType": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "Instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "bookedAsSpot": false,
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
+                }
+              ]
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LusidTradeTicket"
+                }
+              },
+              "example": [
+                {
+                  "transactionId": "TradeTicket-1111111",
+                  "transactionType": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "Instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "bookedAsSpot": false,
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
+                }
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The successfully created trade ticket requests along with any failures",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTradeTicketsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTradeTicketsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTradeTicketsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
     "/api/transactionportfolios/{scope}/{code}/$resolve": {
       "post": {
         "tags": [
@@ -65101,6 +65381,370 @@
                       }
                     ]
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/transactionportfolios/{scope}/{code}/$tradeticket": {
+      "post": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EARLY ACCESS] CreateTradeTicket: Create Trade Ticket",
+        "description": "Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally\r\na transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users\r\nwith OTC systems than flow and equity trading ones.",
+        "operationId": "CreateTradeTicket",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n            the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "the trade ticket to upsert",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LusidTradeTicket"
+              },
+              "example": {
+                "transactionId": "TradeTicket-1111111",
+                "transactionType": "OpenTradeTicket",
+                "source": "default",
+                "transactionDate": "2020-01-01T09:00:00.00Z",
+                "settlementDate": "2020-01-01T09:00:00.00Z",
+                "totalConsideration": {
+                  "amount": 1020000,
+                  "currency": "GBP"
+                },
+                "units": 1000000,
+                "instrumentIdentifiers": {
+                  "Instrument/default/ClientInternal": "my-bond"
+                },
+                "instrumentScope": "myScope",
+                "instrumentName": "my_bond",
+                "instrumentDefinition": {
+                  "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                  "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                  "domAmount": 1,
+                  "domCcy": "GBP",
+                  "fgnAmount": -1.5,
+                  "fgnCcy": "USD",
+                  "refSpotRate": 1.5,
+                  "isNdf": false,
+                  "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                  "bookedAsSpot": false,
+                  "instrumentType": "FxForward"
+                },
+                "counterpartyAgreementId": {
+                  "scope": "demoScope",
+                  "code": "myCounterparty"
+                },
+                "tradeTicketType": "LusidTradeTicket"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LusidTradeTicket"
+              },
+              "example": {
+                "transactionId": "TradeTicket-1111111",
+                "transactionType": "OpenTradeTicket",
+                "source": "default",
+                "transactionDate": "2020-01-01T09:00:00.00Z",
+                "settlementDate": "2020-01-01T09:00:00.00Z",
+                "totalConsideration": {
+                  "amount": 1020000,
+                  "currency": "GBP"
+                },
+                "units": 1000000,
+                "instrumentIdentifiers": {
+                  "Instrument/default/ClientInternal": "my-bond"
+                },
+                "instrumentScope": "myScope",
+                "instrumentName": "my_bond",
+                "instrumentDefinition": {
+                  "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                  "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                  "domAmount": 1,
+                  "domCcy": "GBP",
+                  "fgnAmount": -1.5,
+                  "fgnCcy": "USD",
+                  "refSpotRate": 1.5,
+                  "isNdf": false,
+                  "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                  "bookedAsSpot": false,
+                  "instrumentType": "FxForward"
+                },
+                "counterpartyAgreementId": {
+                  "scope": "demoScope",
+                  "code": "myCounterparty"
+                },
+                "tradeTicketType": "LusidTradeTicket"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LusidTradeTicket"
+              },
+              "example": {
+                "transactionId": "TradeTicket-1111111",
+                "transactionType": "OpenTradeTicket",
+                "source": "default",
+                "transactionDate": "2020-01-01T09:00:00.00Z",
+                "settlementDate": "2020-01-01T09:00:00.00Z",
+                "totalConsideration": {
+                  "amount": 1020000,
+                  "currency": "GBP"
+                },
+                "units": 1000000,
+                "instrumentIdentifiers": {
+                  "Instrument/default/ClientInternal": "my-bond"
+                },
+                "instrumentScope": "myScope",
+                "instrumentName": "my_bond",
+                "instrumentDefinition": {
+                  "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                  "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                  "domAmount": 1,
+                  "domCcy": "GBP",
+                  "fgnAmount": -1.5,
+                  "fgnCcy": "USD",
+                  "refSpotRate": 1.5,
+                  "isNdf": false,
+                  "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                  "bookedAsSpot": false,
+                  "instrumentType": "FxForward"
+                },
+                "counterpartyAgreementId": {
+                  "scope": "demoScope",
+                  "code": "myCounterparty"
+                },
+                "tradeTicketType": "LusidTradeTicket"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LusidTradeTicket"
+              },
+              "example": {
+                "transactionId": "TradeTicket-1111111",
+                "transactionType": "OpenTradeTicket",
+                "source": "default",
+                "transactionDate": "2020-01-01T09:00:00.00Z",
+                "settlementDate": "2020-01-01T09:00:00.00Z",
+                "totalConsideration": {
+                  "amount": 1020000,
+                  "currency": "GBP"
+                },
+                "units": 1000000,
+                "instrumentIdentifiers": {
+                  "Instrument/default/ClientInternal": "my-bond"
+                },
+                "instrumentScope": "myScope",
+                "instrumentName": "my_bond",
+                "instrumentDefinition": {
+                  "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                  "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                  "domAmount": 1,
+                  "domCcy": "GBP",
+                  "fgnAmount": -1.5,
+                  "fgnCcy": "USD",
+                  "refSpotRate": 1.5,
+                  "isNdf": false,
+                  "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                  "bookedAsSpot": false,
+                  "instrumentType": "FxForward"
+                },
+                "counterpartyAgreementId": {
+                  "scope": "demoScope",
+                  "code": "myCounterparty"
+                },
+                "tradeTicketType": "LusidTradeTicket"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The created trade ticket, possibly populated with created LUID and identifiers if missing on the request.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidTradeTicket"
+                },
+                "example": {
+                  "transactionId": "TradeTicket-1111111",
+                  "transactionType": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "Instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "bookedAsSpot": false,
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidTradeTicket"
+                },
+                "example": {
+                  "transactionId": "TradeTicket-1111111",
+                  "transactionType": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "Instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "bookedAsSpot": false,
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidTradeTicket"
+                },
+                "example": {
+                  "transactionId": "TradeTicket-1111111",
+                  "transactionType": "OpenTradeTicket",
+                  "source": "default",
+                  "transactionDate": "2020-01-01T09:00:00.00Z",
+                  "settlementDate": "2020-01-01T09:00:00.00Z",
+                  "totalConsideration": {
+                    "amount": 1020000,
+                    "currency": "GBP"
+                  },
+                  "units": 1000000,
+                  "instrumentIdentifiers": {
+                    "Instrument/default/ClientInternal": "my-bond"
+                  },
+                  "instrumentScope": "myScope",
+                  "instrumentName": "my_bond",
+                  "instrumentDefinition": {
+                    "startDate": "2018-01-01T00:00:00.0000000+00:00",
+                    "maturityDate": "2019-01-01T00:00:00.0000000+00:00",
+                    "domAmount": 1,
+                    "domCcy": "GBP",
+                    "fgnAmount": -1.5,
+                    "fgnCcy": "USD",
+                    "refSpotRate": 1.5,
+                    "isNdf": false,
+                    "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
+                    "bookedAsSpot": false,
+                    "instrumentType": "FxForward"
+                  },
+                  "counterpartyAgreementId": {
+                    "scope": "demoScope",
+                    "code": "myCounterparty"
+                  },
+                  "tradeTicketType": "LusidTradeTicket"
                 }
               }
             }
@@ -86399,6 +87043,29 @@
         },
         "additionalProperties": false
       },
+      "CreateTradeTicketsResponse": {
+        "required": [
+          "failures",
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LusidTradeTicket"
+            }
+          },
+          "failures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "Batch trade ticket creation response"
+      },
       "CreateTransactionPortfolioRequest": {
         "required": [
           "baseCurrency",
@@ -95203,6 +95870,112 @@
           }
         },
         "additionalProperties": false
+      },
+      "LusidTradeTicket": {
+        "required": [
+          "instrumentIdentifiers",
+          "settlementDate",
+          "totalConsideration",
+          "tradeTicketType",
+          "transactionDate",
+          "transactionId",
+          "transactionType",
+          "units"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "Transaction ID. Must be unique."
+          },
+          "transactionType": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "Type of transaction for processing. Referenced by Transaction Configuration."
+          },
+          "source": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "Transaction Source. Referenced by Transaction Configuration.",
+            "nullable": true
+          },
+          "transactionDate": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Transaction Date. Date at which transaction is known."
+          },
+          "settlementDate": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Transaction settlement. Date at which transaction is finalised and realised into the system."
+          },
+          "totalConsideration": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "units": {
+            "type": "number",
+            "description": "Number of units in the transaction. For an OTC this is somewhat interchangeable with the quantity booked in the\r\ninstrument. As M x N or N x M are equivalent it is advised a client chooses one approach and sticks to it.\r\nArguably either the unit or holding is best unitised.",
+            "format": "double"
+          },
+          "instrumentIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Identifiers for the instrument."
+          },
+          "instrumentScope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "Scope of instrument",
+            "nullable": true
+          },
+          "instrumentName": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "Name of instrument",
+            "nullable": true
+          },
+          "instrumentDefinition": {
+            "$ref": "#/components/schemas/LusidInstrument"
+          },
+          "counterpartyAgreementId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "instrumentProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "Set of instrument properties (as defined by client/user).",
+            "nullable": true
+          },
+          "transactionProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "Set of transaction properties (as defined by client/user).",
+            "nullable": true
+          },
+          "tradeTicketType": {
+            "enum": [
+              "LusidTradeTicket",
+              "ExternalTradeTicket"
+            ],
+            "type": "string",
+            "description": "The available values are: LusidTradeTicket, ExternalTradeTicket"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A LUSID Trade Ticket comprising an instrument, a transaction, and a counterparty."
       },
       "LusidUniqueId": {
         "required": [

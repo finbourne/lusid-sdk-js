@@ -164,6 +164,7 @@ export * from './createReferencePortfolioRequest';
 export * from './createRelationshipDefinitionRequest';
 export * from './createRelationshipRequest';
 export * from './createSequenceRequest';
+export * from './createTradeTicketsResponse';
 export * from './createTransactionPortfolioRequest';
 export * from './createUnitDefinition';
 export * from './creditDefaultSwap';
@@ -391,6 +392,7 @@ export * from './lookUpPricingModelOptions';
 export * from './lookUpPricingModelOptionsAllOf';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
+export * from './lusidTradeTicket';
 export * from './lusidUniqueId';
 export * from './lusidValidationProblemDetails';
 export * from './mappedString';
@@ -938,6 +940,7 @@ import { CreateReferencePortfolioRequest } from './createReferencePortfolioReque
 import { CreateRelationshipDefinitionRequest } from './createRelationshipDefinitionRequest';
 import { CreateRelationshipRequest } from './createRelationshipRequest';
 import { CreateSequenceRequest } from './createSequenceRequest';
+import { CreateTradeTicketsResponse } from './createTradeTicketsResponse';
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
 import { CreateUnitDefinition } from './createUnitDefinition';
 import { CreditDefaultSwap } from './creditDefaultSwap';
@@ -1165,6 +1168,7 @@ import { LookUpPricingModelOptions } from './lookUpPricingModelOptions';
 import { LookUpPricingModelOptionsAllOf } from './lookUpPricingModelOptionsAllOf';
 import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
+import { LusidTradeTicket } from './lusidTradeTicket';
 import { LusidUniqueId } from './lusidUniqueId';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MappedString } from './mappedString';
@@ -1768,6 +1772,7 @@ let enumsMap: {[index: string]: any} = {
         "LookUpPricingModelOptions.ModelOptionsTypeEnum": LookUpPricingModelOptions.ModelOptionsTypeEnum,
         "LookUpPricingModelOptionsAllOf.ModelOptionsTypeEnum": LookUpPricingModelOptionsAllOf.ModelOptionsTypeEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
+        "LusidTradeTicket.TradeTicketTypeEnum": LusidTradeTicket.TradeTicketTypeEnum,
         "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
         "MarketDataOptions.MarketDataOptionsTypeEnum": MarketDataOptions.MarketDataOptionsTypeEnum,
         "MarketDataSpecificRule.QuoteTypeEnum": MarketDataSpecificRule.QuoteTypeEnum,
@@ -2065,6 +2070,7 @@ let typeMap: {[index: string]: any} = {
     "CreateRelationshipDefinitionRequest": CreateRelationshipDefinitionRequest,
     "CreateRelationshipRequest": CreateRelationshipRequest,
     "CreateSequenceRequest": CreateSequenceRequest,
+    "CreateTradeTicketsResponse": CreateTradeTicketsResponse,
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
     "CreateUnitDefinition": CreateUnitDefinition,
     "CreditDefaultSwap": CreditDefaultSwap,
@@ -2291,6 +2297,7 @@ let typeMap: {[index: string]: any} = {
     "LookUpPricingModelOptionsAllOf": LookUpPricingModelOptionsAllOf,
     "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
+    "LusidTradeTicket": LusidTradeTicket,
     "LusidUniqueId": LusidUniqueId,
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
     "MappedString": MappedString,
