@@ -610,7 +610,9 @@ export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfRelation';
 export * from './resourceListOfRelationship';
 export * from './resourceListOfScopeDefinition';
+export * from './resourceListOfSideDefinition';
 export * from './resourceListOfString';
+export * from './resourceListOfTransactionType';
 export * from './resourceListOfValueType';
 export * from './responseMetaData';
 export * from './resultDataKeyRule';
@@ -648,6 +650,9 @@ export * from './setLegalEntityPropertiesRequest';
 export * from './setPersonIdentifiersRequest';
 export * from './setPersonPropertiesRequest';
 export * from './sideConfigurationData';
+export * from './sideDefinition';
+export * from './sideDefinitionRequest';
+export * from './sidesDefinitionRequest';
 export * from './simpleCashFlowLoan';
 export * from './simpleCashFlowLoanAllOf';
 export * from './simpleInstrument';
@@ -680,6 +685,12 @@ export * from './transactionQueryParameters';
 export * from './transactionReconciliationRequest';
 export * from './transactionRequest';
 export * from './transactionSetConfigurationData';
+export * from './transactionType';
+export * from './transactionTypeAlias';
+export * from './transactionTypeCalculation';
+export * from './transactionTypeMovement';
+export * from './transactionTypePropertyMapping';
+export * from './transactionTypeRequest';
 export * from './transactionsReconciliationsResponse';
 export * from './transitionEvent';
 export * from './transitionEventAllOf';
@@ -1386,7 +1397,9 @@ import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliatio
 import { ResourceListOfRelation } from './resourceListOfRelation';
 import { ResourceListOfRelationship } from './resourceListOfRelationship';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
+import { ResourceListOfSideDefinition } from './resourceListOfSideDefinition';
 import { ResourceListOfString } from './resourceListOfString';
+import { ResourceListOfTransactionType } from './resourceListOfTransactionType';
 import { ResourceListOfValueType } from './resourceListOfValueType';
 import { ResponseMetaData } from './responseMetaData';
 import { ResultDataKeyRule } from './resultDataKeyRule';
@@ -1424,6 +1437,9 @@ import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesReque
 import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
 import { SetPersonPropertiesRequest } from './setPersonPropertiesRequest';
 import { SideConfigurationData } from './sideConfigurationData';
+import { SideDefinition } from './sideDefinition';
+import { SideDefinitionRequest } from './sideDefinitionRequest';
+import { SidesDefinitionRequest } from './sidesDefinitionRequest';
 import { SimpleCashFlowLoan } from './simpleCashFlowLoan';
 import { SimpleCashFlowLoanAllOf } from './simpleCashFlowLoanAllOf';
 import { SimpleInstrument } from './simpleInstrument';
@@ -1456,6 +1472,12 @@ import { TransactionQueryParameters } from './transactionQueryParameters';
 import { TransactionReconciliationRequest } from './transactionReconciliationRequest';
 import { TransactionRequest } from './transactionRequest';
 import { TransactionSetConfigurationData } from './transactionSetConfigurationData';
+import { TransactionType } from './transactionType';
+import { TransactionTypeAlias } from './transactionTypeAlias';
+import { TransactionTypeCalculation } from './transactionTypeCalculation';
+import { TransactionTypeMovement } from './transactionTypeMovement';
+import { TransactionTypePropertyMapping } from './transactionTypePropertyMapping';
+import { TransactionTypeRequest } from './transactionTypeRequest';
 import { TransactionsReconciliationsResponse } from './transactionsReconciliationsResponse';
 import { TransitionEvent } from './transitionEvent';
 import { TransitionEventAllOf } from './transitionEventAllOf';
@@ -2515,7 +2537,9 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfRelation": ResourceListOfRelation,
     "ResourceListOfRelationship": ResourceListOfRelationship,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
+    "ResourceListOfSideDefinition": ResourceListOfSideDefinition,
     "ResourceListOfString": ResourceListOfString,
+    "ResourceListOfTransactionType": ResourceListOfTransactionType,
     "ResourceListOfValueType": ResourceListOfValueType,
     "ResponseMetaData": ResponseMetaData,
     "ResultDataKeyRule": ResultDataKeyRule,
@@ -2553,6 +2577,9 @@ let typeMap: {[index: string]: any} = {
     "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
     "SetPersonPropertiesRequest": SetPersonPropertiesRequest,
     "SideConfigurationData": SideConfigurationData,
+    "SideDefinition": SideDefinition,
+    "SideDefinitionRequest": SideDefinitionRequest,
+    "SidesDefinitionRequest": SidesDefinitionRequest,
     "SimpleCashFlowLoan": SimpleCashFlowLoan,
     "SimpleCashFlowLoanAllOf": SimpleCashFlowLoanAllOf,
     "SimpleInstrument": SimpleInstrument,
@@ -2585,6 +2612,12 @@ let typeMap: {[index: string]: any} = {
     "TransactionReconciliationRequest": TransactionReconciliationRequest,
     "TransactionRequest": TransactionRequest,
     "TransactionSetConfigurationData": TransactionSetConfigurationData,
+    "TransactionType": TransactionType,
+    "TransactionTypeAlias": TransactionTypeAlias,
+    "TransactionTypeCalculation": TransactionTypeCalculation,
+    "TransactionTypeMovement": TransactionTypeMovement,
+    "TransactionTypePropertyMapping": TransactionTypePropertyMapping,
+    "TransactionTypeRequest": TransactionTypeRequest,
     "TransactionsReconciliationsResponse": TransactionsReconciliationsResponse,
     "TransitionEvent": TransitionEvent,
     "TransitionEventAllOf": TransitionEventAllOf,
