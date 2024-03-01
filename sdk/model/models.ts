@@ -263,6 +263,8 @@ export * from './filterStep';
 export * from './fixedLeg';
 export * from './fixedLegAllOf';
 export * from './fixedLegAllOfOverrides';
+export * from './flexibleLoan';
+export * from './flexibleLoanAllOf';
 export * from './floatingLeg';
 export * from './floatingLegAllOf';
 export * from './flowConventionName';
@@ -1050,6 +1052,8 @@ import { FilterStep } from './filterStep';
 import { FixedLeg } from './fixedLeg';
 import { FixedLegAllOf } from './fixedLegAllOf';
 import { FixedLegAllOfOverrides } from './fixedLegAllOfOverrides';
+import { FlexibleLoan } from './flexibleLoan';
+import { FlexibleLoanAllOf } from './flexibleLoanAllOf';
 import { FloatingLeg } from './floatingLeg';
 import { FloatingLegAllOf } from './floatingLegAllOf';
 import { FlowConventionName } from './flowConventionName';
@@ -1703,6 +1707,8 @@ let enumsMap: {[index: string]: any} = {
         "FilterStep.ComplianceStepTypeEnum": FilterStep.ComplianceStepTypeEnum,
         "FixedLeg.InstrumentTypeEnum": FixedLeg.InstrumentTypeEnum,
         "FixedLegAllOf.InstrumentTypeEnum": FixedLegAllOf.InstrumentTypeEnum,
+        "FlexibleLoan.InstrumentTypeEnum": FlexibleLoan.InstrumentTypeEnum,
+        "FlexibleLoanAllOf.InstrumentTypeEnum": FlexibleLoanAllOf.InstrumentTypeEnum,
         "FloatingLeg.InstrumentTypeEnum": FloatingLeg.InstrumentTypeEnum,
         "FloatingLegAllOf.InstrumentTypeEnum": FloatingLegAllOf.InstrumentTypeEnum,
         "ForwardRateAgreement.InstrumentTypeEnum": ForwardRateAgreement.InstrumentTypeEnum,
@@ -2190,6 +2196,8 @@ let typeMap: {[index: string]: any} = {
     "FixedLeg": FixedLeg,
     "FixedLegAllOf": FixedLegAllOf,
     "FixedLegAllOfOverrides": FixedLegAllOfOverrides,
+    "FlexibleLoan": FlexibleLoan,
+    "FlexibleLoanAllOf": FlexibleLoanAllOf,
     "FloatingLeg": FloatingLeg,
     "FloatingLegAllOf": FloatingLegAllOf,
     "FlowConventionName": FlowConventionName,
