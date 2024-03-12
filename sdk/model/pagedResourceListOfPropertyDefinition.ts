@@ -11,90 +11,47 @@
  */
 
 import { RequestFile } from './models';
-import { PortfolioResultDataKeyRuleAllOf } from './portfolioResultDataKeyRuleAllOf';
-import { ResultKeyRule } from './resultKeyRule';
+import { Link } from './link';
+import { PropertyDefinition } from './propertyDefinition';
 
-export class PortfolioResultDataKeyRule extends ResultKeyRule {
-    /**
-    * the result resource supplier (where the data comes from)
-    */
-    'supplier': string;
-    /**
-    * which is the scope in which the data should be found
-    */
-    'dataScope': string;
-    /**
-    * document code that defines which document is desired
-    */
-    'documentCode': string;
-    /**
-    * Shorthand for the time interval used to select result data. This must be a dot-separated string              specifying a start and end date, for example \'5D.0D\' to look back 5 days from today (0 days ago).
-    */
-    'quoteInterval'?: string | null;
-    /**
-    * The AsAt predicate specification.
-    */
-    'asAt'?: Date | null;
-    'portfolioCode'?: string | null;
-    'portfolioScope'?: string | null;
-    /**
-    * The available values are: Invalid, ResultDataKeyRule, PortfolioResultDataKeyRule
-    */
-    'resultKeyRuleType': PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum;
+export class PagedResourceListOfPropertyDefinition {
+    'nextPage'?: string | null;
+    'previousPage'?: string | null;
+    'values': Array<PropertyDefinition>;
+    'href'?: string | null;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "supplier",
-            "baseName": "supplier",
+            "name": "nextPage",
+            "baseName": "nextPage",
             "type": "string"
         },
         {
-            "name": "dataScope",
-            "baseName": "dataScope",
+            "name": "previousPage",
+            "baseName": "previousPage",
             "type": "string"
         },
         {
-            "name": "documentCode",
-            "baseName": "documentCode",
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<PropertyDefinition>"
+        },
+        {
+            "name": "href",
+            "baseName": "href",
             "type": "string"
         },
         {
-            "name": "quoteInterval",
-            "baseName": "quoteInterval",
-            "type": "string"
-        },
-        {
-            "name": "asAt",
-            "baseName": "asAt",
-            "type": "Date"
-        },
-        {
-            "name": "portfolioCode",
-            "baseName": "portfolioCode",
-            "type": "string"
-        },
-        {
-            "name": "portfolioScope",
-            "baseName": "portfolioScope",
-            "type": "string"
-        },
-        {
-            "name": "resultKeyRuleType",
-            "baseName": "resultKeyRuleType",
-            "type": "PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum"
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(PortfolioResultDataKeyRule.attributeTypeMap);
+        return PagedResourceListOfPropertyDefinition.attributeTypeMap;
     }
 }
 
-export namespace PortfolioResultDataKeyRule {
-    export enum ResultKeyRuleTypeEnum {
-        Invalid = <any> 'Invalid',
-        ResultDataKeyRule = <any> 'ResultDataKeyRule',
-        PortfolioResultDataKeyRule = <any> 'PortfolioResultDataKeyRule'
-    }
-}
