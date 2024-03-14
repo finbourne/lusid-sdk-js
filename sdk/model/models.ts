@@ -390,8 +390,6 @@ export * from './link';
 export * from './listAggregationReconciliation';
 export * from './listAggregationResponse';
 export * from './loanPeriod';
-export * from './lookUpPricingModelOptions';
-export * from './lookUpPricingModelOptionsAllOf';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
 export * from './lusidTradeTicket';
