@@ -28,6 +28,7 @@ import {PlacementsApi} from './api/placementsApi';
 import {PortfolioGroupsApi} from './api/portfolioGroupsApi';
 import {PortfoliosApi} from './api/portfoliosApi';
 import {PropertyDefinitionsApi} from './api/propertyDefinitionsApi';
+import {QueryableKeysApi} from './api/queryableKeysApi';
 import {QuotesApi} from './api/quotesApi';
 import {ReconciliationsApi} from './api/reconciliationsApi';
 import {ReferenceListsApi} from './api/referenceListsApi';
@@ -75,6 +76,7 @@ export class Api {
     public portfolioGroups:  PortfolioGroupsApi
     public portfolios:  PortfoliosApi
     public propertyDefinitions:  PropertyDefinitionsApi
+    public queryableKeys:  QueryableKeysApi
     public quotes:  QuotesApi
     public reconciliations:  ReconciliationsApi
     public referenceLists:  ReferenceListsApi

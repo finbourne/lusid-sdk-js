@@ -531,6 +531,7 @@ export * from './propertyKeyComplianceParameterAllOf';
 export * from './propertyKeyListComplianceParameter';
 export * from './propertySchema';
 export * from './propertyValue';
+export * from './queryableKey';
 export * from './quote';
 export * from './quoteDependency';
 export * from './quoteDependencyAllOf';
@@ -606,6 +607,7 @@ export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfProperty';
 export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfPropertyInterval';
+export * from './resourceListOfQueryableKey';
 export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfRelation';
@@ -1319,6 +1321,7 @@ import { PropertyKeyComplianceParameterAllOf } from './propertyKeyCompliancePara
 import { PropertyKeyListComplianceParameter } from './propertyKeyListComplianceParameter';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
+import { QueryableKey } from './queryableKey';
 import { Quote } from './quote';
 import { QuoteDependency } from './quoteDependency';
 import { QuoteDependencyAllOf } from './quoteDependencyAllOf';
@@ -1394,6 +1397,7 @@ import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand
 import { ResourceListOfProperty } from './resourceListOfProperty';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
 import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval';
+import { ResourceListOfQueryableKey } from './resourceListOfQueryableKey';
 import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfRelation } from './resourceListOfRelation';
@@ -2460,6 +2464,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyKeyListComplianceParameter": PropertyKeyListComplianceParameter,
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
+    "QueryableKey": QueryableKey,
     "Quote": Quote,
     "QuoteDependency": QuoteDependency,
     "QuoteDependencyAllOf": QuoteDependencyAllOf,
@@ -2535,6 +2540,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfProperty": ResourceListOfProperty,
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
     "ResourceListOfPropertyInterval": ResourceListOfPropertyInterval,
+    "ResourceListOfQueryableKey": ResourceListOfQueryableKey,
     "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfRelation": ResourceListOfRelation,
