@@ -253,6 +253,8 @@ export * from './exerciseEventAllOf';
 export * from './exoticInstrument';
 export * from './exoticInstrumentAllOf';
 export * from './expandedGroup';
+export * from './expiryEvent';
+export * from './expiryEventAllOf';
 export * from './fieldDefinition';
 export * from './fieldSchema';
 export * from './fieldValue';
@@ -1043,6 +1045,8 @@ import { ExerciseEventAllOf } from './exerciseEventAllOf';
 import { ExoticInstrument } from './exoticInstrument';
 import { ExoticInstrumentAllOf } from './exoticInstrumentAllOf';
 import { ExpandedGroup } from './expandedGroup';
+import { ExpiryEvent } from './expiryEvent';
+import { ExpiryEventAllOf } from './expiryEventAllOf';
 import { FieldDefinition } from './fieldDefinition';
 import { FieldSchema } from './fieldSchema';
 import { FieldValue } from './fieldValue';
@@ -1703,6 +1707,8 @@ let enumsMap: {[index: string]: any} = {
         "ExerciseEventAllOf.InstrumentEventTypeEnum": ExerciseEventAllOf.InstrumentEventTypeEnum,
         "ExoticInstrument.InstrumentTypeEnum": ExoticInstrument.InstrumentTypeEnum,
         "ExoticInstrumentAllOf.InstrumentTypeEnum": ExoticInstrumentAllOf.InstrumentTypeEnum,
+        "ExpiryEvent.InstrumentEventTypeEnum": ExpiryEvent.InstrumentEventTypeEnum,
+        "ExpiryEventAllOf.InstrumentEventTypeEnum": ExpiryEventAllOf.InstrumentEventTypeEnum,
         "FieldSchema.TypeEnum": FieldSchema.TypeEnum,
         "FilterPredicateComplianceParameter.ComplianceParameterTypeEnum": FilterPredicateComplianceParameter.ComplianceParameterTypeEnum,
         "FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum": FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum,
@@ -2186,6 +2192,8 @@ let typeMap: {[index: string]: any} = {
     "ExoticInstrument": ExoticInstrument,
     "ExoticInstrumentAllOf": ExoticInstrumentAllOf,
     "ExpandedGroup": ExpandedGroup,
+    "ExpiryEvent": ExpiryEvent,
+    "ExpiryEventAllOf": ExpiryEventAllOf,
     "FieldDefinition": FieldDefinition,
     "FieldSchema": FieldSchema,
     "FieldValue": FieldValue,
