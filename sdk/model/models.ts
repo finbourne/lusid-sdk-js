@@ -531,6 +531,8 @@ export * from './propertyInterval';
 export * from './propertyKeyComplianceParameter';
 export * from './propertyKeyComplianceParameterAllOf';
 export * from './propertyKeyListComplianceParameter';
+export * from './propertyList';
+export * from './propertyListAllOf';
 export * from './propertySchema';
 export * from './propertyValue';
 export * from './queryableKey';
@@ -1323,6 +1325,8 @@ import { PropertyInterval } from './propertyInterval';
 import { PropertyKeyComplianceParameter } from './propertyKeyComplianceParameter';
 import { PropertyKeyComplianceParameterAllOf } from './propertyKeyComplianceParameterAllOf';
 import { PropertyKeyListComplianceParameter } from './propertyKeyListComplianceParameter';
+import { PropertyList } from './propertyList';
+import { PropertyListAllOf } from './propertyListAllOf';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { QueryableKey } from './queryableKey';
@@ -1856,6 +1860,8 @@ let enumsMap: {[index: string]: any} = {
         "PropertyKeyComplianceParameter.ComplianceParameterTypeEnum": PropertyKeyComplianceParameter.ComplianceParameterTypeEnum,
         "PropertyKeyComplianceParameterAllOf.ComplianceParameterTypeEnum": PropertyKeyComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "PropertyKeyListComplianceParameter.ComplianceParameterTypeEnum": PropertyKeyListComplianceParameter.ComplianceParameterTypeEnum,
+        "PropertyList.ReferenceListTypeEnum": PropertyList.ReferenceListTypeEnum,
+        "PropertyListAllOf.ReferenceListTypeEnum": PropertyListAllOf.ReferenceListTypeEnum,
         "QuoteDependency.DependencyTypeEnum": QuoteDependency.DependencyTypeEnum,
         "QuoteDependencyAllOf.DependencyTypeEnum": QuoteDependencyAllOf.DependencyTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
@@ -2470,6 +2476,8 @@ let typeMap: {[index: string]: any} = {
     "PropertyKeyComplianceParameter": PropertyKeyComplianceParameter,
     "PropertyKeyComplianceParameterAllOf": PropertyKeyComplianceParameterAllOf,
     "PropertyKeyListComplianceParameter": PropertyKeyListComplianceParameter,
+    "PropertyList": PropertyList,
+    "PropertyListAllOf": PropertyListAllOf,
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
     "QueryableKey": QueryableKey,
