@@ -649,6 +649,8 @@ export * from './roundingConvention';
 export * from './schedule';
 export * from './schema';
 export * from './scopeDefinition';
+export * from './scripDividendEvent';
+export * from './scripDividendEventAllOf';
 export * from './scriptMapReference';
 export * from './securityElection';
 export * from './sequenceDefinition';
@@ -1443,6 +1445,8 @@ import { RoundingConvention } from './roundingConvention';
 import { Schedule } from './schedule';
 import { Schema } from './schema';
 import { ScopeDefinition } from './scopeDefinition';
+import { ScripDividendEvent } from './scripDividendEvent';
+import { ScripDividendEventAllOf } from './scripDividendEventAllOf';
 import { ScriptMapReference } from './scriptMapReference';
 import { SecurityElection } from './securityElection';
 import { SequenceDefinition } from './sequenceDefinition';
@@ -1910,6 +1914,8 @@ let enumsMap: {[index: string]: any} = {
         "ResultValueString.ResultValueTypeEnum": ResultValueString.ResultValueTypeEnum,
         "ResultValueStringAllOf.ResultValueTypeEnum": ResultValueStringAllOf.ResultValueTypeEnum,
         "Schedule.ScheduleTypeEnum": Schedule.ScheduleTypeEnum,
+        "ScripDividendEvent.InstrumentEventTypeEnum": ScripDividendEvent.InstrumentEventTypeEnum,
+        "ScripDividendEventAllOf.InstrumentEventTypeEnum": ScripDividendEventAllOf.InstrumentEventTypeEnum,
         "SimpleCashFlowLoan.InstrumentTypeEnum": SimpleCashFlowLoan.InstrumentTypeEnum,
         "SimpleCashFlowLoanAllOf.InstrumentTypeEnum": SimpleCashFlowLoanAllOf.InstrumentTypeEnum,
         "SimpleInstrument.AssetClassEnum": SimpleInstrument.AssetClassEnum,
@@ -2594,6 +2600,8 @@ let typeMap: {[index: string]: any} = {
     "Schedule": Schedule,
     "Schema": Schema,
     "ScopeDefinition": ScopeDefinition,
+    "ScripDividendEvent": ScripDividendEvent,
+    "ScripDividendEventAllOf": ScripDividendEventAllOf,
     "ScriptMapReference": ScriptMapReference,
     "SecurityElection": SecurityElection,
     "SequenceDefinition": SequenceDefinition,
