@@ -668,6 +668,8 @@ export * from './simpleInstrument';
 export * from './simpleInstrumentAllOf';
 export * from './stepSchedule';
 export * from './stepScheduleAllOf';
+export * from './stockDividendEvent';
+export * from './stockDividendEventAllOf';
 export * from './stockSplitEvent';
 export * from './stockSplitEventAllOf';
 export * from './stream';
@@ -1464,6 +1466,8 @@ import { SimpleInstrument } from './simpleInstrument';
 import { SimpleInstrumentAllOf } from './simpleInstrumentAllOf';
 import { StepSchedule } from './stepSchedule';
 import { StepScheduleAllOf } from './stepScheduleAllOf';
+import { StockDividendEvent } from './stockDividendEvent';
+import { StockDividendEventAllOf } from './stockDividendEventAllOf';
 import { StockSplitEvent } from './stockSplitEvent';
 import { StockSplitEventAllOf } from './stockSplitEventAllOf';
 import { Stream } from './stream';
@@ -1924,6 +1928,8 @@ let enumsMap: {[index: string]: any} = {
         "SimpleInstrumentAllOf.InstrumentTypeEnum": SimpleInstrumentAllOf.InstrumentTypeEnum,
         "StepSchedule.ScheduleTypeEnum": StepSchedule.ScheduleTypeEnum,
         "StepScheduleAllOf.ScheduleTypeEnum": StepScheduleAllOf.ScheduleTypeEnum,
+        "StockDividendEvent.InstrumentEventTypeEnum": StockDividendEvent.InstrumentEventTypeEnum,
+        "StockDividendEventAllOf.InstrumentEventTypeEnum": StockDividendEventAllOf.InstrumentEventTypeEnum,
         "StockSplitEvent.InstrumentEventTypeEnum": StockSplitEvent.InstrumentEventTypeEnum,
         "StockSplitEventAllOf.InstrumentEventTypeEnum": StockSplitEventAllOf.InstrumentEventTypeEnum,
         "StringComplianceParameter.ComplianceParameterTypeEnum": StringComplianceParameter.ComplianceParameterTypeEnum,
@@ -2619,6 +2625,8 @@ let typeMap: {[index: string]: any} = {
     "SimpleInstrumentAllOf": SimpleInstrumentAllOf,
     "StepSchedule": StepSchedule,
     "StepScheduleAllOf": StepScheduleAllOf,
+    "StockDividendEvent": StockDividendEvent,
+    "StockDividendEventAllOf": StockDividendEventAllOf,
     "StockSplitEvent": StockSplitEvent,
     "StockSplitEventAllOf": StockSplitEventAllOf,
     "Stream": Stream,
