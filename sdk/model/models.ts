@@ -437,6 +437,8 @@ export * from './orderGraphBlockOrderDetail';
 export * from './orderGraphBlockOrderSynopsis';
 export * from './orderGraphBlockPlacementDetail';
 export * from './orderGraphBlockPlacementSynopsis';
+export * from './orderGraphBlockTransactionDetail';
+export * from './orderGraphBlockTransactionSynopsis';
 export * from './orderGraphPlacement';
 export * from './orderGraphPlacementAllocationDetail';
 export * from './orderGraphPlacementAllocationSynopsis';
@@ -1235,6 +1237,8 @@ import { OrderGraphBlockOrderDetail } from './orderGraphBlockOrderDetail';
 import { OrderGraphBlockOrderSynopsis } from './orderGraphBlockOrderSynopsis';
 import { OrderGraphBlockPlacementDetail } from './orderGraphBlockPlacementDetail';
 import { OrderGraphBlockPlacementSynopsis } from './orderGraphBlockPlacementSynopsis';
+import { OrderGraphBlockTransactionDetail } from './orderGraphBlockTransactionDetail';
+import { OrderGraphBlockTransactionSynopsis } from './orderGraphBlockTransactionSynopsis';
 import { OrderGraphPlacement } from './orderGraphPlacement';
 import { OrderGraphPlacementAllocationDetail } from './orderGraphPlacementAllocationDetail';
 import { OrderGraphPlacementAllocationSynopsis } from './orderGraphPlacementAllocationSynopsis';
@@ -2394,6 +2398,8 @@ let typeMap: {[index: string]: any} = {
     "OrderGraphBlockOrderSynopsis": OrderGraphBlockOrderSynopsis,
     "OrderGraphBlockPlacementDetail": OrderGraphBlockPlacementDetail,
     "OrderGraphBlockPlacementSynopsis": OrderGraphBlockPlacementSynopsis,
+    "OrderGraphBlockTransactionDetail": OrderGraphBlockTransactionDetail,
+    "OrderGraphBlockTransactionSynopsis": OrderGraphBlockTransactionSynopsis,
     "OrderGraphPlacement": OrderGraphPlacement,
     "OrderGraphPlacementAllocationDetail": OrderGraphPlacementAllocationDetail,
     "OrderGraphPlacementAllocationSynopsis": OrderGraphPlacementAllocationSynopsis,
