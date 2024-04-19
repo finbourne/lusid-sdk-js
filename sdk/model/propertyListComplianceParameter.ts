@@ -11,278 +11,58 @@
  */
 
 import { RequestFile } from './models';
-import { Link } from './link';
-import { Property } from './property';
+import { AddressKeyListComplianceParameterAllOf } from './addressKeyListComplianceParameterAllOf';
+import { ComplianceParameter } from './complianceParameter';
 import { ResourceId } from './resourceId';
-import { Version } from './version';
 
-/**
-* A list of property definitions.
-*/
-export class PropertyDefinition {
+export class PropertyListComplianceParameter extends ComplianceParameter {
+    'value': ResourceId;
     /**
-    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+    * The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter, PropertyListComplianceParameter
     */
-    'href'?: string | null;
-    /**
-    * The property key which uniquely identifies the property. The format for the property key is {domain}/{scope}/{code}, e.g. \'Portfolio/Manager/Id\'.
-    */
-    'key'?: string | null;
-    /**
-    * The type of values that can be associated with this property. This is defined by the property\'s data type. The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText
-    */
-    'valueType'?: PropertyDefinition.ValueTypeEnum;
-    /**
-    * The display name of the property.
-    */
-    'displayName'?: string | null;
-    'dataTypeId'?: ResourceId;
-    /**
-    * The type of the property. The available values are: Label, Metric, Information
-    */
-    'type'?: PropertyDefinition.TypeEnum;
-    /**
-    * The units that can be associated with the property\'s values. This is defined by the property\'s data type. The available values are: NoUnits, Basic, Iso4217Currency
-    */
-    'unitSchema'?: PropertyDefinition.UnitSchemaEnum;
-    /**
-    * The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Fund, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation
-    */
-    'domain'?: PropertyDefinition.DomainEnum;
-    /**
-    * The scope that the property exists in.
-    */
-    'scope'?: string | null;
-    /**
-    * The code of the property. Together with the domain and scope this uniquely identifies the property.
-    */
-    'code'?: string | null;
-    /**
-    * This field is not implemented and should be disregarded.
-    */
-    'valueRequired'?: boolean;
-    /**
-    * Describes how the property\'s values can change over time. The available values are: Perpetual, TimeVariant
-    */
-    'lifeTime'?: PropertyDefinition.LifeTimeEnum;
-    /**
-    * Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key.
-    */
-    'constraintStyle'?: string | null;
-    /**
-    * The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition
-    */
-    'propertyDefinitionType'?: PropertyDefinition.PropertyDefinitionTypeEnum;
-    /**
-    * A brief description of what a property of this property definition contains.
-    */
-    'propertyDescription'?: string | null;
-    /**
-    * The rule that defines how data is composed for a derived property.
-    */
-    'derivationFormula'?: string | null;
-    /**
-    * Describes whether a collection property should behave as a set or as an array.
-    */
-    'collectionType'?: string | null;
-    /**
-    * Set of unique property definition properties and associated values to store with the property definition. Each property must be from the \'PropertyDefinition\' domain.
-    */
-    'properties'?: { [key: string]: Property; } | null;
-    'version'?: Version;
-    'links'?: Array<Link> | null;
+    'complianceParameterType': PropertyListComplianceParameter.ComplianceParameterTypeEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "href",
-            "baseName": "href",
-            "type": "string"
-        },
-        {
-            "name": "key",
-            "baseName": "key",
-            "type": "string"
-        },
-        {
-            "name": "valueType",
-            "baseName": "valueType",
-            "type": "PropertyDefinition.ValueTypeEnum"
-        },
-        {
-            "name": "displayName",
-            "baseName": "displayName",
-            "type": "string"
-        },
-        {
-            "name": "dataTypeId",
-            "baseName": "dataTypeId",
+            "name": "value",
+            "baseName": "value",
             "type": "ResourceId"
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "PropertyDefinition.TypeEnum"
-        },
-        {
-            "name": "unitSchema",
-            "baseName": "unitSchema",
-            "type": "PropertyDefinition.UnitSchemaEnum"
-        },
-        {
-            "name": "domain",
-            "baseName": "domain",
-            "type": "PropertyDefinition.DomainEnum"
-        },
-        {
-            "name": "scope",
-            "baseName": "scope",
-            "type": "string"
-        },
-        {
-            "name": "code",
-            "baseName": "code",
-            "type": "string"
-        },
-        {
-            "name": "valueRequired",
-            "baseName": "valueRequired",
-            "type": "boolean"
-        },
-        {
-            "name": "lifeTime",
-            "baseName": "lifeTime",
-            "type": "PropertyDefinition.LifeTimeEnum"
-        },
-        {
-            "name": "constraintStyle",
-            "baseName": "constraintStyle",
-            "type": "string"
-        },
-        {
-            "name": "propertyDefinitionType",
-            "baseName": "propertyDefinitionType",
-            "type": "PropertyDefinition.PropertyDefinitionTypeEnum"
-        },
-        {
-            "name": "propertyDescription",
-            "baseName": "propertyDescription",
-            "type": "string"
-        },
-        {
-            "name": "derivationFormula",
-            "baseName": "derivationFormula",
-            "type": "string"
-        },
-        {
-            "name": "collectionType",
-            "baseName": "collectionType",
-            "type": "string"
-        },
-        {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "{ [key: string]: Property; }"
-        },
-        {
-            "name": "version",
-            "baseName": "version",
-            "type": "Version"
-        },
-        {
-            "name": "links",
-            "baseName": "links",
-            "type": "Array<Link>"
+            "name": "complianceParameterType",
+            "baseName": "complianceParameterType",
+            "type": "PropertyListComplianceParameter.ComplianceParameterTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return PropertyDefinition.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(PropertyListComplianceParameter.attributeTypeMap);
     }
 }
 
-export namespace PropertyDefinition {
-    export enum ValueTypeEnum {
-        String = <any> 'String',
-        Int = <any> 'Int',
-        Decimal = <any> 'Decimal',
-        DateTime = <any> 'DateTime',
-        Boolean = <any> 'Boolean',
-        Map = <any> 'Map',
-        List = <any> 'List',
-        PropertyArray = <any> 'PropertyArray',
-        Percentage = <any> 'Percentage',
-        Code = <any> 'Code',
-        Id = <any> 'Id',
-        Uri = <any> 'Uri',
-        CurrencyAndAmount = <any> 'CurrencyAndAmount',
-        TradePrice = <any> 'TradePrice',
-        Currency = <any> 'Currency',
-        MetricValue = <any> 'MetricValue',
-        ResourceId = <any> 'ResourceId',
-        ResultValue = <any> 'ResultValue',
-        CutLocalTime = <any> 'CutLocalTime',
-        DateOrCutLabel = <any> 'DateOrCutLabel',
-        UnindexedText = <any> 'UnindexedText'
-    }
-    export enum TypeEnum {
-        Label = <any> 'Label',
-        Metric = <any> 'Metric',
-        Information = <any> 'Information'
-    }
-    export enum UnitSchemaEnum {
-        NoUnits = <any> 'NoUnits',
-        Basic = <any> 'Basic',
-        Iso4217Currency = <any> 'Iso4217Currency'
-    }
-    export enum DomainEnum {
-        NotDefined = <any> 'NotDefined',
-        Transaction = <any> 'Transaction',
-        Portfolio = <any> 'Portfolio',
-        Holding = <any> 'Holding',
-        ReferenceHolding = <any> 'ReferenceHolding',
-        TransactionConfiguration = <any> 'TransactionConfiguration',
-        Instrument = <any> 'Instrument',
-        CutLabelDefinition = <any> 'CutLabelDefinition',
-        Analytic = <any> 'Analytic',
-        PortfolioGroup = <any> 'PortfolioGroup',
-        Person = <any> 'Person',
-        AccessMetadata = <any> 'AccessMetadata',
-        Order = <any> 'Order',
-        UnitResult = <any> 'UnitResult',
-        MarketData = <any> 'MarketData',
-        ConfigurationRecipe = <any> 'ConfigurationRecipe',
-        Allocation = <any> 'Allocation',
-        Calendar = <any> 'Calendar',
-        LegalEntity = <any> 'LegalEntity',
-        Placement = <any> 'Placement',
-        Execution = <any> 'Execution',
-        Block = <any> 'Block',
-        Participation = <any> 'Participation',
-        Package = <any> 'Package',
-        OrderInstruction = <any> 'OrderInstruction',
-        NextBestAction = <any> 'NextBestAction',
-        CustomEntity = <any> 'CustomEntity',
-        InstrumentEvent = <any> 'InstrumentEvent',
-        Account = <any> 'Account',
-        ChartOfAccounts = <any> 'ChartOfAccounts',
-        CustodianAccount = <any> 'CustodianAccount',
-        Abor = <any> 'Abor',
-        AborConfiguration = <any> 'AborConfiguration',
-        Fund = <any> 'Fund',
-        Reconciliation = <any> 'Reconciliation',
-        PropertyDefinition = <any> 'PropertyDefinition',
-        Compliance = <any> 'Compliance',
-        DiaryEntry = <any> 'DiaryEntry',
-        Leg = <any> 'Leg',
-        DerivedValuation = <any> 'DerivedValuation'
-    }
-    export enum LifeTimeEnum {
-        Perpetual = <any> 'Perpetual',
-        TimeVariant = <any> 'TimeVariant'
-    }
-    export enum PropertyDefinitionTypeEnum {
-        ValueProperty = <any> 'ValueProperty',
-        DerivedDefinition = <any> 'DerivedDefinition'
+export namespace PropertyListComplianceParameter {
+    export enum ComplianceParameterTypeEnum {
+        BoolComplianceParameter = <any> 'BoolComplianceParameter',
+        StringComplianceParameter = <any> 'StringComplianceParameter',
+        DecimalComplianceParameter = <any> 'DecimalComplianceParameter',
+        DateTimeComplianceParameter = <any> 'DateTimeComplianceParameter',
+        PropertyKeyComplianceParameter = <any> 'PropertyKeyComplianceParameter',
+        AddressKeyComplianceParameter = <any> 'AddressKeyComplianceParameter',
+        PortfolioIdComplianceParameter = <any> 'PortfolioIdComplianceParameter',
+        PortfolioGroupIdComplianceParameter = <any> 'PortfolioGroupIdComplianceParameter',
+        StringListComplianceParameter = <any> 'StringListComplianceParameter',
+        BoolListComplianceParameter = <any> 'BoolListComplianceParameter',
+        DateTimeListComplianceParameter = <any> 'DateTimeListComplianceParameter',
+        DecimalListComplianceParameter = <any> 'DecimalListComplianceParameter',
+        PropertyKeyListComplianceParameter = <any> 'PropertyKeyListComplianceParameter',
+        AddressKeyListComplianceParameter = <any> 'AddressKeyListComplianceParameter',
+        PortfolioIdListComplianceParameter = <any> 'PortfolioIdListComplianceParameter',
+        PortfolioGroupIdListComplianceParameter = <any> 'PortfolioGroupIdListComplianceParameter',
+        InstrumentListComplianceParameter = <any> 'InstrumentListComplianceParameter',
+        FilterPredicateComplianceParameter = <any> 'FilterPredicateComplianceParameter',
+        GroupFilterPredicateComplianceParameter = <any> 'GroupFilterPredicateComplianceParameter',
+        GroupBySelectorComplianceParameter = <any> 'GroupBySelectorComplianceParameter',
+        PropertyListComplianceParameter = <any> 'PropertyListComplianceParameter'
     }
 }

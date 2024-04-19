@@ -534,6 +534,7 @@ export * from './propertyKeyComplianceParameterAllOf';
 export * from './propertyKeyListComplianceParameter';
 export * from './propertyList';
 export * from './propertyListAllOf';
+export * from './propertyListComplianceParameter';
 export * from './propertySchema';
 export * from './propertyValue';
 export * from './queryableKey';
@@ -1333,6 +1334,7 @@ import { PropertyKeyComplianceParameterAllOf } from './propertyKeyCompliancePara
 import { PropertyKeyListComplianceParameter } from './propertyKeyListComplianceParameter';
 import { PropertyList } from './propertyList';
 import { PropertyListAllOf } from './propertyListAllOf';
+import { PropertyListComplianceParameter } from './propertyListComplianceParameter';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { QueryableKey } from './queryableKey';
@@ -1872,6 +1874,7 @@ let enumsMap: {[index: string]: any} = {
         "PropertyKeyListComplianceParameter.ComplianceParameterTypeEnum": PropertyKeyListComplianceParameter.ComplianceParameterTypeEnum,
         "PropertyList.ReferenceListTypeEnum": PropertyList.ReferenceListTypeEnum,
         "PropertyListAllOf.ReferenceListTypeEnum": PropertyListAllOf.ReferenceListTypeEnum,
+        "PropertyListComplianceParameter.ComplianceParameterTypeEnum": PropertyListComplianceParameter.ComplianceParameterTypeEnum,
         "QuoteDependency.DependencyTypeEnum": QuoteDependency.DependencyTypeEnum,
         "QuoteDependencyAllOf.DependencyTypeEnum": QuoteDependencyAllOf.DependencyTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
@@ -2493,6 +2496,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyKeyListComplianceParameter": PropertyKeyListComplianceParameter,
     "PropertyList": PropertyList,
     "PropertyListAllOf": PropertyListAllOf,
+    "PropertyListComplianceParameter": PropertyListComplianceParameter,
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
     "QueryableKey": QueryableKey,
