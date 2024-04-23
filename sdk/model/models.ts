@@ -645,6 +645,8 @@ export * from './resultValueInt';
 export * from './resultValueIntAllOf';
 export * from './resultValueString';
 export * from './resultValueStringAllOf';
+export * from './reverseStockSplitEvent';
+export * from './reverseStockSplitEventAllOf';
 export * from './roundingConfiguration';
 export * from './roundingConfigurationComponent';
 export * from './roundingConvention';
@@ -1445,6 +1447,8 @@ import { ResultValueInt } from './resultValueInt';
 import { ResultValueIntAllOf } from './resultValueIntAllOf';
 import { ResultValueString } from './resultValueString';
 import { ResultValueStringAllOf } from './resultValueStringAllOf';
+import { ReverseStockSplitEvent } from './reverseStockSplitEvent';
+import { ReverseStockSplitEventAllOf } from './reverseStockSplitEventAllOf';
 import { RoundingConfiguration } from './roundingConfiguration';
 import { RoundingConfigurationComponent } from './roundingConfigurationComponent';
 import { RoundingConvention } from './roundingConvention';
@@ -1922,6 +1926,8 @@ let enumsMap: {[index: string]: any} = {
         "ResultValueIntAllOf.ResultValueTypeEnum": ResultValueIntAllOf.ResultValueTypeEnum,
         "ResultValueString.ResultValueTypeEnum": ResultValueString.ResultValueTypeEnum,
         "ResultValueStringAllOf.ResultValueTypeEnum": ResultValueStringAllOf.ResultValueTypeEnum,
+        "ReverseStockSplitEvent.InstrumentEventTypeEnum": ReverseStockSplitEvent.InstrumentEventTypeEnum,
+        "ReverseStockSplitEventAllOf.InstrumentEventTypeEnum": ReverseStockSplitEventAllOf.InstrumentEventTypeEnum,
         "Schedule.ScheduleTypeEnum": Schedule.ScheduleTypeEnum,
         "ScripDividendEvent.InstrumentEventTypeEnum": ScripDividendEvent.InstrumentEventTypeEnum,
         "ScripDividendEventAllOf.InstrumentEventTypeEnum": ScripDividendEventAllOf.InstrumentEventTypeEnum,
@@ -2607,6 +2613,8 @@ let typeMap: {[index: string]: any} = {
     "ResultValueIntAllOf": ResultValueIntAllOf,
     "ResultValueString": ResultValueString,
     "ResultValueStringAllOf": ResultValueStringAllOf,
+    "ReverseStockSplitEvent": ReverseStockSplitEvent,
+    "ReverseStockSplitEventAllOf": ReverseStockSplitEventAllOf,
     "RoundingConfiguration": RoundingConfiguration,
     "RoundingConfigurationComponent": RoundingConfigurationComponent,
     "RoundingConvention": RoundingConvention,
