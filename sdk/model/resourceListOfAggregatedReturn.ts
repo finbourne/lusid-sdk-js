@@ -11,55 +11,47 @@
  */
 
 import { RequestFile } from './models';
-import { PerpetualProperty } from './perpetualProperty';
-import { TransactionTypeAlias } from './transactionTypeAlias';
-import { TransactionTypeCalculation } from './transactionTypeCalculation';
-import { TransactionTypeMovement } from './transactionTypeMovement';
+import { AggregatedReturn } from './aggregatedReturn';
+import { Link } from './link';
 
-export class TransactionTypeRequest {
-    /**
-    * List of transaction types that map to this specific transaction configuration
-    */
-    'aliases': Array<TransactionTypeAlias>;
-    /**
-    * Movement data for the transaction type
-    */
-    'movements': Array<TransactionTypeMovement>;
-    /**
-    * Properties attached to the transaction type
-    */
-    'properties'?: { [key: string]: PerpetualProperty; } | null;
-    /**
-    * Calculations to be performed for the transaction type
-    */
-    'calculations'?: Array<TransactionTypeCalculation> | null;
+export class ResourceListOfAggregatedReturn {
+    'values': Array<AggregatedReturn>;
+    'href'?: string | null;
+    'links'?: Array<Link> | null;
+    'nextPage'?: string | null;
+    'previousPage'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "aliases",
-            "baseName": "aliases",
-            "type": "Array<TransactionTypeAlias>"
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<AggregatedReturn>"
         },
         {
-            "name": "movements",
-            "baseName": "movements",
-            "type": "Array<TransactionTypeMovement>"
+            "name": "href",
+            "baseName": "href",
+            "type": "string"
         },
         {
-            "name": "properties",
-            "baseName": "properties",
-            "type": "{ [key: string]: PerpetualProperty; }"
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         },
         {
-            "name": "calculations",
-            "baseName": "calculations",
-            "type": "Array<TransactionTypeCalculation>"
+            "name": "nextPage",
+            "baseName": "nextPage",
+            "type": "string"
+        },
+        {
+            "name": "previousPage",
+            "baseName": "previousPage",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return TransactionTypeRequest.attributeTypeMap;
+        return ResourceListOfAggregatedReturn.attributeTypeMap;
     }
 }
 
