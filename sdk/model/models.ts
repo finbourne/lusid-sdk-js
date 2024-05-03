@@ -671,6 +671,7 @@ export * from './simpleCashFlowLoan';
 export * from './simpleCashFlowLoanAllOf';
 export * from './simpleInstrument';
 export * from './simpleInstrumentAllOf';
+export * from './stagedModificationsInfo';
 export * from './stepSchedule';
 export * from './stepScheduleAllOf';
 export * from './stockDividendEvent';
@@ -1474,6 +1475,7 @@ import { SimpleCashFlowLoan } from './simpleCashFlowLoan';
 import { SimpleCashFlowLoanAllOf } from './simpleCashFlowLoanAllOf';
 import { SimpleInstrument } from './simpleInstrument';
 import { SimpleInstrumentAllOf } from './simpleInstrumentAllOf';
+import { StagedModificationsInfo } from './stagedModificationsInfo';
 import { StepSchedule } from './stepSchedule';
 import { StepScheduleAllOf } from './stepScheduleAllOf';
 import { StockDividendEvent } from './stockDividendEvent';
@@ -2641,6 +2643,7 @@ let typeMap: {[index: string]: any} = {
     "SimpleCashFlowLoanAllOf": SimpleCashFlowLoanAllOf,
     "SimpleInstrument": SimpleInstrument,
     "SimpleInstrumentAllOf": SimpleInstrumentAllOf,
+    "StagedModificationsInfo": StagedModificationsInfo,
     "StepSchedule": StepSchedule,
     "StepScheduleAllOf": StepScheduleAllOf,
     "StockDividendEvent": StockDividendEvent,

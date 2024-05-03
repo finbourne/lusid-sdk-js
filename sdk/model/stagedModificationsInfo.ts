@@ -11,71 +11,45 @@
  */
 
 import { RequestFile } from './models';
-import { InstrumentLegAllOf } from './instrumentLegAllOf';
-import { LusidInstrument } from './lusidInstrument';
 
 /**
-* Base class for representing instrument legs in LUSID.  An instrument leg describes a set of cashflows that are paid at a set of points in time according to some set of conventions.  This base class should not be directly instantiated; only its inheritors should be used.
+* The staged modifications metadata.
 */
-export class InstrumentLeg extends LusidInstrument {
+export class StagedModificationsInfo {
     /**
-    * The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan
+    * The number of staged modifications for the entity with a status of Pending for the requested asAt.
     */
-    'instrumentType': InstrumentLeg.InstrumentTypeEnum;
+    'countPending': number;
+    /**
+    * Link to the list staged modifications endpoint, filtered by entityType, entityUniqueId and status (= Pending).
+    */
+    'hrefPending': string;
+    /**
+    * An array of the ids of any StagedModifications being previewed.
+    */
+    'idsPreviewed'?: Array<string> | null;
 
-    static discriminator: string | undefined = "instrumentType";
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "instrumentType",
-            "baseName": "instrumentType",
-            "type": "InstrumentLeg.InstrumentTypeEnum"
+            "name": "countPending",
+            "baseName": "countPending",
+            "type": "number"
+        },
+        {
+            "name": "hrefPending",
+            "baseName": "hrefPending",
+            "type": "string"
+        },
+        {
+            "name": "idsPreviewed",
+            "baseName": "idsPreviewed",
+            "type": "Array<string>"
         }    ];
 
     static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(InstrumentLeg.attributeTypeMap);
+        return StagedModificationsInfo.attributeTypeMap;
     }
 }
 
-export namespace InstrumentLeg {
-    export enum InstrumentTypeEnum {
-        QuotedSecurity = <any> 'QuotedSecurity',
-        InterestRateSwap = <any> 'InterestRateSwap',
-        FxForward = <any> 'FxForward',
-        Future = <any> 'Future',
-        ExoticInstrument = <any> 'ExoticInstrument',
-        FxOption = <any> 'FxOption',
-        CreditDefaultSwap = <any> 'CreditDefaultSwap',
-        InterestRateSwaption = <any> 'InterestRateSwaption',
-        Bond = <any> 'Bond',
-        EquityOption = <any> 'EquityOption',
-        FixedLeg = <any> 'FixedLeg',
-        FloatingLeg = <any> 'FloatingLeg',
-        BespokeCashFlowsLeg = <any> 'BespokeCashFlowsLeg',
-        Unknown = <any> 'Unknown',
-        TermDeposit = <any> 'TermDeposit',
-        ContractForDifference = <any> 'ContractForDifference',
-        EquitySwap = <any> 'EquitySwap',
-        CashPerpetual = <any> 'CashPerpetual',
-        CapFloor = <any> 'CapFloor',
-        CashSettled = <any> 'CashSettled',
-        CdsIndex = <any> 'CdsIndex',
-        Basket = <any> 'Basket',
-        FundingLeg = <any> 'FundingLeg',
-        FxSwap = <any> 'FxSwap',
-        ForwardRateAgreement = <any> 'ForwardRateAgreement',
-        SimpleInstrument = <any> 'SimpleInstrument',
-        Repo = <any> 'Repo',
-        Equity = <any> 'Equity',
-        ExchangeTradedOption = <any> 'ExchangeTradedOption',
-        ReferenceInstrument = <any> 'ReferenceInstrument',
-        ComplexBond = <any> 'ComplexBond',
-        InflationLinkedBond = <any> 'InflationLinkedBond',
-        InflationSwap = <any> 'InflationSwap',
-        SimpleCashFlowLoan = <any> 'SimpleCashFlowLoan',
-        TotalReturnSwap = <any> 'TotalReturnSwap',
-        InflationLeg = <any> 'InflationLeg',
-        FundShareClass = <any> 'FundShareClass',
-        FlexibleLoan = <any> 'FlexibleLoan'
-    }
-}
