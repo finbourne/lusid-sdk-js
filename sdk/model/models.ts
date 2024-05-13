@@ -80,6 +80,8 @@ export * from './calendarDependency';
 export * from './calendarDependencyAllOf';
 export * from './capFloor';
 export * from './capFloorAllOf';
+export * from './capitalDistributionEvent';
+export * from './capitalDistributionEventAllOf';
 export * from './cashDependency';
 export * from './cashDependencyAllOf';
 export * from './cashDividendEvent';
@@ -887,6 +889,8 @@ import { CalendarDependency } from './calendarDependency';
 import { CalendarDependencyAllOf } from './calendarDependencyAllOf';
 import { CapFloor } from './capFloor';
 import { CapFloorAllOf } from './capFloorAllOf';
+import { CapitalDistributionEvent } from './capitalDistributionEvent';
+import { CapitalDistributionEventAllOf } from './capitalDistributionEventAllOf';
 import { CashDependency } from './cashDependency';
 import { CashDependencyAllOf } from './cashDependencyAllOf';
 import { CashDividendEvent } from './cashDividendEvent';
@@ -1648,6 +1652,8 @@ let enumsMap: {[index: string]: any} = {
         "CalendarDependencyAllOf.DependencyTypeEnum": CalendarDependencyAllOf.DependencyTypeEnum,
         "CapFloor.InstrumentTypeEnum": CapFloor.InstrumentTypeEnum,
         "CapFloorAllOf.InstrumentTypeEnum": CapFloorAllOf.InstrumentTypeEnum,
+        "CapitalDistributionEvent.InstrumentEventTypeEnum": CapitalDistributionEvent.InstrumentEventTypeEnum,
+        "CapitalDistributionEventAllOf.InstrumentEventTypeEnum": CapitalDistributionEventAllOf.InstrumentEventTypeEnum,
         "CashDependency.DependencyTypeEnum": CashDependency.DependencyTypeEnum,
         "CashDependencyAllOf.DependencyTypeEnum": CashDependencyAllOf.DependencyTypeEnum,
         "CashDividendEvent.InstrumentEventTypeEnum": CashDividendEvent.InstrumentEventTypeEnum,
@@ -2059,6 +2065,8 @@ let typeMap: {[index: string]: any} = {
     "CalendarDependencyAllOf": CalendarDependencyAllOf,
     "CapFloor": CapFloor,
     "CapFloorAllOf": CapFloorAllOf,
+    "CapitalDistributionEvent": CapitalDistributionEvent,
+    "CapitalDistributionEventAllOf": CapitalDistributionEventAllOf,
     "CashDependency": CashDependency,
     "CashDependencyAllOf": CashDependencyAllOf,
     "CashDividendEvent": CashDividendEvent,
