@@ -11,46 +11,47 @@
  */
 
 import { RequestFile } from './models';
-import { ResourceId } from './resourceId';
+import { InstrumentEventInstruction } from './instrumentEventInstruction';
+import { Link } from './link';
 
-export class ComplianceRunInfoV2 {
-    'runId': ResourceId;
-    'instigatedAt': Date;
-    'completedAt': Date;
-    'schedule': string;
-    'instigatedBy': string;
+export class PagedResourceListOfInstrumentEventInstruction {
+    'nextPage'?: string | null;
+    'previousPage'?: string | null;
+    'values': Array<InstrumentEventInstruction>;
+    'href'?: string | null;
+    'links'?: Array<Link> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "runId",
-            "baseName": "runId",
-            "type": "ResourceId"
-        },
-        {
-            "name": "instigatedAt",
-            "baseName": "instigatedAt",
-            "type": "Date"
-        },
-        {
-            "name": "completedAt",
-            "baseName": "completedAt",
-            "type": "Date"
-        },
-        {
-            "name": "schedule",
-            "baseName": "schedule",
+            "name": "nextPage",
+            "baseName": "nextPage",
             "type": "string"
         },
         {
-            "name": "instigatedBy",
-            "baseName": "instigatedBy",
+            "name": "previousPage",
+            "baseName": "previousPage",
             "type": "string"
+        },
+        {
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<InstrumentEventInstruction>"
+        },
+        {
+            "name": "href",
+            "baseName": "href",
+            "type": "string"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return ComplianceRunInfoV2.attributeTypeMap;
+        return PagedResourceListOfInstrumentEventInstruction.attributeTypeMap;
     }
 }
 
