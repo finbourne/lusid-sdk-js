@@ -121,13 +121,17 @@ export * from './complianceRuleResponse';
 export * from './complianceRuleResultDetail';
 export * from './complianceRuleResultPortfolioDetail';
 export * from './complianceRuleResultV2';
+export * from './complianceRuleTemplate';
 export * from './complianceRunInfoV2';
 export * from './complianceStep';
+export * from './complianceStepRequest';
 export * from './complianceSummaryRuleResult';
 export * from './complianceSummaryRuleResultRequest';
 export * from './complianceTemplate';
 export * from './complianceTemplateParameter';
 export * from './complianceTemplateVariation';
+export * from './complianceTemplateVariationDto';
+export * from './complianceTemplateVariationRequest';
 export * from './compositeBreakdown';
 export * from './compositeBreakdownRequest';
 export * from './compositeBreakdownResponse';
@@ -151,6 +155,7 @@ export * from './counterpartyRiskInformation';
 export * from './counterpartySignatory';
 export * from './createAddressKeyDefinitionRequest';
 export * from './createCalendarRequest';
+export * from './createComplianceTemplateRequest';
 export * from './createCorporateActionSourceRequest';
 export * from './createCustomEntityTypeRequest';
 export * from './createCutLabelDefinitionRequest';
@@ -730,6 +735,7 @@ export * from './triggerEventAllOf';
 export * from './typedResourceId';
 export * from './unitsRatio';
 export * from './updateCalendarRequest';
+export * from './updateComplianceTemplateRequest';
 export * from './updateCustomEntityDefinitionRequest';
 export * from './updateCustomEntityTypeRequest';
 export * from './updateCutLabelDefinitionRequest';
@@ -931,13 +937,17 @@ import { ComplianceRuleResponse } from './complianceRuleResponse';
 import { ComplianceRuleResultDetail } from './complianceRuleResultDetail';
 import { ComplianceRuleResultPortfolioDetail } from './complianceRuleResultPortfolioDetail';
 import { ComplianceRuleResultV2 } from './complianceRuleResultV2';
+import { ComplianceRuleTemplate } from './complianceRuleTemplate';
 import { ComplianceRunInfoV2 } from './complianceRunInfoV2';
 import { ComplianceStep } from './complianceStep';
+import { ComplianceStepRequest } from './complianceStepRequest';
 import { ComplianceSummaryRuleResult } from './complianceSummaryRuleResult';
 import { ComplianceSummaryRuleResultRequest } from './complianceSummaryRuleResultRequest';
 import { ComplianceTemplate } from './complianceTemplate';
 import { ComplianceTemplateParameter } from './complianceTemplateParameter';
 import { ComplianceTemplateVariation } from './complianceTemplateVariation';
+import { ComplianceTemplateVariationDto } from './complianceTemplateVariationDto';
+import { ComplianceTemplateVariationRequest } from './complianceTemplateVariationRequest';
 import { CompositeBreakdown } from './compositeBreakdown';
 import { CompositeBreakdownRequest } from './compositeBreakdownRequest';
 import { CompositeBreakdownResponse } from './compositeBreakdownResponse';
@@ -961,6 +971,7 @@ import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
 import { CounterpartySignatory } from './counterpartySignatory';
 import { CreateAddressKeyDefinitionRequest } from './createAddressKeyDefinitionRequest';
 import { CreateCalendarRequest } from './createCalendarRequest';
+import { CreateComplianceTemplateRequest } from './createComplianceTemplateRequest';
 import { CreateCorporateActionSourceRequest } from './createCorporateActionSourceRequest';
 import { CreateCustomEntityTypeRequest } from './createCustomEntityTypeRequest';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
@@ -1540,6 +1551,7 @@ import { TriggerEventAllOf } from './triggerEventAllOf';
 import { TypedResourceId } from './typedResourceId';
 import { UnitsRatio } from './unitsRatio';
 import { UpdateCalendarRequest } from './updateCalendarRequest';
+import { UpdateComplianceTemplateRequest } from './updateComplianceTemplateRequest';
 import { UpdateCustomEntityDefinitionRequest } from './updateCustomEntityDefinitionRequest';
 import { UpdateCustomEntityTypeRequest } from './updateCustomEntityTypeRequest';
 import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionRequest';
@@ -1681,6 +1693,7 @@ let enumsMap: {[index: string]: any} = {
         "ComplexMarketData.MarketDataTypeEnum": ComplexMarketData.MarketDataTypeEnum,
         "ComplianceParameter.ComplianceParameterTypeEnum": ComplianceParameter.ComplianceParameterTypeEnum,
         "ComplianceStep.ComplianceStepTypeEnum": ComplianceStep.ComplianceStepTypeEnum,
+        "ComplianceStepRequest.ComplianceStepTypeEnum": ComplianceStepRequest.ComplianceStepTypeEnum,
         "ConstantVolatilitySurface.MarketDataTypeEnum": ConstantVolatilitySurface.MarketDataTypeEnum,
         "ConstantVolatilitySurfaceAllOf.MarketDataTypeEnum": ConstantVolatilitySurfaceAllOf.MarketDataTypeEnum,
         "ContractForDifference.InstrumentTypeEnum": ContractForDifference.InstrumentTypeEnum,
@@ -2108,13 +2121,17 @@ let typeMap: {[index: string]: any} = {
     "ComplianceRuleResultDetail": ComplianceRuleResultDetail,
     "ComplianceRuleResultPortfolioDetail": ComplianceRuleResultPortfolioDetail,
     "ComplianceRuleResultV2": ComplianceRuleResultV2,
+    "ComplianceRuleTemplate": ComplianceRuleTemplate,
     "ComplianceRunInfoV2": ComplianceRunInfoV2,
     "ComplianceStep": ComplianceStep,
+    "ComplianceStepRequest": ComplianceStepRequest,
     "ComplianceSummaryRuleResult": ComplianceSummaryRuleResult,
     "ComplianceSummaryRuleResultRequest": ComplianceSummaryRuleResultRequest,
     "ComplianceTemplate": ComplianceTemplate,
     "ComplianceTemplateParameter": ComplianceTemplateParameter,
     "ComplianceTemplateVariation": ComplianceTemplateVariation,
+    "ComplianceTemplateVariationDto": ComplianceTemplateVariationDto,
+    "ComplianceTemplateVariationRequest": ComplianceTemplateVariationRequest,
     "CompositeBreakdown": CompositeBreakdown,
     "CompositeBreakdownRequest": CompositeBreakdownRequest,
     "CompositeBreakdownResponse": CompositeBreakdownResponse,
@@ -2138,6 +2155,7 @@ let typeMap: {[index: string]: any} = {
     "CounterpartySignatory": CounterpartySignatory,
     "CreateAddressKeyDefinitionRequest": CreateAddressKeyDefinitionRequest,
     "CreateCalendarRequest": CreateCalendarRequest,
+    "CreateComplianceTemplateRequest": CreateComplianceTemplateRequest,
     "CreateCorporateActionSourceRequest": CreateCorporateActionSourceRequest,
     "CreateCustomEntityTypeRequest": CreateCustomEntityTypeRequest,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
@@ -2716,6 +2734,7 @@ let typeMap: {[index: string]: any} = {
     "TypedResourceId": TypedResourceId,
     "UnitsRatio": UnitsRatio,
     "UpdateCalendarRequest": UpdateCalendarRequest,
+    "UpdateComplianceTemplateRequest": UpdateComplianceTemplateRequest,
     "UpdateCustomEntityDefinitionRequest": UpdateCustomEntityDefinitionRequest,
     "UpdateCustomEntityTypeRequest": UpdateCustomEntityTypeRequest,
     "UpdateCutLabelDefinitionRequest": UpdateCutLabelDefinitionRequest,
