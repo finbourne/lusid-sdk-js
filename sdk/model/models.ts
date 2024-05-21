@@ -674,6 +674,7 @@ export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
 export * from './setPersonIdentifiersRequest';
 export * from './setPersonPropertiesRequest';
+export * from './settlementSchedule';
 export * from './sideConfigurationData';
 export * from './sideDefinition';
 export * from './sideDefinitionRequest';
@@ -1490,6 +1491,7 @@ import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersReq
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
 import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
 import { SetPersonPropertiesRequest } from './setPersonPropertiesRequest';
+import { SettlementSchedule } from './settlementSchedule';
 import { SideConfigurationData } from './sideConfigurationData';
 import { SideDefinition } from './sideDefinition';
 import { SideDefinitionRequest } from './sideDefinitionRequest';
@@ -2673,6 +2675,7 @@ let typeMap: {[index: string]: any} = {
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
     "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
     "SetPersonPropertiesRequest": SetPersonPropertiesRequest,
+    "SettlementSchedule": SettlementSchedule,
     "SideConfigurationData": SideConfigurationData,
     "SideDefinition": SideDefinition,
     "SideDefinitionRequest": SideDefinitionRequest,

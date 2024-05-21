@@ -11,54 +11,33 @@
  */
 
 import { RequestFile } from './models';
-import { ResultValue } from './resultValue';
-import { ResultValueStringAllOf } from './resultValueStringAllOf';
 
-/**
-* A simple result value holding a string
-*/
-export class ResultValueString extends ResultValue {
-    /**
-    * the value itself
-    */
-    'value'?: string | null;
-    /**
-    * The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset
-    */
-    'resultValueType': ResultValueString.ResultValueTypeEnum;
+export class SettlementSchedule {
+    'tradeId'?: string | null;
+    'settlementDate'?: Date;
+    'units'?: number;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "value",
-            "baseName": "value",
+            "name": "tradeId",
+            "baseName": "tradeId",
             "type": "string"
         },
         {
-            "name": "resultValueType",
-            "baseName": "resultValueType",
-            "type": "ResultValueString.ResultValueTypeEnum"
+            "name": "settlementDate",
+            "baseName": "settlementDate",
+            "type": "Date"
+        },
+        {
+            "name": "units",
+            "baseName": "units",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(ResultValueString.attributeTypeMap);
+        return SettlementSchedule.attributeTypeMap;
     }
 }
 
-export namespace ResultValueString {
-    export enum ResultValueTypeEnum {
-        ResultValue = <any> 'ResultValue',
-        ResultValueDictionary = <any> 'ResultValueDictionary',
-        ResultValue0D = <any> 'ResultValue0D',
-        ResultValueDecimal = <any> 'ResultValueDecimal',
-        ResultValueInt = <any> 'ResultValueInt',
-        ResultValueString = <any> 'ResultValueString',
-        ResultValueBool = <any> 'ResultValueBool',
-        ResultValueCurrency = <any> 'ResultValueCurrency',
-        CashFlowValue = <any> 'CashFlowValue',
-        CashFlowValueSet = <any> 'CashFlowValueSet',
-        ResultValueLifeCycleEventValue = <any> 'ResultValueLifeCycleEventValue',
-        ResultValueDateTimeOffset = <any> 'ResultValueDateTimeOffset'
-    }
-}
