@@ -74,6 +74,8 @@ export * from './boolComplianceParameterAllOf';
 export * from './boolListComplianceParameter';
 export * from './branchStep';
 export * from './branchStepAllOf';
+export * from './branchStepRequest';
+export * from './branchStepRequestAllOf';
 export * from './calendar';
 export * from './calendarDate';
 export * from './calendarDependency';
@@ -106,6 +108,7 @@ export * from './changeHistory';
 export * from './changeItem';
 export * from './checkStep';
 export * from './checkStepAllOf';
+export * from './checkStepRequest';
 export * from './closeEvent';
 export * from './closeEventAllOf';
 export * from './completePortfolio';
@@ -268,6 +271,7 @@ export * from './fileResponse';
 export * from './filterPredicateComplianceParameter';
 export * from './filterPredicateComplianceParameterAllOf';
 export * from './filterStep';
+export * from './filterStepRequest';
 export * from './fixedLeg';
 export * from './fixedLegAllOf';
 export * from './fixedLegAllOfOverrides';
@@ -326,8 +330,10 @@ export * from './getRecipeResponse';
 export * from './getReferencePortfolioConstituentsResponse';
 export * from './groupBySelectorComplianceParameter';
 export * from './groupByStep';
+export * from './groupByStepRequest';
 export * from './groupFilterPredicateComplianceParameter';
 export * from './groupFilterStep';
+export * from './groupFilterStepRequest';
 export * from './groupOfMarketDataKeyRules';
 export * from './holdingAdjustment';
 export * from './holdingAdjustmentWithDate';
@@ -891,6 +897,8 @@ import { BoolComplianceParameterAllOf } from './boolComplianceParameterAllOf';
 import { BoolListComplianceParameter } from './boolListComplianceParameter';
 import { BranchStep } from './branchStep';
 import { BranchStepAllOf } from './branchStepAllOf';
+import { BranchStepRequest } from './branchStepRequest';
+import { BranchStepRequestAllOf } from './branchStepRequestAllOf';
 import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CalendarDependency } from './calendarDependency';
@@ -923,6 +931,7 @@ import { ChangeHistory } from './changeHistory';
 import { ChangeItem } from './changeItem';
 import { CheckStep } from './checkStep';
 import { CheckStepAllOf } from './checkStepAllOf';
+import { CheckStepRequest } from './checkStepRequest';
 import { CloseEvent } from './closeEvent';
 import { CloseEventAllOf } from './closeEventAllOf';
 import { CompletePortfolio } from './completePortfolio';
@@ -1085,6 +1094,7 @@ import { FileResponse } from './fileResponse';
 import { FilterPredicateComplianceParameter } from './filterPredicateComplianceParameter';
 import { FilterPredicateComplianceParameterAllOf } from './filterPredicateComplianceParameterAllOf';
 import { FilterStep } from './filterStep';
+import { FilterStepRequest } from './filterStepRequest';
 import { FixedLeg } from './fixedLeg';
 import { FixedLegAllOf } from './fixedLegAllOf';
 import { FixedLegAllOfOverrides } from './fixedLegAllOfOverrides';
@@ -1143,8 +1153,10 @@ import { GetRecipeResponse } from './getRecipeResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
 import { GroupBySelectorComplianceParameter } from './groupBySelectorComplianceParameter';
 import { GroupByStep } from './groupByStep';
+import { GroupByStepRequest } from './groupByStepRequest';
 import { GroupFilterPredicateComplianceParameter } from './groupFilterPredicateComplianceParameter';
 import { GroupFilterStep } from './groupFilterStep';
+import { GroupFilterStepRequest } from './groupFilterStepRequest';
 import { GroupOfMarketDataKeyRules } from './groupOfMarketDataKeyRules';
 import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingAdjustmentWithDate } from './holdingAdjustmentWithDate';
@@ -1664,6 +1676,8 @@ let enumsMap: {[index: string]: any} = {
         "BoolListComplianceParameter.ComplianceParameterTypeEnum": BoolListComplianceParameter.ComplianceParameterTypeEnum,
         "BranchStep.ComplianceStepTypeEnum": BranchStep.ComplianceStepTypeEnum,
         "BranchStepAllOf.ComplianceStepTypeEnum": BranchStepAllOf.ComplianceStepTypeEnum,
+        "BranchStepRequest.ComplianceStepTypeRequestEnum": BranchStepRequest.ComplianceStepTypeRequestEnum,
+        "BranchStepRequestAllOf.ComplianceStepTypeRequestEnum": BranchStepRequestAllOf.ComplianceStepTypeRequestEnum,
         "CalendarDependency.DependencyTypeEnum": CalendarDependency.DependencyTypeEnum,
         "CalendarDependencyAllOf.DependencyTypeEnum": CalendarDependencyAllOf.DependencyTypeEnum,
         "CapFloor.InstrumentTypeEnum": CapFloor.InstrumentTypeEnum,
@@ -1687,6 +1701,7 @@ let enumsMap: {[index: string]: any} = {
         "ChangeHistory.ActionEnum": ChangeHistory.ActionEnum,
         "CheckStep.ComplianceStepTypeEnum": CheckStep.ComplianceStepTypeEnum,
         "CheckStepAllOf.ComplianceStepTypeEnum": CheckStepAllOf.ComplianceStepTypeEnum,
+        "CheckStepRequest.ComplianceStepTypeRequestEnum": CheckStepRequest.ComplianceStepTypeRequestEnum,
         "CloseEvent.InstrumentEventTypeEnum": CloseEvent.InstrumentEventTypeEnum,
         "CloseEventAllOf.InstrumentEventTypeEnum": CloseEventAllOf.InstrumentEventTypeEnum,
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
@@ -1695,7 +1710,7 @@ let enumsMap: {[index: string]: any} = {
         "ComplexMarketData.MarketDataTypeEnum": ComplexMarketData.MarketDataTypeEnum,
         "ComplianceParameter.ComplianceParameterTypeEnum": ComplianceParameter.ComplianceParameterTypeEnum,
         "ComplianceStep.ComplianceStepTypeEnum": ComplianceStep.ComplianceStepTypeEnum,
-        "ComplianceStepRequest.ComplianceStepTypeEnum": ComplianceStepRequest.ComplianceStepTypeEnum,
+        "ComplianceStepRequest.ComplianceStepTypeRequestEnum": ComplianceStepRequest.ComplianceStepTypeRequestEnum,
         "ConstantVolatilitySurface.MarketDataTypeEnum": ConstantVolatilitySurface.MarketDataTypeEnum,
         "ConstantVolatilitySurfaceAllOf.MarketDataTypeEnum": ConstantVolatilitySurfaceAllOf.MarketDataTypeEnum,
         "ContractForDifference.InstrumentTypeEnum": ContractForDifference.InstrumentTypeEnum,
@@ -1766,6 +1781,7 @@ let enumsMap: {[index: string]: any} = {
         "FilterPredicateComplianceParameter.ComplianceParameterTypeEnum": FilterPredicateComplianceParameter.ComplianceParameterTypeEnum,
         "FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum": FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "FilterStep.ComplianceStepTypeEnum": FilterStep.ComplianceStepTypeEnum,
+        "FilterStepRequest.ComplianceStepTypeRequestEnum": FilterStepRequest.ComplianceStepTypeRequestEnum,
         "FixedLeg.InstrumentTypeEnum": FixedLeg.InstrumentTypeEnum,
         "FixedLegAllOf.InstrumentTypeEnum": FixedLegAllOf.InstrumentTypeEnum,
         "FlexibleLoan.InstrumentTypeEnum": FlexibleLoan.InstrumentTypeEnum,
@@ -1817,8 +1833,10 @@ let enumsMap: {[index: string]: any} = {
         "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
         "GroupBySelectorComplianceParameter.ComplianceParameterTypeEnum": GroupBySelectorComplianceParameter.ComplianceParameterTypeEnum,
         "GroupByStep.ComplianceStepTypeEnum": GroupByStep.ComplianceStepTypeEnum,
+        "GroupByStepRequest.ComplianceStepTypeRequestEnum": GroupByStepRequest.ComplianceStepTypeRequestEnum,
         "GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum": GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum,
         "GroupFilterStep.ComplianceStepTypeEnum": GroupFilterStep.ComplianceStepTypeEnum,
+        "GroupFilterStepRequest.ComplianceStepTypeRequestEnum": GroupFilterStepRequest.ComplianceStepTypeRequestEnum,
         "HoldingsAdjustment.UnmatchedHoldingMethodEnum": HoldingsAdjustment.UnmatchedHoldingMethodEnum,
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
@@ -2076,6 +2094,8 @@ let typeMap: {[index: string]: any} = {
     "BoolListComplianceParameter": BoolListComplianceParameter,
     "BranchStep": BranchStep,
     "BranchStepAllOf": BranchStepAllOf,
+    "BranchStepRequest": BranchStepRequest,
+    "BranchStepRequestAllOf": BranchStepRequestAllOf,
     "Calendar": Calendar,
     "CalendarDate": CalendarDate,
     "CalendarDependency": CalendarDependency,
@@ -2108,6 +2128,7 @@ let typeMap: {[index: string]: any} = {
     "ChangeItem": ChangeItem,
     "CheckStep": CheckStep,
     "CheckStepAllOf": CheckStepAllOf,
+    "CheckStepRequest": CheckStepRequest,
     "CloseEvent": CloseEvent,
     "CloseEventAllOf": CloseEventAllOf,
     "CompletePortfolio": CompletePortfolio,
@@ -2269,6 +2290,7 @@ let typeMap: {[index: string]: any} = {
     "FilterPredicateComplianceParameter": FilterPredicateComplianceParameter,
     "FilterPredicateComplianceParameterAllOf": FilterPredicateComplianceParameterAllOf,
     "FilterStep": FilterStep,
+    "FilterStepRequest": FilterStepRequest,
     "FixedLeg": FixedLeg,
     "FixedLegAllOf": FixedLegAllOf,
     "FixedLegAllOfOverrides": FixedLegAllOfOverrides,
@@ -2327,8 +2349,10 @@ let typeMap: {[index: string]: any} = {
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
     "GroupBySelectorComplianceParameter": GroupBySelectorComplianceParameter,
     "GroupByStep": GroupByStep,
+    "GroupByStepRequest": GroupByStepRequest,
     "GroupFilterPredicateComplianceParameter": GroupFilterPredicateComplianceParameter,
     "GroupFilterStep": GroupFilterStep,
+    "GroupFilterStepRequest": GroupFilterStepRequest,
     "GroupOfMarketDataKeyRules": GroupOfMarketDataKeyRules,
     "HoldingAdjustment": HoldingAdjustment,
     "HoldingAdjustmentWithDate": HoldingAdjustmentWithDate,
