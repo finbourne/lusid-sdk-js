@@ -76,6 +76,8 @@ export * from './branchStep';
 export * from './branchStepAllOf';
 export * from './branchStepRequest';
 export * from './branchStepRequestAllOf';
+export * from './bucketedCashFlowResponse';
+export * from './bucketingSchedule';
 export * from './calendar';
 export * from './calendarDate';
 export * from './calendarDependency';
@@ -162,6 +164,7 @@ export * from './createComplianceTemplateRequest';
 export * from './createCorporateActionSourceRequest';
 export * from './createCustomEntityTypeRequest';
 export * from './createCutLabelDefinitionRequest';
+export * from './createDataMapRequest';
 export * from './createDataTypeRequest';
 export * from './createDateRequest';
 export * from './createDerivedPropertyDefinitionRequest';
@@ -194,6 +197,9 @@ export * from './customEntityResponse';
 export * from './customEntityType';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
+export * from './dataDefinition';
+export * from './dataMapKey';
+export * from './dataMapping';
 export * from './dataType';
 export * from './dataTypeSummary';
 export * from './dateAttributes';
@@ -328,6 +334,7 @@ export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
 export * from './getRecipeResponse';
 export * from './getReferencePortfolioConstituentsResponse';
+export * from './getStructuredResultDataResponse';
 export * from './groupBySelectorComplianceParameter';
 export * from './groupByStep';
 export * from './groupByStepRequest';
@@ -367,6 +374,7 @@ export * from './inlineValuationRequest';
 export * from './inlineValuationsReconciliationRequest';
 export * from './inputTransition';
 export * from './instrument';
+export * from './instrumentCashFlow';
 export * from './instrumentDefinition';
 export * from './instrumentDefinitionFormat';
 export * from './instrumentEvent';
@@ -554,6 +562,7 @@ export * from './propertyListAllOf';
 export * from './propertyListComplianceParameter';
 export * from './propertySchema';
 export * from './propertyValue';
+export * from './queryBucketedCashFlowsRequest';
 export * from './queryableKey';
 export * from './quote';
 export * from './quoteDependency';
@@ -615,6 +624,7 @@ export * from './resourceListOfGetCreditSupportAnnexResponse';
 export * from './resourceListOfGetRecipeResponse';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
+export * from './resourceListOfInstrumentCashFlow';
 export * from './resourceListOfInstrumentIdTypeDescriptor';
 export * from './resourceListOfLegalEntity';
 export * from './resourceListOfMapping';
@@ -639,6 +649,7 @@ export * from './resourceListOfRelationship';
 export * from './resourceListOfScopeDefinition';
 export * from './resourceListOfSideDefinition';
 export * from './resourceListOfString';
+export * from './resourceListOfTransaction';
 export * from './resourceListOfTransactionType';
 export * from './resourceListOfValueType';
 export * from './responseMetaData';
@@ -700,6 +711,8 @@ export * from './stream';
 export * from './stringComplianceParameter';
 export * from './stringList';
 export * from './stringListComplianceParameter';
+export * from './structuredResultData';
+export * from './structuredResultDataId';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './termDeposit';
@@ -786,6 +799,7 @@ export * from './upsertReferencePortfolioConstituentsResponse';
 export * from './upsertReturnsResponse';
 export * from './upsertSingleStructuredDataResponse';
 export * from './upsertStructuredDataResponse';
+export * from './upsertStructuredResultDataRequest';
 export * from './upsertTransactionPropertiesResponse';
 export * from './upsertTranslationScriptRequest';
 export * from './user';
@@ -899,6 +913,8 @@ import { BranchStep } from './branchStep';
 import { BranchStepAllOf } from './branchStepAllOf';
 import { BranchStepRequest } from './branchStepRequest';
 import { BranchStepRequestAllOf } from './branchStepRequestAllOf';
+import { BucketedCashFlowResponse } from './bucketedCashFlowResponse';
+import { BucketingSchedule } from './bucketingSchedule';
 import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CalendarDependency } from './calendarDependency';
@@ -985,6 +1001,7 @@ import { CreateComplianceTemplateRequest } from './createComplianceTemplateReque
 import { CreateCorporateActionSourceRequest } from './createCorporateActionSourceRequest';
 import { CreateCustomEntityTypeRequest } from './createCustomEntityTypeRequest';
 import { CreateCutLabelDefinitionRequest } from './createCutLabelDefinitionRequest';
+import { CreateDataMapRequest } from './createDataMapRequest';
 import { CreateDataTypeRequest } from './createDataTypeRequest';
 import { CreateDateRequest } from './createDateRequest';
 import { CreateDerivedPropertyDefinitionRequest } from './createDerivedPropertyDefinitionRequest';
@@ -1017,6 +1034,9 @@ import { CustomEntityResponse } from './customEntityResponse';
 import { CustomEntityType } from './customEntityType';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
+import { DataDefinition } from './dataDefinition';
+import { DataMapKey } from './dataMapKey';
+import { DataMapping } from './dataMapping';
 import { DataType } from './dataType';
 import { DataTypeSummary } from './dataTypeSummary';
 import { DateAttributes } from './dateAttributes';
@@ -1151,6 +1171,7 @@ import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
 import { GetRecipeResponse } from './getRecipeResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
+import { GetStructuredResultDataResponse } from './getStructuredResultDataResponse';
 import { GroupBySelectorComplianceParameter } from './groupBySelectorComplianceParameter';
 import { GroupByStep } from './groupByStep';
 import { GroupByStepRequest } from './groupByStepRequest';
@@ -1190,6 +1211,7 @@ import { InlineValuationRequest } from './inlineValuationRequest';
 import { InlineValuationsReconciliationRequest } from './inlineValuationsReconciliationRequest';
 import { InputTransition } from './inputTransition';
 import { Instrument } from './instrument';
+import { InstrumentCashFlow } from './instrumentCashFlow';
 import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentDefinitionFormat } from './instrumentDefinitionFormat';
 import { InstrumentEvent } from './instrumentEvent';
@@ -1377,6 +1399,7 @@ import { PropertyListAllOf } from './propertyListAllOf';
 import { PropertyListComplianceParameter } from './propertyListComplianceParameter';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
+import { QueryBucketedCashFlowsRequest } from './queryBucketedCashFlowsRequest';
 import { QueryableKey } from './queryableKey';
 import { Quote } from './quote';
 import { QuoteDependency } from './quoteDependency';
@@ -1438,6 +1461,7 @@ import { ResourceListOfGetCreditSupportAnnexResponse } from './resourceListOfGet
 import { ResourceListOfGetRecipeResponse } from './resourceListOfGetRecipeResponse';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
+import { ResourceListOfInstrumentCashFlow } from './resourceListOfInstrumentCashFlow';
 import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
 import { ResourceListOfLegalEntity } from './resourceListOfLegalEntity';
 import { ResourceListOfMapping } from './resourceListOfMapping';
@@ -1462,6 +1486,7 @@ import { ResourceListOfRelationship } from './resourceListOfRelationship';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResourceListOfSideDefinition } from './resourceListOfSideDefinition';
 import { ResourceListOfString } from './resourceListOfString';
+import { ResourceListOfTransaction } from './resourceListOfTransaction';
 import { ResourceListOfTransactionType } from './resourceListOfTransactionType';
 import { ResourceListOfValueType } from './resourceListOfValueType';
 import { ResponseMetaData } from './responseMetaData';
@@ -1523,6 +1548,8 @@ import { Stream } from './stream';
 import { StringComplianceParameter } from './stringComplianceParameter';
 import { StringList } from './stringList';
 import { StringListComplianceParameter } from './stringListComplianceParameter';
+import { StructuredResultData } from './structuredResultData';
+import { StructuredResultDataId } from './structuredResultDataId';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { TermDeposit } from './termDeposit';
@@ -1609,6 +1636,7 @@ import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferenceP
 import { UpsertReturnsResponse } from './upsertReturnsResponse';
 import { UpsertSingleStructuredDataResponse } from './upsertSingleStructuredDataResponse';
 import { UpsertStructuredDataResponse } from './upsertStructuredDataResponse';
+import { UpsertStructuredResultDataRequest } from './upsertStructuredResultDataRequest';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
 import { UpsertTranslationScriptRequest } from './upsertTranslationScriptRequest';
 import { User } from './user';
@@ -2096,6 +2124,8 @@ let typeMap: {[index: string]: any} = {
     "BranchStepAllOf": BranchStepAllOf,
     "BranchStepRequest": BranchStepRequest,
     "BranchStepRequestAllOf": BranchStepRequestAllOf,
+    "BucketedCashFlowResponse": BucketedCashFlowResponse,
+    "BucketingSchedule": BucketingSchedule,
     "Calendar": Calendar,
     "CalendarDate": CalendarDate,
     "CalendarDependency": CalendarDependency,
@@ -2182,6 +2212,7 @@ let typeMap: {[index: string]: any} = {
     "CreateCorporateActionSourceRequest": CreateCorporateActionSourceRequest,
     "CreateCustomEntityTypeRequest": CreateCustomEntityTypeRequest,
     "CreateCutLabelDefinitionRequest": CreateCutLabelDefinitionRequest,
+    "CreateDataMapRequest": CreateDataMapRequest,
     "CreateDataTypeRequest": CreateDataTypeRequest,
     "CreateDateRequest": CreateDateRequest,
     "CreateDerivedPropertyDefinitionRequest": CreateDerivedPropertyDefinitionRequest,
@@ -2214,6 +2245,9 @@ let typeMap: {[index: string]: any} = {
     "CustomEntityType": CustomEntityType,
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
+    "DataDefinition": DataDefinition,
+    "DataMapKey": DataMapKey,
+    "DataMapping": DataMapping,
     "DataType": DataType,
     "DataTypeSummary": DataTypeSummary,
     "DateAttributes": DateAttributes,
@@ -2347,6 +2381,7 @@ let typeMap: {[index: string]: any} = {
     "GetQuotesResponse": GetQuotesResponse,
     "GetRecipeResponse": GetRecipeResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
+    "GetStructuredResultDataResponse": GetStructuredResultDataResponse,
     "GroupBySelectorComplianceParameter": GroupBySelectorComplianceParameter,
     "GroupByStep": GroupByStep,
     "GroupByStepRequest": GroupByStepRequest,
@@ -2386,6 +2421,7 @@ let typeMap: {[index: string]: any} = {
     "InlineValuationsReconciliationRequest": InlineValuationsReconciliationRequest,
     "InputTransition": InputTransition,
     "Instrument": Instrument,
+    "InstrumentCashFlow": InstrumentCashFlow,
     "InstrumentDefinition": InstrumentDefinition,
     "InstrumentDefinitionFormat": InstrumentDefinitionFormat,
     "InstrumentEvent": InstrumentEvent,
@@ -2573,6 +2609,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyListComplianceParameter": PropertyListComplianceParameter,
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
+    "QueryBucketedCashFlowsRequest": QueryBucketedCashFlowsRequest,
     "QueryableKey": QueryableKey,
     "Quote": Quote,
     "QuoteDependency": QuoteDependency,
@@ -2634,6 +2671,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfGetRecipeResponse": ResourceListOfGetRecipeResponse,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
+    "ResourceListOfInstrumentCashFlow": ResourceListOfInstrumentCashFlow,
     "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
     "ResourceListOfLegalEntity": ResourceListOfLegalEntity,
     "ResourceListOfMapping": ResourceListOfMapping,
@@ -2658,6 +2696,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ResourceListOfSideDefinition": ResourceListOfSideDefinition,
     "ResourceListOfString": ResourceListOfString,
+    "ResourceListOfTransaction": ResourceListOfTransaction,
     "ResourceListOfTransactionType": ResourceListOfTransactionType,
     "ResourceListOfValueType": ResourceListOfValueType,
     "ResponseMetaData": ResponseMetaData,
@@ -2719,6 +2758,8 @@ let typeMap: {[index: string]: any} = {
     "StringComplianceParameter": StringComplianceParameter,
     "StringList": StringList,
     "StringListComplianceParameter": StringListComplianceParameter,
+    "StructuredResultData": StructuredResultData,
+    "StructuredResultDataId": StructuredResultDataId,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "TermDeposit": TermDeposit,
@@ -2805,6 +2846,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertReturnsResponse": UpsertReturnsResponse,
     "UpsertSingleStructuredDataResponse": UpsertSingleStructuredDataResponse,
     "UpsertStructuredDataResponse": UpsertStructuredDataResponse,
+    "UpsertStructuredResultDataRequest": UpsertStructuredResultDataRequest,
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
     "UpsertTranslationScriptRequest": UpsertTranslationScriptRequest,
     "User": User,
