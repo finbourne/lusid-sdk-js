@@ -86,6 +86,7 @@ export * from './capFloor';
 export * from './capFloorAllOf';
 export * from './capitalDistributionEvent';
 export * from './capitalDistributionEventAllOf';
+export * from './cashAndSecurityOfferElection';
 export * from './cashDependency';
 export * from './cashDependencyAllOf';
 export * from './cashDividendEvent';
@@ -99,6 +100,7 @@ export * from './cashFlowValueAllOf';
 export * from './cashFlowValueSet';
 export * from './cashFlowValueSetAllOf';
 export * from './cashLadderRecord';
+export * from './cashOfferElection';
 export * from './cashPerpetual';
 export * from './cashPerpetualAllOf';
 export * from './cdsFlowConventions';
@@ -433,6 +435,8 @@ export * from './marketOptions';
 export * from './marketQuote';
 export * from './maturityEvent';
 export * from './maturityEventAllOf';
+export * from './mergerEvent';
+export * from './mergerEventAllOf';
 export * from './metricValue';
 export * from './modelOptions';
 export * from './modelSelection';
@@ -687,6 +691,7 @@ export * from './scripDividendEvent';
 export * from './scripDividendEventAllOf';
 export * from './scriptMapReference';
 export * from './securityElection';
+export * from './securityOfferElection';
 export * from './sequenceDefinition';
 export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
@@ -926,6 +931,7 @@ import { CapFloor } from './capFloor';
 import { CapFloorAllOf } from './capFloorAllOf';
 import { CapitalDistributionEvent } from './capitalDistributionEvent';
 import { CapitalDistributionEventAllOf } from './capitalDistributionEventAllOf';
+import { CashAndSecurityOfferElection } from './cashAndSecurityOfferElection';
 import { CashDependency } from './cashDependency';
 import { CashDependencyAllOf } from './cashDependencyAllOf';
 import { CashDividendEvent } from './cashDividendEvent';
@@ -939,6 +945,7 @@ import { CashFlowValueAllOf } from './cashFlowValueAllOf';
 import { CashFlowValueSet } from './cashFlowValueSet';
 import { CashFlowValueSetAllOf } from './cashFlowValueSetAllOf';
 import { CashLadderRecord } from './cashLadderRecord';
+import { CashOfferElection } from './cashOfferElection';
 import { CashPerpetual } from './cashPerpetual';
 import { CashPerpetualAllOf } from './cashPerpetualAllOf';
 import { CdsFlowConventions } from './cdsFlowConventions';
@@ -1273,6 +1280,8 @@ import { MarketOptions } from './marketOptions';
 import { MarketQuote } from './marketQuote';
 import { MaturityEvent } from './maturityEvent';
 import { MaturityEventAllOf } from './maturityEventAllOf';
+import { MergerEvent } from './mergerEvent';
+import { MergerEventAllOf } from './mergerEventAllOf';
 import { MetricValue } from './metricValue';
 import { ModelOptions } from './modelOptions';
 import { ModelSelection } from './modelSelection';
@@ -1527,6 +1536,7 @@ import { ScripDividendEvent } from './scripDividendEvent';
 import { ScripDividendEventAllOf } from './scripDividendEventAllOf';
 import { ScriptMapReference } from './scriptMapReference';
 import { SecurityElection } from './securityElection';
+import { SecurityOfferElection } from './securityOfferElection';
 import { SequenceDefinition } from './sequenceDefinition';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
@@ -1918,6 +1928,8 @@ let enumsMap: {[index: string]: any} = {
         "MarketQuote.QuoteTypeEnum": MarketQuote.QuoteTypeEnum,
         "MaturityEvent.InstrumentEventTypeEnum": MaturityEvent.InstrumentEventTypeEnum,
         "MaturityEventAllOf.InstrumentEventTypeEnum": MaturityEventAllOf.InstrumentEventTypeEnum,
+        "MergerEvent.InstrumentEventTypeEnum": MergerEvent.InstrumentEventTypeEnum,
+        "MergerEventAllOf.InstrumentEventTypeEnum": MergerEventAllOf.InstrumentEventTypeEnum,
         "ModelOptions.ModelOptionsTypeEnum": ModelOptions.ModelOptionsTypeEnum,
         "ModelSelection.LibraryEnum": ModelSelection.LibraryEnum,
         "ModelSelection.ModelEnum": ModelSelection.ModelEnum,
@@ -2142,6 +2154,7 @@ let typeMap: {[index: string]: any} = {
     "CapFloorAllOf": CapFloorAllOf,
     "CapitalDistributionEvent": CapitalDistributionEvent,
     "CapitalDistributionEventAllOf": CapitalDistributionEventAllOf,
+    "CashAndSecurityOfferElection": CashAndSecurityOfferElection,
     "CashDependency": CashDependency,
     "CashDependencyAllOf": CashDependencyAllOf,
     "CashDividendEvent": CashDividendEvent,
@@ -2155,6 +2168,7 @@ let typeMap: {[index: string]: any} = {
     "CashFlowValueSet": CashFlowValueSet,
     "CashFlowValueSetAllOf": CashFlowValueSetAllOf,
     "CashLadderRecord": CashLadderRecord,
+    "CashOfferElection": CashOfferElection,
     "CashPerpetual": CashPerpetual,
     "CashPerpetualAllOf": CashPerpetualAllOf,
     "CdsFlowConventions": CdsFlowConventions,
@@ -2488,6 +2502,8 @@ let typeMap: {[index: string]: any} = {
     "MarketQuote": MarketQuote,
     "MaturityEvent": MaturityEvent,
     "MaturityEventAllOf": MaturityEventAllOf,
+    "MergerEvent": MergerEvent,
+    "MergerEventAllOf": MergerEventAllOf,
     "MetricValue": MetricValue,
     "ModelOptions": ModelOptions,
     "ModelSelection": ModelSelection,
@@ -2742,6 +2758,7 @@ let typeMap: {[index: string]: any} = {
     "ScripDividendEventAllOf": ScripDividendEventAllOf,
     "ScriptMapReference": ScriptMapReference,
     "SecurityElection": SecurityElection,
+    "SecurityOfferElection": SecurityOfferElection,
     "SequenceDefinition": SequenceDefinition,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
