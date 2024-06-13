@@ -1,4 +1,4 @@
-![LUSID_by_Finbourne](https://content.finbourne.com/LUSID_repo.png)
+![LUSID_by_Finbourne](./resources/Finbourne_Logo_Teal.svg)
 
 [![Build Status](https://travis-ci.org/finbourne/lusid-sdk-js.svg?branch=master)](https://travis-ci.org/finbourne/lusid-sdk-js)
 
