@@ -11,33 +11,51 @@
  */
 
 import { RequestFile } from './models';
+import { ErrorDetail } from './errorDetail';
+import { Link } from './link';
+import { Person } from './person';
 
-export class ComplianceStepRequest {
+export class UpsertPersonsResponse {
     /**
-    * . The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest
+    * The Person(s) that have been successfully upserted
     */
-    'complianceStepTypeRequest': ComplianceStepRequest.ComplianceStepTypeRequestEnum;
+    'values': { [key: string]: Person; };
+    /**
+    * The Person(s) that could not be upserted along with a reason for their failure.
+    */
+    'failed': { [key: string]: ErrorDetail; };
+    /**
+    * The as-at datetime at which Person(s) were created or updated.
+    */
+    'asAtDate': Date;
+    'links'?: Array<Link> | null;
 
-    static discriminator: string | undefined = "complianceStepTypeRequest";
+    static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "complianceStepTypeRequest",
-            "baseName": "complianceStepTypeRequest",
-            "type": "ComplianceStepRequest.ComplianceStepTypeRequestEnum"
+            "name": "values",
+            "baseName": "values",
+            "type": "{ [key: string]: Person; }"
+        },
+        {
+            "name": "failed",
+            "baseName": "failed",
+            "type": "{ [key: string]: ErrorDetail; }"
+        },
+        {
+            "name": "asAtDate",
+            "baseName": "asAtDate",
+            "type": "Date"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
-        return ComplianceStepRequest.attributeTypeMap;
+        return UpsertPersonsResponse.attributeTypeMap;
     }
 }
 
-export namespace ComplianceStepRequest {
-    export enum ComplianceStepTypeRequestEnum {
-        FilterStepRequest = <any> 'FilterStepRequest',
-        GroupByStepRequest = <any> 'GroupByStepRequest',
-        GroupFilterStepRequest = <any> 'GroupFilterStepRequest',
-        BranchStepRequest = <any> 'BranchStepRequest',
-        CheckStepRequest = <any> 'CheckStepRequest'
-    }
-}
