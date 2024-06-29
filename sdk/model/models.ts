@@ -340,6 +340,7 @@ export * from './getStructuredResultDataResponse';
 export * from './groupBySelectorComplianceParameter';
 export * from './groupByStep';
 export * from './groupByStepRequest';
+export * from './groupCalculationComplianceParameter';
 export * from './groupFilterPredicateComplianceParameter';
 export * from './groupFilterStep';
 export * from './groupFilterStepAllOf';
@@ -520,6 +521,8 @@ export * from './pagedResourceListOfVirtualRow';
 export * from './participation';
 export * from './participationRequest';
 export * from './participationSetRequest';
+export * from './percentCheckStep';
+export * from './percentCheckStepRequest';
 export * from './performanceReturn';
 export * from './performanceReturnsMetric';
 export * from './perpetualProperty';
@@ -1187,6 +1190,7 @@ import { GetStructuredResultDataResponse } from './getStructuredResultDataRespon
 import { GroupBySelectorComplianceParameter } from './groupBySelectorComplianceParameter';
 import { GroupByStep } from './groupByStep';
 import { GroupByStepRequest } from './groupByStepRequest';
+import { GroupCalculationComplianceParameter } from './groupCalculationComplianceParameter';
 import { GroupFilterPredicateComplianceParameter } from './groupFilterPredicateComplianceParameter';
 import { GroupFilterStep } from './groupFilterStep';
 import { GroupFilterStepAllOf } from './groupFilterStepAllOf';
@@ -1367,6 +1371,8 @@ import { PagedResourceListOfVirtualRow } from './pagedResourceListOfVirtualRow';
 import { Participation } from './participation';
 import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
+import { PercentCheckStep } from './percentCheckStep';
+import { PercentCheckStepRequest } from './percentCheckStepRequest';
 import { PerformanceReturn } from './performanceReturn';
 import { PerformanceReturnsMetric } from './performanceReturnsMetric';
 import { PerpetualProperty } from './perpetualProperty';
@@ -1882,6 +1888,7 @@ let enumsMap: {[index: string]: any} = {
         "GroupBySelectorComplianceParameter.ComplianceParameterTypeEnum": GroupBySelectorComplianceParameter.ComplianceParameterTypeEnum,
         "GroupByStep.ComplianceStepTypeEnum": GroupByStep.ComplianceStepTypeEnum,
         "GroupByStepRequest.ComplianceStepTypeRequestEnum": GroupByStepRequest.ComplianceStepTypeRequestEnum,
+        "GroupCalculationComplianceParameter.ComplianceParameterTypeEnum": GroupCalculationComplianceParameter.ComplianceParameterTypeEnum,
         "GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum": GroupFilterPredicateComplianceParameter.ComplianceParameterTypeEnum,
         "GroupFilterStep.ComplianceStepTypeEnum": GroupFilterStep.ComplianceStepTypeEnum,
         "GroupFilterStepAllOf.ComplianceStepTypeEnum": GroupFilterStepAllOf.ComplianceStepTypeEnum,
@@ -1948,6 +1955,8 @@ let enumsMap: {[index: string]: any} = {
         "OpenEventAllOf.InstrumentEventTypeEnum": OpenEventAllOf.InstrumentEventTypeEnum,
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
+        "PercentCheckStep.ComplianceStepTypeEnum": PercentCheckStep.ComplianceStepTypeEnum,
+        "PercentCheckStepRequest.ComplianceStepTypeRequestEnum": PercentCheckStepRequest.ComplianceStepTypeRequestEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "Portfolio.AccountingMethodEnum": Portfolio.AccountingMethodEnum,
         "PortfolioDetails.AccountingMethodEnum": PortfolioDetails.AccountingMethodEnum,
@@ -2412,6 +2421,7 @@ let typeMap: {[index: string]: any} = {
     "GroupBySelectorComplianceParameter": GroupBySelectorComplianceParameter,
     "GroupByStep": GroupByStep,
     "GroupByStepRequest": GroupByStepRequest,
+    "GroupCalculationComplianceParameter": GroupCalculationComplianceParameter,
     "GroupFilterPredicateComplianceParameter": GroupFilterPredicateComplianceParameter,
     "GroupFilterStep": GroupFilterStep,
     "GroupFilterStepAllOf": GroupFilterStepAllOf,
@@ -2592,6 +2602,8 @@ let typeMap: {[index: string]: any} = {
     "Participation": Participation,
     "ParticipationRequest": ParticipationRequest,
     "ParticipationSetRequest": ParticipationSetRequest,
+    "PercentCheckStep": PercentCheckStep,
+    "PercentCheckStepRequest": PercentCheckStepRequest,
     "PerformanceReturn": PerformanceReturn,
     "PerformanceReturnsMetric": PerformanceReturnsMetric,
     "PerpetualProperty": PerpetualProperty,
