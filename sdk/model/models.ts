@@ -531,6 +531,7 @@ export * from './placeBlocksRequest';
 export * from './placement';
 export * from './placementRequest';
 export * from './placementSetRequest';
+export * from './placementUpdateRequest';
 export * from './portfolio';
 export * from './portfolioCashFlow';
 export * from './portfolioCashLadder';
@@ -774,6 +775,7 @@ export * from './updateCutLabelDefinitionRequest';
 export * from './updateDataTypeRequest';
 export * from './updateDerivedPropertyDefinitionRequest';
 export * from './updateInstrumentIdentifierRequest';
+export * from './updatePlacementsResponse';
 export * from './updatePortfolioGroupRequest';
 export * from './updatePortfolioRequest';
 export * from './updatePropertyDefinitionRequest';
@@ -1381,6 +1383,7 @@ import { PlaceBlocksRequest } from './placeBlocksRequest';
 import { Placement } from './placement';
 import { PlacementRequest } from './placementRequest';
 import { PlacementSetRequest } from './placementSetRequest';
+import { PlacementUpdateRequest } from './placementUpdateRequest';
 import { Portfolio } from './portfolio';
 import { PortfolioCashFlow } from './portfolioCashFlow';
 import { PortfolioCashLadder } from './portfolioCashLadder';
@@ -1624,6 +1627,7 @@ import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionReque
 import { UpdateDataTypeRequest } from './updateDataTypeRequest';
 import { UpdateDerivedPropertyDefinitionRequest } from './updateDerivedPropertyDefinitionRequest';
 import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierRequest';
+import { UpdatePlacementsResponse } from './updatePlacementsResponse';
 import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
 import { UpdatePortfolioRequest } from './updatePortfolioRequest';
 import { UpdatePropertyDefinitionRequest } from './updatePropertyDefinitionRequest';
@@ -2612,6 +2616,7 @@ let typeMap: {[index: string]: any} = {
     "Placement": Placement,
     "PlacementRequest": PlacementRequest,
     "PlacementSetRequest": PlacementSetRequest,
+    "PlacementUpdateRequest": PlacementUpdateRequest,
     "Portfolio": Portfolio,
     "PortfolioCashFlow": PortfolioCashFlow,
     "PortfolioCashLadder": PortfolioCashLadder,
@@ -2855,6 +2860,7 @@ let typeMap: {[index: string]: any} = {
     "UpdateDataTypeRequest": UpdateDataTypeRequest,
     "UpdateDerivedPropertyDefinitionRequest": UpdateDerivedPropertyDefinitionRequest,
     "UpdateInstrumentIdentifierRequest": UpdateInstrumentIdentifierRequest,
+    "UpdatePlacementsResponse": UpdatePlacementsResponse,
     "UpdatePortfolioGroupRequest": UpdatePortfolioGroupRequest,
     "UpdatePortfolioRequest": UpdatePortfolioRequest,
     "UpdatePropertyDefinitionRequest": UpdatePropertyDefinitionRequest,
