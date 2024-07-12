@@ -82,6 +82,8 @@ export * from './calendar';
 export * from './calendarDate';
 export * from './calendarDependency';
 export * from './calendarDependencyAllOf';
+export * from './cancelPlacementsResponse';
+export * from './cancelledPlacementResult';
 export * from './capFloor';
 export * from './capFloorAllOf';
 export * from './capitalDistributionEvent';
@@ -297,6 +299,8 @@ export * from './fundingLeg';
 export * from './fundingLegAllOf';
 export * from './future';
 export * from './futureAllOf';
+export * from './futureExpiryEvent';
+export * from './futureExpiryEventAllOf';
 export * from './futuresContractDetails';
 export * from './fxConventions';
 export * from './fxDependency';
@@ -934,6 +938,8 @@ import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CalendarDependency } from './calendarDependency';
 import { CalendarDependencyAllOf } from './calendarDependencyAllOf';
+import { CancelPlacementsResponse } from './cancelPlacementsResponse';
+import { CancelledPlacementResult } from './cancelledPlacementResult';
 import { CapFloor } from './capFloor';
 import { CapFloorAllOf } from './capFloorAllOf';
 import { CapitalDistributionEvent } from './capitalDistributionEvent';
@@ -1149,6 +1155,8 @@ import { FundingLeg } from './fundingLeg';
 import { FundingLegAllOf } from './fundingLegAllOf';
 import { Future } from './future';
 import { FutureAllOf } from './futureAllOf';
+import { FutureExpiryEvent } from './futureExpiryEvent';
+import { FutureExpiryEventAllOf } from './futureExpiryEventAllOf';
 import { FuturesContractDetails } from './futuresContractDetails';
 import { FxConventions } from './fxConventions';
 import { FxDependency } from './fxDependency';
@@ -1854,6 +1862,8 @@ let enumsMap: {[index: string]: any} = {
         "FundingLegAllOf.InstrumentTypeEnum": FundingLegAllOf.InstrumentTypeEnum,
         "Future.InstrumentTypeEnum": Future.InstrumentTypeEnum,
         "FutureAllOf.InstrumentTypeEnum": FutureAllOf.InstrumentTypeEnum,
+        "FutureExpiryEvent.InstrumentEventTypeEnum": FutureExpiryEvent.InstrumentEventTypeEnum,
+        "FutureExpiryEventAllOf.InstrumentEventTypeEnum": FutureExpiryEventAllOf.InstrumentEventTypeEnum,
         "FxDependency.DependencyTypeEnum": FxDependency.DependencyTypeEnum,
         "FxDependencyAllOf.DependencyTypeEnum": FxDependencyAllOf.DependencyTypeEnum,
         "FxForward.InstrumentTypeEnum": FxForward.InstrumentTypeEnum,
@@ -2168,6 +2178,8 @@ let typeMap: {[index: string]: any} = {
     "CalendarDate": CalendarDate,
     "CalendarDependency": CalendarDependency,
     "CalendarDependencyAllOf": CalendarDependencyAllOf,
+    "CancelPlacementsResponse": CancelPlacementsResponse,
+    "CancelledPlacementResult": CancelledPlacementResult,
     "CapFloor": CapFloor,
     "CapFloorAllOf": CapFloorAllOf,
     "CapitalDistributionEvent": CapitalDistributionEvent,
@@ -2382,6 +2394,8 @@ let typeMap: {[index: string]: any} = {
     "FundingLegAllOf": FundingLegAllOf,
     "Future": Future,
     "FutureAllOf": FutureAllOf,
+    "FutureExpiryEvent": FutureExpiryEvent,
+    "FutureExpiryEventAllOf": FutureExpiryEventAllOf,
     "FuturesContractDetails": FuturesContractDetails,
     "FxConventions": FxConventions,
     "FxDependency": FxDependency,
