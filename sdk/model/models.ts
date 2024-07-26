@@ -133,6 +133,7 @@ export * from './complianceRuleResultDetail';
 export * from './complianceRuleResultPortfolioDetail';
 export * from './complianceRuleResultV2';
 export * from './complianceRuleTemplate';
+export * from './complianceRunConfiguration';
 export * from './complianceRunInfoV2';
 export * from './complianceStep';
 export * from './complianceStepRequest';
@@ -561,6 +562,7 @@ export * from './portfolioResultDataKeyRuleAllOf';
 export * from './portfolioReturnBreakdown';
 export * from './portfolioSearchResult';
 export * from './portfoliosReconciliationRequest';
+export * from './preTradeConfiguration';
 export * from './premium';
 export * from './pricingContext';
 export * from './pricingOptions';
@@ -991,6 +993,7 @@ import { ComplianceRuleResultDetail } from './complianceRuleResultDetail';
 import { ComplianceRuleResultPortfolioDetail } from './complianceRuleResultPortfolioDetail';
 import { ComplianceRuleResultV2 } from './complianceRuleResultV2';
 import { ComplianceRuleTemplate } from './complianceRuleTemplate';
+import { ComplianceRunConfiguration } from './complianceRunConfiguration';
 import { ComplianceRunInfoV2 } from './complianceRunInfoV2';
 import { ComplianceStep } from './complianceStep';
 import { ComplianceStepRequest } from './complianceStepRequest';
@@ -1419,6 +1422,7 @@ import { PortfolioResultDataKeyRuleAllOf } from './portfolioResultDataKeyRuleAll
 import { PortfolioReturnBreakdown } from './portfolioReturnBreakdown';
 import { PortfolioSearchResult } from './portfolioSearchResult';
 import { PortfoliosReconciliationRequest } from './portfoliosReconciliationRequest';
+import { PreTradeConfiguration } from './preTradeConfiguration';
 import { Premium } from './premium';
 import { PricingContext } from './pricingContext';
 import { PricingOptions } from './pricingOptions';
@@ -2235,6 +2239,7 @@ let typeMap: {[index: string]: any} = {
     "ComplianceRuleResultPortfolioDetail": ComplianceRuleResultPortfolioDetail,
     "ComplianceRuleResultV2": ComplianceRuleResultV2,
     "ComplianceRuleTemplate": ComplianceRuleTemplate,
+    "ComplianceRunConfiguration": ComplianceRunConfiguration,
     "ComplianceRunInfoV2": ComplianceRunInfoV2,
     "ComplianceStep": ComplianceStep,
     "ComplianceStepRequest": ComplianceStepRequest,
@@ -2662,6 +2667,7 @@ let typeMap: {[index: string]: any} = {
     "PortfolioReturnBreakdown": PortfolioReturnBreakdown,
     "PortfolioSearchResult": PortfolioSearchResult,
     "PortfoliosReconciliationRequest": PortfoliosReconciliationRequest,
+    "PreTradeConfiguration": PreTradeConfiguration,
     "Premium": Premium,
     "PricingContext": PricingContext,
     "PricingOptions": PricingOptions,
