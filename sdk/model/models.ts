@@ -489,6 +489,7 @@ export * from './orderGraphPlacementOrderSynopsis';
 export * from './orderGraphPlacementPlacementSynopsis';
 export * from './orderRequest';
 export * from './orderSetRequest';
+export * from './orderUpdateRequest';
 export * from './otcConfirmation';
 export * from './outputTransaction';
 export * from './outputTransition';
@@ -785,6 +786,7 @@ export * from './updateCutLabelDefinitionRequest';
 export * from './updateDataTypeRequest';
 export * from './updateDerivedPropertyDefinitionRequest';
 export * from './updateInstrumentIdentifierRequest';
+export * from './updateOrdersResponse';
 export * from './updatePlacementsResponse';
 export * from './updatePortfolioGroupRequest';
 export * from './updatePortfolioRequest';
@@ -1351,6 +1353,7 @@ import { OrderGraphPlacementOrderSynopsis } from './orderGraphPlacementOrderSyno
 import { OrderGraphPlacementPlacementSynopsis } from './orderGraphPlacementPlacementSynopsis';
 import { OrderRequest } from './orderRequest';
 import { OrderSetRequest } from './orderSetRequest';
+import { OrderUpdateRequest } from './orderUpdateRequest';
 import { OtcConfirmation } from './otcConfirmation';
 import { OutputTransaction } from './outputTransaction';
 import { OutputTransition } from './outputTransition';
@@ -1647,6 +1650,7 @@ import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionReque
 import { UpdateDataTypeRequest } from './updateDataTypeRequest';
 import { UpdateDerivedPropertyDefinitionRequest } from './updateDerivedPropertyDefinitionRequest';
 import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierRequest';
+import { UpdateOrdersResponse } from './updateOrdersResponse';
 import { UpdatePlacementsResponse } from './updatePlacementsResponse';
 import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
 import { UpdatePortfolioRequest } from './updatePortfolioRequest';
@@ -2598,6 +2602,7 @@ let typeMap: {[index: string]: any} = {
     "OrderGraphPlacementPlacementSynopsis": OrderGraphPlacementPlacementSynopsis,
     "OrderRequest": OrderRequest,
     "OrderSetRequest": OrderSetRequest,
+    "OrderUpdateRequest": OrderUpdateRequest,
     "OtcConfirmation": OtcConfirmation,
     "OutputTransaction": OutputTransaction,
     "OutputTransition": OutputTransition,
@@ -2894,6 +2899,7 @@ let typeMap: {[index: string]: any} = {
     "UpdateDataTypeRequest": UpdateDataTypeRequest,
     "UpdateDerivedPropertyDefinitionRequest": UpdateDerivedPropertyDefinitionRequest,
     "UpdateInstrumentIdentifierRequest": UpdateInstrumentIdentifierRequest,
+    "UpdateOrdersResponse": UpdateOrdersResponse,
     "UpdatePlacementsResponse": UpdatePlacementsResponse,
     "UpdatePortfolioGroupRequest": UpdatePortfolioGroupRequest,
     "UpdatePortfolioRequest": UpdatePortfolioRequest,
