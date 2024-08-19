@@ -739,6 +739,8 @@ export * from './stringList';
 export * from './stringListComplianceParameter';
 export * from './structuredResultData';
 export * from './structuredResultDataId';
+export * from './swapCashFlowEvent';
+export * from './swapCashFlowEventAllOf';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './termDeposit';
@@ -1611,6 +1613,8 @@ import { StringList } from './stringList';
 import { StringListComplianceParameter } from './stringListComplianceParameter';
 import { StructuredResultData } from './structuredResultData';
 import { StructuredResultDataId } from './structuredResultDataId';
+import { SwapCashFlowEvent } from './swapCashFlowEvent';
+import { SwapCashFlowEventAllOf } from './swapCashFlowEventAllOf';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { TermDeposit } from './termDeposit';
@@ -2107,6 +2111,8 @@ let enumsMap: {[index: string]: any} = {
         "StringComplianceParameter.ComplianceParameterTypeEnum": StringComplianceParameter.ComplianceParameterTypeEnum,
         "StringList.ReferenceListTypeEnum": StringList.ReferenceListTypeEnum,
         "StringListComplianceParameter.ComplianceParameterTypeEnum": StringListComplianceParameter.ComplianceParameterTypeEnum,
+        "SwapCashFlowEvent.InstrumentEventTypeEnum": SwapCashFlowEvent.InstrumentEventTypeEnum,
+        "SwapCashFlowEventAllOf.InstrumentEventTypeEnum": SwapCashFlowEventAllOf.InstrumentEventTypeEnum,
         "TermDeposit.InstrumentTypeEnum": TermDeposit.InstrumentTypeEnum,
         "TermDepositAllOf.InstrumentTypeEnum": TermDepositAllOf.InstrumentTypeEnum,
         "TotalReturnSwap.InstrumentTypeEnum": TotalReturnSwap.InstrumentTypeEnum,
@@ -2868,6 +2874,8 @@ let typeMap: {[index: string]: any} = {
     "StringListComplianceParameter": StringListComplianceParameter,
     "StructuredResultData": StructuredResultData,
     "StructuredResultDataId": StructuredResultDataId,
+    "SwapCashFlowEvent": SwapCashFlowEvent,
+    "SwapCashFlowEventAllOf": SwapCashFlowEventAllOf,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "TermDeposit": TermDeposit,
