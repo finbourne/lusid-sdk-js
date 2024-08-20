@@ -741,6 +741,8 @@ export * from './structuredResultData';
 export * from './structuredResultDataId';
 export * from './swapCashFlowEvent';
 export * from './swapCashFlowEventAllOf';
+export * from './swapPrincipalEvent';
+export * from './swapPrincipalEventAllOf';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './termDeposit';
@@ -1615,6 +1617,8 @@ import { StructuredResultData } from './structuredResultData';
 import { StructuredResultDataId } from './structuredResultDataId';
 import { SwapCashFlowEvent } from './swapCashFlowEvent';
 import { SwapCashFlowEventAllOf } from './swapCashFlowEventAllOf';
+import { SwapPrincipalEvent } from './swapPrincipalEvent';
+import { SwapPrincipalEventAllOf } from './swapPrincipalEventAllOf';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { TermDeposit } from './termDeposit';
@@ -2113,6 +2117,8 @@ let enumsMap: {[index: string]: any} = {
         "StringListComplianceParameter.ComplianceParameterTypeEnum": StringListComplianceParameter.ComplianceParameterTypeEnum,
         "SwapCashFlowEvent.InstrumentEventTypeEnum": SwapCashFlowEvent.InstrumentEventTypeEnum,
         "SwapCashFlowEventAllOf.InstrumentEventTypeEnum": SwapCashFlowEventAllOf.InstrumentEventTypeEnum,
+        "SwapPrincipalEvent.InstrumentEventTypeEnum": SwapPrincipalEvent.InstrumentEventTypeEnum,
+        "SwapPrincipalEventAllOf.InstrumentEventTypeEnum": SwapPrincipalEventAllOf.InstrumentEventTypeEnum,
         "TermDeposit.InstrumentTypeEnum": TermDeposit.InstrumentTypeEnum,
         "TermDepositAllOf.InstrumentTypeEnum": TermDepositAllOf.InstrumentTypeEnum,
         "TotalReturnSwap.InstrumentTypeEnum": TotalReturnSwap.InstrumentTypeEnum,
@@ -2876,6 +2882,8 @@ let typeMap: {[index: string]: any} = {
     "StructuredResultDataId": StructuredResultDataId,
     "SwapCashFlowEvent": SwapCashFlowEvent,
     "SwapCashFlowEventAllOf": SwapCashFlowEventAllOf,
+    "SwapPrincipalEvent": SwapPrincipalEvent,
+    "SwapPrincipalEventAllOf": SwapPrincipalEventAllOf,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "TermDeposit": TermDeposit,
