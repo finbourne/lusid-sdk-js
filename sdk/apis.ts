@@ -45,7 +45,6 @@ import {StructuredResultDataApi} from './api/structuredResultDataApi';
 import {SystemConfigurationApi} from './api/systemConfigurationApi';
 import {TransactionConfigurationApi} from './api/transactionConfigurationApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
-import {WorkspaceApi} from './api/workspaceApi';
 
 export class Api {
     public addressKeyDefinition:  AddressKeyDefinitionApi
@@ -95,5 +94,4 @@ export class Api {
     public systemConfiguration:  SystemConfigurationApi
     public transactionConfiguration:  TransactionConfigurationApi
     public transactionPortfolios:  TransactionPortfoliosApi
-    public workspace:  WorkspaceApi
 }
