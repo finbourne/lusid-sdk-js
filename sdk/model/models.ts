@@ -51,6 +51,9 @@ export * from './basketAllOf';
 export * from './basketIdentifier';
 export * from './batchAdjustHoldingsResponse';
 export * from './batchUpsertInstrumentPropertiesResponse';
+export * from './batchUpsertPortfolioAccessMetadataRequest';
+export * from './batchUpsertPortfolioAccessMetadataResponse';
+export * from './batchUpsertPortfolioAccessMetadataResponseItem';
 export * from './batchUpsertPortfolioTransactionsResponse';
 export * from './batchUpsertPropertyDefinitionPropertiesResponse';
 export * from './block';
@@ -927,6 +930,9 @@ import { BasketAllOf } from './basketAllOf';
 import { BasketIdentifier } from './basketIdentifier';
 import { BatchAdjustHoldingsResponse } from './batchAdjustHoldingsResponse';
 import { BatchUpsertInstrumentPropertiesResponse } from './batchUpsertInstrumentPropertiesResponse';
+import { BatchUpsertPortfolioAccessMetadataRequest } from './batchUpsertPortfolioAccessMetadataRequest';
+import { BatchUpsertPortfolioAccessMetadataResponse } from './batchUpsertPortfolioAccessMetadataResponse';
+import { BatchUpsertPortfolioAccessMetadataResponseItem } from './batchUpsertPortfolioAccessMetadataResponseItem';
 import { BatchUpsertPortfolioTransactionsResponse } from './batchUpsertPortfolioTransactionsResponse';
 import { BatchUpsertPropertyDefinitionPropertiesResponse } from './batchUpsertPropertyDefinitionPropertiesResponse';
 import { Block } from './block';
@@ -2199,6 +2205,9 @@ let typeMap: {[index: string]: any} = {
     "BasketIdentifier": BasketIdentifier,
     "BatchAdjustHoldingsResponse": BatchAdjustHoldingsResponse,
     "BatchUpsertInstrumentPropertiesResponse": BatchUpsertInstrumentPropertiesResponse,
+    "BatchUpsertPortfolioAccessMetadataRequest": BatchUpsertPortfolioAccessMetadataRequest,
+    "BatchUpsertPortfolioAccessMetadataResponse": BatchUpsertPortfolioAccessMetadataResponse,
+    "BatchUpsertPortfolioAccessMetadataResponseItem": BatchUpsertPortfolioAccessMetadataResponseItem,
     "BatchUpsertPortfolioTransactionsResponse": BatchUpsertPortfolioTransactionsResponse,
     "BatchUpsertPropertyDefinitionPropertiesResponse": BatchUpsertPropertyDefinitionPropertiesResponse,
     "Block": Block,
