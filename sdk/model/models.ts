@@ -307,6 +307,8 @@ export * from './flowConventionName';
 export * from './flowConventions';
 export * from './forwardRateAgreement';
 export * from './forwardRateAgreementAllOf';
+export * from './fundIdList';
+export * from './fundIdListAllOf';
 export * from './fundShareClass';
 export * from './fundShareClassAllOf';
 export * from './fundingLeg';
@@ -560,7 +562,6 @@ export * from './portfolioEntityId';
 export * from './portfolioGroup';
 export * from './portfolioGroupIdComplianceParameter';
 export * from './portfolioGroupIdList';
-export * from './portfolioGroupIdListAllOf';
 export * from './portfolioGroupIdListComplianceParameter';
 export * from './portfolioGroupProperties';
 export * from './portfolioGroupSearchResult';
@@ -723,6 +724,7 @@ export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
 export * from './setPersonIdentifiersRequest';
 export * from './setPersonPropertiesRequest';
+export * from './settlementCycle';
 export * from './settlementSchedule';
 export * from './sideConfigurationData';
 export * from './sideDefinition';
@@ -836,6 +838,8 @@ export * from './upsertPortfolioTransactionsResponse';
 export * from './upsertQuoteRequest';
 export * from './upsertQuotesResponse';
 export * from './upsertRecipeRequest';
+export * from './upsertReferencePortfolioConstituentPropertiesRequest';
+export * from './upsertReferencePortfolioConstituentPropertiesResponse';
 export * from './upsertReferencePortfolioConstituentsRequest';
 export * from './upsertReferencePortfolioConstituentsResponse';
 export * from './upsertReturnsResponse';
@@ -1186,6 +1190,8 @@ import { FlowConventionName } from './flowConventionName';
 import { FlowConventions } from './flowConventions';
 import { ForwardRateAgreement } from './forwardRateAgreement';
 import { ForwardRateAgreementAllOf } from './forwardRateAgreementAllOf';
+import { FundIdList } from './fundIdList';
+import { FundIdListAllOf } from './fundIdListAllOf';
 import { FundShareClass } from './fundShareClass';
 import { FundShareClassAllOf } from './fundShareClassAllOf';
 import { FundingLeg } from './fundingLeg';
@@ -1439,7 +1445,6 @@ import { PortfolioEntityId } from './portfolioEntityId';
 import { PortfolioGroup } from './portfolioGroup';
 import { PortfolioGroupIdComplianceParameter } from './portfolioGroupIdComplianceParameter';
 import { PortfolioGroupIdList } from './portfolioGroupIdList';
-import { PortfolioGroupIdListAllOf } from './portfolioGroupIdListAllOf';
 import { PortfolioGroupIdListComplianceParameter } from './portfolioGroupIdListComplianceParameter';
 import { PortfolioGroupProperties } from './portfolioGroupProperties';
 import { PortfolioGroupSearchResult } from './portfolioGroupSearchResult';
@@ -1602,6 +1607,7 @@ import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersReq
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
 import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
 import { SetPersonPropertiesRequest } from './setPersonPropertiesRequest';
+import { SettlementCycle } from './settlementCycle';
 import { SettlementSchedule } from './settlementSchedule';
 import { SideConfigurationData } from './sideConfigurationData';
 import { SideDefinition } from './sideDefinition';
@@ -1715,6 +1721,8 @@ import { UpsertPortfolioTransactionsResponse } from './upsertPortfolioTransactio
 import { UpsertQuoteRequest } from './upsertQuoteRequest';
 import { UpsertQuotesResponse } from './upsertQuotesResponse';
 import { UpsertRecipeRequest } from './upsertRecipeRequest';
+import { UpsertReferencePortfolioConstituentPropertiesRequest } from './upsertReferencePortfolioConstituentPropertiesRequest';
+import { UpsertReferencePortfolioConstituentPropertiesResponse } from './upsertReferencePortfolioConstituentPropertiesResponse';
 import { UpsertReferencePortfolioConstituentsRequest } from './upsertReferencePortfolioConstituentsRequest';
 import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferencePortfolioConstituentsResponse';
 import { UpsertReturnsResponse } from './upsertReturnsResponse';
@@ -1910,6 +1918,8 @@ let enumsMap: {[index: string]: any} = {
         "FloatingLegAllOf.InstrumentTypeEnum": FloatingLegAllOf.InstrumentTypeEnum,
         "ForwardRateAgreement.InstrumentTypeEnum": ForwardRateAgreement.InstrumentTypeEnum,
         "ForwardRateAgreementAllOf.InstrumentTypeEnum": ForwardRateAgreementAllOf.InstrumentTypeEnum,
+        "FundIdList.ReferenceListTypeEnum": FundIdList.ReferenceListTypeEnum,
+        "FundIdListAllOf.ReferenceListTypeEnum": FundIdListAllOf.ReferenceListTypeEnum,
         "FundShareClass.InstrumentTypeEnum": FundShareClass.InstrumentTypeEnum,
         "FundShareClassAllOf.InstrumentTypeEnum": FundShareClassAllOf.InstrumentTypeEnum,
         "FundingLeg.InstrumentTypeEnum": FundingLeg.InstrumentTypeEnum,
@@ -2030,7 +2040,6 @@ let enumsMap: {[index: string]: any} = {
         "PortfolioDetails.AccountingMethodEnum": PortfolioDetails.AccountingMethodEnum,
         "PortfolioGroupIdComplianceParameter.ComplianceParameterTypeEnum": PortfolioGroupIdComplianceParameter.ComplianceParameterTypeEnum,
         "PortfolioGroupIdList.ReferenceListTypeEnum": PortfolioGroupIdList.ReferenceListTypeEnum,
-        "PortfolioGroupIdListAllOf.ReferenceListTypeEnum": PortfolioGroupIdListAllOf.ReferenceListTypeEnum,
         "PortfolioGroupIdListComplianceParameter.ComplianceParameterTypeEnum": PortfolioGroupIdListComplianceParameter.ComplianceParameterTypeEnum,
         "PortfolioIdComplianceParameter.ComplianceParameterTypeEnum": PortfolioIdComplianceParameter.ComplianceParameterTypeEnum,
         "PortfolioIdList.ReferenceListTypeEnum": PortfolioIdList.ReferenceListTypeEnum,
@@ -2460,6 +2469,8 @@ let typeMap: {[index: string]: any} = {
     "FlowConventions": FlowConventions,
     "ForwardRateAgreement": ForwardRateAgreement,
     "ForwardRateAgreementAllOf": ForwardRateAgreementAllOf,
+    "FundIdList": FundIdList,
+    "FundIdListAllOf": FundIdListAllOf,
     "FundShareClass": FundShareClass,
     "FundShareClassAllOf": FundShareClassAllOf,
     "FundingLeg": FundingLeg,
@@ -2713,7 +2724,6 @@ let typeMap: {[index: string]: any} = {
     "PortfolioGroup": PortfolioGroup,
     "PortfolioGroupIdComplianceParameter": PortfolioGroupIdComplianceParameter,
     "PortfolioGroupIdList": PortfolioGroupIdList,
-    "PortfolioGroupIdListAllOf": PortfolioGroupIdListAllOf,
     "PortfolioGroupIdListComplianceParameter": PortfolioGroupIdListComplianceParameter,
     "PortfolioGroupProperties": PortfolioGroupProperties,
     "PortfolioGroupSearchResult": PortfolioGroupSearchResult,
@@ -2876,6 +2886,7 @@ let typeMap: {[index: string]: any} = {
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
     "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
     "SetPersonPropertiesRequest": SetPersonPropertiesRequest,
+    "SettlementCycle": SettlementCycle,
     "SettlementSchedule": SettlementSchedule,
     "SideConfigurationData": SideConfigurationData,
     "SideDefinition": SideDefinition,
@@ -2989,6 +3000,8 @@ let typeMap: {[index: string]: any} = {
     "UpsertQuoteRequest": UpsertQuoteRequest,
     "UpsertQuotesResponse": UpsertQuotesResponse,
     "UpsertRecipeRequest": UpsertRecipeRequest,
+    "UpsertReferencePortfolioConstituentPropertiesRequest": UpsertReferencePortfolioConstituentPropertiesRequest,
+    "UpsertReferencePortfolioConstituentPropertiesResponse": UpsertReferencePortfolioConstituentPropertiesResponse,
     "UpsertReferencePortfolioConstituentsRequest": UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": UpsertReferencePortfolioConstituentsResponse,
     "UpsertReturnsResponse": UpsertReturnsResponse,
