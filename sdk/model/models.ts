@@ -458,6 +458,10 @@ export * from './marketOptions';
 export * from './marketQuote';
 export * from './maturityEvent';
 export * from './maturityEventAllOf';
+export * from './mbsCouponEvent';
+export * from './mbsCouponEventAllOf';
+export * from './mbsPrincipalEvent';
+export * from './mbsPrincipalEventAllOf';
 export * from './mergerEvent';
 export * from './mergerEventAllOf';
 export * from './metricValue';
@@ -1341,6 +1345,10 @@ import { MarketOptions } from './marketOptions';
 import { MarketQuote } from './marketQuote';
 import { MaturityEvent } from './maturityEvent';
 import { MaturityEventAllOf } from './maturityEventAllOf';
+import { MbsCouponEvent } from './mbsCouponEvent';
+import { MbsCouponEventAllOf } from './mbsCouponEventAllOf';
+import { MbsPrincipalEvent } from './mbsPrincipalEvent';
+import { MbsPrincipalEventAllOf } from './mbsPrincipalEventAllOf';
 import { MergerEvent } from './mergerEvent';
 import { MergerEventAllOf } from './mergerEventAllOf';
 import { MetricValue } from './metricValue';
@@ -2018,6 +2026,10 @@ let enumsMap: {[index: string]: any} = {
         "MarketQuote.QuoteTypeEnum": MarketQuote.QuoteTypeEnum,
         "MaturityEvent.InstrumentEventTypeEnum": MaturityEvent.InstrumentEventTypeEnum,
         "MaturityEventAllOf.InstrumentEventTypeEnum": MaturityEventAllOf.InstrumentEventTypeEnum,
+        "MbsCouponEvent.InstrumentEventTypeEnum": MbsCouponEvent.InstrumentEventTypeEnum,
+        "MbsCouponEventAllOf.InstrumentEventTypeEnum": MbsCouponEventAllOf.InstrumentEventTypeEnum,
+        "MbsPrincipalEvent.InstrumentEventTypeEnum": MbsPrincipalEvent.InstrumentEventTypeEnum,
+        "MbsPrincipalEventAllOf.InstrumentEventTypeEnum": MbsPrincipalEventAllOf.InstrumentEventTypeEnum,
         "MergerEvent.InstrumentEventTypeEnum": MergerEvent.InstrumentEventTypeEnum,
         "MergerEventAllOf.InstrumentEventTypeEnum": MergerEventAllOf.InstrumentEventTypeEnum,
         "ModelOptions.ModelOptionsTypeEnum": ModelOptions.ModelOptionsTypeEnum,
@@ -2620,6 +2632,10 @@ let typeMap: {[index: string]: any} = {
     "MarketQuote": MarketQuote,
     "MaturityEvent": MaturityEvent,
     "MaturityEventAllOf": MaturityEventAllOf,
+    "MbsCouponEvent": MbsCouponEvent,
+    "MbsCouponEventAllOf": MbsCouponEventAllOf,
+    "MbsPrincipalEvent": MbsPrincipalEvent,
+    "MbsPrincipalEventAllOf": MbsPrincipalEventAllOf,
     "MergerEvent": MergerEvent,
     "MergerEventAllOf": MergerEventAllOf,
     "MetricValue": MetricValue,
