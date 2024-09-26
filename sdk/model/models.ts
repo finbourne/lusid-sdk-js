@@ -73,6 +73,8 @@ export * from './bondDefaultEvent';
 export * from './bondDefaultEventAllOf';
 export * from './bondPrincipalEvent';
 export * from './bondPrincipalEventAllOf';
+export * from './bonusIssueEvent';
+export * from './bonusIssueEventAllOf';
 export * from './boolComplianceParameter';
 export * from './boolComplianceParameterAllOf';
 export * from './boolListComplianceParameter';
@@ -430,6 +432,7 @@ export * from './irVolDependency';
 export * from './irVolDependencyAllOf';
 export * from './isBusinessDayResponse';
 export * from './labelValueSet';
+export * from './lapseElection';
 export * from './legDefinition';
 export * from './legalEntity';
 export * from './levelStep';
@@ -457,6 +460,8 @@ export * from './marketDataOverrides';
 export * from './marketDataSpecificRule';
 export * from './marketOptions';
 export * from './marketQuote';
+export * from './masteredInstrument';
+export * from './masteredInstrumentAllOf';
 export * from './maturityEvent';
 export * from './maturityEventAllOf';
 export * from './mbsCouponEvent';
@@ -962,6 +967,8 @@ import { BondDefaultEvent } from './bondDefaultEvent';
 import { BondDefaultEventAllOf } from './bondDefaultEventAllOf';
 import { BondPrincipalEvent } from './bondPrincipalEvent';
 import { BondPrincipalEventAllOf } from './bondPrincipalEventAllOf';
+import { BonusIssueEvent } from './bonusIssueEvent';
+import { BonusIssueEventAllOf } from './bonusIssueEventAllOf';
 import { BoolComplianceParameter } from './boolComplianceParameter';
 import { BoolComplianceParameterAllOf } from './boolComplianceParameterAllOf';
 import { BoolListComplianceParameter } from './boolListComplianceParameter';
@@ -1319,6 +1326,7 @@ import { IrVolDependency } from './irVolDependency';
 import { IrVolDependencyAllOf } from './irVolDependencyAllOf';
 import { IsBusinessDayResponse } from './isBusinessDayResponse';
 import { LabelValueSet } from './labelValueSet';
+import { LapseElection } from './lapseElection';
 import { LegDefinition } from './legDefinition';
 import { LegalEntity } from './legalEntity';
 import { LevelStep } from './levelStep';
@@ -1346,6 +1354,8 @@ import { MarketDataOverrides } from './marketDataOverrides';
 import { MarketDataSpecificRule } from './marketDataSpecificRule';
 import { MarketOptions } from './marketOptions';
 import { MarketQuote } from './marketQuote';
+import { MasteredInstrument } from './masteredInstrument';
+import { MasteredInstrumentAllOf } from './masteredInstrumentAllOf';
 import { MaturityEvent } from './maturityEvent';
 import { MaturityEventAllOf } from './maturityEventAllOf';
 import { MbsCouponEvent } from './mbsCouponEvent';
@@ -1803,6 +1813,8 @@ let enumsMap: {[index: string]: any} = {
         "BondDefaultEventAllOf.InstrumentEventTypeEnum": BondDefaultEventAllOf.InstrumentEventTypeEnum,
         "BondPrincipalEvent.InstrumentEventTypeEnum": BondPrincipalEvent.InstrumentEventTypeEnum,
         "BondPrincipalEventAllOf.InstrumentEventTypeEnum": BondPrincipalEventAllOf.InstrumentEventTypeEnum,
+        "BonusIssueEvent.InstrumentEventTypeEnum": BonusIssueEvent.InstrumentEventTypeEnum,
+        "BonusIssueEventAllOf.InstrumentEventTypeEnum": BonusIssueEventAllOf.InstrumentEventTypeEnum,
         "BoolComplianceParameter.ComplianceParameterTypeEnum": BoolComplianceParameter.ComplianceParameterTypeEnum,
         "BoolComplianceParameterAllOf.ComplianceParameterTypeEnum": BoolComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "BoolListComplianceParameter.ComplianceParameterTypeEnum": BoolListComplianceParameter.ComplianceParameterTypeEnum,
@@ -2028,6 +2040,8 @@ let enumsMap: {[index: string]: any} = {
         "MarketDataOptions.MarketDataOptionsTypeEnum": MarketDataOptions.MarketDataOptionsTypeEnum,
         "MarketDataSpecificRule.QuoteTypeEnum": MarketDataSpecificRule.QuoteTypeEnum,
         "MarketQuote.QuoteTypeEnum": MarketQuote.QuoteTypeEnum,
+        "MasteredInstrument.InstrumentTypeEnum": MasteredInstrument.InstrumentTypeEnum,
+        "MasteredInstrumentAllOf.InstrumentTypeEnum": MasteredInstrumentAllOf.InstrumentTypeEnum,
         "MaturityEvent.InstrumentEventTypeEnum": MaturityEvent.InstrumentEventTypeEnum,
         "MaturityEventAllOf.InstrumentEventTypeEnum": MaturityEventAllOf.InstrumentEventTypeEnum,
         "MbsCouponEvent.InstrumentEventTypeEnum": MbsCouponEvent.InstrumentEventTypeEnum,
@@ -2252,6 +2266,8 @@ let typeMap: {[index: string]: any} = {
     "BondDefaultEventAllOf": BondDefaultEventAllOf,
     "BondPrincipalEvent": BondPrincipalEvent,
     "BondPrincipalEventAllOf": BondPrincipalEventAllOf,
+    "BonusIssueEvent": BonusIssueEvent,
+    "BonusIssueEventAllOf": BonusIssueEventAllOf,
     "BoolComplianceParameter": BoolComplianceParameter,
     "BoolComplianceParameterAllOf": BoolComplianceParameterAllOf,
     "BoolListComplianceParameter": BoolListComplianceParameter,
@@ -2608,6 +2624,7 @@ let typeMap: {[index: string]: any} = {
     "IrVolDependencyAllOf": IrVolDependencyAllOf,
     "IsBusinessDayResponse": IsBusinessDayResponse,
     "LabelValueSet": LabelValueSet,
+    "LapseElection": LapseElection,
     "LegDefinition": LegDefinition,
     "LegalEntity": LegalEntity,
     "LevelStep": LevelStep,
@@ -2635,6 +2652,8 @@ let typeMap: {[index: string]: any} = {
     "MarketDataSpecificRule": MarketDataSpecificRule,
     "MarketOptions": MarketOptions,
     "MarketQuote": MarketQuote,
+    "MasteredInstrument": MasteredInstrument,
+    "MasteredInstrumentAllOf": MasteredInstrumentAllOf,
     "MaturityEvent": MaturityEvent,
     "MaturityEventAllOf": MaturityEventAllOf,
     "MbsCouponEvent": MbsCouponEvent,
