@@ -88,6 +88,9 @@ export * from './calendar';
 export * from './calendarDate';
 export * from './calendarDependency';
 export * from './calendarDependencyAllOf';
+export * from './cancelOrderAndMoveRemainingResult';
+export * from './cancelOrdersAndMoveRemainingRequest';
+export * from './cancelOrdersAndMoveRemainingResponse';
 export * from './cancelOrdersResponse';
 export * from './cancelPlacementsResponse';
 export * from './cancelledOrderResult';
@@ -987,6 +990,9 @@ import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CalendarDependency } from './calendarDependency';
 import { CalendarDependencyAllOf } from './calendarDependencyAllOf';
+import { CancelOrderAndMoveRemainingResult } from './cancelOrderAndMoveRemainingResult';
+import { CancelOrdersAndMoveRemainingRequest } from './cancelOrdersAndMoveRemainingRequest';
+import { CancelOrdersAndMoveRemainingResponse } from './cancelOrdersAndMoveRemainingResponse';
 import { CancelOrdersResponse } from './cancelOrdersResponse';
 import { CancelPlacementsResponse } from './cancelPlacementsResponse';
 import { CancelledOrderResult } from './cancelledOrderResult';
@@ -2295,6 +2301,9 @@ let typeMap: {[index: string]: any} = {
     "CalendarDate": CalendarDate,
     "CalendarDependency": CalendarDependency,
     "CalendarDependencyAllOf": CalendarDependencyAllOf,
+    "CancelOrderAndMoveRemainingResult": CancelOrderAndMoveRemainingResult,
+    "CancelOrdersAndMoveRemainingRequest": CancelOrdersAndMoveRemainingRequest,
+    "CancelOrdersAndMoveRemainingResponse": CancelOrdersAndMoveRemainingResponse,
     "CancelOrdersResponse": CancelOrdersResponse,
     "CancelPlacementsResponse": CancelPlacementsResponse,
     "CancelledOrderResult": CancelledOrderResult,
