@@ -474,6 +474,8 @@ export * from './mbsCouponEvent';
 export * from './mbsCouponEventAllOf';
 export * from './mbsInterestDeferralEvent';
 export * from './mbsInterestDeferralEventAllOf';
+export * from './mbsInterestShortfallEvent';
+export * from './mbsInterestShortfallEventAllOf';
 export * from './mbsPrincipalEvent';
 export * from './mbsPrincipalEventAllOf';
 export * from './mbsPrincipalWriteOffEvent';
@@ -777,6 +779,8 @@ export * from './swapPrincipalEvent';
 export * from './swapPrincipalEventAllOf';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
+export * from './tenderEvent';
+export * from './tenderEventAllOf';
 export * from './termDeposit';
 export * from './termDepositAllOf';
 export * from './totalReturnSwap';
@@ -1379,6 +1383,8 @@ import { MbsCouponEvent } from './mbsCouponEvent';
 import { MbsCouponEventAllOf } from './mbsCouponEventAllOf';
 import { MbsInterestDeferralEvent } from './mbsInterestDeferralEvent';
 import { MbsInterestDeferralEventAllOf } from './mbsInterestDeferralEventAllOf';
+import { MbsInterestShortfallEvent } from './mbsInterestShortfallEvent';
+import { MbsInterestShortfallEventAllOf } from './mbsInterestShortfallEventAllOf';
 import { MbsPrincipalEvent } from './mbsPrincipalEvent';
 import { MbsPrincipalEventAllOf } from './mbsPrincipalEventAllOf';
 import { MbsPrincipalWriteOffEvent } from './mbsPrincipalWriteOffEvent';
@@ -1682,6 +1688,8 @@ import { SwapPrincipalEvent } from './swapPrincipalEvent';
 import { SwapPrincipalEventAllOf } from './swapPrincipalEventAllOf';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
+import { TenderEvent } from './tenderEvent';
+import { TenderEventAllOf } from './tenderEventAllOf';
 import { TermDeposit } from './termDeposit';
 import { TermDepositAllOf } from './termDepositAllOf';
 import { TotalReturnSwap } from './totalReturnSwap';
@@ -2072,6 +2080,8 @@ let enumsMap: {[index: string]: any} = {
         "MbsCouponEventAllOf.InstrumentEventTypeEnum": MbsCouponEventAllOf.InstrumentEventTypeEnum,
         "MbsInterestDeferralEvent.InstrumentEventTypeEnum": MbsInterestDeferralEvent.InstrumentEventTypeEnum,
         "MbsInterestDeferralEventAllOf.InstrumentEventTypeEnum": MbsInterestDeferralEventAllOf.InstrumentEventTypeEnum,
+        "MbsInterestShortfallEvent.InstrumentEventTypeEnum": MbsInterestShortfallEvent.InstrumentEventTypeEnum,
+        "MbsInterestShortfallEventAllOf.InstrumentEventTypeEnum": MbsInterestShortfallEventAllOf.InstrumentEventTypeEnum,
         "MbsPrincipalEvent.InstrumentEventTypeEnum": MbsPrincipalEvent.InstrumentEventTypeEnum,
         "MbsPrincipalEventAllOf.InstrumentEventTypeEnum": MbsPrincipalEventAllOf.InstrumentEventTypeEnum,
         "MbsPrincipalWriteOffEvent.InstrumentEventTypeEnum": MbsPrincipalWriteOffEvent.InstrumentEventTypeEnum,
@@ -2198,6 +2208,8 @@ let enumsMap: {[index: string]: any} = {
         "SwapCashFlowEventAllOf.InstrumentEventTypeEnum": SwapCashFlowEventAllOf.InstrumentEventTypeEnum,
         "SwapPrincipalEvent.InstrumentEventTypeEnum": SwapPrincipalEvent.InstrumentEventTypeEnum,
         "SwapPrincipalEventAllOf.InstrumentEventTypeEnum": SwapPrincipalEventAllOf.InstrumentEventTypeEnum,
+        "TenderEvent.InstrumentEventTypeEnum": TenderEvent.InstrumentEventTypeEnum,
+        "TenderEventAllOf.InstrumentEventTypeEnum": TenderEventAllOf.InstrumentEventTypeEnum,
         "TermDeposit.InstrumentTypeEnum": TermDeposit.InstrumentTypeEnum,
         "TermDepositAllOf.InstrumentTypeEnum": TermDepositAllOf.InstrumentTypeEnum,
         "TotalReturnSwap.InstrumentTypeEnum": TotalReturnSwap.InstrumentTypeEnum,
@@ -2694,6 +2706,8 @@ let typeMap: {[index: string]: any} = {
     "MbsCouponEventAllOf": MbsCouponEventAllOf,
     "MbsInterestDeferralEvent": MbsInterestDeferralEvent,
     "MbsInterestDeferralEventAllOf": MbsInterestDeferralEventAllOf,
+    "MbsInterestShortfallEvent": MbsInterestShortfallEvent,
+    "MbsInterestShortfallEventAllOf": MbsInterestShortfallEventAllOf,
     "MbsPrincipalEvent": MbsPrincipalEvent,
     "MbsPrincipalEventAllOf": MbsPrincipalEventAllOf,
     "MbsPrincipalWriteOffEvent": MbsPrincipalWriteOffEvent,
@@ -2997,6 +3011,8 @@ let typeMap: {[index: string]: any} = {
     "SwapPrincipalEventAllOf": SwapPrincipalEventAllOf,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
+    "TenderEvent": TenderEvent,
+    "TenderEventAllOf": TenderEventAllOf,
     "TermDeposit": TermDeposit,
     "TermDepositAllOf": TermDepositAllOf,
     "TotalReturnSwap": TotalReturnSwap,
