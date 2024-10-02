@@ -376,6 +376,7 @@ export * from './holdingAdjustment';
 export * from './holdingAdjustmentWithDate';
 export * from './holdingContext';
 export * from './holdingContributor';
+export * from './holdingIdsRequest';
 export * from './holdingPricingInfo';
 export * from './holdingsAdjustment';
 export * from './holdingsAdjustmentHeader';
@@ -446,6 +447,8 @@ export * from './lineageMember';
 export * from './link';
 export * from './listAggregationReconciliation';
 export * from './listAggregationResponse';
+export * from './loanFacility';
+export * from './loanFacilityAllOf';
 export * from './loanPeriod';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
@@ -1278,6 +1281,7 @@ import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingAdjustmentWithDate } from './holdingAdjustmentWithDate';
 import { HoldingContext } from './holdingContext';
 import { HoldingContributor } from './holdingContributor';
+import { HoldingIdsRequest } from './holdingIdsRequest';
 import { HoldingPricingInfo } from './holdingPricingInfo';
 import { HoldingsAdjustment } from './holdingsAdjustment';
 import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
@@ -1348,6 +1352,8 @@ import { LineageMember } from './lineageMember';
 import { Link } from './link';
 import { ListAggregationReconciliation } from './listAggregationReconciliation';
 import { ListAggregationResponse } from './listAggregationResponse';
+import { LoanFacility } from './loanFacility';
+import { LoanFacilityAllOf } from './loanFacilityAllOf';
 import { LoanPeriod } from './loanPeriod';
 import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
@@ -2050,6 +2056,8 @@ let enumsMap: {[index: string]: any} = {
         "IrVolDependencyAllOf.DependencyTypeEnum": IrVolDependencyAllOf.DependencyTypeEnum,
         "LifeCycleEventValue.ResultValueTypeEnum": LifeCycleEventValue.ResultValueTypeEnum,
         "LifeCycleEventValueAllOf.ResultValueTypeEnum": LifeCycleEventValueAllOf.ResultValueTypeEnum,
+        "LoanFacility.InstrumentTypeEnum": LoanFacility.InstrumentTypeEnum,
+        "LoanFacilityAllOf.InstrumentTypeEnum": LoanFacilityAllOf.InstrumentTypeEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
         "LusidTradeTicket.TradeTicketTypeEnum": LusidTradeTicket.TradeTicketTypeEnum,
         "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
@@ -2588,6 +2596,7 @@ let typeMap: {[index: string]: any} = {
     "HoldingAdjustmentWithDate": HoldingAdjustmentWithDate,
     "HoldingContext": HoldingContext,
     "HoldingContributor": HoldingContributor,
+    "HoldingIdsRequest": HoldingIdsRequest,
     "HoldingPricingInfo": HoldingPricingInfo,
     "HoldingsAdjustment": HoldingsAdjustment,
     "HoldingsAdjustmentHeader": HoldingsAdjustmentHeader,
@@ -2658,6 +2667,8 @@ let typeMap: {[index: string]: any} = {
     "Link": Link,
     "ListAggregationReconciliation": ListAggregationReconciliation,
     "ListAggregationResponse": ListAggregationResponse,
+    "LoanFacility": LoanFacility,
+    "LoanFacilityAllOf": LoanFacilityAllOf,
     "LoanPeriod": LoanPeriod,
     "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
