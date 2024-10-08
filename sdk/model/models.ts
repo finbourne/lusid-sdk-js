@@ -88,6 +88,8 @@ export * from './calendar';
 export * from './calendarDate';
 export * from './calendarDependency';
 export * from './calendarDependencyAllOf';
+export * from './callOnIntermediateSecuritiesEvent';
+export * from './callOnIntermediateSecuritiesEventAllOf';
 export * from './cancelOrderAndMoveRemainingResult';
 export * from './cancelOrdersAndMoveRemainingRequest';
 export * from './cancelOrdersAndMoveRemainingResponse';
@@ -498,6 +500,7 @@ export * from './opaqueModelOptionsAllOf';
 export * from './openEvent';
 export * from './openEventAllOf';
 export * from './operation';
+export * from './optionExerciseElection';
 export * from './order';
 export * from './orderBySpec';
 export * from './orderFlowConfiguration';
@@ -997,6 +1000,8 @@ import { Calendar } from './calendar';
 import { CalendarDate } from './calendarDate';
 import { CalendarDependency } from './calendarDependency';
 import { CalendarDependencyAllOf } from './calendarDependencyAllOf';
+import { CallOnIntermediateSecuritiesEvent } from './callOnIntermediateSecuritiesEvent';
+import { CallOnIntermediateSecuritiesEventAllOf } from './callOnIntermediateSecuritiesEventAllOf';
 import { CancelOrderAndMoveRemainingResult } from './cancelOrderAndMoveRemainingResult';
 import { CancelOrdersAndMoveRemainingRequest } from './cancelOrdersAndMoveRemainingRequest';
 import { CancelOrdersAndMoveRemainingResponse } from './cancelOrdersAndMoveRemainingResponse';
@@ -1407,6 +1412,7 @@ import { OpaqueModelOptionsAllOf } from './opaqueModelOptionsAllOf';
 import { OpenEvent } from './openEvent';
 import { OpenEventAllOf } from './openEventAllOf';
 import { Operation } from './operation';
+import { OptionExerciseElection } from './optionExerciseElection';
 import { Order } from './order';
 import { OrderBySpec } from './orderBySpec';
 import { OrderFlowConfiguration } from './orderFlowConfiguration';
@@ -1854,6 +1860,8 @@ let enumsMap: {[index: string]: any} = {
         "BranchStepRequestAllOf.ComplianceStepTypeRequestEnum": BranchStepRequestAllOf.ComplianceStepTypeRequestEnum,
         "CalendarDependency.DependencyTypeEnum": CalendarDependency.DependencyTypeEnum,
         "CalendarDependencyAllOf.DependencyTypeEnum": CalendarDependencyAllOf.DependencyTypeEnum,
+        "CallOnIntermediateSecuritiesEvent.InstrumentEventTypeEnum": CallOnIntermediateSecuritiesEvent.InstrumentEventTypeEnum,
+        "CallOnIntermediateSecuritiesEventAllOf.InstrumentEventTypeEnum": CallOnIntermediateSecuritiesEventAllOf.InstrumentEventTypeEnum,
         "CapFloor.InstrumentTypeEnum": CapFloor.InstrumentTypeEnum,
         "CapFloorAllOf.InstrumentTypeEnum": CapFloorAllOf.InstrumentTypeEnum,
         "CapitalDistributionEvent.InstrumentEventTypeEnum": CapitalDistributionEvent.InstrumentEventTypeEnum,
@@ -2321,6 +2329,8 @@ let typeMap: {[index: string]: any} = {
     "CalendarDate": CalendarDate,
     "CalendarDependency": CalendarDependency,
     "CalendarDependencyAllOf": CalendarDependencyAllOf,
+    "CallOnIntermediateSecuritiesEvent": CallOnIntermediateSecuritiesEvent,
+    "CallOnIntermediateSecuritiesEventAllOf": CallOnIntermediateSecuritiesEventAllOf,
     "CancelOrderAndMoveRemainingResult": CancelOrderAndMoveRemainingResult,
     "CancelOrdersAndMoveRemainingRequest": CancelOrdersAndMoveRemainingRequest,
     "CancelOrdersAndMoveRemainingResponse": CancelOrdersAndMoveRemainingResponse,
@@ -2730,6 +2740,7 @@ let typeMap: {[index: string]: any} = {
     "OpenEvent": OpenEvent,
     "OpenEventAllOf": OpenEventAllOf,
     "Operation": Operation,
+    "OptionExerciseElection": OptionExerciseElection,
     "Order": Order,
     "OrderBySpec": OrderBySpec,
     "OrderFlowConfiguration": OrderFlowConfiguration,
