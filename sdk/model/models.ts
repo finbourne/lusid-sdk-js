@@ -687,6 +687,7 @@ export * from './resourceListOfLegalEntity';
 export * from './resourceListOfMapping';
 export * from './resourceListOfMovedOrderToDifferentBlockResponse';
 export * from './resourceListOfOrder';
+export * from './resourceListOfOutputTransaction';
 export * from './resourceListOfParticipation';
 export * from './resourceListOfPerformanceReturn';
 export * from './resourceListOfPerson';
@@ -1599,6 +1600,7 @@ import { ResourceListOfLegalEntity } from './resourceListOfLegalEntity';
 import { ResourceListOfMapping } from './resourceListOfMapping';
 import { ResourceListOfMovedOrderToDifferentBlockResponse } from './resourceListOfMovedOrderToDifferentBlockResponse';
 import { ResourceListOfOrder } from './resourceListOfOrder';
+import { ResourceListOfOutputTransaction } from './resourceListOfOutputTransaction';
 import { ResourceListOfParticipation } from './resourceListOfParticipation';
 import { ResourceListOfPerformanceReturn } from './resourceListOfPerformanceReturn';
 import { ResourceListOfPerson } from './resourceListOfPerson';
@@ -2927,6 +2929,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfMapping": ResourceListOfMapping,
     "ResourceListOfMovedOrderToDifferentBlockResponse": ResourceListOfMovedOrderToDifferentBlockResponse,
     "ResourceListOfOrder": ResourceListOfOrder,
+    "ResourceListOfOutputTransaction": ResourceListOfOutputTransaction,
     "ResourceListOfParticipation": ResourceListOfParticipation,
     "ResourceListOfPerformanceReturn": ResourceListOfPerformanceReturn,
     "ResourceListOfPerson": ResourceListOfPerson,

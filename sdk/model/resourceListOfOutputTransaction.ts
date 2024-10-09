@@ -11,41 +11,47 @@
  */
 
 import { RequestFile } from './models';
-import { AggregatedReturn } from './aggregatedReturn';
 import { Link } from './link';
+import { OutputTransaction } from './outputTransaction';
 
-export class AggregatedReturnsResponse {
-    /**
-    * The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
-    */
+export class ResourceListOfOutputTransaction {
+    'values': Array<OutputTransaction>;
     'href'?: string | null;
-    /**
-    * Aggregated returns grouped by ReturnId
-    */
-    'results'?: { [key: string]: Array<AggregatedReturn>; } | null;
     'links'?: Array<Link> | null;
+    'nextPage'?: string | null;
+    'previousPage'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "values",
+            "baseName": "values",
+            "type": "Array<OutputTransaction>"
+        },
         {
             "name": "href",
             "baseName": "href",
             "type": "string"
         },
         {
-            "name": "results",
-            "baseName": "results",
-            "type": "{ [key: string]: Array<AggregatedReturn>; }"
-        },
-        {
             "name": "links",
             "baseName": "links",
             "type": "Array<Link>"
+        },
+        {
+            "name": "nextPage",
+            "baseName": "nextPage",
+            "type": "string"
+        },
+        {
+            "name": "previousPage",
+            "baseName": "previousPage",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return AggregatedReturnsResponse.attributeTypeMap;
+        return ResourceListOfOutputTransaction.attributeTypeMap;
     }
 }
 
