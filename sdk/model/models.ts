@@ -432,6 +432,8 @@ export * from './interestRateSwap';
 export * from './interestRateSwapAllOf';
 export * from './interestRateSwaption';
 export * from './interestRateSwaptionAllOf';
+export * from './intermediateSecuritiesDistributionEvent';
+export * from './intermediateSecuritiesDistributionEventAllOf';
 export * from './irVolCubeData';
 export * from './irVolCubeDataAllOf';
 export * from './irVolDependency';
@@ -763,7 +765,6 @@ export * from './simpleInstrumentAllOf';
 export * from './simpleRoundingConvention';
 export * from './specificHoldingPricingInfo';
 export * from './spinOffEvent';
-export * from './spinOffEventAllOf';
 export * from './stagedModificationsInfo';
 export * from './stepSchedule';
 export * from './stepScheduleAllOf';
@@ -1345,6 +1346,8 @@ import { InterestRateSwap } from './interestRateSwap';
 import { InterestRateSwapAllOf } from './interestRateSwapAllOf';
 import { InterestRateSwaption } from './interestRateSwaption';
 import { InterestRateSwaptionAllOf } from './interestRateSwaptionAllOf';
+import { IntermediateSecuritiesDistributionEvent } from './intermediateSecuritiesDistributionEvent';
+import { IntermediateSecuritiesDistributionEventAllOf } from './intermediateSecuritiesDistributionEventAllOf';
 import { IrVolCubeData } from './irVolCubeData';
 import { IrVolCubeDataAllOf } from './irVolCubeDataAllOf';
 import { IrVolDependency } from './irVolDependency';
@@ -1676,7 +1679,6 @@ import { SimpleInstrumentAllOf } from './simpleInstrumentAllOf';
 import { SimpleRoundingConvention } from './simpleRoundingConvention';
 import { SpecificHoldingPricingInfo } from './specificHoldingPricingInfo';
 import { SpinOffEvent } from './spinOffEvent';
-import { SpinOffEventAllOf } from './spinOffEventAllOf';
 import { StagedModificationsInfo } from './stagedModificationsInfo';
 import { StepSchedule } from './stepSchedule';
 import { StepScheduleAllOf } from './stepScheduleAllOf';
@@ -2068,6 +2070,8 @@ let enumsMap: {[index: string]: any} = {
         "InterestRateSwapAllOf.InstrumentTypeEnum": InterestRateSwapAllOf.InstrumentTypeEnum,
         "InterestRateSwaption.InstrumentTypeEnum": InterestRateSwaption.InstrumentTypeEnum,
         "InterestRateSwaptionAllOf.InstrumentTypeEnum": InterestRateSwaptionAllOf.InstrumentTypeEnum,
+        "IntermediateSecuritiesDistributionEvent.InstrumentEventTypeEnum": IntermediateSecuritiesDistributionEvent.InstrumentEventTypeEnum,
+        "IntermediateSecuritiesDistributionEventAllOf.InstrumentEventTypeEnum": IntermediateSecuritiesDistributionEventAllOf.InstrumentEventTypeEnum,
         "IrVolCubeData.MarketDataTypeEnum": IrVolCubeData.MarketDataTypeEnum,
         "IrVolCubeDataAllOf.MarketDataTypeEnum": IrVolCubeDataAllOf.MarketDataTypeEnum,
         "IrVolDependency.DependencyTypeEnum": IrVolDependency.DependencyTypeEnum,
@@ -2204,7 +2208,6 @@ let enumsMap: {[index: string]: any} = {
         "SimpleInstrumentAllOf.AssetClassEnum": SimpleInstrumentAllOf.AssetClassEnum,
         "SimpleInstrumentAllOf.InstrumentTypeEnum": SimpleInstrumentAllOf.InstrumentTypeEnum,
         "SpinOffEvent.InstrumentEventTypeEnum": SpinOffEvent.InstrumentEventTypeEnum,
-        "SpinOffEventAllOf.InstrumentEventTypeEnum": SpinOffEventAllOf.InstrumentEventTypeEnum,
         "StepSchedule.ScheduleTypeEnum": StepSchedule.ScheduleTypeEnum,
         "StepScheduleAllOf.ScheduleTypeEnum": StepScheduleAllOf.ScheduleTypeEnum,
         "StockDividendEvent.InstrumentEventTypeEnum": StockDividendEvent.InstrumentEventTypeEnum,
@@ -2674,6 +2677,8 @@ let typeMap: {[index: string]: any} = {
     "InterestRateSwapAllOf": InterestRateSwapAllOf,
     "InterestRateSwaption": InterestRateSwaption,
     "InterestRateSwaptionAllOf": InterestRateSwaptionAllOf,
+    "IntermediateSecuritiesDistributionEvent": IntermediateSecuritiesDistributionEvent,
+    "IntermediateSecuritiesDistributionEventAllOf": IntermediateSecuritiesDistributionEventAllOf,
     "IrVolCubeData": IrVolCubeData,
     "IrVolCubeDataAllOf": IrVolCubeDataAllOf,
     "IrVolDependency": IrVolDependency,
@@ -3005,7 +3010,6 @@ let typeMap: {[index: string]: any} = {
     "SimpleRoundingConvention": SimpleRoundingConvention,
     "SpecificHoldingPricingInfo": SpecificHoldingPricingInfo,
     "SpinOffEvent": SpinOffEvent,
-    "SpinOffEventAllOf": SpinOffEventAllOf,
     "StagedModificationsInfo": StagedModificationsInfo,
     "StepSchedule": StepSchedule,
     "StepScheduleAllOf": StepScheduleAllOf,
