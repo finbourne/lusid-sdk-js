@@ -503,6 +503,8 @@ export * from './openEvent';
 export * from './openEventAllOf';
 export * from './operation';
 export * from './optionExerciseElection';
+export * from './optionExercisePhysicalEvent';
+export * from './optionExercisePhysicalEventAllOf';
 export * from './order';
 export * from './orderBySpec';
 export * from './orderFlowConfiguration';
@@ -621,6 +623,7 @@ export * from './propertyListAllOf';
 export * from './propertyListComplianceParameter';
 export * from './propertySchema';
 export * from './propertyValue';
+export * from './protectionPayoutCashFlowEvent';
 export * from './queryBucketedCashFlowsRequest';
 export * from './queryableKey';
 export * from './quote';
@@ -1417,6 +1420,8 @@ import { OpenEvent } from './openEvent';
 import { OpenEventAllOf } from './openEventAllOf';
 import { Operation } from './operation';
 import { OptionExerciseElection } from './optionExerciseElection';
+import { OptionExercisePhysicalEvent } from './optionExercisePhysicalEvent';
+import { OptionExercisePhysicalEventAllOf } from './optionExercisePhysicalEventAllOf';
 import { Order } from './order';
 import { OrderBySpec } from './orderBySpec';
 import { OrderFlowConfiguration } from './orderFlowConfiguration';
@@ -1535,6 +1540,7 @@ import { PropertyListAllOf } from './propertyListAllOf';
 import { PropertyListComplianceParameter } from './propertyListComplianceParameter';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
+import { ProtectionPayoutCashFlowEvent } from './protectionPayoutCashFlowEvent';
 import { QueryBucketedCashFlowsRequest } from './queryBucketedCashFlowsRequest';
 import { QueryableKey } from './queryableKey';
 import { Quote } from './quote';
@@ -2113,6 +2119,8 @@ let enumsMap: {[index: string]: any} = {
         "OpaqueModelOptionsAllOf.ModelOptionsTypeEnum": OpaqueModelOptionsAllOf.ModelOptionsTypeEnum,
         "OpenEvent.InstrumentEventTypeEnum": OpenEvent.InstrumentEventTypeEnum,
         "OpenEventAllOf.InstrumentEventTypeEnum": OpenEventAllOf.InstrumentEventTypeEnum,
+        "OptionExercisePhysicalEvent.InstrumentEventTypeEnum": OptionExercisePhysicalEvent.InstrumentEventTypeEnum,
+        "OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum": OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum,
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "PercentCheckStep.ComplianceStepTypeEnum": PercentCheckStep.ComplianceStepTypeEnum,
@@ -2149,6 +2157,7 @@ let enumsMap: {[index: string]: any} = {
         "PropertyList.ReferenceListTypeEnum": PropertyList.ReferenceListTypeEnum,
         "PropertyListAllOf.ReferenceListTypeEnum": PropertyListAllOf.ReferenceListTypeEnum,
         "PropertyListComplianceParameter.ComplianceParameterTypeEnum": PropertyListComplianceParameter.ComplianceParameterTypeEnum,
+        "ProtectionPayoutCashFlowEvent.InstrumentEventTypeEnum": ProtectionPayoutCashFlowEvent.InstrumentEventTypeEnum,
         "QuoteDependency.DependencyTypeEnum": QuoteDependency.DependencyTypeEnum,
         "QuoteDependencyAllOf.DependencyTypeEnum": QuoteDependencyAllOf.DependencyTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
@@ -2748,6 +2757,8 @@ let typeMap: {[index: string]: any} = {
     "OpenEventAllOf": OpenEventAllOf,
     "Operation": Operation,
     "OptionExerciseElection": OptionExerciseElection,
+    "OptionExercisePhysicalEvent": OptionExercisePhysicalEvent,
+    "OptionExercisePhysicalEventAllOf": OptionExercisePhysicalEventAllOf,
     "Order": Order,
     "OrderBySpec": OrderBySpec,
     "OrderFlowConfiguration": OrderFlowConfiguration,
@@ -2866,6 +2877,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyListComplianceParameter": PropertyListComplianceParameter,
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
+    "ProtectionPayoutCashFlowEvent": ProtectionPayoutCashFlowEvent,
     "QueryBucketedCashFlowsRequest": QueryBucketedCashFlowsRequest,
     "QueryableKey": QueryableKey,
     "Quote": Quote,
