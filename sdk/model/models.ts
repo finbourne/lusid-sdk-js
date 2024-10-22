@@ -256,7 +256,6 @@ export * from './discountingDependencyAllOf';
 export * from './dividendOptionEvent';
 export * from './dividendOptionEventAllOf';
 export * from './dividendReinvestmentEvent';
-export * from './dividendReinvestmentEventAllOf';
 export * from './economicDependency';
 export * from './economicDependencyWithComplexMarketData';
 export * from './economicDependencyWithQuote';
@@ -502,6 +501,8 @@ export * from './opaqueModelOptionsAllOf';
 export * from './openEvent';
 export * from './openEventAllOf';
 export * from './operation';
+export * from './optionExerciseCashEvent';
+export * from './optionExerciseCashEventAllOf';
 export * from './optionExerciseElection';
 export * from './optionExercisePhysicalEvent';
 export * from './optionExercisePhysicalEventAllOf';
@@ -1173,7 +1174,6 @@ import { DiscountingDependencyAllOf } from './discountingDependencyAllOf';
 import { DividendOptionEvent } from './dividendOptionEvent';
 import { DividendOptionEventAllOf } from './dividendOptionEventAllOf';
 import { DividendReinvestmentEvent } from './dividendReinvestmentEvent';
-import { DividendReinvestmentEventAllOf } from './dividendReinvestmentEventAllOf';
 import { EconomicDependency } from './economicDependency';
 import { EconomicDependencyWithComplexMarketData } from './economicDependencyWithComplexMarketData';
 import { EconomicDependencyWithQuote } from './economicDependencyWithQuote';
@@ -1419,6 +1419,8 @@ import { OpaqueModelOptionsAllOf } from './opaqueModelOptionsAllOf';
 import { OpenEvent } from './openEvent';
 import { OpenEventAllOf } from './openEventAllOf';
 import { Operation } from './operation';
+import { OptionExerciseCashEvent } from './optionExerciseCashEvent';
+import { OptionExerciseCashEventAllOf } from './optionExerciseCashEventAllOf';
 import { OptionExerciseElection } from './optionExerciseElection';
 import { OptionExercisePhysicalEvent } from './optionExercisePhysicalEvent';
 import { OptionExercisePhysicalEventAllOf } from './optionExercisePhysicalEventAllOf';
@@ -1949,7 +1951,6 @@ let enumsMap: {[index: string]: any} = {
         "DividendOptionEvent.InstrumentEventTypeEnum": DividendOptionEvent.InstrumentEventTypeEnum,
         "DividendOptionEventAllOf.InstrumentEventTypeEnum": DividendOptionEventAllOf.InstrumentEventTypeEnum,
         "DividendReinvestmentEvent.InstrumentEventTypeEnum": DividendReinvestmentEvent.InstrumentEventTypeEnum,
-        "DividendReinvestmentEventAllOf.InstrumentEventTypeEnum": DividendReinvestmentEventAllOf.InstrumentEventTypeEnum,
         "EconomicDependency.DependencyTypeEnum": EconomicDependency.DependencyTypeEnum,
         "EmptyModelOptions.ModelOptionsTypeEnum": EmptyModelOptions.ModelOptionsTypeEnum,
         "EmptyModelOptionsAllOf.ModelOptionsTypeEnum": EmptyModelOptionsAllOf.ModelOptionsTypeEnum,
@@ -2119,6 +2120,8 @@ let enumsMap: {[index: string]: any} = {
         "OpaqueModelOptionsAllOf.ModelOptionsTypeEnum": OpaqueModelOptionsAllOf.ModelOptionsTypeEnum,
         "OpenEvent.InstrumentEventTypeEnum": OpenEvent.InstrumentEventTypeEnum,
         "OpenEventAllOf.InstrumentEventTypeEnum": OpenEventAllOf.InstrumentEventTypeEnum,
+        "OptionExerciseCashEvent.InstrumentEventTypeEnum": OptionExerciseCashEvent.InstrumentEventTypeEnum,
+        "OptionExerciseCashEventAllOf.InstrumentEventTypeEnum": OptionExerciseCashEventAllOf.InstrumentEventTypeEnum,
         "OptionExercisePhysicalEvent.InstrumentEventTypeEnum": OptionExercisePhysicalEvent.InstrumentEventTypeEnum,
         "OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum": OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum,
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
@@ -2510,7 +2513,6 @@ let typeMap: {[index: string]: any} = {
     "DividendOptionEvent": DividendOptionEvent,
     "DividendOptionEventAllOf": DividendOptionEventAllOf,
     "DividendReinvestmentEvent": DividendReinvestmentEvent,
-    "DividendReinvestmentEventAllOf": DividendReinvestmentEventAllOf,
     "EconomicDependency": EconomicDependency,
     "EconomicDependencyWithComplexMarketData": EconomicDependencyWithComplexMarketData,
     "EconomicDependencyWithQuote": EconomicDependencyWithQuote,
@@ -2756,6 +2758,8 @@ let typeMap: {[index: string]: any} = {
     "OpenEvent": OpenEvent,
     "OpenEventAllOf": OpenEventAllOf,
     "Operation": Operation,
+    "OptionExerciseCashEvent": OptionExerciseCashEvent,
+    "OptionExerciseCashEventAllOf": OptionExerciseCashEventAllOf,
     "OptionExerciseElection": OptionExerciseElection,
     "OptionExercisePhysicalEvent": OptionExercisePhysicalEvent,
     "OptionExercisePhysicalEventAllOf": OptionExercisePhysicalEventAllOf,
