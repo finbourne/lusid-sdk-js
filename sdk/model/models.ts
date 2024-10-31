@@ -626,6 +626,7 @@ export * from './propertySchema';
 export * from './propertyValue';
 export * from './protectionPayoutCashFlowEvent';
 export * from './queryBucketedCashFlowsRequest';
+export * from './queryInstrumentEventsRequest';
 export * from './queryableKey';
 export * from './quote';
 export * from './quoteDependency';
@@ -688,6 +689,7 @@ export * from './resourceListOfGetRecipeResponse';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
 export * from './resourceListOfInstrumentCashFlow';
+export * from './resourceListOfInstrumentEventHolder';
 export * from './resourceListOfInstrumentIdTypeDescriptor';
 export * from './resourceListOfLegalEntity';
 export * from './resourceListOfMapping';
@@ -1549,6 +1551,7 @@ import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { ProtectionPayoutCashFlowEvent } from './protectionPayoutCashFlowEvent';
 import { QueryBucketedCashFlowsRequest } from './queryBucketedCashFlowsRequest';
+import { QueryInstrumentEventsRequest } from './queryInstrumentEventsRequest';
 import { QueryableKey } from './queryableKey';
 import { Quote } from './quote';
 import { QuoteDependency } from './quoteDependency';
@@ -1611,6 +1614,7 @@ import { ResourceListOfGetRecipeResponse } from './resourceListOfGetRecipeRespon
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
 import { ResourceListOfInstrumentCashFlow } from './resourceListOfInstrumentCashFlow';
+import { ResourceListOfInstrumentEventHolder } from './resourceListOfInstrumentEventHolder';
 import { ResourceListOfInstrumentIdTypeDescriptor } from './resourceListOfInstrumentIdTypeDescriptor';
 import { ResourceListOfLegalEntity } from './resourceListOfLegalEntity';
 import { ResourceListOfMapping } from './resourceListOfMapping';
@@ -2897,6 +2901,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyValue": PropertyValue,
     "ProtectionPayoutCashFlowEvent": ProtectionPayoutCashFlowEvent,
     "QueryBucketedCashFlowsRequest": QueryBucketedCashFlowsRequest,
+    "QueryInstrumentEventsRequest": QueryInstrumentEventsRequest,
     "QueryableKey": QueryableKey,
     "Quote": Quote,
     "QuoteDependency": QuoteDependency,
@@ -2959,6 +2964,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
     "ResourceListOfInstrumentCashFlow": ResourceListOfInstrumentCashFlow,
+    "ResourceListOfInstrumentEventHolder": ResourceListOfInstrumentEventHolder,
     "ResourceListOfInstrumentIdTypeDescriptor": ResourceListOfInstrumentIdTypeDescriptor,
     "ResourceListOfLegalEntity": ResourceListOfLegalEntity,
     "ResourceListOfMapping": ResourceListOfMapping,
