@@ -11,121 +11,34 @@
  */
 
 import { RequestFile } from './models';
+import { PerpetualProperty } from './perpetualProperty';
 
-export class CdxCreditEventAllOf {
-    /**
-    * The date of the credit default - i.e. date on which the debt issuer defaulted on its repayment obligation.
-    */
-    'effectiveDate': Date;
-    /**
-    * The date of the credit event auction - i.e. date on which the defaulted debt is sold via auction, and a recovery rate determined.
-    */
-    'auctionDate'?: Date | null;
-    /**
-    * The fraction of the defaulted debt that can be recovered.
-    */
-    'recoveryRate'?: number | null;
-    /**
-    * The relative weight of the CDX constituent.
-    */
-    'constituentWeight': number;
-    /**
-    * Reference value used to identify the CDX constituent.
-    */
-    'constituentReference'?: string | null;
-    /**
-    * The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent
-    */
-    'instrumentEventType': CdxCreditEventAllOf.InstrumentEventTypeEnum;
+export class Strategy {
+    'keys': Array<PerpetualProperty>;
+    'valueType': string;
+    'value': number;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "effectiveDate",
-            "baseName": "effectiveDate",
-            "type": "Date"
+            "name": "keys",
+            "baseName": "keys",
+            "type": "Array<PerpetualProperty>"
         },
         {
-            "name": "auctionDate",
-            "baseName": "auctionDate",
-            "type": "Date"
-        },
-        {
-            "name": "recoveryRate",
-            "baseName": "recoveryRate",
-            "type": "number"
-        },
-        {
-            "name": "constituentWeight",
-            "baseName": "constituentWeight",
-            "type": "number"
-        },
-        {
-            "name": "constituentReference",
-            "baseName": "constituentReference",
+            "name": "valueType",
+            "baseName": "valueType",
             "type": "string"
         },
         {
-            "name": "instrumentEventType",
-            "baseName": "instrumentEventType",
-            "type": "CdxCreditEventAllOf.InstrumentEventTypeEnum"
+            "name": "value",
+            "baseName": "value",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return CdxCreditEventAllOf.attributeTypeMap;
+        return Strategy.attributeTypeMap;
     }
 }
 
-export namespace CdxCreditEventAllOf {
-    export enum InstrumentEventTypeEnum {
-        TransitionEvent = <any> 'TransitionEvent',
-        InformationalEvent = <any> 'InformationalEvent',
-        OpenEvent = <any> 'OpenEvent',
-        CloseEvent = <any> 'CloseEvent',
-        StockSplitEvent = <any> 'StockSplitEvent',
-        BondDefaultEvent = <any> 'BondDefaultEvent',
-        CashDividendEvent = <any> 'CashDividendEvent',
-        AmortisationEvent = <any> 'AmortisationEvent',
-        CashFlowEvent = <any> 'CashFlowEvent',
-        ExerciseEvent = <any> 'ExerciseEvent',
-        ResetEvent = <any> 'ResetEvent',
-        TriggerEvent = <any> 'TriggerEvent',
-        RawVendorEvent = <any> 'RawVendorEvent',
-        InformationalErrorEvent = <any> 'InformationalErrorEvent',
-        BondCouponEvent = <any> 'BondCouponEvent',
-        DividendReinvestmentEvent = <any> 'DividendReinvestmentEvent',
-        AccumulationEvent = <any> 'AccumulationEvent',
-        BondPrincipalEvent = <any> 'BondPrincipalEvent',
-        DividendOptionEvent = <any> 'DividendOptionEvent',
-        MaturityEvent = <any> 'MaturityEvent',
-        FxForwardSettlementEvent = <any> 'FxForwardSettlementEvent',
-        ExpiryEvent = <any> 'ExpiryEvent',
-        ScripDividendEvent = <any> 'ScripDividendEvent',
-        StockDividendEvent = <any> 'StockDividendEvent',
-        ReverseStockSplitEvent = <any> 'ReverseStockSplitEvent',
-        CapitalDistributionEvent = <any> 'CapitalDistributionEvent',
-        SpinOffEvent = <any> 'SpinOffEvent',
-        MergerEvent = <any> 'MergerEvent',
-        FutureExpiryEvent = <any> 'FutureExpiryEvent',
-        SwapCashFlowEvent = <any> 'SwapCashFlowEvent',
-        SwapPrincipalEvent = <any> 'SwapPrincipalEvent',
-        CreditPremiumCashFlowEvent = <any> 'CreditPremiumCashFlowEvent',
-        CdsCreditEvent = <any> 'CdsCreditEvent',
-        CdxCreditEvent = <any> 'CdxCreditEvent',
-        MbsCouponEvent = <any> 'MbsCouponEvent',
-        MbsPrincipalEvent = <any> 'MbsPrincipalEvent',
-        BonusIssueEvent = <any> 'BonusIssueEvent',
-        MbsPrincipalWriteOffEvent = <any> 'MbsPrincipalWriteOffEvent',
-        MbsInterestDeferralEvent = <any> 'MbsInterestDeferralEvent',
-        MbsInterestShortfallEvent = <any> 'MbsInterestShortfallEvent',
-        TenderEvent = <any> 'TenderEvent',
-        CallOnIntermediateSecuritiesEvent = <any> 'CallOnIntermediateSecuritiesEvent',
-        IntermediateSecuritiesDistributionEvent = <any> 'IntermediateSecuritiesDistributionEvent',
-        OptionExercisePhysicalEvent = <any> 'OptionExercisePhysicalEvent',
-        OptionExerciseCashEvent = <any> 'OptionExerciseCashEvent',
-        ProtectionPayoutCashFlowEvent = <any> 'ProtectionPayoutCashFlowEvent',
-        TermDepositInterestEvent = <any> 'TermDepositInterestEvent',
-        TermDepositPrincipalEvent = <any> 'TermDepositPrincipalEvent'
-    }
-}
