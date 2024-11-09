@@ -11,59 +11,42 @@
  */
 
 import { RequestFile } from './models';
-import { AddressKeyListComplianceParameterAllOf } from './addressKeyListComplianceParameterAllOf';
-import { ComplianceParameter } from './complianceParameter';
-import { ResourceId } from './resourceId';
 
-export class DateTimeListComplianceParameter extends ComplianceParameter {
-    'value': ResourceId;
+export class TransactionTypeDetails {
     /**
-    * The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter, PropertyListComplianceParameter, GroupCalculationComplianceParameter
+    * The scope in which the TransactionType was resolved. If the portfolio has a TransactionTypeScope, this will have been used. Otherwise the default scope will have been used.
     */
-    'complianceParameterType': DateTimeListComplianceParameter.ComplianceParameterTypeEnum;
+    'scope'?: string | null;
+    /**
+    * The source in which the TransactionType was resolved.
+    */
+    'source'?: string | null;
+    /**
+    * The resolved TransactionType. More information on TransactionType resolution can be found at https://support.lusid.com/docs/how-does-lusid-resolve-transactions-to-transaction-types
+    */
+    'type'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "value",
-            "baseName": "value",
-            "type": "ResourceId"
+            "name": "scope",
+            "baseName": "scope",
+            "type": "string"
         },
         {
-            "name": "complianceParameterType",
-            "baseName": "complianceParameterType",
-            "type": "DateTimeListComplianceParameter.ComplianceParameterTypeEnum"
+            "name": "source",
+            "baseName": "source",
+            "type": "string"
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(DateTimeListComplianceParameter.attributeTypeMap);
+        return TransactionTypeDetails.attributeTypeMap;
     }
 }
 
-export namespace DateTimeListComplianceParameter {
-    export enum ComplianceParameterTypeEnum {
-        BoolComplianceParameter = <any> 'BoolComplianceParameter',
-        StringComplianceParameter = <any> 'StringComplianceParameter',
-        DecimalComplianceParameter = <any> 'DecimalComplianceParameter',
-        DateTimeComplianceParameter = <any> 'DateTimeComplianceParameter',
-        PropertyKeyComplianceParameter = <any> 'PropertyKeyComplianceParameter',
-        AddressKeyComplianceParameter = <any> 'AddressKeyComplianceParameter',
-        PortfolioIdComplianceParameter = <any> 'PortfolioIdComplianceParameter',
-        PortfolioGroupIdComplianceParameter = <any> 'PortfolioGroupIdComplianceParameter',
-        StringListComplianceParameter = <any> 'StringListComplianceParameter',
-        BoolListComplianceParameter = <any> 'BoolListComplianceParameter',
-        DateTimeListComplianceParameter = <any> 'DateTimeListComplianceParameter',
-        DecimalListComplianceParameter = <any> 'DecimalListComplianceParameter',
-        PropertyKeyListComplianceParameter = <any> 'PropertyKeyListComplianceParameter',
-        AddressKeyListComplianceParameter = <any> 'AddressKeyListComplianceParameter',
-        PortfolioIdListComplianceParameter = <any> 'PortfolioIdListComplianceParameter',
-        PortfolioGroupIdListComplianceParameter = <any> 'PortfolioGroupIdListComplianceParameter',
-        InstrumentListComplianceParameter = <any> 'InstrumentListComplianceParameter',
-        FilterPredicateComplianceParameter = <any> 'FilterPredicateComplianceParameter',
-        GroupFilterPredicateComplianceParameter = <any> 'GroupFilterPredicateComplianceParameter',
-        GroupBySelectorComplianceParameter = <any> 'GroupBySelectorComplianceParameter',
-        PropertyListComplianceParameter = <any> 'PropertyListComplianceParameter',
-        GroupCalculationComplianceParameter = <any> 'GroupCalculationComplianceParameter'
-    }
-}
