@@ -11,185 +11,49 @@
  */
 
 import { RequestFile } from './models';
-import { OptionExerciseElection } from './optionExerciseElection';
+import { ResourceId } from './resourceId';
 
-export class OptionExerciseCashEventAllOf {
+export class ContributionToNonPassingRuleDetail {
+    'ruleId'?: ResourceId;
     /**
-    * The cashflow per unit
+    * The status of the non-passing rule.
     */
-    'cashFlowPerUnit'?: number | null;
+    'ruleStatus'?: string | null;
     /**
-    * The exercise date of the option.
+    * The task ids associated with the compliance breach for this order\'s groups (if failing).
     */
-    'exerciseDate'?: Date | null;
+    'breachTaskIds'?: Array<string> | null;
     /**
-    * The delivery date of the option.
+    * Whether this order is deemed as a likely contributor to the non-passing rule for this group.
     */
-    'deliveryDate'?: Date | null;
-    /**
-    * The optionality type of the underlying option e.g. American, European.    Supported string (enumeration) values are: [European, Bermudan, American].
-    */
-    'exerciseType': string;
-    /**
-    * The maturity date of the option.
-    */
-    'maturityDate': Date;
-    /**
-    * The moneyness of the option e.g. InTheMoney, OutOfTheMoney.    Supported string (enumeration) values are: [InTheMoney, OutOfTheMoney, AtTheMoney].
-    */
-    'moneyness'?: string | null;
-    /**
-    * Option exercise election for this OptionExercisePhysicalEvent.
-    */
-    'optionExerciseElections'?: Array<OptionExerciseElection> | null;
-    /**
-    * Type of optionality that is present e.g. call, put.    Supported string (enumeration) values are: [Call, Put].
-    */
-    'optionType': string;
-    /**
-    * The start date of the option.
-    */
-    'startDate': Date;
-    /**
-    * The strike currency of the equity option.
-    */
-    'strikeCurrency': string;
-    /**
-    * The strike of the equity option times the number of shares to exchange if exercised.
-    */
-    'strikePerUnit': number;
-    /**
-    * The underlying price times the number of shares to exchange if exercised.
-    */
-    'underlyingValuePerUnit'?: number | null;
-    /**
-    * The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent, SpinOffEvent, MergerEvent, FutureExpiryEvent, SwapCashFlowEvent, SwapPrincipalEvent, CreditPremiumCashFlowEvent, CdsCreditEvent, CdxCreditEvent, MbsCouponEvent, MbsPrincipalEvent, BonusIssueEvent, MbsPrincipalWriteOffEvent, MbsInterestDeferralEvent, MbsInterestShortfallEvent, TenderEvent, CallOnIntermediateSecuritiesEvent, IntermediateSecuritiesDistributionEvent, OptionExercisePhysicalEvent, OptionExerciseCashEvent, ProtectionPayoutCashFlowEvent, TermDepositInterestEvent, TermDepositPrincipalEvent
-    */
-    'instrumentEventType': OptionExerciseCashEventAllOf.InstrumentEventTypeEnum;
+    'likelyResponsibleForStatus'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "cashFlowPerUnit",
-            "baseName": "cashFlowPerUnit",
-            "type": "number"
+            "name": "ruleId",
+            "baseName": "ruleId",
+            "type": "ResourceId"
         },
         {
-            "name": "exerciseDate",
-            "baseName": "exerciseDate",
-            "type": "Date"
-        },
-        {
-            "name": "deliveryDate",
-            "baseName": "deliveryDate",
-            "type": "Date"
-        },
-        {
-            "name": "exerciseType",
-            "baseName": "exerciseType",
+            "name": "ruleStatus",
+            "baseName": "ruleStatus",
             "type": "string"
         },
         {
-            "name": "maturityDate",
-            "baseName": "maturityDate",
-            "type": "Date"
+            "name": "breachTaskIds",
+            "baseName": "breachTaskIds",
+            "type": "Array<string>"
         },
         {
-            "name": "moneyness",
-            "baseName": "moneyness",
-            "type": "string"
-        },
-        {
-            "name": "optionExerciseElections",
-            "baseName": "optionExerciseElections",
-            "type": "Array<OptionExerciseElection>"
-        },
-        {
-            "name": "optionType",
-            "baseName": "optionType",
-            "type": "string"
-        },
-        {
-            "name": "startDate",
-            "baseName": "startDate",
-            "type": "Date"
-        },
-        {
-            "name": "strikeCurrency",
-            "baseName": "strikeCurrency",
-            "type": "string"
-        },
-        {
-            "name": "strikePerUnit",
-            "baseName": "strikePerUnit",
-            "type": "number"
-        },
-        {
-            "name": "underlyingValuePerUnit",
-            "baseName": "underlyingValuePerUnit",
-            "type": "number"
-        },
-        {
-            "name": "instrumentEventType",
-            "baseName": "instrumentEventType",
-            "type": "OptionExerciseCashEventAllOf.InstrumentEventTypeEnum"
+            "name": "likelyResponsibleForStatus",
+            "baseName": "likelyResponsibleForStatus",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
-        return OptionExerciseCashEventAllOf.attributeTypeMap;
+        return ContributionToNonPassingRuleDetail.attributeTypeMap;
     }
 }
 
-export namespace OptionExerciseCashEventAllOf {
-    export enum InstrumentEventTypeEnum {
-        TransitionEvent = <any> 'TransitionEvent',
-        InformationalEvent = <any> 'InformationalEvent',
-        OpenEvent = <any> 'OpenEvent',
-        CloseEvent = <any> 'CloseEvent',
-        StockSplitEvent = <any> 'StockSplitEvent',
-        BondDefaultEvent = <any> 'BondDefaultEvent',
-        CashDividendEvent = <any> 'CashDividendEvent',
-        AmortisationEvent = <any> 'AmortisationEvent',
-        CashFlowEvent = <any> 'CashFlowEvent',
-        ExerciseEvent = <any> 'ExerciseEvent',
-        ResetEvent = <any> 'ResetEvent',
-        TriggerEvent = <any> 'TriggerEvent',
-        RawVendorEvent = <any> 'RawVendorEvent',
-        InformationalErrorEvent = <any> 'InformationalErrorEvent',
-        BondCouponEvent = <any> 'BondCouponEvent',
-        DividendReinvestmentEvent = <any> 'DividendReinvestmentEvent',
-        AccumulationEvent = <any> 'AccumulationEvent',
-        BondPrincipalEvent = <any> 'BondPrincipalEvent',
-        DividendOptionEvent = <any> 'DividendOptionEvent',
-        MaturityEvent = <any> 'MaturityEvent',
-        FxForwardSettlementEvent = <any> 'FxForwardSettlementEvent',
-        ExpiryEvent = <any> 'ExpiryEvent',
-        ScripDividendEvent = <any> 'ScripDividendEvent',
-        StockDividendEvent = <any> 'StockDividendEvent',
-        ReverseStockSplitEvent = <any> 'ReverseStockSplitEvent',
-        CapitalDistributionEvent = <any> 'CapitalDistributionEvent',
-        SpinOffEvent = <any> 'SpinOffEvent',
-        MergerEvent = <any> 'MergerEvent',
-        FutureExpiryEvent = <any> 'FutureExpiryEvent',
-        SwapCashFlowEvent = <any> 'SwapCashFlowEvent',
-        SwapPrincipalEvent = <any> 'SwapPrincipalEvent',
-        CreditPremiumCashFlowEvent = <any> 'CreditPremiumCashFlowEvent',
-        CdsCreditEvent = <any> 'CdsCreditEvent',
-        CdxCreditEvent = <any> 'CdxCreditEvent',
-        MbsCouponEvent = <any> 'MbsCouponEvent',
-        MbsPrincipalEvent = <any> 'MbsPrincipalEvent',
-        BonusIssueEvent = <any> 'BonusIssueEvent',
-        MbsPrincipalWriteOffEvent = <any> 'MbsPrincipalWriteOffEvent',
-        MbsInterestDeferralEvent = <any> 'MbsInterestDeferralEvent',
-        MbsInterestShortfallEvent = <any> 'MbsInterestShortfallEvent',
-        TenderEvent = <any> 'TenderEvent',
-        CallOnIntermediateSecuritiesEvent = <any> 'CallOnIntermediateSecuritiesEvent',
-        IntermediateSecuritiesDistributionEvent = <any> 'IntermediateSecuritiesDistributionEvent',
-        OptionExercisePhysicalEvent = <any> 'OptionExercisePhysicalEvent',
-        OptionExerciseCashEvent = <any> 'OptionExerciseCashEvent',
-        ProtectionPayoutCashFlowEvent = <any> 'ProtectionPayoutCashFlowEvent',
-        TermDepositInterestEvent = <any> 'TermDepositInterestEvent',
-        TermDepositPrincipalEvent = <any> 'TermDepositPrincipalEvent'
-    }
-}
