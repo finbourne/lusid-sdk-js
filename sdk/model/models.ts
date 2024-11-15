@@ -257,6 +257,9 @@ export * from './discountingDependencyAllOf';
 export * from './dividendOptionEvent';
 export * from './dividendOptionEventAllOf';
 export * from './dividendReinvestmentEvent';
+export * from './earlyRedemptionElection';
+export * from './earlyRedemptionEvent';
+export * from './earlyRedemptionEventAllOf';
 export * from './economicDependency';
 export * from './economicDependencyWithComplexMarketData';
 export * from './economicDependencyWithQuote';
@@ -1185,6 +1188,9 @@ import { DiscountingDependencyAllOf } from './discountingDependencyAllOf';
 import { DividendOptionEvent } from './dividendOptionEvent';
 import { DividendOptionEventAllOf } from './dividendOptionEventAllOf';
 import { DividendReinvestmentEvent } from './dividendReinvestmentEvent';
+import { EarlyRedemptionElection } from './earlyRedemptionElection';
+import { EarlyRedemptionEvent } from './earlyRedemptionEvent';
+import { EarlyRedemptionEventAllOf } from './earlyRedemptionEventAllOf';
 import { EconomicDependency } from './economicDependency';
 import { EconomicDependencyWithComplexMarketData } from './economicDependencyWithComplexMarketData';
 import { EconomicDependencyWithQuote } from './economicDependencyWithQuote';
@@ -1971,6 +1977,8 @@ let enumsMap: {[index: string]: any} = {
         "DividendOptionEvent.InstrumentEventTypeEnum": DividendOptionEvent.InstrumentEventTypeEnum,
         "DividendOptionEventAllOf.InstrumentEventTypeEnum": DividendOptionEventAllOf.InstrumentEventTypeEnum,
         "DividendReinvestmentEvent.InstrumentEventTypeEnum": DividendReinvestmentEvent.InstrumentEventTypeEnum,
+        "EarlyRedemptionEvent.InstrumentEventTypeEnum": EarlyRedemptionEvent.InstrumentEventTypeEnum,
+        "EarlyRedemptionEventAllOf.InstrumentEventTypeEnum": EarlyRedemptionEventAllOf.InstrumentEventTypeEnum,
         "EconomicDependency.DependencyTypeEnum": EconomicDependency.DependencyTypeEnum,
         "EmptyModelOptions.ModelOptionsTypeEnum": EmptyModelOptions.ModelOptionsTypeEnum,
         "EmptyModelOptionsAllOf.ModelOptionsTypeEnum": EmptyModelOptionsAllOf.ModelOptionsTypeEnum,
@@ -2538,6 +2546,9 @@ let typeMap: {[index: string]: any} = {
     "DividendOptionEvent": DividendOptionEvent,
     "DividendOptionEventAllOf": DividendOptionEventAllOf,
     "DividendReinvestmentEvent": DividendReinvestmentEvent,
+    "EarlyRedemptionElection": EarlyRedemptionElection,
+    "EarlyRedemptionEvent": EarlyRedemptionEvent,
+    "EarlyRedemptionEventAllOf": EarlyRedemptionEventAllOf,
     "EconomicDependency": EconomicDependency,
     "EconomicDependencyWithComplexMarketData": EconomicDependencyWithComplexMarketData,
     "EconomicDependencyWithQuote": EconomicDependencyWithQuote,
