@@ -476,6 +476,7 @@ export * from './lusidValidationProblemDetails';
 export * from './mappedString';
 export * from './mapping';
 export * from './mappingRule';
+export * from './markToMarketConventions';
 export * from './marketContext';
 export * from './marketContextSuppliers';
 export * from './marketDataKeyRule';
@@ -818,6 +819,7 @@ export * from './termDepositPrincipalEventAllOf';
 export * from './totalReturnSwap';
 export * from './totalReturnSwapAllOf';
 export * from './touch';
+export * from './tradingConventions';
 export * from './transaction';
 export * from './transactionConfigurationData';
 export * from './transactionConfigurationDataRequest';
@@ -1418,6 +1420,7 @@ import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { MappedString } from './mappedString';
 import { Mapping } from './mapping';
 import { MappingRule } from './mappingRule';
+import { MarkToMarketConventions } from './markToMarketConventions';
 import { MarketContext } from './marketContext';
 import { MarketContextSuppliers } from './marketContextSuppliers';
 import { MarketDataKeyRule } from './marketDataKeyRule';
@@ -1760,6 +1763,7 @@ import { TermDepositPrincipalEventAllOf } from './termDepositPrincipalEventAllOf
 import { TotalReturnSwap } from './totalReturnSwap';
 import { TotalReturnSwapAllOf } from './totalReturnSwapAllOf';
 import { Touch } from './touch';
+import { TradingConventions } from './tradingConventions';
 import { Transaction } from './transaction';
 import { TransactionConfigurationData } from './transactionConfigurationData';
 import { TransactionConfigurationDataRequest } from './transactionConfigurationDataRequest';
@@ -2797,6 +2801,7 @@ let typeMap: {[index: string]: any} = {
     "MappedString": MappedString,
     "Mapping": Mapping,
     "MappingRule": MappingRule,
+    "MarkToMarketConventions": MarkToMarketConventions,
     "MarketContext": MarketContext,
     "MarketContextSuppliers": MarketContextSuppliers,
     "MarketDataKeyRule": MarketDataKeyRule,
@@ -3139,6 +3144,7 @@ let typeMap: {[index: string]: any} = {
     "TotalReturnSwap": TotalReturnSwap,
     "TotalReturnSwapAllOf": TotalReturnSwapAllOf,
     "Touch": Touch,
+    "TradingConventions": TradingConventions,
     "Transaction": Transaction,
     "TransactionConfigurationData": TransactionConfigurationData,
     "TransactionConfigurationDataRequest": TransactionConfigurationDataRequest,
