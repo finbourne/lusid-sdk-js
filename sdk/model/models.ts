@@ -97,6 +97,7 @@ export * from './cancelOrdersAndMoveRemainingRequest';
 export * from './cancelOrdersAndMoveRemainingResponse';
 export * from './cancelOrdersResponse';
 export * from './cancelPlacementsResponse';
+export * from './cancelSingleHoldingAdjustmentRequest';
 export * from './cancelledOrderResult';
 export * from './cancelledPlacementResult';
 export * from './capFloor';
@@ -1041,6 +1042,7 @@ import { CancelOrdersAndMoveRemainingRequest } from './cancelOrdersAndMoveRemain
 import { CancelOrdersAndMoveRemainingResponse } from './cancelOrdersAndMoveRemainingResponse';
 import { CancelOrdersResponse } from './cancelOrdersResponse';
 import { CancelPlacementsResponse } from './cancelPlacementsResponse';
+import { CancelSingleHoldingAdjustmentRequest } from './cancelSingleHoldingAdjustmentRequest';
 import { CancelledOrderResult } from './cancelledOrderResult';
 import { CancelledPlacementResult } from './cancelledPlacementResult';
 import { CapFloor } from './capFloor';
@@ -2423,6 +2425,7 @@ let typeMap: {[index: string]: any} = {
     "CancelOrdersAndMoveRemainingResponse": CancelOrdersAndMoveRemainingResponse,
     "CancelOrdersResponse": CancelOrdersResponse,
     "CancelPlacementsResponse": CancelPlacementsResponse,
+    "CancelSingleHoldingAdjustmentRequest": CancelSingleHoldingAdjustmentRequest,
     "CancelledOrderResult": CancelledOrderResult,
     "CancelledPlacementResult": CancelledPlacementResult,
     "CapFloor": CapFloor,

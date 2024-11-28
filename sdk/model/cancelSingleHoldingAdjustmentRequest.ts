@@ -11,122 +11,46 @@
  */
 
 import { RequestFile } from './models';
-import { ModelSelection } from './modelSelection';
-import { ReturnZeroPvOptions } from './returnZeroPvOptions';
+import { PerpetualProperty } from './perpetualProperty';
 
 /**
-* Options for controlling the default aspects and behaviour of the pricing engine.
+* This request specifies single target holding. i.e. holding data that the  system should match. And deletes previous adjustment made to that holding
 */
-export class PricingOptions {
-    'modelSelection'?: ModelSelection;
+export class CancelSingleHoldingAdjustmentRequest {
     /**
-    * If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.
+    * A set of instrument identifiers that can resolve the holding adjustment to a unique instrument.
     */
-    'useInstrumentTypeToDeterminePricer'?: boolean;
+    'instrumentIdentifiers': { [key: string]: string; };
     /**
-    * By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.
+    * The sub-holding properties which identify the holding. Each property must be from the \'Transaction\' domain.
     */
-    'allowAnyInstrumentsWithSecUidToPriceOffLookup'?: boolean;
+    'subHoldingKeys'?: { [key: string]: PerpetualProperty; } | null;
     /**
-    * If true then a failure in task evaluation doesn\'t cause overall failure.  results will be returned where they succeeded and annotation elsewhere
+    * The Holding currency.
     */
-    'allowPartiallySuccessfulEvaluation'?: boolean;
-    /**
-    * If true (default), when pricing an Fx-Forward or Interest Rate Swap, Future and other linearly separable products, product two results, one for each leg  rather than a single line result with the amalgamated/summed pv from both legs.
-    */
-    'produceSeparateResultForLinearOtcLegs'?: boolean;
-    /**
-    * If true, when pricing using a model or for an instrument that supports use of intermediate cached-results, use them.  Default is that this caching is turned off.
-    */
-    'enableUseOfCachedUnitResults'?: boolean;
-    /**
-    * If true, when valuing an instrument outside the period where it is \'alive\' (the start-maturity window) it will return a valuation of zero
-    */
-    'windowValuationOnInstrumentStartEnd'?: boolean;
-    /**
-    * When creating a payment diary, should contingent cash payments (e.g. from exercise of a swaption into a swap) be included or not.  i.e. Is exercise or default being assumed to happen or not.
-    */
-    'removeContingentCashflowsInPaymentDiary'?: boolean;
-    /**
-    * Should fund constituents inherit subholding keys from the parent subholding keyb
-    */
-    'useChildSubHoldingKeysForPortfolioExpansion'?: boolean;
-    /**
-    * Do we validate that the instrument domestic currency matches the quote currency (unless unknown/zzz) when using lookup pricing.
-    */
-    'validateDomesticAndQuoteCurrenciesAreConsistent'?: boolean;
-    /**
-    * When performing lookthrough portfolio expansion with ScalingMethodology set to \"Sum\" or \"AbsoluteSum\",  the quantity specified here will be conserved and apportioned to lookthrough constituents.  For example, an equal-weighting index with 100 constituents can be modelled as a reference portfolio with 1% weights on each equity.  When expanding a $9000 holding of that index into its constituents while conserving PV, we end up with $90 of each equity.  The number of units of each equity held is then implied.  Note that conservation of one quantity may imply non-conservation of others, especially when some constituents are OTCs.                Allowed values are: \"PV\" (default), \"Exposure\".
-    */
-    'conservedQuantityForLookthroughExpansion'?: string | null;
-    'returnZeroPv'?: ReturnZeroPvOptions;
+    'currency'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "modelSelection",
-            "baseName": "modelSelection",
-            "type": "ModelSelection"
+            "name": "instrumentIdentifiers",
+            "baseName": "instrumentIdentifiers",
+            "type": "{ [key: string]: string; }"
         },
         {
-            "name": "useInstrumentTypeToDeterminePricer",
-            "baseName": "useInstrumentTypeToDeterminePricer",
-            "type": "boolean"
+            "name": "subHoldingKeys",
+            "baseName": "subHoldingKeys",
+            "type": "{ [key: string]: PerpetualProperty; }"
         },
         {
-            "name": "allowAnyInstrumentsWithSecUidToPriceOffLookup",
-            "baseName": "allowAnyInstrumentsWithSecUidToPriceOffLookup",
-            "type": "boolean"
-        },
-        {
-            "name": "allowPartiallySuccessfulEvaluation",
-            "baseName": "allowPartiallySuccessfulEvaluation",
-            "type": "boolean"
-        },
-        {
-            "name": "produceSeparateResultForLinearOtcLegs",
-            "baseName": "produceSeparateResultForLinearOtcLegs",
-            "type": "boolean"
-        },
-        {
-            "name": "enableUseOfCachedUnitResults",
-            "baseName": "enableUseOfCachedUnitResults",
-            "type": "boolean"
-        },
-        {
-            "name": "windowValuationOnInstrumentStartEnd",
-            "baseName": "windowValuationOnInstrumentStartEnd",
-            "type": "boolean"
-        },
-        {
-            "name": "removeContingentCashflowsInPaymentDiary",
-            "baseName": "removeContingentCashflowsInPaymentDiary",
-            "type": "boolean"
-        },
-        {
-            "name": "useChildSubHoldingKeysForPortfolioExpansion",
-            "baseName": "useChildSubHoldingKeysForPortfolioExpansion",
-            "type": "boolean"
-        },
-        {
-            "name": "validateDomesticAndQuoteCurrenciesAreConsistent",
-            "baseName": "validateDomesticAndQuoteCurrenciesAreConsistent",
-            "type": "boolean"
-        },
-        {
-            "name": "conservedQuantityForLookthroughExpansion",
-            "baseName": "conservedQuantityForLookthroughExpansion",
+            "name": "currency",
+            "baseName": "currency",
             "type": "string"
-        },
-        {
-            "name": "returnZeroPv",
-            "baseName": "returnZeroPv",
-            "type": "ReturnZeroPvOptions"
         }    ];
 
     static getAttributeTypeMap() {
-        return PricingOptions.attributeTypeMap;
+        return CancelSingleHoldingAdjustmentRequest.attributeTypeMap;
     }
 }
 
