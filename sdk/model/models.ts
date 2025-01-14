@@ -207,6 +207,7 @@ export * from './createReferencePortfolioRequest';
 export * from './createRelationshipDefinitionRequest';
 export * from './createRelationshipRequest';
 export * from './createSequenceRequest';
+export * from './createSimplePositionPortfolioRequest';
 export * from './createTradeTicketsResponse';
 export * from './createTransactionPortfolioRequest';
 export * from './createUnitDefinition';
@@ -1154,6 +1155,7 @@ import { CreateReferencePortfolioRequest } from './createReferencePortfolioReque
 import { CreateRelationshipDefinitionRequest } from './createRelationshipDefinitionRequest';
 import { CreateRelationshipRequest } from './createRelationshipRequest';
 import { CreateSequenceRequest } from './createSequenceRequest';
+import { CreateSimplePositionPortfolioRequest } from './createSimplePositionPortfolioRequest';
 import { CreateTradeTicketsResponse } from './createTradeTicketsResponse';
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
 import { CreateUnitDefinition } from './createUnitDefinition';
@@ -1984,6 +1986,7 @@ let enumsMap: {[index: string]: any} = {
         "CreateDerivedTransactionPortfolioRequest.AccountingMethodEnum": CreateDerivedTransactionPortfolioRequest.AccountingMethodEnum,
         "CreatePropertyDefinitionRequest.DomainEnum": CreatePropertyDefinitionRequest.DomainEnum,
         "CreatePropertyDefinitionRequest.LifeTimeEnum": CreatePropertyDefinitionRequest.LifeTimeEnum,
+        "CreateSimplePositionPortfolioRequest.AccountingMethodEnum": CreateSimplePositionPortfolioRequest.AccountingMethodEnum,
         "CreateTransactionPortfolioRequest.AccountingMethodEnum": CreateTransactionPortfolioRequest.AccountingMethodEnum,
         "CreditDefaultSwap.InstrumentTypeEnum": CreditDefaultSwap.InstrumentTypeEnum,
         "CreditDefaultSwapAllOf.InstrumentTypeEnum": CreditDefaultSwapAllOf.InstrumentTypeEnum,
@@ -2541,6 +2544,7 @@ let typeMap: {[index: string]: any} = {
     "CreateRelationshipDefinitionRequest": CreateRelationshipDefinitionRequest,
     "CreateRelationshipRequest": CreateRelationshipRequest,
     "CreateSequenceRequest": CreateSequenceRequest,
+    "CreateSimplePositionPortfolioRequest": CreateSimplePositionPortfolioRequest,
     "CreateTradeTicketsResponse": CreateTradeTicketsResponse,
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
     "CreateUnitDefinition": CreateUnitDefinition,

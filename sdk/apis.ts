@@ -41,6 +41,7 @@ import {ScopesApi} from './api/scopesApi';
 import {ScriptedTranslationApi} from './api/scriptedTranslationApi';
 import {SearchApi} from './api/searchApi';
 import {SequencesApi} from './api/sequencesApi';
+import {SimplePositionPortfoliosApi} from './api/simplePositionPortfoliosApi';
 import {StructuredResultDataApi} from './api/structuredResultDataApi';
 import {SystemConfigurationApi} from './api/systemConfigurationApi';
 import {TransactionConfigurationApi} from './api/transactionConfigurationApi';
@@ -90,6 +91,7 @@ export class Api {
     public scriptedTranslation:  ScriptedTranslationApi
     public search:  SearchApi
     public sequences:  SequencesApi
+    public simplePositionPortfolios:  SimplePositionPortfoliosApi
     public structuredResultData:  StructuredResultDataApi
     public systemConfiguration:  SystemConfigurationApi
     public transactionConfiguration:  TransactionConfigurationApi
