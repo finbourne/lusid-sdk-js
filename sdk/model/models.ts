@@ -46,6 +46,7 @@ export * from './amortisationEventAllOf';
 export * from './annulQuotesResponse';
 export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
+export * from './applicableInstrumentEvent';
 export * from './assetLeg';
 export * from './barrier';
 export * from './basket';
@@ -164,6 +165,7 @@ export * from './complianceTemplateParameter';
 export * from './complianceTemplateVariation';
 export * from './complianceTemplateVariationDto';
 export * from './complianceTemplateVariationRequest';
+export * from './componentTransaction';
 export * from './compositeBreakdown';
 export * from './compositeBreakdownRequest';
 export * from './compositeBreakdownResponse';
@@ -272,6 +274,8 @@ export * from './earlyRedemptionEventAllOf';
 export * from './economicDependency';
 export * from './economicDependencyWithComplexMarketData';
 export * from './economicDependencyWithQuote';
+export * from './electionSpecification';
+export * from './eligibilityCalculation';
 export * from './emptyModelOptions';
 export * from './emptyModelOptionsAllOf';
 export * from './entityIdentifier';
@@ -373,6 +377,7 @@ export * from './fxTenorConvention';
 export * from './fxVolDependency';
 export * from './fxVolDependencyAllOf';
 export * from './fxVolSurfaceData';
+export * from './generatedEventDiagnostics';
 export * from './getComplexMarketDataResponse';
 export * from './getCounterpartyAgreementResponse';
 export * from './getCreditSupportAnnexResponse';
@@ -588,6 +593,8 @@ export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './pagedResourceListOfReferenceListResponse';
 export * from './pagedResourceListOfRelationshipDefinition';
 export * from './pagedResourceListOfSequenceDefinition';
+export * from './pagedResourceListOfTransactionTemplate';
+export * from './pagedResourceListOfTransactionTemplateSpecification';
 export * from './pagedResourceListOfTranslationScriptId';
 export * from './pagedResourceListOfVirtualRow';
 export * from './participation';
@@ -645,6 +652,7 @@ export * from './propertyListComplianceParameter';
 export * from './propertySchema';
 export * from './propertyValue';
 export * from './protectionPayoutCashFlowEvent';
+export * from './queryApplicableInstrumentEventsRequest';
 export * from './queryBucketedCashFlowsRequest';
 export * from './queryInstrumentEventsRequest';
 export * from './queryableKey';
@@ -694,6 +702,7 @@ export * from './resourceListOfAddressKeyDefinition';
 export * from './resourceListOfAggregatedReturn';
 export * from './resourceListOfAggregationQuery';
 export * from './resourceListOfAllocation';
+export * from './resourceListOfApplicableInstrumentEvent';
 export * from './resourceListOfBlock';
 export * from './resourceListOfBlockAndOrders';
 export * from './resourceListOfCalendarDate';
@@ -812,6 +821,7 @@ export * from './swapPrincipalEvent';
 export * from './swapPrincipalEventAllOf';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
+export * from './templateField';
 export * from './tenderEvent';
 export * from './tenderEventAllOf';
 export * from './termDeposit';
@@ -830,13 +840,21 @@ export * from './transactionConfigurationDataRequest';
 export * from './transactionConfigurationMovementData';
 export * from './transactionConfigurationMovementDataRequest';
 export * from './transactionConfigurationTypeAlias';
+export * from './transactionCurrencyAndAmount';
+export * from './transactionDiagnostics';
+export * from './transactionFieldMap';
 export * from './transactionPrice';
+export * from './transactionPriceAndType';
+export * from './transactionPropertyMap';
 export * from './transactionPropertyMapping';
 export * from './transactionPropertyMappingRequest';
 export * from './transactionQueryParameters';
 export * from './transactionReconciliationRequest';
 export * from './transactionRequest';
 export * from './transactionSetConfigurationData';
+export * from './transactionTemplate';
+export * from './transactionTemplateRequest';
+export * from './transactionTemplateSpecification';
 export * from './transactionType';
 export * from './transactionTypeAlias';
 export * from './transactionTypeCalculation';
@@ -994,6 +1012,7 @@ import { AmortisationEventAllOf } from './amortisationEventAllOf';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
+import { ApplicableInstrumentEvent } from './applicableInstrumentEvent';
 import { AssetLeg } from './assetLeg';
 import { Barrier } from './barrier';
 import { Basket } from './basket';
@@ -1112,6 +1131,7 @@ import { ComplianceTemplateParameter } from './complianceTemplateParameter';
 import { ComplianceTemplateVariation } from './complianceTemplateVariation';
 import { ComplianceTemplateVariationDto } from './complianceTemplateVariationDto';
 import { ComplianceTemplateVariationRequest } from './complianceTemplateVariationRequest';
+import { ComponentTransaction } from './componentTransaction';
 import { CompositeBreakdown } from './compositeBreakdown';
 import { CompositeBreakdownRequest } from './compositeBreakdownRequest';
 import { CompositeBreakdownResponse } from './compositeBreakdownResponse';
@@ -1220,6 +1240,8 @@ import { EarlyRedemptionEventAllOf } from './earlyRedemptionEventAllOf';
 import { EconomicDependency } from './economicDependency';
 import { EconomicDependencyWithComplexMarketData } from './economicDependencyWithComplexMarketData';
 import { EconomicDependencyWithQuote } from './economicDependencyWithQuote';
+import { ElectionSpecification } from './electionSpecification';
+import { EligibilityCalculation } from './eligibilityCalculation';
 import { EmptyModelOptions } from './emptyModelOptions';
 import { EmptyModelOptionsAllOf } from './emptyModelOptionsAllOf';
 import { EntityIdentifier } from './entityIdentifier';
@@ -1321,6 +1343,7 @@ import { FxTenorConvention } from './fxTenorConvention';
 import { FxVolDependency } from './fxVolDependency';
 import { FxVolDependencyAllOf } from './fxVolDependencyAllOf';
 import { FxVolSurfaceData } from './fxVolSurfaceData';
+import { GeneratedEventDiagnostics } from './generatedEventDiagnostics';
 import { GetComplexMarketDataResponse } from './getComplexMarketDataResponse';
 import { GetCounterpartyAgreementResponse } from './getCounterpartyAgreementResponse';
 import { GetCreditSupportAnnexResponse } from './getCreditSupportAnnexResponse';
@@ -1536,6 +1559,8 @@ import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResour
 import { PagedResourceListOfReferenceListResponse } from './pagedResourceListOfReferenceListResponse';
 import { PagedResourceListOfRelationshipDefinition } from './pagedResourceListOfRelationshipDefinition';
 import { PagedResourceListOfSequenceDefinition } from './pagedResourceListOfSequenceDefinition';
+import { PagedResourceListOfTransactionTemplate } from './pagedResourceListOfTransactionTemplate';
+import { PagedResourceListOfTransactionTemplateSpecification } from './pagedResourceListOfTransactionTemplateSpecification';
 import { PagedResourceListOfTranslationScriptId } from './pagedResourceListOfTranslationScriptId';
 import { PagedResourceListOfVirtualRow } from './pagedResourceListOfVirtualRow';
 import { Participation } from './participation';
@@ -1593,6 +1618,7 @@ import { PropertyListComplianceParameter } from './propertyListComplianceParamet
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { ProtectionPayoutCashFlowEvent } from './protectionPayoutCashFlowEvent';
+import { QueryApplicableInstrumentEventsRequest } from './queryApplicableInstrumentEventsRequest';
 import { QueryBucketedCashFlowsRequest } from './queryBucketedCashFlowsRequest';
 import { QueryInstrumentEventsRequest } from './queryInstrumentEventsRequest';
 import { QueryableKey } from './queryableKey';
@@ -1642,6 +1668,7 @@ import { ResourceListOfAddressKeyDefinition } from './resourceListOfAddressKeyDe
 import { ResourceListOfAggregatedReturn } from './resourceListOfAggregatedReturn';
 import { ResourceListOfAggregationQuery } from './resourceListOfAggregationQuery';
 import { ResourceListOfAllocation } from './resourceListOfAllocation';
+import { ResourceListOfApplicableInstrumentEvent } from './resourceListOfApplicableInstrumentEvent';
 import { ResourceListOfBlock } from './resourceListOfBlock';
 import { ResourceListOfBlockAndOrders } from './resourceListOfBlockAndOrders';
 import { ResourceListOfCalendarDate } from './resourceListOfCalendarDate';
@@ -1760,6 +1787,7 @@ import { SwapPrincipalEvent } from './swapPrincipalEvent';
 import { SwapPrincipalEventAllOf } from './swapPrincipalEventAllOf';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
+import { TemplateField } from './templateField';
 import { TenderEvent } from './tenderEvent';
 import { TenderEventAllOf } from './tenderEventAllOf';
 import { TermDeposit } from './termDeposit';
@@ -1778,13 +1806,21 @@ import { TransactionConfigurationDataRequest } from './transactionConfigurationD
 import { TransactionConfigurationMovementData } from './transactionConfigurationMovementData';
 import { TransactionConfigurationMovementDataRequest } from './transactionConfigurationMovementDataRequest';
 import { TransactionConfigurationTypeAlias } from './transactionConfigurationTypeAlias';
+import { TransactionCurrencyAndAmount } from './transactionCurrencyAndAmount';
+import { TransactionDiagnostics } from './transactionDiagnostics';
+import { TransactionFieldMap } from './transactionFieldMap';
 import { TransactionPrice } from './transactionPrice';
+import { TransactionPriceAndType } from './transactionPriceAndType';
+import { TransactionPropertyMap } from './transactionPropertyMap';
 import { TransactionPropertyMapping } from './transactionPropertyMapping';
 import { TransactionPropertyMappingRequest } from './transactionPropertyMappingRequest';
 import { TransactionQueryParameters } from './transactionQueryParameters';
 import { TransactionReconciliationRequest } from './transactionReconciliationRequest';
 import { TransactionRequest } from './transactionRequest';
 import { TransactionSetConfigurationData } from './transactionSetConfigurationData';
+import { TransactionTemplate } from './transactionTemplate';
+import { TransactionTemplateRequest } from './transactionTemplateRequest';
+import { TransactionTemplateSpecification } from './transactionTemplateSpecification';
 import { TransactionType } from './transactionType';
 import { TransactionTypeAlias } from './transactionTypeAlias';
 import { TransactionTypeCalculation } from './transactionTypeCalculation';
@@ -2383,6 +2419,7 @@ let typeMap: {[index: string]: any} = {
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
+    "ApplicableInstrumentEvent": ApplicableInstrumentEvent,
     "AssetLeg": AssetLeg,
     "Barrier": Barrier,
     "Basket": Basket,
@@ -2501,6 +2538,7 @@ let typeMap: {[index: string]: any} = {
     "ComplianceTemplateVariation": ComplianceTemplateVariation,
     "ComplianceTemplateVariationDto": ComplianceTemplateVariationDto,
     "ComplianceTemplateVariationRequest": ComplianceTemplateVariationRequest,
+    "ComponentTransaction": ComponentTransaction,
     "CompositeBreakdown": CompositeBreakdown,
     "CompositeBreakdownRequest": CompositeBreakdownRequest,
     "CompositeBreakdownResponse": CompositeBreakdownResponse,
@@ -2608,6 +2646,8 @@ let typeMap: {[index: string]: any} = {
     "EconomicDependency": EconomicDependency,
     "EconomicDependencyWithComplexMarketData": EconomicDependencyWithComplexMarketData,
     "EconomicDependencyWithQuote": EconomicDependencyWithQuote,
+    "ElectionSpecification": ElectionSpecification,
+    "EligibilityCalculation": EligibilityCalculation,
     "EmptyModelOptions": EmptyModelOptions,
     "EmptyModelOptionsAllOf": EmptyModelOptionsAllOf,
     "EntityIdentifier": EntityIdentifier,
@@ -2709,6 +2749,7 @@ let typeMap: {[index: string]: any} = {
     "FxVolDependency": FxVolDependency,
     "FxVolDependencyAllOf": FxVolDependencyAllOf,
     "FxVolSurfaceData": FxVolSurfaceData,
+    "GeneratedEventDiagnostics": GeneratedEventDiagnostics,
     "GetComplexMarketDataResponse": GetComplexMarketDataResponse,
     "GetCounterpartyAgreementResponse": GetCounterpartyAgreementResponse,
     "GetCreditSupportAnnexResponse": GetCreditSupportAnnexResponse,
@@ -2924,6 +2965,8 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfReferenceListResponse": PagedResourceListOfReferenceListResponse,
     "PagedResourceListOfRelationshipDefinition": PagedResourceListOfRelationshipDefinition,
     "PagedResourceListOfSequenceDefinition": PagedResourceListOfSequenceDefinition,
+    "PagedResourceListOfTransactionTemplate": PagedResourceListOfTransactionTemplate,
+    "PagedResourceListOfTransactionTemplateSpecification": PagedResourceListOfTransactionTemplateSpecification,
     "PagedResourceListOfTranslationScriptId": PagedResourceListOfTranslationScriptId,
     "PagedResourceListOfVirtualRow": PagedResourceListOfVirtualRow,
     "Participation": Participation,
@@ -2981,6 +3024,7 @@ let typeMap: {[index: string]: any} = {
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
     "ProtectionPayoutCashFlowEvent": ProtectionPayoutCashFlowEvent,
+    "QueryApplicableInstrumentEventsRequest": QueryApplicableInstrumentEventsRequest,
     "QueryBucketedCashFlowsRequest": QueryBucketedCashFlowsRequest,
     "QueryInstrumentEventsRequest": QueryInstrumentEventsRequest,
     "QueryableKey": QueryableKey,
@@ -3030,6 +3074,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfAggregatedReturn": ResourceListOfAggregatedReturn,
     "ResourceListOfAggregationQuery": ResourceListOfAggregationQuery,
     "ResourceListOfAllocation": ResourceListOfAllocation,
+    "ResourceListOfApplicableInstrumentEvent": ResourceListOfApplicableInstrumentEvent,
     "ResourceListOfBlock": ResourceListOfBlock,
     "ResourceListOfBlockAndOrders": ResourceListOfBlockAndOrders,
     "ResourceListOfCalendarDate": ResourceListOfCalendarDate,
@@ -3148,6 +3193,7 @@ let typeMap: {[index: string]: any} = {
     "SwapPrincipalEventAllOf": SwapPrincipalEventAllOf,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
+    "TemplateField": TemplateField,
     "TenderEvent": TenderEvent,
     "TenderEventAllOf": TenderEventAllOf,
     "TermDeposit": TermDeposit,
@@ -3166,13 +3212,21 @@ let typeMap: {[index: string]: any} = {
     "TransactionConfigurationMovementData": TransactionConfigurationMovementData,
     "TransactionConfigurationMovementDataRequest": TransactionConfigurationMovementDataRequest,
     "TransactionConfigurationTypeAlias": TransactionConfigurationTypeAlias,
+    "TransactionCurrencyAndAmount": TransactionCurrencyAndAmount,
+    "TransactionDiagnostics": TransactionDiagnostics,
+    "TransactionFieldMap": TransactionFieldMap,
     "TransactionPrice": TransactionPrice,
+    "TransactionPriceAndType": TransactionPriceAndType,
+    "TransactionPropertyMap": TransactionPropertyMap,
     "TransactionPropertyMapping": TransactionPropertyMapping,
     "TransactionPropertyMappingRequest": TransactionPropertyMappingRequest,
     "TransactionQueryParameters": TransactionQueryParameters,
     "TransactionReconciliationRequest": TransactionReconciliationRequest,
     "TransactionRequest": TransactionRequest,
     "TransactionSetConfigurationData": TransactionSetConfigurationData,
+    "TransactionTemplate": TransactionTemplate,
+    "TransactionTemplateRequest": TransactionTemplateRequest,
+    "TransactionTemplateSpecification": TransactionTemplateSpecification,
     "TransactionType": TransactionType,
     "TransactionTypeAlias": TransactionTypeAlias,
     "TransactionTypeCalculation": TransactionTypeCalculation,

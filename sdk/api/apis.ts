@@ -36,6 +36,8 @@ export * from './entitiesApi';
 import { EntitiesApi } from './entitiesApi';
 export * from './executionsApi';
 import { ExecutionsApi } from './executionsApi';
+export * from './instrumentEventTypesApi';
+import { InstrumentEventTypesApi } from './instrumentEventTypesApi';
 export * from './instrumentEventsApi';
 import { InstrumentEventsApi } from './instrumentEventsApi';
 export * from './instrumentsApi';
@@ -97,4 +99,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentEventsApi, InstrumentsApi, LegalEntitiesApi, OrderGraphApi, OrderManagementApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QueryableKeysApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, SchemasApi, ScopesApi, ScriptedTranslationApi, SearchApi, SequencesApi, SimplePositionPortfoliosApi, StructuredResultDataApi, SystemConfigurationApi, TransactionConfigurationApi, TransactionPortfoliosApi];
+export const APIS = [AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, InstrumentEventTypesApi, InstrumentEventsApi, InstrumentsApi, LegalEntitiesApi, OrderGraphApi, OrderManagementApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QueryableKeysApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationshipDefinitionsApi, RelationshipsApi, SchemasApi, ScopesApi, ScriptedTranslationApi, SearchApi, SequencesApi, SimplePositionPortfoliosApi, StructuredResultDataApi, SystemConfigurationApi, TransactionConfigurationApi, TransactionPortfoliosApi];
