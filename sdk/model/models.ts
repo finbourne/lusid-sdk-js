@@ -652,6 +652,7 @@ export * from './propertyListComplianceParameter';
 export * from './propertySchema';
 export * from './propertyValue';
 export * from './protectionPayoutCashFlowEvent';
+export * from './quantityInstructed';
 export * from './queryApplicableInstrumentEventsRequest';
 export * from './queryBucketedCashFlowsRequest';
 export * from './queryInstrumentEventsRequest';
@@ -883,6 +884,8 @@ export * from './updateCustomEntityDefinitionRequest';
 export * from './updateCustomEntityTypeRequest';
 export * from './updateCutLabelDefinitionRequest';
 export * from './updateDataTypeRequest';
+export * from './updateDepositAmountEvent';
+export * from './updateDepositAmountEventAllOf';
 export * from './updateDerivedPropertyDefinitionRequest';
 export * from './updateInstrumentIdentifierRequest';
 export * from './updateOrdersResponse';
@@ -1618,6 +1621,7 @@ import { PropertyListComplianceParameter } from './propertyListComplianceParamet
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { ProtectionPayoutCashFlowEvent } from './protectionPayoutCashFlowEvent';
+import { QuantityInstructed } from './quantityInstructed';
 import { QueryApplicableInstrumentEventsRequest } from './queryApplicableInstrumentEventsRequest';
 import { QueryBucketedCashFlowsRequest } from './queryBucketedCashFlowsRequest';
 import { QueryInstrumentEventsRequest } from './queryInstrumentEventsRequest';
@@ -1849,6 +1853,8 @@ import { UpdateCustomEntityDefinitionRequest } from './updateCustomEntityDefinit
 import { UpdateCustomEntityTypeRequest } from './updateCustomEntityTypeRequest';
 import { UpdateCutLabelDefinitionRequest } from './updateCutLabelDefinitionRequest';
 import { UpdateDataTypeRequest } from './updateDataTypeRequest';
+import { UpdateDepositAmountEvent } from './updateDepositAmountEvent';
+import { UpdateDepositAmountEventAllOf } from './updateDepositAmountEventAllOf';
 import { UpdateDerivedPropertyDefinitionRequest } from './updateDerivedPropertyDefinitionRequest';
 import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierRequest';
 import { UpdateOrdersResponse } from './updateOrdersResponse';
@@ -2364,6 +2370,8 @@ let enumsMap: {[index: string]: any} = {
         "TransitionEventAllOf.InstrumentEventTypeEnum": TransitionEventAllOf.InstrumentEventTypeEnum,
         "TriggerEvent.InstrumentEventTypeEnum": TriggerEvent.InstrumentEventTypeEnum,
         "TriggerEventAllOf.InstrumentEventTypeEnum": TriggerEventAllOf.InstrumentEventTypeEnum,
+        "UpdateDepositAmountEvent.InstrumentEventTypeEnum": UpdateDepositAmountEvent.InstrumentEventTypeEnum,
+        "UpdateDepositAmountEventAllOf.InstrumentEventTypeEnum": UpdateDepositAmountEventAllOf.InstrumentEventTypeEnum,
         "UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum": UpsertReferencePortfolioConstituentsRequest.WeightTypeEnum,
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
         "ValueType": ValueType,
@@ -3024,6 +3032,7 @@ let typeMap: {[index: string]: any} = {
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
     "ProtectionPayoutCashFlowEvent": ProtectionPayoutCashFlowEvent,
+    "QuantityInstructed": QuantityInstructed,
     "QueryApplicableInstrumentEventsRequest": QueryApplicableInstrumentEventsRequest,
     "QueryBucketedCashFlowsRequest": QueryBucketedCashFlowsRequest,
     "QueryInstrumentEventsRequest": QueryInstrumentEventsRequest,
@@ -3255,6 +3264,8 @@ let typeMap: {[index: string]: any} = {
     "UpdateCustomEntityTypeRequest": UpdateCustomEntityTypeRequest,
     "UpdateCutLabelDefinitionRequest": UpdateCutLabelDefinitionRequest,
     "UpdateDataTypeRequest": UpdateDataTypeRequest,
+    "UpdateDepositAmountEvent": UpdateDepositAmountEvent,
+    "UpdateDepositAmountEventAllOf": UpdateDepositAmountEventAllOf,
     "UpdateDerivedPropertyDefinitionRequest": UpdateDerivedPropertyDefinitionRequest,
     "UpdateInstrumentIdentifierRequest": UpdateInstrumentIdentifierRequest,
     "UpdateOrdersResponse": UpdateOrdersResponse,
