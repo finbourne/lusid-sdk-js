@@ -236,6 +236,7 @@ export * from './cutLocalTime';
 export * from './dataDefinition';
 export * from './dataMapKey';
 export * from './dataMapping';
+export * from './dataModelMembership';
 export * from './dataType';
 export * from './dataTypeSummary';
 export * from './dateAttributes';
@@ -508,6 +509,8 @@ export * from './mbsPrincipalEvent';
 export * from './mbsPrincipalEventAllOf';
 export * from './mbsPrincipalWriteOffEvent';
 export * from './mbsPrincipalWriteOffEventAllOf';
+export * from './membership';
+export * from './membershipAndStatus';
 export * from './mergerEvent';
 export * from './mergerEventAllOf';
 export * from './metricValue';
@@ -1204,6 +1207,7 @@ import { CutLocalTime } from './cutLocalTime';
 import { DataDefinition } from './dataDefinition';
 import { DataMapKey } from './dataMapKey';
 import { DataMapping } from './dataMapping';
+import { DataModelMembership } from './dataModelMembership';
 import { DataType } from './dataType';
 import { DataTypeSummary } from './dataTypeSummary';
 import { DateAttributes } from './dateAttributes';
@@ -1476,6 +1480,8 @@ import { MbsPrincipalEvent } from './mbsPrincipalEvent';
 import { MbsPrincipalEventAllOf } from './mbsPrincipalEventAllOf';
 import { MbsPrincipalWriteOffEvent } from './mbsPrincipalWriteOffEvent';
 import { MbsPrincipalWriteOffEventAllOf } from './mbsPrincipalWriteOffEventAllOf';
+import { Membership } from './membership';
+import { MembershipAndStatus } from './membershipAndStatus';
 import { MergerEvent } from './mergerEvent';
 import { MergerEventAllOf } from './mergerEventAllOf';
 import { MetricValue } from './metricValue';
@@ -2615,6 +2621,7 @@ let typeMap: {[index: string]: any} = {
     "DataDefinition": DataDefinition,
     "DataMapKey": DataMapKey,
     "DataMapping": DataMapping,
+    "DataModelMembership": DataModelMembership,
     "DataType": DataType,
     "DataTypeSummary": DataTypeSummary,
     "DateAttributes": DateAttributes,
@@ -2886,6 +2893,8 @@ let typeMap: {[index: string]: any} = {
     "MbsPrincipalEventAllOf": MbsPrincipalEventAllOf,
     "MbsPrincipalWriteOffEvent": MbsPrincipalWriteOffEvent,
     "MbsPrincipalWriteOffEventAllOf": MbsPrincipalWriteOffEventAllOf,
+    "Membership": Membership,
+    "MembershipAndStatus": MembershipAndStatus,
     "MergerEvent": MergerEvent,
     "MergerEventAllOf": MergerEventAllOf,
     "MetricValue": MetricValue,
