@@ -478,6 +478,8 @@ export * from './loanFacilityAllOf';
 export * from './loanInterestRepaymentEvent';
 export * from './loanInterestRepaymentEventAllOf';
 export * from './loanPeriod';
+export * from './loanPrincipalRepaymentEvent';
+export * from './loanPrincipalRepaymentEventAllOf';
 export * from './lusidInstrument';
 export * from './lusidProblemDetails';
 export * from './lusidTradeTicket';
@@ -1449,6 +1451,8 @@ import { LoanFacilityAllOf } from './loanFacilityAllOf';
 import { LoanInterestRepaymentEvent } from './loanInterestRepaymentEvent';
 import { LoanInterestRepaymentEventAllOf } from './loanInterestRepaymentEventAllOf';
 import { LoanPeriod } from './loanPeriod';
+import { LoanPrincipalRepaymentEvent } from './loanPrincipalRepaymentEvent';
+import { LoanPrincipalRepaymentEventAllOf } from './loanPrincipalRepaymentEventAllOf';
 import { LusidInstrument } from './lusidInstrument';
 import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidTradeTicket } from './lusidTradeTicket';
@@ -2208,6 +2212,8 @@ let enumsMap: {[index: string]: any} = {
         "LoanFacilityAllOf.InstrumentTypeEnum": LoanFacilityAllOf.InstrumentTypeEnum,
         "LoanInterestRepaymentEvent.InstrumentEventTypeEnum": LoanInterestRepaymentEvent.InstrumentEventTypeEnum,
         "LoanInterestRepaymentEventAllOf.InstrumentEventTypeEnum": LoanInterestRepaymentEventAllOf.InstrumentEventTypeEnum,
+        "LoanPrincipalRepaymentEvent.InstrumentEventTypeEnum": LoanPrincipalRepaymentEvent.InstrumentEventTypeEnum,
+        "LoanPrincipalRepaymentEventAllOf.InstrumentEventTypeEnum": LoanPrincipalRepaymentEventAllOf.InstrumentEventTypeEnum,
         "LusidInstrument.InstrumentTypeEnum": LusidInstrument.InstrumentTypeEnum,
         "LusidTradeTicket.TradeTicketTypeEnum": LusidTradeTicket.TradeTicketTypeEnum,
         "MarketDataKeyRule.QuoteTypeEnum": MarketDataKeyRule.QuoteTypeEnum,
@@ -2862,6 +2868,8 @@ let typeMap: {[index: string]: any} = {
     "LoanInterestRepaymentEvent": LoanInterestRepaymentEvent,
     "LoanInterestRepaymentEventAllOf": LoanInterestRepaymentEventAllOf,
     "LoanPeriod": LoanPeriod,
+    "LoanPrincipalRepaymentEvent": LoanPrincipalRepaymentEvent,
+    "LoanPrincipalRepaymentEventAllOf": LoanPrincipalRepaymentEventAllOf,
     "LusidInstrument": LusidInstrument,
     "LusidProblemDetails": LusidProblemDetails,
     "LusidTradeTicket": LusidTradeTicket,
