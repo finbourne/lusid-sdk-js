@@ -257,6 +257,8 @@ export * from './deleteInstrumentsResponse';
 export * from './deleteRelationshipRequest';
 export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
+export * from './depositInterestPaymentEvent';
+export * from './depositInterestPaymentEventAllOf';
 export * from './dialect';
 export * from './dialectId';
 export * from './dialectSchema';
@@ -1230,6 +1232,8 @@ import { DeleteInstrumentsResponse } from './deleteInstrumentsResponse';
 import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
+import { DepositInterestPaymentEvent } from './depositInterestPaymentEvent';
+import { DepositInterestPaymentEventAllOf } from './depositInterestPaymentEventAllOf';
 import { Dialect } from './dialect';
 import { DialectId } from './dialectId';
 import { DialectSchema } from './dialectSchema';
@@ -2059,6 +2063,8 @@ let enumsMap: {[index: string]: any} = {
         "DecimalList.ReferenceListTypeEnum": DecimalList.ReferenceListTypeEnum,
         "DecimalListAllOf.ReferenceListTypeEnum": DecimalListAllOf.ReferenceListTypeEnum,
         "DecimalListComplianceParameter.ComplianceParameterTypeEnum": DecimalListComplianceParameter.ComplianceParameterTypeEnum,
+        "DepositInterestPaymentEvent.InstrumentEventTypeEnum": DepositInterestPaymentEvent.InstrumentEventTypeEnum,
+        "DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum": DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum,
         "DiscountFactorCurveData.MarketDataTypeEnum": DiscountFactorCurveData.MarketDataTypeEnum,
         "DiscountFactorCurveDataAllOf.MarketDataTypeEnum": DiscountFactorCurveDataAllOf.MarketDataTypeEnum,
         "DiscountingDependency.DependencyTypeEnum": DiscountingDependency.DependencyTypeEnum,
@@ -2647,6 +2653,8 @@ let typeMap: {[index: string]: any} = {
     "DeleteRelationshipRequest": DeleteRelationshipRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
     "DependencySourceFilter": DependencySourceFilter,
+    "DepositInterestPaymentEvent": DepositInterestPaymentEvent,
+    "DepositInterestPaymentEventAllOf": DepositInterestPaymentEventAllOf,
     "Dialect": Dialect,
     "DialectId": DialectId,
     "DialectSchema": DialectSchema,
