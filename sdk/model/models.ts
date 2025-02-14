@@ -257,6 +257,8 @@ export * from './deleteInstrumentsResponse';
 export * from './deleteRelationshipRequest';
 export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
+export * from './depositCloseEvent';
+export * from './depositCloseEventAllOf';
 export * from './depositInterestPaymentEvent';
 export * from './depositInterestPaymentEventAllOf';
 export * from './dialect';
@@ -1232,6 +1234,8 @@ import { DeleteInstrumentsResponse } from './deleteInstrumentsResponse';
 import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
+import { DepositCloseEvent } from './depositCloseEvent';
+import { DepositCloseEventAllOf } from './depositCloseEventAllOf';
 import { DepositInterestPaymentEvent } from './depositInterestPaymentEvent';
 import { DepositInterestPaymentEventAllOf } from './depositInterestPaymentEventAllOf';
 import { Dialect } from './dialect';
@@ -2063,6 +2067,8 @@ let enumsMap: {[index: string]: any} = {
         "DecimalList.ReferenceListTypeEnum": DecimalList.ReferenceListTypeEnum,
         "DecimalListAllOf.ReferenceListTypeEnum": DecimalListAllOf.ReferenceListTypeEnum,
         "DecimalListComplianceParameter.ComplianceParameterTypeEnum": DecimalListComplianceParameter.ComplianceParameterTypeEnum,
+        "DepositCloseEvent.InstrumentEventTypeEnum": DepositCloseEvent.InstrumentEventTypeEnum,
+        "DepositCloseEventAllOf.InstrumentEventTypeEnum": DepositCloseEventAllOf.InstrumentEventTypeEnum,
         "DepositInterestPaymentEvent.InstrumentEventTypeEnum": DepositInterestPaymentEvent.InstrumentEventTypeEnum,
         "DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum": DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum,
         "DiscountFactorCurveData.MarketDataTypeEnum": DiscountFactorCurveData.MarketDataTypeEnum,
@@ -2653,6 +2659,8 @@ let typeMap: {[index: string]: any} = {
     "DeleteRelationshipRequest": DeleteRelationshipRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
     "DependencySourceFilter": DependencySourceFilter,
+    "DepositCloseEvent": DepositCloseEvent,
+    "DepositCloseEventAllOf": DepositCloseEventAllOf,
     "DepositInterestPaymentEvent": DepositInterestPaymentEvent,
     "DepositInterestPaymentEventAllOf": DepositInterestPaymentEventAllOf,
     "Dialect": Dialect,
