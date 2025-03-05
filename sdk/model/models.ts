@@ -134,6 +134,7 @@ export * from './cdxCreditEvent';
 export * from './cdxCreditEventAllOf';
 export * from './change';
 export * from './changeHistory';
+export * from './changeInterval';
 export * from './changeItem';
 export * from './checkStep';
 export * from './checkStepAllOf';
@@ -279,6 +280,7 @@ export * from './earlyRedemptionEventAllOf';
 export * from './economicDependency';
 export * from './economicDependencyWithComplexMarketData';
 export * from './economicDependencyWithQuote';
+export * from './effectiveRange';
 export * from './electionSpecification';
 export * from './eligibilityCalculation';
 export * from './emptyModelOptions';
@@ -718,6 +720,7 @@ export * from './resourceListOfBlockAndOrders';
 export * from './resourceListOfCalendarDate';
 export * from './resourceListOfChange';
 export * from './resourceListOfChangeHistory';
+export * from './resourceListOfChangeInterval';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfCorporateAction';
 export * from './resourceListOfDataType';
@@ -1111,6 +1114,7 @@ import { CdxCreditEvent } from './cdxCreditEvent';
 import { CdxCreditEventAllOf } from './cdxCreditEventAllOf';
 import { Change } from './change';
 import { ChangeHistory } from './changeHistory';
+import { ChangeInterval } from './changeInterval';
 import { ChangeItem } from './changeItem';
 import { CheckStep } from './checkStep';
 import { CheckStepAllOf } from './checkStepAllOf';
@@ -1256,6 +1260,7 @@ import { EarlyRedemptionEventAllOf } from './earlyRedemptionEventAllOf';
 import { EconomicDependency } from './economicDependency';
 import { EconomicDependencyWithComplexMarketData } from './economicDependencyWithComplexMarketData';
 import { EconomicDependencyWithQuote } from './economicDependencyWithQuote';
+import { EffectiveRange } from './effectiveRange';
 import { ElectionSpecification } from './electionSpecification';
 import { EligibilityCalculation } from './eligibilityCalculation';
 import { EmptyModelOptions } from './emptyModelOptions';
@@ -1695,6 +1700,7 @@ import { ResourceListOfBlockAndOrders } from './resourceListOfBlockAndOrders';
 import { ResourceListOfCalendarDate } from './resourceListOfCalendarDate';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfChangeHistory } from './resourceListOfChangeHistory';
+import { ResourceListOfChangeInterval } from './resourceListOfChangeInterval';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
 import { ResourceListOfDataType } from './resourceListOfDataType';
@@ -2537,6 +2543,7 @@ let typeMap: {[index: string]: any} = {
     "CdxCreditEventAllOf": CdxCreditEventAllOf,
     "Change": Change,
     "ChangeHistory": ChangeHistory,
+    "ChangeInterval": ChangeInterval,
     "ChangeItem": ChangeItem,
     "CheckStep": CheckStep,
     "CheckStepAllOf": CheckStepAllOf,
@@ -2681,6 +2688,7 @@ let typeMap: {[index: string]: any} = {
     "EconomicDependency": EconomicDependency,
     "EconomicDependencyWithComplexMarketData": EconomicDependencyWithComplexMarketData,
     "EconomicDependencyWithQuote": EconomicDependencyWithQuote,
+    "EffectiveRange": EffectiveRange,
     "ElectionSpecification": ElectionSpecification,
     "EligibilityCalculation": EligibilityCalculation,
     "EmptyModelOptions": EmptyModelOptions,
@@ -3120,6 +3128,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfCalendarDate": ResourceListOfCalendarDate,
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfChangeHistory": ResourceListOfChangeHistory,
+    "ResourceListOfChangeInterval": ResourceListOfChangeInterval,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfCorporateAction": ResourceListOfCorporateAction,
     "ResourceListOfDataType": ResourceListOfDataType,
