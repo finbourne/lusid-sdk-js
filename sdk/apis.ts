@@ -22,6 +22,7 @@ import {InstrumentEventsApi} from './api/instrumentEventsApi';
 import {InstrumentsApi} from './api/instrumentsApi';
 import {LegalEntitiesApi} from './api/legalEntitiesApi';
 import {OrderGraphApi} from './api/orderGraphApi';
+import {OrderInstructionsApi} from './api/orderInstructionsApi';
 import {OrderManagementApi} from './api/orderManagementApi';
 import {OrdersApi} from './api/ordersApi';
 import {ParticipationsApi} from './api/participationsApi';
@@ -43,9 +44,12 @@ import {ScriptedTranslationApi} from './api/scriptedTranslationApi';
 import {SearchApi} from './api/searchApi';
 import {SequencesApi} from './api/sequencesApi';
 import {SimplePositionPortfoliosApi} from './api/simplePositionPortfoliosApi';
+import {StagedModificationsApi} from './api/stagedModificationsApi';
+import {StagingRuleSetApi} from './api/stagingRuleSetApi';
 import {StructuredResultDataApi} from './api/structuredResultDataApi';
 import {SystemConfigurationApi} from './api/systemConfigurationApi';
 import {TransactionConfigurationApi} from './api/transactionConfigurationApi';
+import {TransactionFeesApi} from './api/transactionFeesApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
 
 export class Api {
@@ -73,6 +77,7 @@ export class Api {
     public instruments:  InstrumentsApi
     public legalEntities:  LegalEntitiesApi
     public orderGraph:  OrderGraphApi
+    public orderInstructions:  OrderInstructionsApi
     public orderManagement:  OrderManagementApi
     public orders:  OrdersApi
     public participations:  ParticipationsApi
@@ -94,8 +99,11 @@ export class Api {
     public search:  SearchApi
     public sequences:  SequencesApi
     public simplePositionPortfolios:  SimplePositionPortfoliosApi
+    public stagedModifications:  StagedModificationsApi
+    public stagingRuleSet:  StagingRuleSetApi
     public structuredResultData:  StructuredResultDataApi
     public systemConfiguration:  SystemConfigurationApi
     public transactionConfiguration:  TransactionConfigurationApi
+    public transactionFees:  TransactionFeesApi
     public transactionPortfolios:  TransactionPortfoliosApi
 }
