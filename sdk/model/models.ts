@@ -888,6 +888,7 @@ export * from './termDepositInterestEvent';
 export * from './termDepositInterestEventAllOf';
 export * from './termDepositPrincipalEvent';
 export * from './termDepositPrincipalEventAllOf';
+export * from './timeZoneConventions';
 export * from './totalReturnSwap';
 export * from './totalReturnSwapAllOf';
 export * from './touch';
@@ -1920,6 +1921,7 @@ import { TermDepositInterestEvent } from './termDepositInterestEvent';
 import { TermDepositInterestEventAllOf } from './termDepositInterestEventAllOf';
 import { TermDepositPrincipalEvent } from './termDepositPrincipalEvent';
 import { TermDepositPrincipalEventAllOf } from './termDepositPrincipalEventAllOf';
+import { TimeZoneConventions } from './timeZoneConventions';
 import { TotalReturnSwap } from './totalReturnSwap';
 import { TotalReturnSwapAllOf } from './totalReturnSwapAllOf';
 import { Touch } from './touch';
@@ -3400,6 +3402,7 @@ let typeMap: {[index: string]: any} = {
     "TermDepositInterestEventAllOf": TermDepositInterestEventAllOf,
     "TermDepositPrincipalEvent": TermDepositPrincipalEvent,
     "TermDepositPrincipalEventAllOf": TermDepositPrincipalEventAllOf,
+    "TimeZoneConventions": TimeZoneConventions,
     "TotalReturnSwap": TotalReturnSwap,
     "TotalReturnSwapAllOf": TotalReturnSwapAllOf,
     "Touch": Touch,
