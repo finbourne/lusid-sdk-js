@@ -351,6 +351,7 @@ export * from './flowConventionName';
 export * from './flowConventions';
 export * from './forwardRateAgreement';
 export * from './forwardRateAgreementAllOf';
+export * from './fromRecipe';
 export * from './fundIdList';
 export * from './fundIdListAllOf';
 export * from './fundShareClass';
@@ -402,6 +403,7 @@ export * from './getCreditSupportAnnexResponse';
 export * from './getDataMapResponse';
 export * from './getInstrumentsResponse';
 export * from './getQuotesResponse';
+export * from './getRecipeComposerResponse';
 export * from './getRecipeResponse';
 export * from './getReferencePortfolioConstituentsResponse';
 export * from './getStructuredResultDataResponse';
@@ -706,6 +708,9 @@ export * from './quoteSeriesId';
 export * from './rawVendorEvent';
 export * from './rawVendorEventAllOf';
 export * from './realisedGainLoss';
+export * from './recipeBlock';
+export * from './recipeComposer';
+export * from './recipeValue';
 export * from './recombineStep';
 export * from './reconcileDateTimeRule';
 export * from './reconcileDateTimeRuleAllOf';
@@ -759,6 +764,7 @@ export * from './resourceListOfExecution';
 export * from './resourceListOfFeeRule';
 export * from './resourceListOfGetCounterpartyAgreementResponse';
 export * from './resourceListOfGetCreditSupportAnnexResponse';
+export * from './resourceListOfGetRecipeComposerResponse';
 export * from './resourceListOfGetRecipeResponse';
 export * from './resourceListOfHoldingsAdjustmentHeader';
 export * from './resourceListOfIUnitDefinitionDto';
@@ -982,6 +988,7 @@ export * from './upsertPortfolioGroupAccessMetadataRequest';
 export * from './upsertPortfolioTransactionsResponse';
 export * from './upsertQuoteRequest';
 export * from './upsertQuotesResponse';
+export * from './upsertRecipeComposerRequest';
 export * from './upsertRecipeRequest';
 export * from './upsertReferencePortfolioConstituentPropertiesRequest';
 export * from './upsertReferencePortfolioConstituentPropertiesResponse';
@@ -1384,6 +1391,7 @@ import { FlowConventionName } from './flowConventionName';
 import { FlowConventions } from './flowConventions';
 import { ForwardRateAgreement } from './forwardRateAgreement';
 import { ForwardRateAgreementAllOf } from './forwardRateAgreementAllOf';
+import { FromRecipe } from './fromRecipe';
 import { FundIdList } from './fundIdList';
 import { FundIdListAllOf } from './fundIdListAllOf';
 import { FundShareClass } from './fundShareClass';
@@ -1435,6 +1443,7 @@ import { GetCreditSupportAnnexResponse } from './getCreditSupportAnnexResponse';
 import { GetDataMapResponse } from './getDataMapResponse';
 import { GetInstrumentsResponse } from './getInstrumentsResponse';
 import { GetQuotesResponse } from './getQuotesResponse';
+import { GetRecipeComposerResponse } from './getRecipeComposerResponse';
 import { GetRecipeResponse } from './getRecipeResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
 import { GetStructuredResultDataResponse } from './getStructuredResultDataResponse';
@@ -1739,6 +1748,9 @@ import { QuoteSeriesId } from './quoteSeriesId';
 import { RawVendorEvent } from './rawVendorEvent';
 import { RawVendorEventAllOf } from './rawVendorEventAllOf';
 import { RealisedGainLoss } from './realisedGainLoss';
+import { RecipeBlock } from './recipeBlock';
+import { RecipeComposer } from './recipeComposer';
+import { RecipeValue } from './recipeValue';
 import { RecombineStep } from './recombineStep';
 import { ReconcileDateTimeRule } from './reconcileDateTimeRule';
 import { ReconcileDateTimeRuleAllOf } from './reconcileDateTimeRuleAllOf';
@@ -1792,6 +1804,7 @@ import { ResourceListOfExecution } from './resourceListOfExecution';
 import { ResourceListOfFeeRule } from './resourceListOfFeeRule';
 import { ResourceListOfGetCounterpartyAgreementResponse } from './resourceListOfGetCounterpartyAgreementResponse';
 import { ResourceListOfGetCreditSupportAnnexResponse } from './resourceListOfGetCreditSupportAnnexResponse';
+import { ResourceListOfGetRecipeComposerResponse } from './resourceListOfGetRecipeComposerResponse';
 import { ResourceListOfGetRecipeResponse } from './resourceListOfGetRecipeResponse';
 import { ResourceListOfHoldingsAdjustmentHeader } from './resourceListOfHoldingsAdjustmentHeader';
 import { ResourceListOfIUnitDefinitionDto } from './resourceListOfIUnitDefinitionDto';
@@ -2015,6 +2028,7 @@ import { UpsertPortfolioGroupAccessMetadataRequest } from './upsertPortfolioGrou
 import { UpsertPortfolioTransactionsResponse } from './upsertPortfolioTransactionsResponse';
 import { UpsertQuoteRequest } from './upsertQuoteRequest';
 import { UpsertQuotesResponse } from './upsertQuotesResponse';
+import { UpsertRecipeComposerRequest } from './upsertRecipeComposerRequest';
 import { UpsertRecipeRequest } from './upsertRecipeRequest';
 import { UpsertReferencePortfolioConstituentPropertiesRequest } from './upsertReferencePortfolioConstituentPropertiesRequest';
 import { UpsertReferencePortfolioConstituentPropertiesResponse } from './upsertReferencePortfolioConstituentPropertiesResponse';
@@ -2865,6 +2879,7 @@ let typeMap: {[index: string]: any} = {
     "FlowConventions": FlowConventions,
     "ForwardRateAgreement": ForwardRateAgreement,
     "ForwardRateAgreementAllOf": ForwardRateAgreementAllOf,
+    "FromRecipe": FromRecipe,
     "FundIdList": FundIdList,
     "FundIdListAllOf": FundIdListAllOf,
     "FundShareClass": FundShareClass,
@@ -2916,6 +2931,7 @@ let typeMap: {[index: string]: any} = {
     "GetDataMapResponse": GetDataMapResponse,
     "GetInstrumentsResponse": GetInstrumentsResponse,
     "GetQuotesResponse": GetQuotesResponse,
+    "GetRecipeComposerResponse": GetRecipeComposerResponse,
     "GetRecipeResponse": GetRecipeResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
     "GetStructuredResultDataResponse": GetStructuredResultDataResponse,
@@ -3220,6 +3236,9 @@ let typeMap: {[index: string]: any} = {
     "RawVendorEvent": RawVendorEvent,
     "RawVendorEventAllOf": RawVendorEventAllOf,
     "RealisedGainLoss": RealisedGainLoss,
+    "RecipeBlock": RecipeBlock,
+    "RecipeComposer": RecipeComposer,
+    "RecipeValue": RecipeValue,
     "RecombineStep": RecombineStep,
     "ReconcileDateTimeRule": ReconcileDateTimeRule,
     "ReconcileDateTimeRuleAllOf": ReconcileDateTimeRuleAllOf,
@@ -3273,6 +3292,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfFeeRule": ResourceListOfFeeRule,
     "ResourceListOfGetCounterpartyAgreementResponse": ResourceListOfGetCounterpartyAgreementResponse,
     "ResourceListOfGetCreditSupportAnnexResponse": ResourceListOfGetCreditSupportAnnexResponse,
+    "ResourceListOfGetRecipeComposerResponse": ResourceListOfGetRecipeComposerResponse,
     "ResourceListOfGetRecipeResponse": ResourceListOfGetRecipeResponse,
     "ResourceListOfHoldingsAdjustmentHeader": ResourceListOfHoldingsAdjustmentHeader,
     "ResourceListOfIUnitDefinitionDto": ResourceListOfIUnitDefinitionDto,
@@ -3496,6 +3516,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertPortfolioTransactionsResponse": UpsertPortfolioTransactionsResponse,
     "UpsertQuoteRequest": UpsertQuoteRequest,
     "UpsertQuotesResponse": UpsertQuotesResponse,
+    "UpsertRecipeComposerRequest": UpsertRecipeComposerRequest,
     "UpsertRecipeRequest": UpsertRecipeRequest,
     "UpsertReferencePortfolioConstituentPropertiesRequest": UpsertReferencePortfolioConstituentPropertiesRequest,
     "UpsertReferencePortfolioConstituentPropertiesResponse": UpsertReferencePortfolioConstituentPropertiesResponse,
