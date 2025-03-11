@@ -46,6 +46,18 @@ export * from './amortisationEventAllOf';
 export * from './annulQuotesResponse';
 export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
+export * from './appendComplexMarketDataRequest';
+export * from './appendFxForwardCurveByQuoteReference';
+export * from './appendFxForwardCurveByQuoteReferenceAllOf';
+export * from './appendFxForwardCurveData';
+export * from './appendFxForwardCurveDataAllOf';
+export * from './appendFxForwardPipsCurveData';
+export * from './appendFxForwardPipsCurveDataAllOf';
+export * from './appendFxForwardTenorCurveData';
+export * from './appendFxForwardTenorCurveDataAllOf';
+export * from './appendFxForwardTenorPipsCurveData';
+export * from './appendFxForwardTenorPipsCurveDataAllOf';
+export * from './appendMarketData';
 export * from './applicableInstrumentEvent';
 export * from './assetLeg';
 export * from './barrier';
@@ -1086,6 +1098,18 @@ import { AmortisationEventAllOf } from './amortisationEventAllOf';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
+import { AppendComplexMarketDataRequest } from './appendComplexMarketDataRequest';
+import { AppendFxForwardCurveByQuoteReference } from './appendFxForwardCurveByQuoteReference';
+import { AppendFxForwardCurveByQuoteReferenceAllOf } from './appendFxForwardCurveByQuoteReferenceAllOf';
+import { AppendFxForwardCurveData } from './appendFxForwardCurveData';
+import { AppendFxForwardCurveDataAllOf } from './appendFxForwardCurveDataAllOf';
+import { AppendFxForwardPipsCurveData } from './appendFxForwardPipsCurveData';
+import { AppendFxForwardPipsCurveDataAllOf } from './appendFxForwardPipsCurveDataAllOf';
+import { AppendFxForwardTenorCurveData } from './appendFxForwardTenorCurveData';
+import { AppendFxForwardTenorCurveDataAllOf } from './appendFxForwardTenorCurveDataAllOf';
+import { AppendFxForwardTenorPipsCurveData } from './appendFxForwardTenorPipsCurveData';
+import { AppendFxForwardTenorPipsCurveDataAllOf } from './appendFxForwardTenorPipsCurveDataAllOf';
+import { AppendMarketData } from './appendMarketData';
 import { ApplicableInstrumentEvent } from './applicableInstrumentEvent';
 import { AssetLeg } from './assetLeg';
 import { Barrier } from './barrier';
@@ -2097,6 +2121,17 @@ let enumsMap: {[index: string]: any} = {
         "AggregationQuery.FlattenedTypeEnum": AggregationQuery.FlattenedTypeEnum,
         "AmortisationEvent.InstrumentEventTypeEnum": AmortisationEvent.InstrumentEventTypeEnum,
         "AmortisationEventAllOf.InstrumentEventTypeEnum": AmortisationEventAllOf.InstrumentEventTypeEnum,
+        "AppendFxForwardCurveByQuoteReference.MarketDataTypeEnum": AppendFxForwardCurveByQuoteReference.MarketDataTypeEnum,
+        "AppendFxForwardCurveByQuoteReferenceAllOf.MarketDataTypeEnum": AppendFxForwardCurveByQuoteReferenceAllOf.MarketDataTypeEnum,
+        "AppendFxForwardCurveData.MarketDataTypeEnum": AppendFxForwardCurveData.MarketDataTypeEnum,
+        "AppendFxForwardCurveDataAllOf.MarketDataTypeEnum": AppendFxForwardCurveDataAllOf.MarketDataTypeEnum,
+        "AppendFxForwardPipsCurveData.MarketDataTypeEnum": AppendFxForwardPipsCurveData.MarketDataTypeEnum,
+        "AppendFxForwardPipsCurveDataAllOf.MarketDataTypeEnum": AppendFxForwardPipsCurveDataAllOf.MarketDataTypeEnum,
+        "AppendFxForwardTenorCurveData.MarketDataTypeEnum": AppendFxForwardTenorCurveData.MarketDataTypeEnum,
+        "AppendFxForwardTenorCurveDataAllOf.MarketDataTypeEnum": AppendFxForwardTenorCurveDataAllOf.MarketDataTypeEnum,
+        "AppendFxForwardTenorPipsCurveData.MarketDataTypeEnum": AppendFxForwardTenorPipsCurveData.MarketDataTypeEnum,
+        "AppendFxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum": AppendFxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum,
+        "AppendMarketData.MarketDataTypeEnum": AppendMarketData.MarketDataTypeEnum,
         "Basket.InstrumentTypeEnum": Basket.InstrumentTypeEnum,
         "BasketAllOf.InstrumentTypeEnum": BasketAllOf.InstrumentTypeEnum,
         "Bond.InstrumentTypeEnum": Bond.InstrumentTypeEnum,
@@ -2575,6 +2610,18 @@ let typeMap: {[index: string]: any} = {
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
+    "AppendComplexMarketDataRequest": AppendComplexMarketDataRequest,
+    "AppendFxForwardCurveByQuoteReference": AppendFxForwardCurveByQuoteReference,
+    "AppendFxForwardCurveByQuoteReferenceAllOf": AppendFxForwardCurveByQuoteReferenceAllOf,
+    "AppendFxForwardCurveData": AppendFxForwardCurveData,
+    "AppendFxForwardCurveDataAllOf": AppendFxForwardCurveDataAllOf,
+    "AppendFxForwardPipsCurveData": AppendFxForwardPipsCurveData,
+    "AppendFxForwardPipsCurveDataAllOf": AppendFxForwardPipsCurveDataAllOf,
+    "AppendFxForwardTenorCurveData": AppendFxForwardTenorCurveData,
+    "AppendFxForwardTenorCurveDataAllOf": AppendFxForwardTenorCurveDataAllOf,
+    "AppendFxForwardTenorPipsCurveData": AppendFxForwardTenorPipsCurveData,
+    "AppendFxForwardTenorPipsCurveDataAllOf": AppendFxForwardTenorPipsCurveDataAllOf,
+    "AppendMarketData": AppendMarketData,
     "ApplicableInstrumentEvent": ApplicableInstrumentEvent,
     "AssetLeg": AssetLeg,
     "Barrier": Barrier,
