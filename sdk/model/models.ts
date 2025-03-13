@@ -244,6 +244,7 @@ export * from './custodianAccountRequest';
 export * from './custodianAccountsUpsertResponse';
 export * from './customEntityDefinition';
 export * from './customEntityDefinitionRequest';
+export * from './customEntityEntity';
 export * from './customEntityField';
 export * from './customEntityFieldDefinition';
 export * from './customEntityId';
@@ -257,6 +258,7 @@ export * from './dataMapKey';
 export * from './dataMapping';
 export * from './dataModelMembership';
 export * from './dataType';
+export * from './dataTypeEntity';
 export * from './dataTypeSummary';
 export * from './dateAttributes';
 export * from './dateRange';
@@ -468,6 +470,7 @@ export * from './instrumentCapabilities';
 export * from './instrumentCashFlow';
 export * from './instrumentDefinition';
 export * from './instrumentDefinitionFormat';
+export * from './instrumentEntity';
 export * from './instrumentEvent';
 export * from './instrumentEventConfiguration';
 export * from './instrumentEventHolder';
@@ -667,6 +670,7 @@ export * from './portfolio';
 export * from './portfolioCashFlow';
 export * from './portfolioCashLadder';
 export * from './portfolioDetails';
+export * from './portfolioEntity';
 export * from './portfolioEntityId';
 export * from './portfolioGroup';
 export * from './portfolioGroupIdComplianceParameter';
@@ -685,6 +689,7 @@ export * from './portfolioResultDataKeyRuleAllOf';
 export * from './portfolioReturnBreakdown';
 export * from './portfolioSearchResult';
 export * from './portfolioTradeTicket';
+export * from './portfolioWithoutHref';
 export * from './portfoliosReconciliationRequest';
 export * from './preTradeConfiguration';
 export * from './premium';
@@ -693,6 +698,7 @@ export * from './pricingOptions';
 export * from './processedCommand';
 export * from './property';
 export * from './propertyDefinition';
+export * from './propertyDefinitionEntity';
 export * from './propertyDefinitionSearchResult';
 export * from './propertyFilter';
 export * from './propertyInterval';
@@ -1296,6 +1302,7 @@ import { CustodianAccountRequest } from './custodianAccountRequest';
 import { CustodianAccountsUpsertResponse } from './custodianAccountsUpsertResponse';
 import { CustomEntityDefinition } from './customEntityDefinition';
 import { CustomEntityDefinitionRequest } from './customEntityDefinitionRequest';
+import { CustomEntityEntity } from './customEntityEntity';
 import { CustomEntityField } from './customEntityField';
 import { CustomEntityFieldDefinition } from './customEntityFieldDefinition';
 import { CustomEntityId } from './customEntityId';
@@ -1309,6 +1316,7 @@ import { DataMapKey } from './dataMapKey';
 import { DataMapping } from './dataMapping';
 import { DataModelMembership } from './dataModelMembership';
 import { DataType } from './dataType';
+import { DataTypeEntity } from './dataTypeEntity';
 import { DataTypeSummary } from './dataTypeSummary';
 import { DateAttributes } from './dateAttributes';
 import { DateRange } from './dateRange';
@@ -1520,6 +1528,7 @@ import { InstrumentCapabilities } from './instrumentCapabilities';
 import { InstrumentCashFlow } from './instrumentCashFlow';
 import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentDefinitionFormat } from './instrumentDefinitionFormat';
+import { InstrumentEntity } from './instrumentEntity';
 import { InstrumentEvent } from './instrumentEvent';
 import { InstrumentEventConfiguration } from './instrumentEventConfiguration';
 import { InstrumentEventHolder } from './instrumentEventHolder';
@@ -1719,6 +1728,7 @@ import { Portfolio } from './portfolio';
 import { PortfolioCashFlow } from './portfolioCashFlow';
 import { PortfolioCashLadder } from './portfolioCashLadder';
 import { PortfolioDetails } from './portfolioDetails';
+import { PortfolioEntity } from './portfolioEntity';
 import { PortfolioEntityId } from './portfolioEntityId';
 import { PortfolioGroup } from './portfolioGroup';
 import { PortfolioGroupIdComplianceParameter } from './portfolioGroupIdComplianceParameter';
@@ -1737,6 +1747,7 @@ import { PortfolioResultDataKeyRuleAllOf } from './portfolioResultDataKeyRuleAll
 import { PortfolioReturnBreakdown } from './portfolioReturnBreakdown';
 import { PortfolioSearchResult } from './portfolioSearchResult';
 import { PortfolioTradeTicket } from './portfolioTradeTicket';
+import { PortfolioWithoutHref } from './portfolioWithoutHref';
 import { PortfoliosReconciliationRequest } from './portfoliosReconciliationRequest';
 import { PreTradeConfiguration } from './preTradeConfiguration';
 import { Premium } from './premium';
@@ -1745,6 +1756,7 @@ import { PricingOptions } from './pricingOptions';
 import { ProcessedCommand } from './processedCommand';
 import { Property } from './property';
 import { PropertyDefinition } from './propertyDefinition';
+import { PropertyDefinitionEntity } from './propertyDefinitionEntity';
 import { PropertyDefinitionSearchResult } from './propertyDefinitionSearchResult';
 import { PropertyFilter } from './propertyFilter';
 import { PropertyInterval } from './propertyInterval';
@@ -2440,6 +2452,8 @@ let enumsMap: {[index: string]: any} = {
         "PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum": PortfolioResultDataKeyRule.ResultKeyRuleTypeEnum,
         "PortfolioResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum": PortfolioResultDataKeyRuleAllOf.ResultKeyRuleTypeEnum,
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
+        "PortfolioWithoutHref.TypeEnum": PortfolioWithoutHref.TypeEnum,
+        "PortfolioWithoutHref.AccountingMethodEnum": PortfolioWithoutHref.AccountingMethodEnum,
         "PropertyDefinition.ValueTypeEnum": PropertyDefinition.ValueTypeEnum,
         "PropertyDefinition.TypeEnum": PropertyDefinition.TypeEnum,
         "PropertyDefinition.UnitSchemaEnum": PropertyDefinition.UnitSchemaEnum,
@@ -2808,6 +2822,7 @@ let typeMap: {[index: string]: any} = {
     "CustodianAccountsUpsertResponse": CustodianAccountsUpsertResponse,
     "CustomEntityDefinition": CustomEntityDefinition,
     "CustomEntityDefinitionRequest": CustomEntityDefinitionRequest,
+    "CustomEntityEntity": CustomEntityEntity,
     "CustomEntityField": CustomEntityField,
     "CustomEntityFieldDefinition": CustomEntityFieldDefinition,
     "CustomEntityId": CustomEntityId,
@@ -2821,6 +2836,7 @@ let typeMap: {[index: string]: any} = {
     "DataMapping": DataMapping,
     "DataModelMembership": DataModelMembership,
     "DataType": DataType,
+    "DataTypeEntity": DataTypeEntity,
     "DataTypeSummary": DataTypeSummary,
     "DateAttributes": DateAttributes,
     "DateRange": DateRange,
@@ -3031,6 +3047,7 @@ let typeMap: {[index: string]: any} = {
     "InstrumentCashFlow": InstrumentCashFlow,
     "InstrumentDefinition": InstrumentDefinition,
     "InstrumentDefinitionFormat": InstrumentDefinitionFormat,
+    "InstrumentEntity": InstrumentEntity,
     "InstrumentEvent": InstrumentEvent,
     "InstrumentEventConfiguration": InstrumentEventConfiguration,
     "InstrumentEventHolder": InstrumentEventHolder,
@@ -3230,6 +3247,7 @@ let typeMap: {[index: string]: any} = {
     "PortfolioCashFlow": PortfolioCashFlow,
     "PortfolioCashLadder": PortfolioCashLadder,
     "PortfolioDetails": PortfolioDetails,
+    "PortfolioEntity": PortfolioEntity,
     "PortfolioEntityId": PortfolioEntityId,
     "PortfolioGroup": PortfolioGroup,
     "PortfolioGroupIdComplianceParameter": PortfolioGroupIdComplianceParameter,
@@ -3248,6 +3266,7 @@ let typeMap: {[index: string]: any} = {
     "PortfolioReturnBreakdown": PortfolioReturnBreakdown,
     "PortfolioSearchResult": PortfolioSearchResult,
     "PortfolioTradeTicket": PortfolioTradeTicket,
+    "PortfolioWithoutHref": PortfolioWithoutHref,
     "PortfoliosReconciliationRequest": PortfoliosReconciliationRequest,
     "PreTradeConfiguration": PreTradeConfiguration,
     "Premium": Premium,
@@ -3256,6 +3275,7 @@ let typeMap: {[index: string]: any} = {
     "ProcessedCommand": ProcessedCommand,
     "Property": Property,
     "PropertyDefinition": PropertyDefinition,
+    "PropertyDefinitionEntity": PropertyDefinitionEntity,
     "PropertyDefinitionSearchResult": PropertyDefinitionSearchResult,
     "PropertyFilter": PropertyFilter,
     "PropertyInterval": PropertyInterval,
