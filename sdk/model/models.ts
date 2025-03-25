@@ -708,6 +708,7 @@ export * from './propertyKeyListComplianceParameter';
 export * from './propertyList';
 export * from './propertyListAllOf';
 export * from './propertyListComplianceParameter';
+export * from './propertyReferenceDataValue';
 export * from './propertySchema';
 export * from './propertyValue';
 export * from './protectionPayoutCashFlowEvent';
@@ -1766,6 +1767,7 @@ import { PropertyKeyListComplianceParameter } from './propertyKeyListComplianceP
 import { PropertyList } from './propertyList';
 import { PropertyListAllOf } from './propertyListAllOf';
 import { PropertyListComplianceParameter } from './propertyListComplianceParameter';
+import { PropertyReferenceDataValue } from './propertyReferenceDataValue';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { ProtectionPayoutCashFlowEvent } from './protectionPayoutCashFlowEvent';
@@ -3285,6 +3287,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyList": PropertyList,
     "PropertyListAllOf": PropertyListAllOf,
     "PropertyListComplianceParameter": PropertyListComplianceParameter,
+    "PropertyReferenceDataValue": PropertyReferenceDataValue,
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
     "ProtectionPayoutCashFlowEvent": ProtectionPayoutCashFlowEvent,
