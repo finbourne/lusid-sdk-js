@@ -1046,6 +1046,7 @@ export * from './weekendMask';
 export * from './weightedInstrument';
 export * from './weightedInstrumentInLineLookupIdentifiers';
 export * from './weightedInstruments';
+export * from './yearMonthDay';
 export * from './yieldCurveData';
 export * from './yieldCurveDataAllOf';
 
@@ -2108,6 +2109,7 @@ import { WeekendMask } from './weekendMask';
 import { WeightedInstrument } from './weightedInstrument';
 import { WeightedInstrumentInLineLookupIdentifiers } from './weightedInstrumentInLineLookupIdentifiers';
 import { WeightedInstruments } from './weightedInstruments';
+import { YearMonthDay } from './yearMonthDay';
 import { YieldCurveData } from './yieldCurveData';
 import { YieldCurveDataAllOf } from './yieldCurveDataAllOf';
 
@@ -3632,6 +3634,7 @@ let typeMap: {[index: string]: any} = {
     "WeightedInstrument": WeightedInstrument,
     "WeightedInstrumentInLineLookupIdentifiers": WeightedInstrumentInLineLookupIdentifiers,
     "WeightedInstruments": WeightedInstruments,
+    "YearMonthDay": YearMonthDay,
     "YieldCurveData": YieldCurveData,
     "YieldCurveDataAllOf": YieldCurveDataAllOf,
 }
