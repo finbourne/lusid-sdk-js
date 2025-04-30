@@ -497,6 +497,8 @@ export * from './interestRateSwaption';
 export * from './interestRateSwaptionAllOf';
 export * from './intermediateSecuritiesDistributionEvent';
 export * from './intermediateSecuritiesDistributionEventAllOf';
+export * from './investor';
+export * from './investorRecord';
 export * from './irVolCubeData';
 export * from './irVolCubeDataAllOf';
 export * from './irVolDependency';
@@ -1002,6 +1004,9 @@ export * from './upsertInstrumentEventsResponse';
 export * from './upsertInstrumentPropertiesResponse';
 export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
+export * from './upsertInvestor';
+export * from './upsertInvestorRecordRequest';
+export * from './upsertInvestorRecordsResponse';
 export * from './upsertLegalEntitiesResponse';
 export * from './upsertLegalEntityAccessMetadataRequest';
 export * from './upsertLegalEntityRequest';
@@ -1563,6 +1568,8 @@ import { InterestRateSwaption } from './interestRateSwaption';
 import { InterestRateSwaptionAllOf } from './interestRateSwaptionAllOf';
 import { IntermediateSecuritiesDistributionEvent } from './intermediateSecuritiesDistributionEvent';
 import { IntermediateSecuritiesDistributionEventAllOf } from './intermediateSecuritiesDistributionEventAllOf';
+import { Investor } from './investor';
+import { InvestorRecord } from './investorRecord';
 import { IrVolCubeData } from './irVolCubeData';
 import { IrVolCubeDataAllOf } from './irVolCubeDataAllOf';
 import { IrVolDependency } from './irVolDependency';
@@ -2068,6 +2075,9 @@ import { UpsertInstrumentEventsResponse } from './upsertInstrumentEventsResponse
 import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentPropertiesResponse';
 import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyRequest';
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
+import { UpsertInvestor } from './upsertInvestor';
+import { UpsertInvestorRecordRequest } from './upsertInvestorRecordRequest';
+import { UpsertInvestorRecordsResponse } from './upsertInvestorRecordsResponse';
 import { UpsertLegalEntitiesResponse } from './upsertLegalEntitiesResponse';
 import { UpsertLegalEntityAccessMetadataRequest } from './upsertLegalEntityAccessMetadataRequest';
 import { UpsertLegalEntityRequest } from './upsertLegalEntityRequest';
@@ -3094,6 +3104,8 @@ let typeMap: {[index: string]: any} = {
     "InterestRateSwaptionAllOf": InterestRateSwaptionAllOf,
     "IntermediateSecuritiesDistributionEvent": IntermediateSecuritiesDistributionEvent,
     "IntermediateSecuritiesDistributionEventAllOf": IntermediateSecuritiesDistributionEventAllOf,
+    "Investor": Investor,
+    "InvestorRecord": InvestorRecord,
     "IrVolCubeData": IrVolCubeData,
     "IrVolCubeDataAllOf": IrVolCubeDataAllOf,
     "IrVolDependency": IrVolDependency,
@@ -3599,6 +3611,9 @@ let typeMap: {[index: string]: any} = {
     "UpsertInstrumentPropertiesResponse": UpsertInstrumentPropertiesResponse,
     "UpsertInstrumentPropertyRequest": UpsertInstrumentPropertyRequest,
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,
+    "UpsertInvestor": UpsertInvestor,
+    "UpsertInvestorRecordRequest": UpsertInvestorRecordRequest,
+    "UpsertInvestorRecordsResponse": UpsertInvestorRecordsResponse,
     "UpsertLegalEntitiesResponse": UpsertLegalEntitiesResponse,
     "UpsertLegalEntityAccessMetadataRequest": UpsertLegalEntityAccessMetadataRequest,
     "UpsertLegalEntityRequest": UpsertLegalEntityRequest,
