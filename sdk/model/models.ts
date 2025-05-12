@@ -40,6 +40,7 @@ export * from './aggregationOptions';
 export * from './aggregationQuery';
 export * from './allocation';
 export * from './allocationRequest';
+export * from './allocationServiceRunResponse';
 export * from './allocationSetRequest';
 export * from './amortisationEvent';
 export * from './amortisationEventAllOf';
@@ -90,6 +91,8 @@ export * from './bondPrincipalEvent';
 export * from './bondPrincipalEventAllOf';
 export * from './bonusIssueEvent';
 export * from './bonusIssueEventAllOf';
+export * from './bookTransactionsRequest';
+export * from './bookTransactionsResponse';
 export * from './boolComplianceParameter';
 export * from './boolComplianceParameterAllOf';
 export * from './boolListComplianceParameter';
@@ -149,6 +152,7 @@ export * from './cdxCreditEventAllOf';
 export * from './change';
 export * from './changeHistory';
 export * from './changeInterval';
+export * from './changeIntervalWithOrderManagementDetail';
 export * from './changeItem';
 export * from './checkStep';
 export * from './checkStepAllOf';
@@ -783,6 +787,7 @@ export * from './resourceListOfCalendarDate';
 export * from './resourceListOfChange';
 export * from './resourceListOfChangeHistory';
 export * from './resourceListOfChangeInterval';
+export * from './resourceListOfChangeIntervalWithOrderManagementDetail';
 export * from './resourceListOfConstituentsAdjustmentHeader';
 export * from './resourceListOfCorporateAction';
 export * from './resourceListOfDataType';
@@ -1112,6 +1117,7 @@ import { AggregationOptions } from './aggregationOptions';
 import { AggregationQuery } from './aggregationQuery';
 import { Allocation } from './allocation';
 import { AllocationRequest } from './allocationRequest';
+import { AllocationServiceRunResponse } from './allocationServiceRunResponse';
 import { AllocationSetRequest } from './allocationSetRequest';
 import { AmortisationEvent } from './amortisationEvent';
 import { AmortisationEventAllOf } from './amortisationEventAllOf';
@@ -1162,6 +1168,8 @@ import { BondPrincipalEvent } from './bondPrincipalEvent';
 import { BondPrincipalEventAllOf } from './bondPrincipalEventAllOf';
 import { BonusIssueEvent } from './bonusIssueEvent';
 import { BonusIssueEventAllOf } from './bonusIssueEventAllOf';
+import { BookTransactionsRequest } from './bookTransactionsRequest';
+import { BookTransactionsResponse } from './bookTransactionsResponse';
 import { BoolComplianceParameter } from './boolComplianceParameter';
 import { BoolComplianceParameterAllOf } from './boolComplianceParameterAllOf';
 import { BoolListComplianceParameter } from './boolListComplianceParameter';
@@ -1221,6 +1229,7 @@ import { CdxCreditEventAllOf } from './cdxCreditEventAllOf';
 import { Change } from './change';
 import { ChangeHistory } from './changeHistory';
 import { ChangeInterval } from './changeInterval';
+import { ChangeIntervalWithOrderManagementDetail } from './changeIntervalWithOrderManagementDetail';
 import { ChangeItem } from './changeItem';
 import { CheckStep } from './checkStep';
 import { CheckStepAllOf } from './checkStepAllOf';
@@ -1855,6 +1864,7 @@ import { ResourceListOfCalendarDate } from './resourceListOfCalendarDate';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfChangeHistory } from './resourceListOfChangeHistory';
 import { ResourceListOfChangeInterval } from './resourceListOfChangeInterval';
+import { ResourceListOfChangeIntervalWithOrderManagementDetail } from './resourceListOfChangeIntervalWithOrderManagementDetail';
 import { ResourceListOfConstituentsAdjustmentHeader } from './resourceListOfConstituentsAdjustmentHeader';
 import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
 import { ResourceListOfDataType } from './resourceListOfDataType';
@@ -2651,6 +2661,7 @@ let typeMap: {[index: string]: any} = {
     "AggregationQuery": AggregationQuery,
     "Allocation": Allocation,
     "AllocationRequest": AllocationRequest,
+    "AllocationServiceRunResponse": AllocationServiceRunResponse,
     "AllocationSetRequest": AllocationSetRequest,
     "AmortisationEvent": AmortisationEvent,
     "AmortisationEventAllOf": AmortisationEventAllOf,
@@ -2701,6 +2712,8 @@ let typeMap: {[index: string]: any} = {
     "BondPrincipalEventAllOf": BondPrincipalEventAllOf,
     "BonusIssueEvent": BonusIssueEvent,
     "BonusIssueEventAllOf": BonusIssueEventAllOf,
+    "BookTransactionsRequest": BookTransactionsRequest,
+    "BookTransactionsResponse": BookTransactionsResponse,
     "BoolComplianceParameter": BoolComplianceParameter,
     "BoolComplianceParameterAllOf": BoolComplianceParameterAllOf,
     "BoolListComplianceParameter": BoolListComplianceParameter,
@@ -2760,6 +2773,7 @@ let typeMap: {[index: string]: any} = {
     "Change": Change,
     "ChangeHistory": ChangeHistory,
     "ChangeInterval": ChangeInterval,
+    "ChangeIntervalWithOrderManagementDetail": ChangeIntervalWithOrderManagementDetail,
     "ChangeItem": ChangeItem,
     "CheckStep": CheckStep,
     "CheckStepAllOf": CheckStepAllOf,
@@ -3393,6 +3407,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfChangeHistory": ResourceListOfChangeHistory,
     "ResourceListOfChangeInterval": ResourceListOfChangeInterval,
+    "ResourceListOfChangeIntervalWithOrderManagementDetail": ResourceListOfChangeIntervalWithOrderManagementDetail,
     "ResourceListOfConstituentsAdjustmentHeader": ResourceListOfConstituentsAdjustmentHeader,
     "ResourceListOfCorporateAction": ResourceListOfCorporateAction,
     "ResourceListOfDataType": ResourceListOfDataType,
