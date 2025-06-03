@@ -147,6 +147,8 @@ export * from './cdsCreditEventAllOf';
 export * from './cdsFlowConventions';
 export * from './cdsIndex';
 export * from './cdsIndexAllOf';
+export * from './cdsModelOptions';
+export * from './cdsModelOptionsAllOf';
 export * from './cdsProtectionDetailSpecification';
 export * from './cdxCreditEvent';
 export * from './cdxCreditEventAllOf';
@@ -1227,6 +1229,8 @@ import { CdsCreditEventAllOf } from './cdsCreditEventAllOf';
 import { CdsFlowConventions } from './cdsFlowConventions';
 import { CdsIndex } from './cdsIndex';
 import { CdsIndexAllOf } from './cdsIndexAllOf';
+import { CdsModelOptions } from './cdsModelOptions';
+import { CdsModelOptionsAllOf } from './cdsModelOptionsAllOf';
 import { CdsProtectionDetailSpecification } from './cdsProtectionDetailSpecification';
 import { CdxCreditEvent } from './cdxCreditEvent';
 import { CdxCreditEventAllOf } from './cdxCreditEventAllOf';
@@ -2233,6 +2237,8 @@ let enumsMap: {[index: string]: any} = {
         "CdsCreditEventAllOf.InstrumentEventTypeEnum": CdsCreditEventAllOf.InstrumentEventTypeEnum,
         "CdsIndex.InstrumentTypeEnum": CdsIndex.InstrumentTypeEnum,
         "CdsIndexAllOf.InstrumentTypeEnum": CdsIndexAllOf.InstrumentTypeEnum,
+        "CdsModelOptions.ModelOptionsTypeEnum": CdsModelOptions.ModelOptionsTypeEnum,
+        "CdsModelOptionsAllOf.ModelOptionsTypeEnum": CdsModelOptionsAllOf.ModelOptionsTypeEnum,
         "CdxCreditEvent.InstrumentEventTypeEnum": CdxCreditEvent.InstrumentEventTypeEnum,
         "CdxCreditEventAllOf.InstrumentEventTypeEnum": CdxCreditEventAllOf.InstrumentEventTypeEnum,
         "ChangeHistory.ActionEnum": ChangeHistory.ActionEnum,
@@ -2774,6 +2780,8 @@ let typeMap: {[index: string]: any} = {
     "CdsFlowConventions": CdsFlowConventions,
     "CdsIndex": CdsIndex,
     "CdsIndexAllOf": CdsIndexAllOf,
+    "CdsModelOptions": CdsModelOptions,
+    "CdsModelOptionsAllOf": CdsModelOptionsAllOf,
     "CdsProtectionDetailSpecification": CdsProtectionDetailSpecification,
     "CdxCreditEvent": CdxCreditEvent,
     "CdxCreditEventAllOf": CdxCreditEventAllOf,
