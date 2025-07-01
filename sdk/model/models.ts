@@ -506,6 +506,7 @@ export * from './interestRateSwaptionAllOf';
 export * from './intermediateSecuritiesDistributionEvent';
 export * from './intermediateSecuritiesDistributionEventAllOf';
 export * from './investor';
+export * from './investorIdentifier';
 export * from './investorRecord';
 export * from './irVolCubeData';
 export * from './irVolCubeDataAllOf';
@@ -1018,7 +1019,6 @@ export * from './upsertInstrumentEventsResponse';
 export * from './upsertInstrumentPropertiesResponse';
 export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
-export * from './upsertInvestor';
 export * from './upsertInvestorRecordRequest';
 export * from './upsertInvestorRecordsResponse';
 export * from './upsertLegalEntitiesResponse';
@@ -1591,6 +1591,7 @@ import { InterestRateSwaptionAllOf } from './interestRateSwaptionAllOf';
 import { IntermediateSecuritiesDistributionEvent } from './intermediateSecuritiesDistributionEvent';
 import { IntermediateSecuritiesDistributionEventAllOf } from './intermediateSecuritiesDistributionEventAllOf';
 import { Investor } from './investor';
+import { InvestorIdentifier } from './investorIdentifier';
 import { InvestorRecord } from './investorRecord';
 import { IrVolCubeData } from './irVolCubeData';
 import { IrVolCubeDataAllOf } from './irVolCubeDataAllOf';
@@ -2103,7 +2104,6 @@ import { UpsertInstrumentEventsResponse } from './upsertInstrumentEventsResponse
 import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentPropertiesResponse';
 import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyRequest';
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
-import { UpsertInvestor } from './upsertInvestor';
 import { UpsertInvestorRecordRequest } from './upsertInvestorRecordRequest';
 import { UpsertInvestorRecordsResponse } from './upsertInvestorRecordsResponse';
 import { UpsertLegalEntitiesResponse } from './upsertLegalEntitiesResponse';
@@ -3147,6 +3147,7 @@ let typeMap: {[index: string]: any} = {
     "IntermediateSecuritiesDistributionEvent": IntermediateSecuritiesDistributionEvent,
     "IntermediateSecuritiesDistributionEventAllOf": IntermediateSecuritiesDistributionEventAllOf,
     "Investor": Investor,
+    "InvestorIdentifier": InvestorIdentifier,
     "InvestorRecord": InvestorRecord,
     "IrVolCubeData": IrVolCubeData,
     "IrVolCubeDataAllOf": IrVolCubeDataAllOf,
@@ -3659,7 +3660,6 @@ let typeMap: {[index: string]: any} = {
     "UpsertInstrumentPropertiesResponse": UpsertInstrumentPropertiesResponse,
     "UpsertInstrumentPropertyRequest": UpsertInstrumentPropertyRequest,
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,
-    "UpsertInvestor": UpsertInvestor,
     "UpsertInvestorRecordRequest": UpsertInvestorRecordRequest,
     "UpsertInvestorRecordsResponse": UpsertInvestorRecordsResponse,
     "UpsertLegalEntitiesResponse": UpsertLegalEntitiesResponse,
