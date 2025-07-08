@@ -367,6 +367,8 @@ export * from './flexibleDeposit';
 export * from './flexibleDepositAllOf';
 export * from './flexibleLoan';
 export * from './flexibleLoanAllOf';
+export * from './flexibleRepoCashFlowEvent';
+export * from './flexibleRepoCashFlowEventAllOf';
 export * from './flexibleRepoInterestPaymentEvent';
 export * from './flexibleRepoInterestPaymentEventAllOf';
 export * from './floatingLeg';
@@ -1454,6 +1456,8 @@ import { FlexibleDeposit } from './flexibleDeposit';
 import { FlexibleDepositAllOf } from './flexibleDepositAllOf';
 import { FlexibleLoan } from './flexibleLoan';
 import { FlexibleLoanAllOf } from './flexibleLoanAllOf';
+import { FlexibleRepoCashFlowEvent } from './flexibleRepoCashFlowEvent';
+import { FlexibleRepoCashFlowEventAllOf } from './flexibleRepoCashFlowEventAllOf';
 import { FlexibleRepoInterestPaymentEvent } from './flexibleRepoInterestPaymentEvent';
 import { FlexibleRepoInterestPaymentEventAllOf } from './flexibleRepoInterestPaymentEventAllOf';
 import { FloatingLeg } from './floatingLeg';
@@ -2353,6 +2357,8 @@ let enumsMap: {[index: string]: any} = {
         "FlexibleDepositAllOf.InstrumentTypeEnum": FlexibleDepositAllOf.InstrumentTypeEnum,
         "FlexibleLoan.InstrumentTypeEnum": FlexibleLoan.InstrumentTypeEnum,
         "FlexibleLoanAllOf.InstrumentTypeEnum": FlexibleLoanAllOf.InstrumentTypeEnum,
+        "FlexibleRepoCashFlowEvent.InstrumentEventTypeEnum": FlexibleRepoCashFlowEvent.InstrumentEventTypeEnum,
+        "FlexibleRepoCashFlowEventAllOf.InstrumentEventTypeEnum": FlexibleRepoCashFlowEventAllOf.InstrumentEventTypeEnum,
         "FlexibleRepoInterestPaymentEvent.InstrumentEventTypeEnum": FlexibleRepoInterestPaymentEvent.InstrumentEventTypeEnum,
         "FlexibleRepoInterestPaymentEventAllOf.InstrumentEventTypeEnum": FlexibleRepoInterestPaymentEventAllOf.InstrumentEventTypeEnum,
         "FloatingLeg.InstrumentTypeEnum": FloatingLeg.InstrumentTypeEnum,
@@ -3014,6 +3020,8 @@ let typeMap: {[index: string]: any} = {
     "FlexibleDepositAllOf": FlexibleDepositAllOf,
     "FlexibleLoan": FlexibleLoan,
     "FlexibleLoanAllOf": FlexibleLoanAllOf,
+    "FlexibleRepoCashFlowEvent": FlexibleRepoCashFlowEvent,
+    "FlexibleRepoCashFlowEventAllOf": FlexibleRepoCashFlowEventAllOf,
     "FlexibleRepoInterestPaymentEvent": FlexibleRepoInterestPaymentEvent,
     "FlexibleRepoInterestPaymentEventAllOf": FlexibleRepoInterestPaymentEventAllOf,
     "FloatingLeg": FloatingLeg,
