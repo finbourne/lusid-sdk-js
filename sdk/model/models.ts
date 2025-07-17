@@ -371,6 +371,8 @@ export * from './flexibleLoan';
 export * from './flexibleLoanAllOf';
 export * from './flexibleRepoCashFlowEvent';
 export * from './flexibleRepoCashFlowEventAllOf';
+export * from './flexibleRepoCollateralEvent';
+export * from './flexibleRepoCollateralEventAllOf';
 export * from './flexibleRepoInterestPaymentEvent';
 export * from './flexibleRepoInterestPaymentEventAllOf';
 export * from './floatingLeg';
@@ -1467,6 +1469,8 @@ import { FlexibleLoan } from './flexibleLoan';
 import { FlexibleLoanAllOf } from './flexibleLoanAllOf';
 import { FlexibleRepoCashFlowEvent } from './flexibleRepoCashFlowEvent';
 import { FlexibleRepoCashFlowEventAllOf } from './flexibleRepoCashFlowEventAllOf';
+import { FlexibleRepoCollateralEvent } from './flexibleRepoCollateralEvent';
+import { FlexibleRepoCollateralEventAllOf } from './flexibleRepoCollateralEventAllOf';
 import { FlexibleRepoInterestPaymentEvent } from './flexibleRepoInterestPaymentEvent';
 import { FlexibleRepoInterestPaymentEventAllOf } from './flexibleRepoInterestPaymentEventAllOf';
 import { FloatingLeg } from './floatingLeg';
@@ -2373,6 +2377,8 @@ let enumsMap: {[index: string]: any} = {
         "FlexibleLoanAllOf.InstrumentTypeEnum": FlexibleLoanAllOf.InstrumentTypeEnum,
         "FlexibleRepoCashFlowEvent.InstrumentEventTypeEnum": FlexibleRepoCashFlowEvent.InstrumentEventTypeEnum,
         "FlexibleRepoCashFlowEventAllOf.InstrumentEventTypeEnum": FlexibleRepoCashFlowEventAllOf.InstrumentEventTypeEnum,
+        "FlexibleRepoCollateralEvent.InstrumentEventTypeEnum": FlexibleRepoCollateralEvent.InstrumentEventTypeEnum,
+        "FlexibleRepoCollateralEventAllOf.InstrumentEventTypeEnum": FlexibleRepoCollateralEventAllOf.InstrumentEventTypeEnum,
         "FlexibleRepoInterestPaymentEvent.InstrumentEventTypeEnum": FlexibleRepoInterestPaymentEvent.InstrumentEventTypeEnum,
         "FlexibleRepoInterestPaymentEventAllOf.InstrumentEventTypeEnum": FlexibleRepoInterestPaymentEventAllOf.InstrumentEventTypeEnum,
         "FloatingLeg.InstrumentTypeEnum": FloatingLeg.InstrumentTypeEnum,
@@ -3038,6 +3044,8 @@ let typeMap: {[index: string]: any} = {
     "FlexibleLoanAllOf": FlexibleLoanAllOf,
     "FlexibleRepoCashFlowEvent": FlexibleRepoCashFlowEvent,
     "FlexibleRepoCashFlowEventAllOf": FlexibleRepoCashFlowEventAllOf,
+    "FlexibleRepoCollateralEvent": FlexibleRepoCollateralEvent,
+    "FlexibleRepoCollateralEventAllOf": FlexibleRepoCollateralEventAllOf,
     "FlexibleRepoInterestPaymentEvent": FlexibleRepoInterestPaymentEvent,
     "FlexibleRepoInterestPaymentEventAllOf": FlexibleRepoInterestPaymentEventAllOf,
     "FloatingLeg": FloatingLeg,
