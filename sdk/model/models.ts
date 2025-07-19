@@ -164,6 +164,8 @@ export * from './checkStepAllOf';
 export * from './checkStepRequest';
 export * from './closeEvent';
 export * from './closeEventAllOf';
+export * from './collateral';
+export * from './collateralInstrument';
 export * from './completePortfolio';
 export * from './completeRelationship';
 export * from './complexBond';
@@ -369,6 +371,8 @@ export * from './flexibleDeposit';
 export * from './flexibleDepositAllOf';
 export * from './flexibleLoan';
 export * from './flexibleLoanAllOf';
+export * from './flexibleRepo';
+export * from './flexibleRepoAllOf';
 export * from './flexibleRepoCashFlowEvent';
 export * from './flexibleRepoCashFlowEventAllOf';
 export * from './flexibleRepoCollateralEvent';
@@ -1262,6 +1266,8 @@ import { CheckStepAllOf } from './checkStepAllOf';
 import { CheckStepRequest } from './checkStepRequest';
 import { CloseEvent } from './closeEvent';
 import { CloseEventAllOf } from './closeEventAllOf';
+import { Collateral } from './collateral';
+import { CollateralInstrument } from './collateralInstrument';
 import { CompletePortfolio } from './completePortfolio';
 import { CompleteRelationship } from './completeRelationship';
 import { ComplexBond } from './complexBond';
@@ -1467,6 +1473,8 @@ import { FlexibleDeposit } from './flexibleDeposit';
 import { FlexibleDepositAllOf } from './flexibleDepositAllOf';
 import { FlexibleLoan } from './flexibleLoan';
 import { FlexibleLoanAllOf } from './flexibleLoanAllOf';
+import { FlexibleRepo } from './flexibleRepo';
+import { FlexibleRepoAllOf } from './flexibleRepoAllOf';
 import { FlexibleRepoCashFlowEvent } from './flexibleRepoCashFlowEvent';
 import { FlexibleRepoCashFlowEventAllOf } from './flexibleRepoCashFlowEventAllOf';
 import { FlexibleRepoCollateralEvent } from './flexibleRepoCollateralEvent';
@@ -2375,6 +2383,8 @@ let enumsMap: {[index: string]: any} = {
         "FlexibleDepositAllOf.InstrumentTypeEnum": FlexibleDepositAllOf.InstrumentTypeEnum,
         "FlexibleLoan.InstrumentTypeEnum": FlexibleLoan.InstrumentTypeEnum,
         "FlexibleLoanAllOf.InstrumentTypeEnum": FlexibleLoanAllOf.InstrumentTypeEnum,
+        "FlexibleRepo.InstrumentTypeEnum": FlexibleRepo.InstrumentTypeEnum,
+        "FlexibleRepoAllOf.InstrumentTypeEnum": FlexibleRepoAllOf.InstrumentTypeEnum,
         "FlexibleRepoCashFlowEvent.InstrumentEventTypeEnum": FlexibleRepoCashFlowEvent.InstrumentEventTypeEnum,
         "FlexibleRepoCashFlowEventAllOf.InstrumentEventTypeEnum": FlexibleRepoCashFlowEventAllOf.InstrumentEventTypeEnum,
         "FlexibleRepoCollateralEvent.InstrumentEventTypeEnum": FlexibleRepoCollateralEvent.InstrumentEventTypeEnum,
@@ -2838,6 +2848,8 @@ let typeMap: {[index: string]: any} = {
     "CheckStepRequest": CheckStepRequest,
     "CloseEvent": CloseEvent,
     "CloseEventAllOf": CloseEventAllOf,
+    "Collateral": Collateral,
+    "CollateralInstrument": CollateralInstrument,
     "CompletePortfolio": CompletePortfolio,
     "CompleteRelationship": CompleteRelationship,
     "ComplexBond": ComplexBond,
@@ -3042,6 +3054,8 @@ let typeMap: {[index: string]: any} = {
     "FlexibleDepositAllOf": FlexibleDepositAllOf,
     "FlexibleLoan": FlexibleLoan,
     "FlexibleLoanAllOf": FlexibleLoanAllOf,
+    "FlexibleRepo": FlexibleRepo,
+    "FlexibleRepoAllOf": FlexibleRepoAllOf,
     "FlexibleRepoCashFlowEvent": FlexibleRepoCashFlowEvent,
     "FlexibleRepoCashFlowEventAllOf": FlexibleRepoCashFlowEventAllOf,
     "FlexibleRepoCollateralEvent": FlexibleRepoCollateralEvent,
