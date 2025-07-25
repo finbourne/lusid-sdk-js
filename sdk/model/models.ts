@@ -234,6 +234,7 @@ export * from './createPortfolioDetails';
 export * from './createPortfolioGroupRequest';
 export * from './createPropertyDefinitionRequest';
 export * from './createReferencePortfolioRequest';
+export * from './createRelationalDatasetDefinitionRequest';
 export * from './createRelationshipDefinitionRequest';
 export * from './createRelationshipRequest';
 export * from './createSequenceRequest';
@@ -673,6 +674,7 @@ export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinition';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './pagedResourceListOfReferenceListResponse';
+export * from './pagedResourceListOfRelationalDatasetDefinition';
 export * from './pagedResourceListOfRelationshipDefinition';
 export * from './pagedResourceListOfSequenceDefinition';
 export * from './pagedResourceListOfStagedModification';
@@ -784,6 +786,8 @@ export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './relatedEntity';
 export * from './relation';
+export * from './relationalDatasetDefinition';
+export * from './relationalDatasetFieldDefinition';
 export * from './relationship';
 export * from './relationshipDefinition';
 export * from './relativeDateOffset';
@@ -1017,6 +1021,7 @@ export * from './updatePortfolioGroupRequest';
 export * from './updatePortfolioRequest';
 export * from './updatePropertyDefinitionRequest';
 export * from './updateReferenceDataRequest';
+export * from './updateRelationalDatasetDefinitionRequest';
 export * from './updateRelationshipDefinitionRequest';
 export * from './updateStagingRuleSetRequest';
 export * from './updateUnitRequest';
@@ -1338,6 +1343,7 @@ import { CreatePortfolioDetails } from './createPortfolioDetails';
 import { CreatePortfolioGroupRequest } from './createPortfolioGroupRequest';
 import { CreatePropertyDefinitionRequest } from './createPropertyDefinitionRequest';
 import { CreateReferencePortfolioRequest } from './createReferencePortfolioRequest';
+import { CreateRelationalDatasetDefinitionRequest } from './createRelationalDatasetDefinitionRequest';
 import { CreateRelationshipDefinitionRequest } from './createRelationshipDefinitionRequest';
 import { CreateRelationshipRequest } from './createRelationshipRequest';
 import { CreateSequenceRequest } from './createSequenceRequest';
@@ -1777,6 +1783,7 @@ import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfP
 import { PagedResourceListOfPropertyDefinition } from './pagedResourceListOfPropertyDefinition';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
 import { PagedResourceListOfReferenceListResponse } from './pagedResourceListOfReferenceListResponse';
+import { PagedResourceListOfRelationalDatasetDefinition } from './pagedResourceListOfRelationalDatasetDefinition';
 import { PagedResourceListOfRelationshipDefinition } from './pagedResourceListOfRelationshipDefinition';
 import { PagedResourceListOfSequenceDefinition } from './pagedResourceListOfSequenceDefinition';
 import { PagedResourceListOfStagedModification } from './pagedResourceListOfStagedModification';
@@ -1888,6 +1895,8 @@ import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { RelatedEntity } from './relatedEntity';
 import { Relation } from './relation';
+import { RelationalDatasetDefinition } from './relationalDatasetDefinition';
+import { RelationalDatasetFieldDefinition } from './relationalDatasetFieldDefinition';
 import { Relationship } from './relationship';
 import { RelationshipDefinition } from './relationshipDefinition';
 import { RelativeDateOffset } from './relativeDateOffset';
@@ -2121,6 +2130,7 @@ import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
 import { UpdatePortfolioRequest } from './updatePortfolioRequest';
 import { UpdatePropertyDefinitionRequest } from './updatePropertyDefinitionRequest';
 import { UpdateReferenceDataRequest } from './updateReferenceDataRequest';
+import { UpdateRelationalDatasetDefinitionRequest } from './updateRelationalDatasetDefinitionRequest';
 import { UpdateRelationshipDefinitionRequest } from './updateRelationshipDefinitionRequest';
 import { UpdateStagingRuleSetRequest } from './updateStagingRuleSetRequest';
 import { UpdateUnitRequest } from './updateUnitRequest';
@@ -2924,6 +2934,7 @@ let typeMap: {[index: string]: any} = {
     "CreatePortfolioGroupRequest": CreatePortfolioGroupRequest,
     "CreatePropertyDefinitionRequest": CreatePropertyDefinitionRequest,
     "CreateReferencePortfolioRequest": CreateReferencePortfolioRequest,
+    "CreateRelationalDatasetDefinitionRequest": CreateRelationalDatasetDefinitionRequest,
     "CreateRelationshipDefinitionRequest": CreateRelationshipDefinitionRequest,
     "CreateRelationshipRequest": CreateRelationshipRequest,
     "CreateSequenceRequest": CreateSequenceRequest,
@@ -3362,6 +3373,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfPropertyDefinition": PagedResourceListOfPropertyDefinition,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
     "PagedResourceListOfReferenceListResponse": PagedResourceListOfReferenceListResponse,
+    "PagedResourceListOfRelationalDatasetDefinition": PagedResourceListOfRelationalDatasetDefinition,
     "PagedResourceListOfRelationshipDefinition": PagedResourceListOfRelationshipDefinition,
     "PagedResourceListOfSequenceDefinition": PagedResourceListOfSequenceDefinition,
     "PagedResourceListOfStagedModification": PagedResourceListOfStagedModification,
@@ -3473,6 +3485,8 @@ let typeMap: {[index: string]: any} = {
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "RelatedEntity": RelatedEntity,
     "Relation": Relation,
+    "RelationalDatasetDefinition": RelationalDatasetDefinition,
+    "RelationalDatasetFieldDefinition": RelationalDatasetFieldDefinition,
     "Relationship": Relationship,
     "RelationshipDefinition": RelationshipDefinition,
     "RelativeDateOffset": RelativeDateOffset,
@@ -3706,6 +3720,7 @@ let typeMap: {[index: string]: any} = {
     "UpdatePortfolioRequest": UpdatePortfolioRequest,
     "UpdatePropertyDefinitionRequest": UpdatePropertyDefinitionRequest,
     "UpdateReferenceDataRequest": UpdateReferenceDataRequest,
+    "UpdateRelationalDatasetDefinitionRequest": UpdateRelationalDatasetDefinitionRequest,
     "UpdateRelationshipDefinitionRequest": UpdateRelationshipDefinitionRequest,
     "UpdateStagingRuleSetRequest": UpdateStagingRuleSetRequest,
     "UpdateUnitRequest": UpdateUnitRequest,

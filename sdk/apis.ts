@@ -38,6 +38,7 @@ import {QuotesApi} from './api/quotesApi';
 import {ReconciliationsApi} from './api/reconciliationsApi';
 import {ReferenceListsApi} from './api/referenceListsApi';
 import {ReferencePortfolioApi} from './api/referencePortfolioApi';
+import {RelationalDatasetDefinitionApi} from './api/relationalDatasetDefinitionApi';
 import {RelationshipDefinitionsApi} from './api/relationshipDefinitionsApi';
 import {RelationshipsApi} from './api/relationshipsApi';
 import {SchemasApi} from './api/schemasApi';
@@ -95,6 +96,7 @@ export class Api {
     public reconciliations:  ReconciliationsApi
     public referenceLists:  ReferenceListsApi
     public referencePortfolio:  ReferencePortfolioApi
+    public relationalDatasetDefinition:  RelationalDatasetDefinitionApi
     public relationshipDefinitions:  RelationshipDefinitionsApi
     public relationships:  RelationshipsApi
     public schemas:  SchemasApi
