@@ -8,8 +8,6 @@ export * from './accessControlledAction';
 export * from './accessControlledResource';
 export * from './accessMetadataOperation';
 export * from './accessMetadataValue';
-export * from './accountHolder';
-export * from './accountHolderIdentifier';
 export * from './accumulationEvent';
 export * from './accumulationEventAllOf';
 export * from './actionId';
@@ -383,6 +381,8 @@ export * from './flexibleRepoCollateralEvent';
 export * from './flexibleRepoCollateralEventAllOf';
 export * from './flexibleRepoInterestPaymentEvent';
 export * from './flexibleRepoInterestPaymentEventAllOf';
+export * from './flexibleRepoPartialClosureEvent';
+export * from './flexibleRepoPartialClosureEventAllOf';
 export * from './floatingLeg';
 export * from './floatingLegAllOf';
 export * from './flowConventionName';
@@ -521,9 +521,6 @@ export * from './interestRateSwaption';
 export * from './interestRateSwaptionAllOf';
 export * from './intermediateSecuritiesDistributionEvent';
 export * from './intermediateSecuritiesDistributionEventAllOf';
-export * from './investmentAccount';
-export * from './investmentPortfolio';
-export * from './investmentPortfolioIdentifier';
 export * from './investor';
 export * from './investorIdentifier';
 export * from './investorRecord';
@@ -687,6 +684,7 @@ export * from './pagedResourceListOfTransactionTemplate';
 export * from './pagedResourceListOfTransactionTemplateSpecification';
 export * from './pagedResourceListOfTranslationScriptId';
 export * from './pagedResourceListOfVirtualRow';
+export * from './partialClosureConstituent';
 export * from './participation';
 export * from './participationRequest';
 export * from './participationSetRequest';
@@ -1044,8 +1042,6 @@ export * from './upsertInstrumentEventsResponse';
 export * from './upsertInstrumentPropertiesResponse';
 export * from './upsertInstrumentPropertyRequest';
 export * from './upsertInstrumentsResponse';
-export * from './upsertInvestmentAccountRequest';
-export * from './upsertInvestmentAccountsResponse';
 export * from './upsertInvestorRecordRequest';
 export * from './upsertInvestorRecordsResponse';
 export * from './upsertLegalEntitiesResponse';
@@ -1120,8 +1116,6 @@ import { AccessControlledAction } from './accessControlledAction';
 import { AccessControlledResource } from './accessControlledResource';
 import { AccessMetadataOperation } from './accessMetadataOperation';
 import { AccessMetadataValue } from './accessMetadataValue';
-import { AccountHolder } from './accountHolder';
-import { AccountHolderIdentifier } from './accountHolderIdentifier';
 import { AccumulationEvent } from './accumulationEvent';
 import { AccumulationEventAllOf } from './accumulationEventAllOf';
 import { ActionId } from './actionId';
@@ -1495,6 +1489,8 @@ import { FlexibleRepoCollateralEvent } from './flexibleRepoCollateralEvent';
 import { FlexibleRepoCollateralEventAllOf } from './flexibleRepoCollateralEventAllOf';
 import { FlexibleRepoInterestPaymentEvent } from './flexibleRepoInterestPaymentEvent';
 import { FlexibleRepoInterestPaymentEventAllOf } from './flexibleRepoInterestPaymentEventAllOf';
+import { FlexibleRepoPartialClosureEvent } from './flexibleRepoPartialClosureEvent';
+import { FlexibleRepoPartialClosureEventAllOf } from './flexibleRepoPartialClosureEventAllOf';
 import { FloatingLeg } from './floatingLeg';
 import { FloatingLegAllOf } from './floatingLegAllOf';
 import { FlowConventionName } from './flowConventionName';
@@ -1633,9 +1629,6 @@ import { InterestRateSwaption } from './interestRateSwaption';
 import { InterestRateSwaptionAllOf } from './interestRateSwaptionAllOf';
 import { IntermediateSecuritiesDistributionEvent } from './intermediateSecuritiesDistributionEvent';
 import { IntermediateSecuritiesDistributionEventAllOf } from './intermediateSecuritiesDistributionEventAllOf';
-import { InvestmentAccount } from './investmentAccount';
-import { InvestmentPortfolio } from './investmentPortfolio';
-import { InvestmentPortfolioIdentifier } from './investmentPortfolioIdentifier';
 import { Investor } from './investor';
 import { InvestorIdentifier } from './investorIdentifier';
 import { InvestorRecord } from './investorRecord';
@@ -1799,6 +1792,7 @@ import { PagedResourceListOfTransactionTemplate } from './pagedResourceListOfTra
 import { PagedResourceListOfTransactionTemplateSpecification } from './pagedResourceListOfTransactionTemplateSpecification';
 import { PagedResourceListOfTranslationScriptId } from './pagedResourceListOfTranslationScriptId';
 import { PagedResourceListOfVirtualRow } from './pagedResourceListOfVirtualRow';
+import { PartialClosureConstituent } from './partialClosureConstituent';
 import { Participation } from './participation';
 import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
@@ -2156,8 +2150,6 @@ import { UpsertInstrumentEventsResponse } from './upsertInstrumentEventsResponse
 import { UpsertInstrumentPropertiesResponse } from './upsertInstrumentPropertiesResponse';
 import { UpsertInstrumentPropertyRequest } from './upsertInstrumentPropertyRequest';
 import { UpsertInstrumentsResponse } from './upsertInstrumentsResponse';
-import { UpsertInvestmentAccountRequest } from './upsertInvestmentAccountRequest';
-import { UpsertInvestmentAccountsResponse } from './upsertInvestmentAccountsResponse';
 import { UpsertInvestorRecordRequest } from './upsertInvestorRecordRequest';
 import { UpsertInvestorRecordsResponse } from './upsertInvestorRecordsResponse';
 import { UpsertLegalEntitiesResponse } from './upsertLegalEntitiesResponse';
@@ -2413,6 +2405,8 @@ let enumsMap: {[index: string]: any} = {
         "FlexibleRepoCollateralEventAllOf.InstrumentEventTypeEnum": FlexibleRepoCollateralEventAllOf.InstrumentEventTypeEnum,
         "FlexibleRepoInterestPaymentEvent.InstrumentEventTypeEnum": FlexibleRepoInterestPaymentEvent.InstrumentEventTypeEnum,
         "FlexibleRepoInterestPaymentEventAllOf.InstrumentEventTypeEnum": FlexibleRepoInterestPaymentEventAllOf.InstrumentEventTypeEnum,
+        "FlexibleRepoPartialClosureEvent.InstrumentEventTypeEnum": FlexibleRepoPartialClosureEvent.InstrumentEventTypeEnum,
+        "FlexibleRepoPartialClosureEventAllOf.InstrumentEventTypeEnum": FlexibleRepoPartialClosureEventAllOf.InstrumentEventTypeEnum,
         "FloatingLeg.InstrumentTypeEnum": FloatingLeg.InstrumentTypeEnum,
         "FloatingLegAllOf.InstrumentTypeEnum": FloatingLegAllOf.InstrumentTypeEnum,
         "ForwardRateAgreement.InstrumentTypeEnum": ForwardRateAgreement.InstrumentTypeEnum,
@@ -2714,8 +2708,6 @@ let typeMap: {[index: string]: any} = {
     "AccessControlledResource": AccessControlledResource,
     "AccessMetadataOperation": AccessMetadataOperation,
     "AccessMetadataValue": AccessMetadataValue,
-    "AccountHolder": AccountHolder,
-    "AccountHolderIdentifier": AccountHolderIdentifier,
     "AccumulationEvent": AccumulationEvent,
     "AccumulationEventAllOf": AccumulationEventAllOf,
     "ActionId": ActionId,
@@ -3088,6 +3080,8 @@ let typeMap: {[index: string]: any} = {
     "FlexibleRepoCollateralEventAllOf": FlexibleRepoCollateralEventAllOf,
     "FlexibleRepoInterestPaymentEvent": FlexibleRepoInterestPaymentEvent,
     "FlexibleRepoInterestPaymentEventAllOf": FlexibleRepoInterestPaymentEventAllOf,
+    "FlexibleRepoPartialClosureEvent": FlexibleRepoPartialClosureEvent,
+    "FlexibleRepoPartialClosureEventAllOf": FlexibleRepoPartialClosureEventAllOf,
     "FloatingLeg": FloatingLeg,
     "FloatingLegAllOf": FloatingLegAllOf,
     "FlowConventionName": FlowConventionName,
@@ -3226,9 +3220,6 @@ let typeMap: {[index: string]: any} = {
     "InterestRateSwaptionAllOf": InterestRateSwaptionAllOf,
     "IntermediateSecuritiesDistributionEvent": IntermediateSecuritiesDistributionEvent,
     "IntermediateSecuritiesDistributionEventAllOf": IntermediateSecuritiesDistributionEventAllOf,
-    "InvestmentAccount": InvestmentAccount,
-    "InvestmentPortfolio": InvestmentPortfolio,
-    "InvestmentPortfolioIdentifier": InvestmentPortfolioIdentifier,
     "Investor": Investor,
     "InvestorIdentifier": InvestorIdentifier,
     "InvestorRecord": InvestorRecord,
@@ -3392,6 +3383,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfTransactionTemplateSpecification": PagedResourceListOfTransactionTemplateSpecification,
     "PagedResourceListOfTranslationScriptId": PagedResourceListOfTranslationScriptId,
     "PagedResourceListOfVirtualRow": PagedResourceListOfVirtualRow,
+    "PartialClosureConstituent": PartialClosureConstituent,
     "Participation": Participation,
     "ParticipationRequest": ParticipationRequest,
     "ParticipationSetRequest": ParticipationSetRequest,
@@ -3749,8 +3741,6 @@ let typeMap: {[index: string]: any} = {
     "UpsertInstrumentPropertiesResponse": UpsertInstrumentPropertiesResponse,
     "UpsertInstrumentPropertyRequest": UpsertInstrumentPropertyRequest,
     "UpsertInstrumentsResponse": UpsertInstrumentsResponse,
-    "UpsertInvestmentAccountRequest": UpsertInvestmentAccountRequest,
-    "UpsertInvestmentAccountsResponse": UpsertInvestmentAccountsResponse,
     "UpsertInvestorRecordRequest": UpsertInvestorRecordRequest,
     "UpsertInvestorRecordsResponse": UpsertInvestorRecordsResponse,
     "UpsertLegalEntitiesResponse": UpsertLegalEntitiesResponse,

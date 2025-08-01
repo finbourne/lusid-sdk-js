@@ -21,7 +21,6 @@ import {ExecutionsApi} from './api/executionsApi';
 import {InstrumentEventTypesApi} from './api/instrumentEventTypesApi';
 import {InstrumentEventsApi} from './api/instrumentEventsApi';
 import {InstrumentsApi} from './api/instrumentsApi';
-import {InvestmentAccountsApi} from './api/investmentAccountsApi';
 import {InvestorRecordsApi} from './api/investorRecordsApi';
 import {LegalEntitiesApi} from './api/legalEntitiesApi';
 import {OrderGraphApi} from './api/orderGraphApi';
@@ -80,7 +79,6 @@ export class Api {
     public instrumentEventTypes:  InstrumentEventTypesApi
     public instrumentEvents:  InstrumentEventsApi
     public instruments:  InstrumentsApi
-    public investmentAccounts:  InvestmentAccountsApi
     public investorRecords:  InvestorRecordsApi
     public legalEntities:  LegalEntitiesApi
     public orderGraph:  OrderGraphApi
