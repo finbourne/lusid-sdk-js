@@ -9,7 +9,6 @@ import {ComplianceApi} from './api/complianceApi';
 import {ConfigurationRecipeApi} from './api/configurationRecipeApi';
 import {CorporateActionSourcesApi} from './api/corporateActionSourcesApi';
 import {CounterpartiesApi} from './api/counterpartiesApi';
-import {CustomDataModelsApi} from './api/customDataModelsApi';
 import {CustomEntitiesApi} from './api/customEntitiesApi';
 import {CustomEntityDefinitionsApi} from './api/customEntityDefinitionsApi';
 import {CustomEntityTypesApi} from './api/customEntityTypesApi';
@@ -67,7 +66,6 @@ export class Api {
     public configurationRecipe:  ConfigurationRecipeApi
     public corporateActionSources:  CorporateActionSourcesApi
     public counterparties:  CounterpartiesApi
-    public customDataModels:  CustomDataModelsApi
     public customEntities:  CustomEntitiesApi
     public customEntityDefinitions:  CustomEntityDefinitionsApi
     public customEntityTypes:  CustomEntityTypesApi

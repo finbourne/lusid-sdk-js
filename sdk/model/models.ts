@@ -66,7 +66,6 @@ export * from './basket';
 export * from './basketAllOf';
 export * from './basketIdentifier';
 export * from './batchAdjustHoldingsResponse';
-export * from './batchAmendCustomDataModelMembershipResponse';
 export * from './batchUpsertDatesForCalendarResponse';
 export * from './batchUpsertInstrumentPropertiesResponse';
 export * from './batchUpsertPortfolioAccessMetadataRequest';
@@ -583,8 +582,6 @@ export * from './mbsPrincipalEventAllOf';
 export * from './mbsPrincipalWriteOffEvent';
 export * from './mbsPrincipalWriteOffEventAllOf';
 export * from './membership';
-export * from './membershipAmendmentRequest';
-export * from './membershipAmendmentResponse';
 export * from './membershipAndStatus';
 export * from './mergerEvent';
 export * from './mergerEventAllOf';
@@ -1174,7 +1171,6 @@ import { Basket } from './basket';
 import { BasketAllOf } from './basketAllOf';
 import { BasketIdentifier } from './basketIdentifier';
 import { BatchAdjustHoldingsResponse } from './batchAdjustHoldingsResponse';
-import { BatchAmendCustomDataModelMembershipResponse } from './batchAmendCustomDataModelMembershipResponse';
 import { BatchUpsertDatesForCalendarResponse } from './batchUpsertDatesForCalendarResponse';
 import { BatchUpsertInstrumentPropertiesResponse } from './batchUpsertInstrumentPropertiesResponse';
 import { BatchUpsertPortfolioAccessMetadataRequest } from './batchUpsertPortfolioAccessMetadataRequest';
@@ -1691,8 +1687,6 @@ import { MbsPrincipalEventAllOf } from './mbsPrincipalEventAllOf';
 import { MbsPrincipalWriteOffEvent } from './mbsPrincipalWriteOffEvent';
 import { MbsPrincipalWriteOffEventAllOf } from './mbsPrincipalWriteOffEventAllOf';
 import { Membership } from './membership';
-import { MembershipAmendmentRequest } from './membershipAmendmentRequest';
-import { MembershipAmendmentResponse } from './membershipAmendmentResponse';
 import { MembershipAndStatus } from './membershipAndStatus';
 import { MergerEvent } from './mergerEvent';
 import { MergerEventAllOf } from './mergerEventAllOf';
@@ -2766,7 +2760,6 @@ let typeMap: {[index: string]: any} = {
     "BasketAllOf": BasketAllOf,
     "BasketIdentifier": BasketIdentifier,
     "BatchAdjustHoldingsResponse": BatchAdjustHoldingsResponse,
-    "BatchAmendCustomDataModelMembershipResponse": BatchAmendCustomDataModelMembershipResponse,
     "BatchUpsertDatesForCalendarResponse": BatchUpsertDatesForCalendarResponse,
     "BatchUpsertInstrumentPropertiesResponse": BatchUpsertInstrumentPropertiesResponse,
     "BatchUpsertPortfolioAccessMetadataRequest": BatchUpsertPortfolioAccessMetadataRequest,
@@ -3282,8 +3275,6 @@ let typeMap: {[index: string]: any} = {
     "MbsPrincipalWriteOffEvent": MbsPrincipalWriteOffEvent,
     "MbsPrincipalWriteOffEventAllOf": MbsPrincipalWriteOffEventAllOf,
     "Membership": Membership,
-    "MembershipAmendmentRequest": MembershipAmendmentRequest,
-    "MembershipAmendmentResponse": MembershipAmendmentResponse,
     "MembershipAndStatus": MembershipAndStatus,
     "MergerEvent": MergerEvent,
     "MergerEventAllOf": MergerEventAllOf,
