@@ -858,6 +858,7 @@ export * from './resourceListOfScopeDefinition';
 export * from './resourceListOfSideDefinition';
 export * from './resourceListOfString';
 export * from './resourceListOfTransaction';
+export * from './resourceListOfTransactionSettlementInstruction';
 export * from './resourceListOfTransactionType';
 export * from './resourceListOfValueType';
 export * from './responseMetaData';
@@ -903,6 +904,7 @@ export * from './setLegalEntityPropertiesRequest';
 export * from './setPersonIdentifiersRequest';
 export * from './setPersonPropertiesRequest';
 export * from './settlementCycle';
+export * from './settlementInstructionRequest';
 export * from './settlementSchedule';
 export * from './sideConfigurationData';
 export * from './sideDefinition';
@@ -978,6 +980,7 @@ export * from './transactionQueryParameters';
 export * from './transactionReconciliationRequest';
 export * from './transactionRequest';
 export * from './transactionSetConfigurationData';
+export * from './transactionSettlementInstruction';
 export * from './transactionTemplate';
 export * from './transactionTemplateRequest';
 export * from './transactionTemplateSpecification';
@@ -1963,6 +1966,7 @@ import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResourceListOfSideDefinition } from './resourceListOfSideDefinition';
 import { ResourceListOfString } from './resourceListOfString';
 import { ResourceListOfTransaction } from './resourceListOfTransaction';
+import { ResourceListOfTransactionSettlementInstruction } from './resourceListOfTransactionSettlementInstruction';
 import { ResourceListOfTransactionType } from './resourceListOfTransactionType';
 import { ResourceListOfValueType } from './resourceListOfValueType';
 import { ResponseMetaData } from './responseMetaData';
@@ -2008,6 +2012,7 @@ import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesReque
 import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
 import { SetPersonPropertiesRequest } from './setPersonPropertiesRequest';
 import { SettlementCycle } from './settlementCycle';
+import { SettlementInstructionRequest } from './settlementInstructionRequest';
 import { SettlementSchedule } from './settlementSchedule';
 import { SideConfigurationData } from './sideConfigurationData';
 import { SideDefinition } from './sideDefinition';
@@ -2083,6 +2088,7 @@ import { TransactionQueryParameters } from './transactionQueryParameters';
 import { TransactionReconciliationRequest } from './transactionReconciliationRequest';
 import { TransactionRequest } from './transactionRequest';
 import { TransactionSetConfigurationData } from './transactionSetConfigurationData';
+import { TransactionSettlementInstruction } from './transactionSettlementInstruction';
 import { TransactionTemplate } from './transactionTemplate';
 import { TransactionTemplateRequest } from './transactionTemplateRequest';
 import { TransactionTemplateSpecification } from './transactionTemplateSpecification';
@@ -3551,6 +3557,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfSideDefinition": ResourceListOfSideDefinition,
     "ResourceListOfString": ResourceListOfString,
     "ResourceListOfTransaction": ResourceListOfTransaction,
+    "ResourceListOfTransactionSettlementInstruction": ResourceListOfTransactionSettlementInstruction,
     "ResourceListOfTransactionType": ResourceListOfTransactionType,
     "ResourceListOfValueType": ResourceListOfValueType,
     "ResponseMetaData": ResponseMetaData,
@@ -3596,6 +3603,7 @@ let typeMap: {[index: string]: any} = {
     "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
     "SetPersonPropertiesRequest": SetPersonPropertiesRequest,
     "SettlementCycle": SettlementCycle,
+    "SettlementInstructionRequest": SettlementInstructionRequest,
     "SettlementSchedule": SettlementSchedule,
     "SideConfigurationData": SideConfigurationData,
     "SideDefinition": SideDefinition,
@@ -3671,6 +3679,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionReconciliationRequest": TransactionReconciliationRequest,
     "TransactionRequest": TransactionRequest,
     "TransactionSetConfigurationData": TransactionSetConfigurationData,
+    "TransactionSettlementInstruction": TransactionSettlementInstruction,
     "TransactionTemplate": TransactionTemplate,
     "TransactionTemplateRequest": TransactionTemplateRequest,
     "TransactionTemplateSpecification": TransactionTemplateSpecification,
