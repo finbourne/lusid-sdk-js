@@ -592,6 +592,7 @@ export * from './modelOptions';
 export * from './modelSelection';
 export * from './moveOrdersToDifferentBlocksRequest';
 export * from './movedOrderToDifferentBlockResponse';
+export * from './movementSettlementSummary';
 export * from './newInstrument';
 export * from './nextValueInSequenceResponse';
 export * from './opaqueDependency';
@@ -1704,6 +1705,7 @@ import { ModelOptions } from './modelOptions';
 import { ModelSelection } from './modelSelection';
 import { MoveOrdersToDifferentBlocksRequest } from './moveOrdersToDifferentBlocksRequest';
 import { MovedOrderToDifferentBlockResponse } from './movedOrderToDifferentBlockResponse';
+import { MovementSettlementSummary } from './movementSettlementSummary';
 import { NewInstrument } from './newInstrument';
 import { NextValueInSequenceResponse } from './nextValueInSequenceResponse';
 import { OpaqueDependency } from './opaqueDependency';
@@ -3301,6 +3303,7 @@ let typeMap: {[index: string]: any} = {
     "ModelSelection": ModelSelection,
     "MoveOrdersToDifferentBlocksRequest": MoveOrdersToDifferentBlocksRequest,
     "MovedOrderToDifferentBlockResponse": MovedOrderToDifferentBlockResponse,
+    "MovementSettlementSummary": MovementSettlementSummary,
     "NewInstrument": NewInstrument,
     "NextValueInSequenceResponse": NextValueInSequenceResponse,
     "OpaqueDependency": OpaqueDependency,
