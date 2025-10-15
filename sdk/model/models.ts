@@ -299,6 +299,8 @@ export * from './depositCloseEvent';
 export * from './depositCloseEventAllOf';
 export * from './depositInterestPaymentEvent';
 export * from './depositInterestPaymentEventAllOf';
+export * from './derivationFormulaExplainRequest';
+export * from './derivedPropertyComponent';
 export * from './describedAddressKey';
 export * from './dialect';
 export * from './dialectId';
@@ -1424,6 +1426,8 @@ import { DepositCloseEvent } from './depositCloseEvent';
 import { DepositCloseEventAllOf } from './depositCloseEventAllOf';
 import { DepositInterestPaymentEvent } from './depositInterestPaymentEvent';
 import { DepositInterestPaymentEventAllOf } from './depositInterestPaymentEventAllOf';
+import { DerivationFormulaExplainRequest } from './derivationFormulaExplainRequest';
+import { DerivedPropertyComponent } from './derivedPropertyComponent';
 import { DescribedAddressKey } from './describedAddressKey';
 import { Dialect } from './dialect';
 import { DialectId } from './dialectId';
@@ -3036,6 +3040,8 @@ let typeMap: {[index: string]: any} = {
     "DepositCloseEventAllOf": DepositCloseEventAllOf,
     "DepositInterestPaymentEvent": DepositInterestPaymentEvent,
     "DepositInterestPaymentEventAllOf": DepositInterestPaymentEventAllOf,
+    "DerivationFormulaExplainRequest": DerivationFormulaExplainRequest,
+    "DerivedPropertyComponent": DerivedPropertyComponent,
     "DescribedAddressKey": DescribedAddressKey,
     "Dialect": Dialect,
     "DialectId": DialectId,
