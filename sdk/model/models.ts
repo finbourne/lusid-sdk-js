@@ -145,6 +145,7 @@ export * from './cashLadderRecord';
 export * from './cashOfferElection';
 export * from './cashPerpetual';
 export * from './cashPerpetualAllOf';
+export * from './categorySettlementStatus';
 export * from './cdsCreditEvent';
 export * from './cdsCreditEventAllOf';
 export * from './cdsFlowConventions';
@@ -919,6 +920,7 @@ export * from './settlementInLieu';
 export * from './settlementInstructionQuery';
 export * from './settlementInstructionRequest';
 export * from './settlementInstructionWithTransaction';
+export * from './settlementProblem';
 export * from './settlementSchedule';
 export * from './sideConfigurationData';
 export * from './sideDefinition';
@@ -999,6 +1001,7 @@ export * from './transactionSettlementBucket';
 export * from './transactionSettlementInstruction';
 export * from './transactionSettlementMovement';
 export * from './transactionSettlementStatus';
+export * from './transactionSettlementSummary';
 export * from './transactionTemplate';
 export * from './transactionTemplateRequest';
 export * from './transactionTemplateSpecification';
@@ -1272,6 +1275,7 @@ import { CashLadderRecord } from './cashLadderRecord';
 import { CashOfferElection } from './cashOfferElection';
 import { CashPerpetual } from './cashPerpetual';
 import { CashPerpetualAllOf } from './cashPerpetualAllOf';
+import { CategorySettlementStatus } from './categorySettlementStatus';
 import { CdsCreditEvent } from './cdsCreditEvent';
 import { CdsCreditEventAllOf } from './cdsCreditEventAllOf';
 import { CdsFlowConventions } from './cdsFlowConventions';
@@ -2046,6 +2050,7 @@ import { SettlementInLieu } from './settlementInLieu';
 import { SettlementInstructionQuery } from './settlementInstructionQuery';
 import { SettlementInstructionRequest } from './settlementInstructionRequest';
 import { SettlementInstructionWithTransaction } from './settlementInstructionWithTransaction';
+import { SettlementProblem } from './settlementProblem';
 import { SettlementSchedule } from './settlementSchedule';
 import { SideConfigurationData } from './sideConfigurationData';
 import { SideDefinition } from './sideDefinition';
@@ -2126,6 +2131,7 @@ import { TransactionSettlementBucket } from './transactionSettlementBucket';
 import { TransactionSettlementInstruction } from './transactionSettlementInstruction';
 import { TransactionSettlementMovement } from './transactionSettlementMovement';
 import { TransactionSettlementStatus } from './transactionSettlementStatus';
+import { TransactionSettlementSummary } from './transactionSettlementSummary';
 import { TransactionTemplate } from './transactionTemplate';
 import { TransactionTemplateRequest } from './transactionTemplateRequest';
 import { TransactionTemplateSpecification } from './transactionTemplateSpecification';
@@ -2887,6 +2893,7 @@ let typeMap: {[index: string]: any} = {
     "CashOfferElection": CashOfferElection,
     "CashPerpetual": CashPerpetual,
     "CashPerpetualAllOf": CashPerpetualAllOf,
+    "CategorySettlementStatus": CategorySettlementStatus,
     "CdsCreditEvent": CdsCreditEvent,
     "CdsCreditEventAllOf": CdsCreditEventAllOf,
     "CdsFlowConventions": CdsFlowConventions,
@@ -3660,6 +3667,7 @@ let typeMap: {[index: string]: any} = {
     "SettlementInstructionQuery": SettlementInstructionQuery,
     "SettlementInstructionRequest": SettlementInstructionRequest,
     "SettlementInstructionWithTransaction": SettlementInstructionWithTransaction,
+    "SettlementProblem": SettlementProblem,
     "SettlementSchedule": SettlementSchedule,
     "SideConfigurationData": SideConfigurationData,
     "SideDefinition": SideDefinition,
@@ -3740,6 +3748,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionSettlementInstruction": TransactionSettlementInstruction,
     "TransactionSettlementMovement": TransactionSettlementMovement,
     "TransactionSettlementStatus": TransactionSettlementStatus,
+    "TransactionSettlementSummary": TransactionSettlementSummary,
     "TransactionTemplate": TransactionTemplate,
     "TransactionTemplateRequest": TransactionTemplateRequest,
     "TransactionTemplateSpecification": TransactionTemplateSpecification,
