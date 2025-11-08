@@ -802,6 +802,7 @@ export * from './relation';
 export * from './relationalDatasetDefinition';
 export * from './relationalDatasetFieldDefinition';
 export * from './relationalDatasetFieldsToAdd';
+export * from './relationalDatasetFieldsToRemove';
 export * from './relationalDatasetFieldsToUpdate';
 export * from './relationship';
 export * from './relationshipDefinition';
@@ -1941,6 +1942,7 @@ import { Relation } from './relation';
 import { RelationalDatasetDefinition } from './relationalDatasetDefinition';
 import { RelationalDatasetFieldDefinition } from './relationalDatasetFieldDefinition';
 import { RelationalDatasetFieldsToAdd } from './relationalDatasetFieldsToAdd';
+import { RelationalDatasetFieldsToRemove } from './relationalDatasetFieldsToRemove';
 import { RelationalDatasetFieldsToUpdate } from './relationalDatasetFieldsToUpdate';
 import { Relationship } from './relationship';
 import { RelationshipDefinition } from './relationshipDefinition';
@@ -3569,6 +3571,7 @@ let typeMap: {[index: string]: any} = {
     "RelationalDatasetDefinition": RelationalDatasetDefinition,
     "RelationalDatasetFieldDefinition": RelationalDatasetFieldDefinition,
     "RelationalDatasetFieldsToAdd": RelationalDatasetFieldsToAdd,
+    "RelationalDatasetFieldsToRemove": RelationalDatasetFieldsToRemove,
     "RelationalDatasetFieldsToUpdate": RelationalDatasetFieldsToUpdate,
     "Relationship": Relationship,
     "RelationshipDefinition": RelationshipDefinition,
