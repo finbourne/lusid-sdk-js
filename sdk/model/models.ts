@@ -302,6 +302,8 @@ export * from './depositCloseEvent';
 export * from './depositCloseEventAllOf';
 export * from './depositInterestPaymentEvent';
 export * from './depositInterestPaymentEventAllOf';
+export * from './depositRollEvent';
+export * from './depositRollEventAllOf';
 export * from './derivationFormulaExplainRequest';
 export * from './derivedPropertyComponent';
 export * from './describedAddressKey';
@@ -904,6 +906,8 @@ export * from './resultValueStringAllOf';
 export * from './returnZeroPvOptions';
 export * from './reverseStockSplitEvent';
 export * from './reverseStockSplitEventAllOf';
+export * from './rollInterestUpdates';
+export * from './rollPrincipalUpdates';
 export * from './rolloverConstituent';
 export * from './roundingConfiguration';
 export * from './roundingConfigurationComponent';
@@ -1442,6 +1446,8 @@ import { DepositCloseEvent } from './depositCloseEvent';
 import { DepositCloseEventAllOf } from './depositCloseEventAllOf';
 import { DepositInterestPaymentEvent } from './depositInterestPaymentEvent';
 import { DepositInterestPaymentEventAllOf } from './depositInterestPaymentEventAllOf';
+import { DepositRollEvent } from './depositRollEvent';
+import { DepositRollEventAllOf } from './depositRollEventAllOf';
 import { DerivationFormulaExplainRequest } from './derivationFormulaExplainRequest';
 import { DerivedPropertyComponent } from './derivedPropertyComponent';
 import { DescribedAddressKey } from './describedAddressKey';
@@ -2044,6 +2050,8 @@ import { ResultValueStringAllOf } from './resultValueStringAllOf';
 import { ReturnZeroPvOptions } from './returnZeroPvOptions';
 import { ReverseStockSplitEvent } from './reverseStockSplitEvent';
 import { ReverseStockSplitEventAllOf } from './reverseStockSplitEventAllOf';
+import { RollInterestUpdates } from './rollInterestUpdates';
+import { RollPrincipalUpdates } from './rollPrincipalUpdates';
 import { RolloverConstituent } from './rolloverConstituent';
 import { RoundingConfiguration } from './roundingConfiguration';
 import { RoundingConfigurationComponent } from './roundingConfigurationComponent';
@@ -2414,6 +2422,8 @@ let enumsMap: {[index: string]: any} = {
         "DepositCloseEventAllOf.InstrumentEventTypeEnum": DepositCloseEventAllOf.InstrumentEventTypeEnum,
         "DepositInterestPaymentEvent.InstrumentEventTypeEnum": DepositInterestPaymentEvent.InstrumentEventTypeEnum,
         "DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum": DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum,
+        "DepositRollEvent.InstrumentEventTypeEnum": DepositRollEvent.InstrumentEventTypeEnum,
+        "DepositRollEventAllOf.InstrumentEventTypeEnum": DepositRollEventAllOf.InstrumentEventTypeEnum,
         "DiscountFactorCurveData.MarketDataTypeEnum": DiscountFactorCurveData.MarketDataTypeEnum,
         "DiscountFactorCurveDataAllOf.MarketDataTypeEnum": DiscountFactorCurveDataAllOf.MarketDataTypeEnum,
         "DiscountingDependency.DependencyTypeEnum": DiscountingDependency.DependencyTypeEnum,
@@ -3071,6 +3081,8 @@ let typeMap: {[index: string]: any} = {
     "DepositCloseEventAllOf": DepositCloseEventAllOf,
     "DepositInterestPaymentEvent": DepositInterestPaymentEvent,
     "DepositInterestPaymentEventAllOf": DepositInterestPaymentEventAllOf,
+    "DepositRollEvent": DepositRollEvent,
+    "DepositRollEventAllOf": DepositRollEventAllOf,
     "DerivationFormulaExplainRequest": DerivationFormulaExplainRequest,
     "DerivedPropertyComponent": DerivedPropertyComponent,
     "DescribedAddressKey": DescribedAddressKey,
@@ -3673,6 +3685,8 @@ let typeMap: {[index: string]: any} = {
     "ReturnZeroPvOptions": ReturnZeroPvOptions,
     "ReverseStockSplitEvent": ReverseStockSplitEvent,
     "ReverseStockSplitEventAllOf": ReverseStockSplitEventAllOf,
+    "RollInterestUpdates": RollInterestUpdates,
+    "RollPrincipalUpdates": RollPrincipalUpdates,
     "RolloverConstituent": RolloverConstituent,
     "RoundingConfiguration": RoundingConfiguration,
     "RoundingConfigurationComponent": RoundingConfigurationComponent,
