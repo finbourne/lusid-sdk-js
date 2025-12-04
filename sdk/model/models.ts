@@ -1117,6 +1117,7 @@ export * from './versionedResourceListOfHoldingContributor';
 export * from './versionedResourceListOfOutputTransaction';
 export * from './versionedResourceListOfPortfolioHolding';
 export * from './versionedResourceListOfTransaction';
+export * from './versionedResourceListOfTransactionSettlementInstruction';
 export * from './versionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery';
 export * from './versionedResourceListWithWarningsOfPortfolioHolding';
 export * from './virtualDocument';
@@ -2261,6 +2262,7 @@ import { VersionedResourceListOfHoldingContributor } from './versionedResourceLi
 import { VersionedResourceListOfOutputTransaction } from './versionedResourceListOfOutputTransaction';
 import { VersionedResourceListOfPortfolioHolding } from './versionedResourceListOfPortfolioHolding';
 import { VersionedResourceListOfTransaction } from './versionedResourceListOfTransaction';
+import { VersionedResourceListOfTransactionSettlementInstruction } from './versionedResourceListOfTransactionSettlementInstruction';
 import { VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery } from './versionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery';
 import { VersionedResourceListWithWarningsOfPortfolioHolding } from './versionedResourceListWithWarningsOfPortfolioHolding';
 import { VirtualDocument } from './virtualDocument';
@@ -3895,6 +3897,7 @@ let typeMap: {[index: string]: any} = {
     "VersionedResourceListOfOutputTransaction": VersionedResourceListOfOutputTransaction,
     "VersionedResourceListOfPortfolioHolding": VersionedResourceListOfPortfolioHolding,
     "VersionedResourceListOfTransaction": VersionedResourceListOfTransaction,
+    "VersionedResourceListOfTransactionSettlementInstruction": VersionedResourceListOfTransactionSettlementInstruction,
     "VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery": VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery,
     "VersionedResourceListWithWarningsOfPortfolioHolding": VersionedResourceListWithWarningsOfPortfolioHolding,
     "VirtualDocument": VirtualDocument,
