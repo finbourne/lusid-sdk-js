@@ -67,6 +67,7 @@ export * from './basket';
 export * from './basketAllOf';
 export * from './basketIdentifier';
 export * from './batchAdjustHoldingsResponse';
+export * from './batchAmendTransactionSettlementInstructionResponse';
 export * from './batchUpsertDatesForCalendarResponse';
 export * from './batchUpsertInstrumentPropertiesResponse';
 export * from './batchUpsertPortfolioAccessMetadataRequest';
@@ -928,6 +929,7 @@ export * from './setPersonPropertiesRequest';
 export * from './settlementConfigurationCategory';
 export * from './settlementCycle';
 export * from './settlementInLieu';
+export * from './settlementInstructionAmendRequest';
 export * from './settlementInstructionQuery';
 export * from './settlementInstructionRequest';
 export * from './settlementInstructionWithTransaction';
@@ -1212,6 +1214,7 @@ import { Basket } from './basket';
 import { BasketAllOf } from './basketAllOf';
 import { BasketIdentifier } from './basketIdentifier';
 import { BatchAdjustHoldingsResponse } from './batchAdjustHoldingsResponse';
+import { BatchAmendTransactionSettlementInstructionResponse } from './batchAmendTransactionSettlementInstructionResponse';
 import { BatchUpsertDatesForCalendarResponse } from './batchUpsertDatesForCalendarResponse';
 import { BatchUpsertInstrumentPropertiesResponse } from './batchUpsertInstrumentPropertiesResponse';
 import { BatchUpsertPortfolioAccessMetadataRequest } from './batchUpsertPortfolioAccessMetadataRequest';
@@ -2073,6 +2076,7 @@ import { SetPersonPropertiesRequest } from './setPersonPropertiesRequest';
 import { SettlementConfigurationCategory } from './settlementConfigurationCategory';
 import { SettlementCycle } from './settlementCycle';
 import { SettlementInLieu } from './settlementInLieu';
+import { SettlementInstructionAmendRequest } from './settlementInstructionAmendRequest';
 import { SettlementInstructionQuery } from './settlementInstructionQuery';
 import { SettlementInstructionRequest } from './settlementInstructionRequest';
 import { SettlementInstructionWithTransaction } from './settlementInstructionWithTransaction';
@@ -2849,6 +2853,7 @@ let typeMap: {[index: string]: any} = {
     "BasketAllOf": BasketAllOf,
     "BasketIdentifier": BasketIdentifier,
     "BatchAdjustHoldingsResponse": BatchAdjustHoldingsResponse,
+    "BatchAmendTransactionSettlementInstructionResponse": BatchAmendTransactionSettlementInstructionResponse,
     "BatchUpsertDatesForCalendarResponse": BatchUpsertDatesForCalendarResponse,
     "BatchUpsertInstrumentPropertiesResponse": BatchUpsertInstrumentPropertiesResponse,
     "BatchUpsertPortfolioAccessMetadataRequest": BatchUpsertPortfolioAccessMetadataRequest,
@@ -3709,6 +3714,7 @@ let typeMap: {[index: string]: any} = {
     "SettlementConfigurationCategory": SettlementConfigurationCategory,
     "SettlementCycle": SettlementCycle,
     "SettlementInLieu": SettlementInLieu,
+    "SettlementInstructionAmendRequest": SettlementInstructionAmendRequest,
     "SettlementInstructionQuery": SettlementInstructionQuery,
     "SettlementInstructionRequest": SettlementInstructionRequest,
     "SettlementInstructionWithTransaction": SettlementInstructionWithTransaction,
