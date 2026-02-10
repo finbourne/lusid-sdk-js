@@ -927,6 +927,7 @@ export * from './setLegalEntityPropertiesRequest';
 export * from './setPersonIdentifiersRequest';
 export * from './setPersonPropertiesRequest';
 export * from './settlementConfigurationCategory';
+export * from './settlementConfigurationMethodOverride';
 export * from './settlementCycle';
 export * from './settlementInLieu';
 export * from './settlementInstructionAmendRequest';
@@ -2074,6 +2075,7 @@ import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesReque
 import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
 import { SetPersonPropertiesRequest } from './setPersonPropertiesRequest';
 import { SettlementConfigurationCategory } from './settlementConfigurationCategory';
+import { SettlementConfigurationMethodOverride } from './settlementConfigurationMethodOverride';
 import { SettlementCycle } from './settlementCycle';
 import { SettlementInLieu } from './settlementInLieu';
 import { SettlementInstructionAmendRequest } from './settlementInstructionAmendRequest';
@@ -3712,6 +3714,7 @@ let typeMap: {[index: string]: any} = {
     "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
     "SetPersonPropertiesRequest": SetPersonPropertiesRequest,
     "SettlementConfigurationCategory": SettlementConfigurationCategory,
+    "SettlementConfigurationMethodOverride": SettlementConfigurationMethodOverride,
     "SettlementCycle": SettlementCycle,
     "SettlementInLieu": SettlementInLieu,
     "SettlementInstructionAmendRequest": SettlementInstructionAmendRequest,
