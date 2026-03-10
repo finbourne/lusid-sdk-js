@@ -690,6 +690,7 @@ export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './pagedResourceListOfReferenceListResponse';
 export * from './pagedResourceListOfRelationalDatasetDefinition';
 export * from './pagedResourceListOfRelationshipDefinition';
+export * from './pagedResourceListOfResourceRecord';
 export * from './pagedResourceListOfSequenceDefinition';
 export * from './pagedResourceListOfStagedModification';
 export * from './pagedResourceListOfStagedModificationsRequestedChangeInterval';
@@ -882,6 +883,7 @@ export * from './resourceListOfTransaction';
 export * from './resourceListOfTransactionSettlementInstruction';
 export * from './resourceListOfTransactionType';
 export * from './resourceListOfValueType';
+export * from './resourceRecord';
 export * from './responseMetaData';
 export * from './resultDataKeyRule';
 export * from './resultDataKeyRuleAllOf';
@@ -1099,6 +1101,7 @@ export * from './upsertReferencePortfolioConstituentPropertiesRequest';
 export * from './upsertReferencePortfolioConstituentPropertiesResponse';
 export * from './upsertReferencePortfolioConstituentsRequest';
 export * from './upsertReferencePortfolioConstituentsResponse';
+export * from './upsertResourceRecordRequest';
 export * from './upsertResultValuesDataRequest';
 export * from './upsertReturnsResponse';
 export * from './upsertSingleStructuredDataResponse';
@@ -1838,6 +1841,7 @@ import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResour
 import { PagedResourceListOfReferenceListResponse } from './pagedResourceListOfReferenceListResponse';
 import { PagedResourceListOfRelationalDatasetDefinition } from './pagedResourceListOfRelationalDatasetDefinition';
 import { PagedResourceListOfRelationshipDefinition } from './pagedResourceListOfRelationshipDefinition';
+import { PagedResourceListOfResourceRecord } from './pagedResourceListOfResourceRecord';
 import { PagedResourceListOfSequenceDefinition } from './pagedResourceListOfSequenceDefinition';
 import { PagedResourceListOfStagedModification } from './pagedResourceListOfStagedModification';
 import { PagedResourceListOfStagedModificationsRequestedChangeInterval } from './pagedResourceListOfStagedModificationsRequestedChangeInterval';
@@ -2030,6 +2034,7 @@ import { ResourceListOfTransaction } from './resourceListOfTransaction';
 import { ResourceListOfTransactionSettlementInstruction } from './resourceListOfTransactionSettlementInstruction';
 import { ResourceListOfTransactionType } from './resourceListOfTransactionType';
 import { ResourceListOfValueType } from './resourceListOfValueType';
+import { ResourceRecord } from './resourceRecord';
 import { ResponseMetaData } from './responseMetaData';
 import { ResultDataKeyRule } from './resultDataKeyRule';
 import { ResultDataKeyRuleAllOf } from './resultDataKeyRuleAllOf';
@@ -2247,6 +2252,7 @@ import { UpsertReferencePortfolioConstituentPropertiesRequest } from './upsertRe
 import { UpsertReferencePortfolioConstituentPropertiesResponse } from './upsertReferencePortfolioConstituentPropertiesResponse';
 import { UpsertReferencePortfolioConstituentsRequest } from './upsertReferencePortfolioConstituentsRequest';
 import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferencePortfolioConstituentsResponse';
+import { UpsertResourceRecordRequest } from './upsertResourceRecordRequest';
 import { UpsertResultValuesDataRequest } from './upsertResultValuesDataRequest';
 import { UpsertReturnsResponse } from './upsertReturnsResponse';
 import { UpsertSingleStructuredDataResponse } from './upsertSingleStructuredDataResponse';
@@ -3477,6 +3483,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfReferenceListResponse": PagedResourceListOfReferenceListResponse,
     "PagedResourceListOfRelationalDatasetDefinition": PagedResourceListOfRelationalDatasetDefinition,
     "PagedResourceListOfRelationshipDefinition": PagedResourceListOfRelationshipDefinition,
+    "PagedResourceListOfResourceRecord": PagedResourceListOfResourceRecord,
     "PagedResourceListOfSequenceDefinition": PagedResourceListOfSequenceDefinition,
     "PagedResourceListOfStagedModification": PagedResourceListOfStagedModification,
     "PagedResourceListOfStagedModificationsRequestedChangeInterval": PagedResourceListOfStagedModificationsRequestedChangeInterval,
@@ -3669,6 +3676,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfTransactionSettlementInstruction": ResourceListOfTransactionSettlementInstruction,
     "ResourceListOfTransactionType": ResourceListOfTransactionType,
     "ResourceListOfValueType": ResourceListOfValueType,
+    "ResourceRecord": ResourceRecord,
     "ResponseMetaData": ResponseMetaData,
     "ResultDataKeyRule": ResultDataKeyRule,
     "ResultDataKeyRuleAllOf": ResultDataKeyRuleAllOf,
@@ -3886,6 +3894,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertReferencePortfolioConstituentPropertiesResponse": UpsertReferencePortfolioConstituentPropertiesResponse,
     "UpsertReferencePortfolioConstituentsRequest": UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": UpsertReferencePortfolioConstituentsResponse,
+    "UpsertResourceRecordRequest": UpsertResourceRecordRequest,
     "UpsertResultValuesDataRequest": UpsertResultValuesDataRequest,
     "UpsertReturnsResponse": UpsertReturnsResponse,
     "UpsertSingleStructuredDataResponse": UpsertSingleStructuredDataResponse,
