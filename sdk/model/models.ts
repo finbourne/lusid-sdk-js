@@ -59,6 +59,7 @@ export * from './appendFxForwardTenorCurveDataAllOf';
 export * from './appendFxForwardTenorPipsCurveData';
 export * from './appendFxForwardTenorPipsCurveDataAllOf';
 export * from './appendMarketData';
+export * from './applicableEntity';
 export * from './applicableEntityTypes';
 export * from './applicableInstrumentEvent';
 export * from './assetLeg';
@@ -68,6 +69,7 @@ export * from './basketAllOf';
 export * from './basketIdentifier';
 export * from './batchAdjustHoldingsResponse';
 export * from './batchAmendTransactionSettlementInstructionResponse';
+export * from './batchDeleteRelationalDataResponse';
 export * from './batchUpsertDatesForCalendarResponse';
 export * from './batchUpsertInstrumentPropertiesResponse';
 export * from './batchUpsertPortfolioAccessMetadataRequest';
@@ -75,6 +77,7 @@ export * from './batchUpsertPortfolioAccessMetadataResponse';
 export * from './batchUpsertPortfolioAccessMetadataResponseItem';
 export * from './batchUpsertPortfolioTransactionsResponse';
 export * from './batchUpsertPropertyDefinitionPropertiesResponse';
+export * from './batchUpsertRelationalDatasetsResponse';
 export * from './batchUpsertTransactionSettlementInstructionResponse';
 export * from './block';
 export * from './blockAndOrderIdRequest';
@@ -271,12 +274,15 @@ export * from './customEntityProperties';
 export * from './customEntityRequest';
 export * from './customEntityResponse';
 export * from './customEntityType';
+export * from './customSortBy';
 export * from './cutLabelDefinition';
 export * from './cutLocalTime';
 export * from './dataDefinition';
 export * from './dataMapKey';
 export * from './dataMapping';
 export * from './dataModelMembership';
+export * from './dataPointVersion';
+export * from './dataSeries';
 export * from './dataType';
 export * from './dataTypeEntity';
 export * from './dataTypeSummary';
@@ -296,6 +302,7 @@ export * from './deleteCustodianAccountsResponse';
 export * from './deleteInstrumentPropertiesResponse';
 export * from './deleteInstrumentResponse';
 export * from './deleteInstrumentsResponse';
+export * from './deleteRelationalDataPointRequest';
 export * from './deleteRelationshipRequest';
 export * from './deletedEntityResponse';
 export * from './dependencySourceFilter';
@@ -688,6 +695,7 @@ export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPropertyDefinition';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './pagedResourceListOfReferenceListResponse';
+export * from './pagedResourceListOfRelationalDataPointResponse';
 export * from './pagedResourceListOfRelationalDatasetDefinition';
 export * from './pagedResourceListOfRelationshipDefinition';
 export * from './pagedResourceListOfResourceRecord';
@@ -766,6 +774,7 @@ export * from './queryApplicableInstrumentEventsRequest';
 export * from './queryBucketedCashFlowsRequest';
 export * from './queryCashFlowsRequest';
 export * from './queryInstrumentEventsRequest';
+export * from './queryRelationalDatasetRequest';
 export * from './queryTradeTicketsRequest';
 export * from './queryableKey';
 export * from './quote';
@@ -803,6 +812,9 @@ export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './relatedEntity';
 export * from './relation';
+export * from './relationalDataPointFieldValueResponse';
+export * from './relationalDataPointResponse';
+export * from './relationalDataSeriesResponse';
 export * from './relationalDatasetDefinition';
 export * from './relationalDatasetFieldDefinition';
 export * from './relationalDatasetFieldsToAdd';
@@ -1101,6 +1113,7 @@ export * from './upsertReferencePortfolioConstituentPropertiesRequest';
 export * from './upsertReferencePortfolioConstituentPropertiesResponse';
 export * from './upsertReferencePortfolioConstituentsRequest';
 export * from './upsertReferencePortfolioConstituentsResponse';
+export * from './upsertRelationalDataPointRequest';
 export * from './upsertResourceRecordRequest';
 export * from './upsertResultValuesDataRequest';
 export * from './upsertReturnsResponse';
@@ -1210,6 +1223,7 @@ import { AppendFxForwardTenorCurveDataAllOf } from './appendFxForwardTenorCurveD
 import { AppendFxForwardTenorPipsCurveData } from './appendFxForwardTenorPipsCurveData';
 import { AppendFxForwardTenorPipsCurveDataAllOf } from './appendFxForwardTenorPipsCurveDataAllOf';
 import { AppendMarketData } from './appendMarketData';
+import { ApplicableEntity } from './applicableEntity';
 import { ApplicableEntityTypes } from './applicableEntityTypes';
 import { ApplicableInstrumentEvent } from './applicableInstrumentEvent';
 import { AssetLeg } from './assetLeg';
@@ -1219,6 +1233,7 @@ import { BasketAllOf } from './basketAllOf';
 import { BasketIdentifier } from './basketIdentifier';
 import { BatchAdjustHoldingsResponse } from './batchAdjustHoldingsResponse';
 import { BatchAmendTransactionSettlementInstructionResponse } from './batchAmendTransactionSettlementInstructionResponse';
+import { BatchDeleteRelationalDataResponse } from './batchDeleteRelationalDataResponse';
 import { BatchUpsertDatesForCalendarResponse } from './batchUpsertDatesForCalendarResponse';
 import { BatchUpsertInstrumentPropertiesResponse } from './batchUpsertInstrumentPropertiesResponse';
 import { BatchUpsertPortfolioAccessMetadataRequest } from './batchUpsertPortfolioAccessMetadataRequest';
@@ -1226,6 +1241,7 @@ import { BatchUpsertPortfolioAccessMetadataResponse } from './batchUpsertPortfol
 import { BatchUpsertPortfolioAccessMetadataResponseItem } from './batchUpsertPortfolioAccessMetadataResponseItem';
 import { BatchUpsertPortfolioTransactionsResponse } from './batchUpsertPortfolioTransactionsResponse';
 import { BatchUpsertPropertyDefinitionPropertiesResponse } from './batchUpsertPropertyDefinitionPropertiesResponse';
+import { BatchUpsertRelationalDatasetsResponse } from './batchUpsertRelationalDatasetsResponse';
 import { BatchUpsertTransactionSettlementInstructionResponse } from './batchUpsertTransactionSettlementInstructionResponse';
 import { Block } from './block';
 import { BlockAndOrderIdRequest } from './blockAndOrderIdRequest';
@@ -1422,12 +1438,15 @@ import { CustomEntityProperties } from './customEntityProperties';
 import { CustomEntityRequest } from './customEntityRequest';
 import { CustomEntityResponse } from './customEntityResponse';
 import { CustomEntityType } from './customEntityType';
+import { CustomSortBy } from './customSortBy';
 import { CutLabelDefinition } from './cutLabelDefinition';
 import { CutLocalTime } from './cutLocalTime';
 import { DataDefinition } from './dataDefinition';
 import { DataMapKey } from './dataMapKey';
 import { DataMapping } from './dataMapping';
 import { DataModelMembership } from './dataModelMembership';
+import { DataPointVersion } from './dataPointVersion';
+import { DataSeries } from './dataSeries';
 import { DataType } from './dataType';
 import { DataTypeEntity } from './dataTypeEntity';
 import { DataTypeSummary } from './dataTypeSummary';
@@ -1447,6 +1466,7 @@ import { DeleteCustodianAccountsResponse } from './deleteCustodianAccountsRespon
 import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
 import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeleteInstrumentsResponse } from './deleteInstrumentsResponse';
+import { DeleteRelationalDataPointRequest } from './deleteRelationalDataPointRequest';
 import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DependencySourceFilter } from './dependencySourceFilter';
@@ -1839,6 +1859,7 @@ import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfP
 import { PagedResourceListOfPropertyDefinition } from './pagedResourceListOfPropertyDefinition';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
 import { PagedResourceListOfReferenceListResponse } from './pagedResourceListOfReferenceListResponse';
+import { PagedResourceListOfRelationalDataPointResponse } from './pagedResourceListOfRelationalDataPointResponse';
 import { PagedResourceListOfRelationalDatasetDefinition } from './pagedResourceListOfRelationalDatasetDefinition';
 import { PagedResourceListOfRelationshipDefinition } from './pagedResourceListOfRelationshipDefinition';
 import { PagedResourceListOfResourceRecord } from './pagedResourceListOfResourceRecord';
@@ -1917,6 +1938,7 @@ import { QueryApplicableInstrumentEventsRequest } from './queryApplicableInstrum
 import { QueryBucketedCashFlowsRequest } from './queryBucketedCashFlowsRequest';
 import { QueryCashFlowsRequest } from './queryCashFlowsRequest';
 import { QueryInstrumentEventsRequest } from './queryInstrumentEventsRequest';
+import { QueryRelationalDatasetRequest } from './queryRelationalDatasetRequest';
 import { QueryTradeTicketsRequest } from './queryTradeTicketsRequest';
 import { QueryableKey } from './queryableKey';
 import { Quote } from './quote';
@@ -1954,6 +1976,9 @@ import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { RelatedEntity } from './relatedEntity';
 import { Relation } from './relation';
+import { RelationalDataPointFieldValueResponse } from './relationalDataPointFieldValueResponse';
+import { RelationalDataPointResponse } from './relationalDataPointResponse';
+import { RelationalDataSeriesResponse } from './relationalDataSeriesResponse';
 import { RelationalDatasetDefinition } from './relationalDatasetDefinition';
 import { RelationalDatasetFieldDefinition } from './relationalDatasetFieldDefinition';
 import { RelationalDatasetFieldsToAdd } from './relationalDatasetFieldsToAdd';
@@ -2252,6 +2277,7 @@ import { UpsertReferencePortfolioConstituentPropertiesRequest } from './upsertRe
 import { UpsertReferencePortfolioConstituentPropertiesResponse } from './upsertReferencePortfolioConstituentPropertiesResponse';
 import { UpsertReferencePortfolioConstituentsRequest } from './upsertReferencePortfolioConstituentsRequest';
 import { UpsertReferencePortfolioConstituentsResponse } from './upsertReferencePortfolioConstituentsResponse';
+import { UpsertRelationalDataPointRequest } from './upsertRelationalDataPointRequest';
 import { UpsertResourceRecordRequest } from './upsertResourceRecordRequest';
 import { UpsertResultValuesDataRequest } from './upsertResultValuesDataRequest';
 import { UpsertReturnsResponse } from './upsertReturnsResponse';
@@ -2853,6 +2879,7 @@ let typeMap: {[index: string]: any} = {
     "AppendFxForwardTenorPipsCurveData": AppendFxForwardTenorPipsCurveData,
     "AppendFxForwardTenorPipsCurveDataAllOf": AppendFxForwardTenorPipsCurveDataAllOf,
     "AppendMarketData": AppendMarketData,
+    "ApplicableEntity": ApplicableEntity,
     "ApplicableEntityTypes": ApplicableEntityTypes,
     "ApplicableInstrumentEvent": ApplicableInstrumentEvent,
     "AssetLeg": AssetLeg,
@@ -2862,6 +2889,7 @@ let typeMap: {[index: string]: any} = {
     "BasketIdentifier": BasketIdentifier,
     "BatchAdjustHoldingsResponse": BatchAdjustHoldingsResponse,
     "BatchAmendTransactionSettlementInstructionResponse": BatchAmendTransactionSettlementInstructionResponse,
+    "BatchDeleteRelationalDataResponse": BatchDeleteRelationalDataResponse,
     "BatchUpsertDatesForCalendarResponse": BatchUpsertDatesForCalendarResponse,
     "BatchUpsertInstrumentPropertiesResponse": BatchUpsertInstrumentPropertiesResponse,
     "BatchUpsertPortfolioAccessMetadataRequest": BatchUpsertPortfolioAccessMetadataRequest,
@@ -2869,6 +2897,7 @@ let typeMap: {[index: string]: any} = {
     "BatchUpsertPortfolioAccessMetadataResponseItem": BatchUpsertPortfolioAccessMetadataResponseItem,
     "BatchUpsertPortfolioTransactionsResponse": BatchUpsertPortfolioTransactionsResponse,
     "BatchUpsertPropertyDefinitionPropertiesResponse": BatchUpsertPropertyDefinitionPropertiesResponse,
+    "BatchUpsertRelationalDatasetsResponse": BatchUpsertRelationalDatasetsResponse,
     "BatchUpsertTransactionSettlementInstructionResponse": BatchUpsertTransactionSettlementInstructionResponse,
     "Block": Block,
     "BlockAndOrderIdRequest": BlockAndOrderIdRequest,
@@ -3065,12 +3094,15 @@ let typeMap: {[index: string]: any} = {
     "CustomEntityRequest": CustomEntityRequest,
     "CustomEntityResponse": CustomEntityResponse,
     "CustomEntityType": CustomEntityType,
+    "CustomSortBy": CustomSortBy,
     "CutLabelDefinition": CutLabelDefinition,
     "CutLocalTime": CutLocalTime,
     "DataDefinition": DataDefinition,
     "DataMapKey": DataMapKey,
     "DataMapping": DataMapping,
     "DataModelMembership": DataModelMembership,
+    "DataPointVersion": DataPointVersion,
+    "DataSeries": DataSeries,
     "DataType": DataType,
     "DataTypeEntity": DataTypeEntity,
     "DataTypeSummary": DataTypeSummary,
@@ -3089,6 +3121,7 @@ let typeMap: {[index: string]: any} = {
     "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,
     "DeleteInstrumentResponse": DeleteInstrumentResponse,
     "DeleteInstrumentsResponse": DeleteInstrumentsResponse,
+    "DeleteRelationalDataPointRequest": DeleteRelationalDataPointRequest,
     "DeleteRelationshipRequest": DeleteRelationshipRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
     "DependencySourceFilter": DependencySourceFilter,
@@ -3481,6 +3514,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfPropertyDefinition": PagedResourceListOfPropertyDefinition,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
     "PagedResourceListOfReferenceListResponse": PagedResourceListOfReferenceListResponse,
+    "PagedResourceListOfRelationalDataPointResponse": PagedResourceListOfRelationalDataPointResponse,
     "PagedResourceListOfRelationalDatasetDefinition": PagedResourceListOfRelationalDatasetDefinition,
     "PagedResourceListOfRelationshipDefinition": PagedResourceListOfRelationshipDefinition,
     "PagedResourceListOfResourceRecord": PagedResourceListOfResourceRecord,
@@ -3559,6 +3593,7 @@ let typeMap: {[index: string]: any} = {
     "QueryBucketedCashFlowsRequest": QueryBucketedCashFlowsRequest,
     "QueryCashFlowsRequest": QueryCashFlowsRequest,
     "QueryInstrumentEventsRequest": QueryInstrumentEventsRequest,
+    "QueryRelationalDatasetRequest": QueryRelationalDatasetRequest,
     "QueryTradeTicketsRequest": QueryTradeTicketsRequest,
     "QueryableKey": QueryableKey,
     "Quote": Quote,
@@ -3596,6 +3631,9 @@ let typeMap: {[index: string]: any} = {
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "RelatedEntity": RelatedEntity,
     "Relation": Relation,
+    "RelationalDataPointFieldValueResponse": RelationalDataPointFieldValueResponse,
+    "RelationalDataPointResponse": RelationalDataPointResponse,
+    "RelationalDataSeriesResponse": RelationalDataSeriesResponse,
     "RelationalDatasetDefinition": RelationalDatasetDefinition,
     "RelationalDatasetFieldDefinition": RelationalDatasetFieldDefinition,
     "RelationalDatasetFieldsToAdd": RelationalDatasetFieldsToAdd,
@@ -3894,6 +3932,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertReferencePortfolioConstituentPropertiesResponse": UpsertReferencePortfolioConstituentPropertiesResponse,
     "UpsertReferencePortfolioConstituentsRequest": UpsertReferencePortfolioConstituentsRequest,
     "UpsertReferencePortfolioConstituentsResponse": UpsertReferencePortfolioConstituentsResponse,
+    "UpsertRelationalDataPointRequest": UpsertRelationalDataPointRequest,
     "UpsertResourceRecordRequest": UpsertResourceRecordRequest,
     "UpsertResultValuesDataRequest": UpsertResultValuesDataRequest,
     "UpsertReturnsResponse": UpsertReturnsResponse,

@@ -39,6 +39,7 @@ import {ReconciliationsApi} from './api/reconciliationsApi';
 import {ReferenceListsApi} from './api/referenceListsApi';
 import {ReferencePortfolioApi} from './api/referencePortfolioApi';
 import {RelationalDatasetDefinitionApi} from './api/relationalDatasetDefinitionApi';
+import {RelationalDatasetsApi} from './api/relationalDatasetsApi';
 import {RelationshipDefinitionsApi} from './api/relationshipDefinitionsApi';
 import {RelationshipsApi} from './api/relationshipsApi';
 import {ResourceRecordApi} from './api/resourceRecordApi';
@@ -98,6 +99,7 @@ export class Api {
     public referenceLists:  ReferenceListsApi
     public referencePortfolio:  ReferencePortfolioApi
     public relationalDatasetDefinition:  RelationalDatasetDefinitionApi
+    public relationalDatasets:  RelationalDatasetsApi
     public relationshipDefinitions:  RelationshipDefinitionsApi
     public relationships:  RelationshipsApi
     public resourceRecord:  ResourceRecordApi
