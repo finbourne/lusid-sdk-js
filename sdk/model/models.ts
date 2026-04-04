@@ -662,6 +662,7 @@ export * from './orderUpdateRequest';
 export * from './otcConfirmation';
 export * from './outputTransaction';
 export * from './outputTransition';
+export * from './overrideVirtualTransactionsResponse';
 export * from './pagedResourceListOfAddressKeyDefinition';
 export * from './pagedResourceListOfAllocation';
 export * from './pagedResourceListOfBlock';
@@ -1826,6 +1827,7 @@ import { OrderUpdateRequest } from './orderUpdateRequest';
 import { OtcConfirmation } from './otcConfirmation';
 import { OutputTransaction } from './outputTransaction';
 import { OutputTransition } from './outputTransition';
+import { OverrideVirtualTransactionsResponse } from './overrideVirtualTransactionsResponse';
 import { PagedResourceListOfAddressKeyDefinition } from './pagedResourceListOfAddressKeyDefinition';
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
 import { PagedResourceListOfBlock } from './pagedResourceListOfBlock';
@@ -3481,6 +3483,7 @@ let typeMap: {[index: string]: any} = {
     "OtcConfirmation": OtcConfirmation,
     "OutputTransaction": OutputTransaction,
     "OutputTransition": OutputTransition,
+    "OverrideVirtualTransactionsResponse": OverrideVirtualTransactionsResponse,
     "PagedResourceListOfAddressKeyDefinition": PagedResourceListOfAddressKeyDefinition,
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
     "PagedResourceListOfBlock": PagedResourceListOfBlock,
