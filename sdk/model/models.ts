@@ -966,6 +966,7 @@ export * from './stagedModification';
 export * from './stagedModificationDecision';
 export * from './stagedModificationDecisionRequest';
 export * from './stagedModificationEffectiveRange';
+export * from './stagedModificationSourceEntity';
 export * from './stagedModificationStagingRule';
 export * from './stagedModificationsEntityHrefs';
 export * from './stagedModificationsInfo';
@@ -1015,6 +1016,7 @@ export * from './transactionConfigurationMovementDataRequest';
 export * from './transactionConfigurationTypeAlias';
 export * from './transactionCurrencyAndAmount';
 export * from './transactionDiagnostics';
+export * from './transactionFeeCapitalisation';
 export * from './transactionFieldMap';
 export * from './transactionMatchingAlternativeId';
 export * from './transactionPrice';
@@ -2131,6 +2133,7 @@ import { StagedModification } from './stagedModification';
 import { StagedModificationDecision } from './stagedModificationDecision';
 import { StagedModificationDecisionRequest } from './stagedModificationDecisionRequest';
 import { StagedModificationEffectiveRange } from './stagedModificationEffectiveRange';
+import { StagedModificationSourceEntity } from './stagedModificationSourceEntity';
 import { StagedModificationStagingRule } from './stagedModificationStagingRule';
 import { StagedModificationsEntityHrefs } from './stagedModificationsEntityHrefs';
 import { StagedModificationsInfo } from './stagedModificationsInfo';
@@ -2180,6 +2183,7 @@ import { TransactionConfigurationMovementDataRequest } from './transactionConfig
 import { TransactionConfigurationTypeAlias } from './transactionConfigurationTypeAlias';
 import { TransactionCurrencyAndAmount } from './transactionCurrencyAndAmount';
 import { TransactionDiagnostics } from './transactionDiagnostics';
+import { TransactionFeeCapitalisation } from './transactionFeeCapitalisation';
 import { TransactionFieldMap } from './transactionFieldMap';
 import { TransactionMatchingAlternativeId } from './transactionMatchingAlternativeId';
 import { TransactionPrice } from './transactionPrice';
@@ -3787,6 +3791,7 @@ let typeMap: {[index: string]: any} = {
     "StagedModificationDecision": StagedModificationDecision,
     "StagedModificationDecisionRequest": StagedModificationDecisionRequest,
     "StagedModificationEffectiveRange": StagedModificationEffectiveRange,
+    "StagedModificationSourceEntity": StagedModificationSourceEntity,
     "StagedModificationStagingRule": StagedModificationStagingRule,
     "StagedModificationsEntityHrefs": StagedModificationsEntityHrefs,
     "StagedModificationsInfo": StagedModificationsInfo,
@@ -3836,6 +3841,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionConfigurationTypeAlias": TransactionConfigurationTypeAlias,
     "TransactionCurrencyAndAmount": TransactionCurrencyAndAmount,
     "TransactionDiagnostics": TransactionDiagnostics,
+    "TransactionFeeCapitalisation": TransactionFeeCapitalisation,
     "TransactionFieldMap": TransactionFieldMap,
     "TransactionMatchingAlternativeId": TransactionMatchingAlternativeId,
     "TransactionPrice": TransactionPrice,
