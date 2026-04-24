@@ -386,6 +386,8 @@ export * from './filterPredicateComplianceParameter';
 export * from './filterPredicateComplianceParameterAllOf';
 export * from './filterStep';
 export * from './filterStepRequest';
+export * from './filteredFundIdList';
+export * from './filteredFundIdListAllOf';
 export * from './fixedLeg';
 export * from './fixedLegAllOf';
 export * from './fixedLegAllOfOverrides';
@@ -1553,6 +1555,8 @@ import { FilterPredicateComplianceParameter } from './filterPredicateComplianceP
 import { FilterPredicateComplianceParameterAllOf } from './filterPredicateComplianceParameterAllOf';
 import { FilterStep } from './filterStep';
 import { FilterStepRequest } from './filterStepRequest';
+import { FilteredFundIdList } from './filteredFundIdList';
+import { FilteredFundIdListAllOf } from './filteredFundIdListAllOf';
 import { FixedLeg } from './fixedLeg';
 import { FixedLegAllOf } from './fixedLegAllOf';
 import { FixedLegAllOfOverrides } from './fixedLegAllOfOverrides';
@@ -2515,6 +2519,8 @@ let enumsMap: {[index: string]: any} = {
         "FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum": FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "FilterStep.ComplianceStepTypeEnum": FilterStep.ComplianceStepTypeEnum,
         "FilterStepRequest.ComplianceStepTypeRequestEnum": FilterStepRequest.ComplianceStepTypeRequestEnum,
+        "FilteredFundIdList.ReferenceListTypeEnum": FilteredFundIdList.ReferenceListTypeEnum,
+        "FilteredFundIdListAllOf.ReferenceListTypeEnum": FilteredFundIdListAllOf.ReferenceListTypeEnum,
         "FixedLeg.InstrumentTypeEnum": FixedLeg.InstrumentTypeEnum,
         "FixedLegAllOf.InstrumentTypeEnum": FixedLegAllOf.InstrumentTypeEnum,
         "FlexibleDeposit.InstrumentTypeEnum": FlexibleDeposit.InstrumentTypeEnum,
@@ -3211,6 +3217,8 @@ let typeMap: {[index: string]: any} = {
     "FilterPredicateComplianceParameterAllOf": FilterPredicateComplianceParameterAllOf,
     "FilterStep": FilterStep,
     "FilterStepRequest": FilterStepRequest,
+    "FilteredFundIdList": FilteredFundIdList,
+    "FilteredFundIdListAllOf": FilteredFundIdListAllOf,
     "FixedLeg": FixedLeg,
     "FixedLegAllOf": FixedLegAllOf,
     "FixedLegAllOfOverrides": FixedLegAllOfOverrides,
