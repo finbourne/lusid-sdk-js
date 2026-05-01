@@ -206,6 +206,8 @@ export * from './compositeDispersion';
 export * from './compositeDispersionResponse';
 export * from './compounding';
 export * from './configurationRecipe';
+export * from './consentEvent';
+export * from './consentEventAllOf';
 export * from './constantVolatilitySurface';
 export * from './constantVolatilitySurfaceAllOf';
 export * from './constituentsAdjustmentHeader';
@@ -1375,6 +1377,8 @@ import { CompositeDispersion } from './compositeDispersion';
 import { CompositeDispersionResponse } from './compositeDispersionResponse';
 import { Compounding } from './compounding';
 import { ConfigurationRecipe } from './configurationRecipe';
+import { ConsentEvent } from './consentEvent';
+import { ConsentEventAllOf } from './consentEventAllOf';
 import { ConstantVolatilitySurface } from './constantVolatilitySurface';
 import { ConstantVolatilitySurfaceAllOf } from './constantVolatilitySurfaceAllOf';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
@@ -2430,6 +2434,8 @@ let enumsMap: {[index: string]: any} = {
         "ComplianceParameter.ComplianceParameterTypeEnum": ComplianceParameter.ComplianceParameterTypeEnum,
         "ComplianceStep.ComplianceStepTypeEnum": ComplianceStep.ComplianceStepTypeEnum,
         "ComplianceStepRequest.ComplianceStepTypeRequestEnum": ComplianceStepRequest.ComplianceStepTypeRequestEnum,
+        "ConsentEvent.InstrumentEventTypeEnum": ConsentEvent.InstrumentEventTypeEnum,
+        "ConsentEventAllOf.InstrumentEventTypeEnum": ConsentEventAllOf.InstrumentEventTypeEnum,
         "ConstantVolatilitySurface.MarketDataTypeEnum": ConstantVolatilitySurface.MarketDataTypeEnum,
         "ConstantVolatilitySurfaceAllOf.MarketDataTypeEnum": ConstantVolatilitySurfaceAllOf.MarketDataTypeEnum,
         "ContractForDifference.InstrumentTypeEnum": ContractForDifference.InstrumentTypeEnum,
@@ -3038,6 +3044,8 @@ let typeMap: {[index: string]: any} = {
     "CompositeDispersionResponse": CompositeDispersionResponse,
     "Compounding": Compounding,
     "ConfigurationRecipe": ConfigurationRecipe,
+    "ConsentEvent": ConsentEvent,
+    "ConsentEventAllOf": ConsentEventAllOf,
     "ConstantVolatilitySurface": ConstantVolatilitySurface,
     "ConstantVolatilitySurfaceAllOf": ConstantVolatilitySurfaceAllOf,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
