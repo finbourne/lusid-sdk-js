@@ -329,6 +329,8 @@ export * from './dividendOptionEventAllOf';
 export * from './dividendReinvestmentEvent';
 export * from './drawdownEvent';
 export * from './drawdownEventAllOf';
+export * from './drawingEvent';
+export * from './drawingEventAllOf';
 export * from './earlyCloseOutEvent';
 export * from './earlyCloseOutEventAllOf';
 export * from './earlyRedemptionElection';
@@ -1500,6 +1502,8 @@ import { DividendOptionEventAllOf } from './dividendOptionEventAllOf';
 import { DividendReinvestmentEvent } from './dividendReinvestmentEvent';
 import { DrawdownEvent } from './drawdownEvent';
 import { DrawdownEventAllOf } from './drawdownEventAllOf';
+import { DrawingEvent } from './drawingEvent';
+import { DrawingEventAllOf } from './drawingEventAllOf';
 import { EarlyCloseOutEvent } from './earlyCloseOutEvent';
 import { EarlyCloseOutEventAllOf } from './earlyCloseOutEventAllOf';
 import { EarlyRedemptionElection } from './earlyRedemptionElection';
@@ -2489,6 +2493,8 @@ let enumsMap: {[index: string]: any} = {
         "DividendReinvestmentEvent.InstrumentEventTypeEnum": DividendReinvestmentEvent.InstrumentEventTypeEnum,
         "DrawdownEvent.InstrumentEventTypeEnum": DrawdownEvent.InstrumentEventTypeEnum,
         "DrawdownEventAllOf.InstrumentEventTypeEnum": DrawdownEventAllOf.InstrumentEventTypeEnum,
+        "DrawingEvent.InstrumentEventTypeEnum": DrawingEvent.InstrumentEventTypeEnum,
+        "DrawingEventAllOf.InstrumentEventTypeEnum": DrawingEventAllOf.InstrumentEventTypeEnum,
         "EarlyCloseOutEvent.InstrumentEventTypeEnum": EarlyCloseOutEvent.InstrumentEventTypeEnum,
         "EarlyCloseOutEventAllOf.InstrumentEventTypeEnum": EarlyCloseOutEventAllOf.InstrumentEventTypeEnum,
         "EarlyRedemptionEvent.InstrumentEventTypeEnum": EarlyRedemptionEvent.InstrumentEventTypeEnum,
@@ -3166,6 +3172,8 @@ let typeMap: {[index: string]: any} = {
     "DividendReinvestmentEvent": DividendReinvestmentEvent,
     "DrawdownEvent": DrawdownEvent,
     "DrawdownEventAllOf": DrawdownEventAllOf,
+    "DrawingEvent": DrawingEvent,
+    "DrawingEventAllOf": DrawingEventAllOf,
     "EarlyCloseOutEvent": EarlyCloseOutEvent,
     "EarlyCloseOutEventAllOf": EarlyCloseOutEventAllOf,
     "EarlyRedemptionElection": EarlyRedemptionElection,
