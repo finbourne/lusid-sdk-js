@@ -149,6 +149,7 @@ export * from './cashFlowValueAllOf';
 export * from './cashFlowValueSet';
 export * from './cashFlowValueSetAllOf';
 export * from './cashLadderRecord';
+export * from './cashOfferConstituent';
 export * from './cashOfferElection';
 export * from './cashPerpetual';
 export * from './cashPerpetualAllOf';
@@ -368,6 +369,8 @@ export * from './equityVolSurfaceDataAllOf';
 export * from './errorDetail';
 export * from './eventDateRange';
 export * from './exDividendConfiguration';
+export * from './exchangeOfferEvent';
+export * from './exchangeOfferEventAllOf';
 export * from './exchangeTradedOption';
 export * from './exchangeTradedOptionAllOf';
 export * from './exchangeTradedOptionContractDetails';
@@ -617,6 +620,7 @@ export * from './membershipAndStatus';
 export * from './mergerEvent';
 export * from './mergerEventAllOf';
 export * from './metricValue';
+export * from './mixedLotConstituentsElection';
 export * from './modelOptions';
 export * from './modelSelection';
 export * from './moveOrdersToDifferentBlocksRequest';
@@ -943,6 +947,7 @@ export * from './scripDividendEvent';
 export * from './scripDividendEventAllOf';
 export * from './scriptMapReference';
 export * from './securityElection';
+export * from './securityOfferConstituent';
 export * from './securityOfferElection';
 export * from './sequenceDefinition';
 export * from './setLegalEntityIdentifiersRequest';
@@ -1324,6 +1329,7 @@ import { CashFlowValueAllOf } from './cashFlowValueAllOf';
 import { CashFlowValueSet } from './cashFlowValueSet';
 import { CashFlowValueSetAllOf } from './cashFlowValueSetAllOf';
 import { CashLadderRecord } from './cashLadderRecord';
+import { CashOfferConstituent } from './cashOfferConstituent';
 import { CashOfferElection } from './cashOfferElection';
 import { CashPerpetual } from './cashPerpetual';
 import { CashPerpetualAllOf } from './cashPerpetualAllOf';
@@ -1543,6 +1549,8 @@ import { EquityVolSurfaceDataAllOf } from './equityVolSurfaceDataAllOf';
 import { ErrorDetail } from './errorDetail';
 import { EventDateRange } from './eventDateRange';
 import { ExDividendConfiguration } from './exDividendConfiguration';
+import { ExchangeOfferEvent } from './exchangeOfferEvent';
+import { ExchangeOfferEventAllOf } from './exchangeOfferEventAllOf';
 import { ExchangeTradedOption } from './exchangeTradedOption';
 import { ExchangeTradedOptionAllOf } from './exchangeTradedOptionAllOf';
 import { ExchangeTradedOptionContractDetails } from './exchangeTradedOptionContractDetails';
@@ -1792,6 +1800,7 @@ import { MembershipAndStatus } from './membershipAndStatus';
 import { MergerEvent } from './mergerEvent';
 import { MergerEventAllOf } from './mergerEventAllOf';
 import { MetricValue } from './metricValue';
+import { MixedLotConstituentsElection } from './mixedLotConstituentsElection';
 import { ModelOptions } from './modelOptions';
 import { ModelSelection } from './modelSelection';
 import { MoveOrdersToDifferentBlocksRequest } from './moveOrdersToDifferentBlocksRequest';
@@ -2118,6 +2127,7 @@ import { ScripDividendEvent } from './scripDividendEvent';
 import { ScripDividendEventAllOf } from './scripDividendEventAllOf';
 import { ScriptMapReference } from './scriptMapReference';
 import { SecurityElection } from './securityElection';
+import { SecurityOfferConstituent } from './securityOfferConstituent';
 import { SecurityOfferElection } from './securityOfferElection';
 import { SequenceDefinition } from './sequenceDefinition';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
@@ -2524,6 +2534,8 @@ let enumsMap: {[index: string]: any} = {
         "EquityVolDependencyAllOf.DependencyTypeEnum": EquityVolDependencyAllOf.DependencyTypeEnum,
         "EquityVolSurfaceData.MarketDataTypeEnum": EquityVolSurfaceData.MarketDataTypeEnum,
         "EquityVolSurfaceDataAllOf.MarketDataTypeEnum": EquityVolSurfaceDataAllOf.MarketDataTypeEnum,
+        "ExchangeOfferEvent.InstrumentEventTypeEnum": ExchangeOfferEvent.InstrumentEventTypeEnum,
+        "ExchangeOfferEventAllOf.InstrumentEventTypeEnum": ExchangeOfferEventAllOf.InstrumentEventTypeEnum,
         "ExchangeTradedOption.InstrumentTypeEnum": ExchangeTradedOption.InstrumentTypeEnum,
         "ExchangeTradedOptionAllOf.InstrumentTypeEnum": ExchangeTradedOptionAllOf.InstrumentTypeEnum,
         "ExerciseEvent.InstrumentEventTypeEnum": ExerciseEvent.InstrumentEventTypeEnum,
@@ -2999,6 +3011,7 @@ let typeMap: {[index: string]: any} = {
     "CashFlowValueSet": CashFlowValueSet,
     "CashFlowValueSetAllOf": CashFlowValueSetAllOf,
     "CashLadderRecord": CashLadderRecord,
+    "CashOfferConstituent": CashOfferConstituent,
     "CashOfferElection": CashOfferElection,
     "CashPerpetual": CashPerpetual,
     "CashPerpetualAllOf": CashPerpetualAllOf,
@@ -3217,6 +3230,8 @@ let typeMap: {[index: string]: any} = {
     "ErrorDetail": ErrorDetail,
     "EventDateRange": EventDateRange,
     "ExDividendConfiguration": ExDividendConfiguration,
+    "ExchangeOfferEvent": ExchangeOfferEvent,
+    "ExchangeOfferEventAllOf": ExchangeOfferEventAllOf,
     "ExchangeTradedOption": ExchangeTradedOption,
     "ExchangeTradedOptionAllOf": ExchangeTradedOptionAllOf,
     "ExchangeTradedOptionContractDetails": ExchangeTradedOptionContractDetails,
@@ -3466,6 +3481,7 @@ let typeMap: {[index: string]: any} = {
     "MergerEvent": MergerEvent,
     "MergerEventAllOf": MergerEventAllOf,
     "MetricValue": MetricValue,
+    "MixedLotConstituentsElection": MixedLotConstituentsElection,
     "ModelOptions": ModelOptions,
     "ModelSelection": ModelSelection,
     "MoveOrdersToDifferentBlocksRequest": MoveOrdersToDifferentBlocksRequest,
@@ -3792,6 +3808,7 @@ let typeMap: {[index: string]: any} = {
     "ScripDividendEventAllOf": ScripDividendEventAllOf,
     "ScriptMapReference": ScriptMapReference,
     "SecurityElection": SecurityElection,
+    "SecurityOfferConstituent": SecurityOfferConstituent,
     "SecurityOfferElection": SecurityOfferElection,
     "SequenceDefinition": SequenceDefinition,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
