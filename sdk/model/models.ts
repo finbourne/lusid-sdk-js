@@ -334,6 +334,8 @@ export * from './drawdownEvent';
 export * from './drawdownEventAllOf';
 export * from './drawingEvent';
 export * from './drawingEventAllOf';
+export * from './dutchAuctionEvent';
+export * from './dutchAuctionEventAllOf';
 export * from './earlyCloseOutEvent';
 export * from './earlyCloseOutEventAllOf';
 export * from './earlyRedemptionElection';
@@ -595,6 +597,7 @@ export * from './mappingRule';
 export * from './markToMarketConventions';
 export * from './marketContext';
 export * from './marketContextSuppliers';
+export * from './marketDataFieldConfiguration';
 export * from './marketDataKeyRule';
 export * from './marketDataOptions';
 export * from './marketDataOverrides';
@@ -619,6 +622,10 @@ export * from './membership';
 export * from './membershipAndStatus';
 export * from './mergerEvent';
 export * from './mergerEventAllOf';
+export * from './metadataFieldDefinition';
+export * from './metadataFieldsToAdd';
+export * from './metadataFieldsToRemove';
+export * from './metadataFieldsToUpdate';
 export * from './metricValue';
 export * from './mixedLotConstituentsElection';
 export * from './modelOptions';
@@ -1081,6 +1088,7 @@ export * from './updateDepositAmountEvent';
 export * from './updateDepositAmountEventAllOf';
 export * from './updateDerivedPropertyDefinitionRequest';
 export * from './updateInstrumentIdentifierRequest';
+export * from './updateMarketDataFieldConfigurationRequest';
 export * from './updateOrdersResponse';
 export * from './updatePlacementsResponse';
 export * from './updatePortfolioGroupRequest';
@@ -1514,6 +1522,8 @@ import { DrawdownEvent } from './drawdownEvent';
 import { DrawdownEventAllOf } from './drawdownEventAllOf';
 import { DrawingEvent } from './drawingEvent';
 import { DrawingEventAllOf } from './drawingEventAllOf';
+import { DutchAuctionEvent } from './dutchAuctionEvent';
+import { DutchAuctionEventAllOf } from './dutchAuctionEventAllOf';
 import { EarlyCloseOutEvent } from './earlyCloseOutEvent';
 import { EarlyCloseOutEventAllOf } from './earlyCloseOutEventAllOf';
 import { EarlyRedemptionElection } from './earlyRedemptionElection';
@@ -1775,6 +1785,7 @@ import { MappingRule } from './mappingRule';
 import { MarkToMarketConventions } from './markToMarketConventions';
 import { MarketContext } from './marketContext';
 import { MarketContextSuppliers } from './marketContextSuppliers';
+import { MarketDataFieldConfiguration } from './marketDataFieldConfiguration';
 import { MarketDataKeyRule } from './marketDataKeyRule';
 import { MarketDataOptions } from './marketDataOptions';
 import { MarketDataOverrides } from './marketDataOverrides';
@@ -1799,6 +1810,10 @@ import { Membership } from './membership';
 import { MembershipAndStatus } from './membershipAndStatus';
 import { MergerEvent } from './mergerEvent';
 import { MergerEventAllOf } from './mergerEventAllOf';
+import { MetadataFieldDefinition } from './metadataFieldDefinition';
+import { MetadataFieldsToAdd } from './metadataFieldsToAdd';
+import { MetadataFieldsToRemove } from './metadataFieldsToRemove';
+import { MetadataFieldsToUpdate } from './metadataFieldsToUpdate';
 import { MetricValue } from './metricValue';
 import { MixedLotConstituentsElection } from './mixedLotConstituentsElection';
 import { ModelOptions } from './modelOptions';
@@ -2261,6 +2276,7 @@ import { UpdateDepositAmountEvent } from './updateDepositAmountEvent';
 import { UpdateDepositAmountEventAllOf } from './updateDepositAmountEventAllOf';
 import { UpdateDerivedPropertyDefinitionRequest } from './updateDerivedPropertyDefinitionRequest';
 import { UpdateInstrumentIdentifierRequest } from './updateInstrumentIdentifierRequest';
+import { UpdateMarketDataFieldConfigurationRequest } from './updateMarketDataFieldConfigurationRequest';
 import { UpdateOrdersResponse } from './updateOrdersResponse';
 import { UpdatePlacementsResponse } from './updatePlacementsResponse';
 import { UpdatePortfolioGroupRequest } from './updatePortfolioGroupRequest';
@@ -2511,6 +2527,8 @@ let enumsMap: {[index: string]: any} = {
         "DrawdownEventAllOf.InstrumentEventTypeEnum": DrawdownEventAllOf.InstrumentEventTypeEnum,
         "DrawingEvent.InstrumentEventTypeEnum": DrawingEvent.InstrumentEventTypeEnum,
         "DrawingEventAllOf.InstrumentEventTypeEnum": DrawingEventAllOf.InstrumentEventTypeEnum,
+        "DutchAuctionEvent.InstrumentEventTypeEnum": DutchAuctionEvent.InstrumentEventTypeEnum,
+        "DutchAuctionEventAllOf.InstrumentEventTypeEnum": DutchAuctionEventAllOf.InstrumentEventTypeEnum,
         "EarlyCloseOutEvent.InstrumentEventTypeEnum": EarlyCloseOutEvent.InstrumentEventTypeEnum,
         "EarlyCloseOutEventAllOf.InstrumentEventTypeEnum": EarlyCloseOutEventAllOf.InstrumentEventTypeEnum,
         "EarlyRedemptionEvent.InstrumentEventTypeEnum": EarlyRedemptionEvent.InstrumentEventTypeEnum,
@@ -3195,6 +3213,8 @@ let typeMap: {[index: string]: any} = {
     "DrawdownEventAllOf": DrawdownEventAllOf,
     "DrawingEvent": DrawingEvent,
     "DrawingEventAllOf": DrawingEventAllOf,
+    "DutchAuctionEvent": DutchAuctionEvent,
+    "DutchAuctionEventAllOf": DutchAuctionEventAllOf,
     "EarlyCloseOutEvent": EarlyCloseOutEvent,
     "EarlyCloseOutEventAllOf": EarlyCloseOutEventAllOf,
     "EarlyRedemptionElection": EarlyRedemptionElection,
@@ -3456,6 +3476,7 @@ let typeMap: {[index: string]: any} = {
     "MarkToMarketConventions": MarkToMarketConventions,
     "MarketContext": MarketContext,
     "MarketContextSuppliers": MarketContextSuppliers,
+    "MarketDataFieldConfiguration": MarketDataFieldConfiguration,
     "MarketDataKeyRule": MarketDataKeyRule,
     "MarketDataOptions": MarketDataOptions,
     "MarketDataOverrides": MarketDataOverrides,
@@ -3480,6 +3501,10 @@ let typeMap: {[index: string]: any} = {
     "MembershipAndStatus": MembershipAndStatus,
     "MergerEvent": MergerEvent,
     "MergerEventAllOf": MergerEventAllOf,
+    "MetadataFieldDefinition": MetadataFieldDefinition,
+    "MetadataFieldsToAdd": MetadataFieldsToAdd,
+    "MetadataFieldsToRemove": MetadataFieldsToRemove,
+    "MetadataFieldsToUpdate": MetadataFieldsToUpdate,
     "MetricValue": MetricValue,
     "MixedLotConstituentsElection": MixedLotConstituentsElection,
     "ModelOptions": ModelOptions,
@@ -3942,6 +3967,7 @@ let typeMap: {[index: string]: any} = {
     "UpdateDepositAmountEventAllOf": UpdateDepositAmountEventAllOf,
     "UpdateDerivedPropertyDefinitionRequest": UpdateDerivedPropertyDefinitionRequest,
     "UpdateInstrumentIdentifierRequest": UpdateInstrumentIdentifierRequest,
+    "UpdateMarketDataFieldConfigurationRequest": UpdateMarketDataFieldConfigurationRequest,
     "UpdateOrdersResponse": UpdateOrdersResponse,
     "UpdatePlacementsResponse": UpdatePlacementsResponse,
     "UpdatePortfolioGroupRequest": UpdatePortfolioGroupRequest,

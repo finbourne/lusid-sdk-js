@@ -23,6 +23,7 @@ import {InstrumentsApi} from './api/instrumentsApi';
 import {InvestmentAccountsApi} from './api/investmentAccountsApi';
 import {InvestorRecordsApi} from './api/investorRecordsApi';
 import {LegalEntitiesApi} from './api/legalEntitiesApi';
+import {MarketDataFieldConfigurationApi} from './api/marketDataFieldConfigurationApi';
 import {OrderGraphApi} from './api/orderGraphApi';
 import {OrderInstructionsApi} from './api/orderInstructionsApi';
 import {OrderManagementApi} from './api/orderManagementApi';
@@ -83,6 +84,7 @@ export class Api {
     public investmentAccounts:  InvestmentAccountsApi
     public investorRecords:  InvestorRecordsApi
     public legalEntities:  LegalEntitiesApi
+    public marketDataFieldConfiguration:  MarketDataFieldConfigurationApi
     public orderGraph:  OrderGraphApi
     public orderInstructions:  OrderInstructionsApi
     public orderManagement:  OrderManagementApi
