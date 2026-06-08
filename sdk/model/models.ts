@@ -1171,6 +1171,8 @@ export * from './weekendMask';
 export * from './weightedInstrument';
 export * from './weightedInstrumentInLineLookupIdentifiers';
 export * from './weightedInstruments';
+export * from './worthlessEvent';
+export * from './worthlessEventAllOf';
 export * from './yearMonthDay';
 export * from './yieldCurveData';
 export * from './yieldCurveDataAllOf';
@@ -2359,6 +2361,8 @@ import { WeekendMask } from './weekendMask';
 import { WeightedInstrument } from './weightedInstrument';
 import { WeightedInstrumentInLineLookupIdentifiers } from './weightedInstrumentInLineLookupIdentifiers';
 import { WeightedInstruments } from './weightedInstruments';
+import { WorthlessEvent } from './worthlessEvent';
+import { WorthlessEventAllOf } from './worthlessEventAllOf';
 import { YearMonthDay } from './yearMonthDay';
 import { YieldCurveData } from './yieldCurveData';
 import { YieldCurveDataAllOf } from './yieldCurveDataAllOf';
@@ -2875,6 +2879,8 @@ let enumsMap: {[index: string]: any} = {
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
         "ValueType": ValueType,
         "VendorModelRule.SupplierEnum": VendorModelRule.SupplierEnum,
+        "WorthlessEvent.InstrumentEventTypeEnum": WorthlessEvent.InstrumentEventTypeEnum,
+        "WorthlessEventAllOf.InstrumentEventTypeEnum": WorthlessEventAllOf.InstrumentEventTypeEnum,
         "YieldCurveData.MarketDataTypeEnum": YieldCurveData.MarketDataTypeEnum,
         "YieldCurveDataAllOf.MarketDataTypeEnum": YieldCurveDataAllOf.MarketDataTypeEnum,
 }
@@ -4049,6 +4055,8 @@ let typeMap: {[index: string]: any} = {
     "WeightedInstrument": WeightedInstrument,
     "WeightedInstrumentInLineLookupIdentifiers": WeightedInstrumentInLineLookupIdentifiers,
     "WeightedInstruments": WeightedInstruments,
+    "WorthlessEvent": WorthlessEvent,
+    "WorthlessEventAllOf": WorthlessEventAllOf,
     "YearMonthDay": YearMonthDay,
     "YieldCurveData": YieldCurveData,
     "YieldCurveDataAllOf": YieldCurveDataAllOf,
