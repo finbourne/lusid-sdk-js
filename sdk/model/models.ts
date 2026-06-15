@@ -581,6 +581,8 @@ export * from './loanFacility';
 export * from './loanFacilityAllOf';
 export * from './loanFacilityContractRolloverEvent';
 export * from './loanFacilityContractRolloverEventAllOf';
+export * from './loanFacilityDelayedCompensationPaymentEvent';
+export * from './loanFacilityDelayedCompensationPaymentEventAllOf';
 export * from './loanInterestRepaymentEvent';
 export * from './loanInterestRepaymentEventAllOf';
 export * from './loanPeriod';
@@ -789,6 +791,8 @@ export * from './propertyReferenceDataValue';
 export * from './propertySchema';
 export * from './propertyValue';
 export * from './protectionPayoutCashFlowEvent';
+export * from './putRedemptionEvent';
+export * from './putRedemptionEventAllOf';
 export * from './quantityInstructed';
 export * from './queryApplicableInstrumentEventsRequest';
 export * from './queryBucketedCashFlowsRequest';
@@ -915,6 +919,7 @@ export * from './resourceListOfTransaction';
 export * from './resourceListOfTransactionSettlementInstruction';
 export * from './resourceListOfTransactionType';
 export * from './resourceListOfValueType';
+export * from './resourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery';
 export * from './resourceRecord';
 export * from './responseMetaData';
 export * from './resultDataKeyRule';
@@ -961,6 +966,8 @@ export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
 export * from './setPersonIdentifiersRequest';
 export * from './setPersonPropertiesRequest';
+export * from './settlementActivity';
+export * from './settlementActivityQuery';
 export * from './settlementConfigurationCategory';
 export * from './settlementConfigurationMethodOverride';
 export * from './settlementCycle';
@@ -1771,6 +1778,8 @@ import { LoanFacility } from './loanFacility';
 import { LoanFacilityAllOf } from './loanFacilityAllOf';
 import { LoanFacilityContractRolloverEvent } from './loanFacilityContractRolloverEvent';
 import { LoanFacilityContractRolloverEventAllOf } from './loanFacilityContractRolloverEventAllOf';
+import { LoanFacilityDelayedCompensationPaymentEvent } from './loanFacilityDelayedCompensationPaymentEvent';
+import { LoanFacilityDelayedCompensationPaymentEventAllOf } from './loanFacilityDelayedCompensationPaymentEventAllOf';
 import { LoanInterestRepaymentEvent } from './loanInterestRepaymentEvent';
 import { LoanInterestRepaymentEventAllOf } from './loanInterestRepaymentEventAllOf';
 import { LoanPeriod } from './loanPeriod';
@@ -1979,6 +1988,8 @@ import { PropertyReferenceDataValue } from './propertyReferenceDataValue';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
 import { ProtectionPayoutCashFlowEvent } from './protectionPayoutCashFlowEvent';
+import { PutRedemptionEvent } from './putRedemptionEvent';
+import { PutRedemptionEventAllOf } from './putRedemptionEventAllOf';
 import { QuantityInstructed } from './quantityInstructed';
 import { QueryApplicableInstrumentEventsRequest } from './queryApplicableInstrumentEventsRequest';
 import { QueryBucketedCashFlowsRequest } from './queryBucketedCashFlowsRequest';
@@ -2105,6 +2116,7 @@ import { ResourceListOfTransaction } from './resourceListOfTransaction';
 import { ResourceListOfTransactionSettlementInstruction } from './resourceListOfTransactionSettlementInstruction';
 import { ResourceListOfTransactionType } from './resourceListOfTransactionType';
 import { ResourceListOfValueType } from './resourceListOfValueType';
+import { ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery } from './resourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery';
 import { ResourceRecord } from './resourceRecord';
 import { ResponseMetaData } from './responseMetaData';
 import { ResultDataKeyRule } from './resultDataKeyRule';
@@ -2151,6 +2163,8 @@ import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersReq
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
 import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
 import { SetPersonPropertiesRequest } from './setPersonPropertiesRequest';
+import { SettlementActivity } from './settlementActivity';
+import { SettlementActivityQuery } from './settlementActivityQuery';
 import { SettlementConfigurationCategory } from './settlementConfigurationCategory';
 import { SettlementConfigurationMethodOverride } from './settlementConfigurationMethodOverride';
 import { SettlementCycle } from './settlementCycle';
@@ -2695,6 +2709,8 @@ let enumsMap: {[index: string]: any} = {
         "LoanFacilityAllOf.InstrumentTypeEnum": LoanFacilityAllOf.InstrumentTypeEnum,
         "LoanFacilityContractRolloverEvent.InstrumentEventTypeEnum": LoanFacilityContractRolloverEvent.InstrumentEventTypeEnum,
         "LoanFacilityContractRolloverEventAllOf.InstrumentEventTypeEnum": LoanFacilityContractRolloverEventAllOf.InstrumentEventTypeEnum,
+        "LoanFacilityDelayedCompensationPaymentEvent.InstrumentEventTypeEnum": LoanFacilityDelayedCompensationPaymentEvent.InstrumentEventTypeEnum,
+        "LoanFacilityDelayedCompensationPaymentEventAllOf.InstrumentEventTypeEnum": LoanFacilityDelayedCompensationPaymentEventAllOf.InstrumentEventTypeEnum,
         "LoanInterestRepaymentEvent.InstrumentEventTypeEnum": LoanInterestRepaymentEvent.InstrumentEventTypeEnum,
         "LoanInterestRepaymentEventAllOf.InstrumentEventTypeEnum": LoanInterestRepaymentEventAllOf.InstrumentEventTypeEnum,
         "LoanPrincipalRepaymentEvent.InstrumentEventTypeEnum": LoanPrincipalRepaymentEvent.InstrumentEventTypeEnum,
@@ -2775,6 +2791,8 @@ let enumsMap: {[index: string]: any} = {
         "PropertyListAllOf.ReferenceListTypeEnum": PropertyListAllOf.ReferenceListTypeEnum,
         "PropertyListComplianceParameter.ComplianceParameterTypeEnum": PropertyListComplianceParameter.ComplianceParameterTypeEnum,
         "ProtectionPayoutCashFlowEvent.InstrumentEventTypeEnum": ProtectionPayoutCashFlowEvent.InstrumentEventTypeEnum,
+        "PutRedemptionEvent.InstrumentEventTypeEnum": PutRedemptionEvent.InstrumentEventTypeEnum,
+        "PutRedemptionEventAllOf.InstrumentEventTypeEnum": PutRedemptionEventAllOf.InstrumentEventTypeEnum,
         "QuoteDependency.DependencyTypeEnum": QuoteDependency.DependencyTypeEnum,
         "QuoteDependencyAllOf.DependencyTypeEnum": QuoteDependencyAllOf.DependencyTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
@@ -3466,6 +3484,8 @@ let typeMap: {[index: string]: any} = {
     "LoanFacilityAllOf": LoanFacilityAllOf,
     "LoanFacilityContractRolloverEvent": LoanFacilityContractRolloverEvent,
     "LoanFacilityContractRolloverEventAllOf": LoanFacilityContractRolloverEventAllOf,
+    "LoanFacilityDelayedCompensationPaymentEvent": LoanFacilityDelayedCompensationPaymentEvent,
+    "LoanFacilityDelayedCompensationPaymentEventAllOf": LoanFacilityDelayedCompensationPaymentEventAllOf,
     "LoanInterestRepaymentEvent": LoanInterestRepaymentEvent,
     "LoanInterestRepaymentEventAllOf": LoanInterestRepaymentEventAllOf,
     "LoanPeriod": LoanPeriod,
@@ -3674,6 +3694,8 @@ let typeMap: {[index: string]: any} = {
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
     "ProtectionPayoutCashFlowEvent": ProtectionPayoutCashFlowEvent,
+    "PutRedemptionEvent": PutRedemptionEvent,
+    "PutRedemptionEventAllOf": PutRedemptionEventAllOf,
     "QuantityInstructed": QuantityInstructed,
     "QueryApplicableInstrumentEventsRequest": QueryApplicableInstrumentEventsRequest,
     "QueryBucketedCashFlowsRequest": QueryBucketedCashFlowsRequest,
@@ -3800,6 +3822,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfTransactionSettlementInstruction": ResourceListOfTransactionSettlementInstruction,
     "ResourceListOfTransactionType": ResourceListOfTransactionType,
     "ResourceListOfValueType": ResourceListOfValueType,
+    "ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery": ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery,
     "ResourceRecord": ResourceRecord,
     "ResponseMetaData": ResponseMetaData,
     "ResultDataKeyRule": ResultDataKeyRule,
@@ -3846,6 +3869,8 @@ let typeMap: {[index: string]: any} = {
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
     "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
     "SetPersonPropertiesRequest": SetPersonPropertiesRequest,
+    "SettlementActivity": SettlementActivity,
+    "SettlementActivityQuery": SettlementActivityQuery,
     "SettlementConfigurationCategory": SettlementConfigurationCategory,
     "SettlementConfigurationMethodOverride": SettlementConfigurationMethodOverride,
     "SettlementCycle": SettlementCycle,

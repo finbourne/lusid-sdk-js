@@ -49,6 +49,7 @@ import {ScopesApi} from './api/scopesApi';
 import {ScriptedTranslationApi} from './api/scriptedTranslationApi';
 import {SearchApi} from './api/searchApi';
 import {SequencesApi} from './api/sequencesApi';
+import {SettlementActivityApi} from './api/settlementActivityApi';
 import {SimplePositionPortfoliosApi} from './api/simplePositionPortfoliosApi';
 import {StagedModificationsApi} from './api/stagedModificationsApi';
 import {StagingRuleSetApi} from './api/stagingRuleSetApi';
@@ -110,6 +111,7 @@ export class Api {
     public scriptedTranslation:  ScriptedTranslationApi
     public search:  SearchApi
     public sequences:  SequencesApi
+    public settlementActivity:  SettlementActivityApi
     public simplePositionPortfolios:  SimplePositionPortfoliosApi
     public stagedModifications:  StagedModificationsApi
     public stagingRuleSet:  StagingRuleSetApi
