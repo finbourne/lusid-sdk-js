@@ -776,6 +776,8 @@ export * from './preTradeConfiguration';
 export * from './premium';
 export * from './pricingContext';
 export * from './pricingOptions';
+export * from './priorityIssueEvent';
+export * from './priorityIssueEventAllOf';
 export * from './processedCommand';
 export * from './property';
 export * from './propertyDefinition';
@@ -1975,6 +1977,8 @@ import { PreTradeConfiguration } from './preTradeConfiguration';
 import { Premium } from './premium';
 import { PricingContext } from './pricingContext';
 import { PricingOptions } from './pricingOptions';
+import { PriorityIssueEvent } from './priorityIssueEvent';
+import { PriorityIssueEventAllOf } from './priorityIssueEventAllOf';
 import { ProcessedCommand } from './processedCommand';
 import { Property } from './property';
 import { PropertyDefinition } from './propertyDefinition';
@@ -2776,6 +2780,8 @@ let enumsMap: {[index: string]: any} = {
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
         "PortfolioWithoutHref.TypeEnum": PortfolioWithoutHref.TypeEnum,
         "PortfolioWithoutHref.AccountingMethodEnum": PortfolioWithoutHref.AccountingMethodEnum,
+        "PriorityIssueEvent.InstrumentEventTypeEnum": PriorityIssueEvent.InstrumentEventTypeEnum,
+        "PriorityIssueEventAllOf.InstrumentEventTypeEnum": PriorityIssueEventAllOf.InstrumentEventTypeEnum,
         "PropertyDefinition.ValueTypeEnum": PropertyDefinition.ValueTypeEnum,
         "PropertyDefinition.TypeEnum": PropertyDefinition.TypeEnum,
         "PropertyDefinition.UnitSchemaEnum": PropertyDefinition.UnitSchemaEnum,
@@ -3685,6 +3691,8 @@ let typeMap: {[index: string]: any} = {
     "Premium": Premium,
     "PricingContext": PricingContext,
     "PricingOptions": PricingOptions,
+    "PriorityIssueEvent": PriorityIssueEvent,
+    "PriorityIssueEventAllOf": PriorityIssueEventAllOf,
     "ProcessedCommand": ProcessedCommand,
     "Property": Property,
     "PropertyDefinition": PropertyDefinition,
