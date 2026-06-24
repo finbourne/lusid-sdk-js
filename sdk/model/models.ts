@@ -172,6 +172,8 @@ export * from './changeItem';
 export * from './checkStep';
 export * from './checkStepAllOf';
 export * from './checkStepRequest';
+export * from './classActionEvent';
+export * from './classActionEventAllOf';
 export * from './closeEvent';
 export * from './closeEventAllOf';
 export * from './collateral';
@@ -1373,6 +1375,8 @@ import { ChangeItem } from './changeItem';
 import { CheckStep } from './checkStep';
 import { CheckStepAllOf } from './checkStepAllOf';
 import { CheckStepRequest } from './checkStepRequest';
+import { ClassActionEvent } from './classActionEvent';
+import { ClassActionEventAllOf } from './classActionEventAllOf';
 import { CloseEvent } from './closeEvent';
 import { CloseEventAllOf } from './closeEventAllOf';
 import { Collateral } from './collateral';
@@ -2487,6 +2491,8 @@ let enumsMap: {[index: string]: any} = {
         "CheckStep.ComplianceStepTypeEnum": CheckStep.ComplianceStepTypeEnum,
         "CheckStepAllOf.ComplianceStepTypeEnum": CheckStepAllOf.ComplianceStepTypeEnum,
         "CheckStepRequest.ComplianceStepTypeRequestEnum": CheckStepRequest.ComplianceStepTypeRequestEnum,
+        "ClassActionEvent.InstrumentEventTypeEnum": ClassActionEvent.InstrumentEventTypeEnum,
+        "ClassActionEventAllOf.InstrumentEventTypeEnum": ClassActionEventAllOf.InstrumentEventTypeEnum,
         "CloseEvent.InstrumentEventTypeEnum": CloseEvent.InstrumentEventTypeEnum,
         "CloseEventAllOf.InstrumentEventTypeEnum": CloseEventAllOf.InstrumentEventTypeEnum,
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
@@ -3088,6 +3094,8 @@ let typeMap: {[index: string]: any} = {
     "CheckStep": CheckStep,
     "CheckStepAllOf": CheckStepAllOf,
     "CheckStepRequest": CheckStepRequest,
+    "ClassActionEvent": ClassActionEvent,
+    "ClassActionEventAllOf": ClassActionEventAllOf,
     "CloseEvent": CloseEvent,
     "CloseEventAllOf": CloseEventAllOf,
     "Collateral": Collateral,
