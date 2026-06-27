@@ -63,6 +63,8 @@ export * from './applicableEntity';
 export * from './applicableEntityTypes';
 export * from './applicableInstrumentEvent';
 export * from './assetLeg';
+export * from './bankruptcyEvent';
+export * from './bankruptcyEventAllOf';
 export * from './barrier';
 export * from './basket';
 export * from './basketAllOf';
@@ -578,6 +580,8 @@ export * from './lifeCycleEventValue';
 export * from './lifeCycleEventValueAllOf';
 export * from './lineageMember';
 export * from './link';
+export * from './liquidationPaymentEvent';
+export * from './liquidationPaymentEventAllOf';
 export * from './listAggregationReconciliation';
 export * from './listAggregationResponse';
 export * from './listComplexMarketDataWithMetaDataResponse';
@@ -1049,6 +1053,7 @@ export * from './transactionConfigurationMovementDataRequest';
 export * from './transactionConfigurationTypeAlias';
 export * from './transactionCurrencyAndAmount';
 export * from './transactionDiagnostics';
+export * from './transactionEntity';
 export * from './transactionFeeCapitalisation';
 export * from './transactionFieldMap';
 export * from './transactionMatchingAlternativeId';
@@ -1266,6 +1271,8 @@ import { ApplicableEntity } from './applicableEntity';
 import { ApplicableEntityTypes } from './applicableEntityTypes';
 import { ApplicableInstrumentEvent } from './applicableInstrumentEvent';
 import { AssetLeg } from './assetLeg';
+import { BankruptcyEvent } from './bankruptcyEvent';
+import { BankruptcyEventAllOf } from './bankruptcyEventAllOf';
 import { Barrier } from './barrier';
 import { Basket } from './basket';
 import { BasketAllOf } from './basketAllOf';
@@ -1781,6 +1788,8 @@ import { LifeCycleEventValue } from './lifeCycleEventValue';
 import { LifeCycleEventValueAllOf } from './lifeCycleEventValueAllOf';
 import { LineageMember } from './lineageMember';
 import { Link } from './link';
+import { LiquidationPaymentEvent } from './liquidationPaymentEvent';
+import { LiquidationPaymentEventAllOf } from './liquidationPaymentEventAllOf';
 import { ListAggregationReconciliation } from './listAggregationReconciliation';
 import { ListAggregationResponse } from './listAggregationResponse';
 import { ListComplexMarketDataWithMetaDataResponse } from './listComplexMarketDataWithMetaDataResponse';
@@ -2252,6 +2261,7 @@ import { TransactionConfigurationMovementDataRequest } from './transactionConfig
 import { TransactionConfigurationTypeAlias } from './transactionConfigurationTypeAlias';
 import { TransactionCurrencyAndAmount } from './transactionCurrencyAndAmount';
 import { TransactionDiagnostics } from './transactionDiagnostics';
+import { TransactionEntity } from './transactionEntity';
 import { TransactionFeeCapitalisation } from './transactionFeeCapitalisation';
 import { TransactionFieldMap } from './transactionFieldMap';
 import { TransactionMatchingAlternativeId } from './transactionMatchingAlternativeId';
@@ -2434,6 +2444,8 @@ let enumsMap: {[index: string]: any} = {
         "AppendFxForwardTenorPipsCurveData.MarketDataTypeEnum": AppendFxForwardTenorPipsCurveData.MarketDataTypeEnum,
         "AppendFxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum": AppendFxForwardTenorPipsCurveDataAllOf.MarketDataTypeEnum,
         "AppendMarketData.MarketDataTypeEnum": AppendMarketData.MarketDataTypeEnum,
+        "BankruptcyEvent.InstrumentEventTypeEnum": BankruptcyEvent.InstrumentEventTypeEnum,
+        "BankruptcyEventAllOf.InstrumentEventTypeEnum": BankruptcyEventAllOf.InstrumentEventTypeEnum,
         "Basket.InstrumentTypeEnum": Basket.InstrumentTypeEnum,
         "BasketAllOf.InstrumentTypeEnum": BasketAllOf.InstrumentTypeEnum,
         "Bond.InstrumentTypeEnum": Bond.InstrumentTypeEnum,
@@ -2721,6 +2733,8 @@ let enumsMap: {[index: string]: any} = {
         "IrVolDependencyAllOf.DependencyTypeEnum": IrVolDependencyAllOf.DependencyTypeEnum,
         "LifeCycleEventValue.ResultValueTypeEnum": LifeCycleEventValue.ResultValueTypeEnum,
         "LifeCycleEventValueAllOf.ResultValueTypeEnum": LifeCycleEventValueAllOf.ResultValueTypeEnum,
+        "LiquidationPaymentEvent.InstrumentEventTypeEnum": LiquidationPaymentEvent.InstrumentEventTypeEnum,
+        "LiquidationPaymentEventAllOf.InstrumentEventTypeEnum": LiquidationPaymentEventAllOf.InstrumentEventTypeEnum,
         "LoanFacility.InstrumentTypeEnum": LoanFacility.InstrumentTypeEnum,
         "LoanFacilityAllOf.InstrumentTypeEnum": LoanFacilityAllOf.InstrumentTypeEnum,
         "LoanFacilityContractRolloverEvent.InstrumentEventTypeEnum": LoanFacilityContractRolloverEvent.InstrumentEventTypeEnum,
@@ -2985,6 +2999,8 @@ let typeMap: {[index: string]: any} = {
     "ApplicableEntityTypes": ApplicableEntityTypes,
     "ApplicableInstrumentEvent": ApplicableInstrumentEvent,
     "AssetLeg": AssetLeg,
+    "BankruptcyEvent": BankruptcyEvent,
+    "BankruptcyEventAllOf": BankruptcyEventAllOf,
     "Barrier": Barrier,
     "Basket": Basket,
     "BasketAllOf": BasketAllOf,
@@ -3499,6 +3515,8 @@ let typeMap: {[index: string]: any} = {
     "LifeCycleEventValueAllOf": LifeCycleEventValueAllOf,
     "LineageMember": LineageMember,
     "Link": Link,
+    "LiquidationPaymentEvent": LiquidationPaymentEvent,
+    "LiquidationPaymentEventAllOf": LiquidationPaymentEventAllOf,
     "ListAggregationReconciliation": ListAggregationReconciliation,
     "ListAggregationResponse": ListAggregationResponse,
     "ListComplexMarketDataWithMetaDataResponse": ListComplexMarketDataWithMetaDataResponse,
@@ -3970,6 +3988,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionConfigurationTypeAlias": TransactionConfigurationTypeAlias,
     "TransactionCurrencyAndAmount": TransactionCurrencyAndAmount,
     "TransactionDiagnostics": TransactionDiagnostics,
+    "TransactionEntity": TransactionEntity,
     "TransactionFeeCapitalisation": TransactionFeeCapitalisation,
     "TransactionFieldMap": TransactionFieldMap,
     "TransactionMatchingAlternativeId": TransactionMatchingAlternativeId,
