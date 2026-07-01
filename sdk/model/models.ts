@@ -296,6 +296,7 @@ export * from './dataType';
 export * from './dataTypeEntity';
 export * from './dataTypeSummary';
 export * from './dateAttributes';
+export * from './dateOrDiaryEntry';
 export * from './dateRange';
 export * from './dateTimeComplianceParameter';
 export * from './dateTimeComplianceParameterAllOf';
@@ -327,6 +328,7 @@ export * from './describedAddressKey';
 export * from './dialect';
 export * from './dialectId';
 export * from './dialectSchema';
+export * from './diaryEntry';
 export * from './discountFactorCurveData';
 export * from './discountFactorCurveDataAllOf';
 export * from './discountingDependency';
@@ -429,6 +431,7 @@ export * from './flowConventions';
 export * from './forwardRateAgreement';
 export * from './forwardRateAgreementAllOf';
 export * from './fromRecipe';
+export * from './fundCashStatementRow';
 export * from './fundIdList';
 export * from './fundIdListAllOf';
 export * from './fundShareClass';
@@ -738,6 +741,8 @@ export * from './pagedResourceListOfTransactionTemplateSpecification';
 export * from './pagedResourceListOfTranslationScriptId';
 export * from './pagedResourceListOfVirtualRow';
 export * from './partialClosureConstituent';
+export * from './partialDefeasanceEvent';
+export * from './partialDefeasanceEventAllOf';
 export * from './participation';
 export * from './participationRequest';
 export * from './participationSetRequest';
@@ -807,6 +812,7 @@ export * from './quantityInstructed';
 export * from './queryApplicableInstrumentEventsRequest';
 export * from './queryBucketedCashFlowsRequest';
 export * from './queryCashFlowsRequest';
+export * from './queryFundCashStatementParameters';
 export * from './queryInstrumentEventsRequest';
 export * from './queryRelationalDatasetRequest';
 export * from './queryTradeTicketsRequest';
@@ -868,6 +874,8 @@ export * from './repurchaseOfferEventAllOf';
 export * from './requestedChanges';
 export * from './resetEvent';
 export * from './resetEventAllOf';
+export * from './resolveTenorsRequest';
+export * from './resolveTenorsResponse';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfAccessMetadataValueOf';
@@ -1165,6 +1173,7 @@ export * from './upsertStructuredResultDataRequest';
 export * from './upsertTransactionPropertiesResponse';
 export * from './upsertTranslationScriptRequest';
 export * from './user';
+export * from './valuationPointResourceListOfFundCashStatementRow';
 export * from './valuationRequest';
 export * from './valuationSchedule';
 export * from './valuationsReconciliationRequest';
@@ -1504,6 +1513,7 @@ import { DataType } from './dataType';
 import { DataTypeEntity } from './dataTypeEntity';
 import { DataTypeSummary } from './dataTypeSummary';
 import { DateAttributes } from './dateAttributes';
+import { DateOrDiaryEntry } from './dateOrDiaryEntry';
 import { DateRange } from './dateRange';
 import { DateTimeComplianceParameter } from './dateTimeComplianceParameter';
 import { DateTimeComplianceParameterAllOf } from './dateTimeComplianceParameterAllOf';
@@ -1535,6 +1545,7 @@ import { DescribedAddressKey } from './describedAddressKey';
 import { Dialect } from './dialect';
 import { DialectId } from './dialectId';
 import { DialectSchema } from './dialectSchema';
+import { DiaryEntry } from './diaryEntry';
 import { DiscountFactorCurveData } from './discountFactorCurveData';
 import { DiscountFactorCurveDataAllOf } from './discountFactorCurveDataAllOf';
 import { DiscountingDependency } from './discountingDependency';
@@ -1637,6 +1648,7 @@ import { FlowConventions } from './flowConventions';
 import { ForwardRateAgreement } from './forwardRateAgreement';
 import { ForwardRateAgreementAllOf } from './forwardRateAgreementAllOf';
 import { FromRecipe } from './fromRecipe';
+import { FundCashStatementRow } from './fundCashStatementRow';
 import { FundIdList } from './fundIdList';
 import { FundIdListAllOf } from './fundIdListAllOf';
 import { FundShareClass } from './fundShareClass';
@@ -1946,6 +1958,8 @@ import { PagedResourceListOfTransactionTemplateSpecification } from './pagedReso
 import { PagedResourceListOfTranslationScriptId } from './pagedResourceListOfTranslationScriptId';
 import { PagedResourceListOfVirtualRow } from './pagedResourceListOfVirtualRow';
 import { PartialClosureConstituent } from './partialClosureConstituent';
+import { PartialDefeasanceEvent } from './partialDefeasanceEvent';
+import { PartialDefeasanceEventAllOf } from './partialDefeasanceEventAllOf';
 import { Participation } from './participation';
 import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
@@ -2015,6 +2029,7 @@ import { QuantityInstructed } from './quantityInstructed';
 import { QueryApplicableInstrumentEventsRequest } from './queryApplicableInstrumentEventsRequest';
 import { QueryBucketedCashFlowsRequest } from './queryBucketedCashFlowsRequest';
 import { QueryCashFlowsRequest } from './queryCashFlowsRequest';
+import { QueryFundCashStatementParameters } from './queryFundCashStatementParameters';
 import { QueryInstrumentEventsRequest } from './queryInstrumentEventsRequest';
 import { QueryRelationalDatasetRequest } from './queryRelationalDatasetRequest';
 import { QueryTradeTicketsRequest } from './queryTradeTicketsRequest';
@@ -2076,6 +2091,8 @@ import { RepurchaseOfferEventAllOf } from './repurchaseOfferEventAllOf';
 import { RequestedChanges } from './requestedChanges';
 import { ResetEvent } from './resetEvent';
 import { ResetEventAllOf } from './resetEventAllOf';
+import { ResolveTenorsRequest } from './resolveTenorsRequest';
+import { ResolveTenorsResponse } from './resolveTenorsResponse';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetadataValueOf';
@@ -2373,6 +2390,7 @@ import { UpsertStructuredResultDataRequest } from './upsertStructuredResultDataR
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
 import { UpsertTranslationScriptRequest } from './upsertTranslationScriptRequest';
 import { User } from './user';
+import { ValuationPointResourceListOfFundCashStatementRow } from './valuationPointResourceListOfFundCashStatementRow';
 import { ValuationRequest } from './valuationRequest';
 import { ValuationSchedule } from './valuationSchedule';
 import { ValuationsReconciliationRequest } from './valuationsReconciliationRequest';
@@ -2784,6 +2802,8 @@ let enumsMap: {[index: string]: any} = {
         "OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum": OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum,
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
+        "PartialDefeasanceEvent.InstrumentEventTypeEnum": PartialDefeasanceEvent.InstrumentEventTypeEnum,
+        "PartialDefeasanceEventAllOf.InstrumentEventTypeEnum": PartialDefeasanceEventAllOf.InstrumentEventTypeEnum,
         "PercentCheckStep.ComplianceStepTypeEnum": PercentCheckStep.ComplianceStepTypeEnum,
         "PercentCheckStepRequest.ComplianceStepTypeRequestEnum": PercentCheckStepRequest.ComplianceStepTypeRequestEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
@@ -3232,6 +3252,7 @@ let typeMap: {[index: string]: any} = {
     "DataTypeEntity": DataTypeEntity,
     "DataTypeSummary": DataTypeSummary,
     "DateAttributes": DateAttributes,
+    "DateOrDiaryEntry": DateOrDiaryEntry,
     "DateRange": DateRange,
     "DateTimeComplianceParameter": DateTimeComplianceParameter,
     "DateTimeComplianceParameterAllOf": DateTimeComplianceParameterAllOf,
@@ -3262,6 +3283,7 @@ let typeMap: {[index: string]: any} = {
     "Dialect": Dialect,
     "DialectId": DialectId,
     "DialectSchema": DialectSchema,
+    "DiaryEntry": DiaryEntry,
     "DiscountFactorCurveData": DiscountFactorCurveData,
     "DiscountFactorCurveDataAllOf": DiscountFactorCurveDataAllOf,
     "DiscountingDependency": DiscountingDependency,
@@ -3364,6 +3386,7 @@ let typeMap: {[index: string]: any} = {
     "ForwardRateAgreement": ForwardRateAgreement,
     "ForwardRateAgreementAllOf": ForwardRateAgreementAllOf,
     "FromRecipe": FromRecipe,
+    "FundCashStatementRow": FundCashStatementRow,
     "FundIdList": FundIdList,
     "FundIdListAllOf": FundIdListAllOf,
     "FundShareClass": FundShareClass,
@@ -3673,6 +3696,8 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfTranslationScriptId": PagedResourceListOfTranslationScriptId,
     "PagedResourceListOfVirtualRow": PagedResourceListOfVirtualRow,
     "PartialClosureConstituent": PartialClosureConstituent,
+    "PartialDefeasanceEvent": PartialDefeasanceEvent,
+    "PartialDefeasanceEventAllOf": PartialDefeasanceEventAllOf,
     "Participation": Participation,
     "ParticipationRequest": ParticipationRequest,
     "ParticipationSetRequest": ParticipationSetRequest,
@@ -3742,6 +3767,7 @@ let typeMap: {[index: string]: any} = {
     "QueryApplicableInstrumentEventsRequest": QueryApplicableInstrumentEventsRequest,
     "QueryBucketedCashFlowsRequest": QueryBucketedCashFlowsRequest,
     "QueryCashFlowsRequest": QueryCashFlowsRequest,
+    "QueryFundCashStatementParameters": QueryFundCashStatementParameters,
     "QueryInstrumentEventsRequest": QueryInstrumentEventsRequest,
     "QueryRelationalDatasetRequest": QueryRelationalDatasetRequest,
     "QueryTradeTicketsRequest": QueryTradeTicketsRequest,
@@ -3803,6 +3829,8 @@ let typeMap: {[index: string]: any} = {
     "RequestedChanges": RequestedChanges,
     "ResetEvent": ResetEvent,
     "ResetEventAllOf": ResetEventAllOf,
+    "ResolveTenorsRequest": ResolveTenorsRequest,
+    "ResolveTenorsResponse": ResolveTenorsResponse,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfAccessMetadataValueOf": ResourceListOfAccessMetadataValueOf,
@@ -4100,6 +4128,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
     "UpsertTranslationScriptRequest": UpsertTranslationScriptRequest,
     "User": User,
+    "ValuationPointResourceListOfFundCashStatementRow": ValuationPointResourceListOfFundCashStatementRow,
     "ValuationRequest": ValuationRequest,
     "ValuationSchedule": ValuationSchedule,
     "ValuationsReconciliationRequest": ValuationsReconciliationRequest,
