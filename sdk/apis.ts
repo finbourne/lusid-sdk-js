@@ -58,6 +58,7 @@ import {StructuredResultDataApi} from './api/structuredResultDataApi';
 import {SystemConfigurationApi} from './api/systemConfigurationApi';
 import {TransactionConfigurationApi} from './api/transactionConfigurationApi';
 import {TransactionFeesApi} from './api/transactionFeesApi';
+import {TransactionFeeTypesApi} from './api/transactionFeeTypesApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
 
 export class Api {
@@ -121,5 +122,6 @@ export class Api {
     public systemConfiguration:  SystemConfigurationApi
     public transactionConfiguration:  TransactionConfigurationApi
     public transactionFees:  TransactionFeesApi
+    public transactionFeeTypes:  TransactionFeeTypesApi
     public transactionPortfolios:  TransactionPortfoliosApi
 }

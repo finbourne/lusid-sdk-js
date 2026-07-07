@@ -258,6 +258,7 @@ export * from './createSeriesIdentifierField';
 export * from './createSimplePositionPortfolioRequest';
 export * from './createStagingRuleSetRequest';
 export * from './createTradeTicketsResponse';
+export * from './createTransactionFeeTypeRequest';
 export * from './createTransactionPortfolioRequest';
 export * from './createUnitDefinition';
 export * from './creditDefaultSwap';
@@ -273,6 +274,7 @@ export * from './custodianAccount';
 export * from './custodianAccountProperties';
 export * from './custodianAccountRequest';
 export * from './custodianAccountsUpsertResponse';
+export * from './custodianEntry';
 export * from './customEntityDefinition';
 export * from './customEntityDefinitionRequest';
 export * from './customEntityEntity';
@@ -392,6 +394,7 @@ export * from './exoticInstrumentAllOf';
 export * from './expandedGroup';
 export * from './expiryEvent';
 export * from './expiryEventAllOf';
+export * from './feeCalculationRequest';
 export * from './feeRule';
 export * from './feeRuleUpsertRequest';
 export * from './feeRuleUpsertResponse';
@@ -934,6 +937,7 @@ export * from './resourceListOfScopeDefinition';
 export * from './resourceListOfSideDefinition';
 export * from './resourceListOfString';
 export * from './resourceListOfTransaction';
+export * from './resourceListOfTransactionFeeType';
 export * from './resourceListOfTransactionSettlementInstruction';
 export * from './resourceListOfTransactionType';
 export * from './resourceListOfValueType';
@@ -979,6 +983,8 @@ export * from './scriptMapReference';
 export * from './securityElection';
 export * from './securityOfferConstituent';
 export * from './securityOfferElection';
+export * from './securityWriteOffEvent';
+export * from './securityWriteOffEventAllOf';
 export * from './sequenceDefinition';
 export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
@@ -1032,6 +1038,7 @@ export * from './stringList';
 export * from './stringListComplianceParameter';
 export * from './structuredResultData';
 export * from './structuredResultDataId';
+export * from './subscribeElection';
 export * from './swapCashFlowEvent';
 export * from './swapCashFlowEventAllOf';
 export * from './swapPrincipalEvent';
@@ -1063,6 +1070,7 @@ export * from './transactionCurrencyAndAmount';
 export * from './transactionDiagnostics';
 export * from './transactionEntity';
 export * from './transactionFeeCapitalisation';
+export * from './transactionFeeType';
 export * from './transactionFieldMap';
 export * from './transactionMatchingAlternativeId';
 export * from './transactionPrice';
@@ -1127,6 +1135,7 @@ export * from './updateRelationalDatasetFieldSchema';
 export * from './updateRelationshipDefinitionRequest';
 export * from './updateSeriesIdentifierField';
 export * from './updateStagingRuleSetRequest';
+export * from './updateTransactionFeeTypeRequest';
 export * from './updateUnitRequest';
 export * from './upsertComplexMarketDataRequest';
 export * from './upsertComplianceRuleRequest';
@@ -1475,6 +1484,7 @@ import { CreateSeriesIdentifierField } from './createSeriesIdentifierField';
 import { CreateSimplePositionPortfolioRequest } from './createSimplePositionPortfolioRequest';
 import { CreateStagingRuleSetRequest } from './createStagingRuleSetRequest';
 import { CreateTradeTicketsResponse } from './createTradeTicketsResponse';
+import { CreateTransactionFeeTypeRequest } from './createTransactionFeeTypeRequest';
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
 import { CreateUnitDefinition } from './createUnitDefinition';
 import { CreditDefaultSwap } from './creditDefaultSwap';
@@ -1490,6 +1500,7 @@ import { CustodianAccount } from './custodianAccount';
 import { CustodianAccountProperties } from './custodianAccountProperties';
 import { CustodianAccountRequest } from './custodianAccountRequest';
 import { CustodianAccountsUpsertResponse } from './custodianAccountsUpsertResponse';
+import { CustodianEntry } from './custodianEntry';
 import { CustomEntityDefinition } from './customEntityDefinition';
 import { CustomEntityDefinitionRequest } from './customEntityDefinitionRequest';
 import { CustomEntityEntity } from './customEntityEntity';
@@ -1609,6 +1620,7 @@ import { ExoticInstrumentAllOf } from './exoticInstrumentAllOf';
 import { ExpandedGroup } from './expandedGroup';
 import { ExpiryEvent } from './expiryEvent';
 import { ExpiryEventAllOf } from './expiryEventAllOf';
+import { FeeCalculationRequest } from './feeCalculationRequest';
 import { FeeRule } from './feeRule';
 import { FeeRuleUpsertRequest } from './feeRuleUpsertRequest';
 import { FeeRuleUpsertResponse } from './feeRuleUpsertResponse';
@@ -2151,6 +2163,7 @@ import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResourceListOfSideDefinition } from './resourceListOfSideDefinition';
 import { ResourceListOfString } from './resourceListOfString';
 import { ResourceListOfTransaction } from './resourceListOfTransaction';
+import { ResourceListOfTransactionFeeType } from './resourceListOfTransactionFeeType';
 import { ResourceListOfTransactionSettlementInstruction } from './resourceListOfTransactionSettlementInstruction';
 import { ResourceListOfTransactionType } from './resourceListOfTransactionType';
 import { ResourceListOfValueType } from './resourceListOfValueType';
@@ -2196,6 +2209,8 @@ import { ScriptMapReference } from './scriptMapReference';
 import { SecurityElection } from './securityElection';
 import { SecurityOfferConstituent } from './securityOfferConstituent';
 import { SecurityOfferElection } from './securityOfferElection';
+import { SecurityWriteOffEvent } from './securityWriteOffEvent';
+import { SecurityWriteOffEventAllOf } from './securityWriteOffEventAllOf';
 import { SequenceDefinition } from './sequenceDefinition';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
@@ -2249,6 +2264,7 @@ import { StringList } from './stringList';
 import { StringListComplianceParameter } from './stringListComplianceParameter';
 import { StructuredResultData } from './structuredResultData';
 import { StructuredResultDataId } from './structuredResultDataId';
+import { SubscribeElection } from './subscribeElection';
 import { SwapCashFlowEvent } from './swapCashFlowEvent';
 import { SwapCashFlowEventAllOf } from './swapCashFlowEventAllOf';
 import { SwapPrincipalEvent } from './swapPrincipalEvent';
@@ -2280,6 +2296,7 @@ import { TransactionCurrencyAndAmount } from './transactionCurrencyAndAmount';
 import { TransactionDiagnostics } from './transactionDiagnostics';
 import { TransactionEntity } from './transactionEntity';
 import { TransactionFeeCapitalisation } from './transactionFeeCapitalisation';
+import { TransactionFeeType } from './transactionFeeType';
 import { TransactionFieldMap } from './transactionFieldMap';
 import { TransactionMatchingAlternativeId } from './transactionMatchingAlternativeId';
 import { TransactionPrice } from './transactionPrice';
@@ -2344,6 +2361,7 @@ import { UpdateRelationalDatasetFieldSchema } from './updateRelationalDatasetFie
 import { UpdateRelationshipDefinitionRequest } from './updateRelationshipDefinitionRequest';
 import { UpdateSeriesIdentifierField } from './updateSeriesIdentifierField';
 import { UpdateStagingRuleSetRequest } from './updateStagingRuleSetRequest';
+import { UpdateTransactionFeeTypeRequest } from './updateTransactionFeeTypeRequest';
 import { UpdateUnitRequest } from './updateUnitRequest';
 import { UpsertComplexMarketDataRequest } from './upsertComplexMarketDataRequest';
 import { UpsertComplianceRuleRequest } from './upsertComplianceRuleRequest';
@@ -2903,6 +2921,8 @@ let enumsMap: {[index: string]: any} = {
         "Schedule.ScheduleTypeEnum": Schedule.ScheduleTypeEnum,
         "ScripDividendEvent.InstrumentEventTypeEnum": ScripDividendEvent.InstrumentEventTypeEnum,
         "ScripDividendEventAllOf.InstrumentEventTypeEnum": ScripDividendEventAllOf.InstrumentEventTypeEnum,
+        "SecurityWriteOffEvent.InstrumentEventTypeEnum": SecurityWriteOffEvent.InstrumentEventTypeEnum,
+        "SecurityWriteOffEventAllOf.InstrumentEventTypeEnum": SecurityWriteOffEventAllOf.InstrumentEventTypeEnum,
         "SimpleCashFlowLoan.InstrumentTypeEnum": SimpleCashFlowLoan.InstrumentTypeEnum,
         "SimpleCashFlowLoanAllOf.InstrumentTypeEnum": SimpleCashFlowLoanAllOf.InstrumentTypeEnum,
         "SimpleInstrument.AssetClassEnum": SimpleInstrument.AssetClassEnum,
@@ -3214,6 +3234,7 @@ let typeMap: {[index: string]: any} = {
     "CreateSimplePositionPortfolioRequest": CreateSimplePositionPortfolioRequest,
     "CreateStagingRuleSetRequest": CreateStagingRuleSetRequest,
     "CreateTradeTicketsResponse": CreateTradeTicketsResponse,
+    "CreateTransactionFeeTypeRequest": CreateTransactionFeeTypeRequest,
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
     "CreateUnitDefinition": CreateUnitDefinition,
     "CreditDefaultSwap": CreditDefaultSwap,
@@ -3229,6 +3250,7 @@ let typeMap: {[index: string]: any} = {
     "CustodianAccountProperties": CustodianAccountProperties,
     "CustodianAccountRequest": CustodianAccountRequest,
     "CustodianAccountsUpsertResponse": CustodianAccountsUpsertResponse,
+    "CustodianEntry": CustodianEntry,
     "CustomEntityDefinition": CustomEntityDefinition,
     "CustomEntityDefinitionRequest": CustomEntityDefinitionRequest,
     "CustomEntityEntity": CustomEntityEntity,
@@ -3347,6 +3369,7 @@ let typeMap: {[index: string]: any} = {
     "ExpandedGroup": ExpandedGroup,
     "ExpiryEvent": ExpiryEvent,
     "ExpiryEventAllOf": ExpiryEventAllOf,
+    "FeeCalculationRequest": FeeCalculationRequest,
     "FeeRule": FeeRule,
     "FeeRuleUpsertRequest": FeeRuleUpsertRequest,
     "FeeRuleUpsertResponse": FeeRuleUpsertResponse,
@@ -3889,6 +3912,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfSideDefinition": ResourceListOfSideDefinition,
     "ResourceListOfString": ResourceListOfString,
     "ResourceListOfTransaction": ResourceListOfTransaction,
+    "ResourceListOfTransactionFeeType": ResourceListOfTransactionFeeType,
     "ResourceListOfTransactionSettlementInstruction": ResourceListOfTransactionSettlementInstruction,
     "ResourceListOfTransactionType": ResourceListOfTransactionType,
     "ResourceListOfValueType": ResourceListOfValueType,
@@ -3934,6 +3958,8 @@ let typeMap: {[index: string]: any} = {
     "SecurityElection": SecurityElection,
     "SecurityOfferConstituent": SecurityOfferConstituent,
     "SecurityOfferElection": SecurityOfferElection,
+    "SecurityWriteOffEvent": SecurityWriteOffEvent,
+    "SecurityWriteOffEventAllOf": SecurityWriteOffEventAllOf,
     "SequenceDefinition": SequenceDefinition,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
@@ -3987,6 +4013,7 @@ let typeMap: {[index: string]: any} = {
     "StringListComplianceParameter": StringListComplianceParameter,
     "StructuredResultData": StructuredResultData,
     "StructuredResultDataId": StructuredResultDataId,
+    "SubscribeElection": SubscribeElection,
     "SwapCashFlowEvent": SwapCashFlowEvent,
     "SwapCashFlowEventAllOf": SwapCashFlowEventAllOf,
     "SwapPrincipalEvent": SwapPrincipalEvent,
@@ -4018,6 +4045,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionDiagnostics": TransactionDiagnostics,
     "TransactionEntity": TransactionEntity,
     "TransactionFeeCapitalisation": TransactionFeeCapitalisation,
+    "TransactionFeeType": TransactionFeeType,
     "TransactionFieldMap": TransactionFieldMap,
     "TransactionMatchingAlternativeId": TransactionMatchingAlternativeId,
     "TransactionPrice": TransactionPrice,
@@ -4082,6 +4110,7 @@ let typeMap: {[index: string]: any} = {
     "UpdateRelationshipDefinitionRequest": UpdateRelationshipDefinitionRequest,
     "UpdateSeriesIdentifierField": UpdateSeriesIdentifierField,
     "UpdateStagingRuleSetRequest": UpdateStagingRuleSetRequest,
+    "UpdateTransactionFeeTypeRequest": UpdateTransactionFeeTypeRequest,
     "UpdateUnitRequest": UpdateUnitRequest,
     "UpsertComplexMarketDataRequest": UpsertComplexMarketDataRequest,
     "UpsertComplianceRuleRequest": UpsertComplianceRuleRequest,
