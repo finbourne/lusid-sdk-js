@@ -378,6 +378,7 @@ export * from './equityVolSurfaceData';
 export * from './equityVolSurfaceDataAllOf';
 export * from './errorDetail';
 export * from './eventDateRange';
+export * from './eventInheritance';
 export * from './exDividendConfiguration';
 export * from './exchangeOfferEvent';
 export * from './exchangeOfferEventAllOf';
@@ -1203,6 +1204,8 @@ export * from './virtualDocument';
 export * from './virtualDocumentRow';
 export * from './virtualRow';
 export * from './warning';
+export * from './warrantsExerciseEvent';
+export * from './warrantsExerciseEventAllOf';
 export * from './weekendMask';
 export * from './weightedInstrument';
 export * from './weightedInstrumentInLineLookupIdentifiers';
@@ -1604,6 +1607,7 @@ import { EquityVolSurfaceData } from './equityVolSurfaceData';
 import { EquityVolSurfaceDataAllOf } from './equityVolSurfaceDataAllOf';
 import { ErrorDetail } from './errorDetail';
 import { EventDateRange } from './eventDateRange';
+import { EventInheritance } from './eventInheritance';
 import { ExDividendConfiguration } from './exDividendConfiguration';
 import { ExchangeOfferEvent } from './exchangeOfferEvent';
 import { ExchangeOfferEventAllOf } from './exchangeOfferEventAllOf';
@@ -2429,6 +2433,8 @@ import { VirtualDocument } from './virtualDocument';
 import { VirtualDocumentRow } from './virtualDocumentRow';
 import { VirtualRow } from './virtualRow';
 import { Warning } from './warning';
+import { WarrantsExerciseEvent } from './warrantsExerciseEvent';
+import { WarrantsExerciseEventAllOf } from './warrantsExerciseEventAllOf';
 import { WeekendMask } from './weekendMask';
 import { WeightedInstrument } from './weightedInstrument';
 import { WeightedInstrumentInLineLookupIdentifiers } from './weightedInstrumentInLineLookupIdentifiers';
@@ -2969,6 +2975,8 @@ let enumsMap: {[index: string]: any} = {
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
         "ValueType": ValueType,
         "VendorModelRule.SupplierEnum": VendorModelRule.SupplierEnum,
+        "WarrantsExerciseEvent.InstrumentEventTypeEnum": WarrantsExerciseEvent.InstrumentEventTypeEnum,
+        "WarrantsExerciseEventAllOf.InstrumentEventTypeEnum": WarrantsExerciseEventAllOf.InstrumentEventTypeEnum,
         "WorthlessEvent.InstrumentEventTypeEnum": WorthlessEvent.InstrumentEventTypeEnum,
         "WorthlessEventAllOf.InstrumentEventTypeEnum": WorthlessEventAllOf.InstrumentEventTypeEnum,
         "YieldCurveData.MarketDataTypeEnum": YieldCurveData.MarketDataTypeEnum,
@@ -3353,6 +3361,7 @@ let typeMap: {[index: string]: any} = {
     "EquityVolSurfaceDataAllOf": EquityVolSurfaceDataAllOf,
     "ErrorDetail": ErrorDetail,
     "EventDateRange": EventDateRange,
+    "EventInheritance": EventInheritance,
     "ExDividendConfiguration": ExDividendConfiguration,
     "ExchangeOfferEvent": ExchangeOfferEvent,
     "ExchangeOfferEventAllOf": ExchangeOfferEventAllOf,
@@ -4177,6 +4186,8 @@ let typeMap: {[index: string]: any} = {
     "VirtualDocumentRow": VirtualDocumentRow,
     "VirtualRow": VirtualRow,
     "Warning": Warning,
+    "WarrantsExerciseEvent": WarrantsExerciseEvent,
+    "WarrantsExerciseEventAllOf": WarrantsExerciseEventAllOf,
     "WeekendMask": WeekendMask,
     "WeightedInstrument": WeightedInstrument,
     "WeightedInstrumentInLineLookupIdentifiers": WeightedInstrumentInLineLookupIdentifiers,
