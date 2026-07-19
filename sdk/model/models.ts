@@ -490,7 +490,9 @@ export * from './getQuotesResponse';
 export * from './getRecipeComposerResponse';
 export * from './getRecipeResponse';
 export * from './getReferencePortfolioConstituentsResponse';
+export * from './getScenarioResponse';
 export * from './getStructuredResultDataResponse';
+export * from './getSubscriptionResponse';
 export * from './getVirtualDocumentResponse';
 export * from './groupBySelectorComplianceParameter';
 export * from './groupByStep';
@@ -715,6 +717,8 @@ export * from './pagedResourceListOfCutLabelDefinition';
 export * from './pagedResourceListOfDataTypeSummary';
 export * from './pagedResourceListOfDialectId';
 export * from './pagedResourceListOfExecution';
+export * from './pagedResourceListOfGetScenarioResponse';
+export * from './pagedResourceListOfGetSubscriptionResponse';
 export * from './pagedResourceListOfInstrument';
 export * from './pagedResourceListOfInstrumentEventHolder';
 export * from './pagedResourceListOfInstrumentEventInstruction';
@@ -744,6 +748,8 @@ export * from './pagedResourceListOfTransactionTemplate';
 export * from './pagedResourceListOfTransactionTemplateSpecification';
 export * from './pagedResourceListOfTranslationScriptId';
 export * from './pagedResourceListOfVirtualRow';
+export * from './pariPassuEvent';
+export * from './pariPassuEventAllOf';
 export * from './partialClosureConstituent';
 export * from './partialDefeasanceEvent';
 export * from './partialDefeasanceEventAllOf';
@@ -880,6 +886,7 @@ export * from './resetEvent';
 export * from './resetEventAllOf';
 export * from './resolveTenorsRequest';
 export * from './resolveTenorsResponse';
+export * from './resolvedCustodianAccount';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
 export * from './resourceListOfAccessMetadataValueOf';
@@ -975,6 +982,8 @@ export * from './rolloverConstituent';
 export * from './roundingConfiguration';
 export * from './roundingConfigurationComponent';
 export * from './roundingConvention';
+export * from './scenarioDefinition';
+export * from './scenarioShiftDefinition';
 export * from './schedule';
 export * from './schema';
 export * from './scopeDefinition';
@@ -1040,6 +1049,7 @@ export * from './stringListComplianceParameter';
 export * from './structuredResultData';
 export * from './structuredResultDataId';
 export * from './subscribeElection';
+export * from './subscriptionDefinition';
 export * from './swapCashFlowEvent';
 export * from './swapCashFlowEventAllOf';
 export * from './swapPrincipalEvent';
@@ -1177,9 +1187,11 @@ export * from './upsertRelationalDataPointRequest';
 export * from './upsertResourceRecordRequest';
 export * from './upsertResultValuesDataRequest';
 export * from './upsertReturnsResponse';
+export * from './upsertScenarioRequest';
 export * from './upsertSingleStructuredDataResponse';
 export * from './upsertStructuredDataResponse';
 export * from './upsertStructuredResultDataRequest';
+export * from './upsertSubscriptionRequest';
 export * from './upsertTransactionPropertiesResponse';
 export * from './upsertTranslationScriptRequest';
 export * from './user';
@@ -1719,7 +1731,9 @@ import { GetQuotesResponse } from './getQuotesResponse';
 import { GetRecipeComposerResponse } from './getRecipeComposerResponse';
 import { GetRecipeResponse } from './getRecipeResponse';
 import { GetReferencePortfolioConstituentsResponse } from './getReferencePortfolioConstituentsResponse';
+import { GetScenarioResponse } from './getScenarioResponse';
 import { GetStructuredResultDataResponse } from './getStructuredResultDataResponse';
+import { GetSubscriptionResponse } from './getSubscriptionResponse';
 import { GetVirtualDocumentResponse } from './getVirtualDocumentResponse';
 import { GroupBySelectorComplianceParameter } from './groupBySelectorComplianceParameter';
 import { GroupByStep } from './groupByStep';
@@ -1944,6 +1958,8 @@ import { PagedResourceListOfCutLabelDefinition } from './pagedResourceListOfCutL
 import { PagedResourceListOfDataTypeSummary } from './pagedResourceListOfDataTypeSummary';
 import { PagedResourceListOfDialectId } from './pagedResourceListOfDialectId';
 import { PagedResourceListOfExecution } from './pagedResourceListOfExecution';
+import { PagedResourceListOfGetScenarioResponse } from './pagedResourceListOfGetScenarioResponse';
+import { PagedResourceListOfGetSubscriptionResponse } from './pagedResourceListOfGetSubscriptionResponse';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PagedResourceListOfInstrumentEventHolder } from './pagedResourceListOfInstrumentEventHolder';
 import { PagedResourceListOfInstrumentEventInstruction } from './pagedResourceListOfInstrumentEventInstruction';
@@ -1973,6 +1989,8 @@ import { PagedResourceListOfTransactionTemplate } from './pagedResourceListOfTra
 import { PagedResourceListOfTransactionTemplateSpecification } from './pagedResourceListOfTransactionTemplateSpecification';
 import { PagedResourceListOfTranslationScriptId } from './pagedResourceListOfTranslationScriptId';
 import { PagedResourceListOfVirtualRow } from './pagedResourceListOfVirtualRow';
+import { PariPassuEvent } from './pariPassuEvent';
+import { PariPassuEventAllOf } from './pariPassuEventAllOf';
 import { PartialClosureConstituent } from './partialClosureConstituent';
 import { PartialDefeasanceEvent } from './partialDefeasanceEvent';
 import { PartialDefeasanceEventAllOf } from './partialDefeasanceEventAllOf';
@@ -2109,6 +2127,7 @@ import { ResetEvent } from './resetEvent';
 import { ResetEventAllOf } from './resetEventAllOf';
 import { ResolveTenorsRequest } from './resolveTenorsRequest';
 import { ResolveTenorsResponse } from './resolveTenorsResponse';
+import { ResolvedCustodianAccount } from './resolvedCustodianAccount';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
 import { ResourceListOfAccessMetadataValueOf } from './resourceListOfAccessMetadataValueOf';
@@ -2204,6 +2223,8 @@ import { RolloverConstituent } from './rolloverConstituent';
 import { RoundingConfiguration } from './roundingConfiguration';
 import { RoundingConfigurationComponent } from './roundingConfigurationComponent';
 import { RoundingConvention } from './roundingConvention';
+import { ScenarioDefinition } from './scenarioDefinition';
+import { ScenarioShiftDefinition } from './scenarioShiftDefinition';
 import { Schedule } from './schedule';
 import { Schema } from './schema';
 import { ScopeDefinition } from './scopeDefinition';
@@ -2269,6 +2290,7 @@ import { StringListComplianceParameter } from './stringListComplianceParameter';
 import { StructuredResultData } from './structuredResultData';
 import { StructuredResultDataId } from './structuredResultDataId';
 import { SubscribeElection } from './subscribeElection';
+import { SubscriptionDefinition } from './subscriptionDefinition';
 import { SwapCashFlowEvent } from './swapCashFlowEvent';
 import { SwapCashFlowEventAllOf } from './swapCashFlowEventAllOf';
 import { SwapPrincipalEvent } from './swapPrincipalEvent';
@@ -2406,9 +2428,11 @@ import { UpsertRelationalDataPointRequest } from './upsertRelationalDataPointReq
 import { UpsertResourceRecordRequest } from './upsertResourceRecordRequest';
 import { UpsertResultValuesDataRequest } from './upsertResultValuesDataRequest';
 import { UpsertReturnsResponse } from './upsertReturnsResponse';
+import { UpsertScenarioRequest } from './upsertScenarioRequest';
 import { UpsertSingleStructuredDataResponse } from './upsertSingleStructuredDataResponse';
 import { UpsertStructuredDataResponse } from './upsertStructuredDataResponse';
 import { UpsertStructuredResultDataRequest } from './upsertStructuredResultDataRequest';
+import { UpsertSubscriptionRequest } from './upsertSubscriptionRequest';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
 import { UpsertTranslationScriptRequest } from './upsertTranslationScriptRequest';
 import { User } from './user';
@@ -2826,6 +2850,8 @@ let enumsMap: {[index: string]: any} = {
         "OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum": OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum,
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
+        "PariPassuEvent.InstrumentEventTypeEnum": PariPassuEvent.InstrumentEventTypeEnum,
+        "PariPassuEventAllOf.InstrumentEventTypeEnum": PariPassuEventAllOf.InstrumentEventTypeEnum,
         "PartialDefeasanceEvent.InstrumentEventTypeEnum": PartialDefeasanceEvent.InstrumentEventTypeEnum,
         "PartialDefeasanceEventAllOf.InstrumentEventTypeEnum": PartialDefeasanceEventAllOf.InstrumentEventTypeEnum,
         "PercentCheckStep.ComplianceStepTypeEnum": PercentCheckStep.ComplianceStepTypeEnum,
@@ -3473,7 +3499,9 @@ let typeMap: {[index: string]: any} = {
     "GetRecipeComposerResponse": GetRecipeComposerResponse,
     "GetRecipeResponse": GetRecipeResponse,
     "GetReferencePortfolioConstituentsResponse": GetReferencePortfolioConstituentsResponse,
+    "GetScenarioResponse": GetScenarioResponse,
     "GetStructuredResultDataResponse": GetStructuredResultDataResponse,
+    "GetSubscriptionResponse": GetSubscriptionResponse,
     "GetVirtualDocumentResponse": GetVirtualDocumentResponse,
     "GroupBySelectorComplianceParameter": GroupBySelectorComplianceParameter,
     "GroupByStep": GroupByStep,
@@ -3698,6 +3726,8 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfDataTypeSummary": PagedResourceListOfDataTypeSummary,
     "PagedResourceListOfDialectId": PagedResourceListOfDialectId,
     "PagedResourceListOfExecution": PagedResourceListOfExecution,
+    "PagedResourceListOfGetScenarioResponse": PagedResourceListOfGetScenarioResponse,
+    "PagedResourceListOfGetSubscriptionResponse": PagedResourceListOfGetSubscriptionResponse,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PagedResourceListOfInstrumentEventHolder": PagedResourceListOfInstrumentEventHolder,
     "PagedResourceListOfInstrumentEventInstruction": PagedResourceListOfInstrumentEventInstruction,
@@ -3727,6 +3757,8 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfTransactionTemplateSpecification": PagedResourceListOfTransactionTemplateSpecification,
     "PagedResourceListOfTranslationScriptId": PagedResourceListOfTranslationScriptId,
     "PagedResourceListOfVirtualRow": PagedResourceListOfVirtualRow,
+    "PariPassuEvent": PariPassuEvent,
+    "PariPassuEventAllOf": PariPassuEventAllOf,
     "PartialClosureConstituent": PartialClosureConstituent,
     "PartialDefeasanceEvent": PartialDefeasanceEvent,
     "PartialDefeasanceEventAllOf": PartialDefeasanceEventAllOf,
@@ -3863,6 +3895,7 @@ let typeMap: {[index: string]: any} = {
     "ResetEventAllOf": ResetEventAllOf,
     "ResolveTenorsRequest": ResolveTenorsRequest,
     "ResolveTenorsResponse": ResolveTenorsResponse,
+    "ResolvedCustodianAccount": ResolvedCustodianAccount,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
     "ResourceListOfAccessMetadataValueOf": ResourceListOfAccessMetadataValueOf,
@@ -3958,6 +3991,8 @@ let typeMap: {[index: string]: any} = {
     "RoundingConfiguration": RoundingConfiguration,
     "RoundingConfigurationComponent": RoundingConfigurationComponent,
     "RoundingConvention": RoundingConvention,
+    "ScenarioDefinition": ScenarioDefinition,
+    "ScenarioShiftDefinition": ScenarioShiftDefinition,
     "Schedule": Schedule,
     "Schema": Schema,
     "ScopeDefinition": ScopeDefinition,
@@ -4023,6 +4058,7 @@ let typeMap: {[index: string]: any} = {
     "StructuredResultData": StructuredResultData,
     "StructuredResultDataId": StructuredResultDataId,
     "SubscribeElection": SubscribeElection,
+    "SubscriptionDefinition": SubscriptionDefinition,
     "SwapCashFlowEvent": SwapCashFlowEvent,
     "SwapCashFlowEventAllOf": SwapCashFlowEventAllOf,
     "SwapPrincipalEvent": SwapPrincipalEvent,
@@ -4160,9 +4196,11 @@ let typeMap: {[index: string]: any} = {
     "UpsertResourceRecordRequest": UpsertResourceRecordRequest,
     "UpsertResultValuesDataRequest": UpsertResultValuesDataRequest,
     "UpsertReturnsResponse": UpsertReturnsResponse,
+    "UpsertScenarioRequest": UpsertScenarioRequest,
     "UpsertSingleStructuredDataResponse": UpsertSingleStructuredDataResponse,
     "UpsertStructuredDataResponse": UpsertStructuredDataResponse,
     "UpsertStructuredResultDataRequest": UpsertStructuredResultDataRequest,
+    "UpsertSubscriptionRequest": UpsertSubscriptionRequest,
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
     "UpsertTranslationScriptRequest": UpsertTranslationScriptRequest,
     "User": User,

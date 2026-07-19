@@ -45,6 +45,7 @@ import {RelationalDatasetsApi} from './api/relationalDatasetsApi';
 import {RelationshipDefinitionsApi} from './api/relationshipDefinitionsApi';
 import {RelationshipsApi} from './api/relationshipsApi';
 import {ResourceRecordApi} from './api/resourceRecordApi';
+import {ScenariosApi} from './api/scenariosApi';
 import {SchemasApi} from './api/schemasApi';
 import {ScopesApi} from './api/scopesApi';
 import {ScriptedTranslationApi} from './api/scriptedTranslationApi';
@@ -55,6 +56,7 @@ import {SimplePositionPortfoliosApi} from './api/simplePositionPortfoliosApi';
 import {StagedModificationsApi} from './api/stagedModificationsApi';
 import {StagingRuleSetApi} from './api/stagingRuleSetApi';
 import {StructuredResultDataApi} from './api/structuredResultDataApi';
+import {SubscriptionsApi} from './api/subscriptionsApi';
 import {SystemConfigurationApi} from './api/systemConfigurationApi';
 import {TransactionConfigurationApi} from './api/transactionConfigurationApi';
 import {TransactionFeesApi} from './api/transactionFeesApi';
@@ -109,6 +111,7 @@ export class Api {
     public relationshipDefinitions:  RelationshipDefinitionsApi
     public relationships:  RelationshipsApi
     public resourceRecord:  ResourceRecordApi
+    public scenarios:  ScenariosApi
     public schemas:  SchemasApi
     public scopes:  ScopesApi
     public scriptedTranslation:  ScriptedTranslationApi
@@ -119,6 +122,7 @@ export class Api {
     public stagedModifications:  StagedModificationsApi
     public stagingRuleSet:  StagingRuleSetApi
     public structuredResultData:  StructuredResultDataApi
+    public subscriptions:  SubscriptionsApi
     public systemConfiguration:  SystemConfigurationApi
     public transactionConfiguration:  TransactionConfigurationApi
     public transactionFees:  TransactionFeesApi
