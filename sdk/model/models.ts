@@ -832,6 +832,8 @@ export * from './quoteDependency';
 export * from './quoteDependencyAllOf';
 export * from './quoteId';
 export * from './quoteSeriesId';
+export * from './rateCurveShiftDefinition';
+export * from './rateCurveShiftDefinitionAllOf';
 export * from './rawVendorEvent';
 export * from './rawVendorEventAllOf';
 export * from './realisedGainLoss';
@@ -1067,6 +1069,8 @@ export * from './termDepositInterestEventAllOf';
 export * from './termDepositPrincipalEvent';
 export * from './termDepositPrincipalEventAllOf';
 export * from './timeZoneConventions';
+export * from './toBeAnnounced';
+export * from './toBeAnnouncedAllOf';
 export * from './totalReturnSwap';
 export * from './totalReturnSwapAllOf';
 export * from './touch';
@@ -1215,6 +1219,8 @@ export * from './versionedResourceListWithWarningsOfPortfolioHolding';
 export * from './virtualDocument';
 export * from './virtualDocumentRow';
 export * from './virtualRow';
+export * from './volatilitySwap';
+export * from './volatilitySwapAllOf';
 export * from './warning';
 export * from './warrantsExerciseEvent';
 export * from './warrantsExerciseEventAllOf';
@@ -2073,6 +2079,8 @@ import { QuoteDependency } from './quoteDependency';
 import { QuoteDependencyAllOf } from './quoteDependencyAllOf';
 import { QuoteId } from './quoteId';
 import { QuoteSeriesId } from './quoteSeriesId';
+import { RateCurveShiftDefinition } from './rateCurveShiftDefinition';
+import { RateCurveShiftDefinitionAllOf } from './rateCurveShiftDefinitionAllOf';
 import { RawVendorEvent } from './rawVendorEvent';
 import { RawVendorEventAllOf } from './rawVendorEventAllOf';
 import { RealisedGainLoss } from './realisedGainLoss';
@@ -2308,6 +2316,8 @@ import { TermDepositInterestEventAllOf } from './termDepositInterestEventAllOf';
 import { TermDepositPrincipalEvent } from './termDepositPrincipalEvent';
 import { TermDepositPrincipalEventAllOf } from './termDepositPrincipalEventAllOf';
 import { TimeZoneConventions } from './timeZoneConventions';
+import { ToBeAnnounced } from './toBeAnnounced';
+import { ToBeAnnouncedAllOf } from './toBeAnnouncedAllOf';
 import { TotalReturnSwap } from './totalReturnSwap';
 import { TotalReturnSwapAllOf } from './totalReturnSwapAllOf';
 import { Touch } from './touch';
@@ -2456,6 +2466,8 @@ import { VersionedResourceListWithWarningsOfPortfolioHolding } from './versioned
 import { VirtualDocument } from './virtualDocument';
 import { VirtualDocumentRow } from './virtualDocumentRow';
 import { VirtualRow } from './virtualRow';
+import { VolatilitySwap } from './volatilitySwap';
+import { VolatilitySwapAllOf } from './volatilitySwapAllOf';
 import { Warning } from './warning';
 import { WarrantsExerciseEvent } from './warrantsExerciseEvent';
 import { WarrantsExerciseEventAllOf } from './warrantsExerciseEventAllOf';
@@ -2899,6 +2911,10 @@ let enumsMap: {[index: string]: any} = {
         "QuoteDependencyAllOf.DependencyTypeEnum": QuoteDependencyAllOf.DependencyTypeEnum,
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
+        "RateCurveShiftDefinition.ShiftTypeEnum": RateCurveShiftDefinition.ShiftTypeEnum,
+        "RateCurveShiftDefinition.ScenarioShiftTypeEnum": RateCurveShiftDefinition.ScenarioShiftTypeEnum,
+        "RateCurveShiftDefinitionAllOf.ShiftTypeEnum": RateCurveShiftDefinitionAllOf.ShiftTypeEnum,
+        "RateCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum": RateCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "RawVendorEvent.InstrumentEventTypeEnum": RawVendorEvent.InstrumentEventTypeEnum,
         "RawVendorEventAllOf.InstrumentEventTypeEnum": RawVendorEventAllOf.InstrumentEventTypeEnum,
         "RecombineStep.ComplianceStepTypeEnum": RecombineStep.ComplianceStepTypeEnum,
@@ -2950,6 +2966,7 @@ let enumsMap: {[index: string]: any} = {
         "ResultValueStringAllOf.ResultValueTypeEnum": ResultValueStringAllOf.ResultValueTypeEnum,
         "ReverseStockSplitEvent.InstrumentEventTypeEnum": ReverseStockSplitEvent.InstrumentEventTypeEnum,
         "ReverseStockSplitEventAllOf.InstrumentEventTypeEnum": ReverseStockSplitEventAllOf.InstrumentEventTypeEnum,
+        "ScenarioShiftDefinition.ScenarioShiftTypeEnum": ScenarioShiftDefinition.ScenarioShiftTypeEnum,
         "Schedule.ScheduleTypeEnum": Schedule.ScheduleTypeEnum,
         "ScripDividendEvent.InstrumentEventTypeEnum": ScripDividendEvent.InstrumentEventTypeEnum,
         "ScripDividendEventAllOf.InstrumentEventTypeEnum": ScripDividendEventAllOf.InstrumentEventTypeEnum,
@@ -2983,6 +3000,8 @@ let enumsMap: {[index: string]: any} = {
         "TermDepositInterestEventAllOf.InstrumentEventTypeEnum": TermDepositInterestEventAllOf.InstrumentEventTypeEnum,
         "TermDepositPrincipalEvent.InstrumentEventTypeEnum": TermDepositPrincipalEvent.InstrumentEventTypeEnum,
         "TermDepositPrincipalEventAllOf.InstrumentEventTypeEnum": TermDepositPrincipalEventAllOf.InstrumentEventTypeEnum,
+        "ToBeAnnounced.InstrumentTypeEnum": ToBeAnnounced.InstrumentTypeEnum,
+        "ToBeAnnouncedAllOf.InstrumentTypeEnum": ToBeAnnouncedAllOf.InstrumentTypeEnum,
         "TotalReturnSwap.InstrumentTypeEnum": TotalReturnSwap.InstrumentTypeEnum,
         "TotalReturnSwapAllOf.InstrumentTypeEnum": TotalReturnSwapAllOf.InstrumentTypeEnum,
         "Transaction.TransactionStatusEnum": Transaction.TransactionStatusEnum,
@@ -3001,6 +3020,8 @@ let enumsMap: {[index: string]: any} = {
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
         "ValueType": ValueType,
         "VendorModelRule.SupplierEnum": VendorModelRule.SupplierEnum,
+        "VolatilitySwap.InstrumentTypeEnum": VolatilitySwap.InstrumentTypeEnum,
+        "VolatilitySwapAllOf.InstrumentTypeEnum": VolatilitySwapAllOf.InstrumentTypeEnum,
         "WarrantsExerciseEvent.InstrumentEventTypeEnum": WarrantsExerciseEvent.InstrumentEventTypeEnum,
         "WarrantsExerciseEventAllOf.InstrumentEventTypeEnum": WarrantsExerciseEventAllOf.InstrumentEventTypeEnum,
         "WorthlessEvent.InstrumentEventTypeEnum": WorthlessEvent.InstrumentEventTypeEnum,
@@ -3841,6 +3862,8 @@ let typeMap: {[index: string]: any} = {
     "QuoteDependencyAllOf": QuoteDependencyAllOf,
     "QuoteId": QuoteId,
     "QuoteSeriesId": QuoteSeriesId,
+    "RateCurveShiftDefinition": RateCurveShiftDefinition,
+    "RateCurveShiftDefinitionAllOf": RateCurveShiftDefinitionAllOf,
     "RawVendorEvent": RawVendorEvent,
     "RawVendorEventAllOf": RawVendorEventAllOf,
     "RealisedGainLoss": RealisedGainLoss,
@@ -4076,6 +4099,8 @@ let typeMap: {[index: string]: any} = {
     "TermDepositPrincipalEvent": TermDepositPrincipalEvent,
     "TermDepositPrincipalEventAllOf": TermDepositPrincipalEventAllOf,
     "TimeZoneConventions": TimeZoneConventions,
+    "ToBeAnnounced": ToBeAnnounced,
+    "ToBeAnnouncedAllOf": ToBeAnnouncedAllOf,
     "TotalReturnSwap": TotalReturnSwap,
     "TotalReturnSwapAllOf": TotalReturnSwapAllOf,
     "Touch": Touch,
@@ -4223,6 +4248,8 @@ let typeMap: {[index: string]: any} = {
     "VirtualDocument": VirtualDocument,
     "VirtualDocumentRow": VirtualDocumentRow,
     "VirtualRow": VirtualRow,
+    "VolatilitySwap": VolatilitySwap,
+    "VolatilitySwapAllOf": VolatilitySwapAllOf,
     "Warning": Warning,
     "WarrantsExerciseEvent": WarrantsExerciseEvent,
     "WarrantsExerciseEventAllOf": WarrantsExerciseEventAllOf,
