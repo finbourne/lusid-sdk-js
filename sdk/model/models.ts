@@ -101,6 +101,7 @@ export * from './bonusIssueEvent';
 export * from './bonusIssueEventAllOf';
 export * from './bookTransactionsRequest';
 export * from './bookTransactionsResponse';
+export * from './bookmarkEntity';
 export * from './boolComplianceParameter';
 export * from './boolComplianceParameterAllOf';
 export * from './boolListComplianceParameter';
@@ -167,6 +168,8 @@ export * from './cdsProtectionDetailSpecification';
 export * from './cdxCreditEvent';
 export * from './cdxCreditEventAllOf';
 export * from './change';
+export * from './changeEvent';
+export * from './changeEventAllOf';
 export * from './changeHistory';
 export * from './changeInterval';
 export * from './changeIntervalWithOrderManagementDetail';
@@ -253,6 +256,7 @@ export * from './createReferencePortfolioRequest';
 export * from './createRelationalDatasetDefinitionRequest';
 export * from './createRelationshipDefinitionRequest';
 export * from './createRelationshipRequest';
+export * from './createScenarioFromTemplateRequest';
 export * from './createSequenceRequest';
 export * from './createSeriesIdentifierField';
 export * from './createSimplePositionPortfolioRequest';
@@ -370,6 +374,8 @@ export * from './equityModelOptions';
 export * from './equityModelOptionsAllOf';
 export * from './equityOption';
 export * from './equityOptionAllOf';
+export * from './equityShiftDefinition';
+export * from './equityShiftDefinitionAllOf';
 export * from './equitySwap';
 export * from './equitySwapAllOf';
 export * from './equityVolDependency';
@@ -416,6 +422,8 @@ export * from './flexibleDeposit';
 export * from './flexibleDepositAllOf';
 export * from './flexibleLoan';
 export * from './flexibleLoanAllOf';
+export * from './flexibleLoanPricerOptions';
+export * from './flexibleLoanPricerOptionsAllOf';
 export * from './flexibleRepo';
 export * from './flexibleRepoAllOf';
 export * from './flexibleRepoCashFlowEvent';
@@ -435,6 +443,7 @@ export * from './flowConventions';
 export * from './forwardRateAgreement';
 export * from './forwardRateAgreementAllOf';
 export * from './fromRecipe';
+export * from './fundCalendarEntry';
 export * from './fundCashStatementRow';
 export * from './fundIdList';
 export * from './fundIdListAllOf';
@@ -474,6 +483,8 @@ export * from './fxLinkedNotionalSchedule';
 export * from './fxLinkedNotionalScheduleAllOf';
 export * from './fxOption';
 export * from './fxOptionAllOf';
+export * from './fxShiftDefinition';
+export * from './fxShiftDefinitionAllOf';
 export * from './fxSwap';
 export * from './fxSwapAllOf';
 export * from './fxTenorConvention';
@@ -756,6 +767,15 @@ export * from './partialDefeasanceEventAllOf';
 export * from './participation';
 export * from './participationRequest';
 export * from './participationSetRequest';
+export * from './paymentDetailsApplicableEntity';
+export * from './paymentDetailsReference';
+export * from './paymentDetailsReferenceResponse';
+export * from './paymentDetailsSeriesIdentifiers';
+export * from './paymentInstruction';
+export * from './paymentInstructionRequest';
+export * from './paymentInstructionStatus';
+export * from './paymentInstructionsResponse';
+export * from './paymentRecordReference';
 export * from './percentCheckStep';
 export * from './percentCheckStepRequest';
 export * from './performanceReturn';
@@ -795,6 +815,7 @@ export * from './portfolioWithoutHref';
 export * from './portfoliosReconciliationRequest';
 export * from './preTradeConfiguration';
 export * from './premium';
+export * from './previousFundCalendarEntry';
 export * from './pricingContext';
 export * from './pricingOptions';
 export * from './priorityIssueEvent';
@@ -1219,6 +1240,8 @@ export * from './versionedResourceListWithWarningsOfPortfolioHolding';
 export * from './virtualDocument';
 export * from './virtualDocumentRow';
 export * from './virtualRow';
+export * from './volSurfaceShiftDefinition';
+export * from './volSurfaceShiftDefinitionAllOf';
 export * from './volatilitySwap';
 export * from './volatilitySwapAllOf';
 export * from './warning';
@@ -1348,6 +1371,7 @@ import { BonusIssueEvent } from './bonusIssueEvent';
 import { BonusIssueEventAllOf } from './bonusIssueEventAllOf';
 import { BookTransactionsRequest } from './bookTransactionsRequest';
 import { BookTransactionsResponse } from './bookTransactionsResponse';
+import { BookmarkEntity } from './bookmarkEntity';
 import { BoolComplianceParameter } from './boolComplianceParameter';
 import { BoolComplianceParameterAllOf } from './boolComplianceParameterAllOf';
 import { BoolListComplianceParameter } from './boolListComplianceParameter';
@@ -1414,6 +1438,8 @@ import { CdsProtectionDetailSpecification } from './cdsProtectionDetailSpecifica
 import { CdxCreditEvent } from './cdxCreditEvent';
 import { CdxCreditEventAllOf } from './cdxCreditEventAllOf';
 import { Change } from './change';
+import { ChangeEvent } from './changeEvent';
+import { ChangeEventAllOf } from './changeEventAllOf';
 import { ChangeHistory } from './changeHistory';
 import { ChangeInterval } from './changeInterval';
 import { ChangeIntervalWithOrderManagementDetail } from './changeIntervalWithOrderManagementDetail';
@@ -1500,6 +1526,7 @@ import { CreateReferencePortfolioRequest } from './createReferencePortfolioReque
 import { CreateRelationalDatasetDefinitionRequest } from './createRelationalDatasetDefinitionRequest';
 import { CreateRelationshipDefinitionRequest } from './createRelationshipDefinitionRequest';
 import { CreateRelationshipRequest } from './createRelationshipRequest';
+import { CreateScenarioFromTemplateRequest } from './createScenarioFromTemplateRequest';
 import { CreateSequenceRequest } from './createSequenceRequest';
 import { CreateSeriesIdentifierField } from './createSeriesIdentifierField';
 import { CreateSimplePositionPortfolioRequest } from './createSimplePositionPortfolioRequest';
@@ -1617,6 +1644,8 @@ import { EquityModelOptions } from './equityModelOptions';
 import { EquityModelOptionsAllOf } from './equityModelOptionsAllOf';
 import { EquityOption } from './equityOption';
 import { EquityOptionAllOf } from './equityOptionAllOf';
+import { EquityShiftDefinition } from './equityShiftDefinition';
+import { EquityShiftDefinitionAllOf } from './equityShiftDefinitionAllOf';
 import { EquitySwap } from './equitySwap';
 import { EquitySwapAllOf } from './equitySwapAllOf';
 import { EquityVolDependency } from './equityVolDependency';
@@ -1663,6 +1692,8 @@ import { FlexibleDeposit } from './flexibleDeposit';
 import { FlexibleDepositAllOf } from './flexibleDepositAllOf';
 import { FlexibleLoan } from './flexibleLoan';
 import { FlexibleLoanAllOf } from './flexibleLoanAllOf';
+import { FlexibleLoanPricerOptions } from './flexibleLoanPricerOptions';
+import { FlexibleLoanPricerOptionsAllOf } from './flexibleLoanPricerOptionsAllOf';
 import { FlexibleRepo } from './flexibleRepo';
 import { FlexibleRepoAllOf } from './flexibleRepoAllOf';
 import { FlexibleRepoCashFlowEvent } from './flexibleRepoCashFlowEvent';
@@ -1682,6 +1713,7 @@ import { FlowConventions } from './flowConventions';
 import { ForwardRateAgreement } from './forwardRateAgreement';
 import { ForwardRateAgreementAllOf } from './forwardRateAgreementAllOf';
 import { FromRecipe } from './fromRecipe';
+import { FundCalendarEntry } from './fundCalendarEntry';
 import { FundCashStatementRow } from './fundCashStatementRow';
 import { FundIdList } from './fundIdList';
 import { FundIdListAllOf } from './fundIdListAllOf';
@@ -1721,6 +1753,8 @@ import { FxLinkedNotionalSchedule } from './fxLinkedNotionalSchedule';
 import { FxLinkedNotionalScheduleAllOf } from './fxLinkedNotionalScheduleAllOf';
 import { FxOption } from './fxOption';
 import { FxOptionAllOf } from './fxOptionAllOf';
+import { FxShiftDefinition } from './fxShiftDefinition';
+import { FxShiftDefinitionAllOf } from './fxShiftDefinitionAllOf';
 import { FxSwap } from './fxSwap';
 import { FxSwapAllOf } from './fxSwapAllOf';
 import { FxTenorConvention } from './fxTenorConvention';
@@ -2003,6 +2037,15 @@ import { PartialDefeasanceEventAllOf } from './partialDefeasanceEventAllOf';
 import { Participation } from './participation';
 import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
+import { PaymentDetailsApplicableEntity } from './paymentDetailsApplicableEntity';
+import { PaymentDetailsReference } from './paymentDetailsReference';
+import { PaymentDetailsReferenceResponse } from './paymentDetailsReferenceResponse';
+import { PaymentDetailsSeriesIdentifiers } from './paymentDetailsSeriesIdentifiers';
+import { PaymentInstruction } from './paymentInstruction';
+import { PaymentInstructionRequest } from './paymentInstructionRequest';
+import { PaymentInstructionStatus } from './paymentInstructionStatus';
+import { PaymentInstructionsResponse } from './paymentInstructionsResponse';
+import { PaymentRecordReference } from './paymentRecordReference';
 import { PercentCheckStep } from './percentCheckStep';
 import { PercentCheckStepRequest } from './percentCheckStepRequest';
 import { PerformanceReturn } from './performanceReturn';
@@ -2042,6 +2085,7 @@ import { PortfolioWithoutHref } from './portfolioWithoutHref';
 import { PortfoliosReconciliationRequest } from './portfoliosReconciliationRequest';
 import { PreTradeConfiguration } from './preTradeConfiguration';
 import { Premium } from './premium';
+import { PreviousFundCalendarEntry } from './previousFundCalendarEntry';
 import { PricingContext } from './pricingContext';
 import { PricingOptions } from './pricingOptions';
 import { PriorityIssueEvent } from './priorityIssueEvent';
@@ -2466,6 +2510,8 @@ import { VersionedResourceListWithWarningsOfPortfolioHolding } from './versioned
 import { VirtualDocument } from './virtualDocument';
 import { VirtualDocumentRow } from './virtualDocumentRow';
 import { VirtualRow } from './virtualRow';
+import { VolSurfaceShiftDefinition } from './volSurfaceShiftDefinition';
+import { VolSurfaceShiftDefinitionAllOf } from './volSurfaceShiftDefinitionAllOf';
 import { VolatilitySwap } from './volatilitySwap';
 import { VolatilitySwapAllOf } from './volatilitySwapAllOf';
 import { Warning } from './warning';
@@ -2577,6 +2623,8 @@ let enumsMap: {[index: string]: any} = {
         "CdsModelOptionsAllOf.ModelOptionsTypeEnum": CdsModelOptionsAllOf.ModelOptionsTypeEnum,
         "CdxCreditEvent.InstrumentEventTypeEnum": CdxCreditEvent.InstrumentEventTypeEnum,
         "CdxCreditEventAllOf.InstrumentEventTypeEnum": CdxCreditEventAllOf.InstrumentEventTypeEnum,
+        "ChangeEvent.InstrumentEventTypeEnum": ChangeEvent.InstrumentEventTypeEnum,
+        "ChangeEventAllOf.InstrumentEventTypeEnum": ChangeEventAllOf.InstrumentEventTypeEnum,
         "ChangeHistory.ActionEnum": ChangeHistory.ActionEnum,
         "CheckStep.ComplianceStepTypeEnum": CheckStep.ComplianceStepTypeEnum,
         "CheckStepAllOf.ComplianceStepTypeEnum": CheckStepAllOf.ComplianceStepTypeEnum,
@@ -2668,6 +2716,10 @@ let enumsMap: {[index: string]: any} = {
         "EquityModelOptionsAllOf.ModelOptionsTypeEnum": EquityModelOptionsAllOf.ModelOptionsTypeEnum,
         "EquityOption.InstrumentTypeEnum": EquityOption.InstrumentTypeEnum,
         "EquityOptionAllOf.InstrumentTypeEnum": EquityOptionAllOf.InstrumentTypeEnum,
+        "EquityShiftDefinition.ShiftTypeEnum": EquityShiftDefinition.ShiftTypeEnum,
+        "EquityShiftDefinition.ScenarioShiftTypeEnum": EquityShiftDefinition.ScenarioShiftTypeEnum,
+        "EquityShiftDefinitionAllOf.ShiftTypeEnum": EquityShiftDefinitionAllOf.ShiftTypeEnum,
+        "EquityShiftDefinitionAllOf.ScenarioShiftTypeEnum": EquityShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "EquitySwap.InstrumentTypeEnum": EquitySwap.InstrumentTypeEnum,
         "EquitySwapAllOf.InstrumentTypeEnum": EquitySwapAllOf.InstrumentTypeEnum,
         "EquityVolDependency.DependencyTypeEnum": EquityVolDependency.DependencyTypeEnum,
@@ -2697,6 +2749,8 @@ let enumsMap: {[index: string]: any} = {
         "FlexibleDepositAllOf.InstrumentTypeEnum": FlexibleDepositAllOf.InstrumentTypeEnum,
         "FlexibleLoan.InstrumentTypeEnum": FlexibleLoan.InstrumentTypeEnum,
         "FlexibleLoanAllOf.InstrumentTypeEnum": FlexibleLoanAllOf.InstrumentTypeEnum,
+        "FlexibleLoanPricerOptions.ModelOptionsTypeEnum": FlexibleLoanPricerOptions.ModelOptionsTypeEnum,
+        "FlexibleLoanPricerOptionsAllOf.ModelOptionsTypeEnum": FlexibleLoanPricerOptionsAllOf.ModelOptionsTypeEnum,
         "FlexibleRepo.InstrumentTypeEnum": FlexibleRepo.InstrumentTypeEnum,
         "FlexibleRepoAllOf.InstrumentTypeEnum": FlexibleRepoAllOf.InstrumentTypeEnum,
         "FlexibleRepoCashFlowEvent.InstrumentEventTypeEnum": FlexibleRepoCashFlowEvent.InstrumentEventTypeEnum,
@@ -2713,6 +2767,7 @@ let enumsMap: {[index: string]: any} = {
         "FloatingLegAllOf.InstrumentTypeEnum": FloatingLegAllOf.InstrumentTypeEnum,
         "ForwardRateAgreement.InstrumentTypeEnum": ForwardRateAgreement.InstrumentTypeEnum,
         "ForwardRateAgreementAllOf.InstrumentTypeEnum": ForwardRateAgreementAllOf.InstrumentTypeEnum,
+        "FundCalendarEntry.EntryTypeEnum": FundCalendarEntry.EntryTypeEnum,
         "FundIdList.ReferenceListTypeEnum": FundIdList.ReferenceListTypeEnum,
         "FundIdListAllOf.ReferenceListTypeEnum": FundIdListAllOf.ReferenceListTypeEnum,
         "FundShareClass.InstrumentTypeEnum": FundShareClass.InstrumentTypeEnum,
@@ -2753,6 +2808,10 @@ let enumsMap: {[index: string]: any} = {
         "FxLinkedNotionalScheduleAllOf.ScheduleTypeEnum": FxLinkedNotionalScheduleAllOf.ScheduleTypeEnum,
         "FxOption.InstrumentTypeEnum": FxOption.InstrumentTypeEnum,
         "FxOptionAllOf.InstrumentTypeEnum": FxOptionAllOf.InstrumentTypeEnum,
+        "FxShiftDefinition.ShiftTypeEnum": FxShiftDefinition.ShiftTypeEnum,
+        "FxShiftDefinition.ScenarioShiftTypeEnum": FxShiftDefinition.ScenarioShiftTypeEnum,
+        "FxShiftDefinitionAllOf.ShiftTypeEnum": FxShiftDefinitionAllOf.ShiftTypeEnum,
+        "FxShiftDefinitionAllOf.ScenarioShiftTypeEnum": FxShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "FxSwap.InstrumentTypeEnum": FxSwap.InstrumentTypeEnum,
         "FxSwapAllOf.InstrumentTypeEnum": FxSwapAllOf.InstrumentTypeEnum,
         "FxVolDependency.DependencyTypeEnum": FxVolDependency.DependencyTypeEnum,
@@ -3020,6 +3079,10 @@ let enumsMap: {[index: string]: any} = {
         "UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum": UpsertReferencePortfolioConstituentsRequest.PeriodTypeEnum,
         "ValueType": ValueType,
         "VendorModelRule.SupplierEnum": VendorModelRule.SupplierEnum,
+        "VolSurfaceShiftDefinition.ShiftTypeEnum": VolSurfaceShiftDefinition.ShiftTypeEnum,
+        "VolSurfaceShiftDefinition.ScenarioShiftTypeEnum": VolSurfaceShiftDefinition.ScenarioShiftTypeEnum,
+        "VolSurfaceShiftDefinitionAllOf.ShiftTypeEnum": VolSurfaceShiftDefinitionAllOf.ShiftTypeEnum,
+        "VolSurfaceShiftDefinitionAllOf.ScenarioShiftTypeEnum": VolSurfaceShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "VolatilitySwap.InstrumentTypeEnum": VolatilitySwap.InstrumentTypeEnum,
         "VolatilitySwapAllOf.InstrumentTypeEnum": VolatilitySwapAllOf.InstrumentTypeEnum,
         "WarrantsExerciseEvent.InstrumentEventTypeEnum": WarrantsExerciseEvent.InstrumentEventTypeEnum,
@@ -3132,6 +3195,7 @@ let typeMap: {[index: string]: any} = {
     "BonusIssueEventAllOf": BonusIssueEventAllOf,
     "BookTransactionsRequest": BookTransactionsRequest,
     "BookTransactionsResponse": BookTransactionsResponse,
+    "BookmarkEntity": BookmarkEntity,
     "BoolComplianceParameter": BoolComplianceParameter,
     "BoolComplianceParameterAllOf": BoolComplianceParameterAllOf,
     "BoolListComplianceParameter": BoolListComplianceParameter,
@@ -3198,6 +3262,8 @@ let typeMap: {[index: string]: any} = {
     "CdxCreditEvent": CdxCreditEvent,
     "CdxCreditEventAllOf": CdxCreditEventAllOf,
     "Change": Change,
+    "ChangeEvent": ChangeEvent,
+    "ChangeEventAllOf": ChangeEventAllOf,
     "ChangeHistory": ChangeHistory,
     "ChangeInterval": ChangeInterval,
     "ChangeIntervalWithOrderManagementDetail": ChangeIntervalWithOrderManagementDetail,
@@ -3284,6 +3350,7 @@ let typeMap: {[index: string]: any} = {
     "CreateRelationalDatasetDefinitionRequest": CreateRelationalDatasetDefinitionRequest,
     "CreateRelationshipDefinitionRequest": CreateRelationshipDefinitionRequest,
     "CreateRelationshipRequest": CreateRelationshipRequest,
+    "CreateScenarioFromTemplateRequest": CreateScenarioFromTemplateRequest,
     "CreateSequenceRequest": CreateSequenceRequest,
     "CreateSeriesIdentifierField": CreateSeriesIdentifierField,
     "CreateSimplePositionPortfolioRequest": CreateSimplePositionPortfolioRequest,
@@ -3400,6 +3467,8 @@ let typeMap: {[index: string]: any} = {
     "EquityModelOptionsAllOf": EquityModelOptionsAllOf,
     "EquityOption": EquityOption,
     "EquityOptionAllOf": EquityOptionAllOf,
+    "EquityShiftDefinition": EquityShiftDefinition,
+    "EquityShiftDefinitionAllOf": EquityShiftDefinitionAllOf,
     "EquitySwap": EquitySwap,
     "EquitySwapAllOf": EquitySwapAllOf,
     "EquityVolDependency": EquityVolDependency,
@@ -3446,6 +3515,8 @@ let typeMap: {[index: string]: any} = {
     "FlexibleDepositAllOf": FlexibleDepositAllOf,
     "FlexibleLoan": FlexibleLoan,
     "FlexibleLoanAllOf": FlexibleLoanAllOf,
+    "FlexibleLoanPricerOptions": FlexibleLoanPricerOptions,
+    "FlexibleLoanPricerOptionsAllOf": FlexibleLoanPricerOptionsAllOf,
     "FlexibleRepo": FlexibleRepo,
     "FlexibleRepoAllOf": FlexibleRepoAllOf,
     "FlexibleRepoCashFlowEvent": FlexibleRepoCashFlowEvent,
@@ -3465,6 +3536,7 @@ let typeMap: {[index: string]: any} = {
     "ForwardRateAgreement": ForwardRateAgreement,
     "ForwardRateAgreementAllOf": ForwardRateAgreementAllOf,
     "FromRecipe": FromRecipe,
+    "FundCalendarEntry": FundCalendarEntry,
     "FundCashStatementRow": FundCashStatementRow,
     "FundIdList": FundIdList,
     "FundIdListAllOf": FundIdListAllOf,
@@ -3504,6 +3576,8 @@ let typeMap: {[index: string]: any} = {
     "FxLinkedNotionalScheduleAllOf": FxLinkedNotionalScheduleAllOf,
     "FxOption": FxOption,
     "FxOptionAllOf": FxOptionAllOf,
+    "FxShiftDefinition": FxShiftDefinition,
+    "FxShiftDefinitionAllOf": FxShiftDefinitionAllOf,
     "FxSwap": FxSwap,
     "FxSwapAllOf": FxSwapAllOf,
     "FxTenorConvention": FxTenorConvention,
@@ -3786,6 +3860,15 @@ let typeMap: {[index: string]: any} = {
     "Participation": Participation,
     "ParticipationRequest": ParticipationRequest,
     "ParticipationSetRequest": ParticipationSetRequest,
+    "PaymentDetailsApplicableEntity": PaymentDetailsApplicableEntity,
+    "PaymentDetailsReference": PaymentDetailsReference,
+    "PaymentDetailsReferenceResponse": PaymentDetailsReferenceResponse,
+    "PaymentDetailsSeriesIdentifiers": PaymentDetailsSeriesIdentifiers,
+    "PaymentInstruction": PaymentInstruction,
+    "PaymentInstructionRequest": PaymentInstructionRequest,
+    "PaymentInstructionStatus": PaymentInstructionStatus,
+    "PaymentInstructionsResponse": PaymentInstructionsResponse,
+    "PaymentRecordReference": PaymentRecordReference,
     "PercentCheckStep": PercentCheckStep,
     "PercentCheckStepRequest": PercentCheckStepRequest,
     "PerformanceReturn": PerformanceReturn,
@@ -3825,6 +3908,7 @@ let typeMap: {[index: string]: any} = {
     "PortfoliosReconciliationRequest": PortfoliosReconciliationRequest,
     "PreTradeConfiguration": PreTradeConfiguration,
     "Premium": Premium,
+    "PreviousFundCalendarEntry": PreviousFundCalendarEntry,
     "PricingContext": PricingContext,
     "PricingOptions": PricingOptions,
     "PriorityIssueEvent": PriorityIssueEvent,
@@ -4248,6 +4332,8 @@ let typeMap: {[index: string]: any} = {
     "VirtualDocument": VirtualDocument,
     "VirtualDocumentRow": VirtualDocumentRow,
     "VirtualRow": VirtualRow,
+    "VolSurfaceShiftDefinition": VolSurfaceShiftDefinition,
+    "VolSurfaceShiftDefinitionAllOf": VolSurfaceShiftDefinitionAllOf,
     "VolatilitySwap": VolatilitySwap,
     "VolatilitySwapAllOf": VolatilitySwapAllOf,
     "Warning": Warning,
