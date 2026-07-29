@@ -782,6 +782,15 @@ export * from './performanceReturn';
 export * from './performanceReturnsMetric';
 export * from './perpetualProperty';
 export * from './person';
+export * from './pikBondCashCouponEvent';
+export * from './pikBondCashCouponEventAllOf';
+export * from './pikBondCouponEvent';
+export * from './pikBondCouponEventAllOf';
+export * from './pikBondInterestCapitalisationEvent';
+export * from './pikBondInterestCapitalisationEventAllOf';
+export * from './pikBondPrincipalEvent';
+export * from './pikBondPrincipalEventAllOf';
+export * from './pikElection';
 export * from './placeBlocksRequest';
 export * from './placement';
 export * from './placementRequest';
@@ -2053,6 +2062,15 @@ import { PerformanceReturn } from './performanceReturn';
 import { PerformanceReturnsMetric } from './performanceReturnsMetric';
 import { PerpetualProperty } from './perpetualProperty';
 import { Person } from './person';
+import { PikBondCashCouponEvent } from './pikBondCashCouponEvent';
+import { PikBondCashCouponEventAllOf } from './pikBondCashCouponEventAllOf';
+import { PikBondCouponEvent } from './pikBondCouponEvent';
+import { PikBondCouponEventAllOf } from './pikBondCouponEventAllOf';
+import { PikBondInterestCapitalisationEvent } from './pikBondInterestCapitalisationEvent';
+import { PikBondInterestCapitalisationEventAllOf } from './pikBondInterestCapitalisationEventAllOf';
+import { PikBondPrincipalEvent } from './pikBondPrincipalEvent';
+import { PikBondPrincipalEventAllOf } from './pikBondPrincipalEventAllOf';
+import { PikElection } from './pikElection';
 import { PlaceBlocksRequest } from './placeBlocksRequest';
 import { Placement } from './placement';
 import { PlacementRequest } from './placementRequest';
@@ -2929,6 +2947,14 @@ let enumsMap: {[index: string]: any} = {
         "PartialDefeasanceEventAllOf.InstrumentEventTypeEnum": PartialDefeasanceEventAllOf.InstrumentEventTypeEnum,
         "PercentCheckStep.ComplianceStepTypeEnum": PercentCheckStep.ComplianceStepTypeEnum,
         "PercentCheckStepRequest.ComplianceStepTypeRequestEnum": PercentCheckStepRequest.ComplianceStepTypeRequestEnum,
+        "PikBondCashCouponEvent.InstrumentEventTypeEnum": PikBondCashCouponEvent.InstrumentEventTypeEnum,
+        "PikBondCashCouponEventAllOf.InstrumentEventTypeEnum": PikBondCashCouponEventAllOf.InstrumentEventTypeEnum,
+        "PikBondCouponEvent.InstrumentEventTypeEnum": PikBondCouponEvent.InstrumentEventTypeEnum,
+        "PikBondCouponEventAllOf.InstrumentEventTypeEnum": PikBondCouponEventAllOf.InstrumentEventTypeEnum,
+        "PikBondInterestCapitalisationEvent.InstrumentEventTypeEnum": PikBondInterestCapitalisationEvent.InstrumentEventTypeEnum,
+        "PikBondInterestCapitalisationEventAllOf.InstrumentEventTypeEnum": PikBondInterestCapitalisationEventAllOf.InstrumentEventTypeEnum,
+        "PikBondPrincipalEvent.InstrumentEventTypeEnum": PikBondPrincipalEvent.InstrumentEventTypeEnum,
+        "PikBondPrincipalEventAllOf.InstrumentEventTypeEnum": PikBondPrincipalEventAllOf.InstrumentEventTypeEnum,
         "Portfolio.TypeEnum": Portfolio.TypeEnum,
         "Portfolio.AccountingMethodEnum": Portfolio.AccountingMethodEnum,
         "PortfolioDetails.AccountingMethodEnum": PortfolioDetails.AccountingMethodEnum,
@@ -3879,6 +3905,15 @@ let typeMap: {[index: string]: any} = {
     "PerformanceReturnsMetric": PerformanceReturnsMetric,
     "PerpetualProperty": PerpetualProperty,
     "Person": Person,
+    "PikBondCashCouponEvent": PikBondCashCouponEvent,
+    "PikBondCashCouponEventAllOf": PikBondCashCouponEventAllOf,
+    "PikBondCouponEvent": PikBondCouponEvent,
+    "PikBondCouponEventAllOf": PikBondCouponEventAllOf,
+    "PikBondInterestCapitalisationEvent": PikBondInterestCapitalisationEvent,
+    "PikBondInterestCapitalisationEventAllOf": PikBondInterestCapitalisationEventAllOf,
+    "PikBondPrincipalEvent": PikBondPrincipalEvent,
+    "PikBondPrincipalEventAllOf": PikBondPrincipalEventAllOf,
+    "PikElection": PikElection,
     "PlaceBlocksRequest": PlaceBlocksRequest,
     "Placement": Placement,
     "PlacementRequest": PlacementRequest,
