@@ -1006,6 +1006,7 @@ export * from './roundingConfiguration';
 export * from './roundingConfigurationComponent';
 export * from './roundingConvention';
 export * from './scenarioDefinition';
+export * from './scenarioReference';
 export * from './scenarioShiftDefinition';
 export * from './schedule';
 export * from './schema';
@@ -2276,6 +2277,7 @@ import { RoundingConfiguration } from './roundingConfiguration';
 import { RoundingConfigurationComponent } from './roundingConfigurationComponent';
 import { RoundingConvention } from './roundingConvention';
 import { ScenarioDefinition } from './scenarioDefinition';
+import { ScenarioReference } from './scenarioReference';
 import { ScenarioShiftDefinition } from './scenarioShiftDefinition';
 import { Schedule } from './schedule';
 import { Schema } from './schema';
@@ -2971,8 +2973,10 @@ let enumsMap: {[index: string]: any} = {
         "QuoteSeriesId.InstrumentIdTypeEnum": QuoteSeriesId.InstrumentIdTypeEnum,
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
         "RateCurveShiftDefinition.ShiftTypeEnum": RateCurveShiftDefinition.ShiftTypeEnum,
+        "RateCurveShiftDefinition.ScaleEnum": RateCurveShiftDefinition.ScaleEnum,
         "RateCurveShiftDefinition.ScenarioShiftTypeEnum": RateCurveShiftDefinition.ScenarioShiftTypeEnum,
         "RateCurveShiftDefinitionAllOf.ShiftTypeEnum": RateCurveShiftDefinitionAllOf.ShiftTypeEnum,
+        "RateCurveShiftDefinitionAllOf.ScaleEnum": RateCurveShiftDefinitionAllOf.ScaleEnum,
         "RateCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum": RateCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "RawVendorEvent.InstrumentEventTypeEnum": RawVendorEvent.InstrumentEventTypeEnum,
         "RawVendorEventAllOf.InstrumentEventTypeEnum": RawVendorEventAllOf.InstrumentEventTypeEnum,
@@ -4099,6 +4103,7 @@ let typeMap: {[index: string]: any} = {
     "RoundingConfigurationComponent": RoundingConfigurationComponent,
     "RoundingConvention": RoundingConvention,
     "ScenarioDefinition": ScenarioDefinition,
+    "ScenarioReference": ScenarioReference,
     "ScenarioShiftDefinition": ScenarioShiftDefinition,
     "Schedule": Schedule,
     "Schema": Schema,
