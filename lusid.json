@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1578",
+    "version": "2.0.1579",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -43296,6 +43296,7 @@
                       "ordered": {
                         "quantity": 1500,
                         "quantityByState": {},
+                        "amountByState": {},
                         "details": [
                           {
                             "id": {
@@ -43468,6 +43469,7 @@
                       "ordered": {
                         "quantity": 1500,
                         "quantityByState": {},
+                        "amountByState": {},
                         "details": [
                           {
                             "id": {
@@ -43640,6 +43642,7 @@
                       "ordered": {
                         "quantity": 1500,
                         "quantityByState": {},
+                        "amountByState": {},
                         "details": [
                           {
                             "id": {
@@ -47499,7 +47502,7 @@
         "tags": [
           "Order Management"
         ],
-        "summary": "CreateOrders: Upsert a Block and associated orders",
+        "summary": "CreateOrders: Create Orders and create/update Block",
         "description": "Create orders, and blocks if they don't already exist.\r\nThis will fail if the block exists and already references orders with differing blocking fields.",
         "operationId": "CreateOrders",
         "requestBody": {
@@ -132701,7 +132704,6 @@
           "isSwept",
           "lusidInstrumentId",
           "orderIds",
-          "quantity",
           "side"
         ],
         "type": "object",
@@ -132740,7 +132742,11 @@
           "quantity": {
             "type": "number",
             "description": "The total quantity of given instrument ordered.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
+          },
+          "amount": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
           },
           "side": {
             "minLength": 1,
@@ -132907,8 +132913,7 @@
       },
       "BlockedOrderRequest": {
         "required": [
-          "id",
-          "quantity"
+          "id"
         ],
         "type": "object",
         "properties": {
@@ -132923,7 +132928,11 @@
           "quantity": {
             "type": "number",
             "description": "The quantity of the given instrument ordered.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
+          },
+          "amount": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
           },
           "orderBookId": {
             "$ref": "#/components/schemas/ResourceId"
@@ -132966,7 +132975,6 @@
           "createdDate",
           "id",
           "instrumentIdentifiers",
-          "quantity",
           "side"
         ],
         "type": "object",
@@ -133001,7 +133009,11 @@
           "quantity": {
             "type": "number",
             "description": "The total quantity of given instrument ordered.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
+          },
+          "amount": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
           },
           "side": {
             "minLength": 1,
@@ -137848,6 +137860,12 @@
                 "type": "number",
                 "description": "The price the complex bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%.",
                 "format": "double",
+                "nullable": true
+              },
+              "issueDate": {
+                "type": "string",
+                "description": "The date the bond was issued to the market. This may be after the StartDate (dated date) from which interest accrues, for example for agency mortgage-backed securities. The payment schedule is unchanged, but no coupon entitlement (ex-dividend) date can fall before this date: a buyer settling on the issue date is entitled to the first coupon, and accrued interest includes completed-but-unpaid coupons until their entitlement passes.",
+                "format": "date-time",
                 "nullable": true
               },
               "roundingConventions": {
@@ -161748,15 +161766,15 @@
       },
       "OrderGraphBlockOrderSynopsis": {
         "required": [
-          "details",
-          "quantity"
+          "details"
         ],
         "type": "object",
         "properties": {
           "quantity": {
             "type": "number",
             "description": "Total number of units ordered.",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "quantityByState": {
             "type": "object",
@@ -161765,6 +161783,21 @@
               "format": "double"
             },
             "description": "Total number of units placed.",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "description": "Total monetary value ordered, in the block currency.",
+            "format": "double",
+            "nullable": true
+          },
+          "amountByState": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double"
+            },
+            "description": "Total monetary value ordered, broken down by order state.",
             "nullable": true
           },
           "details": {
@@ -186465,6 +186498,10 @@
       "description": "Methods for the storage and retrieval of Quotes. Read more about Quotes in the LUSID Knowledge Base here https://support.lusid.com/what-is-a-quote."
     },
     {
+      "name": "Rec Result Sets",
+      "description": "Endpoints for retrieving and acting on advanced reconciliation result sets."
+    },
+    {
       "name": "Reconciliations",
       "description": "Endpoints for performing reconciliations"
     },
@@ -186652,6 +186689,7 @@
       "Property Definitions",
       "QueryableKeys",
       "Quotes",
+      "Rec Result Sets",
       "Reconciliations",
       "Reference Portfolio",
       "ReferenceLists",
