@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1579",
+    "version": "2.0.1580",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -7650,7 +7650,7 @@
           {
             "name": "effectiveAt",
             "in": "query",
-            "description": "The effectiveAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. Note\r\nthat this parameter is not implemented at this time and the latest version of the ComplexMarketData will\r\nalways be returned.",
+            "description": "The effectiveAt datetime or cut label at which to list the ComplexMarketData. Defaults to latest if not specified.",
             "schema": {
               "type": "string",
               "format": "dateorcutlabel"
@@ -7659,7 +7659,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing ComplexMarketData; this\r\n            value is returned from the previous call. If a pagination token is provided, the effectiveAt\r\n            and asAt fields must not have changed since the original request.",
+            "description": "The pagination token to use to continue listing ComplexMarketData; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, scope, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
@@ -7707,6 +7707,28 @@
             "description": "The closed period ID. If this is specified, both timelineScope and timelineCode must be specified.",
             "schema": {
               "maxLength": 512,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. The following fields are supported:\r\n            'Scope', 'MarketDataId.MarketAsset', 'MarketDataId.Provider', 'MarketDataId.PriceSource',\r\n            'MarketDataId.Lineage' (the lineage of the stored market data) and 'MarketData.MarketDataType'.\r\n            The market data document contents are not filterable.\r\n            Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "description": "Optionally restrict the results to ComplexMarketData in a single scope. If not\r\n            specified, ComplexMarketData from all scopes will be returned.",
+            "schema": {
+              "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string"
@@ -78788,7 +78810,8 @@
                         "instrumentMatured": false
                       },
                       "enableLegLevelInferenceForCustomSrsColumns": false,
-                      "useInstrumentScaleFactorAsDefault": false
+                      "useInstrumentScaleFactorAsDefault": false,
+                      "scaleInstrumentAccruedOverrideByContractSize": false
                     },
                     "resultDataRules": [],
                     "holdingPricingInfo": {
@@ -78870,7 +78893,8 @@
                         "instrumentMatured": false
                       },
                       "enableLegLevelInferenceForCustomSrsColumns": false,
-                      "useInstrumentScaleFactorAsDefault": false
+                      "useInstrumentScaleFactorAsDefault": false,
+                      "scaleInstrumentAccruedOverrideByContractSize": false
                     },
                     "resultDataRules": [],
                     "holdingPricingInfo": {
@@ -78952,7 +78976,8 @@
                         "instrumentMatured": false
                       },
                       "enableLegLevelInferenceForCustomSrsColumns": false,
-                      "useInstrumentScaleFactorAsDefault": false
+                      "useInstrumentScaleFactorAsDefault": false,
+                      "scaleInstrumentAccruedOverrideByContractSize": false
                     },
                     "resultDataRules": [],
                     "holdingPricingInfo": {
@@ -79034,7 +79059,8 @@
                         "instrumentMatured": false
                       },
                       "enableLegLevelInferenceForCustomSrsColumns": false,
-                      "useInstrumentScaleFactorAsDefault": false
+                      "useInstrumentScaleFactorAsDefault": false,
+                      "scaleInstrumentAccruedOverrideByContractSize": false
                     },
                     "resultDataRules": [],
                     "holdingPricingInfo": {
@@ -79226,7 +79252,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -79303,7 +79330,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -79410,7 +79438,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -79487,7 +79516,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -79594,7 +79624,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -79671,7 +79702,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -80448,7 +80480,8 @@
                           "instrumentMatured": false
                         },
                         "enableLegLevelInferenceForCustomSrsColumns": false,
-                        "useInstrumentScaleFactorAsDefault": false
+                        "useInstrumentScaleFactorAsDefault": false,
+                        "scaleInstrumentAccruedOverrideByContractSize": false
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -80542,7 +80575,8 @@
                           "instrumentMatured": false
                         },
                         "enableLegLevelInferenceForCustomSrsColumns": false,
-                        "useInstrumentScaleFactorAsDefault": false
+                        "useInstrumentScaleFactorAsDefault": false,
+                        "scaleInstrumentAccruedOverrideByContractSize": false
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -80636,7 +80670,8 @@
                           "instrumentMatured": false
                         },
                         "enableLegLevelInferenceForCustomSrsColumns": false,
-                        "useInstrumentScaleFactorAsDefault": false
+                        "useInstrumentScaleFactorAsDefault": false,
+                        "scaleInstrumentAccruedOverrideByContractSize": false
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -81079,7 +81114,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -81156,7 +81192,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -81263,7 +81300,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -81340,7 +81378,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -81447,7 +81486,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -81524,7 +81564,8 @@
                               "instrumentMatured": false
                             },
                             "enableLegLevelInferenceForCustomSrsColumns": false,
-                            "useInstrumentScaleFactorAsDefault": false
+                            "useInstrumentScaleFactorAsDefault": false,
+                            "scaleInstrumentAccruedOverrideByContractSize": false
                           },
                           "resultDataRules": [],
                           "holdingPricingInfo": {
@@ -81718,7 +81759,8 @@
                           "instrumentMatured": false
                         },
                         "enableLegLevelInferenceForCustomSrsColumns": false,
-                        "useInstrumentScaleFactorAsDefault": false
+                        "useInstrumentScaleFactorAsDefault": false,
+                        "scaleInstrumentAccruedOverrideByContractSize": false
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -81812,7 +81854,8 @@
                           "instrumentMatured": false
                         },
                         "enableLegLevelInferenceForCustomSrsColumns": false,
-                        "useInstrumentScaleFactorAsDefault": false
+                        "useInstrumentScaleFactorAsDefault": false,
+                        "scaleInstrumentAccruedOverrideByContractSize": false
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -81906,7 +81949,8 @@
                           "instrumentMatured": false
                         },
                         "enableLegLevelInferenceForCustomSrsColumns": false,
-                        "useInstrumentScaleFactorAsDefault": false
+                        "useInstrumentScaleFactorAsDefault": false,
+                        "scaleInstrumentAccruedOverrideByContractSize": false
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -82089,7 +82133,8 @@
                           "instrumentMatured": false
                         },
                         "enableLegLevelInferenceForCustomSrsColumns": false,
-                        "useInstrumentScaleFactorAsDefault": false
+                        "useInstrumentScaleFactorAsDefault": false,
+                        "scaleInstrumentAccruedOverrideByContractSize": false
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -82183,7 +82228,8 @@
                           "instrumentMatured": false
                         },
                         "enableLegLevelInferenceForCustomSrsColumns": false,
-                        "useInstrumentScaleFactorAsDefault": false
+                        "useInstrumentScaleFactorAsDefault": false,
+                        "scaleInstrumentAccruedOverrideByContractSize": false
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -82277,7 +82323,8 @@
                           "instrumentMatured": false
                         },
                         "enableLegLevelInferenceForCustomSrsColumns": false,
-                        "useInstrumentScaleFactorAsDefault": false
+                        "useInstrumentScaleFactorAsDefault": false,
+                        "scaleInstrumentAccruedOverrideByContractSize": false
                       },
                       "resultDataRules": [],
                       "holdingPricingInfo": {
@@ -168010,6 +168057,10 @@
           "useInstrumentScaleFactorAsDefault": {
             "type": "boolean",
             "description": "When enabled, priceScaleFactor defined at the instrument level will\r\nbe used in the absence of quote scaleFactor when resolving quotes."
+          },
+          "scaleInstrumentAccruedOverrideByContractSize": {
+            "type": "boolean",
+            "description": "When enabled, an SRS InstrumentAccrued override is multiplied by the instrument contractSize (legacy behaviour).\r\nBy default this is disabled, and the override is treated as the accrued for a single unit, keeping the\r\nholding-level identity PV = CleanPv + Accrued consistent."
           }
         },
         "additionalProperties": false,
