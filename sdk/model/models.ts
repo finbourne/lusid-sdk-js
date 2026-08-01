@@ -590,6 +590,7 @@ export * from './irVolCubeDataAllOf';
 export * from './irVolDependency';
 export * from './irVolDependencyAllOf';
 export * from './isBusinessDayResponse';
+export * from './keyedMarketDataKeyRule';
 export * from './labelValueSet';
 export * from './lapseElection';
 export * from './legDefinition';
@@ -648,6 +649,8 @@ export * from './mbsPrincipalEvent';
 export * from './mbsPrincipalEventAllOf';
 export * from './mbsPrincipalWriteOffEvent';
 export * from './mbsPrincipalWriteOffEventAllOf';
+export * from './mdkrGroupShiftDefinition';
+export * from './mdkrGroupShiftDefinitionAllOf';
 export * from './membership';
 export * from './membershipAndStatus';
 export * from './mergerEvent';
@@ -1015,6 +1018,9 @@ export * from './roundingConfiguration';
 export * from './roundingConfigurationComponent';
 export * from './roundingConvention';
 export * from './scenarioDefinition';
+export * from './scenarioPreviewAppliedShift';
+export * from './scenarioPreviewRequest';
+export * from './scenarioPreviewResponse';
 export * from './scenarioReference';
 export * from './scenarioShiftDefinition';
 export * from './schedule';
@@ -1102,6 +1108,8 @@ export * from './termDepositPrincipalEventAllOf';
 export * from './timeZoneConventions';
 export * from './toBeAnnounced';
 export * from './toBeAnnouncedAllOf';
+export * from './toBeAnnouncedOption';
+export * from './toBeAnnouncedOptionAllOf';
 export * from './totalReturnSwap';
 export * from './totalReturnSwapAllOf';
 export * from './touch';
@@ -1230,6 +1238,7 @@ export * from './upsertSubscriptionRequest';
 export * from './upsertTransactionPropertiesResponse';
 export * from './upsertTranslationScriptRequest';
 export * from './user';
+export * from './valuationPointEntity';
 export * from './valuationPointResourceListOfFundCashStatementRow';
 export * from './valuationRequest';
 export * from './valuationSchedule';
@@ -1870,6 +1879,7 @@ import { IrVolCubeDataAllOf } from './irVolCubeDataAllOf';
 import { IrVolDependency } from './irVolDependency';
 import { IrVolDependencyAllOf } from './irVolDependencyAllOf';
 import { IsBusinessDayResponse } from './isBusinessDayResponse';
+import { KeyedMarketDataKeyRule } from './keyedMarketDataKeyRule';
 import { LabelValueSet } from './labelValueSet';
 import { LapseElection } from './lapseElection';
 import { LegDefinition } from './legDefinition';
@@ -1928,6 +1938,8 @@ import { MbsPrincipalEvent } from './mbsPrincipalEvent';
 import { MbsPrincipalEventAllOf } from './mbsPrincipalEventAllOf';
 import { MbsPrincipalWriteOffEvent } from './mbsPrincipalWriteOffEvent';
 import { MbsPrincipalWriteOffEventAllOf } from './mbsPrincipalWriteOffEventAllOf';
+import { MdkrGroupShiftDefinition } from './mdkrGroupShiftDefinition';
+import { MdkrGroupShiftDefinitionAllOf } from './mdkrGroupShiftDefinitionAllOf';
 import { Membership } from './membership';
 import { MembershipAndStatus } from './membershipAndStatus';
 import { MergerEvent } from './mergerEvent';
@@ -2295,6 +2307,9 @@ import { RoundingConfiguration } from './roundingConfiguration';
 import { RoundingConfigurationComponent } from './roundingConfigurationComponent';
 import { RoundingConvention } from './roundingConvention';
 import { ScenarioDefinition } from './scenarioDefinition';
+import { ScenarioPreviewAppliedShift } from './scenarioPreviewAppliedShift';
+import { ScenarioPreviewRequest } from './scenarioPreviewRequest';
+import { ScenarioPreviewResponse } from './scenarioPreviewResponse';
 import { ScenarioReference } from './scenarioReference';
 import { ScenarioShiftDefinition } from './scenarioShiftDefinition';
 import { Schedule } from './schedule';
@@ -2382,6 +2397,8 @@ import { TermDepositPrincipalEventAllOf } from './termDepositPrincipalEventAllOf
 import { TimeZoneConventions } from './timeZoneConventions';
 import { ToBeAnnounced } from './toBeAnnounced';
 import { ToBeAnnouncedAllOf } from './toBeAnnouncedAllOf';
+import { ToBeAnnouncedOption } from './toBeAnnouncedOption';
+import { ToBeAnnouncedOptionAllOf } from './toBeAnnouncedOptionAllOf';
 import { TotalReturnSwap } from './totalReturnSwap';
 import { TotalReturnSwapAllOf } from './totalReturnSwapAllOf';
 import { Touch } from './touch';
@@ -2510,6 +2527,7 @@ import { UpsertSubscriptionRequest } from './upsertSubscriptionRequest';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
 import { UpsertTranslationScriptRequest } from './upsertTranslationScriptRequest';
 import { User } from './user';
+import { ValuationPointEntity } from './valuationPointEntity';
 import { ValuationPointResourceListOfFundCashStatementRow } from './valuationPointResourceListOfFundCashStatementRow';
 import { ValuationRequest } from './valuationRequest';
 import { ValuationSchedule } from './valuationSchedule';
@@ -2922,6 +2940,8 @@ let enumsMap: {[index: string]: any} = {
         "MbsPrincipalEventAllOf.InstrumentEventTypeEnum": MbsPrincipalEventAllOf.InstrumentEventTypeEnum,
         "MbsPrincipalWriteOffEvent.InstrumentEventTypeEnum": MbsPrincipalWriteOffEvent.InstrumentEventTypeEnum,
         "MbsPrincipalWriteOffEventAllOf.InstrumentEventTypeEnum": MbsPrincipalWriteOffEventAllOf.InstrumentEventTypeEnum,
+        "MdkrGroupShiftDefinition.ScenarioShiftTypeEnum": MdkrGroupShiftDefinition.ScenarioShiftTypeEnum,
+        "MdkrGroupShiftDefinitionAllOf.ScenarioShiftTypeEnum": MdkrGroupShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "MergerEvent.InstrumentEventTypeEnum": MergerEvent.InstrumentEventTypeEnum,
         "MergerEventAllOf.InstrumentEventTypeEnum": MergerEventAllOf.InstrumentEventTypeEnum,
         "ModelOptions.ModelOptionsTypeEnum": ModelOptions.ModelOptionsTypeEnum,
@@ -3091,6 +3111,8 @@ let enumsMap: {[index: string]: any} = {
         "TermDepositPrincipalEventAllOf.InstrumentEventTypeEnum": TermDepositPrincipalEventAllOf.InstrumentEventTypeEnum,
         "ToBeAnnounced.InstrumentTypeEnum": ToBeAnnounced.InstrumentTypeEnum,
         "ToBeAnnouncedAllOf.InstrumentTypeEnum": ToBeAnnouncedAllOf.InstrumentTypeEnum,
+        "ToBeAnnouncedOption.InstrumentTypeEnum": ToBeAnnouncedOption.InstrumentTypeEnum,
+        "ToBeAnnouncedOptionAllOf.InstrumentTypeEnum": ToBeAnnouncedOptionAllOf.InstrumentTypeEnum,
         "TotalReturnSwap.InstrumentTypeEnum": TotalReturnSwap.InstrumentTypeEnum,
         "TotalReturnSwapAllOf.InstrumentTypeEnum": TotalReturnSwapAllOf.InstrumentTypeEnum,
         "Transaction.TransactionStatusEnum": Transaction.TransactionStatusEnum,
@@ -3713,6 +3735,7 @@ let typeMap: {[index: string]: any} = {
     "IrVolDependency": IrVolDependency,
     "IrVolDependencyAllOf": IrVolDependencyAllOf,
     "IsBusinessDayResponse": IsBusinessDayResponse,
+    "KeyedMarketDataKeyRule": KeyedMarketDataKeyRule,
     "LabelValueSet": LabelValueSet,
     "LapseElection": LapseElection,
     "LegDefinition": LegDefinition,
@@ -3771,6 +3794,8 @@ let typeMap: {[index: string]: any} = {
     "MbsPrincipalEventAllOf": MbsPrincipalEventAllOf,
     "MbsPrincipalWriteOffEvent": MbsPrincipalWriteOffEvent,
     "MbsPrincipalWriteOffEventAllOf": MbsPrincipalWriteOffEventAllOf,
+    "MdkrGroupShiftDefinition": MdkrGroupShiftDefinition,
+    "MdkrGroupShiftDefinitionAllOf": MdkrGroupShiftDefinitionAllOf,
     "Membership": Membership,
     "MembershipAndStatus": MembershipAndStatus,
     "MergerEvent": MergerEvent,
@@ -4138,6 +4163,9 @@ let typeMap: {[index: string]: any} = {
     "RoundingConfigurationComponent": RoundingConfigurationComponent,
     "RoundingConvention": RoundingConvention,
     "ScenarioDefinition": ScenarioDefinition,
+    "ScenarioPreviewAppliedShift": ScenarioPreviewAppliedShift,
+    "ScenarioPreviewRequest": ScenarioPreviewRequest,
+    "ScenarioPreviewResponse": ScenarioPreviewResponse,
     "ScenarioReference": ScenarioReference,
     "ScenarioShiftDefinition": ScenarioShiftDefinition,
     "Schedule": Schedule,
@@ -4225,6 +4253,8 @@ let typeMap: {[index: string]: any} = {
     "TimeZoneConventions": TimeZoneConventions,
     "ToBeAnnounced": ToBeAnnounced,
     "ToBeAnnouncedAllOf": ToBeAnnouncedAllOf,
+    "ToBeAnnouncedOption": ToBeAnnouncedOption,
+    "ToBeAnnouncedOptionAllOf": ToBeAnnouncedOptionAllOf,
     "TotalReturnSwap": TotalReturnSwap,
     "TotalReturnSwapAllOf": TotalReturnSwapAllOf,
     "Touch": Touch,
@@ -4353,6 +4383,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
     "UpsertTranslationScriptRequest": UpsertTranslationScriptRequest,
     "User": User,
+    "ValuationPointEntity": ValuationPointEntity,
     "ValuationPointResourceListOfFundCashStatementRow": ValuationPointResourceListOfFundCashStatementRow,
     "ValuationRequest": ValuationRequest,
     "ValuationSchedule": ValuationSchedule,
