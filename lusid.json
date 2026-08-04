@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1584",
+    "version": "2.0.1585",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -187499,12 +187499,12 @@
       "description": "Methods for the storage and retrieval of Quotes. Read more about Quotes in the LUSID Knowledge Base here https://support.lusid.com/what-is-a-quote."
     },
     {
-      "name": "Rec Result Sets",
-      "description": "Endpoints for retrieving and acting on advanced reconciliation result sets."
-    },
-    {
       "name": "Reconciliations",
       "description": "Endpoints for performing reconciliations"
+    },
+    {
+      "name": "Recs",
+      "description": "Endpoints for advanced reconciliation instances and result sets."
     },
     {
       "name": "Reference Portfolio",
@@ -187690,8 +187690,8 @@
       "Property Definitions",
       "QueryableKeys",
       "Quotes",
-      "Rec Result Sets",
       "Reconciliations",
+      "Recs",
       "Reference Portfolio",
       "ReferenceLists",
       "Relation Definitions",
