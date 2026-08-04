@@ -376,8 +376,6 @@ export * from './equityModelOptions';
 export * from './equityModelOptionsAllOf';
 export * from './equityOption';
 export * from './equityOptionAllOf';
-export * from './equityShiftDefinition';
-export * from './equityShiftDefinitionAllOf';
 export * from './equitySwap';
 export * from './equitySwapAllOf';
 export * from './equityVolDependency';
@@ -830,6 +828,8 @@ export * from './portfoliosReconciliationRequest';
 export * from './preTradeConfiguration';
 export * from './premium';
 export * from './previousFundCalendarEntry';
+export * from './priceShiftDefinition';
+export * from './priceShiftDefinitionAllOf';
 export * from './pricingContext';
 export * from './pricingOptions';
 export * from './priorityIssueEvent';
@@ -1667,8 +1667,6 @@ import { EquityModelOptions } from './equityModelOptions';
 import { EquityModelOptionsAllOf } from './equityModelOptionsAllOf';
 import { EquityOption } from './equityOption';
 import { EquityOptionAllOf } from './equityOptionAllOf';
-import { EquityShiftDefinition } from './equityShiftDefinition';
-import { EquityShiftDefinitionAllOf } from './equityShiftDefinitionAllOf';
 import { EquitySwap } from './equitySwap';
 import { EquitySwapAllOf } from './equitySwapAllOf';
 import { EquityVolDependency } from './equityVolDependency';
@@ -2121,6 +2119,8 @@ import { PortfoliosReconciliationRequest } from './portfoliosReconciliationReque
 import { PreTradeConfiguration } from './preTradeConfiguration';
 import { Premium } from './premium';
 import { PreviousFundCalendarEntry } from './previousFundCalendarEntry';
+import { PriceShiftDefinition } from './priceShiftDefinition';
+import { PriceShiftDefinitionAllOf } from './priceShiftDefinitionAllOf';
 import { PricingContext } from './pricingContext';
 import { PricingOptions } from './pricingOptions';
 import { PriorityIssueEvent } from './priorityIssueEvent';
@@ -2760,10 +2760,6 @@ let enumsMap: {[index: string]: any} = {
         "EquityModelOptionsAllOf.ModelOptionsTypeEnum": EquityModelOptionsAllOf.ModelOptionsTypeEnum,
         "EquityOption.InstrumentTypeEnum": EquityOption.InstrumentTypeEnum,
         "EquityOptionAllOf.InstrumentTypeEnum": EquityOptionAllOf.InstrumentTypeEnum,
-        "EquityShiftDefinition.ShiftTypeEnum": EquityShiftDefinition.ShiftTypeEnum,
-        "EquityShiftDefinition.ScenarioShiftTypeEnum": EquityShiftDefinition.ScenarioShiftTypeEnum,
-        "EquityShiftDefinitionAllOf.ShiftTypeEnum": EquityShiftDefinitionAllOf.ShiftTypeEnum,
-        "EquityShiftDefinitionAllOf.ScenarioShiftTypeEnum": EquityShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "EquitySwap.InstrumentTypeEnum": EquitySwap.InstrumentTypeEnum,
         "EquitySwapAllOf.InstrumentTypeEnum": EquitySwapAllOf.InstrumentTypeEnum,
         "EquityVolDependency.DependencyTypeEnum": EquityVolDependency.DependencyTypeEnum,
@@ -2995,6 +2991,12 @@ let enumsMap: {[index: string]: any} = {
         "PortfolioSearchResult.TypeEnum": PortfolioSearchResult.TypeEnum,
         "PortfolioWithoutHref.TypeEnum": PortfolioWithoutHref.TypeEnum,
         "PortfolioWithoutHref.AccountingMethodEnum": PortfolioWithoutHref.AccountingMethodEnum,
+        "PriceShiftDefinition.ShiftTypeEnum": PriceShiftDefinition.ShiftTypeEnum,
+        "PriceShiftDefinition.QuoteTypeEnum": PriceShiftDefinition.QuoteTypeEnum,
+        "PriceShiftDefinition.ScenarioShiftTypeEnum": PriceShiftDefinition.ScenarioShiftTypeEnum,
+        "PriceShiftDefinitionAllOf.ShiftTypeEnum": PriceShiftDefinitionAllOf.ShiftTypeEnum,
+        "PriceShiftDefinitionAllOf.QuoteTypeEnum": PriceShiftDefinitionAllOf.QuoteTypeEnum,
+        "PriceShiftDefinitionAllOf.ScenarioShiftTypeEnum": PriceShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "PriorityIssueEvent.InstrumentEventTypeEnum": PriorityIssueEvent.InstrumentEventTypeEnum,
         "PriorityIssueEventAllOf.InstrumentEventTypeEnum": PriorityIssueEventAllOf.InstrumentEventTypeEnum,
         "PropertyDefinition.ValueTypeEnum": PropertyDefinition.ValueTypeEnum,
@@ -3527,8 +3529,6 @@ let typeMap: {[index: string]: any} = {
     "EquityModelOptionsAllOf": EquityModelOptionsAllOf,
     "EquityOption": EquityOption,
     "EquityOptionAllOf": EquityOptionAllOf,
-    "EquityShiftDefinition": EquityShiftDefinition,
-    "EquityShiftDefinitionAllOf": EquityShiftDefinitionAllOf,
     "EquitySwap": EquitySwap,
     "EquitySwapAllOf": EquitySwapAllOf,
     "EquityVolDependency": EquityVolDependency,
@@ -3981,6 +3981,8 @@ let typeMap: {[index: string]: any} = {
     "PreTradeConfiguration": PreTradeConfiguration,
     "Premium": Premium,
     "PreviousFundCalendarEntry": PreviousFundCalendarEntry,
+    "PriceShiftDefinition": PriceShiftDefinition,
+    "PriceShiftDefinitionAllOf": PriceShiftDefinitionAllOf,
     "PricingContext": PricingContext,
     "PricingOptions": PricingOptions,
     "PriorityIssueEvent": PriorityIssueEvent,

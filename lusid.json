@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1585",
+    "version": "2.0.1587",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -147342,55 +147342,6 @@
         ],
         "description": "LUSID representation of a plain vanilla OTC Equity Option."
       },
-      "EquityShiftDefinition": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ScenarioShiftDefinition"
-          },
-          {
-            "required": [
-              "amount",
-              "instrument",
-              "scenarioShiftType",
-              "shiftType"
-            ],
-            "type": "object",
-            "properties": {
-              "instrument": {
-                "maxLength": 50,
-                "minLength": 1,
-                "type": "string"
-              },
-              "amount": {
-                "maximum": 1000000,
-                "minimum": -1000000,
-                "type": "number",
-                "format": "double"
-              },
-              "shiftType": {
-                "enum": [
-                  "Absolute",
-                  "Relative",
-                  "Percentage"
-                ],
-                "type": "string",
-                "description": "Available values: Absolute, Relative, Percentage."
-              },
-              "scenarioShiftType": {
-                "enum": [
-                  "RateCurveShiftDefinition",
-                  "FxShiftDefinition",
-                  "EquityShiftDefinition",
-                  "VolSurfaceShiftDefinition",
-                  "MdkrGroupShiftDefinition"
-                ],
-                "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
-              }
-            }
-          }
-        ]
-      },
       "EquitySwap": {
         "allOf": [
           {
@@ -153011,12 +152962,12 @@
                 "enum": [
                   "RateCurveShiftDefinition",
                   "FxShiftDefinition",
-                  "EquityShiftDefinition",
+                  "PriceShiftDefinition",
                   "VolSurfaceShiftDefinition",
                   "MdkrGroupShiftDefinition"
                 ],
                 "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
               }
             }
           }
@@ -160735,12 +160686,12 @@
                 "enum": [
                   "RateCurveShiftDefinition",
                   "FxShiftDefinition",
-                  "EquityShiftDefinition",
+                  "PriceShiftDefinition",
                   "VolSurfaceShiftDefinition",
                   "MdkrGroupShiftDefinition"
                 ],
                 "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
               }
             }
           }
@@ -168540,6 +168491,80 @@
         },
         "additionalProperties": false
       },
+      "PriceShiftDefinition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ScenarioShiftDefinition"
+          },
+          {
+            "required": [
+              "amount",
+              "instrument",
+              "scenarioShiftType",
+              "shiftType"
+            ],
+            "type": "object",
+            "properties": {
+              "instrument": {
+                "maxLength": 50,
+                "minLength": 1,
+                "type": "string"
+              },
+              "amount": {
+                "maximum": 1000000,
+                "minimum": -1000000,
+                "type": "number",
+                "format": "double"
+              },
+              "shiftType": {
+                "enum": [
+                  "Absolute",
+                  "Relative",
+                  "Percentage"
+                ],
+                "type": "string",
+                "description": "Available values: Absolute, Relative, Percentage."
+              },
+              "quoteType": {
+                "enum": [
+                  "Price",
+                  "Spread",
+                  "Rate",
+                  "LogNormalVol",
+                  "NormalVol",
+                  "ParSpread",
+                  "IsdaSpread",
+                  "Upfront",
+                  "Index",
+                  "Ratio",
+                  "Delta",
+                  "PoolFactor",
+                  "InflationAssumption",
+                  "DirtyPrice",
+                  "PrincipalWriteOff",
+                  "InterestDeferred",
+                  "InterestShortfall",
+                  "ConstituentWeightFactor"
+                ],
+                "type": "string",
+                "description": "Available values: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice, PrincipalWriteOff, InterestDeferred, InterestShortfall, ConstituentWeightFactor.",
+                "nullable": true
+              },
+              "scenarioShiftType": {
+                "enum": [
+                  "RateCurveShiftDefinition",
+                  "FxShiftDefinition",
+                  "PriceShiftDefinition",
+                  "VolSurfaceShiftDefinition",
+                  "MdkrGroupShiftDefinition"
+                ],
+                "type": "string",
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+              }
+            }
+          }
+        ]
+      },
       "PricingContext": {
         "type": "object",
         "properties": {
@@ -170860,12 +170885,12 @@
                 "enum": [
                   "RateCurveShiftDefinition",
                   "FxShiftDefinition",
-                  "EquityShiftDefinition",
+                  "PriceShiftDefinition",
                   "VolSurfaceShiftDefinition",
                   "MdkrGroupShiftDefinition"
                 ],
                 "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
               }
             }
           }
@@ -176388,7 +176413,7 @@
           },
           "shift": {
             "type": "string",
-            "description": "Description of the shift, e.g. \"EquityShift on 'SCENARIO_EQUITY'\".",
+            "description": "Description of the shift, e.g. \"PriceShift on 'SCENARIO_EQUITY'\".",
             "nullable": true
           },
           "target": {
@@ -176522,12 +176547,12 @@
             "enum": [
               "RateCurveShiftDefinition",
               "FxShiftDefinition",
-              "EquityShiftDefinition",
+              "PriceShiftDefinition",
               "VolSurfaceShiftDefinition",
               "MdkrGroupShiftDefinition"
             ],
             "type": "string",
-            "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+            "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
           }
         },
         "additionalProperties": false,
@@ -186703,12 +186728,12 @@
                 "enum": [
                   "RateCurveShiftDefinition",
                   "FxShiftDefinition",
-                  "EquityShiftDefinition",
+                  "PriceShiftDefinition",
                   "VolSurfaceShiftDefinition",
                   "MdkrGroupShiftDefinition"
                 ],
                 "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, EquityShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
               }
             }
           }
