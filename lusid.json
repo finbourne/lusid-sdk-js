@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1594",
+    "version": "2.0.1595",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -132298,6 +132298,45 @@
         "additionalProperties": false,
         "description": "Represents applicable instrument event."
       },
+      "AppliedScenarioShift": {
+        "type": "object",
+        "properties": {
+          "scenario": {
+            "type": "string",
+            "description": "The \"scope/code\" reference of the scenario the shift belongs to.",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The effective date of the market data the shift was applied to.",
+            "format": "date-time"
+          },
+          "shift": {
+            "type": "string",
+            "description": "Description of the shift, e.g. \"PriceShift on 'SCENARIO_EQUITY'\".",
+            "nullable": true
+          },
+          "target": {
+            "type": "string",
+            "description": "Description of the market data target the shift changed.",
+            "nullable": true
+          },
+          "valueBefore": {
+            "type": "number",
+            "description": "The target's value before the shift. Null for multi-point targets (e.g. whole curves) where a\r\nsingle number is not meaningful.",
+            "format": "double",
+            "nullable": true
+          },
+          "valueAfter": {
+            "type": "number",
+            "description": "The target's value after the shift. Null for multi-point targets.",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "One market data target changed by one scenario shift during a valuation."
+      },
       "AssetLeg": {
         "required": [
           "asset",
@@ -158264,6 +158303,9 @@
           "recipeId": {
             "$ref": "#/components/schemas/ResourceId"
           },
+          "scenarioDiagnostics": {
+            "$ref": "#/components/schemas/ScenarioDiagnostics"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -171030,7 +171072,7 @@
                 "maxLength": 2000,
                 "minLength": 1,
                 "type": "string",
-                "description": "A LUSID filter expression over the instrument entity scoping which instruments this shift is\r\nfor, e.g. \"properties[Instrument/default/CountryOfIssue] eq 'Italy'\". The shifted market data\r\nis used by the whole valuation run, but when the scenario is requested as a result column the\r\ncolumn is only populated for matching instruments. Only usable when the scenario is applied as\r\na per-metric column.",
+                "description": "A LUSID filter expression over the instrument entity scoping which instruments this shift is\r\nfor, e.g. \"properties[Instrument/default/CountryOfIssue] eq 'Italy'\". The shifted market data\r\nis used by the whole valuation run, but when the scenario is requested as a result column the\r\ncolumn is only populated for matching instruments. Only usable when the scenario is applied as\r\na per-metric column. Note that with a scope set, the base and scenario columns cover different\r\ninstrument populations: an aggregate (e.g. Sum) of the scenario column totals only the matching\r\ninstruments, so it is not directly comparable to the same aggregate of the base column.",
                 "nullable": true
               },
               "scenarioShiftType": {
@@ -176556,6 +176598,35 @@
           }
         },
         "additionalProperties": false
+      },
+      "ScenarioDiagnostics": {
+        "type": "object",
+        "properties": {
+          "applied": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppliedScenarioShift"
+            },
+            "description": "One entry per market data target changed by a shift.",
+            "nullable": true
+          },
+          "skipped": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Market data that matched a shift but was skipped (e.g. an element type that does not support\r\ntransformation), with the reason. Prefixed with the scenario's \"scope/code\" reference.",
+            "nullable": true
+          },
+          "omittedApplied": {
+            "type": "integer",
+            "description": "The number of further applied records omitted from this section, when the valuation changed\r\nmore targets than the section carries (large portfolios over long schedules). Null when\r\nnothing was omitted. The market data manifest always carries the complete set.",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Diagnostics for the scenario shifts a valuation applied: every market data target changed by a\r\nshift, with values before and after, plus warnings for market data that matched a shift but could\r\nnot honour it. Populated whenever the valuation ran with a request-level scenario or\r\nscenario-decorated metrics; null otherwise. The same material is written to the market data\r\nmanifest."
       },
       "ScenarioPreviewAppliedShift": {
         "type": "object",

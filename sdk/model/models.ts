@@ -62,6 +62,7 @@ export * from './appendMarketData';
 export * from './applicableEntity';
 export * from './applicableEntityTypes';
 export * from './applicableInstrumentEvent';
+export * from './appliedScenarioShift';
 export * from './assetLeg';
 export * from './bankruptcyEvent';
 export * from './bankruptcyEventAllOf';
@@ -1022,6 +1023,7 @@ export * from './roundingConfiguration';
 export * from './roundingConfigurationComponent';
 export * from './roundingConvention';
 export * from './scenarioDefinition';
+export * from './scenarioDiagnostics';
 export * from './scenarioPreviewAppliedShift';
 export * from './scenarioPreviewRequest';
 export * from './scenarioPreviewResponse';
@@ -1355,6 +1357,7 @@ import { AppendMarketData } from './appendMarketData';
 import { ApplicableEntity } from './applicableEntity';
 import { ApplicableEntityTypes } from './applicableEntityTypes';
 import { ApplicableInstrumentEvent } from './applicableInstrumentEvent';
+import { AppliedScenarioShift } from './appliedScenarioShift';
 import { AssetLeg } from './assetLeg';
 import { BankruptcyEvent } from './bankruptcyEvent';
 import { BankruptcyEventAllOf } from './bankruptcyEventAllOf';
@@ -2315,6 +2318,7 @@ import { RoundingConfiguration } from './roundingConfiguration';
 import { RoundingConfigurationComponent } from './roundingConfigurationComponent';
 import { RoundingConvention } from './roundingConvention';
 import { ScenarioDefinition } from './scenarioDefinition';
+import { ScenarioDiagnostics } from './scenarioDiagnostics';
 import { ScenarioPreviewAppliedShift } from './scenarioPreviewAppliedShift';
 import { ScenarioPreviewRequest } from './scenarioPreviewRequest';
 import { ScenarioPreviewResponse } from './scenarioPreviewResponse';
@@ -3222,6 +3226,7 @@ let typeMap: {[index: string]: any} = {
     "ApplicableEntity": ApplicableEntity,
     "ApplicableEntityTypes": ApplicableEntityTypes,
     "ApplicableInstrumentEvent": ApplicableInstrumentEvent,
+    "AppliedScenarioShift": AppliedScenarioShift,
     "AssetLeg": AssetLeg,
     "BankruptcyEvent": BankruptcyEvent,
     "BankruptcyEventAllOf": BankruptcyEventAllOf,
@@ -4181,6 +4186,7 @@ let typeMap: {[index: string]: any} = {
     "RoundingConfigurationComponent": RoundingConfigurationComponent,
     "RoundingConvention": RoundingConvention,
     "ScenarioDefinition": ScenarioDefinition,
+    "ScenarioDiagnostics": ScenarioDiagnostics,
     "ScenarioPreviewAppliedShift": ScenarioPreviewAppliedShift,
     "ScenarioPreviewRequest": ScenarioPreviewRequest,
     "ScenarioPreviewResponse": ScenarioPreviewResponse,
