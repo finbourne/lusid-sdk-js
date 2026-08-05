@@ -183,6 +183,8 @@ export * from './closeEvent';
 export * from './closeEventAllOf';
 export * from './collateral';
 export * from './collateralInstrument';
+export * from './commodityForward';
+export * from './commodityForwardAllOf';
 export * from './completePortfolio';
 export * from './completeRelationship';
 export * from './complexBond';
@@ -1474,6 +1476,8 @@ import { CloseEvent } from './closeEvent';
 import { CloseEventAllOf } from './closeEventAllOf';
 import { Collateral } from './collateral';
 import { CollateralInstrument } from './collateralInstrument';
+import { CommodityForward } from './commodityForward';
+import { CommodityForwardAllOf } from './commodityForwardAllOf';
 import { CompletePortfolio } from './completePortfolio';
 import { CompleteRelationship } from './completeRelationship';
 import { ComplexBond } from './complexBond';
@@ -2675,6 +2679,8 @@ let enumsMap: {[index: string]: any} = {
         "ClassActionEventAllOf.InstrumentEventTypeEnum": ClassActionEventAllOf.InstrumentEventTypeEnum,
         "CloseEvent.InstrumentEventTypeEnum": CloseEvent.InstrumentEventTypeEnum,
         "CloseEventAllOf.InstrumentEventTypeEnum": CloseEventAllOf.InstrumentEventTypeEnum,
+        "CommodityForward.InstrumentTypeEnum": CommodityForward.InstrumentTypeEnum,
+        "CommodityForwardAllOf.InstrumentTypeEnum": CommodityForwardAllOf.InstrumentTypeEnum,
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
         "ComplexBond.InstrumentTypeEnum": ComplexBond.InstrumentTypeEnum,
         "ComplexBondAllOf.InstrumentTypeEnum": ComplexBondAllOf.InstrumentTypeEnum,
@@ -3337,6 +3343,8 @@ let typeMap: {[index: string]: any} = {
     "CloseEventAllOf": CloseEventAllOf,
     "Collateral": Collateral,
     "CollateralInstrument": CollateralInstrument,
+    "CommodityForward": CommodityForward,
+    "CommodityForwardAllOf": CommodityForwardAllOf,
     "CompletePortfolio": CompletePortfolio,
     "CompleteRelationship": CompleteRelationship,
     "ComplexBond": ComplexBond,
