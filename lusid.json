@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1592",
+    "version": "2.0.1594",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -171025,6 +171025,13 @@
                 ],
                 "type": "string",
                 "description": "Available values: Bps, Percentage."
+              },
+              "applyTo": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string",
+                "description": "A LUSID filter expression over the instrument entity scoping which instruments this shift is\r\nfor, e.g. \"properties[Instrument/default/CountryOfIssue] eq 'Italy'\". The shifted market data\r\nis used by the whole valuation run, but when the scenario is requested as a result column the\r\ncolumn is only populated for matching instruments. Only usable when the scenario is applied as\r\na per-metric column.",
+                "nullable": true
               },
               "scenarioShiftType": {
                 "enum": [
