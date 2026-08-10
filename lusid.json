@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1598",
+    "version": "2.0.1599",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -27208,8 +27208,7 @@
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
                 "excludeUnsettledTrades": false,
-                "cashFlowType": "InstrumentCashFlow",
-                "startingBalance": "PortfolioCashBalance"
+                "cashFlowType": "InstrumentCashFlow"
               }
             },
             "application/json": {
@@ -27241,8 +27240,7 @@
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
                 "excludeUnsettledTrades": false,
-                "cashFlowType": "InstrumentCashFlow",
-                "startingBalance": "PortfolioCashBalance"
+                "cashFlowType": "InstrumentCashFlow"
               }
             },
             "text/json": {
@@ -27274,8 +27272,7 @@
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
                 "excludeUnsettledTrades": false,
-                "cashFlowType": "InstrumentCashFlow",
-                "startingBalance": "PortfolioCashBalance"
+                "cashFlowType": "InstrumentCashFlow"
               }
             },
             "application/*+json": {
@@ -27307,8 +27304,7 @@
                 "reportCurrency": "USD",
                 "equipWithSubtotals": false,
                 "excludeUnsettledTrades": false,
-                "cashFlowType": "InstrumentCashFlow",
-                "startingBalance": "PortfolioCashBalance"
+                "cashFlowType": "InstrumentCashFlow"
               }
             }
           }
@@ -27316,6 +27312,20 @@
         "responses": {
           "200": {
             "description": "Query bucketed cashflows across portfolios.",
+            "headers": {
+              "Deprecation": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion=2, its successor.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Link": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1: an RFC 8288 link with rel=\"deprecation\" pointing at the version 1 to version 2 migration documentation.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "text/plain": {
                 "schema": {
@@ -27497,6 +27507,20 @@
         "responses": {
           "200": {
             "description": "Instrument Events as Cashflows.",
+            "headers": {
+              "Deprecation": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion=2, its successor.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Link": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1: an RFC 8288 link with rel=\"deprecation\" pointing at the version 1 to version 2 migration documentation.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "text/plain": {
                 "schema": {
@@ -108995,6 +109019,20 @@
         "responses": {
           "200": {
             "description": "The requested portfolio instruments' bucketed cash flow data",
+            "headers": {
+              "Deprecation": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion=2, its successor.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Link": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1: an RFC 8288 link with rel=\"deprecation\" pointing at the version 1 to version 2 migration documentation.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "text/plain": {
                 "schema": {
@@ -109173,6 +109211,20 @@
         "responses": {
           "200": {
             "description": "The requested portfolio instruments' cash flow data",
+            "headers": {
+              "Deprecation": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion=2, its successor.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Link": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1: an RFC 8288 link with rel=\"deprecation\" pointing at the version 1 to version 2 migration documentation.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "text/plain": {
                 "schema": {
@@ -109354,6 +109406,20 @@
         "responses": {
           "200": {
             "description": "The requested portfolio cash-ladder",
+            "headers": {
+              "Deprecation": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion=2, its successor.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Link": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1: an RFC 8288 link with rel=\"deprecation\" pointing at the version 1 to version 2 migration documentation.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "text/plain": {
                 "schema": {
@@ -125749,6 +125815,20 @@
         "responses": {
           "200": {
             "description": "The requested portfolio instruments' cash flow data as a set of upsertable transactions",
+            "headers": {
+              "Deprecation": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1 (explicitly or by default): an RFC 9745 structured-field date marking when version 1 was deprecated. Set cashFlowCalculationVersion=2, its successor.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Link": {
+                "description": "Only present when the request resolved to cashFlowCalculationVersion=1: an RFC 8288 link with rel=\"deprecation\" pointing at the version 1 to version 2 migration documentation.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "text/plain": {
                 "schema": {
@@ -134978,7 +135058,7 @@
           },
           "cashFlowType": {
             "type": "string",
-            "description": "Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this). Available values: InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow.",
+            "description": "Indicate the requested cash flow representation. Supported string (enumeration) values are: [InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow]. Defaults to 'InstrumentCashFlow' (GetCashLadder uses PortfolioCashFlow). Available values: InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow.",
             "nullable": true
           },
           "bucketingSchedule": {
@@ -134996,7 +135076,7 @@
             "maxLength": 1,
             "minLength": 1,
             "type": "string",
-            "description": "The version of the cash flow calculation logic to use. Defaults to '1' if not specified. Valid values are '1' and '2'.\r\n'1' is the current production behaviour: cash flows booked as transactions are de-duplicated against the\r\ninstrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.\r\n'2' resolves cash flows via a deterministic source waterfall (structured result store > transaction > instrument),\r\nclassifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date\r\nthat settle afterwards are factual), and applies corporate action date filtering.",
+            "description": "The version of the cash flow calculation logic to use. Defaults to '1' if not specified. Valid values are '1' and '2'.\r\n'1' is the current production behaviour: cash flows booked as transactions are de-duplicated against the\r\ninstrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.\r\n'2' resolves cash flows via a deterministic source waterfall (structured result store > transaction > instrument),\r\nclassifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date\r\nthat settle afterwards are factual), and applies corporate action date filtering.\r\nBucketed responses calculated under version '2' always include the bucket interval metadata columns\r\n('Valuation/Bucket/Start', 'Valuation/Bucket/End', 'Valuation/Bucket/StartInclusive', 'Valuation/Bucket/EndInclusive'),\r\nwhich are the required input of the bucket cash flow drill-down endpoint. Without a border configuration the\r\nmetadata describes the window-clamped interval of cash flow dates that the rounding method allocates to each bucket point.",
             "nullable": true
           }
         },
@@ -171511,7 +171591,7 @@
           },
           "cashFlowType": {
             "type": "string",
-            "description": "Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this). Available values: InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow.",
+            "description": "Indicate the requested cash flow representation. Supported string (enumeration) values are: [InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow]. Defaults to 'InstrumentCashFlow' (GetCashLadder uses PortfolioCashFlow). Available values: InstrumentCashFlow, PortfolioCashFlow, TransactionCashFlow.",
             "nullable": true
           },
           "bucketingSchedule": {
@@ -171529,7 +171609,7 @@
             "maxLength": 1,
             "minLength": 1,
             "type": "string",
-            "description": "The version of the cash flow calculation logic to use. Defaults to '1' if not specified. Valid values are '1' and '2'.\r\n'1' is the current production behaviour: cash flows booked as transactions are de-duplicated against the\r\ninstrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.\r\n'2' resolves cash flows via a deterministic source waterfall (structured result store > transaction > instrument),\r\nclassifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date\r\nthat settle afterwards are factual), and applies corporate action date filtering.",
+            "description": "The version of the cash flow calculation logic to use. Defaults to '1' if not specified. Valid values are '1' and '2'.\r\n'1' is the current production behaviour: cash flows booked as transactions are de-duplicated against the\r\ninstrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.\r\n'2' resolves cash flows via a deterministic source waterfall (structured result store > transaction > instrument),\r\nclassifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date\r\nthat settle afterwards are factual), and applies corporate action date filtering.\r\nBucketed responses calculated under version '2' always include the bucket interval metadata columns\r\n('Valuation/Bucket/Start', 'Valuation/Bucket/End', 'Valuation/Bucket/StartInclusive', 'Valuation/Bucket/EndInclusive'),\r\nwhich are the required input of the bucket cash flow drill-down endpoint. Without a border configuration the\r\nmetadata describes the window-clamped interval of cash flow dates that the rounding method allocates to each bucket point.",
             "nullable": true
           },
           "haircutRules": {
@@ -171545,7 +171625,7 @@
           },
           "startingBalance": {
             "type": "string",
-            "description": "The balance to use at the start of the bucketing window when computing open/close balances.\r\nSupported string (enumeration) values are: [PortfolioCashBalance, Zero]. Defaults to 'PortfolioCashBalance'. Available values: PortfolioCashBalance, Zero.",
+            "description": "The balance to use at the start of the bucketing window when computing open/close balances.\r\nSupported string (enumeration) values are: [PortfolioCashBalance, Zero].\r\nWhen supplied, the additional per-bucket running balance columns 'Valuation/Bucket/OpenBalance' and 'Valuation/Bucket/CloseBalance' are produced\r\nper group, in the currency of the group's cash flows: the first bucket opens at zero ('Zero') or at the portfolio cash balance at the window\r\nstart ('PortfolioCashBalance'), and each subsequent bucket opens at the previous bucket's close balance. When absent, no balance columns are\r\nproduced and the results are unchanged. 'PortfolioCashBalance' is only supported for the PortfolioCashFlow and TransactionCashFlow CashFlowTypes. Available values: PortfolioCashBalance, Zero.",
             "nullable": true
           }
         },
@@ -171597,7 +171677,7 @@
             "maxLength": 1,
             "minLength": 1,
             "type": "string",
-            "description": "The version of the cash flow calculation logic to use. Defaults to '1' if not specified. Valid values are '1' and '2'.\r\n'1' is the current production behaviour: cash flows booked as transactions are de-duplicated against the\r\ninstrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.\r\n'2' resolves cash flows via a deterministic source waterfall (structured result store > transaction > instrument),\r\nclassifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date\r\nthat settle afterwards are factual), and applies corporate action date filtering.",
+            "description": "The version of the cash flow calculation logic to use. Defaults to '1' if not specified. Valid values are '1' and '2'.\r\n'1' is the current production behaviour: cash flows booked as transactions are de-duplicated against the\r\ninstrument cash flows by identifier, and movements are treated as factual when they settle on or before the effective date.\r\n'2' resolves cash flows via a deterministic source waterfall (structured result store > transaction > instrument),\r\nclassifies cash flows as factual by the transaction trade date (so trades dealt on or before the effective date\r\nthat settle afterwards are factual), and applies corporate action date filtering.\r\nBucketed responses calculated under version '2' always include the bucket interval metadata columns\r\n('Valuation/Bucket/Start', 'Valuation/Bucket/End', 'Valuation/Bucket/StartInclusive', 'Valuation/Bucket/EndInclusive'),\r\nwhich are the required input of the bucket cash flow drill-down endpoint. Without a border configuration the\r\nmetadata describes the window-clamped interval of cash flow dates that the rounding method allocates to each bucket point.",
             "nullable": true
           }
         },
