@@ -1,9 +1,12 @@
+import {AborApi} from './api/aborApi';
+import {AborConfigurationApi} from './api/aborConfigurationApi';
 import {AddressKeyDefinitionApi} from './api/addressKeyDefinitionApi';
 import {AggregationApi} from './api/aggregationApi';
 import {AllocationsApi} from './api/allocationsApi';
 import {ApplicationMetadataApi} from './api/applicationMetadataApi';
 import {BlocksApi} from './api/blocksApi';
 import {CalendarsApi} from './api/calendarsApi';
+import {ChartOfAccountsApi} from './api/chartOfAccountsApi';
 import {ComplexMarketDataApi} from './api/complexMarketDataApi';
 import {ComplianceApi} from './api/complianceApi';
 import {ConfigurationRecipeApi} from './api/configurationRecipeApi';
@@ -17,6 +20,8 @@ import {DataTypesApi} from './api/dataTypesApi';
 import {DerivedTransactionPortfoliosApi} from './api/derivedTransactionPortfoliosApi';
 import {EntitiesApi} from './api/entitiesApi';
 import {ExecutionsApi} from './api/executionsApi';
+import {FeeTypesApi} from './api/feeTypesApi';
+import {FundConfigurationApi} from './api/fundConfigurationApi';
 import {FundsApi} from './api/fundsApi';
 import {InstrumentEventsApi} from './api/instrumentEventsApi';
 import {InstrumentEventTypesApi} from './api/instrumentEventTypesApi';
@@ -65,12 +70,15 @@ import {TransactionFeeTypesApi} from './api/transactionFeeTypesApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
 
 export class Api {
+    public abor:  AborApi
+    public aborConfiguration:  AborConfigurationApi
     public addressKeyDefinition:  AddressKeyDefinitionApi
     public aggregation:  AggregationApi
     public allocations:  AllocationsApi
     public applicationMetadata:  ApplicationMetadataApi
     public blocks:  BlocksApi
     public calendars:  CalendarsApi
+    public chartOfAccounts:  ChartOfAccountsApi
     public complexMarketData:  ComplexMarketDataApi
     public compliance:  ComplianceApi
     public configurationRecipe:  ConfigurationRecipeApi
@@ -84,6 +92,8 @@ export class Api {
     public derivedTransactionPortfolios:  DerivedTransactionPortfoliosApi
     public entities:  EntitiesApi
     public executions:  ExecutionsApi
+    public feeTypes:  FeeTypesApi
+    public fundConfiguration:  FundConfigurationApi
     public funds:  FundsApi
     public instrumentEvents:  InstrumentEventsApi
     public instrumentEventTypes:  InstrumentEventTypesApi

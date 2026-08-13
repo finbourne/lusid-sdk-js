@@ -1,3 +1,7 @@
+export * from './aborApi';
+import { AborApi } from './aborApi';
+export * from './aborConfigurationApi';
+import { AborConfigurationApi } from './aborConfigurationApi';
 export * from './addressKeyDefinitionApi';
 import { AddressKeyDefinitionApi } from './addressKeyDefinitionApi';
 export * from './aggregationApi';
@@ -10,6 +14,8 @@ export * from './blocksApi';
 import { BlocksApi } from './blocksApi';
 export * from './calendarsApi';
 import { CalendarsApi } from './calendarsApi';
+export * from './chartOfAccountsApi';
+import { ChartOfAccountsApi } from './chartOfAccountsApi';
 export * from './complexMarketDataApi';
 import { ComplexMarketDataApi } from './complexMarketDataApi';
 export * from './complianceApi';
@@ -36,6 +42,10 @@ export * from './entitiesApi';
 import { EntitiesApi } from './entitiesApi';
 export * from './executionsApi';
 import { ExecutionsApi } from './executionsApi';
+export * from './feeTypesApi';
+import { FeeTypesApi } from './feeTypesApi';
+export * from './fundConfigurationApi';
+import { FundConfigurationApi } from './fundConfigurationApi';
 export * from './fundsApi';
 import { FundsApi } from './fundsApi';
 export * from './instrumentEventTypesApi';
@@ -131,4 +141,4 @@ import { TransactionPortfoliosApi } from './transactionPortfoliosApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, FundsApi, InstrumentEventTypesApi, InstrumentEventsApi, InstrumentsApi, InvestmentAccountsApi, InvestorRecordsApi, LegalEntitiesApi, MarketDataFieldConfigurationApi, OrderGraphApi, OrderInstructionsApi, OrderManagementApi, OrdersApi, ParticipationsApi, PaymentInstructionsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QueryableKeysApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationalDatasetDefinitionApi, RelationalDatasetsApi, RelationshipDefinitionsApi, RelationshipsApi, ResourceRecordApi, ScenariosApi, SchemasApi, ScopesApi, ScriptedTranslationApi, SearchApi, SequencesApi, SettlementActivityApi, SimplePositionPortfoliosApi, StagedModificationsApi, StagingRuleSetApi, StructuredResultDataApi, SubscriptionsApi, SystemConfigurationApi, TransactionConfigurationApi, TransactionFeeTypesApi, TransactionFeesApi, TransactionPortfoliosApi];
+export const APIS = [AborApi, AborConfigurationApi, AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ChartOfAccountsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, FeeTypesApi, FundConfigurationApi, FundsApi, InstrumentEventTypesApi, InstrumentEventsApi, InstrumentsApi, InvestmentAccountsApi, InvestorRecordsApi, LegalEntitiesApi, MarketDataFieldConfigurationApi, OrderGraphApi, OrderInstructionsApi, OrderManagementApi, OrdersApi, ParticipationsApi, PaymentInstructionsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QueryableKeysApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationalDatasetDefinitionApi, RelationalDatasetsApi, RelationshipDefinitionsApi, RelationshipsApi, ResourceRecordApi, ScenariosApi, SchemasApi, ScopesApi, ScriptedTranslationApi, SearchApi, SequencesApi, SettlementActivityApi, SimplePositionPortfoliosApi, StagedModificationsApi, StagingRuleSetApi, StructuredResultDataApi, SubscriptionsApi, SystemConfigurationApi, TransactionConfigurationApi, TransactionFeeTypesApi, TransactionFeesApi, TransactionPortfoliosApi];
