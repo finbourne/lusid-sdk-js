@@ -906,6 +906,8 @@ export * from './paymentDetailsApplicableEntity';
 export * from './paymentDetailsReference';
 export * from './paymentDetailsReferenceResponse';
 export * from './paymentDetailsSeriesIdentifiers';
+export * from './paymentInKindEvent';
+export * from './paymentInKindEventAllOf';
 export * from './paymentInstruction';
 export * from './paymentInstructionRequest';
 export * from './paymentInstructionStatus';
@@ -2402,6 +2404,8 @@ import { PaymentDetailsApplicableEntity } from './paymentDetailsApplicableEntity
 import { PaymentDetailsReference } from './paymentDetailsReference';
 import { PaymentDetailsReferenceResponse } from './paymentDetailsReferenceResponse';
 import { PaymentDetailsSeriesIdentifiers } from './paymentDetailsSeriesIdentifiers';
+import { PaymentInKindEvent } from './paymentInKindEvent';
+import { PaymentInKindEventAllOf } from './paymentInKindEventAllOf';
 import { PaymentInstruction } from './paymentInstruction';
 import { PaymentInstructionRequest } from './paymentInstructionRequest';
 import { PaymentInstructionStatus } from './paymentInstructionStatus';
@@ -3409,6 +3413,8 @@ let enumsMap: {[index: string]: any} = {
         "PariPassuEventAllOf.InstrumentEventTypeEnum": PariPassuEventAllOf.InstrumentEventTypeEnum,
         "PartialDefeasanceEvent.InstrumentEventTypeEnum": PartialDefeasanceEvent.InstrumentEventTypeEnum,
         "PartialDefeasanceEventAllOf.InstrumentEventTypeEnum": PartialDefeasanceEventAllOf.InstrumentEventTypeEnum,
+        "PaymentInKindEvent.InstrumentEventTypeEnum": PaymentInKindEvent.InstrumentEventTypeEnum,
+        "PaymentInKindEventAllOf.InstrumentEventTypeEnum": PaymentInKindEventAllOf.InstrumentEventTypeEnum,
         "PercentCheckStep.ComplianceStepTypeEnum": PercentCheckStep.ComplianceStepTypeEnum,
         "PercentCheckStepRequest.ComplianceStepTypeRequestEnum": PercentCheckStepRequest.ComplianceStepTypeRequestEnum,
         "PikBondCashCouponEvent.InstrumentEventTypeEnum": PikBondCashCouponEvent.InstrumentEventTypeEnum,
@@ -4515,6 +4521,8 @@ let typeMap: {[index: string]: any} = {
     "PaymentDetailsReference": PaymentDetailsReference,
     "PaymentDetailsReferenceResponse": PaymentDetailsReferenceResponse,
     "PaymentDetailsSeriesIdentifiers": PaymentDetailsSeriesIdentifiers,
+    "PaymentInKindEvent": PaymentInKindEvent,
+    "PaymentInKindEventAllOf": PaymentInKindEventAllOf,
     "PaymentInstruction": PaymentInstruction,
     "PaymentInstructionRequest": PaymentInstructionRequest,
     "PaymentInstructionStatus": PaymentInstructionStatus,
