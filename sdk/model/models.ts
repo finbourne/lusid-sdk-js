@@ -199,6 +199,8 @@ export * from './cdsIndex';
 export * from './cdsIndexAllOf';
 export * from './cdsModelOptions';
 export * from './cdsModelOptionsAllOf';
+export * from './cdsOption';
+export * from './cdsOptionAllOf';
 export * from './cdsProtectionDetailSpecification';
 export * from './cdxCreditEvent';
 export * from './cdxCreditEventAllOf';
@@ -228,10 +230,16 @@ export * from './closeEventAllOf';
 export * from './closePeriodDiaryEntryRequest';
 export * from './collateral';
 export * from './collateralInstrument';
+export * from './commodityCalendarSchedule';
+export * from './commodityCalendarScheduleAllOf';
+export * from './commodityCalendarSwap';
+export * from './commodityCalendarSwapAllOf';
 export * from './commodityForward';
 export * from './commodityForwardAllOf';
 export * from './commodityForwardCashSettlementEvent';
 export * from './commodityForwardCashSettlementEventAllOf';
+export * from './commodityForwardPhysicalSettlementEvent';
+export * from './commodityForwardPhysicalSettlementEventAllOf';
 export * from './completePortfolio';
 export * from './completeRelationship';
 export * from './complexBond';
@@ -1697,6 +1705,8 @@ import { CdsIndex } from './cdsIndex';
 import { CdsIndexAllOf } from './cdsIndexAllOf';
 import { CdsModelOptions } from './cdsModelOptions';
 import { CdsModelOptionsAllOf } from './cdsModelOptionsAllOf';
+import { CdsOption } from './cdsOption';
+import { CdsOptionAllOf } from './cdsOptionAllOf';
 import { CdsProtectionDetailSpecification } from './cdsProtectionDetailSpecification';
 import { CdxCreditEvent } from './cdxCreditEvent';
 import { CdxCreditEventAllOf } from './cdxCreditEventAllOf';
@@ -1726,10 +1736,16 @@ import { CloseEventAllOf } from './closeEventAllOf';
 import { ClosePeriodDiaryEntryRequest } from './closePeriodDiaryEntryRequest';
 import { Collateral } from './collateral';
 import { CollateralInstrument } from './collateralInstrument';
+import { CommodityCalendarSchedule } from './commodityCalendarSchedule';
+import { CommodityCalendarScheduleAllOf } from './commodityCalendarScheduleAllOf';
+import { CommodityCalendarSwap } from './commodityCalendarSwap';
+import { CommodityCalendarSwapAllOf } from './commodityCalendarSwapAllOf';
 import { CommodityForward } from './commodityForward';
 import { CommodityForwardAllOf } from './commodityForwardAllOf';
 import { CommodityForwardCashSettlementEvent } from './commodityForwardCashSettlementEvent';
 import { CommodityForwardCashSettlementEventAllOf } from './commodityForwardCashSettlementEventAllOf';
+import { CommodityForwardPhysicalSettlementEvent } from './commodityForwardPhysicalSettlementEvent';
+import { CommodityForwardPhysicalSettlementEventAllOf } from './commodityForwardPhysicalSettlementEventAllOf';
 import { CompletePortfolio } from './completePortfolio';
 import { CompleteRelationship } from './completeRelationship';
 import { ComplexBond } from './complexBond';
@@ -3082,6 +3098,8 @@ let enumsMap: {[index: string]: any} = {
         "CdsIndexAllOf.InstrumentTypeEnum": CdsIndexAllOf.InstrumentTypeEnum,
         "CdsModelOptions.ModelOptionsTypeEnum": CdsModelOptions.ModelOptionsTypeEnum,
         "CdsModelOptionsAllOf.ModelOptionsTypeEnum": CdsModelOptionsAllOf.ModelOptionsTypeEnum,
+        "CdsOption.InstrumentTypeEnum": CdsOption.InstrumentTypeEnum,
+        "CdsOptionAllOf.InstrumentTypeEnum": CdsOptionAllOf.InstrumentTypeEnum,
         "CdxCreditEvent.InstrumentEventTypeEnum": CdxCreditEvent.InstrumentEventTypeEnum,
         "CdxCreditEventAllOf.InstrumentEventTypeEnum": CdxCreditEventAllOf.InstrumentEventTypeEnum,
         "ChangeEvent.InstrumentEventTypeEnum": ChangeEvent.InstrumentEventTypeEnum,
@@ -3094,10 +3112,16 @@ let enumsMap: {[index: string]: any} = {
         "ClassActionEventAllOf.InstrumentEventTypeEnum": ClassActionEventAllOf.InstrumentEventTypeEnum,
         "CloseEvent.InstrumentEventTypeEnum": CloseEvent.InstrumentEventTypeEnum,
         "CloseEventAllOf.InstrumentEventTypeEnum": CloseEventAllOf.InstrumentEventTypeEnum,
+        "CommodityCalendarSchedule.ScheduleTypeEnum": CommodityCalendarSchedule.ScheduleTypeEnum,
+        "CommodityCalendarScheduleAllOf.ScheduleTypeEnum": CommodityCalendarScheduleAllOf.ScheduleTypeEnum,
+        "CommodityCalendarSwap.InstrumentTypeEnum": CommodityCalendarSwap.InstrumentTypeEnum,
+        "CommodityCalendarSwapAllOf.InstrumentTypeEnum": CommodityCalendarSwapAllOf.InstrumentTypeEnum,
         "CommodityForward.InstrumentTypeEnum": CommodityForward.InstrumentTypeEnum,
         "CommodityForwardAllOf.InstrumentTypeEnum": CommodityForwardAllOf.InstrumentTypeEnum,
         "CommodityForwardCashSettlementEvent.InstrumentEventTypeEnum": CommodityForwardCashSettlementEvent.InstrumentEventTypeEnum,
         "CommodityForwardCashSettlementEventAllOf.InstrumentEventTypeEnum": CommodityForwardCashSettlementEventAllOf.InstrumentEventTypeEnum,
+        "CommodityForwardPhysicalSettlementEvent.InstrumentEventTypeEnum": CommodityForwardPhysicalSettlementEvent.InstrumentEventTypeEnum,
+        "CommodityForwardPhysicalSettlementEventAllOf.InstrumentEventTypeEnum": CommodityForwardPhysicalSettlementEventAllOf.InstrumentEventTypeEnum,
         "CompletePortfolio.TypeEnum": CompletePortfolio.TypeEnum,
         "ComplexBond.InstrumentTypeEnum": ComplexBond.InstrumentTypeEnum,
         "ComplexBondAllOf.InstrumentTypeEnum": ComplexBondAllOf.InstrumentTypeEnum,
@@ -3815,6 +3839,8 @@ let typeMap: {[index: string]: any} = {
     "CdsIndexAllOf": CdsIndexAllOf,
     "CdsModelOptions": CdsModelOptions,
     "CdsModelOptionsAllOf": CdsModelOptionsAllOf,
+    "CdsOption": CdsOption,
+    "CdsOptionAllOf": CdsOptionAllOf,
     "CdsProtectionDetailSpecification": CdsProtectionDetailSpecification,
     "CdxCreditEvent": CdxCreditEvent,
     "CdxCreditEventAllOf": CdxCreditEventAllOf,
@@ -3844,10 +3870,16 @@ let typeMap: {[index: string]: any} = {
     "ClosePeriodDiaryEntryRequest": ClosePeriodDiaryEntryRequest,
     "Collateral": Collateral,
     "CollateralInstrument": CollateralInstrument,
+    "CommodityCalendarSchedule": CommodityCalendarSchedule,
+    "CommodityCalendarScheduleAllOf": CommodityCalendarScheduleAllOf,
+    "CommodityCalendarSwap": CommodityCalendarSwap,
+    "CommodityCalendarSwapAllOf": CommodityCalendarSwapAllOf,
     "CommodityForward": CommodityForward,
     "CommodityForwardAllOf": CommodityForwardAllOf,
     "CommodityForwardCashSettlementEvent": CommodityForwardCashSettlementEvent,
     "CommodityForwardCashSettlementEventAllOf": CommodityForwardCashSettlementEventAllOf,
+    "CommodityForwardPhysicalSettlementEvent": CommodityForwardPhysicalSettlementEvent,
+    "CommodityForwardPhysicalSettlementEventAllOf": CommodityForwardPhysicalSettlementEventAllOf,
     "CompletePortfolio": CompletePortfolio,
     "CompleteRelationship": CompleteRelationship,
     "ComplexBond": ComplexBond,
