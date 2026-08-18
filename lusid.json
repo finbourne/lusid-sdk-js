@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1605",
+    "version": "2.0.1606",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -17852,6 +17852,159 @@
                         "volatility": 0.15,
                         "marketDataType": "ConstantVolatilitySurface"
                       }
+                    },
+                    {
+                      "scope": "ExampleScope",
+                      "marketDataId": {
+                        "provider": "Lusid",
+                        "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                        "marketAsset": "InflationCurve/HICPxT"
+                      },
+                      "marketData": {
+                        "buildDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "instruments": [
+                          {
+                            "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                            "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                            "inflationLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                              "flowConventions": {
+                                "currency": "EUR",
+                                "paymentFrequency": "1T",
+                                "dayCountConvention": "OneOne",
+                                "rollConvention": "None",
+                                "paymentCalendars": [],
+                                "resetCalendars": [],
+                                "settleDays": 0,
+                                "resetDays": 0,
+                                "leapDaysIncluded": true,
+                                "accrualDateAdjustment": "Adjusted",
+                                "businessDayConvention": "None",
+                                "accrualDayCountConvention": "OneOne"
+                              },
+                              "calculationType": "ZeroCoupon",
+                              "inflationIndexConventions": {
+                                "inflationIndexName": "HICPxT",
+                                "currency": "EUR",
+                                "observationLag": "3M",
+                                "inflationInterpolation": "Flat",
+                                "inflationFrequency": "1M",
+                                "inflationRollDay": 1
+                              },
+                              "notional": 1000000,
+                              "payReceive": "Pay",
+                              "instrumentType": "InflationLeg"
+                            },
+                            "fixedLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                              "legDefinition": {
+                                "conventions": {
+                                  "currency": "EUR",
+                                  "paymentFrequency": "1T",
+                                  "dayCountConvention": "OneOne",
+                                  "rollConvention": "None",
+                                  "paymentCalendars": [],
+                                  "resetCalendars": [],
+                                  "settleDays": 0,
+                                  "resetDays": 0,
+                                  "leapDaysIncluded": true,
+                                  "accrualDateAdjustment": "Adjusted",
+                                  "businessDayConvention": "None",
+                                  "accrualDayCountConvention": "OneOne"
+                                },
+                                "notionalExchangeType": "None",
+                                "payReceive": "Receive",
+                                "rateOrSpread": 0.02,
+                                "resetConvention": "InAdvance",
+                                "stubType": "ShortFront"
+                              },
+                              "notional": 1000000,
+                              "overrides": {},
+                              "instrumentType": "FixedLeg"
+                            },
+                            "additionalPayments": [],
+                            "instrumentType": "InflationSwap"
+                          },
+                          {
+                            "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                            "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                            "inflationLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                              "flowConventions": {
+                                "currency": "EUR",
+                                "paymentFrequency": "1T",
+                                "dayCountConvention": "OneOne",
+                                "rollConvention": "None",
+                                "paymentCalendars": [],
+                                "resetCalendars": [],
+                                "settleDays": 0,
+                                "resetDays": 0,
+                                "leapDaysIncluded": true,
+                                "accrualDateAdjustment": "Adjusted",
+                                "businessDayConvention": "None",
+                                "accrualDayCountConvention": "OneOne"
+                              },
+                              "calculationType": "ZeroCoupon",
+                              "inflationIndexConventions": {
+                                "inflationIndexName": "HICPxT",
+                                "currency": "EUR",
+                                "observationLag": "3M",
+                                "inflationInterpolation": "Flat",
+                                "inflationFrequency": "1M",
+                                "inflationRollDay": 1
+                              },
+                              "notional": 1000000,
+                              "payReceive": "Pay",
+                              "instrumentType": "InflationLeg"
+                            },
+                            "fixedLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                              "legDefinition": {
+                                "conventions": {
+                                  "currency": "EUR",
+                                  "paymentFrequency": "1T",
+                                  "dayCountConvention": "OneOne",
+                                  "rollConvention": "None",
+                                  "paymentCalendars": [],
+                                  "resetCalendars": [],
+                                  "settleDays": 0,
+                                  "resetDays": 0,
+                                  "leapDaysIncluded": true,
+                                  "accrualDateAdjustment": "Adjusted",
+                                  "businessDayConvention": "None",
+                                  "accrualDayCountConvention": "OneOne"
+                                },
+                                "notionalExchangeType": "None",
+                                "payReceive": "Receive",
+                                "rateOrSpread": 0.02,
+                                "resetConvention": "InAdvance",
+                                "stubType": "ShortFront"
+                              },
+                              "notional": 1000000,
+                              "overrides": {},
+                              "instrumentType": "FixedLeg"
+                            },
+                            "additionalPayments": [],
+                            "instrumentType": "InflationSwap"
+                          }
+                        ],
+                        "quotes": [
+                          {
+                            "quoteType": "Rate",
+                            "value": 0.02
+                          },
+                          {
+                            "quoteType": "Rate",
+                            "value": 0.021
+                          }
+                        ],
+                        "lineage": "Some-market-data-provider-or-other",
+                        "marketDataType": "InflationCurveData"
+                      }
                     }
                   ],
                   "href": "https://lusid.com/api/",
@@ -17970,6 +18123,159 @@
                         "volatility": 0.15,
                         "marketDataType": "ConstantVolatilitySurface"
                       }
+                    },
+                    {
+                      "scope": "ExampleScope",
+                      "marketDataId": {
+                        "provider": "Lusid",
+                        "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                        "marketAsset": "InflationCurve/HICPxT"
+                      },
+                      "marketData": {
+                        "buildDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "instruments": [
+                          {
+                            "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                            "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                            "inflationLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                              "flowConventions": {
+                                "currency": "EUR",
+                                "paymentFrequency": "1T",
+                                "dayCountConvention": "OneOne",
+                                "rollConvention": "None",
+                                "paymentCalendars": [],
+                                "resetCalendars": [],
+                                "settleDays": 0,
+                                "resetDays": 0,
+                                "leapDaysIncluded": true,
+                                "accrualDateAdjustment": "Adjusted",
+                                "businessDayConvention": "None",
+                                "accrualDayCountConvention": "OneOne"
+                              },
+                              "calculationType": "ZeroCoupon",
+                              "inflationIndexConventions": {
+                                "inflationIndexName": "HICPxT",
+                                "currency": "EUR",
+                                "observationLag": "3M",
+                                "inflationInterpolation": "Flat",
+                                "inflationFrequency": "1M",
+                                "inflationRollDay": 1
+                              },
+                              "notional": 1000000,
+                              "payReceive": "Pay",
+                              "instrumentType": "InflationLeg"
+                            },
+                            "fixedLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                              "legDefinition": {
+                                "conventions": {
+                                  "currency": "EUR",
+                                  "paymentFrequency": "1T",
+                                  "dayCountConvention": "OneOne",
+                                  "rollConvention": "None",
+                                  "paymentCalendars": [],
+                                  "resetCalendars": [],
+                                  "settleDays": 0,
+                                  "resetDays": 0,
+                                  "leapDaysIncluded": true,
+                                  "accrualDateAdjustment": "Adjusted",
+                                  "businessDayConvention": "None",
+                                  "accrualDayCountConvention": "OneOne"
+                                },
+                                "notionalExchangeType": "None",
+                                "payReceive": "Receive",
+                                "rateOrSpread": 0.02,
+                                "resetConvention": "InAdvance",
+                                "stubType": "ShortFront"
+                              },
+                              "notional": 1000000,
+                              "overrides": {},
+                              "instrumentType": "FixedLeg"
+                            },
+                            "additionalPayments": [],
+                            "instrumentType": "InflationSwap"
+                          },
+                          {
+                            "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                            "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                            "inflationLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                              "flowConventions": {
+                                "currency": "EUR",
+                                "paymentFrequency": "1T",
+                                "dayCountConvention": "OneOne",
+                                "rollConvention": "None",
+                                "paymentCalendars": [],
+                                "resetCalendars": [],
+                                "settleDays": 0,
+                                "resetDays": 0,
+                                "leapDaysIncluded": true,
+                                "accrualDateAdjustment": "Adjusted",
+                                "businessDayConvention": "None",
+                                "accrualDayCountConvention": "OneOne"
+                              },
+                              "calculationType": "ZeroCoupon",
+                              "inflationIndexConventions": {
+                                "inflationIndexName": "HICPxT",
+                                "currency": "EUR",
+                                "observationLag": "3M",
+                                "inflationInterpolation": "Flat",
+                                "inflationFrequency": "1M",
+                                "inflationRollDay": 1
+                              },
+                              "notional": 1000000,
+                              "payReceive": "Pay",
+                              "instrumentType": "InflationLeg"
+                            },
+                            "fixedLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                              "legDefinition": {
+                                "conventions": {
+                                  "currency": "EUR",
+                                  "paymentFrequency": "1T",
+                                  "dayCountConvention": "OneOne",
+                                  "rollConvention": "None",
+                                  "paymentCalendars": [],
+                                  "resetCalendars": [],
+                                  "settleDays": 0,
+                                  "resetDays": 0,
+                                  "leapDaysIncluded": true,
+                                  "accrualDateAdjustment": "Adjusted",
+                                  "businessDayConvention": "None",
+                                  "accrualDayCountConvention": "OneOne"
+                                },
+                                "notionalExchangeType": "None",
+                                "payReceive": "Receive",
+                                "rateOrSpread": 0.02,
+                                "resetConvention": "InAdvance",
+                                "stubType": "ShortFront"
+                              },
+                              "notional": 1000000,
+                              "overrides": {},
+                              "instrumentType": "FixedLeg"
+                            },
+                            "additionalPayments": [],
+                            "instrumentType": "InflationSwap"
+                          }
+                        ],
+                        "quotes": [
+                          {
+                            "quoteType": "Rate",
+                            "value": 0.02
+                          },
+                          {
+                            "quoteType": "Rate",
+                            "value": 0.021
+                          }
+                        ],
+                        "lineage": "Some-market-data-provider-or-other",
+                        "marketDataType": "InflationCurveData"
+                      }
                     }
                   ],
                   "href": "https://lusid.com/api/",
@@ -18087,6 +18393,159 @@
                         "lineage": "Some-market-data-provider-or-other",
                         "volatility": 0.15,
                         "marketDataType": "ConstantVolatilitySurface"
+                      }
+                    },
+                    {
+                      "scope": "ExampleScope",
+                      "marketDataId": {
+                        "provider": "Lusid",
+                        "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                        "marketAsset": "InflationCurve/HICPxT"
+                      },
+                      "marketData": {
+                        "buildDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "instruments": [
+                          {
+                            "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                            "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                            "inflationLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                              "flowConventions": {
+                                "currency": "EUR",
+                                "paymentFrequency": "1T",
+                                "dayCountConvention": "OneOne",
+                                "rollConvention": "None",
+                                "paymentCalendars": [],
+                                "resetCalendars": [],
+                                "settleDays": 0,
+                                "resetDays": 0,
+                                "leapDaysIncluded": true,
+                                "accrualDateAdjustment": "Adjusted",
+                                "businessDayConvention": "None",
+                                "accrualDayCountConvention": "OneOne"
+                              },
+                              "calculationType": "ZeroCoupon",
+                              "inflationIndexConventions": {
+                                "inflationIndexName": "HICPxT",
+                                "currency": "EUR",
+                                "observationLag": "3M",
+                                "inflationInterpolation": "Flat",
+                                "inflationFrequency": "1M",
+                                "inflationRollDay": 1
+                              },
+                              "notional": 1000000,
+                              "payReceive": "Pay",
+                              "instrumentType": "InflationLeg"
+                            },
+                            "fixedLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                              "legDefinition": {
+                                "conventions": {
+                                  "currency": "EUR",
+                                  "paymentFrequency": "1T",
+                                  "dayCountConvention": "OneOne",
+                                  "rollConvention": "None",
+                                  "paymentCalendars": [],
+                                  "resetCalendars": [],
+                                  "settleDays": 0,
+                                  "resetDays": 0,
+                                  "leapDaysIncluded": true,
+                                  "accrualDateAdjustment": "Adjusted",
+                                  "businessDayConvention": "None",
+                                  "accrualDayCountConvention": "OneOne"
+                                },
+                                "notionalExchangeType": "None",
+                                "payReceive": "Receive",
+                                "rateOrSpread": 0.02,
+                                "resetConvention": "InAdvance",
+                                "stubType": "ShortFront"
+                              },
+                              "notional": 1000000,
+                              "overrides": {},
+                              "instrumentType": "FixedLeg"
+                            },
+                            "additionalPayments": [],
+                            "instrumentType": "InflationSwap"
+                          },
+                          {
+                            "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                            "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                            "inflationLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                              "flowConventions": {
+                                "currency": "EUR",
+                                "paymentFrequency": "1T",
+                                "dayCountConvention": "OneOne",
+                                "rollConvention": "None",
+                                "paymentCalendars": [],
+                                "resetCalendars": [],
+                                "settleDays": 0,
+                                "resetDays": 0,
+                                "leapDaysIncluded": true,
+                                "accrualDateAdjustment": "Adjusted",
+                                "businessDayConvention": "None",
+                                "accrualDayCountConvention": "OneOne"
+                              },
+                              "calculationType": "ZeroCoupon",
+                              "inflationIndexConventions": {
+                                "inflationIndexName": "HICPxT",
+                                "currency": "EUR",
+                                "observationLag": "3M",
+                                "inflationInterpolation": "Flat",
+                                "inflationFrequency": "1M",
+                                "inflationRollDay": 1
+                              },
+                              "notional": 1000000,
+                              "payReceive": "Pay",
+                              "instrumentType": "InflationLeg"
+                            },
+                            "fixedLeg": {
+                              "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                              "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                              "legDefinition": {
+                                "conventions": {
+                                  "currency": "EUR",
+                                  "paymentFrequency": "1T",
+                                  "dayCountConvention": "OneOne",
+                                  "rollConvention": "None",
+                                  "paymentCalendars": [],
+                                  "resetCalendars": [],
+                                  "settleDays": 0,
+                                  "resetDays": 0,
+                                  "leapDaysIncluded": true,
+                                  "accrualDateAdjustment": "Adjusted",
+                                  "businessDayConvention": "None",
+                                  "accrualDayCountConvention": "OneOne"
+                                },
+                                "notionalExchangeType": "None",
+                                "payReceive": "Receive",
+                                "rateOrSpread": 0.02,
+                                "resetConvention": "InAdvance",
+                                "stubType": "ShortFront"
+                              },
+                              "notional": 1000000,
+                              "overrides": {},
+                              "instrumentType": "FixedLeg"
+                            },
+                            "additionalPayments": [],
+                            "instrumentType": "InflationSwap"
+                          }
+                        ],
+                        "quotes": [
+                          {
+                            "quoteType": "Rate",
+                            "value": 0.02
+                          },
+                          {
+                            "quoteType": "Rate",
+                            "value": 0.021
+                          }
+                        ],
+                        "lineage": "Some-market-data-provider-or-other",
+                        "marketDataType": "InflationCurveData"
                       }
                     }
                   ],
@@ -18271,6 +18730,158 @@
                     "volatility": 0.15,
                     "marketDataType": "ConstantVolatilitySurface"
                   }
+                },
+                "fourth-item": {
+                  "marketDataId": {
+                    "provider": "Lusid",
+                    "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                    "marketAsset": "InflationCurve/HICPxT"
+                  },
+                  "marketData": {
+                    "buildDate": "2021-01-20T00:00:00.0000000+00:00",
+                    "instruments": [
+                      {
+                        "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                        "inflationLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                          "flowConventions": {
+                            "currency": "EUR",
+                            "paymentFrequency": "1T",
+                            "dayCountConvention": "OneOne",
+                            "rollConvention": "None",
+                            "paymentCalendars": [],
+                            "resetCalendars": [],
+                            "settleDays": 0,
+                            "resetDays": 0,
+                            "leapDaysIncluded": true,
+                            "accrualDateAdjustment": "Adjusted",
+                            "businessDayConvention": "None",
+                            "accrualDayCountConvention": "OneOne"
+                          },
+                          "calculationType": "ZeroCoupon",
+                          "inflationIndexConventions": {
+                            "inflationIndexName": "HICPxT",
+                            "currency": "EUR",
+                            "observationLag": "3M",
+                            "inflationInterpolation": "Flat",
+                            "inflationFrequency": "1M",
+                            "inflationRollDay": 1
+                          },
+                          "notional": 1000000,
+                          "payReceive": "Pay",
+                          "instrumentType": "InflationLeg"
+                        },
+                        "fixedLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                          "legDefinition": {
+                            "conventions": {
+                              "currency": "EUR",
+                              "paymentFrequency": "1T",
+                              "dayCountConvention": "OneOne",
+                              "rollConvention": "None",
+                              "paymentCalendars": [],
+                              "resetCalendars": [],
+                              "settleDays": 0,
+                              "resetDays": 0,
+                              "leapDaysIncluded": true,
+                              "accrualDateAdjustment": "Adjusted",
+                              "businessDayConvention": "None",
+                              "accrualDayCountConvention": "OneOne"
+                            },
+                            "notionalExchangeType": "None",
+                            "payReceive": "Receive",
+                            "rateOrSpread": 0.02,
+                            "resetConvention": "InAdvance",
+                            "stubType": "ShortFront"
+                          },
+                          "notional": 1000000,
+                          "overrides": {},
+                          "instrumentType": "FixedLeg"
+                        },
+                        "additionalPayments": [],
+                        "instrumentType": "InflationSwap"
+                      },
+                      {
+                        "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                        "inflationLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                          "flowConventions": {
+                            "currency": "EUR",
+                            "paymentFrequency": "1T",
+                            "dayCountConvention": "OneOne",
+                            "rollConvention": "None",
+                            "paymentCalendars": [],
+                            "resetCalendars": [],
+                            "settleDays": 0,
+                            "resetDays": 0,
+                            "leapDaysIncluded": true,
+                            "accrualDateAdjustment": "Adjusted",
+                            "businessDayConvention": "None",
+                            "accrualDayCountConvention": "OneOne"
+                          },
+                          "calculationType": "ZeroCoupon",
+                          "inflationIndexConventions": {
+                            "inflationIndexName": "HICPxT",
+                            "currency": "EUR",
+                            "observationLag": "3M",
+                            "inflationInterpolation": "Flat",
+                            "inflationFrequency": "1M",
+                            "inflationRollDay": 1
+                          },
+                          "notional": 1000000,
+                          "payReceive": "Pay",
+                          "instrumentType": "InflationLeg"
+                        },
+                        "fixedLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                          "legDefinition": {
+                            "conventions": {
+                              "currency": "EUR",
+                              "paymentFrequency": "1T",
+                              "dayCountConvention": "OneOne",
+                              "rollConvention": "None",
+                              "paymentCalendars": [],
+                              "resetCalendars": [],
+                              "settleDays": 0,
+                              "resetDays": 0,
+                              "leapDaysIncluded": true,
+                              "accrualDateAdjustment": "Adjusted",
+                              "businessDayConvention": "None",
+                              "accrualDayCountConvention": "OneOne"
+                            },
+                            "notionalExchangeType": "None",
+                            "payReceive": "Receive",
+                            "rateOrSpread": 0.02,
+                            "resetConvention": "InAdvance",
+                            "stubType": "ShortFront"
+                          },
+                          "notional": 1000000,
+                          "overrides": {},
+                          "instrumentType": "FixedLeg"
+                        },
+                        "additionalPayments": [],
+                        "instrumentType": "InflationSwap"
+                      }
+                    ],
+                    "quotes": [
+                      {
+                        "quoteType": "Rate",
+                        "value": 0.02
+                      },
+                      {
+                        "quoteType": "Rate",
+                        "value": 0.021
+                      }
+                    ],
+                    "lineage": "Some-market-data-provider-or-other",
+                    "marketDataType": "InflationCurveData"
+                  }
                 }
               }
             },
@@ -18377,6 +18988,158 @@
                     "lineage": "Some-market-data-provider-or-other",
                     "volatility": 0.15,
                     "marketDataType": "ConstantVolatilitySurface"
+                  }
+                },
+                "fourth-item": {
+                  "marketDataId": {
+                    "provider": "Lusid",
+                    "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                    "marketAsset": "InflationCurve/HICPxT"
+                  },
+                  "marketData": {
+                    "buildDate": "2021-01-20T00:00:00.0000000+00:00",
+                    "instruments": [
+                      {
+                        "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                        "inflationLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                          "flowConventions": {
+                            "currency": "EUR",
+                            "paymentFrequency": "1T",
+                            "dayCountConvention": "OneOne",
+                            "rollConvention": "None",
+                            "paymentCalendars": [],
+                            "resetCalendars": [],
+                            "settleDays": 0,
+                            "resetDays": 0,
+                            "leapDaysIncluded": true,
+                            "accrualDateAdjustment": "Adjusted",
+                            "businessDayConvention": "None",
+                            "accrualDayCountConvention": "OneOne"
+                          },
+                          "calculationType": "ZeroCoupon",
+                          "inflationIndexConventions": {
+                            "inflationIndexName": "HICPxT",
+                            "currency": "EUR",
+                            "observationLag": "3M",
+                            "inflationInterpolation": "Flat",
+                            "inflationFrequency": "1M",
+                            "inflationRollDay": 1
+                          },
+                          "notional": 1000000,
+                          "payReceive": "Pay",
+                          "instrumentType": "InflationLeg"
+                        },
+                        "fixedLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                          "legDefinition": {
+                            "conventions": {
+                              "currency": "EUR",
+                              "paymentFrequency": "1T",
+                              "dayCountConvention": "OneOne",
+                              "rollConvention": "None",
+                              "paymentCalendars": [],
+                              "resetCalendars": [],
+                              "settleDays": 0,
+                              "resetDays": 0,
+                              "leapDaysIncluded": true,
+                              "accrualDateAdjustment": "Adjusted",
+                              "businessDayConvention": "None",
+                              "accrualDayCountConvention": "OneOne"
+                            },
+                            "notionalExchangeType": "None",
+                            "payReceive": "Receive",
+                            "rateOrSpread": 0.02,
+                            "resetConvention": "InAdvance",
+                            "stubType": "ShortFront"
+                          },
+                          "notional": 1000000,
+                          "overrides": {},
+                          "instrumentType": "FixedLeg"
+                        },
+                        "additionalPayments": [],
+                        "instrumentType": "InflationSwap"
+                      },
+                      {
+                        "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                        "inflationLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                          "flowConventions": {
+                            "currency": "EUR",
+                            "paymentFrequency": "1T",
+                            "dayCountConvention": "OneOne",
+                            "rollConvention": "None",
+                            "paymentCalendars": [],
+                            "resetCalendars": [],
+                            "settleDays": 0,
+                            "resetDays": 0,
+                            "leapDaysIncluded": true,
+                            "accrualDateAdjustment": "Adjusted",
+                            "businessDayConvention": "None",
+                            "accrualDayCountConvention": "OneOne"
+                          },
+                          "calculationType": "ZeroCoupon",
+                          "inflationIndexConventions": {
+                            "inflationIndexName": "HICPxT",
+                            "currency": "EUR",
+                            "observationLag": "3M",
+                            "inflationInterpolation": "Flat",
+                            "inflationFrequency": "1M",
+                            "inflationRollDay": 1
+                          },
+                          "notional": 1000000,
+                          "payReceive": "Pay",
+                          "instrumentType": "InflationLeg"
+                        },
+                        "fixedLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                          "legDefinition": {
+                            "conventions": {
+                              "currency": "EUR",
+                              "paymentFrequency": "1T",
+                              "dayCountConvention": "OneOne",
+                              "rollConvention": "None",
+                              "paymentCalendars": [],
+                              "resetCalendars": [],
+                              "settleDays": 0,
+                              "resetDays": 0,
+                              "leapDaysIncluded": true,
+                              "accrualDateAdjustment": "Adjusted",
+                              "businessDayConvention": "None",
+                              "accrualDayCountConvention": "OneOne"
+                            },
+                            "notionalExchangeType": "None",
+                            "payReceive": "Receive",
+                            "rateOrSpread": 0.02,
+                            "resetConvention": "InAdvance",
+                            "stubType": "ShortFront"
+                          },
+                          "notional": 1000000,
+                          "overrides": {},
+                          "instrumentType": "FixedLeg"
+                        },
+                        "additionalPayments": [],
+                        "instrumentType": "InflationSwap"
+                      }
+                    ],
+                    "quotes": [
+                      {
+                        "quoteType": "Rate",
+                        "value": 0.02
+                      },
+                      {
+                        "quoteType": "Rate",
+                        "value": 0.021
+                      }
+                    ],
+                    "lineage": "Some-market-data-provider-or-other",
+                    "marketDataType": "InflationCurveData"
                   }
                 }
               }
@@ -18485,6 +19248,158 @@
                     "volatility": 0.15,
                     "marketDataType": "ConstantVolatilitySurface"
                   }
+                },
+                "fourth-item": {
+                  "marketDataId": {
+                    "provider": "Lusid",
+                    "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                    "marketAsset": "InflationCurve/HICPxT"
+                  },
+                  "marketData": {
+                    "buildDate": "2021-01-20T00:00:00.0000000+00:00",
+                    "instruments": [
+                      {
+                        "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                        "inflationLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                          "flowConventions": {
+                            "currency": "EUR",
+                            "paymentFrequency": "1T",
+                            "dayCountConvention": "OneOne",
+                            "rollConvention": "None",
+                            "paymentCalendars": [],
+                            "resetCalendars": [],
+                            "settleDays": 0,
+                            "resetDays": 0,
+                            "leapDaysIncluded": true,
+                            "accrualDateAdjustment": "Adjusted",
+                            "businessDayConvention": "None",
+                            "accrualDayCountConvention": "OneOne"
+                          },
+                          "calculationType": "ZeroCoupon",
+                          "inflationIndexConventions": {
+                            "inflationIndexName": "HICPxT",
+                            "currency": "EUR",
+                            "observationLag": "3M",
+                            "inflationInterpolation": "Flat",
+                            "inflationFrequency": "1M",
+                            "inflationRollDay": 1
+                          },
+                          "notional": 1000000,
+                          "payReceive": "Pay",
+                          "instrumentType": "InflationLeg"
+                        },
+                        "fixedLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                          "legDefinition": {
+                            "conventions": {
+                              "currency": "EUR",
+                              "paymentFrequency": "1T",
+                              "dayCountConvention": "OneOne",
+                              "rollConvention": "None",
+                              "paymentCalendars": [],
+                              "resetCalendars": [],
+                              "settleDays": 0,
+                              "resetDays": 0,
+                              "leapDaysIncluded": true,
+                              "accrualDateAdjustment": "Adjusted",
+                              "businessDayConvention": "None",
+                              "accrualDayCountConvention": "OneOne"
+                            },
+                            "notionalExchangeType": "None",
+                            "payReceive": "Receive",
+                            "rateOrSpread": 0.02,
+                            "resetConvention": "InAdvance",
+                            "stubType": "ShortFront"
+                          },
+                          "notional": 1000000,
+                          "overrides": {},
+                          "instrumentType": "FixedLeg"
+                        },
+                        "additionalPayments": [],
+                        "instrumentType": "InflationSwap"
+                      },
+                      {
+                        "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                        "inflationLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                          "flowConventions": {
+                            "currency": "EUR",
+                            "paymentFrequency": "1T",
+                            "dayCountConvention": "OneOne",
+                            "rollConvention": "None",
+                            "paymentCalendars": [],
+                            "resetCalendars": [],
+                            "settleDays": 0,
+                            "resetDays": 0,
+                            "leapDaysIncluded": true,
+                            "accrualDateAdjustment": "Adjusted",
+                            "businessDayConvention": "None",
+                            "accrualDayCountConvention": "OneOne"
+                          },
+                          "calculationType": "ZeroCoupon",
+                          "inflationIndexConventions": {
+                            "inflationIndexName": "HICPxT",
+                            "currency": "EUR",
+                            "observationLag": "3M",
+                            "inflationInterpolation": "Flat",
+                            "inflationFrequency": "1M",
+                            "inflationRollDay": 1
+                          },
+                          "notional": 1000000,
+                          "payReceive": "Pay",
+                          "instrumentType": "InflationLeg"
+                        },
+                        "fixedLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                          "legDefinition": {
+                            "conventions": {
+                              "currency": "EUR",
+                              "paymentFrequency": "1T",
+                              "dayCountConvention": "OneOne",
+                              "rollConvention": "None",
+                              "paymentCalendars": [],
+                              "resetCalendars": [],
+                              "settleDays": 0,
+                              "resetDays": 0,
+                              "leapDaysIncluded": true,
+                              "accrualDateAdjustment": "Adjusted",
+                              "businessDayConvention": "None",
+                              "accrualDayCountConvention": "OneOne"
+                            },
+                            "notionalExchangeType": "None",
+                            "payReceive": "Receive",
+                            "rateOrSpread": 0.02,
+                            "resetConvention": "InAdvance",
+                            "stubType": "ShortFront"
+                          },
+                          "notional": 1000000,
+                          "overrides": {},
+                          "instrumentType": "FixedLeg"
+                        },
+                        "additionalPayments": [],
+                        "instrumentType": "InflationSwap"
+                      }
+                    ],
+                    "quotes": [
+                      {
+                        "quoteType": "Rate",
+                        "value": 0.02
+                      },
+                      {
+                        "quoteType": "Rate",
+                        "value": 0.021
+                      }
+                    ],
+                    "lineage": "Some-market-data-provider-or-other",
+                    "marketDataType": "InflationCurveData"
+                  }
                 }
               }
             },
@@ -18591,6 +19506,158 @@
                     "lineage": "Some-market-data-provider-or-other",
                     "volatility": 0.15,
                     "marketDataType": "ConstantVolatilitySurface"
+                  }
+                },
+                "fourth-item": {
+                  "marketDataId": {
+                    "provider": "Lusid",
+                    "effectiveAt": "2021-01-20T00:00:00.0000000+00:00",
+                    "marketAsset": "InflationCurve/HICPxT"
+                  },
+                  "marketData": {
+                    "buildDate": "2021-01-20T00:00:00.0000000+00:00",
+                    "instruments": [
+                      {
+                        "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                        "inflationLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                          "flowConventions": {
+                            "currency": "EUR",
+                            "paymentFrequency": "1T",
+                            "dayCountConvention": "OneOne",
+                            "rollConvention": "None",
+                            "paymentCalendars": [],
+                            "resetCalendars": [],
+                            "settleDays": 0,
+                            "resetDays": 0,
+                            "leapDaysIncluded": true,
+                            "accrualDateAdjustment": "Adjusted",
+                            "businessDayConvention": "None",
+                            "accrualDayCountConvention": "OneOne"
+                          },
+                          "calculationType": "ZeroCoupon",
+                          "inflationIndexConventions": {
+                            "inflationIndexName": "HICPxT",
+                            "currency": "EUR",
+                            "observationLag": "3M",
+                            "inflationInterpolation": "Flat",
+                            "inflationFrequency": "1M",
+                            "inflationRollDay": 1
+                          },
+                          "notional": 1000000,
+                          "payReceive": "Pay",
+                          "instrumentType": "InflationLeg"
+                        },
+                        "fixedLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2022-01-20T00:00:00.0000000+00:00",
+                          "legDefinition": {
+                            "conventions": {
+                              "currency": "EUR",
+                              "paymentFrequency": "1T",
+                              "dayCountConvention": "OneOne",
+                              "rollConvention": "None",
+                              "paymentCalendars": [],
+                              "resetCalendars": [],
+                              "settleDays": 0,
+                              "resetDays": 0,
+                              "leapDaysIncluded": true,
+                              "accrualDateAdjustment": "Adjusted",
+                              "businessDayConvention": "None",
+                              "accrualDayCountConvention": "OneOne"
+                            },
+                            "notionalExchangeType": "None",
+                            "payReceive": "Receive",
+                            "rateOrSpread": 0.02,
+                            "resetConvention": "InAdvance",
+                            "stubType": "ShortFront"
+                          },
+                          "notional": 1000000,
+                          "overrides": {},
+                          "instrumentType": "FixedLeg"
+                        },
+                        "additionalPayments": [],
+                        "instrumentType": "InflationSwap"
+                      },
+                      {
+                        "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                        "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                        "inflationLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                          "flowConventions": {
+                            "currency": "EUR",
+                            "paymentFrequency": "1T",
+                            "dayCountConvention": "OneOne",
+                            "rollConvention": "None",
+                            "paymentCalendars": [],
+                            "resetCalendars": [],
+                            "settleDays": 0,
+                            "resetDays": 0,
+                            "leapDaysIncluded": true,
+                            "accrualDateAdjustment": "Adjusted",
+                            "businessDayConvention": "None",
+                            "accrualDayCountConvention": "OneOne"
+                          },
+                          "calculationType": "ZeroCoupon",
+                          "inflationIndexConventions": {
+                            "inflationIndexName": "HICPxT",
+                            "currency": "EUR",
+                            "observationLag": "3M",
+                            "inflationInterpolation": "Flat",
+                            "inflationFrequency": "1M",
+                            "inflationRollDay": 1
+                          },
+                          "notional": 1000000,
+                          "payReceive": "Pay",
+                          "instrumentType": "InflationLeg"
+                        },
+                        "fixedLeg": {
+                          "startDate": "2021-01-20T00:00:00.0000000+00:00",
+                          "maturityDate": "2023-01-20T00:00:00.0000000+00:00",
+                          "legDefinition": {
+                            "conventions": {
+                              "currency": "EUR",
+                              "paymentFrequency": "1T",
+                              "dayCountConvention": "OneOne",
+                              "rollConvention": "None",
+                              "paymentCalendars": [],
+                              "resetCalendars": [],
+                              "settleDays": 0,
+                              "resetDays": 0,
+                              "leapDaysIncluded": true,
+                              "accrualDateAdjustment": "Adjusted",
+                              "businessDayConvention": "None",
+                              "accrualDayCountConvention": "OneOne"
+                            },
+                            "notionalExchangeType": "None",
+                            "payReceive": "Receive",
+                            "rateOrSpread": 0.02,
+                            "resetConvention": "InAdvance",
+                            "stubType": "ShortFront"
+                          },
+                          "notional": 1000000,
+                          "overrides": {},
+                          "instrumentType": "FixedLeg"
+                        },
+                        "additionalPayments": [],
+                        "instrumentType": "InflationSwap"
+                      }
+                    ],
+                    "quotes": [
+                      {
+                        "quoteType": "Rate",
+                        "value": 0.02
+                      },
+                      {
+                        "quoteType": "Rate",
+                        "value": 0.021
+                      }
+                    ],
+                    "lineage": "Some-market-data-provider-or-other",
+                    "marketDataType": "InflationCurveData"
                   }
                 }
               }
@@ -173794,10 +174861,11 @@
               "FxForwardCurveByQuoteReference",
               "CreditSpreadCurveData",
               "EquityCurveByPricesData",
-              "ConstantVolatilitySurface"
+              "ConstantVolatilitySurface",
+              "InflationCurveData"
             ],
             "type": "string",
-            "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+            "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
           }
         },
         "additionalProperties": false,
@@ -175291,10 +176359,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -178267,10 +179336,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -181265,10 +182335,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -182951,10 +184022,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -183493,10 +184565,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -190291,10 +191364,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -190374,10 +191448,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -190518,10 +191593,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -190862,10 +191938,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -190957,10 +192034,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -191459,10 +192537,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -192970,6 +194049,92 @@
         },
         "additionalProperties": false,
         "description": "Object describing a particular industry classifier,\r\nwhich comprises a classification code and the name of the classification system to which the code belongs."
+      },
+      "InflationCurveData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComplexMarketData"
+          },
+          {
+            "required": [
+              "buildDate",
+              "instruments",
+              "marketDataType",
+              "quotes"
+            ],
+            "type": "object",
+            "properties": {
+              "buildDate": {
+                "type": "string",
+                "description": "Build date of the curve - this is the reference date for resolution of the swap constituents.",
+                "format": "date-time"
+              },
+              "instruments": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LusidInstrument"
+                },
+                "description": "The set of instruments that define the curve.\r\nThe only supported instrument type is: [InflationSwap]."
+              },
+              "quotes": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MarketQuote"
+                },
+                "description": "The market quotes corresponding to the the instruments used to define the curve"
+              },
+              "seasonalFactors": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "description": "Optional multiplicative seasonal adjustment factors, one per calendar month starting from January.\r\nIf provided there must be exactly 12 factors.",
+                "nullable": true
+              },
+              "outputType": {
+                "type": "string",
+                "description": "What the values of the built curve represent.\r\nSupported string (enumeration) values are: [Level, Ratio].\r\nDefaults to \"Level\" if not provided.",
+                "nullable": true
+              },
+              "lineage": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string",
+                "description": "Description of the complex market data's lineage e.g. 'FundAccountant_GreenQuality'.",
+                "nullable": true
+              },
+              "marketDataOptions": {
+                "$ref": "#/components/schemas/MarketDataOptions"
+              },
+              "version": {
+                "$ref": "#/components/schemas/Version"
+              },
+              "marketDataType": {
+                "enum": [
+                  "DiscountFactorCurveData",
+                  "EquityVolSurfaceData",
+                  "FxVolSurfaceData",
+                  "IrVolCubeData",
+                  "OpaqueMarketData",
+                  "YieldCurveData",
+                  "FxForwardCurveData",
+                  "FxForwardPipsCurveData",
+                  "FxForwardTenorCurveData",
+                  "FxForwardTenorPipsCurveData",
+                  "FxForwardCurveByQuoteReference",
+                  "CreditSpreadCurveData",
+                  "EquityCurveByPricesData",
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
+                ],
+                "type": "string",
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
+              }
+            }
+          }
+        ],
+        "description": "Market data for an inflation curve, represented by a list of zero-coupon inflation swap\r\ninstruments and corresponding market quotes."
       },
       "InflationFixingDependency": {
         "allOf": [
@@ -196057,10 +197222,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -200756,10 +201922,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }
@@ -230802,10 +231969,11 @@
                   "FxForwardCurveByQuoteReference",
                   "CreditSpreadCurveData",
                   "EquityCurveByPricesData",
-                  "ConstantVolatilitySurface"
+                  "ConstantVolatilitySurface",
+                  "InflationCurveData"
                 ],
                 "type": "string",
-                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface."
+                "description": "Available values: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface, InflationCurveData."
               }
             }
           }

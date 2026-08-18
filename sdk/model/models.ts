@@ -640,6 +640,8 @@ export * from './indexModelOptionsAllOf';
 export * from './indexProjectionDependency';
 export * from './indexProjectionDependencyAllOf';
 export * from './industryClassifier';
+export * from './inflationCurveData';
+export * from './inflationCurveDataAllOf';
 export * from './inflationFixingDependency';
 export * from './inflationFixingDependencyAllOf';
 export * from './inflationIndexConventions';
@@ -2150,6 +2152,8 @@ import { IndexModelOptionsAllOf } from './indexModelOptionsAllOf';
 import { IndexProjectionDependency } from './indexProjectionDependency';
 import { IndexProjectionDependencyAllOf } from './indexProjectionDependencyAllOf';
 import { IndustryClassifier } from './industryClassifier';
+import { InflationCurveData } from './inflationCurveData';
+import { InflationCurveDataAllOf } from './inflationCurveDataAllOf';
 import { InflationFixingDependency } from './inflationFixingDependency';
 import { InflationFixingDependencyAllOf } from './inflationFixingDependencyAllOf';
 import { InflationIndexConventions } from './inflationIndexConventions';
@@ -3352,6 +3356,8 @@ let enumsMap: {[index: string]: any} = {
         "IndexModelOptionsAllOf.ModelOptionsTypeEnum": IndexModelOptionsAllOf.ModelOptionsTypeEnum,
         "IndexProjectionDependency.DependencyTypeEnum": IndexProjectionDependency.DependencyTypeEnum,
         "IndexProjectionDependencyAllOf.DependencyTypeEnum": IndexProjectionDependencyAllOf.DependencyTypeEnum,
+        "InflationCurveData.MarketDataTypeEnum": InflationCurveData.MarketDataTypeEnum,
+        "InflationCurveDataAllOf.MarketDataTypeEnum": InflationCurveDataAllOf.MarketDataTypeEnum,
         "InflationFixingDependency.DependencyTypeEnum": InflationFixingDependency.DependencyTypeEnum,
         "InflationFixingDependencyAllOf.DependencyTypeEnum": InflationFixingDependencyAllOf.DependencyTypeEnum,
         "InflationLeg.InstrumentTypeEnum": InflationLeg.InstrumentTypeEnum,
@@ -4291,6 +4297,8 @@ let typeMap: {[index: string]: any} = {
     "IndexProjectionDependency": IndexProjectionDependency,
     "IndexProjectionDependencyAllOf": IndexProjectionDependencyAllOf,
     "IndustryClassifier": IndustryClassifier,
+    "InflationCurveData": InflationCurveData,
+    "InflationCurveDataAllOf": InflationCurveDataAllOf,
     "InflationFixingDependency": InflationFixingDependency,
     "InflationFixingDependencyAllOf": InflationFixingDependencyAllOf,
     "InflationIndexConventions": InflationIndexConventions,
