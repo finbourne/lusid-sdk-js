@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1606",
+    "version": "2.0.1607",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -76837,6 +76837,7 @@
                       },
                       "booked": {
                         "quantity": 100,
+                        "amount": 0,
                         "details": [
                           {
                             "id": "txn1"
@@ -77011,6 +77012,7 @@
                       },
                       "booked": {
                         "quantity": 100,
+                        "amount": 0,
                         "details": [
                           {
                             "id": "txn1"
@@ -77185,6 +77187,7 @@
                       },
                       "booked": {
                         "quantity": 100,
+                        "amount": 0,
                         "details": [
                           {
                             "id": "txn1"
@@ -77434,10 +77437,12 @@
                             }
                           }
                         ],
-                        "quantity": 1250
+                        "quantity": 1250,
+                        "amount": 0
                       },
                       "executed": {
                         "quantity": 1100,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -77455,6 +77460,7 @@
                       },
                       "allocated": {
                         "quantity": 800,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -77573,10 +77579,12 @@
                             }
                           }
                         ],
-                        "quantity": 1250
+                        "quantity": 1250,
+                        "amount": 0
                       },
                       "executed": {
                         "quantity": 1100,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -77594,6 +77602,7 @@
                       },
                       "allocated": {
                         "quantity": 800,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -77712,10 +77721,12 @@
                             }
                           }
                         ],
-                        "quantity": 1250
+                        "quantity": 1250,
+                        "amount": 0
                       },
                       "executed": {
                         "quantity": 1100,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -77733,6 +77744,7 @@
                       },
                       "allocated": {
                         "quantity": 800,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -77976,10 +77988,12 @@
                             }
                           }
                         ],
-                        "quantity": 1250
+                        "quantity": 1250,
+                        "amount": 0
                       },
                       "executed": {
                         "quantity": 1100,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -77997,6 +78011,7 @@
                       },
                       "allocated": {
                         "quantity": 800,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -78115,10 +78130,12 @@
                             }
                           }
                         ],
-                        "quantity": 1250
+                        "quantity": 1250,
+                        "amount": 0
                       },
                       "executed": {
                         "quantity": 1100,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -78136,6 +78153,7 @@
                       },
                       "allocated": {
                         "quantity": 800,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -78254,10 +78272,12 @@
                             }
                           }
                         ],
-                        "quantity": 1250
+                        "quantity": 1250,
+                        "amount": 0
                       },
                       "executed": {
                         "quantity": 1100,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -78275,6 +78295,7 @@
                       },
                       "allocated": {
                         "quantity": 800,
+                        "amount": 0,
                         "details": [
                           {
                             "id": {
@@ -146180,7 +146201,7 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'CustodianAccount' domain to decorate onto the Custodian Account.\r\n            These must have the format {domain}/{scope}/{code}, for example 'CustodianAccount/system/Name'.",
+            "description": "A list of property keys from the 'CustodianAccount' domain to decorate onto the Custodian Account.\r\n            These must have the format {domain}/{scope}/{code}, for example 'CustodianAccount/system/Name'.\r\n            If no property keys are specified, it will return 'IsDefault' and 'RelatedAccounts' properties, if they exist.",
             "schema": {
               "type": "array",
               "items": {
@@ -146515,7 +146536,7 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'CustodianAccount' domain to decorate onto the Custodian Account.\r\n            These must take the format {domain}/{scope}/{code}, for example 'CustodianAccount/Manager/Id'. If no properties are specified, then no properties will be returned.",
+            "description": "A list of property keys from the 'CustodianAccount' domain to decorate onto the Custodian Account.\r\n            These must take the format {domain}/{scope}/{code}, for example 'CustodianAccount/system/Name'.\r\n            If no property keys are specified, it will return 'IsDefault' and 'RelatedAccounts' properties, if they exist.",
             "schema": {
               "type": "array",
               "items": {
@@ -190268,10 +190289,7 @@
           },
           {
             "required": [
-              "distributionPaymentType",
               "domCcy",
-              "fundShareClassType",
-              "hedging",
               "instrumentType",
               "shortCode"
             ],
@@ -190283,19 +190301,24 @@
                 "description": "A short identifier, unique across a single fund, usually made up of the ShareClass components. Eg \"A Accumulation Euro Hedged Class\" could become \"A Acc H EUR\"."
               },
               "fundShareClassType": {
-                "minLength": 1,
                 "type": "string",
-                "description": "The type of distribution that the ShareClass will calculate. Can be either 'Income' or 'Accumulation' - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income. Available values: Income, Accumulation."
+                "description": "The type of distribution that the ShareClass will calculate. Can be either 'Income' or 'Accumulation' - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income. Available values: Income, Accumulation.",
+                "nullable": true
               },
               "distributionPaymentType": {
-                "minLength": 1,
                 "type": "string",
-                "description": "The tax treatment applied to any distributions calculated within the ShareClass. Can be either 'Net' (Distribution Calculated net of tax) or 'Gross' (Distribution calculated gross of tax). Available values: Invalid, Gross, Net."
+                "description": "The tax treatment applied to any distributions calculated within the ShareClass. Can be either 'Net' (Distribution Calculated net of tax) or 'Gross' (Distribution calculated gross of tax). Available values: Invalid, Gross, Net.",
+                "nullable": true
+              },
+              "distributionType": {
+                "type": "string",
+                "description": "The type of distribution calculated for the ShareClass. Can be either 'Income' or 'Accumulation'. Available values: Income, Accumulation.",
+                "nullable": true
               },
               "hedging": {
-                "minLength": 1,
                 "type": "string",
-                "description": "A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of its investment strategy. Available values: Invalid, None, ApplyHedging."
+                "description": "A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of its investment strategy. Available values: Invalid, None, ApplyHedging.",
+                "nullable": true
               },
               "domCcy": {
                 "type": "string",
@@ -190307,6 +190330,14 @@
                   "$ref": "#/components/schemas/SimpleRoundingConvention"
                 },
                 "description": "Rounding Convention used for the FundShareClass quotes",
+                "nullable": true
+              },
+              "roundingConventionUnits": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SimpleRoundingConvention"
+                },
+                "description": "Rounding Conventions used for the FundShareClass units",
                 "nullable": true
               },
               "tradingConventions": {
@@ -202762,6 +202793,12 @@
             "type": "number",
             "description": "The quantity of this allocation, with direction relative to the containing block.",
             "format": "double"
+          },
+          "amount": {
+            "type": "number",
+            "description": "The amount of this allocation, derived from the quantity and price of the allocation.",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -202777,6 +202814,12 @@
             "type": "number",
             "description": "Total number of units allocated.",
             "format": "double"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Total monetary value allocated, derived from the quantity and price of each allocation.",
+            "format": "double",
+            "nullable": true
           },
           "details": {
             "type": "array",
@@ -202811,6 +202854,12 @@
             "type": "number",
             "description": "Total number of units executed.",
             "format": "double"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Total monetary value executed, derived from the quantity and price of each execution.",
+            "format": "double",
+            "nullable": true
           },
           "details": {
             "type": "array",
@@ -203000,6 +203049,12 @@
             "description": "Total number of units booked.",
             "format": "double"
           },
+          "amount": {
+            "type": "number",
+            "description": "Total consideration booked, in the block currency.",
+            "format": "double",
+            "nullable": true
+          },
           "details": {
             "type": "array",
             "items": {
@@ -203078,6 +203133,12 @@
             "description": "Total number of units allocated.",
             "format": "double"
           },
+          "amount": {
+            "type": "number",
+            "description": "Total monetary value allocated, derived from the quantity and price of each allocation, in the placement's amount currency. Null where the placement has no amount, or where an allocation cannot be expressed in that currency.",
+            "format": "double",
+            "nullable": true
+          },
           "details": {
             "type": "array",
             "items": {
@@ -203123,6 +203184,12 @@
             "type": "number",
             "description": "Total number of units executed.",
             "format": "double"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Total monetary value executed, derived from the quantity and price of each execution, in the placement's amount currency. Null where the placement has no amount, or where an execution cannot be expressed in that currency.",
+            "format": "double",
+            "nullable": true
           },
           "details": {
             "type": "array",
@@ -203177,13 +203244,13 @@
           },
           "quantity": {
             "type": "number",
-            "description": "Total number of units placed.",
+            "description": "Total number of units placed. Null where the placement is sized by amount.",
             "format": "double",
             "nullable": true
           },
           "amount": {
             "type": "number",
-            "description": "Total monetary value placed, in the block currency.",
+            "description": "Total monetary value placed, in the block currency. Null where the placement has no amount.",
             "format": "double",
             "nullable": true
           }
@@ -232228,7 +232295,7 @@
     },
     {
       "name": "Recs",
-      "description": "Endpoints for advanced reconciliation instances and results."
+      "description": "Endpoints for advanced reconciliation instances and result sets."
     },
     {
       "name": "Reference Portfolio",
