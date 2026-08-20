@@ -1012,6 +1012,7 @@ export * from './propertyDefinitionEntity';
 export * from './propertyDefinitionSearchResult';
 export * from './propertyFilter';
 export * from './propertyInterval';
+export * from './propertyIntervalTimeSeries';
 export * from './propertyKeyComplianceParameter';
 export * from './propertyKeyComplianceParameterAllOf';
 export * from './propertyKeyListComplianceParameter';
@@ -1154,6 +1155,7 @@ export * from './resourceListOfProcessedCommand';
 export * from './resourceListOfProperty';
 export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfPropertyInterval';
+export * from './resourceListOfPropertyIntervalTimeSeries';
 export * from './resourceListOfQueryableKey';
 export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
@@ -1170,6 +1172,7 @@ export * from './resourceListOfValueType';
 export * from './resourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery';
 export * from './resourceRecord';
 export * from './responseMetaData';
+export * from './resultAxisDefinition';
 export * from './resultDataKeyRule';
 export * from './resultDataKeyRuleAllOf';
 export * from './resultDataSchema';
@@ -1302,6 +1305,8 @@ export * from './termDepositInterestEvent';
 export * from './termDepositInterestEventAllOf';
 export * from './termDepositPrincipalEvent';
 export * from './termDepositPrincipalEventAllOf';
+export * from './terminationEvent';
+export * from './terminationEventAllOf';
 export * from './timeZoneConventions';
 export * from './toBeAnnounced';
 export * from './toBeAnnouncedAllOf';
@@ -2524,6 +2529,7 @@ import { PropertyDefinitionEntity } from './propertyDefinitionEntity';
 import { PropertyDefinitionSearchResult } from './propertyDefinitionSearchResult';
 import { PropertyFilter } from './propertyFilter';
 import { PropertyInterval } from './propertyInterval';
+import { PropertyIntervalTimeSeries } from './propertyIntervalTimeSeries';
 import { PropertyKeyComplianceParameter } from './propertyKeyComplianceParameter';
 import { PropertyKeyComplianceParameterAllOf } from './propertyKeyComplianceParameterAllOf';
 import { PropertyKeyListComplianceParameter } from './propertyKeyListComplianceParameter';
@@ -2666,6 +2672,7 @@ import { ResourceListOfProcessedCommand } from './resourceListOfProcessedCommand
 import { ResourceListOfProperty } from './resourceListOfProperty';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
 import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval';
+import { ResourceListOfPropertyIntervalTimeSeries } from './resourceListOfPropertyIntervalTimeSeries';
 import { ResourceListOfQueryableKey } from './resourceListOfQueryableKey';
 import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
@@ -2682,6 +2689,7 @@ import { ResourceListOfValueType } from './resourceListOfValueType';
 import { ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery } from './resourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery';
 import { ResourceRecord } from './resourceRecord';
 import { ResponseMetaData } from './responseMetaData';
+import { ResultAxisDefinition } from './resultAxisDefinition';
 import { ResultDataKeyRule } from './resultDataKeyRule';
 import { ResultDataKeyRuleAllOf } from './resultDataKeyRuleAllOf';
 import { ResultDataSchema } from './resultDataSchema';
@@ -2814,6 +2822,8 @@ import { TermDepositInterestEvent } from './termDepositInterestEvent';
 import { TermDepositInterestEventAllOf } from './termDepositInterestEventAllOf';
 import { TermDepositPrincipalEvent } from './termDepositPrincipalEvent';
 import { TermDepositPrincipalEventAllOf } from './termDepositPrincipalEventAllOf';
+import { TerminationEvent } from './terminationEvent';
+import { TerminationEventAllOf } from './terminationEventAllOf';
 import { TimeZoneConventions } from './timeZoneConventions';
 import { ToBeAnnounced } from './toBeAnnounced';
 import { ToBeAnnouncedAllOf } from './toBeAnnouncedAllOf';
@@ -3621,6 +3631,8 @@ let enumsMap: {[index: string]: any} = {
         "TermDepositInterestEventAllOf.InstrumentEventTypeEnum": TermDepositInterestEventAllOf.InstrumentEventTypeEnum,
         "TermDepositPrincipalEvent.InstrumentEventTypeEnum": TermDepositPrincipalEvent.InstrumentEventTypeEnum,
         "TermDepositPrincipalEventAllOf.InstrumentEventTypeEnum": TermDepositPrincipalEventAllOf.InstrumentEventTypeEnum,
+        "TerminationEvent.InstrumentEventTypeEnum": TerminationEvent.InstrumentEventTypeEnum,
+        "TerminationEventAllOf.InstrumentEventTypeEnum": TerminationEventAllOf.InstrumentEventTypeEnum,
         "ToBeAnnounced.InstrumentTypeEnum": ToBeAnnounced.InstrumentTypeEnum,
         "ToBeAnnouncedAllOf.InstrumentTypeEnum": ToBeAnnouncedAllOf.InstrumentTypeEnum,
         "ToBeAnnouncedOption.InstrumentTypeEnum": ToBeAnnouncedOption.InstrumentTypeEnum,
@@ -4669,6 +4681,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyDefinitionSearchResult": PropertyDefinitionSearchResult,
     "PropertyFilter": PropertyFilter,
     "PropertyInterval": PropertyInterval,
+    "PropertyIntervalTimeSeries": PropertyIntervalTimeSeries,
     "PropertyKeyComplianceParameter": PropertyKeyComplianceParameter,
     "PropertyKeyComplianceParameterAllOf": PropertyKeyComplianceParameterAllOf,
     "PropertyKeyListComplianceParameter": PropertyKeyListComplianceParameter,
@@ -4811,6 +4824,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfProperty": ResourceListOfProperty,
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
     "ResourceListOfPropertyInterval": ResourceListOfPropertyInterval,
+    "ResourceListOfPropertyIntervalTimeSeries": ResourceListOfPropertyIntervalTimeSeries,
     "ResourceListOfQueryableKey": ResourceListOfQueryableKey,
     "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
@@ -4827,6 +4841,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery": ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery,
     "ResourceRecord": ResourceRecord,
     "ResponseMetaData": ResponseMetaData,
+    "ResultAxisDefinition": ResultAxisDefinition,
     "ResultDataKeyRule": ResultDataKeyRule,
     "ResultDataKeyRuleAllOf": ResultDataKeyRuleAllOf,
     "ResultDataSchema": ResultDataSchema,
@@ -4959,6 +4974,8 @@ let typeMap: {[index: string]: any} = {
     "TermDepositInterestEventAllOf": TermDepositInterestEventAllOf,
     "TermDepositPrincipalEvent": TermDepositPrincipalEvent,
     "TermDepositPrincipalEventAllOf": TermDepositPrincipalEventAllOf,
+    "TerminationEvent": TerminationEvent,
+    "TerminationEventAllOf": TerminationEventAllOf,
     "TimeZoneConventions": TimeZoneConventions,
     "ToBeAnnounced": ToBeAnnounced,
     "ToBeAnnouncedAllOf": ToBeAnnouncedAllOf,
