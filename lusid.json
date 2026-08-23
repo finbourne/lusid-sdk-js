@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1613",
+    "version": "2.0.1615",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -56928,7 +56928,12 @@
                           "localValue": 25,
                           "baseValue": 25
                         }
-                      ]
+                      ],
+                      "custodianAccountId": {
+                        "scope": "Scope1",
+                        "code": "CustodianAccountCode"
+                      },
+                      "custodianAccountType": "Custodian_Cash"
                     }
                   ],
                   "href": "http://example.com",
@@ -57017,7 +57022,12 @@
                           "localValue": 25,
                           "baseValue": 25
                         }
-                      ]
+                      ],
+                      "custodianAccountId": {
+                        "scope": "Scope1",
+                        "code": "CustodianAccountCode"
+                      },
+                      "custodianAccountType": "Custodian_Cash"
                     }
                   ],
                   "href": "http://example.com",
@@ -57106,7 +57116,12 @@
                           "localValue": 25,
                           "baseValue": 25
                         }
-                      ]
+                      ],
+                      "custodianAccountId": {
+                        "scope": "Scope1",
+                        "code": "CustodianAccountCode"
+                      },
+                      "custodianAccountType": "Custodian_Cash"
                     }
                   ],
                   "href": "http://example.com",
@@ -190604,6 +190619,14 @@
               "$ref": "#/components/schemas/JournalEntryLineShareClassBreakdown"
             },
             "description": "Share Class breakdown data for this Journal Entry Line.",
+            "nullable": true
+          },
+          "custodianAccountId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "custodianAccountType": {
+            "type": "string",
+            "description": "Indicates the Account Type of the resolved Custodian Account for this Journal Entry Line.",
             "nullable": true
           },
           "links": {
