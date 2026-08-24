@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1615",
+    "version": "2.0.1616",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -191628,6 +191628,28 @@
           "deliveryType": {
             "type": "string",
             "description": "Delivery type to be used on settling the contract.\r\nDefault value: Physical. Available values: Cash, Physical.",
+            "nullable": true
+          },
+          "deliverableMinMaturityYears": {
+            "type": "number",
+            "description": "For physically-delivered bond futures: the minimum remaining maturity, in years, measured from the first\r\nday of the delivery month, for a bond to be eligible for delivery against this contract.\r\nOptional: if not set, no lower bound is applied when matching eligible bonds.",
+            "format": "double",
+            "nullable": true
+          },
+          "deliverableMaxMaturityYears": {
+            "type": "number",
+            "description": "For physically-delivered bond futures: the maximum remaining maturity, in years, measured from the first\r\nday of the delivery month, for a bond to be eligible for delivery against this contract.\r\nOptional: if not set, no upper bound is applied when matching eligible bonds.",
+            "format": "double",
+            "nullable": true
+          },
+          "excludeCallableBonds": {
+            "type": "boolean",
+            "description": "For physically-delivered bond futures: whether callable bonds are excluded from delivery against this\r\ncontract. Optional: defaults to false (callable bonds are not excluded)."
+          },
+          "deliverableMinAmountOutstanding": {
+            "type": "number",
+            "description": "For physically-delivered bond futures: the minimum amount outstanding, in the domestic currency of the\r\ncontract, for a bond issue to be eligible for delivery against this contract.\r\nOptional: if not set, no minimum is applied when matching eligible bonds.",
+            "format": "double",
             "nullable": true
           }
         },
