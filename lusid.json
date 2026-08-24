@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1616",
+    "version": "2.0.1618",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -210160,6 +210160,9 @@
             "type": "number",
             "description": "The number of unsettled units for the holding that are beyond their contractual settlement date.",
             "format": "double"
+          },
+          "custodianAccount": {
+            "$ref": "#/components/schemas/CustodianAccount"
           },
           "resolvedCustodianAccount": {
             "$ref": "#/components/schemas/ResolvedCustodianAccount"
