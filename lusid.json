@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1618",
+    "version": "2.0.1619",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -3327,7 +3327,12 @@
                       "movementSign": "Long",
                       "holdingSign": "NA",
                       "ledgerColumn": "Debit",
-                      "journalEntryLineType": "Default"
+                      "journalEntryLineType": "Default",
+                      "custodianAccountId": {
+                        "scope": "Scope1",
+                        "code": "CustodianAccount1"
+                      },
+                      "custodianAccountType": "Cash"
                     }
                   ],
                   "href": "http://example.com",
@@ -3380,7 +3385,12 @@
                       "movementSign": "Long",
                       "holdingSign": "NA",
                       "ledgerColumn": "Debit",
-                      "journalEntryLineType": "Default"
+                      "journalEntryLineType": "Default",
+                      "custodianAccountId": {
+                        "scope": "Scope1",
+                        "code": "CustodianAccount1"
+                      },
+                      "custodianAccountType": "Cash"
                     }
                   ],
                   "href": "http://example.com",
@@ -3433,7 +3443,12 @@
                       "movementSign": "Long",
                       "holdingSign": "NA",
                       "ledgerColumn": "Debit",
-                      "journalEntryLineType": "Default"
+                      "journalEntryLineType": "Default",
+                      "custodianAccountId": {
+                        "scope": "Scope1",
+                        "code": "CustodianAccount1"
+                      },
+                      "custodianAccountType": "Cash"
                     }
                   ],
                   "href": "http://example.com",
@@ -57391,7 +57406,12 @@
                         "movementSign": "Long",
                         "holdingSign": "NA",
                         "ledgerColumn": "Debit",
-                        "journalEntryLineType": "Default"
+                        "journalEntryLineType": "Default",
+                        "custodianAccountId": {
+                          "scope": "Scope1",
+                          "code": "CustodianAccount1"
+                        },
+                        "custodianAccountType": "Cash"
                       }
                     }
                   ],
@@ -57468,7 +57488,12 @@
                         "movementSign": "Long",
                         "holdingSign": "NA",
                         "ledgerColumn": "Debit",
-                        "journalEntryLineType": "Default"
+                        "journalEntryLineType": "Default",
+                        "custodianAccountId": {
+                          "scope": "Scope1",
+                          "code": "CustodianAccount1"
+                        },
+                        "custodianAccountType": "Cash"
                       }
                     }
                   ],
@@ -57545,7 +57570,12 @@
                         "movementSign": "Long",
                         "holdingSign": "NA",
                         "ledgerColumn": "Debit",
-                        "journalEntryLineType": "Default"
+                        "journalEntryLineType": "Default",
+                        "custodianAccountId": {
+                          "scope": "Scope1",
+                          "code": "CustodianAccount1"
+                        },
+                        "custodianAccountType": "Cash"
                       }
                     }
                   ],
@@ -198096,6 +198126,14 @@
           "journalEntryLineType": {
             "type": "string",
             "description": "Indicates the Journal Entry Line type. Available values: Default, Reversal, TrueUp.",
+            "nullable": true
+          },
+          "custodianAccountId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "custodianAccountType": {
+            "type": "string",
+            "description": "Indicates the Account Type of the resolved Custodian Account for this Journal Entry Line.",
             "nullable": true
           },
           "links": {
