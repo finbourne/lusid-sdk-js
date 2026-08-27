@@ -238,6 +238,8 @@ export * from './commodityCalendarSchedule';
 export * from './commodityCalendarScheduleAllOf';
 export * from './commodityCalendarSwap';
 export * from './commodityCalendarSwapAllOf';
+export * from './commodityCalendarSwapCashFlowEvent';
+export * from './commodityCalendarSwapCashFlowEventAllOf';
 export * from './commodityForward';
 export * from './commodityForwardAllOf';
 export * from './commodityForwardCashSettlementEvent';
@@ -1756,6 +1758,8 @@ import { CommodityCalendarSchedule } from './commodityCalendarSchedule';
 import { CommodityCalendarScheduleAllOf } from './commodityCalendarScheduleAllOf';
 import { CommodityCalendarSwap } from './commodityCalendarSwap';
 import { CommodityCalendarSwapAllOf } from './commodityCalendarSwapAllOf';
+import { CommodityCalendarSwapCashFlowEvent } from './commodityCalendarSwapCashFlowEvent';
+import { CommodityCalendarSwapCashFlowEventAllOf } from './commodityCalendarSwapCashFlowEventAllOf';
 import { CommodityForward } from './commodityForward';
 import { CommodityForwardAllOf } from './commodityForwardAllOf';
 import { CommodityForwardCashSettlementEvent } from './commodityForwardCashSettlementEvent';
@@ -3144,6 +3148,8 @@ let enumsMap: {[index: string]: any} = {
         "CommodityCalendarScheduleAllOf.ScheduleTypeEnum": CommodityCalendarScheduleAllOf.ScheduleTypeEnum,
         "CommodityCalendarSwap.InstrumentTypeEnum": CommodityCalendarSwap.InstrumentTypeEnum,
         "CommodityCalendarSwapAllOf.InstrumentTypeEnum": CommodityCalendarSwapAllOf.InstrumentTypeEnum,
+        "CommodityCalendarSwapCashFlowEvent.InstrumentEventTypeEnum": CommodityCalendarSwapCashFlowEvent.InstrumentEventTypeEnum,
+        "CommodityCalendarSwapCashFlowEventAllOf.InstrumentEventTypeEnum": CommodityCalendarSwapCashFlowEventAllOf.InstrumentEventTypeEnum,
         "CommodityForward.InstrumentTypeEnum": CommodityForward.InstrumentTypeEnum,
         "CommodityForwardAllOf.InstrumentTypeEnum": CommodityForwardAllOf.InstrumentTypeEnum,
         "CommodityForwardCashSettlementEvent.InstrumentEventTypeEnum": CommodityForwardCashSettlementEvent.InstrumentEventTypeEnum,
@@ -3910,6 +3916,8 @@ let typeMap: {[index: string]: any} = {
     "CommodityCalendarScheduleAllOf": CommodityCalendarScheduleAllOf,
     "CommodityCalendarSwap": CommodityCalendarSwap,
     "CommodityCalendarSwapAllOf": CommodityCalendarSwapAllOf,
+    "CommodityCalendarSwapCashFlowEvent": CommodityCalendarSwapCashFlowEvent,
+    "CommodityCalendarSwapCashFlowEventAllOf": CommodityCalendarSwapCashFlowEventAllOf,
     "CommodityForward": CommodityForward,
     "CommodityForwardAllOf": CommodityForwardAllOf,
     "CommodityForwardCashSettlementEvent": CommodityForwardCashSettlementEvent,
