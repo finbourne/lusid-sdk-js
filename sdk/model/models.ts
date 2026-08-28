@@ -117,6 +117,7 @@ export * from './bondCouponEvent';
 export * from './bondCouponEventAllOf';
 export * from './bondDefaultEvent';
 export * from './bondDefaultEventAllOf';
+export * from './bondDefaultSuppressionDetails';
 export * from './bondOption';
 export * from './bondOptionAllOf';
 export * from './bondOptionTerminationEvent';
@@ -546,6 +547,7 @@ export * from './fundEstimateValuationPoint';
 export * from './fundEstimateValuationPointAllOf';
 export * from './fundIdList';
 export * from './fundIdListAllOf';
+export * from './fundInstrument';
 export * from './fundJournalEntryLine';
 export * from './fundPnlBreakdown';
 export * from './fundPreviousNAV';
@@ -1637,6 +1639,7 @@ import { BondCouponEvent } from './bondCouponEvent';
 import { BondCouponEventAllOf } from './bondCouponEventAllOf';
 import { BondDefaultEvent } from './bondDefaultEvent';
 import { BondDefaultEventAllOf } from './bondDefaultEventAllOf';
+import { BondDefaultSuppressionDetails } from './bondDefaultSuppressionDetails';
 import { BondOption } from './bondOption';
 import { BondOptionAllOf } from './bondOptionAllOf';
 import { BondOptionTerminationEvent } from './bondOptionTerminationEvent';
@@ -2066,6 +2069,7 @@ import { FundEstimateValuationPoint } from './fundEstimateValuationPoint';
 import { FundEstimateValuationPointAllOf } from './fundEstimateValuationPointAllOf';
 import { FundIdList } from './fundIdList';
 import { FundIdListAllOf } from './fundIdListAllOf';
+import { FundInstrument } from './fundInstrument';
 import { FundJournalEntryLine } from './fundJournalEntryLine';
 import { FundPnlBreakdown } from './fundPnlBreakdown';
 import { FundPreviousNAV } from './fundPreviousNAV';
@@ -3795,6 +3799,7 @@ let typeMap: {[index: string]: any} = {
     "BondCouponEventAllOf": BondCouponEventAllOf,
     "BondDefaultEvent": BondDefaultEvent,
     "BondDefaultEventAllOf": BondDefaultEventAllOf,
+    "BondDefaultSuppressionDetails": BondDefaultSuppressionDetails,
     "BondOption": BondOption,
     "BondOptionAllOf": BondOptionAllOf,
     "BondOptionTerminationEvent": BondOptionTerminationEvent,
@@ -4223,6 +4228,7 @@ let typeMap: {[index: string]: any} = {
     "FundEstimateValuationPointAllOf": FundEstimateValuationPointAllOf,
     "FundIdList": FundIdList,
     "FundIdListAllOf": FundIdListAllOf,
+    "FundInstrument": FundInstrument,
     "FundJournalEntryLine": FundJournalEntryLine,
     "FundPnlBreakdown": FundPnlBreakdown,
     "FundPreviousNAV": FundPreviousNAV,
