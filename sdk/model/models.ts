@@ -118,6 +118,8 @@ export * from './bondCouponEventAllOf';
 export * from './bondDefaultEvent';
 export * from './bondDefaultEventAllOf';
 export * from './bondDefaultSuppressionDetails';
+export * from './bondLookupModelOptions';
+export * from './bondLookupModelOptionsAllOf';
 export * from './bondOption';
 export * from './bondOptionAllOf';
 export * from './bondOptionTerminationEvent';
@@ -635,6 +637,8 @@ export * from './holdingIdsRequest';
 export * from './holdingPricingInfo';
 export * from './holdingsAdjustment';
 export * from './holdingsAdjustmentHeader';
+export * from './hullWhiteModelOptions';
+export * from './hullWhiteModelOptionsAllOf';
 export * from './iUnitDefinitionDto';
 export * from './idSelectorDefinition';
 export * from './identifierPartSchema';
@@ -1330,6 +1334,7 @@ export * from './transactionConfigurationTypeAlias';
 export * from './transactionCurrencyAndAmount';
 export * from './transactionDiagnostics';
 export * from './transactionEntity';
+export * from './transactionEntityLink';
 export * from './transactionFeeCapitalisation';
 export * from './transactionFeeType';
 export * from './transactionFieldMap';
@@ -1640,6 +1645,8 @@ import { BondCouponEventAllOf } from './bondCouponEventAllOf';
 import { BondDefaultEvent } from './bondDefaultEvent';
 import { BondDefaultEventAllOf } from './bondDefaultEventAllOf';
 import { BondDefaultSuppressionDetails } from './bondDefaultSuppressionDetails';
+import { BondLookupModelOptions } from './bondLookupModelOptions';
+import { BondLookupModelOptionsAllOf } from './bondLookupModelOptionsAllOf';
 import { BondOption } from './bondOption';
 import { BondOptionAllOf } from './bondOptionAllOf';
 import { BondOptionTerminationEvent } from './bondOptionTerminationEvent';
@@ -2157,6 +2164,8 @@ import { HoldingIdsRequest } from './holdingIdsRequest';
 import { HoldingPricingInfo } from './holdingPricingInfo';
 import { HoldingsAdjustment } from './holdingsAdjustment';
 import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
+import { HullWhiteModelOptions } from './hullWhiteModelOptions';
+import { HullWhiteModelOptionsAllOf } from './hullWhiteModelOptionsAllOf';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { IdentifierPartSchema } from './identifierPartSchema';
@@ -2852,6 +2861,7 @@ import { TransactionConfigurationTypeAlias } from './transactionConfigurationTyp
 import { TransactionCurrencyAndAmount } from './transactionCurrencyAndAmount';
 import { TransactionDiagnostics } from './transactionDiagnostics';
 import { TransactionEntity } from './transactionEntity';
+import { TransactionEntityLink } from './transactionEntityLink';
 import { TransactionFeeCapitalisation } from './transactionFeeCapitalisation';
 import { TransactionFeeType } from './transactionFeeType';
 import { TransactionFieldMap } from './transactionFieldMap';
@@ -3083,6 +3093,8 @@ let enumsMap: {[index: string]: any} = {
         "BondCouponEventAllOf.InstrumentEventTypeEnum": BondCouponEventAllOf.InstrumentEventTypeEnum,
         "BondDefaultEvent.InstrumentEventTypeEnum": BondDefaultEvent.InstrumentEventTypeEnum,
         "BondDefaultEventAllOf.InstrumentEventTypeEnum": BondDefaultEventAllOf.InstrumentEventTypeEnum,
+        "BondLookupModelOptions.ModelOptionsTypeEnum": BondLookupModelOptions.ModelOptionsTypeEnum,
+        "BondLookupModelOptionsAllOf.ModelOptionsTypeEnum": BondLookupModelOptionsAllOf.ModelOptionsTypeEnum,
         "BondOption.InstrumentTypeEnum": BondOption.InstrumentTypeEnum,
         "BondOptionAllOf.InstrumentTypeEnum": BondOptionAllOf.InstrumentTypeEnum,
         "BondOptionTerminationEvent.InstrumentEventTypeEnum": BondOptionTerminationEvent.InstrumentEventTypeEnum,
@@ -3371,6 +3383,8 @@ let enumsMap: {[index: string]: any} = {
         "GroupFilterStepRequest.ComplianceStepTypeRequestEnum": GroupFilterStepRequest.ComplianceStepTypeRequestEnum,
         "HoldingsAdjustment.UnmatchedHoldingMethodEnum": HoldingsAdjustment.UnmatchedHoldingMethodEnum,
         "HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum": HoldingsAdjustmentHeader.UnmatchedHoldingMethodEnum,
+        "HullWhiteModelOptions.ModelOptionsTypeEnum": HullWhiteModelOptions.ModelOptionsTypeEnum,
+        "HullWhiteModelOptionsAllOf.ModelOptionsTypeEnum": HullWhiteModelOptionsAllOf.ModelOptionsTypeEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
         "IndexModelOptions.PortfolioScalingEnum": IndexModelOptions.PortfolioScalingEnum,
         "IndexModelOptions.ModelOptionsTypeEnum": IndexModelOptions.ModelOptionsTypeEnum,
@@ -3800,6 +3814,8 @@ let typeMap: {[index: string]: any} = {
     "BondDefaultEvent": BondDefaultEvent,
     "BondDefaultEventAllOf": BondDefaultEventAllOf,
     "BondDefaultSuppressionDetails": BondDefaultSuppressionDetails,
+    "BondLookupModelOptions": BondLookupModelOptions,
+    "BondLookupModelOptionsAllOf": BondLookupModelOptionsAllOf,
     "BondOption": BondOption,
     "BondOptionAllOf": BondOptionAllOf,
     "BondOptionTerminationEvent": BondOptionTerminationEvent,
@@ -4316,6 +4332,8 @@ let typeMap: {[index: string]: any} = {
     "HoldingPricingInfo": HoldingPricingInfo,
     "HoldingsAdjustment": HoldingsAdjustment,
     "HoldingsAdjustmentHeader": HoldingsAdjustmentHeader,
+    "HullWhiteModelOptions": HullWhiteModelOptions,
+    "HullWhiteModelOptionsAllOf": HullWhiteModelOptionsAllOf,
     "IUnitDefinitionDto": IUnitDefinitionDto,
     "IdSelectorDefinition": IdSelectorDefinition,
     "IdentifierPartSchema": IdentifierPartSchema,
@@ -5011,6 +5029,7 @@ let typeMap: {[index: string]: any} = {
     "TransactionCurrencyAndAmount": TransactionCurrencyAndAmount,
     "TransactionDiagnostics": TransactionDiagnostics,
     "TransactionEntity": TransactionEntity,
+    "TransactionEntityLink": TransactionEntityLink,
     "TransactionFeeCapitalisation": TransactionFeeCapitalisation,
     "TransactionFeeType": TransactionFeeType,
     "TransactionFieldMap": TransactionFieldMap,
