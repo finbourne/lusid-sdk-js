@@ -405,6 +405,8 @@ export * from './depositInterestPaymentEvent';
 export * from './depositInterestPaymentEventAllOf';
 export * from './depositRollEvent';
 export * from './depositRollEventAllOf';
+export * from './depositSweepEvent';
+export * from './depositSweepEventAllOf';
 export * from './derivationFormulaExplainRequest';
 export * from './derivedPropertyComponent';
 export * from './describedAddressKey';
@@ -1932,6 +1934,8 @@ import { DepositInterestPaymentEvent } from './depositInterestPaymentEvent';
 import { DepositInterestPaymentEventAllOf } from './depositInterestPaymentEventAllOf';
 import { DepositRollEvent } from './depositRollEvent';
 import { DepositRollEventAllOf } from './depositRollEventAllOf';
+import { DepositSweepEvent } from './depositSweepEvent';
+import { DepositSweepEventAllOf } from './depositSweepEventAllOf';
 import { DerivationFormulaExplainRequest } from './derivationFormulaExplainRequest';
 import { DerivedPropertyComponent } from './derivedPropertyComponent';
 import { DescribedAddressKey } from './describedAddressKey';
@@ -3231,6 +3235,8 @@ let enumsMap: {[index: string]: any} = {
         "DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum": DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum,
         "DepositRollEvent.InstrumentEventTypeEnum": DepositRollEvent.InstrumentEventTypeEnum,
         "DepositRollEventAllOf.InstrumentEventTypeEnum": DepositRollEventAllOf.InstrumentEventTypeEnum,
+        "DepositSweepEvent.InstrumentEventTypeEnum": DepositSweepEvent.InstrumentEventTypeEnum,
+        "DepositSweepEventAllOf.InstrumentEventTypeEnum": DepositSweepEventAllOf.InstrumentEventTypeEnum,
         "DiscountFactorCurveData.MarketDataTypeEnum": DiscountFactorCurveData.MarketDataTypeEnum,
         "DiscountFactorCurveDataAllOf.MarketDataTypeEnum": DiscountFactorCurveDataAllOf.MarketDataTypeEnum,
         "DiscountingDependency.DependencyTypeEnum": DiscountingDependency.DependencyTypeEnum,
@@ -4100,6 +4106,8 @@ let typeMap: {[index: string]: any} = {
     "DepositInterestPaymentEventAllOf": DepositInterestPaymentEventAllOf,
     "DepositRollEvent": DepositRollEvent,
     "DepositRollEventAllOf": DepositRollEventAllOf,
+    "DepositSweepEvent": DepositSweepEvent,
+    "DepositSweepEventAllOf": DepositSweepEventAllOf,
     "DerivationFormulaExplainRequest": DerivationFormulaExplainRequest,
     "DerivedPropertyComponent": DerivedPropertyComponent,
     "DescribedAddressKey": DescribedAddressKey,
