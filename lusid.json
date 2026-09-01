@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1630",
+    "version": "2.0.1632",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -194615,10 +194615,11 @@
                   "FxShiftDefinition",
                   "PriceShiftDefinition",
                   "VolSurfaceShiftDefinition",
-                  "MdkrGroupShiftDefinition"
+                  "MdkrGroupShiftDefinition",
+                  "InflationCurveShiftDefinition"
                 ],
                 "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition."
               }
             }
           }
@@ -196521,6 +196522,91 @@
           }
         ],
         "description": "Market data for an inflation curve, represented by a list of zero-coupon inflation swap\r\ninstruments and corresponding market quotes."
+      },
+      "InflationCurveShiftDefinition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ScenarioShiftDefinition"
+          },
+          {
+            "required": [
+              "index",
+              "scenarioShiftType",
+              "shiftType"
+            ],
+            "type": "object",
+            "properties": {
+              "index": {
+                "maxLength": 50,
+                "minLength": 1,
+                "type": "string",
+                "description": "The inflation index name the curve is keyed by, e.g. UKRPI or EUHICPXT."
+              },
+              "amount": {
+                "maximum": 1000000,
+                "minimum": -1000000,
+                "type": "number",
+                "description": "The size of the shift, in the units given by Scale: basis points on the zero-coupon\r\nrates by default (50 means +50bps), or a percentage of each rate when Scale is\r\nPercentage (1 means rates scaled by 1.01).",
+                "format": "double",
+                "nullable": true
+              },
+              "startTenor": {
+                "maxLength": 10,
+                "minLength": 2,
+                "pattern": "^\\d+[mywdMYWD]$",
+                "type": "string",
+                "nullable": true
+              },
+              "endTenor": {
+                "maxLength": 10,
+                "minLength": 2,
+                "pattern": "^\\d+[mywdMYWD]$",
+                "type": "string",
+                "nullable": true
+              },
+              "shiftType": {
+                "enum": [
+                  "Parallel",
+                  "Steepen",
+                  "Flatten",
+                  "Twist",
+                  "Tent"
+                ],
+                "type": "string",
+                "description": "Available values: Parallel, Steepen, Flatten, Twist, Tent."
+              },
+              "scale": {
+                "enum": [
+                  "Bps",
+                  "Percentage"
+                ],
+                "type": "string",
+                "description": "Available values: Bps, Percentage."
+              },
+              "pivotTenor": {
+                "maxLength": 10,
+                "minLength": 2,
+                "pattern": "^\\d+[mywdMYWD]$",
+                "type": "string",
+                "description": "The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,\r\nfalling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape. Only\r\nvalid with ShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared\r\nlast on purpose: generated SDKs emit their positional constructor in property-declaration\r\norder, and this property must not shift the parameters of the ones before it.",
+                "nullable": true
+              },
+              "scenarioShiftType": {
+                "enum": [
+                  "RateCurveShiftDefinition",
+                  "FxShiftDefinition",
+                  "PriceShiftDefinition",
+                  "VolSurfaceShiftDefinition",
+                  "MdkrGroupShiftDefinition",
+                  "InflationCurveShiftDefinition"
+                ],
+                "type": "string",
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition."
+              }
+            }
+          }
+        ],
+        "description": "A shift of an inflation curve, targeted by inflation index name. The shift applies to the\r\nzero-coupon inflation swap quotes the curve was solved from and the curve re-solves with\r\nthe same seasonal factors and resolved fixings, so seasonality and the historic index path\r\nsurvive the shift. Shift shapes, tenor windows, scales and the Tent pivot behave exactly\r\nas they do on a rate curve shift."
       },
       "InflationFixingDependency": {
         "allOf": [
@@ -203329,10 +203415,11 @@
                   "FxShiftDefinition",
                   "PriceShiftDefinition",
                   "VolSurfaceShiftDefinition",
-                  "MdkrGroupShiftDefinition"
+                  "MdkrGroupShiftDefinition",
+                  "InflationCurveShiftDefinition"
                 ],
                 "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition."
               }
             }
           }
@@ -213470,10 +213557,11 @@
                   "FxShiftDefinition",
                   "PriceShiftDefinition",
                   "VolSurfaceShiftDefinition",
-                  "MdkrGroupShiftDefinition"
+                  "MdkrGroupShiftDefinition",
+                  "InflationCurveShiftDefinition"
                 ],
                 "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition."
               }
             }
           }
@@ -216136,7 +216224,7 @@
                 "minLength": 2,
                 "pattern": "^\\d+[mywdMYWD]$",
                 "type": "string",
-                "description": "The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,\r\nfalling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose\r\nasymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with\r\nShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on\r\npurpose: generated SDKs emit their positional constructor in property-declaration order,\r\nand this property must not shift the parameters of the ones before it.",
+                "description": "The tenor the Tent shift peaks at. The shift applies with the full Amount at this tenor,\r\nfalling linearly to zero at StartTenor and EndTenor - the key-rate triangle shape, whose\r\nasymmetry matters because key-rate buckets are rarely evenly spaced. Only valid with\r\nShiftType Tent; omitted, a Tent peaks at the midpoint of the window. Declared last on\r\npurpose: generated SDKs emit their positional constructor in property-declaration order,\r\nand this property must not shift the parameters of the ones before it.\r\nOver a window containing a single curve point, that point takes the full Amount regardless\r\nof where the pivot lands: a one-point window has no slope to express, and every shift\r\nshape degenerates the same way there.",
                 "nullable": true
               },
               "scenarioShiftType": {
@@ -216145,10 +216233,11 @@
                   "FxShiftDefinition",
                   "PriceShiftDefinition",
                   "VolSurfaceShiftDefinition",
-                  "MdkrGroupShiftDefinition"
+                  "MdkrGroupShiftDefinition",
+                  "InflationCurveShiftDefinition"
                 ],
                 "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition."
               }
             }
           }
@@ -222121,10 +222210,11 @@
               "FxShiftDefinition",
               "PriceShiftDefinition",
               "VolSurfaceShiftDefinition",
-              "MdkrGroupShiftDefinition"
+              "MdkrGroupShiftDefinition",
+              "InflationCurveShiftDefinition"
             ],
             "type": "string",
-            "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+            "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition."
           }
         },
         "additionalProperties": false,
@@ -234525,10 +234615,11 @@
                   "FxShiftDefinition",
                   "PriceShiftDefinition",
                   "VolSurfaceShiftDefinition",
-                  "MdkrGroupShiftDefinition"
+                  "MdkrGroupShiftDefinition",
+                  "InflationCurveShiftDefinition"
                 ],
                 "type": "string",
-                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition."
+                "description": "Available values: RateCurveShiftDefinition, FxShiftDefinition, PriceShiftDefinition, VolSurfaceShiftDefinition, MdkrGroupShiftDefinition, InflationCurveShiftDefinition."
               }
             }
           }
