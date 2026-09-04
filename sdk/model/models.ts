@@ -113,6 +113,9 @@ export * from './blockSetRequest';
 export * from './blockedOrderRequest';
 export * from './bond';
 export * from './bondAllOf';
+export * from './bondConversionEntry';
+export * from './bondConversionSchedule';
+export * from './bondConversionScheduleAllOf';
 export * from './bondCouponEvent';
 export * from './bondCouponEventAllOf';
 export * from './bondDefaultEvent';
@@ -122,6 +125,8 @@ export * from './bondForward';
 export * from './bondForwardAllOf';
 export * from './bondForwardCashSettlementEvent';
 export * from './bondForwardCashSettlementEventAllOf';
+export * from './bondForwardModelOptions';
+export * from './bondForwardModelOptionsAllOf';
 export * from './bondForwardTerminationEvent';
 export * from './bondForwardTerminationEventAllOf';
 export * from './bondLookupModelOptions';
@@ -350,6 +355,8 @@ export * from './creditPremiumCashFlowEventAllOf';
 export * from './creditRating';
 export * from './creditSpreadCurveData';
 export * from './creditSpreadCurveDataAllOf';
+export * from './creditSpreadShiftDefinition';
+export * from './creditSpreadShiftDefinitionAllOf';
 export * from './creditSupportAnnex';
 export * from './currencyAndAmount';
 export * from './custodianAccount';
@@ -570,6 +577,8 @@ export * from './fundValuationRequest';
 export * from './fundValuationSchedule';
 export * from './fundingLeg';
 export * from './fundingLegAllOf';
+export * from './fundingLegModelOptions';
+export * from './fundingLegModelOptionsAllOf';
 export * from './future';
 export * from './futureAllOf';
 export * from './futureExpiryEvent';
@@ -798,6 +807,8 @@ export * from './metadataFieldsToRemove';
 export * from './metadataFieldsToUpdate';
 export * from './metricValue';
 export * from './mixedLotConstituentsElection';
+export * from './modelOptionShiftDefinition';
+export * from './modelOptionShiftDefinitionAllOf';
 export * from './modelOptions';
 export * from './modelSelection';
 export * from './moveOrdersToDifferentBlocksRequest';
@@ -823,11 +834,14 @@ export * from './opaqueModelOptionsAllOf';
 export * from './openEvent';
 export * from './openEventAllOf';
 export * from './operation';
+export * from './optionEntry';
 export * from './optionExerciseCashEvent';
 export * from './optionExerciseCashEventAllOf';
 export * from './optionExerciseElection';
 export * from './optionExercisePhysicalEvent';
 export * from './optionExercisePhysicalEventAllOf';
+export * from './optionalitySchedule';
+export * from './optionalityScheduleAllOf';
 export * from './order';
 export * from './orderBySpec';
 export * from './orderFlowConfiguration';
@@ -935,17 +949,8 @@ export * from './partialDefeasanceEventAllOf';
 export * from './participation';
 export * from './participationRequest';
 export * from './participationSetRequest';
-export * from './paymentDetailsApplicableEntity';
-export * from './paymentDetailsReference';
-export * from './paymentDetailsReferenceResponse';
-export * from './paymentDetailsSeriesIdentifiers';
 export * from './paymentInKindEvent';
 export * from './paymentInKindEventAllOf';
-export * from './paymentInstruction';
-export * from './paymentInstructionRequest';
-export * from './paymentInstructionStatus';
-export * from './paymentInstructionsResponse';
-export * from './paymentRecordReference';
 export * from './percentCheckStep';
 export * from './percentCheckStepRequest';
 export * from './performanceReturn';
@@ -1012,6 +1017,9 @@ export * from './postingModuleResponse';
 export * from './postingModuleRule';
 export * from './postingModuleRulesUpdatedResponse';
 export * from './preTradeConfiguration';
+export * from './preferredShare';
+export * from './preferredShareAllOf';
+export * from './preferredShareAllOfIdentifiers';
 export * from './premium';
 export * from './previousFundCalendarEntry';
 export * from './previousFundValuationPointData';
@@ -1180,6 +1188,7 @@ export * from './resourceListOfQuote';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfRelation';
 export * from './resourceListOfRelationship';
+export * from './resourceListOfScenarioTemplateDefinition';
 export * from './resourceListOfScopeDefinition';
 export * from './resourceListOfSideDefinition';
 export * from './resourceListOfString';
@@ -1217,6 +1226,7 @@ export * from './returnZeroPvOptions';
 export * from './reverseStockSplitEvent';
 export * from './reverseStockSplitEventAllOf';
 export * from './revertValuationPointDataRequest';
+export * from './riskBumpOptions';
 export * from './rollInterestUpdates';
 export * from './rollPrincipalUpdates';
 export * from './rolloverConstituent';
@@ -1230,6 +1240,8 @@ export * from './scenarioPreviewRequest';
 export * from './scenarioPreviewResponse';
 export * from './scenarioReference';
 export * from './scenarioShiftDefinition';
+export * from './scenarioTemplateDefinition';
+export * from './scenarioTemplateParameter';
 export * from './schedule';
 export * from './schema';
 export * from './scopeDefinition';
@@ -1650,6 +1662,9 @@ import { BlockSetRequest } from './blockSetRequest';
 import { BlockedOrderRequest } from './blockedOrderRequest';
 import { Bond } from './bond';
 import { BondAllOf } from './bondAllOf';
+import { BondConversionEntry } from './bondConversionEntry';
+import { BondConversionSchedule } from './bondConversionSchedule';
+import { BondConversionScheduleAllOf } from './bondConversionScheduleAllOf';
 import { BondCouponEvent } from './bondCouponEvent';
 import { BondCouponEventAllOf } from './bondCouponEventAllOf';
 import { BondDefaultEvent } from './bondDefaultEvent';
@@ -1659,6 +1674,8 @@ import { BondForward } from './bondForward';
 import { BondForwardAllOf } from './bondForwardAllOf';
 import { BondForwardCashSettlementEvent } from './bondForwardCashSettlementEvent';
 import { BondForwardCashSettlementEventAllOf } from './bondForwardCashSettlementEventAllOf';
+import { BondForwardModelOptions } from './bondForwardModelOptions';
+import { BondForwardModelOptionsAllOf } from './bondForwardModelOptionsAllOf';
 import { BondForwardTerminationEvent } from './bondForwardTerminationEvent';
 import { BondForwardTerminationEventAllOf } from './bondForwardTerminationEventAllOf';
 import { BondLookupModelOptions } from './bondLookupModelOptions';
@@ -1887,6 +1904,8 @@ import { CreditPremiumCashFlowEventAllOf } from './creditPremiumCashFlowEventAll
 import { CreditRating } from './creditRating';
 import { CreditSpreadCurveData } from './creditSpreadCurveData';
 import { CreditSpreadCurveDataAllOf } from './creditSpreadCurveDataAllOf';
+import { CreditSpreadShiftDefinition } from './creditSpreadShiftDefinition';
+import { CreditSpreadShiftDefinitionAllOf } from './creditSpreadShiftDefinitionAllOf';
 import { CreditSupportAnnex } from './creditSupportAnnex';
 import { CurrencyAndAmount } from './currencyAndAmount';
 import { CustodianAccount } from './custodianAccount';
@@ -2107,6 +2126,8 @@ import { FundValuationRequest } from './fundValuationRequest';
 import { FundValuationSchedule } from './fundValuationSchedule';
 import { FundingLeg } from './fundingLeg';
 import { FundingLegAllOf } from './fundingLegAllOf';
+import { FundingLegModelOptions } from './fundingLegModelOptions';
+import { FundingLegModelOptionsAllOf } from './fundingLegModelOptionsAllOf';
 import { Future } from './future';
 import { FutureAllOf } from './futureAllOf';
 import { FutureExpiryEvent } from './futureExpiryEvent';
@@ -2335,6 +2356,8 @@ import { MetadataFieldsToRemove } from './metadataFieldsToRemove';
 import { MetadataFieldsToUpdate } from './metadataFieldsToUpdate';
 import { MetricValue } from './metricValue';
 import { MixedLotConstituentsElection } from './mixedLotConstituentsElection';
+import { ModelOptionShiftDefinition } from './modelOptionShiftDefinition';
+import { ModelOptionShiftDefinitionAllOf } from './modelOptionShiftDefinitionAllOf';
 import { ModelOptions } from './modelOptions';
 import { ModelSelection } from './modelSelection';
 import { MoveOrdersToDifferentBlocksRequest } from './moveOrdersToDifferentBlocksRequest';
@@ -2360,11 +2383,14 @@ import { OpaqueModelOptionsAllOf } from './opaqueModelOptionsAllOf';
 import { OpenEvent } from './openEvent';
 import { OpenEventAllOf } from './openEventAllOf';
 import { Operation } from './operation';
+import { OptionEntry } from './optionEntry';
 import { OptionExerciseCashEvent } from './optionExerciseCashEvent';
 import { OptionExerciseCashEventAllOf } from './optionExerciseCashEventAllOf';
 import { OptionExerciseElection } from './optionExerciseElection';
 import { OptionExercisePhysicalEvent } from './optionExercisePhysicalEvent';
 import { OptionExercisePhysicalEventAllOf } from './optionExercisePhysicalEventAllOf';
+import { OptionalitySchedule } from './optionalitySchedule';
+import { OptionalityScheduleAllOf } from './optionalityScheduleAllOf';
 import { Order } from './order';
 import { OrderBySpec } from './orderBySpec';
 import { OrderFlowConfiguration } from './orderFlowConfiguration';
@@ -2472,17 +2498,8 @@ import { PartialDefeasanceEventAllOf } from './partialDefeasanceEventAllOf';
 import { Participation } from './participation';
 import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
-import { PaymentDetailsApplicableEntity } from './paymentDetailsApplicableEntity';
-import { PaymentDetailsReference } from './paymentDetailsReference';
-import { PaymentDetailsReferenceResponse } from './paymentDetailsReferenceResponse';
-import { PaymentDetailsSeriesIdentifiers } from './paymentDetailsSeriesIdentifiers';
 import { PaymentInKindEvent } from './paymentInKindEvent';
 import { PaymentInKindEventAllOf } from './paymentInKindEventAllOf';
-import { PaymentInstruction } from './paymentInstruction';
-import { PaymentInstructionRequest } from './paymentInstructionRequest';
-import { PaymentInstructionStatus } from './paymentInstructionStatus';
-import { PaymentInstructionsResponse } from './paymentInstructionsResponse';
-import { PaymentRecordReference } from './paymentRecordReference';
 import { PercentCheckStep } from './percentCheckStep';
 import { PercentCheckStepRequest } from './percentCheckStepRequest';
 import { PerformanceReturn } from './performanceReturn';
@@ -2549,6 +2566,9 @@ import { PostingModuleResponse } from './postingModuleResponse';
 import { PostingModuleRule } from './postingModuleRule';
 import { PostingModuleRulesUpdatedResponse } from './postingModuleRulesUpdatedResponse';
 import { PreTradeConfiguration } from './preTradeConfiguration';
+import { PreferredShare } from './preferredShare';
+import { PreferredShareAllOf } from './preferredShareAllOf';
+import { PreferredShareAllOfIdentifiers } from './preferredShareAllOfIdentifiers';
 import { Premium } from './premium';
 import { PreviousFundCalendarEntry } from './previousFundCalendarEntry';
 import { PreviousFundValuationPointData } from './previousFundValuationPointData';
@@ -2717,6 +2737,7 @@ import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfRelation } from './resourceListOfRelation';
 import { ResourceListOfRelationship } from './resourceListOfRelationship';
+import { ResourceListOfScenarioTemplateDefinition } from './resourceListOfScenarioTemplateDefinition';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResourceListOfSideDefinition } from './resourceListOfSideDefinition';
 import { ResourceListOfString } from './resourceListOfString';
@@ -2754,6 +2775,7 @@ import { ReturnZeroPvOptions } from './returnZeroPvOptions';
 import { ReverseStockSplitEvent } from './reverseStockSplitEvent';
 import { ReverseStockSplitEventAllOf } from './reverseStockSplitEventAllOf';
 import { RevertValuationPointDataRequest } from './revertValuationPointDataRequest';
+import { RiskBumpOptions } from './riskBumpOptions';
 import { RollInterestUpdates } from './rollInterestUpdates';
 import { RollPrincipalUpdates } from './rollPrincipalUpdates';
 import { RolloverConstituent } from './rolloverConstituent';
@@ -2767,6 +2789,8 @@ import { ScenarioPreviewRequest } from './scenarioPreviewRequest';
 import { ScenarioPreviewResponse } from './scenarioPreviewResponse';
 import { ScenarioReference } from './scenarioReference';
 import { ScenarioShiftDefinition } from './scenarioShiftDefinition';
+import { ScenarioTemplateDefinition } from './scenarioTemplateDefinition';
+import { ScenarioTemplateParameter } from './scenarioTemplateParameter';
 import { Schedule } from './schedule';
 import { Schema } from './schema';
 import { ScopeDefinition } from './scopeDefinition';
@@ -3109,6 +3133,8 @@ let enumsMap: {[index: string]: any} = {
         "BasketAllOf.InstrumentTypeEnum": BasketAllOf.InstrumentTypeEnum,
         "Bond.InstrumentTypeEnum": Bond.InstrumentTypeEnum,
         "BondAllOf.InstrumentTypeEnum": BondAllOf.InstrumentTypeEnum,
+        "BondConversionSchedule.ScheduleTypeEnum": BondConversionSchedule.ScheduleTypeEnum,
+        "BondConversionScheduleAllOf.ScheduleTypeEnum": BondConversionScheduleAllOf.ScheduleTypeEnum,
         "BondCouponEvent.InstrumentEventTypeEnum": BondCouponEvent.InstrumentEventTypeEnum,
         "BondCouponEventAllOf.InstrumentEventTypeEnum": BondCouponEventAllOf.InstrumentEventTypeEnum,
         "BondDefaultEvent.InstrumentEventTypeEnum": BondDefaultEvent.InstrumentEventTypeEnum,
@@ -3117,6 +3143,8 @@ let enumsMap: {[index: string]: any} = {
         "BondForwardAllOf.InstrumentTypeEnum": BondForwardAllOf.InstrumentTypeEnum,
         "BondForwardCashSettlementEvent.InstrumentEventTypeEnum": BondForwardCashSettlementEvent.InstrumentEventTypeEnum,
         "BondForwardCashSettlementEventAllOf.InstrumentEventTypeEnum": BondForwardCashSettlementEventAllOf.InstrumentEventTypeEnum,
+        "BondForwardModelOptions.ModelOptionsTypeEnum": BondForwardModelOptions.ModelOptionsTypeEnum,
+        "BondForwardModelOptionsAllOf.ModelOptionsTypeEnum": BondForwardModelOptionsAllOf.ModelOptionsTypeEnum,
         "BondForwardTerminationEvent.InstrumentEventTypeEnum": BondForwardTerminationEvent.InstrumentEventTypeEnum,
         "BondForwardTerminationEventAllOf.InstrumentEventTypeEnum": BondForwardTerminationEventAllOf.InstrumentEventTypeEnum,
         "BondLookupModelOptions.ModelOptionsTypeEnum": BondLookupModelOptions.ModelOptionsTypeEnum,
@@ -3234,6 +3262,14 @@ let enumsMap: {[index: string]: any} = {
         "CreditPremiumCashFlowEventAllOf.InstrumentEventTypeEnum": CreditPremiumCashFlowEventAllOf.InstrumentEventTypeEnum,
         "CreditSpreadCurveData.MarketDataTypeEnum": CreditSpreadCurveData.MarketDataTypeEnum,
         "CreditSpreadCurveDataAllOf.MarketDataTypeEnum": CreditSpreadCurveDataAllOf.MarketDataTypeEnum,
+        "CreditSpreadShiftDefinition.ShiftTypeEnum": CreditSpreadShiftDefinition.ShiftTypeEnum,
+        "CreditSpreadShiftDefinition.ScaleEnum": CreditSpreadShiftDefinition.ScaleEnum,
+        "CreditSpreadShiftDefinition.ApplyWhenValueEnum": CreditSpreadShiftDefinition.ApplyWhenValueEnum,
+        "CreditSpreadShiftDefinition.ScenarioShiftTypeEnum": CreditSpreadShiftDefinition.ScenarioShiftTypeEnum,
+        "CreditSpreadShiftDefinitionAllOf.ShiftTypeEnum": CreditSpreadShiftDefinitionAllOf.ShiftTypeEnum,
+        "CreditSpreadShiftDefinitionAllOf.ScaleEnum": CreditSpreadShiftDefinitionAllOf.ScaleEnum,
+        "CreditSpreadShiftDefinitionAllOf.ApplyWhenValueEnum": CreditSpreadShiftDefinitionAllOf.ApplyWhenValueEnum,
+        "CreditSpreadShiftDefinitionAllOf.ScenarioShiftTypeEnum": CreditSpreadShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "DataType.TypeValueRangeEnum": DataType.TypeValueRangeEnum,
         "DataType.ValueTypeEnum": DataType.ValueTypeEnum,
         "DataType.UnitSchemaEnum": DataType.UnitSchemaEnum,
@@ -3356,6 +3392,8 @@ let enumsMap: {[index: string]: any} = {
         "FundShareClassAllOf.InstrumentTypeEnum": FundShareClassAllOf.InstrumentTypeEnum,
         "FundingLeg.InstrumentTypeEnum": FundingLeg.InstrumentTypeEnum,
         "FundingLegAllOf.InstrumentTypeEnum": FundingLegAllOf.InstrumentTypeEnum,
+        "FundingLegModelOptions.ModelOptionsTypeEnum": FundingLegModelOptions.ModelOptionsTypeEnum,
+        "FundingLegModelOptionsAllOf.ModelOptionsTypeEnum": FundingLegModelOptionsAllOf.ModelOptionsTypeEnum,
         "Future.InstrumentTypeEnum": Future.InstrumentTypeEnum,
         "FutureAllOf.InstrumentTypeEnum": FutureAllOf.InstrumentTypeEnum,
         "FutureExpiryEvent.InstrumentEventTypeEnum": FutureExpiryEvent.InstrumentEventTypeEnum,
@@ -3424,9 +3462,13 @@ let enumsMap: {[index: string]: any} = {
         "InflationCurveDataAllOf.MarketDataTypeEnum": InflationCurveDataAllOf.MarketDataTypeEnum,
         "InflationCurveShiftDefinition.ShiftTypeEnum": InflationCurveShiftDefinition.ShiftTypeEnum,
         "InflationCurveShiftDefinition.ScaleEnum": InflationCurveShiftDefinition.ScaleEnum,
+        "InflationCurveShiftDefinition.WindowBoundsEnum": InflationCurveShiftDefinition.WindowBoundsEnum,
+        "InflationCurveShiftDefinition.ApplyWhenValueEnum": InflationCurveShiftDefinition.ApplyWhenValueEnum,
         "InflationCurveShiftDefinition.ScenarioShiftTypeEnum": InflationCurveShiftDefinition.ScenarioShiftTypeEnum,
         "InflationCurveShiftDefinitionAllOf.ShiftTypeEnum": InflationCurveShiftDefinitionAllOf.ShiftTypeEnum,
         "InflationCurveShiftDefinitionAllOf.ScaleEnum": InflationCurveShiftDefinitionAllOf.ScaleEnum,
+        "InflationCurveShiftDefinitionAllOf.WindowBoundsEnum": InflationCurveShiftDefinitionAllOf.WindowBoundsEnum,
+        "InflationCurveShiftDefinitionAllOf.ApplyWhenValueEnum": InflationCurveShiftDefinitionAllOf.ApplyWhenValueEnum,
         "InflationCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum": InflationCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "InflationFixingDependency.DependencyTypeEnum": InflationFixingDependency.DependencyTypeEnum,
         "InflationFixingDependencyAllOf.DependencyTypeEnum": InflationFixingDependencyAllOf.DependencyTypeEnum,
@@ -3502,6 +3544,10 @@ let enumsMap: {[index: string]: any} = {
         "MdkrGroupShiftDefinitionAllOf.ScenarioShiftTypeEnum": MdkrGroupShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "MergerEvent.InstrumentEventTypeEnum": MergerEvent.InstrumentEventTypeEnum,
         "MergerEventAllOf.InstrumentEventTypeEnum": MergerEventAllOf.InstrumentEventTypeEnum,
+        "ModelOptionShiftDefinition.ShiftTypeEnum": ModelOptionShiftDefinition.ShiftTypeEnum,
+        "ModelOptionShiftDefinition.ScenarioShiftTypeEnum": ModelOptionShiftDefinition.ScenarioShiftTypeEnum,
+        "ModelOptionShiftDefinitionAllOf.ShiftTypeEnum": ModelOptionShiftDefinitionAllOf.ShiftTypeEnum,
+        "ModelOptionShiftDefinitionAllOf.ScenarioShiftTypeEnum": ModelOptionShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "ModelOptions.ModelOptionsTypeEnum": ModelOptions.ModelOptionsTypeEnum,
         "ModelSelection.LibraryEnum": ModelSelection.LibraryEnum,
         "ModelSelection.ModelEnum": ModelSelection.ModelEnum,
@@ -3519,6 +3565,8 @@ let enumsMap: {[index: string]: any} = {
         "OptionExerciseCashEventAllOf.InstrumentEventTypeEnum": OptionExerciseCashEventAllOf.InstrumentEventTypeEnum,
         "OptionExercisePhysicalEvent.InstrumentEventTypeEnum": OptionExercisePhysicalEvent.InstrumentEventTypeEnum,
         "OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum": OptionExercisePhysicalEventAllOf.InstrumentEventTypeEnum,
+        "OptionalitySchedule.ScheduleTypeEnum": OptionalitySchedule.ScheduleTypeEnum,
+        "OptionalityScheduleAllOf.ScheduleTypeEnum": OptionalityScheduleAllOf.ScheduleTypeEnum,
         "OrderBySpec.SortOrderEnum": OrderBySpec.SortOrderEnum,
         "OutputTransaction.TransactionStatusEnum": OutputTransaction.TransactionStatusEnum,
         "PariPassuEvent.InstrumentEventTypeEnum": PariPassuEvent.InstrumentEventTypeEnum,
@@ -3561,6 +3609,8 @@ let enumsMap: {[index: string]: any} = {
         "PortfolioTransactionAllOf.NavActivityAdjustmentTypeEnum": PortfolioTransactionAllOf.NavActivityAdjustmentTypeEnum,
         "PortfolioWithoutHref.TypeEnum": PortfolioWithoutHref.TypeEnum,
         "PortfolioWithoutHref.AccountingMethodEnum": PortfolioWithoutHref.AccountingMethodEnum,
+        "PreferredShare.InstrumentTypeEnum": PreferredShare.InstrumentTypeEnum,
+        "PreferredShareAllOf.InstrumentTypeEnum": PreferredShareAllOf.InstrumentTypeEnum,
         "PriceShiftDefinition.ShiftTypeEnum": PriceShiftDefinition.ShiftTypeEnum,
         "PriceShiftDefinition.QuoteTypeEnum": PriceShiftDefinition.QuoteTypeEnum,
         "PriceShiftDefinition.ScenarioShiftTypeEnum": PriceShiftDefinition.ScenarioShiftTypeEnum,
@@ -3602,9 +3652,13 @@ let enumsMap: {[index: string]: any} = {
         "QuoteSeriesId.QuoteTypeEnum": QuoteSeriesId.QuoteTypeEnum,
         "RateCurveShiftDefinition.ShiftTypeEnum": RateCurveShiftDefinition.ShiftTypeEnum,
         "RateCurveShiftDefinition.ScaleEnum": RateCurveShiftDefinition.ScaleEnum,
+        "RateCurveShiftDefinition.WindowBoundsEnum": RateCurveShiftDefinition.WindowBoundsEnum,
+        "RateCurveShiftDefinition.ApplyWhenValueEnum": RateCurveShiftDefinition.ApplyWhenValueEnum,
         "RateCurveShiftDefinition.ScenarioShiftTypeEnum": RateCurveShiftDefinition.ScenarioShiftTypeEnum,
         "RateCurveShiftDefinitionAllOf.ShiftTypeEnum": RateCurveShiftDefinitionAllOf.ShiftTypeEnum,
         "RateCurveShiftDefinitionAllOf.ScaleEnum": RateCurveShiftDefinitionAllOf.ScaleEnum,
+        "RateCurveShiftDefinitionAllOf.WindowBoundsEnum": RateCurveShiftDefinitionAllOf.WindowBoundsEnum,
+        "RateCurveShiftDefinitionAllOf.ApplyWhenValueEnum": RateCurveShiftDefinitionAllOf.ApplyWhenValueEnum,
         "RateCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum": RateCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "RawVendorEvent.InstrumentEventTypeEnum": RawVendorEvent.InstrumentEventTypeEnum,
         "RawVendorEventAllOf.InstrumentEventTypeEnum": RawVendorEventAllOf.InstrumentEventTypeEnum,
@@ -3843,6 +3897,9 @@ let typeMap: {[index: string]: any} = {
     "BlockedOrderRequest": BlockedOrderRequest,
     "Bond": Bond,
     "BondAllOf": BondAllOf,
+    "BondConversionEntry": BondConversionEntry,
+    "BondConversionSchedule": BondConversionSchedule,
+    "BondConversionScheduleAllOf": BondConversionScheduleAllOf,
     "BondCouponEvent": BondCouponEvent,
     "BondCouponEventAllOf": BondCouponEventAllOf,
     "BondDefaultEvent": BondDefaultEvent,
@@ -3852,6 +3909,8 @@ let typeMap: {[index: string]: any} = {
     "BondForwardAllOf": BondForwardAllOf,
     "BondForwardCashSettlementEvent": BondForwardCashSettlementEvent,
     "BondForwardCashSettlementEventAllOf": BondForwardCashSettlementEventAllOf,
+    "BondForwardModelOptions": BondForwardModelOptions,
+    "BondForwardModelOptionsAllOf": BondForwardModelOptionsAllOf,
     "BondForwardTerminationEvent": BondForwardTerminationEvent,
     "BondForwardTerminationEventAllOf": BondForwardTerminationEventAllOf,
     "BondLookupModelOptions": BondLookupModelOptions,
@@ -4080,6 +4139,8 @@ let typeMap: {[index: string]: any} = {
     "CreditRating": CreditRating,
     "CreditSpreadCurveData": CreditSpreadCurveData,
     "CreditSpreadCurveDataAllOf": CreditSpreadCurveDataAllOf,
+    "CreditSpreadShiftDefinition": CreditSpreadShiftDefinition,
+    "CreditSpreadShiftDefinitionAllOf": CreditSpreadShiftDefinitionAllOf,
     "CreditSupportAnnex": CreditSupportAnnex,
     "CurrencyAndAmount": CurrencyAndAmount,
     "CustodianAccount": CustodianAccount,
@@ -4299,6 +4360,8 @@ let typeMap: {[index: string]: any} = {
     "FundValuationSchedule": FundValuationSchedule,
     "FundingLeg": FundingLeg,
     "FundingLegAllOf": FundingLegAllOf,
+    "FundingLegModelOptions": FundingLegModelOptions,
+    "FundingLegModelOptionsAllOf": FundingLegModelOptionsAllOf,
     "Future": Future,
     "FutureAllOf": FutureAllOf,
     "FutureExpiryEvent": FutureExpiryEvent,
@@ -4527,6 +4590,8 @@ let typeMap: {[index: string]: any} = {
     "MetadataFieldsToUpdate": MetadataFieldsToUpdate,
     "MetricValue": MetricValue,
     "MixedLotConstituentsElection": MixedLotConstituentsElection,
+    "ModelOptionShiftDefinition": ModelOptionShiftDefinition,
+    "ModelOptionShiftDefinitionAllOf": ModelOptionShiftDefinitionAllOf,
     "ModelOptions": ModelOptions,
     "ModelSelection": ModelSelection,
     "MoveOrdersToDifferentBlocksRequest": MoveOrdersToDifferentBlocksRequest,
@@ -4552,11 +4617,14 @@ let typeMap: {[index: string]: any} = {
     "OpenEvent": OpenEvent,
     "OpenEventAllOf": OpenEventAllOf,
     "Operation": Operation,
+    "OptionEntry": OptionEntry,
     "OptionExerciseCashEvent": OptionExerciseCashEvent,
     "OptionExerciseCashEventAllOf": OptionExerciseCashEventAllOf,
     "OptionExerciseElection": OptionExerciseElection,
     "OptionExercisePhysicalEvent": OptionExercisePhysicalEvent,
     "OptionExercisePhysicalEventAllOf": OptionExercisePhysicalEventAllOf,
+    "OptionalitySchedule": OptionalitySchedule,
+    "OptionalityScheduleAllOf": OptionalityScheduleAllOf,
     "Order": Order,
     "OrderBySpec": OrderBySpec,
     "OrderFlowConfiguration": OrderFlowConfiguration,
@@ -4664,17 +4732,8 @@ let typeMap: {[index: string]: any} = {
     "Participation": Participation,
     "ParticipationRequest": ParticipationRequest,
     "ParticipationSetRequest": ParticipationSetRequest,
-    "PaymentDetailsApplicableEntity": PaymentDetailsApplicableEntity,
-    "PaymentDetailsReference": PaymentDetailsReference,
-    "PaymentDetailsReferenceResponse": PaymentDetailsReferenceResponse,
-    "PaymentDetailsSeriesIdentifiers": PaymentDetailsSeriesIdentifiers,
     "PaymentInKindEvent": PaymentInKindEvent,
     "PaymentInKindEventAllOf": PaymentInKindEventAllOf,
-    "PaymentInstruction": PaymentInstruction,
-    "PaymentInstructionRequest": PaymentInstructionRequest,
-    "PaymentInstructionStatus": PaymentInstructionStatus,
-    "PaymentInstructionsResponse": PaymentInstructionsResponse,
-    "PaymentRecordReference": PaymentRecordReference,
     "PercentCheckStep": PercentCheckStep,
     "PercentCheckStepRequest": PercentCheckStepRequest,
     "PerformanceReturn": PerformanceReturn,
@@ -4741,6 +4800,9 @@ let typeMap: {[index: string]: any} = {
     "PostingModuleRule": PostingModuleRule,
     "PostingModuleRulesUpdatedResponse": PostingModuleRulesUpdatedResponse,
     "PreTradeConfiguration": PreTradeConfiguration,
+    "PreferredShare": PreferredShare,
+    "PreferredShareAllOf": PreferredShareAllOf,
+    "PreferredShareAllOfIdentifiers": PreferredShareAllOfIdentifiers,
     "Premium": Premium,
     "PreviousFundCalendarEntry": PreviousFundCalendarEntry,
     "PreviousFundValuationPointData": PreviousFundValuationPointData,
@@ -4909,6 +4971,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfRelation": ResourceListOfRelation,
     "ResourceListOfRelationship": ResourceListOfRelationship,
+    "ResourceListOfScenarioTemplateDefinition": ResourceListOfScenarioTemplateDefinition,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
     "ResourceListOfSideDefinition": ResourceListOfSideDefinition,
     "ResourceListOfString": ResourceListOfString,
@@ -4946,6 +5009,7 @@ let typeMap: {[index: string]: any} = {
     "ReverseStockSplitEvent": ReverseStockSplitEvent,
     "ReverseStockSplitEventAllOf": ReverseStockSplitEventAllOf,
     "RevertValuationPointDataRequest": RevertValuationPointDataRequest,
+    "RiskBumpOptions": RiskBumpOptions,
     "RollInterestUpdates": RollInterestUpdates,
     "RollPrincipalUpdates": RollPrincipalUpdates,
     "RolloverConstituent": RolloverConstituent,
@@ -4959,6 +5023,8 @@ let typeMap: {[index: string]: any} = {
     "ScenarioPreviewResponse": ScenarioPreviewResponse,
     "ScenarioReference": ScenarioReference,
     "ScenarioShiftDefinition": ScenarioShiftDefinition,
+    "ScenarioTemplateDefinition": ScenarioTemplateDefinition,
+    "ScenarioTemplateParameter": ScenarioTemplateParameter,
     "Schedule": Schedule,
     "Schema": Schema,
     "ScopeDefinition": ScopeDefinition,
