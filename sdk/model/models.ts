@@ -59,6 +59,8 @@ export * from './allocationGroupDefinition';
 export * from './allocationRequest';
 export * from './allocationServiceRunResponse';
 export * from './allocationSetRequest';
+export * from './amendCommitmentEvent';
+export * from './amendCommitmentEventAllOf';
 export * from './amortisationEvent';
 export * from './amortisationEventAllOf';
 export * from './amount';
@@ -180,10 +182,14 @@ export * from './cancelledOrderResult';
 export * from './cancelledPlacementResult';
 export * from './capFloor';
 export * from './capFloorAllOf';
+export * from './capitalCallEvent';
+export * from './capitalCallEventAllOf';
 export * from './capitalDistributionEvent';
 export * from './capitalDistributionEventAllOf';
 export * from './capitalGainsDistributionEvent';
 export * from './capitalGainsDistributionEventAllOf';
+export * from './capitalInterest';
+export * from './capitalInterestAllOf';
 export * from './capletFloorletCashFlowEvent';
 export * from './capletFloorletCashFlowEventAllOf';
 export * from './cash';
@@ -560,6 +566,8 @@ export * from './fundConfigurationProperties';
 export * from './fundConfigurationRequest';
 export * from './fundDefinitionRequest';
 export * from './fundDetails';
+export * from './fundDistributionEvent';
+export * from './fundDistributionEventAllOf';
 export * from './fundEstimateValuationPoint';
 export * from './fundEstimateValuationPointAllOf';
 export * from './fundIdList';
@@ -652,6 +660,7 @@ export * from './holdingContext';
 export * from './holdingContributor';
 export * from './holdingIdsRequest';
 export * from './holdingPricingInfo';
+export * from './holdingPropertyDelta';
 export * from './holdingsAdjustment';
 export * from './holdingsAdjustmentHeader';
 export * from './hullWhiteModelOptions';
@@ -818,6 +827,8 @@ export * from './movementSettlementSummary';
 export * from './multiCurrencyAmounts';
 export * from './navActivityAdjustment';
 export * from './navActivityAdjustmentResponse';
+export * from './navReportEvent';
+export * from './navReportEventAllOf';
 export * from './navSettlementConfiguration';
 export * from './navSettlementConfigurationCategory';
 export * from './navType';
@@ -1608,6 +1619,8 @@ import { AllocationGroupDefinition } from './allocationGroupDefinition';
 import { AllocationRequest } from './allocationRequest';
 import { AllocationServiceRunResponse } from './allocationServiceRunResponse';
 import { AllocationSetRequest } from './allocationSetRequest';
+import { AmendCommitmentEvent } from './amendCommitmentEvent';
+import { AmendCommitmentEventAllOf } from './amendCommitmentEventAllOf';
 import { AmortisationEvent } from './amortisationEvent';
 import { AmortisationEventAllOf } from './amortisationEventAllOf';
 import { Amount } from './amount';
@@ -1729,10 +1742,14 @@ import { CancelledOrderResult } from './cancelledOrderResult';
 import { CancelledPlacementResult } from './cancelledPlacementResult';
 import { CapFloor } from './capFloor';
 import { CapFloorAllOf } from './capFloorAllOf';
+import { CapitalCallEvent } from './capitalCallEvent';
+import { CapitalCallEventAllOf } from './capitalCallEventAllOf';
 import { CapitalDistributionEvent } from './capitalDistributionEvent';
 import { CapitalDistributionEventAllOf } from './capitalDistributionEventAllOf';
 import { CapitalGainsDistributionEvent } from './capitalGainsDistributionEvent';
 import { CapitalGainsDistributionEventAllOf } from './capitalGainsDistributionEventAllOf';
+import { CapitalInterest } from './capitalInterest';
+import { CapitalInterestAllOf } from './capitalInterestAllOf';
 import { CapletFloorletCashFlowEvent } from './capletFloorletCashFlowEvent';
 import { CapletFloorletCashFlowEventAllOf } from './capletFloorletCashFlowEventAllOf';
 import { Cash } from './cash';
@@ -2109,6 +2126,8 @@ import { FundConfigurationProperties } from './fundConfigurationProperties';
 import { FundConfigurationRequest } from './fundConfigurationRequest';
 import { FundDefinitionRequest } from './fundDefinitionRequest';
 import { FundDetails } from './fundDetails';
+import { FundDistributionEvent } from './fundDistributionEvent';
+import { FundDistributionEventAllOf } from './fundDistributionEventAllOf';
 import { FundEstimateValuationPoint } from './fundEstimateValuationPoint';
 import { FundEstimateValuationPointAllOf } from './fundEstimateValuationPointAllOf';
 import { FundIdList } from './fundIdList';
@@ -2201,6 +2220,7 @@ import { HoldingContext } from './holdingContext';
 import { HoldingContributor } from './holdingContributor';
 import { HoldingIdsRequest } from './holdingIdsRequest';
 import { HoldingPricingInfo } from './holdingPricingInfo';
+import { HoldingPropertyDelta } from './holdingPropertyDelta';
 import { HoldingsAdjustment } from './holdingsAdjustment';
 import { HoldingsAdjustmentHeader } from './holdingsAdjustmentHeader';
 import { HullWhiteModelOptions } from './hullWhiteModelOptions';
@@ -2367,6 +2387,8 @@ import { MovementSettlementSummary } from './movementSettlementSummary';
 import { MultiCurrencyAmounts } from './multiCurrencyAmounts';
 import { NavActivityAdjustment } from './navActivityAdjustment';
 import { NavActivityAdjustmentResponse } from './navActivityAdjustmentResponse';
+import { NavReportEvent } from './navReportEvent';
+import { NavReportEventAllOf } from './navReportEventAllOf';
 import { NavSettlementConfiguration } from './navSettlementConfiguration';
 import { NavSettlementConfigurationCategory } from './navSettlementConfigurationCategory';
 import { NavType } from './navType';
@@ -3114,6 +3136,8 @@ let enumsMap: {[index: string]: any} = {
         "AggregateSpec.OpEnum": AggregateSpec.OpEnum,
         "AggregationQuery.TypeEnum": AggregationQuery.TypeEnum,
         "AggregationQuery.FlattenedTypeEnum": AggregationQuery.FlattenedTypeEnum,
+        "AmendCommitmentEvent.InstrumentEventTypeEnum": AmendCommitmentEvent.InstrumentEventTypeEnum,
+        "AmendCommitmentEventAllOf.InstrumentEventTypeEnum": AmendCommitmentEventAllOf.InstrumentEventTypeEnum,
         "AmortisationEvent.InstrumentEventTypeEnum": AmortisationEvent.InstrumentEventTypeEnum,
         "AmortisationEventAllOf.InstrumentEventTypeEnum": AmortisationEventAllOf.InstrumentEventTypeEnum,
         "AppendFxForwardCurveByQuoteReference.MarketDataTypeEnum": AppendFxForwardCurveByQuoteReference.MarketDataTypeEnum,
@@ -3174,10 +3198,14 @@ let enumsMap: {[index: string]: any} = {
         "CancelSwapEventAllOf.InstrumentEventTypeEnum": CancelSwapEventAllOf.InstrumentEventTypeEnum,
         "CapFloor.InstrumentTypeEnum": CapFloor.InstrumentTypeEnum,
         "CapFloorAllOf.InstrumentTypeEnum": CapFloorAllOf.InstrumentTypeEnum,
+        "CapitalCallEvent.InstrumentEventTypeEnum": CapitalCallEvent.InstrumentEventTypeEnum,
+        "CapitalCallEventAllOf.InstrumentEventTypeEnum": CapitalCallEventAllOf.InstrumentEventTypeEnum,
         "CapitalDistributionEvent.InstrumentEventTypeEnum": CapitalDistributionEvent.InstrumentEventTypeEnum,
         "CapitalDistributionEventAllOf.InstrumentEventTypeEnum": CapitalDistributionEventAllOf.InstrumentEventTypeEnum,
         "CapitalGainsDistributionEvent.InstrumentEventTypeEnum": CapitalGainsDistributionEvent.InstrumentEventTypeEnum,
         "CapitalGainsDistributionEventAllOf.InstrumentEventTypeEnum": CapitalGainsDistributionEventAllOf.InstrumentEventTypeEnum,
+        "CapitalInterest.InstrumentTypeEnum": CapitalInterest.InstrumentTypeEnum,
+        "CapitalInterestAllOf.InstrumentTypeEnum": CapitalInterestAllOf.InstrumentTypeEnum,
         "CapletFloorletCashFlowEvent.InstrumentEventTypeEnum": CapletFloorletCashFlowEvent.InstrumentEventTypeEnum,
         "CapletFloorletCashFlowEventAllOf.InstrumentEventTypeEnum": CapletFloorletCashFlowEventAllOf.InstrumentEventTypeEnum,
         "Cash.InstrumentTypeEnum": Cash.InstrumentTypeEnum,
@@ -3382,6 +3410,8 @@ let enumsMap: {[index: string]: any} = {
         "FundBookmarkAllOf.FundCalendarEntriesTypeEnum": FundBookmarkAllOf.FundCalendarEntriesTypeEnum,
         "FundCalendarEntries.FundCalendarEntriesTypeEnum": FundCalendarEntries.FundCalendarEntriesTypeEnum,
         "FundCalendarEntry.EntryTypeEnum": FundCalendarEntry.EntryTypeEnum,
+        "FundDistributionEvent.InstrumentEventTypeEnum": FundDistributionEvent.InstrumentEventTypeEnum,
+        "FundDistributionEventAllOf.InstrumentEventTypeEnum": FundDistributionEventAllOf.InstrumentEventTypeEnum,
         "FundEstimateValuationPoint.EntryTypeEnum": FundEstimateValuationPoint.EntryTypeEnum,
         "FundEstimateValuationPoint.FundCalendarEntriesTypeEnum": FundEstimateValuationPoint.FundCalendarEntriesTypeEnum,
         "FundEstimateValuationPointAllOf.EntryTypeEnum": FundEstimateValuationPointAllOf.EntryTypeEnum,
@@ -3553,6 +3583,8 @@ let enumsMap: {[index: string]: any} = {
         "ModelSelection.ModelEnum": ModelSelection.ModelEnum,
         "NavActivityAdjustment.NavActivityAdjustmentTypeEnum": NavActivityAdjustment.NavActivityAdjustmentTypeEnum,
         "NavActivityAdjustmentResponse.NavActivityAdjustmentTypeEnum": NavActivityAdjustmentResponse.NavActivityAdjustmentTypeEnum,
+        "NavReportEvent.InstrumentEventTypeEnum": NavReportEvent.InstrumentEventTypeEnum,
+        "NavReportEventAllOf.InstrumentEventTypeEnum": NavReportEventAllOf.InstrumentEventTypeEnum,
         "OpaqueDependency.DependencyTypeEnum": OpaqueDependency.DependencyTypeEnum,
         "OpaqueDependencyAllOf.DependencyTypeEnum": OpaqueDependencyAllOf.DependencyTypeEnum,
         "OpaqueMarketData.MarketDataTypeEnum": OpaqueMarketData.MarketDataTypeEnum,
@@ -3843,6 +3875,8 @@ let typeMap: {[index: string]: any} = {
     "AllocationRequest": AllocationRequest,
     "AllocationServiceRunResponse": AllocationServiceRunResponse,
     "AllocationSetRequest": AllocationSetRequest,
+    "AmendCommitmentEvent": AmendCommitmentEvent,
+    "AmendCommitmentEventAllOf": AmendCommitmentEventAllOf,
     "AmortisationEvent": AmortisationEvent,
     "AmortisationEventAllOf": AmortisationEventAllOf,
     "Amount": Amount,
@@ -3964,10 +3998,14 @@ let typeMap: {[index: string]: any} = {
     "CancelledPlacementResult": CancelledPlacementResult,
     "CapFloor": CapFloor,
     "CapFloorAllOf": CapFloorAllOf,
+    "CapitalCallEvent": CapitalCallEvent,
+    "CapitalCallEventAllOf": CapitalCallEventAllOf,
     "CapitalDistributionEvent": CapitalDistributionEvent,
     "CapitalDistributionEventAllOf": CapitalDistributionEventAllOf,
     "CapitalGainsDistributionEvent": CapitalGainsDistributionEvent,
     "CapitalGainsDistributionEventAllOf": CapitalGainsDistributionEventAllOf,
+    "CapitalInterest": CapitalInterest,
+    "CapitalInterestAllOf": CapitalInterestAllOf,
     "CapletFloorletCashFlowEvent": CapletFloorletCashFlowEvent,
     "CapletFloorletCashFlowEventAllOf": CapletFloorletCashFlowEventAllOf,
     "Cash": Cash,
@@ -4343,6 +4381,8 @@ let typeMap: {[index: string]: any} = {
     "FundConfigurationRequest": FundConfigurationRequest,
     "FundDefinitionRequest": FundDefinitionRequest,
     "FundDetails": FundDetails,
+    "FundDistributionEvent": FundDistributionEvent,
+    "FundDistributionEventAllOf": FundDistributionEventAllOf,
     "FundEstimateValuationPoint": FundEstimateValuationPoint,
     "FundEstimateValuationPointAllOf": FundEstimateValuationPointAllOf,
     "FundIdList": FundIdList,
@@ -4435,6 +4475,7 @@ let typeMap: {[index: string]: any} = {
     "HoldingContributor": HoldingContributor,
     "HoldingIdsRequest": HoldingIdsRequest,
     "HoldingPricingInfo": HoldingPricingInfo,
+    "HoldingPropertyDelta": HoldingPropertyDelta,
     "HoldingsAdjustment": HoldingsAdjustment,
     "HoldingsAdjustmentHeader": HoldingsAdjustmentHeader,
     "HullWhiteModelOptions": HullWhiteModelOptions,
@@ -4601,6 +4642,8 @@ let typeMap: {[index: string]: any} = {
     "MultiCurrencyAmounts": MultiCurrencyAmounts,
     "NavActivityAdjustment": NavActivityAdjustment,
     "NavActivityAdjustmentResponse": NavActivityAdjustmentResponse,
+    "NavReportEvent": NavReportEvent,
+    "NavReportEventAllOf": NavReportEventAllOf,
     "NavSettlementConfiguration": NavSettlementConfiguration,
     "NavSettlementConfigurationCategory": NavSettlementConfigurationCategory,
     "NavType": NavType,
