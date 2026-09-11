@@ -10,6 +10,7 @@ export * from './aborConfigurationProperties';
 export * from './aborConfigurationRequest';
 export * from './aborProperties';
 export * from './aborRequest';
+export * from './abstainElection';
 export * from './acceptEstimateValuationPointResponse';
 export * from './accessControlledAction';
 export * from './accessControlledResource';
@@ -304,8 +305,12 @@ export * from './compositeDispersion';
 export * from './compositeDispersionResponse';
 export * from './compounding';
 export * from './configurationRecipe';
+export * from './consentAndExchangeElection';
+export * from './consentAndTenderElection';
+export * from './consentDeniedElection';
 export * from './consentEvent';
 export * from './consentEventAllOf';
+export * from './consentGrantedElection';
 export * from './constantVolatilitySurface';
 export * from './constantVolatilitySurfaceAllOf';
 export * from './constituentsAdjustmentHeader';
@@ -676,6 +681,7 @@ export * from './indexModelOptionsAllOf';
 export * from './indexProjectionDependency';
 export * from './indexProjectionDependencyAllOf';
 export * from './industryClassifier';
+export * from './inflationConvexityOptions';
 export * from './inflationCurveData';
 export * from './inflationCurveDataAllOf';
 export * from './inflationCurveShiftDefinition';
@@ -768,6 +774,8 @@ export * from './loanFacilityContractRolloverEvent';
 export * from './loanFacilityContractRolloverEventAllOf';
 export * from './loanFacilityDelayedCompensationPaymentEvent';
 export * from './loanFacilityDelayedCompensationPaymentEventAllOf';
+export * from './loanInterestCapitalisationEvent';
+export * from './loanInterestCapitalisationEventAllOf';
 export * from './loanInterestRepaymentEvent';
 export * from './loanInterestRepaymentEventAllOf';
 export * from './loanPeriod';
@@ -888,6 +896,7 @@ export * from './otcConfirmation';
 export * from './outputTransaction';
 export * from './outputTransition';
 export * from './overrideVirtualTransactionsResponse';
+export * from './oversubscribeElection';
 export * from './pagedResourceListOfAbor';
 export * from './pagedResourceListOfAborConfiguration';
 export * from './pagedResourceListOfAccount';
@@ -1076,6 +1085,8 @@ export * from './queryRelationalDatasetRequest';
 export * from './queryTradeTicketsRequest';
 export * from './queryableKey';
 export * from './quote';
+export * from './quoteAccessMetadataRule';
+export * from './quoteAccessMetadataRuleId';
 export * from './quoteActivity';
 export * from './quoteActivityAdjustment';
 export * from './quoteActivityAdjustmentAllOf';
@@ -1198,6 +1209,7 @@ export * from './resourceListOfPropertyInterval';
 export * from './resourceListOfPropertyIntervalTimeSeries';
 export * from './resourceListOfQueryableKey';
 export * from './resourceListOfQuote';
+export * from './resourceListOfQuoteAccessMetadataRule';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfRelation';
 export * from './resourceListOfRelationship';
@@ -1235,6 +1247,7 @@ export * from './resultValueInt';
 export * from './resultValueIntAllOf';
 export * from './resultValueString';
 export * from './resultValueStringAllOf';
+export * from './retainElection';
 export * from './returnZeroPvOptions';
 export * from './reverseStockSplitEvent';
 export * from './reverseStockSplitEventAllOf';
@@ -1266,6 +1279,7 @@ export * from './securityOfferConstituent';
 export * from './securityOfferElection';
 export * from './securityWriteOffEvent';
 export * from './securityWriteOffEventAllOf';
+export * from './sellEntitlementElection';
 export * from './sequenceDefinition';
 export * from './seriesDefinition';
 export * from './seriesDefinitionRequest';
@@ -1416,6 +1430,7 @@ export * from './triggerEventAllOf';
 export * from './typedResourceId';
 export * from './unitisationData';
 export * from './unitsRatio';
+export * from './unknownProceedsElection';
 export * from './unsettledTransaction';
 export * from './updateCalendarRequest';
 export * from './updateComplianceTemplateRequest';
@@ -1472,6 +1487,7 @@ export * from './upsertPersonsResponse';
 export * from './upsertPortfolioAccessMetadataRequest';
 export * from './upsertPortfolioGroupAccessMetadataRequest';
 export * from './upsertPortfolioTransactionsResponse';
+export * from './upsertQuoteAccessMetadataRuleRequest';
 export * from './upsertQuoteRequest';
 export * from './upsertQuotesResponse';
 export * from './upsertRecipeComposerRequest';
@@ -1572,6 +1588,7 @@ import { AborConfigurationProperties } from './aborConfigurationProperties';
 import { AborConfigurationRequest } from './aborConfigurationRequest';
 import { AborProperties } from './aborProperties';
 import { AborRequest } from './aborRequest';
+import { AbstainElection } from './abstainElection';
 import { AcceptEstimateValuationPointResponse } from './acceptEstimateValuationPointResponse';
 import { AccessControlledAction } from './accessControlledAction';
 import { AccessControlledResource } from './accessControlledResource';
@@ -1866,8 +1883,12 @@ import { CompositeDispersion } from './compositeDispersion';
 import { CompositeDispersionResponse } from './compositeDispersionResponse';
 import { Compounding } from './compounding';
 import { ConfigurationRecipe } from './configurationRecipe';
+import { ConsentAndExchangeElection } from './consentAndExchangeElection';
+import { ConsentAndTenderElection } from './consentAndTenderElection';
+import { ConsentDeniedElection } from './consentDeniedElection';
 import { ConsentEvent } from './consentEvent';
 import { ConsentEventAllOf } from './consentEventAllOf';
+import { ConsentGrantedElection } from './consentGrantedElection';
 import { ConstantVolatilitySurface } from './constantVolatilitySurface';
 import { ConstantVolatilitySurfaceAllOf } from './constantVolatilitySurfaceAllOf';
 import { ConstituentsAdjustmentHeader } from './constituentsAdjustmentHeader';
@@ -2238,6 +2259,7 @@ import { IndexModelOptionsAllOf } from './indexModelOptionsAllOf';
 import { IndexProjectionDependency } from './indexProjectionDependency';
 import { IndexProjectionDependencyAllOf } from './indexProjectionDependencyAllOf';
 import { IndustryClassifier } from './industryClassifier';
+import { InflationConvexityOptions } from './inflationConvexityOptions';
 import { InflationCurveData } from './inflationCurveData';
 import { InflationCurveDataAllOf } from './inflationCurveDataAllOf';
 import { InflationCurveShiftDefinition } from './inflationCurveShiftDefinition';
@@ -2330,6 +2352,8 @@ import { LoanFacilityContractRolloverEvent } from './loanFacilityContractRollove
 import { LoanFacilityContractRolloverEventAllOf } from './loanFacilityContractRolloverEventAllOf';
 import { LoanFacilityDelayedCompensationPaymentEvent } from './loanFacilityDelayedCompensationPaymentEvent';
 import { LoanFacilityDelayedCompensationPaymentEventAllOf } from './loanFacilityDelayedCompensationPaymentEventAllOf';
+import { LoanInterestCapitalisationEvent } from './loanInterestCapitalisationEvent';
+import { LoanInterestCapitalisationEventAllOf } from './loanInterestCapitalisationEventAllOf';
 import { LoanInterestRepaymentEvent } from './loanInterestRepaymentEvent';
 import { LoanInterestRepaymentEventAllOf } from './loanInterestRepaymentEventAllOf';
 import { LoanPeriod } from './loanPeriod';
@@ -2450,6 +2474,7 @@ import { OtcConfirmation } from './otcConfirmation';
 import { OutputTransaction } from './outputTransaction';
 import { OutputTransition } from './outputTransition';
 import { OverrideVirtualTransactionsResponse } from './overrideVirtualTransactionsResponse';
+import { OversubscribeElection } from './oversubscribeElection';
 import { PagedResourceListOfAbor } from './pagedResourceListOfAbor';
 import { PagedResourceListOfAborConfiguration } from './pagedResourceListOfAborConfiguration';
 import { PagedResourceListOfAccount } from './pagedResourceListOfAccount';
@@ -2638,6 +2663,8 @@ import { QueryRelationalDatasetRequest } from './queryRelationalDatasetRequest';
 import { QueryTradeTicketsRequest } from './queryTradeTicketsRequest';
 import { QueryableKey } from './queryableKey';
 import { Quote } from './quote';
+import { QuoteAccessMetadataRule } from './quoteAccessMetadataRule';
+import { QuoteAccessMetadataRuleId } from './quoteAccessMetadataRuleId';
 import { QuoteActivity } from './quoteActivity';
 import { QuoteActivityAdjustment } from './quoteActivityAdjustment';
 import { QuoteActivityAdjustmentAllOf } from './quoteActivityAdjustmentAllOf';
@@ -2760,6 +2787,7 @@ import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval
 import { ResourceListOfPropertyIntervalTimeSeries } from './resourceListOfPropertyIntervalTimeSeries';
 import { ResourceListOfQueryableKey } from './resourceListOfQueryableKey';
 import { ResourceListOfQuote } from './resourceListOfQuote';
+import { ResourceListOfQuoteAccessMetadataRule } from './resourceListOfQuoteAccessMetadataRule';
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfRelation } from './resourceListOfRelation';
 import { ResourceListOfRelationship } from './resourceListOfRelationship';
@@ -2797,6 +2825,7 @@ import { ResultValueInt } from './resultValueInt';
 import { ResultValueIntAllOf } from './resultValueIntAllOf';
 import { ResultValueString } from './resultValueString';
 import { ResultValueStringAllOf } from './resultValueStringAllOf';
+import { RetainElection } from './retainElection';
 import { ReturnZeroPvOptions } from './returnZeroPvOptions';
 import { ReverseStockSplitEvent } from './reverseStockSplitEvent';
 import { ReverseStockSplitEventAllOf } from './reverseStockSplitEventAllOf';
@@ -2828,6 +2857,7 @@ import { SecurityOfferConstituent } from './securityOfferConstituent';
 import { SecurityOfferElection } from './securityOfferElection';
 import { SecurityWriteOffEvent } from './securityWriteOffEvent';
 import { SecurityWriteOffEventAllOf } from './securityWriteOffEventAllOf';
+import { SellEntitlementElection } from './sellEntitlementElection';
 import { SequenceDefinition } from './sequenceDefinition';
 import { SeriesDefinition } from './seriesDefinition';
 import { SeriesDefinitionRequest } from './seriesDefinitionRequest';
@@ -2978,6 +3008,7 @@ import { TriggerEventAllOf } from './triggerEventAllOf';
 import { TypedResourceId } from './typedResourceId';
 import { UnitisationData } from './unitisationData';
 import { UnitsRatio } from './unitsRatio';
+import { UnknownProceedsElection } from './unknownProceedsElection';
 import { UnsettledTransaction } from './unsettledTransaction';
 import { UpdateCalendarRequest } from './updateCalendarRequest';
 import { UpdateComplianceTemplateRequest } from './updateComplianceTemplateRequest';
@@ -3034,6 +3065,7 @@ import { UpsertPersonsResponse } from './upsertPersonsResponse';
 import { UpsertPortfolioAccessMetadataRequest } from './upsertPortfolioAccessMetadataRequest';
 import { UpsertPortfolioGroupAccessMetadataRequest } from './upsertPortfolioGroupAccessMetadataRequest';
 import { UpsertPortfolioTransactionsResponse } from './upsertPortfolioTransactionsResponse';
+import { UpsertQuoteAccessMetadataRuleRequest } from './upsertQuoteAccessMetadataRuleRequest';
 import { UpsertQuoteRequest } from './upsertQuoteRequest';
 import { UpsertQuotesResponse } from './upsertQuotesResponse';
 import { UpsertRecipeComposerRequest } from './upsertRecipeComposerRequest';
@@ -3552,6 +3584,8 @@ let enumsMap: {[index: string]: any} = {
         "LoanFacilityContractRolloverEventAllOf.InstrumentEventTypeEnum": LoanFacilityContractRolloverEventAllOf.InstrumentEventTypeEnum,
         "LoanFacilityDelayedCompensationPaymentEvent.InstrumentEventTypeEnum": LoanFacilityDelayedCompensationPaymentEvent.InstrumentEventTypeEnum,
         "LoanFacilityDelayedCompensationPaymentEventAllOf.InstrumentEventTypeEnum": LoanFacilityDelayedCompensationPaymentEventAllOf.InstrumentEventTypeEnum,
+        "LoanInterestCapitalisationEvent.InstrumentEventTypeEnum": LoanInterestCapitalisationEvent.InstrumentEventTypeEnum,
+        "LoanInterestCapitalisationEventAllOf.InstrumentEventTypeEnum": LoanInterestCapitalisationEventAllOf.InstrumentEventTypeEnum,
         "LoanInterestRepaymentEvent.InstrumentEventTypeEnum": LoanInterestRepaymentEvent.InstrumentEventTypeEnum,
         "LoanInterestRepaymentEventAllOf.InstrumentEventTypeEnum": LoanInterestRepaymentEventAllOf.InstrumentEventTypeEnum,
         "LoanPrincipalRepaymentEvent.InstrumentEventTypeEnum": LoanPrincipalRepaymentEvent.InstrumentEventTypeEnum,
@@ -3832,6 +3866,7 @@ let typeMap: {[index: string]: any} = {
     "AborConfigurationRequest": AborConfigurationRequest,
     "AborProperties": AborProperties,
     "AborRequest": AborRequest,
+    "AbstainElection": AbstainElection,
     "AcceptEstimateValuationPointResponse": AcceptEstimateValuationPointResponse,
     "AccessControlledAction": AccessControlledAction,
     "AccessControlledResource": AccessControlledResource,
@@ -4126,8 +4161,12 @@ let typeMap: {[index: string]: any} = {
     "CompositeDispersionResponse": CompositeDispersionResponse,
     "Compounding": Compounding,
     "ConfigurationRecipe": ConfigurationRecipe,
+    "ConsentAndExchangeElection": ConsentAndExchangeElection,
+    "ConsentAndTenderElection": ConsentAndTenderElection,
+    "ConsentDeniedElection": ConsentDeniedElection,
     "ConsentEvent": ConsentEvent,
     "ConsentEventAllOf": ConsentEventAllOf,
+    "ConsentGrantedElection": ConsentGrantedElection,
     "ConstantVolatilitySurface": ConstantVolatilitySurface,
     "ConstantVolatilitySurfaceAllOf": ConstantVolatilitySurfaceAllOf,
     "ConstituentsAdjustmentHeader": ConstituentsAdjustmentHeader,
@@ -4497,6 +4536,7 @@ let typeMap: {[index: string]: any} = {
     "IndexProjectionDependency": IndexProjectionDependency,
     "IndexProjectionDependencyAllOf": IndexProjectionDependencyAllOf,
     "IndustryClassifier": IndustryClassifier,
+    "InflationConvexityOptions": InflationConvexityOptions,
     "InflationCurveData": InflationCurveData,
     "InflationCurveDataAllOf": InflationCurveDataAllOf,
     "InflationCurveShiftDefinition": InflationCurveShiftDefinition,
@@ -4589,6 +4629,8 @@ let typeMap: {[index: string]: any} = {
     "LoanFacilityContractRolloverEventAllOf": LoanFacilityContractRolloverEventAllOf,
     "LoanFacilityDelayedCompensationPaymentEvent": LoanFacilityDelayedCompensationPaymentEvent,
     "LoanFacilityDelayedCompensationPaymentEventAllOf": LoanFacilityDelayedCompensationPaymentEventAllOf,
+    "LoanInterestCapitalisationEvent": LoanInterestCapitalisationEvent,
+    "LoanInterestCapitalisationEventAllOf": LoanInterestCapitalisationEventAllOf,
     "LoanInterestRepaymentEvent": LoanInterestRepaymentEvent,
     "LoanInterestRepaymentEventAllOf": LoanInterestRepaymentEventAllOf,
     "LoanPeriod": LoanPeriod,
@@ -4709,6 +4751,7 @@ let typeMap: {[index: string]: any} = {
     "OutputTransaction": OutputTransaction,
     "OutputTransition": OutputTransition,
     "OverrideVirtualTransactionsResponse": OverrideVirtualTransactionsResponse,
+    "OversubscribeElection": OversubscribeElection,
     "PagedResourceListOfAbor": PagedResourceListOfAbor,
     "PagedResourceListOfAborConfiguration": PagedResourceListOfAborConfiguration,
     "PagedResourceListOfAccount": PagedResourceListOfAccount,
@@ -4897,6 +4940,8 @@ let typeMap: {[index: string]: any} = {
     "QueryTradeTicketsRequest": QueryTradeTicketsRequest,
     "QueryableKey": QueryableKey,
     "Quote": Quote,
+    "QuoteAccessMetadataRule": QuoteAccessMetadataRule,
+    "QuoteAccessMetadataRuleId": QuoteAccessMetadataRuleId,
     "QuoteActivity": QuoteActivity,
     "QuoteActivityAdjustment": QuoteActivityAdjustment,
     "QuoteActivityAdjustmentAllOf": QuoteActivityAdjustmentAllOf,
@@ -5019,6 +5064,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPropertyIntervalTimeSeries": ResourceListOfPropertyIntervalTimeSeries,
     "ResourceListOfQueryableKey": ResourceListOfQueryableKey,
     "ResourceListOfQuote": ResourceListOfQuote,
+    "ResourceListOfQuoteAccessMetadataRule": ResourceListOfQuoteAccessMetadataRule,
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfRelation": ResourceListOfRelation,
     "ResourceListOfRelationship": ResourceListOfRelationship,
@@ -5056,6 +5102,7 @@ let typeMap: {[index: string]: any} = {
     "ResultValueIntAllOf": ResultValueIntAllOf,
     "ResultValueString": ResultValueString,
     "ResultValueStringAllOf": ResultValueStringAllOf,
+    "RetainElection": RetainElection,
     "ReturnZeroPvOptions": ReturnZeroPvOptions,
     "ReverseStockSplitEvent": ReverseStockSplitEvent,
     "ReverseStockSplitEventAllOf": ReverseStockSplitEventAllOf,
@@ -5087,6 +5134,7 @@ let typeMap: {[index: string]: any} = {
     "SecurityOfferElection": SecurityOfferElection,
     "SecurityWriteOffEvent": SecurityWriteOffEvent,
     "SecurityWriteOffEventAllOf": SecurityWriteOffEventAllOf,
+    "SellEntitlementElection": SellEntitlementElection,
     "SequenceDefinition": SequenceDefinition,
     "SeriesDefinition": SeriesDefinition,
     "SeriesDefinitionRequest": SeriesDefinitionRequest,
@@ -5237,6 +5285,7 @@ let typeMap: {[index: string]: any} = {
     "TypedResourceId": TypedResourceId,
     "UnitisationData": UnitisationData,
     "UnitsRatio": UnitsRatio,
+    "UnknownProceedsElection": UnknownProceedsElection,
     "UnsettledTransaction": UnsettledTransaction,
     "UpdateCalendarRequest": UpdateCalendarRequest,
     "UpdateComplianceTemplateRequest": UpdateComplianceTemplateRequest,
@@ -5293,6 +5342,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertPortfolioAccessMetadataRequest": UpsertPortfolioAccessMetadataRequest,
     "UpsertPortfolioGroupAccessMetadataRequest": UpsertPortfolioGroupAccessMetadataRequest,
     "UpsertPortfolioTransactionsResponse": UpsertPortfolioTransactionsResponse,
+    "UpsertQuoteAccessMetadataRuleRequest": UpsertQuoteAccessMetadataRuleRequest,
     "UpsertQuoteRequest": UpsertQuoteRequest,
     "UpsertQuotesResponse": UpsertQuotesResponse,
     "UpsertRecipeComposerRequest": UpsertRecipeComposerRequest,
