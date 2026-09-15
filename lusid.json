@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1650",
+    "version": "2.0.1651",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -133469,7 +133469,8 @@
                     "Holding/default/PV"
                   ],
                   "byTaxLots": false,
-                  "subscriptionType": "Holdings"
+                  "subscriptionType": "Holdings",
+                  "effectiveForwardDays": 90
                 }
               }
             },
@@ -133496,7 +133497,8 @@
                     "Holding/default/PV"
                   ],
                   "byTaxLots": false,
-                  "subscriptionType": "Holdings"
+                  "subscriptionType": "Holdings",
+                  "effectiveForwardDays": 90
                 }
               }
             },
@@ -133523,7 +133525,8 @@
                     "Holding/default/PV"
                   ],
                   "byTaxLots": false,
-                  "subscriptionType": "Holdings"
+                  "subscriptionType": "Holdings",
+                  "effectiveForwardDays": 90
                 }
               }
             },
@@ -133550,7 +133553,8 @@
                     "Holding/default/PV"
                   ],
                   "byTaxLots": false,
-                  "subscriptionType": "Holdings"
+                  "subscriptionType": "Holdings",
+                  "effectiveForwardDays": 90
                 }
               }
             }
@@ -229372,7 +229376,16 @@
           },
           "endEffectiveAt": {
             "type": "string",
+            "description": "Deprecated and no longer honoured: a fixed forward date stops being a forward view once\r\nthe live edge passes it. Use effectiveForwardDays instead. Still accepted and echoed back\r\nso existing subscriptions keep round-tripping.",
             "format": "date-time",
+            "nullable": true
+          },
+          "effectiveForwardDays": {
+            "maximum": 3650,
+            "minimum": 1,
+            "type": "integer",
+            "description": "How far forward the subscription reports, as a number of calendar days past the live\r\nedge — a rolling forward view that advances as time passes.",
+            "format": "int32",
             "nullable": true
           }
         },
