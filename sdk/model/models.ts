@@ -160,6 +160,7 @@ export * from './bucketSetDefinition';
 export * from './bucketSetNode';
 export * from './bucketSetResult';
 export * from './bucketSetResultBucket';
+export * from './bucketSetShareClassDetails';
 export * from './bucketedCashFlowRequest';
 export * from './bucketedCashFlowResponse';
 export * from './bucketingSchedule';
@@ -1739,6 +1740,7 @@ import { BucketSetDefinition } from './bucketSetDefinition';
 import { BucketSetNode } from './bucketSetNode';
 import { BucketSetResult } from './bucketSetResult';
 import { BucketSetResultBucket } from './bucketSetResultBucket';
+import { BucketSetShareClassDetails } from './bucketSetShareClassDetails';
 import { BucketedCashFlowRequest } from './bucketedCashFlowRequest';
 import { BucketedCashFlowResponse } from './bucketedCashFlowResponse';
 import { BucketingSchedule } from './bucketingSchedule';
@@ -4018,6 +4020,7 @@ let typeMap: {[index: string]: any} = {
     "BucketSetNode": BucketSetNode,
     "BucketSetResult": BucketSetResult,
     "BucketSetResultBucket": BucketSetResultBucket,
+    "BucketSetShareClassDetails": BucketSetShareClassDetails,
     "BucketedCashFlowRequest": BucketedCashFlowRequest,
     "BucketedCashFlowResponse": BucketedCashFlowResponse,
     "BucketingSchedule": BucketingSchedule,

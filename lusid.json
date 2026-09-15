@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1649",
+    "version": "2.0.1650",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -23712,6 +23712,19 @@
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string"
             }
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "A list of property keys from the 'Compliance' domain to decorate onto each rule result.\r\n            These must take the format {domain}/{scope}/{code}, for example 'Compliance/live/UCITS'.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              }
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -51224,9 +51237,12 @@
                                 "bucketType": "PnL",
                                 "value": 999.99,
                                 "previousCumulativeValue": 9000,
-                                "cumulativeValue": 9999.99
+                                "cumulativeValue": 9999.99,
+                                "displayName": "Profit and Loss"
                               }
-                            ]
+                            ],
+                            "label": "Fund Display Name",
+                            "previousNav": 89999.99
                           },
                           {
                             "nodeType": "Class",
@@ -51248,15 +51264,27 @@
                                 "perUnitValue": 0.0999,
                                 "unitsInIssue": 10000,
                                 "previousCumulativePerUnitValue": 0.9,
-                                "cumulativePerUnitValue": 0.9999
+                                "cumulativePerUnitValue": 0.9999,
+                                "displayName": "Profit and Loss"
                               }
                             ],
                             "perUnitValue": 9.9999,
                             "sharesInIssue": 10000,
                             "previousPerUnitValue": 9,
-                            "previousSharesInIssue": 10000
+                            "previousSharesInIssue": 10000,
+                            "label": "Share Class Name",
+                            "previousNav": 89999.99,
+                            "netDealingUnits": 0,
+                            "shareClassDetails": {
+                              "lusidInstrumentId": "LUID_12345678",
+                              "instrumentScope": "default",
+                              "shortCode": "ShareClassShortCode",
+                              "domCurrency": "USD",
+                              "instrumentActive": true
+                            }
                           }
-                        ]
+                        ],
+                        "displayName": "Bucket Set Display Name"
                       }
                     ]
                   },
@@ -51362,9 +51390,12 @@
                                 "bucketType": "PnL",
                                 "value": 999.99,
                                 "previousCumulativeValue": 9000,
-                                "cumulativeValue": 9999.99
+                                "cumulativeValue": 9999.99,
+                                "displayName": "Profit and Loss"
                               }
-                            ]
+                            ],
+                            "label": "Fund Display Name",
+                            "previousNav": 89999.99
                           },
                           {
                             "nodeType": "Class",
@@ -51386,15 +51417,27 @@
                                 "perUnitValue": 0.0999,
                                 "unitsInIssue": 10000,
                                 "previousCumulativePerUnitValue": 0.9,
-                                "cumulativePerUnitValue": 0.9999
+                                "cumulativePerUnitValue": 0.9999,
+                                "displayName": "Profit and Loss"
                               }
                             ],
                             "perUnitValue": 9.9999,
                             "sharesInIssue": 10000,
                             "previousPerUnitValue": 9,
-                            "previousSharesInIssue": 10000
+                            "previousSharesInIssue": 10000,
+                            "label": "Share Class Name",
+                            "previousNav": 89999.99,
+                            "netDealingUnits": 0,
+                            "shareClassDetails": {
+                              "lusidInstrumentId": "LUID_12345678",
+                              "instrumentScope": "default",
+                              "shortCode": "ShareClassShortCode",
+                              "domCurrency": "USD",
+                              "instrumentActive": true
+                            }
                           }
-                        ]
+                        ],
+                        "displayName": "Bucket Set Display Name"
                       }
                     ]
                   }
@@ -51508,9 +51551,12 @@
                                 "bucketType": "PnL",
                                 "value": 999.99,
                                 "previousCumulativeValue": 9000,
-                                "cumulativeValue": 9999.99
+                                "cumulativeValue": 9999.99,
+                                "displayName": "Profit and Loss"
                               }
-                            ]
+                            ],
+                            "label": "Fund Display Name",
+                            "previousNav": 89999.99
                           },
                           {
                             "nodeType": "Class",
@@ -51532,15 +51578,27 @@
                                 "perUnitValue": 0.0999,
                                 "unitsInIssue": 10000,
                                 "previousCumulativePerUnitValue": 0.9,
-                                "cumulativePerUnitValue": 0.9999
+                                "cumulativePerUnitValue": 0.9999,
+                                "displayName": "Profit and Loss"
                               }
                             ],
                             "perUnitValue": 9.9999,
                             "sharesInIssue": 10000,
                             "previousPerUnitValue": 9,
-                            "previousSharesInIssue": 10000
+                            "previousSharesInIssue": 10000,
+                            "label": "Share Class Name",
+                            "previousNav": 89999.99,
+                            "netDealingUnits": 0,
+                            "shareClassDetails": {
+                              "lusidInstrumentId": "LUID_12345678",
+                              "instrumentScope": "default",
+                              "shortCode": "ShareClassShortCode",
+                              "domCurrency": "USD",
+                              "instrumentActive": true
+                            }
                           }
-                        ]
+                        ],
+                        "displayName": "Bucket Set Display Name"
                       }
                     ]
                   },
@@ -51646,9 +51704,12 @@
                                 "bucketType": "PnL",
                                 "value": 999.99,
                                 "previousCumulativeValue": 9000,
-                                "cumulativeValue": 9999.99
+                                "cumulativeValue": 9999.99,
+                                "displayName": "Profit and Loss"
                               }
-                            ]
+                            ],
+                            "label": "Fund Display Name",
+                            "previousNav": 89999.99
                           },
                           {
                             "nodeType": "Class",
@@ -51670,15 +51731,27 @@
                                 "perUnitValue": 0.0999,
                                 "unitsInIssue": 10000,
                                 "previousCumulativePerUnitValue": 0.9,
-                                "cumulativePerUnitValue": 0.9999
+                                "cumulativePerUnitValue": 0.9999,
+                                "displayName": "Profit and Loss"
                               }
                             ],
                             "perUnitValue": 9.9999,
                             "sharesInIssue": 10000,
                             "previousPerUnitValue": 9,
-                            "previousSharesInIssue": 10000
+                            "previousSharesInIssue": 10000,
+                            "label": "Share Class Name",
+                            "previousNav": 89999.99,
+                            "netDealingUnits": 0,
+                            "shareClassDetails": {
+                              "lusidInstrumentId": "LUID_12345678",
+                              "instrumentScope": "default",
+                              "shortCode": "ShareClassShortCode",
+                              "domCurrency": "USD",
+                              "instrumentActive": true
+                            }
                           }
-                        ]
+                        ],
+                        "displayName": "Bucket Set Display Name"
                       }
                     ]
                   }
@@ -51792,9 +51865,12 @@
                                 "bucketType": "PnL",
                                 "value": 999.99,
                                 "previousCumulativeValue": 9000,
-                                "cumulativeValue": 9999.99
+                                "cumulativeValue": 9999.99,
+                                "displayName": "Profit and Loss"
                               }
-                            ]
+                            ],
+                            "label": "Fund Display Name",
+                            "previousNav": 89999.99
                           },
                           {
                             "nodeType": "Class",
@@ -51816,15 +51892,27 @@
                                 "perUnitValue": 0.0999,
                                 "unitsInIssue": 10000,
                                 "previousCumulativePerUnitValue": 0.9,
-                                "cumulativePerUnitValue": 0.9999
+                                "cumulativePerUnitValue": 0.9999,
+                                "displayName": "Profit and Loss"
                               }
                             ],
                             "perUnitValue": 9.9999,
                             "sharesInIssue": 10000,
                             "previousPerUnitValue": 9,
-                            "previousSharesInIssue": 10000
+                            "previousSharesInIssue": 10000,
+                            "label": "Share Class Name",
+                            "previousNav": 89999.99,
+                            "netDealingUnits": 0,
+                            "shareClassDetails": {
+                              "lusidInstrumentId": "LUID_12345678",
+                              "instrumentScope": "default",
+                              "shortCode": "ShareClassShortCode",
+                              "domCurrency": "USD",
+                              "instrumentActive": true
+                            }
                           }
-                        ]
+                        ],
+                        "displayName": "Bucket Set Display Name"
                       }
                     ]
                   },
@@ -51930,9 +52018,12 @@
                                 "bucketType": "PnL",
                                 "value": 999.99,
                                 "previousCumulativeValue": 9000,
-                                "cumulativeValue": 9999.99
+                                "cumulativeValue": 9999.99,
+                                "displayName": "Profit and Loss"
                               }
-                            ]
+                            ],
+                            "label": "Fund Display Name",
+                            "previousNav": 89999.99
                           },
                           {
                             "nodeType": "Class",
@@ -51954,15 +52045,27 @@
                                 "perUnitValue": 0.0999,
                                 "unitsInIssue": 10000,
                                 "previousCumulativePerUnitValue": 0.9,
-                                "cumulativePerUnitValue": 0.9999
+                                "cumulativePerUnitValue": 0.9999,
+                                "displayName": "Profit and Loss"
                               }
                             ],
                             "perUnitValue": 9.9999,
                             "sharesInIssue": 10000,
                             "previousPerUnitValue": 9,
-                            "previousSharesInIssue": 10000
+                            "previousSharesInIssue": 10000,
+                            "label": "Share Class Name",
+                            "previousNav": 89999.99,
+                            "netDealingUnits": 0,
+                            "shareClassDetails": {
+                              "lusidInstrumentId": "LUID_12345678",
+                              "instrumentScope": "default",
+                              "shortCode": "ShareClassShortCode",
+                              "domCurrency": "USD",
+                              "instrumentActive": true
+                            }
                           }
-                        ]
+                        ],
+                        "displayName": "Bucket Set Display Name"
                       }
                     ]
                   }
@@ -52466,9 +52569,12 @@
                               "bucketType": "PnL",
                               "value": 999.99,
                               "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99
+                              "cumulativeValue": 9999.99,
+                              "displayName": "Profit and Loss"
                             }
-                          ]
+                          ],
+                          "label": "Fund Display Name",
+                          "previousNav": 89999.99
                         },
                         {
                           "nodeType": "Class",
@@ -52490,15 +52596,27 @@
                               "perUnitValue": 0.0999,
                               "unitsInIssue": 10000,
                               "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999
+                              "cumulativePerUnitValue": 0.9999,
+                              "displayName": "Profit and Loss"
                             }
                           ],
                           "perUnitValue": 9.9999,
                           "sharesInIssue": 10000,
                           "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000
+                          "previousSharesInIssue": 10000,
+                          "label": "Share Class Name",
+                          "previousNav": 89999.99,
+                          "netDealingUnits": 0,
+                          "shareClassDetails": {
+                            "lusidInstrumentId": "LUID_12345678",
+                            "instrumentScope": "default",
+                            "shortCode": "ShareClassShortCode",
+                            "domCurrency": "USD",
+                            "instrumentActive": true
+                          }
                         }
-                      ]
+                      ],
+                      "displayName": "Bucket Set Display Name"
                     }
                   ]
                 }
@@ -52609,9 +52727,12 @@
                               "bucketType": "PnL",
                               "value": 999.99,
                               "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99
+                              "cumulativeValue": 9999.99,
+                              "displayName": "Profit and Loss"
                             }
-                          ]
+                          ],
+                          "label": "Fund Display Name",
+                          "previousNav": 89999.99
                         },
                         {
                           "nodeType": "Class",
@@ -52633,15 +52754,27 @@
                               "perUnitValue": 0.0999,
                               "unitsInIssue": 10000,
                               "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999
+                              "cumulativePerUnitValue": 0.9999,
+                              "displayName": "Profit and Loss"
                             }
                           ],
                           "perUnitValue": 9.9999,
                           "sharesInIssue": 10000,
                           "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000
+                          "previousSharesInIssue": 10000,
+                          "label": "Share Class Name",
+                          "previousNav": 89999.99,
+                          "netDealingUnits": 0,
+                          "shareClassDetails": {
+                            "lusidInstrumentId": "LUID_12345678",
+                            "instrumentScope": "default",
+                            "shortCode": "ShareClassShortCode",
+                            "domCurrency": "USD",
+                            "instrumentActive": true
+                          }
                         }
-                      ]
+                      ],
+                      "displayName": "Bucket Set Display Name"
                     }
                   ]
                 }
@@ -52752,9 +52885,12 @@
                               "bucketType": "PnL",
                               "value": 999.99,
                               "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99
+                              "cumulativeValue": 9999.99,
+                              "displayName": "Profit and Loss"
                             }
-                          ]
+                          ],
+                          "label": "Fund Display Name",
+                          "previousNav": 89999.99
                         },
                         {
                           "nodeType": "Class",
@@ -52776,15 +52912,27 @@
                               "perUnitValue": 0.0999,
                               "unitsInIssue": 10000,
                               "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999
+                              "cumulativePerUnitValue": 0.9999,
+                              "displayName": "Profit and Loss"
                             }
                           ],
                           "perUnitValue": 9.9999,
                           "sharesInIssue": 10000,
                           "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000
+                          "previousSharesInIssue": 10000,
+                          "label": "Share Class Name",
+                          "previousNav": 89999.99,
+                          "netDealingUnits": 0,
+                          "shareClassDetails": {
+                            "lusidInstrumentId": "LUID_12345678",
+                            "instrumentScope": "default",
+                            "shortCode": "ShareClassShortCode",
+                            "domCurrency": "USD",
+                            "instrumentActive": true
+                          }
                         }
-                      ]
+                      ],
+                      "displayName": "Bucket Set Display Name"
                     }
                   ]
                 }
@@ -53045,9 +53193,12 @@
                               "bucketType": "PnL",
                               "value": 999.99,
                               "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99
+                              "cumulativeValue": 9999.99,
+                              "displayName": "Profit and Loss"
                             }
-                          ]
+                          ],
+                          "label": "Fund Display Name",
+                          "previousNav": 89999.99
                         },
                         {
                           "nodeType": "Class",
@@ -53069,15 +53220,27 @@
                               "perUnitValue": 0.0999,
                               "unitsInIssue": 10000,
                               "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999
+                              "cumulativePerUnitValue": 0.9999,
+                              "displayName": "Profit and Loss"
                             }
                           ],
                           "perUnitValue": 9.9999,
                           "sharesInIssue": 10000,
                           "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000
+                          "previousSharesInIssue": 10000,
+                          "label": "Share Class Name",
+                          "previousNav": 89999.99,
+                          "netDealingUnits": 0,
+                          "shareClassDetails": {
+                            "lusidInstrumentId": "LUID_12345678",
+                            "instrumentScope": "default",
+                            "shortCode": "ShareClassShortCode",
+                            "domCurrency": "USD",
+                            "instrumentActive": true
+                          }
                         }
-                      ]
+                      ],
+                      "displayName": "Bucket Set Display Name"
                     }
                   ]
                 }
@@ -53188,9 +53351,12 @@
                               "bucketType": "PnL",
                               "value": 999.99,
                               "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99
+                              "cumulativeValue": 9999.99,
+                              "displayName": "Profit and Loss"
                             }
-                          ]
+                          ],
+                          "label": "Fund Display Name",
+                          "previousNav": 89999.99
                         },
                         {
                           "nodeType": "Class",
@@ -53212,15 +53378,27 @@
                               "perUnitValue": 0.0999,
                               "unitsInIssue": 10000,
                               "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999
+                              "cumulativePerUnitValue": 0.9999,
+                              "displayName": "Profit and Loss"
                             }
                           ],
                           "perUnitValue": 9.9999,
                           "sharesInIssue": 10000,
                           "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000
+                          "previousSharesInIssue": 10000,
+                          "label": "Share Class Name",
+                          "previousNav": 89999.99,
+                          "netDealingUnits": 0,
+                          "shareClassDetails": {
+                            "lusidInstrumentId": "LUID_12345678",
+                            "instrumentScope": "default",
+                            "shortCode": "ShareClassShortCode",
+                            "domCurrency": "USD",
+                            "instrumentActive": true
+                          }
                         }
-                      ]
+                      ],
+                      "displayName": "Bucket Set Display Name"
                     }
                   ]
                 }
@@ -53331,9 +53509,12 @@
                               "bucketType": "PnL",
                               "value": 999.99,
                               "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99
+                              "cumulativeValue": 9999.99,
+                              "displayName": "Profit and Loss"
                             }
-                          ]
+                          ],
+                          "label": "Fund Display Name",
+                          "previousNav": 89999.99
                         },
                         {
                           "nodeType": "Class",
@@ -53355,15 +53536,27 @@
                               "perUnitValue": 0.0999,
                               "unitsInIssue": 10000,
                               "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999
+                              "cumulativePerUnitValue": 0.9999,
+                              "displayName": "Profit and Loss"
                             }
                           ],
                           "perUnitValue": 9.9999,
                           "sharesInIssue": 10000,
                           "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000
+                          "previousSharesInIssue": 10000,
+                          "label": "Share Class Name",
+                          "previousNav": 89999.99,
+                          "netDealingUnits": 0,
+                          "shareClassDetails": {
+                            "lusidInstrumentId": "LUID_12345678",
+                            "instrumentScope": "default",
+                            "shortCode": "ShareClassShortCode",
+                            "domCurrency": "USD",
+                            "instrumentActive": true
+                          }
                         }
-                      ]
+                      ],
+                      "displayName": "Bucket Set Display Name"
                     }
                   ]
                 }
@@ -53602,9 +53795,12 @@
                               "bucketType": "PnL",
                               "value": 999.99,
                               "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99
+                              "cumulativeValue": 9999.99,
+                              "displayName": "Profit and Loss"
                             }
-                          ]
+                          ],
+                          "label": "Fund Display Name",
+                          "previousNav": 89999.99
                         },
                         {
                           "nodeType": "Class",
@@ -53626,15 +53822,27 @@
                               "perUnitValue": 0.0999,
                               "unitsInIssue": 10000,
                               "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999
+                              "cumulativePerUnitValue": 0.9999,
+                              "displayName": "Profit and Loss"
                             }
                           ],
                           "perUnitValue": 9.9999,
                           "sharesInIssue": 10000,
                           "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000
+                          "previousSharesInIssue": 10000,
+                          "label": "Share Class Name",
+                          "previousNav": 89999.99,
+                          "netDealingUnits": 0,
+                          "shareClassDetails": {
+                            "lusidInstrumentId": "LUID_12345678",
+                            "instrumentScope": "default",
+                            "shortCode": "ShareClassShortCode",
+                            "domCurrency": "USD",
+                            "instrumentActive": true
+                          }
                         }
-                      ]
+                      ],
+                      "displayName": "Bucket Set Display Name"
                     }
                   ]
                 }
@@ -53745,9 +53953,12 @@
                               "bucketType": "PnL",
                               "value": 999.99,
                               "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99
+                              "cumulativeValue": 9999.99,
+                              "displayName": "Profit and Loss"
                             }
-                          ]
+                          ],
+                          "label": "Fund Display Name",
+                          "previousNav": 89999.99
                         },
                         {
                           "nodeType": "Class",
@@ -53769,15 +53980,27 @@
                               "perUnitValue": 0.0999,
                               "unitsInIssue": 10000,
                               "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999
+                              "cumulativePerUnitValue": 0.9999,
+                              "displayName": "Profit and Loss"
                             }
                           ],
                           "perUnitValue": 9.9999,
                           "sharesInIssue": 10000,
                           "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000
+                          "previousSharesInIssue": 10000,
+                          "label": "Share Class Name",
+                          "previousNav": 89999.99,
+                          "netDealingUnits": 0,
+                          "shareClassDetails": {
+                            "lusidInstrumentId": "LUID_12345678",
+                            "instrumentScope": "default",
+                            "shortCode": "ShareClassShortCode",
+                            "domCurrency": "USD",
+                            "instrumentActive": true
+                          }
                         }
-                      ]
+                      ],
+                      "displayName": "Bucket Set Display Name"
                     }
                   ]
                 }
@@ -53888,9 +54111,12 @@
                               "bucketType": "PnL",
                               "value": 999.99,
                               "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99
+                              "cumulativeValue": 9999.99,
+                              "displayName": "Profit and Loss"
                             }
-                          ]
+                          ],
+                          "label": "Fund Display Name",
+                          "previousNav": 89999.99
                         },
                         {
                           "nodeType": "Class",
@@ -53912,15 +54138,27 @@
                               "perUnitValue": 0.0999,
                               "unitsInIssue": 10000,
                               "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999
+                              "cumulativePerUnitValue": 0.9999,
+                              "displayName": "Profit and Loss"
                             }
                           ],
                           "perUnitValue": 9.9999,
                           "sharesInIssue": 10000,
                           "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000
+                          "previousSharesInIssue": 10000,
+                          "label": "Share Class Name",
+                          "previousNav": 89999.99,
+                          "netDealingUnits": 0,
+                          "shareClassDetails": {
+                            "lusidInstrumentId": "LUID_12345678",
+                            "instrumentScope": "default",
+                            "shortCode": "ShareClassShortCode",
+                            "domCurrency": "USD",
+                            "instrumentActive": true
+                          }
                         }
-                      ]
+                      ],
+                      "displayName": "Bucket Set Display Name"
                     }
                   ]
                 }
@@ -109960,7 +110198,7 @@
           {
             "name": "domain",
             "in": "path",
-            "description": "Domain of the property definition. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer.",
+            "description": "Domain of the property definition. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition.",
             "required": true,
             "schema": {
               "enum": [
@@ -110056,7 +110294,8 @@
                 "ScenarioDefinition",
                 "PaymentInstruction",
                 "Transfer",
-                "CurrencyGroup"
+                "CurrencyGroup",
+                "RecDefinition"
               ],
               "type": "string"
             }
@@ -110336,7 +110575,7 @@
           {
             "name": "domain",
             "in": "path",
-            "description": "The domain of the property being updated. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer.",
+            "description": "The domain of the property being updated. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition.",
             "required": true,
             "schema": {
               "enum": [
@@ -110432,7 +110671,8 @@
                 "ScenarioDefinition",
                 "PaymentInstruction",
                 "Transfer",
-                "CurrencyGroup"
+                "CurrencyGroup",
+                "RecDefinition"
               ],
               "type": "string"
             }
@@ -110682,7 +110922,7 @@
           {
             "name": "domain",
             "in": "path",
-            "description": "The domain of the property to be deleted. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer.",
+            "description": "The domain of the property to be deleted. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition.",
             "required": true,
             "schema": {
               "enum": [
@@ -110778,7 +111018,8 @@
                 "ScenarioDefinition",
                 "PaymentInstruction",
                 "Transfer",
-                "CurrencyGroup"
+                "CurrencyGroup",
+                "RecDefinition"
               ],
               "type": "string"
             }
@@ -110887,7 +111128,7 @@
           {
             "name": "domain",
             "in": "path",
-            "description": "The domain of the specified property. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer.",
+            "description": "The domain of the specified property. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition.",
             "required": true,
             "schema": {
               "enum": [
@@ -110983,7 +111224,8 @@
                 "ScenarioDefinition",
                 "PaymentInstruction",
                 "Transfer",
-                "CurrencyGroup"
+                "CurrencyGroup",
+                "RecDefinition"
               ],
               "type": "string"
             }
@@ -111212,7 +111454,7 @@
           {
             "name": "domain",
             "in": "path",
-            "description": "The domain of the specified property. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer.",
+            "description": "The domain of the specified property. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition.",
             "required": true,
             "schema": {
               "enum": [
@@ -111308,7 +111550,8 @@
                 "ScenarioDefinition",
                 "PaymentInstruction",
                 "Transfer",
-                "CurrencyGroup"
+                "CurrencyGroup",
+                "RecDefinition"
               ],
               "type": "string"
             }
@@ -111591,7 +111834,7 @@
           {
             "name": "domain",
             "in": "path",
-            "description": "The domain of the property definition to delete properties from. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer.",
+            "description": "The domain of the property definition to delete properties from. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition.",
             "required": true,
             "schema": {
               "enum": [
@@ -111687,7 +111930,8 @@
                 "ScenarioDefinition",
                 "PaymentInstruction",
                 "Transfer",
-                "CurrencyGroup"
+                "CurrencyGroup",
+                "RecDefinition"
               ],
               "type": "string"
             }
@@ -111865,7 +112109,7 @@
           {
             "name": "domain",
             "in": "path",
-            "description": "The domain of the property definition to which the property is attached. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer.",
+            "description": "The domain of the property definition to which the property is attached. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition.",
             "required": true,
             "schema": {
               "enum": [
@@ -111961,7 +112205,8 @@
                 "ScenarioDefinition",
                 "PaymentInstruction",
                 "Transfer",
-                "CurrencyGroup"
+                "CurrencyGroup",
+                "RecDefinition"
               ],
               "type": "string"
             }
@@ -171967,6 +172212,26 @@
             "description": "The share class's units in issue at the start of the period. Reported only for a share class that is unitised.",
             "format": "double",
             "nullable": true
+          },
+          "label": {
+            "type": "string",
+            "description": "A display label for the node: the fund's display name on the fund node, the share class's name on a share class node.",
+            "nullable": true
+          },
+          "previousNav": {
+            "type": "number",
+            "description": "The net asset value this node carried at the previous valuation point, in the fund currency. Zero at the fund's first valuation point.",
+            "format": "double",
+            "nullable": true
+          },
+          "netDealingUnits": {
+            "type": "number",
+            "description": "The net units dealt for the share class over the period, so that the shares in issue are the previous shares in issue plus this. Set only on share class nodes, and only where the bucket set is unitised.",
+            "format": "double",
+            "nullable": true
+          },
+          "shareClassDetails": {
+            "$ref": "#/components/schemas/BucketSetShareClassDetails"
           }
         },
         "additionalProperties": false,
@@ -171994,6 +172259,11 @@
               "$ref": "#/components/schemas/BucketSetNode"
             },
             "description": "The nodes making up the bucket set: the fund aggregate and one per share class."
+          },
+          "displayName": {
+            "type": "string",
+            "description": "The display name of the bucket set, as configured on the fund configuration.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -172066,10 +172336,58 @@
             "description": "The bucket's cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Reported only where both the share class and the bucket are unitised and there are units in issue to divide by.",
             "format": "double",
             "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "description": "The display name of the bucket, as configured on the fund configuration.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
         "description": "One bucket's values within a bucket set node: the movement in the period plus the cumulative values before\r\nand after it (CumulativeValue = Value + PreviousCumulativeValue), and - on share class nodes - the breakdown\r\nof the movement by the source that contributed it and the same values restated per unit in issue."
+      },
+      "BucketSetShareClassDetails": {
+        "required": [
+          "instrumentActive",
+          "shortCode"
+        ],
+        "type": "object",
+        "properties": {
+          "lusidInstrumentId": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "LUSID's internal unique instrument identifier for the share class' instrument. Absent where the instrument has not been resolved.",
+            "nullable": true
+          },
+          "instrumentScope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The scope in which the share class instrument lies. Absent where the instrument has not been resolved.",
+            "nullable": true
+          },
+          "shortCode": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The unique code within the fund for the share class."
+          },
+          "domCurrency": {
+            "type": "string",
+            "description": "The domestic currency declared for the share class.",
+            "nullable": true
+          },
+          "instrumentActive": {
+            "type": "boolean",
+            "description": "Whether the share class' instrument is active."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Identifying detail for the share class a bucket set node is for."
       },
       "CalculationInfo": {
         "required": [
@@ -178419,6 +178737,13 @@
           "outcome": {
             "minLength": 1,
             "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -181090,10 +181415,11 @@
               "ScenarioDefinition",
               "PaymentInstruction",
               "Transfer",
-              "CurrencyGroup"
+              "CurrencyGroup",
+              "RecDefinition"
             ],
             "type": "string",
-            "description": "The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer."
+            "description": "The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition."
           },
           "scope": {
             "type": "string",
@@ -181446,10 +181772,11 @@
               "ScenarioDefinition",
               "PaymentInstruction",
               "Transfer",
-              "CurrencyGroup"
+              "CurrencyGroup",
+              "RecDefinition"
             ],
             "type": "string",
-            "description": "The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer."
+            "description": "The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition."
           },
           "scope": {
             "type": "string",
@@ -216922,10 +217249,11 @@
               "ScenarioDefinition",
               "PaymentInstruction",
               "Transfer",
-              "CurrencyGroup"
+              "CurrencyGroup",
+              "RecDefinition"
             ],
             "type": "string",
-            "description": "The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer."
+            "description": "The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition."
           },
           "scope": {
             "type": "string",
@@ -217257,10 +217585,11 @@
               "ScenarioDefinition",
               "PaymentInstruction",
               "Transfer",
-              "CurrencyGroup"
+              "CurrencyGroup",
+              "RecDefinition"
             ],
             "type": "string",
-            "description": "The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer."
+            "description": "The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition."
           },
           "scope": {
             "type": "string",
@@ -231500,7 +231829,7 @@
           "entityType": {
             "minLength": 1,
             "type": "string",
-            "description": "Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer."
+            "description": "Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition."
           },
           "entityIdName": {
             "maxLength": 256,
