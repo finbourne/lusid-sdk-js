@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1652",
+    "version": "2.0.1653",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -6413,6 +6413,7 @@
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                       "bookedAsSpot": false,
+                      "isPooled": false,
                       "instrumentType": "FxForward"
                     },
                     "inLineLookupIdentifiers": {}
@@ -6468,6 +6469,7 @@
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                       "bookedAsSpot": false,
+                      "isPooled": false,
                       "instrumentType": "FxForward"
                     },
                     "inLineLookupIdentifiers": {}
@@ -6523,6 +6525,7 @@
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                       "bookedAsSpot": false,
+                      "isPooled": false,
                       "instrumentType": "FxForward"
                     },
                     "inLineLookupIdentifiers": {}
@@ -6578,6 +6581,7 @@
                       "isNdf": false,
                       "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                       "bookedAsSpot": false,
+                      "isPooled": false,
                       "instrumentType": "FxForward"
                     },
                     "inLineLookupIdentifiers": {}
@@ -35559,6 +35563,110 @@
         "x-fbn-apistatus": "Stable"
       }
     },
+    "/api/entities/compliancerules/{entityUniqueId}": {
+      "get": {
+        "tags": [
+          "Entities"
+        ],
+        "summary": "[EARLY ACCESS] GetComplianceRuleByEntityUniqueId: Get compliance rule by EntityUniqueId",
+        "description": "Retrieve the definition of a particular compliance rule.\r\n\r\nIf the compliance rule is deleted, this will return the state of the rule immediately prior to deletion.",
+        "operationId": "GetComplianceRuleByEntityUniqueId",
+        "parameters": [
+          {
+            "name": "entityUniqueId",
+            "in": "path",
+            "description": "The universally unique identifier of the compliance rule.",
+            "required": true,
+            "schema": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the compliance rule. Defaults to returning the latest version of the compliance rule if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "previews",
+            "in": "query",
+            "description": "The ids of the staged modifications to be previewed in the response.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested compliance rule entity",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleEntity"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleEntity"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleEntity"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
     "/api/entities/customentities/{entityUniqueId}": {
       "get": {
         "tags": [
@@ -51218,7 +51326,19 @@
                             "fundScope": "FundScope",
                             "fundCode": "FundCode",
                             "baseValue": 99999.99,
-                            "apportionmentFactor": 1
+                            "apportionmentFactor": 1,
+                            "inputs": [
+                              {
+                                "code": "openingNav",
+                                "displayName": "Opening NAV",
+                                "value": 89999.99
+                              },
+                              {
+                                "code": "netDealing",
+                                "displayName": "Net dealing",
+                                "value": 10000
+                              }
+                            ]
                           }
                         ]
                       }
@@ -51371,7 +51491,19 @@
                             "fundScope": "FundScope",
                             "fundCode": "FundCode",
                             "baseValue": 99999.99,
-                            "apportionmentFactor": 1
+                            "apportionmentFactor": 1,
+                            "inputs": [
+                              {
+                                "code": "openingNav",
+                                "displayName": "Opening NAV",
+                                "value": 89999.99
+                              },
+                              {
+                                "code": "netDealing",
+                                "displayName": "Net dealing",
+                                "value": 10000
+                              }
+                            ]
                           }
                         ]
                       }
@@ -51532,7 +51664,19 @@
                             "fundScope": "FundScope",
                             "fundCode": "FundCode",
                             "baseValue": 99999.99,
-                            "apportionmentFactor": 1
+                            "apportionmentFactor": 1,
+                            "inputs": [
+                              {
+                                "code": "openingNav",
+                                "displayName": "Opening NAV",
+                                "value": 89999.99
+                              },
+                              {
+                                "code": "netDealing",
+                                "displayName": "Net dealing",
+                                "value": 10000
+                              }
+                            ]
                           }
                         ]
                       }
@@ -51685,7 +51829,19 @@
                             "fundScope": "FundScope",
                             "fundCode": "FundCode",
                             "baseValue": 99999.99,
-                            "apportionmentFactor": 1
+                            "apportionmentFactor": 1,
+                            "inputs": [
+                              {
+                                "code": "openingNav",
+                                "displayName": "Opening NAV",
+                                "value": 89999.99
+                              },
+                              {
+                                "code": "netDealing",
+                                "displayName": "Net dealing",
+                                "value": 10000
+                              }
+                            ]
                           }
                         ]
                       }
@@ -51846,7 +52002,19 @@
                             "fundScope": "FundScope",
                             "fundCode": "FundCode",
                             "baseValue": 99999.99,
-                            "apportionmentFactor": 1
+                            "apportionmentFactor": 1,
+                            "inputs": [
+                              {
+                                "code": "openingNav",
+                                "displayName": "Opening NAV",
+                                "value": 89999.99
+                              },
+                              {
+                                "code": "netDealing",
+                                "displayName": "Net dealing",
+                                "value": 10000
+                              }
+                            ]
                           }
                         ]
                       }
@@ -51999,7 +52167,19 @@
                             "fundScope": "FundScope",
                             "fundCode": "FundCode",
                             "baseValue": 99999.99,
-                            "apportionmentFactor": 1
+                            "apportionmentFactor": 1,
+                            "inputs": [
+                              {
+                                "code": "openingNav",
+                                "displayName": "Opening NAV",
+                                "value": 89999.99
+                              },
+                              {
+                                "code": "netDealing",
+                                "displayName": "Net dealing",
+                                "value": 10000
+                              }
+                            ]
                           }
                         ]
                       }
@@ -52550,7 +52730,19 @@
                           "fundScope": "FundScope",
                           "fundCode": "FundCode",
                           "baseValue": 99999.99,
-                          "apportionmentFactor": 1
+                          "apportionmentFactor": 1,
+                          "inputs": [
+                            {
+                              "code": "openingNav",
+                              "displayName": "Opening NAV",
+                              "value": 89999.99
+                            },
+                            {
+                              "code": "netDealing",
+                              "displayName": "Net dealing",
+                              "value": 10000
+                            }
+                          ]
                         }
                       ]
                     }
@@ -52708,7 +52900,19 @@
                           "fundScope": "FundScope",
                           "fundCode": "FundCode",
                           "baseValue": 99999.99,
-                          "apportionmentFactor": 1
+                          "apportionmentFactor": 1,
+                          "inputs": [
+                            {
+                              "code": "openingNav",
+                              "displayName": "Opening NAV",
+                              "value": 89999.99
+                            },
+                            {
+                              "code": "netDealing",
+                              "displayName": "Net dealing",
+                              "value": 10000
+                            }
+                          ]
                         }
                       ]
                     }
@@ -52866,7 +53070,19 @@
                           "fundScope": "FundScope",
                           "fundCode": "FundCode",
                           "baseValue": 99999.99,
-                          "apportionmentFactor": 1
+                          "apportionmentFactor": 1,
+                          "inputs": [
+                            {
+                              "code": "openingNav",
+                              "displayName": "Opening NAV",
+                              "value": 89999.99
+                            },
+                            {
+                              "code": "netDealing",
+                              "displayName": "Net dealing",
+                              "value": 10000
+                            }
+                          ]
                         }
                       ]
                     }
@@ -53174,7 +53390,19 @@
                           "fundScope": "FundScope",
                           "fundCode": "FundCode",
                           "baseValue": 99999.99,
-                          "apportionmentFactor": 1
+                          "apportionmentFactor": 1,
+                          "inputs": [
+                            {
+                              "code": "openingNav",
+                              "displayName": "Opening NAV",
+                              "value": 89999.99
+                            },
+                            {
+                              "code": "netDealing",
+                              "displayName": "Net dealing",
+                              "value": 10000
+                            }
+                          ]
                         }
                       ]
                     }
@@ -53332,7 +53560,19 @@
                           "fundScope": "FundScope",
                           "fundCode": "FundCode",
                           "baseValue": 99999.99,
-                          "apportionmentFactor": 1
+                          "apportionmentFactor": 1,
+                          "inputs": [
+                            {
+                              "code": "openingNav",
+                              "displayName": "Opening NAV",
+                              "value": 89999.99
+                            },
+                            {
+                              "code": "netDealing",
+                              "displayName": "Net dealing",
+                              "value": 10000
+                            }
+                          ]
                         }
                       ]
                     }
@@ -53490,7 +53730,19 @@
                           "fundScope": "FundScope",
                           "fundCode": "FundCode",
                           "baseValue": 99999.99,
-                          "apportionmentFactor": 1
+                          "apportionmentFactor": 1,
+                          "inputs": [
+                            {
+                              "code": "openingNav",
+                              "displayName": "Opening NAV",
+                              "value": 89999.99
+                            },
+                            {
+                              "code": "netDealing",
+                              "displayName": "Net dealing",
+                              "value": 10000
+                            }
+                          ]
                         }
                       ]
                     }
@@ -53776,7 +54028,19 @@
                           "fundScope": "FundScope",
                           "fundCode": "FundCode",
                           "baseValue": 99999.99,
-                          "apportionmentFactor": 1
+                          "apportionmentFactor": 1,
+                          "inputs": [
+                            {
+                              "code": "openingNav",
+                              "displayName": "Opening NAV",
+                              "value": 89999.99
+                            },
+                            {
+                              "code": "netDealing",
+                              "displayName": "Net dealing",
+                              "value": 10000
+                            }
+                          ]
                         }
                       ]
                     }
@@ -53934,7 +54198,19 @@
                           "fundScope": "FundScope",
                           "fundCode": "FundCode",
                           "baseValue": 99999.99,
-                          "apportionmentFactor": 1
+                          "apportionmentFactor": 1,
+                          "inputs": [
+                            {
+                              "code": "openingNav",
+                              "displayName": "Opening NAV",
+                              "value": 89999.99
+                            },
+                            {
+                              "code": "netDealing",
+                              "displayName": "Net dealing",
+                              "value": 10000
+                            }
+                          ]
                         }
                       ]
                     }
@@ -54092,7 +54368,19 @@
                           "fundScope": "FundScope",
                           "fundCode": "FundCode",
                           "baseValue": 99999.99,
-                          "apportionmentFactor": 1
+                          "apportionmentFactor": 1,
+                          "inputs": [
+                            {
+                              "code": "openingNav",
+                              "displayName": "Opening NAV",
+                              "value": 89999.99
+                            },
+                            {
+                              "code": "netDealing",
+                              "displayName": "Net dealing",
+                              "value": 10000
+                            }
+                          ]
                         }
                       ]
                     }
@@ -100277,6 +100565,7 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "bookedAsSpot": false,
+                        "isPooled": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -100327,6 +100616,7 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "bookedAsSpot": false,
+                        "isPooled": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -100386,6 +100676,7 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "bookedAsSpot": false,
+                        "isPooled": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -100436,6 +100727,7 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "bookedAsSpot": false,
+                        "isPooled": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -100495,6 +100787,7 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "bookedAsSpot": false,
+                        "isPooled": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -100545,6 +100838,7 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "bookedAsSpot": false,
+                        "isPooled": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -100604,6 +100898,7 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "bookedAsSpot": false,
+                        "isPooled": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -100654,6 +100949,7 @@
                         "isNdf": false,
                         "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                         "bookedAsSpot": false,
+                        "isPooled": false,
                         "instrumentType": "FxForward"
                       },
                       "inLineLookupIdentifiers": {}
@@ -126492,6 +126788,196 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
+    "/api/scenarios/$reversestress": {
+      "post": {
+        "tags": [
+          "Scenarios"
+        ],
+        "summary": "[EARLY ACCESS] SolveReverseStress: Solve a reverse stress test",
+        "description": "Solve for how far the market has to move to produce a given change in portfolio value.\r\n            \r\nA scenario supplies the direction the market moves in: which risk factors move, and in what\r\nproportion to each other. The solve is over a single factor its shifts are multiplied by, so the\r\nanswer is a multiple of the scenario rather than a set of shifts in its own right - a factor of\r\ntwo means twice every shift the scenario states.\r\n            \r\nA ladder of factors is valued first, all in one valuation so the rungs share market data\r\nresolution, then the bracketing pair is interpolated and the interpolated factor valued again to\r\nconfirm it. The whole ladder is returned: a reverse stress is only meaningful where the change in\r\nvalue moves in one direction with the factor, and the ladder is what shows whether it does.\r\n            \r\nThe solve is refused rather than approximated where it cannot be trusted: a scenario carrying a\r\nshift with no size to scale (a model option, or a market data routing override), a measure that\r\ncannot be computed under a scenario, or a valuation that could not price every holding.",
+        "operationId": "SolveReverseStress",
+        "requestBody": {
+          "description": "The recipe, portfolios, effective date, scenario direction and target change in value",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReverseStressRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "live",
+                  "code": "default"
+                },
+                "portfolioEntityIds": [
+                  {
+                    "scope": "fund-a",
+                    "code": "main",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                "scenario": {
+                  "scope": "stress-tests",
+                  "code": "rates-up-50"
+                },
+                "targetPnl": -1000000,
+                "reportCurrency": "USD",
+                "maxScale": 5,
+                "ladderPoints": 5,
+                "tolerance": 0.0001,
+                "maxIterations": 3
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReverseStressRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "live",
+                  "code": "default"
+                },
+                "portfolioEntityIds": [
+                  {
+                    "scope": "fund-a",
+                    "code": "main",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                "scenario": {
+                  "scope": "stress-tests",
+                  "code": "rates-up-50"
+                },
+                "targetPnl": -1000000,
+                "reportCurrency": "USD",
+                "maxScale": 5,
+                "ladderPoints": 5,
+                "tolerance": 0.0001,
+                "maxIterations": 3
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReverseStressRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "live",
+                  "code": "default"
+                },
+                "portfolioEntityIds": [
+                  {
+                    "scope": "fund-a",
+                    "code": "main",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                "scenario": {
+                  "scope": "stress-tests",
+                  "code": "rates-up-50"
+                },
+                "targetPnl": -1000000,
+                "reportCurrency": "USD",
+                "maxScale": 5,
+                "ladderPoints": 5,
+                "tolerance": 0.0001,
+                "maxIterations": 3
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReverseStressRequest"
+              },
+              "example": {
+                "recipeId": {
+                  "scope": "live",
+                  "code": "default"
+                },
+                "portfolioEntityIds": [
+                  {
+                    "scope": "fund-a",
+                    "code": "main",
+                    "portfolioEntityType": "SinglePortfolio"
+                  }
+                ],
+                "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                "scenario": {
+                  "scope": "stress-tests",
+                  "code": "rates-up-50"
+                },
+                "targetPnl": -1000000,
+                "reportCurrency": "USD",
+                "maxScale": 5,
+                "ladderPoints": 5,
+                "tolerance": 0.0001,
+                "maxIterations": 3
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The solved scale with the evaluated ladder, or any failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReverseStressResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReverseStressResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReverseStressResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
     "/api/scenarios/$templates": {
       "get": {
         "tags": [
@@ -137351,6 +137837,7 @@
                     "isNdf": false,
                     "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                     "bookedAsSpot": false,
+                    "isPooled": false,
                     "instrumentType": "FxForward"
                   },
                   "counterpartyAgreementId": {
@@ -137396,6 +137883,7 @@
                     "isNdf": false,
                     "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                     "bookedAsSpot": false,
+                    "isPooled": false,
                     "instrumentType": "FxForward"
                   },
                   "counterpartyAgreementId": {
@@ -137441,6 +137929,7 @@
                     "isNdf": false,
                     "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                     "bookedAsSpot": false,
+                    "isPooled": false,
                     "instrumentType": "FxForward"
                   },
                   "counterpartyAgreementId": {
@@ -137486,6 +137975,7 @@
                     "isNdf": false,
                     "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                     "bookedAsSpot": false,
+                    "isPooled": false,
                     "instrumentType": "FxForward"
                   },
                   "counterpartyAgreementId": {
@@ -137869,6 +138359,7 @@
                   "isNdf": false,
                   "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                   "bookedAsSpot": false,
+                  "isPooled": false,
                   "instrumentType": "FxForward"
                 },
                 "counterpartyAgreementId": {
@@ -137909,6 +138400,7 @@
                   "isNdf": false,
                   "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                   "bookedAsSpot": false,
+                  "isPooled": false,
                   "instrumentType": "FxForward"
                 },
                 "counterpartyAgreementId": {
@@ -137949,6 +138441,7 @@
                   "isNdf": false,
                   "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                   "bookedAsSpot": false,
+                  "isPooled": false,
                   "instrumentType": "FxForward"
                 },
                 "counterpartyAgreementId": {
@@ -137989,6 +138482,7 @@
                   "isNdf": false,
                   "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                   "bookedAsSpot": false,
+                  "isPooled": false,
                   "instrumentType": "FxForward"
                 },
                 "counterpartyAgreementId": {
@@ -138035,6 +138529,7 @@
                     "isNdf": false,
                     "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                     "bookedAsSpot": false,
+                    "isPooled": false,
                     "instrumentType": "FxForward"
                   },
                   "counterpartyAgreementId": {
@@ -138075,6 +138570,7 @@
                     "isNdf": false,
                     "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                     "bookedAsSpot": false,
+                    "isPooled": false,
                     "instrumentType": "FxForward"
                   },
                   "counterpartyAgreementId": {
@@ -138115,6 +138611,7 @@
                     "isNdf": false,
                     "fixingDate": "0001-01-01T00:00:00.0000000+00:00",
                     "bookedAsSpot": false,
+                    "isPooled": false,
                     "instrumentType": "FxForward"
                   },
                   "counterpartyAgreementId": {
@@ -168443,6 +168940,33 @@
         "additionalProperties": false,
         "description": "The apportionment result for one level - the fund (apportioning the non-class-specific P&L across all\r\nshare classes) or a single allocation group (apportioning its tagged P&L across its members) - with the\r\nper-member base values and factors the method produced."
       },
+      "ApportionmentInput": {
+        "required": [
+          "code",
+          "displayName",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The input's identifier within its apportionment method, for example 'openingNav'."
+          },
+          "displayName": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The input's human-readable name, for example 'Opening NAV'."
+          },
+          "value": {
+            "type": "number",
+            "description": "The input's contribution to the base value, signed as it contributes.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "One named amount that contributed to a member share class's apportionment base value - the workings behind\r\nthe figure rather than the figure alone. A member's inputs always sum to its base value."
+      },
       "ApportionmentMemberFactor": {
         "required": [
           "apportionmentFactor",
@@ -168475,6 +168999,14 @@
             "type": "number",
             "description": "The member's apportionment factor: its base value over the total across the group or fund.",
             "format": "double"
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApportionmentInput"
+            },
+            "description": "The named amounts the apportionment method summed to reach the base value, always summing to it. Absent where the method defines no such breakdown.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -178631,6 +179163,81 @@
         },
         "additionalProperties": false
       },
+      "ComplianceRuleEntity": {
+        "required": [
+          "entityUniqueId",
+          "href",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri"
+          },
+          "entityUniqueId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The unique id of the entity."
+          },
+          "asAtVersionNumber": {
+            "type": "integer",
+            "description": "The integer version number for the entity (the entity was created at version 1)",
+            "format": "int32",
+            "nullable": true
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The status of the entity at the current time. Available values: Prevailing, Deleted, DoesNotExist."
+          },
+          "asAtDeleted": {
+            "type": "string",
+            "description": "The asAt datetime at which the entity was deleted.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "userIdDeleted": {
+            "type": "string",
+            "description": "The unique id of the user who deleted the entity.",
+            "nullable": true
+          },
+          "requestIdDeleted": {
+            "type": "string",
+            "description": "The unique request id of the command that deleted the entity.",
+            "nullable": true
+          },
+          "effectiveAtCreated": {
+            "type": "string",
+            "description": "The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "prevailingComplianceRule": {
+            "$ref": "#/components/schemas/ComplianceRuleResponse"
+          },
+          "deletedComplianceRule": {
+            "$ref": "#/components/schemas/ComplianceRuleResponse"
+          },
+          "previewedStatus": {
+            "type": "string",
+            "description": "The status of the previewed entity. Available values: Prevailing, Deleted, DoesNotExist.",
+            "nullable": true
+          },
+          "previewedComplianceRule": {
+            "$ref": "#/components/schemas/ComplianceRuleResponse"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ComplianceRuleResponse": {
         "type": "object",
         "properties": {
@@ -178674,6 +179281,9 @@
           },
           "version": {
             "$ref": "#/components/schemas/Version"
+          },
+          "stagedModifications": {
+            "$ref": "#/components/schemas/StagedModificationsInfo"
           },
           "links": {
             "type": "array",
@@ -195895,9 +196505,7 @@
           },
           {
             "required": [
-              "domAmount",
               "domCcy",
-              "fgnAmount",
               "fgnCcy",
               "instrumentType",
               "maturityDate",
@@ -195917,7 +196525,7 @@
               },
               "domAmount": {
                 "type": "number",
-                "description": "The amount that is to be paid in the domestic currency on the maturity date.",
+                "description": "The amount that is to be paid in the domestic currency on the maturity date.\r\nRequired unless isPooled is set. On a pooled FX forward the domestic amount is the contract size and\r\nnot a traded amount: leave it absent and it is populated as one, so that holding units are amounts of\r\nthe domestic currency.",
                 "format": "double"
               },
               "domCcy": {
@@ -195926,7 +196534,7 @@
               },
               "fgnAmount": {
                 "type": "number",
-                "description": "The amount that is to be paid in the foreign currency on the maturity date.",
+                "description": "The amount that is to be paid in the foreign currency on the maturity date.\r\nRequired unless isPooled is set. On a pooled FX forward it must be absent or zero, because the whole\r\nforeign consideration is carried by the transactions booked against the pool.",
                 "format": "double"
               },
               "fgnCcy": {
@@ -195958,6 +196566,10 @@
               },
               "timeZoneConventions": {
                 "$ref": "#/components/schemas/TimeZoneConventions"
+              },
+              "isPooled": {
+                "type": "boolean",
+                "description": "Declares the contract to be a pool, carrying no traded amounts of its own. A pool is defined once for a\r\ncurrency pair and maturity date and traded repeatedly at different rates, so the traded amounts are carried\r\nby the transactions booked against it rather than by the instrument. The domestic amount of a pool is\r\ntherefore the contract size and not a traded amount, and is pinned to one so that holding units are amounts\r\nof the domestic currency; the foreign amount and the reference spot rate must be absent, because the whole\r\nforeign consideration is carried by the transaction.\r\n            \r\nOrientation is part of a pool's identity: the domestic currency is the unit currency and the foreign\r\ncurrency the consideration currency, so a USD/JPY pool and a JPY/USD pool are distinct instruments, and\r\ntransactions must be booked in the pool's own direction (transaction currency equal to the domestic\r\ncurrency, settlement currency equal to the foreign currency). This will default to False if not provided."
               },
               "instrumentType": {
                 "enum": [
@@ -225261,6 +225873,184 @@
           }
         ],
         "description": "A reverse split in the company's shares. Shareholders have their number of shares reduced based on the terms of the stock split."
+      },
+      "ReverseStressRequest": {
+        "required": [
+          "effectiveAt",
+          "portfolioEntityIds",
+          "recipeId",
+          "scenario",
+          "targetPnl"
+        ],
+        "type": "object",
+        "properties": {
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "portfolioEntityIds": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "description": "The portfolios or portfolio groups whose value the target loss is measured against."
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The effective date to value at.",
+            "format": "date-time"
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The as-at time to read portfolios, instruments, market data and the scenario definition at.\r\nDefaults to the latest.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/ScenarioReference"
+          },
+          "targetPnl": {
+            "type": "number",
+            "description": "The change in value to solve for, signed and in the report currency: negative for a loss.\r\nExpressed as an amount rather than a percentage so that the same target can be stated against\r\na portfolio whose base value is not known to the caller.",
+            "format": "double"
+          },
+          "metric": {
+            "type": "string",
+            "description": "The measure the target is expressed in. Defaults to Valuation/PV. Must be a measure that\r\nsupports scenario decoration, which the request is rejected for if it is not.",
+            "nullable": true
+          },
+          "reportCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "description": "Three letter ISO currency string to report in. If absent the portfolio's own currency is used,\r\nwhich makes the target ambiguous across a multi-currency portfolio group - supply it there.",
+            "nullable": true
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyFilter"
+            },
+            "description": "Filters reducing the holdings the target is measured over, matching the valuation endpoint's.",
+            "nullable": true
+          },
+          "maxScale": {
+            "maximum": 1000,
+            "minimum": 0.0001,
+            "type": "number",
+            "description": "The largest factor to evaluate. A target beyond the loss reached at this factor is reported as\r\nout of reach rather than extrapolated to: extrapolating past the evaluated range is exactly\r\nwhere a locally linear P&L stops being linear.",
+            "format": "double"
+          },
+          "ladderPoints": {
+            "maximum": 50,
+            "minimum": 2,
+            "type": "integer",
+            "description": "How many factors to evaluate between zero and MaxScale. All of them are valued in\r\none request - the rungs share market data resolution - so a finer ladder costs far less than\r\nits rung count suggests, and a coarse one is the main source of a missed bracket.",
+            "format": "int32"
+          },
+          "tolerance": {
+            "maximum": 0.5,
+            "type": "number",
+            "description": "How close the achieved loss must be to the target, relative to the target's own size. Relative\r\nrather than absolute because the same reverse stress is asked of books whose value differs by\r\norders of magnitude.",
+            "format": "double"
+          },
+          "maxIterations": {
+            "maximum": 10,
+            "minimum": 1,
+            "type": "integer",
+            "description": "How many refinement rounds are allowed after the opening ladder. Each round costs one\r\nvaluation; on a near-linear P&L the first interpolation is usually already inside tolerance,\r\nso the default exists for the mildly curved case rather than the normal one.",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request to solve a reverse stress test: instead of asking what a given market move does to a\r\nportfolio, it asks how far the market has to move along a given direction to produce a given\r\nloss. The direction is a stored scenario; the answer is the factor its shifts are multiplied by.\r\n            \r\nA single effective date is solved, not a schedule. \"How far must the market move to lose this\r\nmuch\" has one answer per date, and returning a factor per date under one target would invite the\r\nanswer being read as a single portfolio-wide number when it is not."
+      },
+      "ReverseStressResponse": {
+        "type": "object",
+        "properties": {
+          "scale": {
+            "type": "number",
+            "description": "The solved factor: the multiple of the scenario's shifts that reaches the target. Null when no\r\nfactor within the evaluated range reaches it, in which case Converged is false and the\r\nwarnings say so.",
+            "format": "double",
+            "nullable": true
+          },
+          "targetPnl": {
+            "type": "number",
+            "description": "The change in value that was asked for, echoed back.",
+            "format": "double"
+          },
+          "achievedPnl": {
+            "type": "number",
+            "description": "The change in value actually produced at the solved scale, measured by a valuation at that\r\nfactor rather than interpolated. The gap to the target is the honest error of the solve.",
+            "format": "double",
+            "nullable": true
+          },
+          "baseValue": {
+            "type": "number",
+            "description": "The unstressed value of the measure over the filtered holdings.",
+            "format": "double"
+          },
+          "stressedValue": {
+            "type": "number",
+            "description": "The value of the measure at the solved scale.",
+            "format": "double",
+            "nullable": true
+          },
+          "converged": {
+            "type": "boolean",
+            "description": "Whether the achieved change is within the requested tolerance of the target. False means the\r\nreported scale is the best reached, not an answer to rely on."
+          },
+          "method": {
+            "type": "string",
+            "description": "How the bracketing factor was turned into the reported one: \"Interpolation\" on a monotone\r\nladder, \"Bisection\" where the ladder turned back on itself and interpolating between one\r\nbracketing pair would have hidden the others.",
+            "nullable": true
+          },
+          "valuations": {
+            "type": "integer",
+            "description": "How many valuations the solve ran, the opening ladder counting as one.",
+            "format": "int32"
+          },
+          "ladder": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReverseStressRung"
+            },
+            "description": "Every factor evaluated, in increasing order, including the confirming valuations.",
+            "nullable": true
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Anything the caller has to know to read the scale correctly: a non-monotone ladder, a target\r\nout of reach, a solve stopped at the iteration limit.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The result of a reverse stress solve: the factor the scenario's shifts must be multiplied by to\r\nreach the target loss, together with the whole evaluated ladder so the answer can be checked\r\nrather than taken on trust.\r\n            \r\nThe ladder is part of the answer, not diagnostics. A reverse stress is only meaningful where the\r\nloss moves in one direction with the factor, and the ladder is what shows that it does."
+      },
+      "ReverseStressRung": {
+        "type": "object",
+        "properties": {
+          "scale": {
+            "type": "number",
+            "description": "The factor the scenario's shifts were multiplied by.",
+            "format": "double"
+          },
+          "value": {
+            "type": "number",
+            "description": "The value of the measure under the scaled scenario.",
+            "format": "double"
+          },
+          "pnl": {
+            "type": "number",
+            "description": "The change from the unstressed value.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "One evaluated factor and what the portfolio was worth under it."
       },
       "RevertValuationPointDataRequest": {
         "required": [
