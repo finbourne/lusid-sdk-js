@@ -289,6 +289,7 @@ export * from './complianceRuleResultDetail';
 export * from './complianceRuleResultPortfolioDetail';
 export * from './complianceRuleResultV2';
 export * from './complianceRuleTemplate';
+export * from './complianceRuleTemplateEntity';
 export * from './complianceRunConfiguration';
 export * from './complianceRunInfoV2';
 export * from './complianceStep';
@@ -1883,6 +1884,7 @@ import { ComplianceRuleResultDetail } from './complianceRuleResultDetail';
 import { ComplianceRuleResultPortfolioDetail } from './complianceRuleResultPortfolioDetail';
 import { ComplianceRuleResultV2 } from './complianceRuleResultV2';
 import { ComplianceRuleTemplate } from './complianceRuleTemplate';
+import { ComplianceRuleTemplateEntity } from './complianceRuleTemplateEntity';
 import { ComplianceRunConfiguration } from './complianceRunConfiguration';
 import { ComplianceRunInfoV2 } from './complianceRunInfoV2';
 import { ComplianceStep } from './complianceStep';
@@ -4177,6 +4179,7 @@ let typeMap: {[index: string]: any} = {
     "ComplianceRuleResultPortfolioDetail": ComplianceRuleResultPortfolioDetail,
     "ComplianceRuleResultV2": ComplianceRuleResultV2,
     "ComplianceRuleTemplate": ComplianceRuleTemplate,
+    "ComplianceRuleTemplateEntity": ComplianceRuleTemplateEntity,
     "ComplianceRunConfiguration": ComplianceRunConfiguration,
     "ComplianceRunInfoV2": ComplianceRunInfoV2,
     "ComplianceStep": ComplianceStep,

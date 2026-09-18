@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1655",
+    "version": "2.0.1656",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -35624,6 +35624,110 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ComplianceRuleEntity"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/entities/complianceruletemplates/{entityUniqueId}": {
+      "get": {
+        "tags": [
+          "Entities"
+        ],
+        "summary": "[EARLY ACCESS] GetComplianceRuleTemplateByEntityUniqueId: Get compliance rule template by EntityUniqueId",
+        "description": "Retrieve the definition of a particular compliance rule template.\r\n\r\nIf the compliance rule template is deleted, this will return the state of the template immediately prior to\r\ndeletion.",
+        "operationId": "GetComplianceRuleTemplateByEntityUniqueId",
+        "parameters": [
+          {
+            "name": "entityUniqueId",
+            "in": "path",
+            "description": "The universally unique identifier of the compliance rule template.",
+            "required": true,
+            "schema": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the compliance rule template. Defaults to returning the latest version of the compliance rule template if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "previews",
+            "in": "query",
+            "description": "The ids of the staged modifications to be previewed in the response.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested compliance rule template entity",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleTemplateEntity"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleTemplateEntity"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleTemplateEntity"
                 }
               }
             }
@@ -179738,6 +179842,84 @@
           },
           "version": {
             "$ref": "#/components/schemas/Version"
+          },
+          "stagedModifications": {
+            "$ref": "#/components/schemas/StagedModificationsInfo"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComplianceRuleTemplateEntity": {
+        "required": [
+          "entityUniqueId",
+          "href",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri"
+          },
+          "entityUniqueId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The unique id of the entity."
+          },
+          "asAtVersionNumber": {
+            "type": "integer",
+            "description": "The integer version number for the entity (the entity was created at version 1)",
+            "format": "int32",
+            "nullable": true
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The status of the entity at the current time. Available values: Prevailing, Deleted, DoesNotExist."
+          },
+          "asAtDeleted": {
+            "type": "string",
+            "description": "The asAt datetime at which the entity was deleted.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "userIdDeleted": {
+            "type": "string",
+            "description": "The unique id of the user who deleted the entity.",
+            "nullable": true
+          },
+          "requestIdDeleted": {
+            "type": "string",
+            "description": "The unique request id of the command that deleted the entity.",
+            "nullable": true
+          },
+          "effectiveAtCreated": {
+            "type": "string",
+            "description": "The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "prevailingComplianceRuleTemplate": {
+            "$ref": "#/components/schemas/ComplianceRuleTemplate"
+          },
+          "deletedComplianceRuleTemplate": {
+            "$ref": "#/components/schemas/ComplianceRuleTemplate"
+          },
+          "previewedStatus": {
+            "type": "string",
+            "description": "The status of the previewed entity. Available values: Prevailing, Deleted, DoesNotExist.",
+            "nullable": true
+          },
+          "previewedComplianceRuleTemplate": {
+            "$ref": "#/components/schemas/ComplianceRuleTemplate"
           },
           "links": {
             "type": "array",
