@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1656",
+    "version": "2.0.1657",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -3320,6 +3320,7 @@
                       "sourceId": "Txn1",
                       "properties": {},
                       "movementName": "Open",
+                      "txnType": "Buy",
                       "holdingType": "C",
                       "economicBucket": "NA_Cost",
                       "economicBucketComponent": "Premium",
@@ -3378,6 +3379,7 @@
                       "sourceId": "Txn1",
                       "properties": {},
                       "movementName": "Open",
+                      "txnType": "Buy",
                       "holdingType": "C",
                       "economicBucket": "NA_Cost",
                       "economicBucketComponent": "Premium",
@@ -3436,6 +3438,7 @@
                       "sourceId": "Txn1",
                       "properties": {},
                       "movementName": "Open",
+                      "txnType": "Buy",
                       "holdingType": "C",
                       "economicBucket": "NA_Cost",
                       "economicBucketComponent": "Premium",
@@ -57837,6 +57840,7 @@
                       "sourceId": "Txn1",
                       "properties": {},
                       "movementName": "Open",
+                      "txnType": "Buy",
                       "holdingType": "C",
                       "economicBucket": "NA_Cost",
                       "economicBucketComponent": "Premium",
@@ -57937,6 +57941,7 @@
                       "sourceId": "Txn1",
                       "properties": {},
                       "movementName": "Open",
+                      "txnType": "Buy",
                       "holdingType": "C",
                       "economicBucket": "NA_Cost",
                       "economicBucketComponent": "Premium",
@@ -58037,6 +58042,7 @@
                       "sourceId": "Txn1",
                       "properties": {},
                       "movementName": "Open",
+                      "txnType": "Buy",
                       "holdingType": "C",
                       "economicBucket": "NA_Cost",
                       "economicBucketComponent": "Premium",
@@ -58332,6 +58338,7 @@
                         "sourceId": "Txn1",
                         "properties": {},
                         "movementName": "Open",
+                        "txnType": "Buy",
                         "holdingType": "C",
                         "economicBucket": "NA_Cost",
                         "economicBucketComponent": "Premium",
@@ -58414,6 +58421,7 @@
                         "sourceId": "Txn1",
                         "properties": {},
                         "movementName": "Open",
+                        "txnType": "Buy",
                         "holdingType": "C",
                         "economicBucket": "NA_Cost",
                         "economicBucketComponent": "Premium",
@@ -58496,6 +58504,7 @@
                         "sourceId": "Txn1",
                         "properties": {},
                         "movementName": "Open",
+                        "txnType": "Buy",
                         "holdingType": "C",
                         "economicBucket": "NA_Cost",
                         "economicBucketComponent": "Premium",
@@ -80874,9 +80883,9 @@
                   },
                   "type": "Limit",
                   "limitPrice": 100,
+                  "stopPrice": 100,
                   "counterparty": "SomeCounterparty",
-                  "entryType": "Manual",
-                  "currency": "USD"
+                  "entryType": "Manual"
                 }
               }
             },
@@ -80904,9 +80913,9 @@
                   },
                   "type": "Limit",
                   "limitPrice": 100,
+                  "stopPrice": 100,
                   "counterparty": "SomeCounterparty",
-                  "entryType": "Manual",
-                  "currency": "USD"
+                  "entryType": "Manual"
                 }
               }
             },
@@ -80934,9 +80943,9 @@
                   },
                   "type": "Limit",
                   "limitPrice": 100,
+                  "stopPrice": 100,
                   "counterparty": "SomeCounterparty",
-                  "entryType": "Manual",
-                  "currency": "USD"
+                  "entryType": "Manual"
                 }
               }
             },
@@ -80964,9 +80973,9 @@
                   },
                   "type": "Limit",
                   "limitPrice": 100,
+                  "stopPrice": 100,
                   "counterparty": "SomeCounterparty",
-                  "entryType": "Manual",
-                  "currency": "USD"
+                  "entryType": "Manual"
                 }
               }
             }
@@ -113781,6 +113790,7 @@
                       "useChildSubHoldingKeysForPortfolioExpansion": false,
                       "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                       "mbsValuationUsingHoldingCurrentFace": false,
+                      "fixedIncomeValuationsUsingCurrentFace": false,
                       "convertSrsCashFlowsToPortfolioCurrency": false,
                       "conservedQuantityForLookthroughExpansion": "PV",
                       "returnZeroPv": {
@@ -113870,6 +113880,7 @@
                       "useChildSubHoldingKeysForPortfolioExpansion": false,
                       "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                       "mbsValuationUsingHoldingCurrentFace": false,
+                      "fixedIncomeValuationsUsingCurrentFace": false,
                       "convertSrsCashFlowsToPortfolioCurrency": false,
                       "conservedQuantityForLookthroughExpansion": "PV",
                       "returnZeroPv": {
@@ -113959,6 +113970,7 @@
                       "useChildSubHoldingKeysForPortfolioExpansion": false,
                       "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                       "mbsValuationUsingHoldingCurrentFace": false,
+                      "fixedIncomeValuationsUsingCurrentFace": false,
                       "convertSrsCashFlowsToPortfolioCurrency": false,
                       "conservedQuantityForLookthroughExpansion": "PV",
                       "returnZeroPv": {
@@ -114048,6 +114060,7 @@
                       "useChildSubHoldingKeysForPortfolioExpansion": false,
                       "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                       "mbsValuationUsingHoldingCurrentFace": false,
+                      "fixedIncomeValuationsUsingCurrentFace": false,
                       "convertSrsCashFlowsToPortfolioCurrency": false,
                       "conservedQuantityForLookthroughExpansion": "PV",
                       "returnZeroPv": {
@@ -114247,6 +114260,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -114331,6 +114345,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -114445,6 +114460,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -114529,6 +114545,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -114643,6 +114660,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -114727,6 +114745,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -115511,6 +115530,7 @@
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                         "mbsValuationUsingHoldingCurrentFace": false,
+                        "fixedIncomeValuationsUsingCurrentFace": false,
                         "convertSrsCashFlowsToPortfolioCurrency": false,
                         "conservedQuantityForLookthroughExpansion": "PV",
                         "returnZeroPv": {
@@ -115612,6 +115632,7 @@
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                         "mbsValuationUsingHoldingCurrentFace": false,
+                        "fixedIncomeValuationsUsingCurrentFace": false,
                         "convertSrsCashFlowsToPortfolioCurrency": false,
                         "conservedQuantityForLookthroughExpansion": "PV",
                         "returnZeroPv": {
@@ -115713,6 +115734,7 @@
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                         "mbsValuationUsingHoldingCurrentFace": false,
+                        "fixedIncomeValuationsUsingCurrentFace": false,
                         "convertSrsCashFlowsToPortfolioCurrency": false,
                         "conservedQuantityForLookthroughExpansion": "PV",
                         "returnZeroPv": {
@@ -116163,6 +116185,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -116247,6 +116270,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -116361,6 +116385,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -116445,6 +116470,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -116559,6 +116585,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -116643,6 +116670,7 @@
                             "useChildSubHoldingKeysForPortfolioExpansion": false,
                             "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                             "mbsValuationUsingHoldingCurrentFace": false,
+                            "fixedIncomeValuationsUsingCurrentFace": false,
                             "convertSrsCashFlowsToPortfolioCurrency": false,
                             "conservedQuantityForLookthroughExpansion": "PV",
                             "returnZeroPv": {
@@ -116844,6 +116872,7 @@
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                         "mbsValuationUsingHoldingCurrentFace": false,
+                        "fixedIncomeValuationsUsingCurrentFace": false,
                         "convertSrsCashFlowsToPortfolioCurrency": false,
                         "conservedQuantityForLookthroughExpansion": "PV",
                         "returnZeroPv": {
@@ -116945,6 +116974,7 @@
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                         "mbsValuationUsingHoldingCurrentFace": false,
+                        "fixedIncomeValuationsUsingCurrentFace": false,
                         "convertSrsCashFlowsToPortfolioCurrency": false,
                         "conservedQuantityForLookthroughExpansion": "PV",
                         "returnZeroPv": {
@@ -117046,6 +117076,7 @@
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                         "mbsValuationUsingHoldingCurrentFace": false,
+                        "fixedIncomeValuationsUsingCurrentFace": false,
                         "convertSrsCashFlowsToPortfolioCurrency": false,
                         "conservedQuantityForLookthroughExpansion": "PV",
                         "returnZeroPv": {
@@ -117236,6 +117267,7 @@
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                         "mbsValuationUsingHoldingCurrentFace": false,
+                        "fixedIncomeValuationsUsingCurrentFace": false,
                         "convertSrsCashFlowsToPortfolioCurrency": false,
                         "conservedQuantityForLookthroughExpansion": "PV",
                         "returnZeroPv": {
@@ -117337,6 +117369,7 @@
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                         "mbsValuationUsingHoldingCurrentFace": false,
+                        "fixedIncomeValuationsUsingCurrentFace": false,
                         "convertSrsCashFlowsToPortfolioCurrency": false,
                         "conservedQuantityForLookthroughExpansion": "PV",
                         "returnZeroPv": {
@@ -117438,6 +117471,7 @@
                         "useChildSubHoldingKeysForPortfolioExpansion": false,
                         "validateDomesticAndQuoteCurrenciesAreConsistent": false,
                         "mbsValuationUsingHoldingCurrentFace": false,
+                        "fixedIncomeValuationsUsingCurrentFace": false,
                         "convertSrsCashFlowsToPortfolioCurrency": false,
                         "conservedQuantityForLookthroughExpansion": "PV",
                         "returnZeroPv": {
@@ -149427,7 +149461,7 @@
           "Transaction Portfolios"
         ],
         "summary": "PatchPortfolioDetails: Patch portfolio details",
-        "description": "Create or update certain details for a particular transaction portfolio.\r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.\r\nThe behaviour is defined by the JSON Patch specification.\r\n\r\nCurrently supported fields are: BaseCurrency, AccountingMethod, SubHoldingKeys, AmortisationMethod, TransactionTypeScope, CashGainLossCalculationDate, InstrumentEventConfiguration, AmortisationRuleSetId, TaxRuleSetScope, SettlementConfiguration, TransactionExclusionFilter, TaxLotSelectionCostBasis.",
+        "description": "Create or update certain details for a particular transaction portfolio.\r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.\r\nThe behaviour is defined by the JSON Patch specification.\r\n\r\nCurrently supported fields are: BaseCurrency, AccountingMethod, SubHoldingKeys, AmortisationMethod, TransactionTypeScope, CashGainLossCalculationDate, InstrumentEventConfiguration, AmortisationRuleSetId, TaxRuleSetScope, SettlementConfiguration, TransactionExclusionFilter, TaxLotSelectionCostBasis, FractionalUnitsTrueUpConfiguration.",
         "operationId": "PatchPortfolioDetails",
         "parameters": [
           {
@@ -173096,18 +173130,18 @@
           },
           "shareClassShortCode": {
             "type": "string",
-            "description": "The short code of the share class this node is for, or null for the fund node.",
+            "description": "The short code of the share class this node is for. Omitted on the fund node.",
             "nullable": true
           },
           "nav": {
             "type": "number",
-            "description": "The net asset value at this node, in the fund currency, or null where it does not apply to the node type.",
+            "description": "The net asset value at this node, in the fund currency.",
             "format": "double",
             "nullable": true
           },
           "capitalRatio": {
             "type": "number",
-            "description": "The share class's capital ratio (its share of the fund NAV), set only on share class nodes.",
+            "description": "The share class's capital ratio (its share of the fund NAV). Omitted on the fund node.",
             "format": "double",
             "nullable": true
           },
@@ -173120,25 +173154,25 @@
           },
           "perUnitValue": {
             "type": "number",
-            "description": "The share class's NAV per unit in issue, in the fund currency, rounded to the share class's PricePrecision (left unrounded where the share class declares none). Reported only for a share class that is unitised and has units in issue to divide by. The dealing price - in the share class currency, with its instrument's rounding convention applied - is on the share class breakdown's unitisation data.",
+            "description": "The share class's NAV per unit in issue, in the fund currency, rounded to the share class's PricePrecision (left unrounded where the share class declares none). Omitted on the fund node, for a share class that is not unitised, and for a unitised share class with no units in issue to divide by (SharesInIssue is then reported as zero). The dealing price - in the share class currency, with its instrument's rounding convention applied - is on the share class breakdown's unitisation data.",
             "format": "double",
             "nullable": true
           },
           "sharesInIssue": {
             "type": "number",
-            "description": "The share class's units in issue at the end of the period. Reported only for a share class that is unitised.",
+            "description": "The share class's units in issue at the end of the period. Omitted on the fund node and for a share class that is not unitised.",
             "format": "double",
             "nullable": true
           },
           "previousPerUnitValue": {
             "type": "number",
-            "description": "The share class's NAV per unit at the previous valuation point, on the same basis as PerUnitValue.",
+            "description": "The share class's NAV per unit at the previous valuation point, on the same basis as PerUnitValue. Omitted on the fund node, for a share class that is not unitised, and where the share class had no units in issue at the previous valuation point (including the fund's first valuation point).",
             "format": "double",
             "nullable": true
           },
           "previousSharesInIssue": {
             "type": "number",
-            "description": "The share class's units in issue at the start of the period. Reported only for a share class that is unitised.",
+            "description": "The share class's units in issue at the start of the period. Omitted on the fund node and for a share class that is not unitised; zero at the fund's first valuation point.",
             "format": "double",
             "nullable": true
           },
@@ -173155,7 +173189,7 @@
           },
           "netDealingUnits": {
             "type": "number",
-            "description": "The net units dealt for the share class over the period, so that the shares in issue are the previous shares in issue plus this. Set only on share class nodes, and only where the bucket set is unitised.",
+            "description": "The net units dealt for the share class over the period, so that the shares in issue are the previous shares in issue plus this. Omitted on the fund node and where the bucket set is not unitised.",
             "format": "double",
             "nullable": true
           },
@@ -173164,7 +173198,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "One node within a bucket set result: the fund aggregate or a single share class. Both carry NAV and buckets; the\r\ncapital ratio, the unit counts and the per-unit values are set only on share class nodes."
+        "description": "One node within a bucket set result: the fund aggregate or a single share class. Both carry NAV and buckets; the\r\ncapital ratio, the unit counts and the per-unit values belong to share class nodes and are omitted on the fund node."
       },
       "BucketSetResult": {
         "required": [
@@ -173239,30 +173273,30 @@
               "type": "number",
               "format": "double"
             },
-            "description": "The bucket's movement broken down by the source that contributed it, which always sums to Value. Set on share class nodes only. The keys are 'classSpecific' for amounts booked directly to the share class, 'nonClassSpecific' for fund-level amounts apportioned to it, and an allocation group's code for amounts allocated to that group and apportioned to the share class. Sources contributing nothing to the bucket are omitted.",
+            "description": "The bucket's movement broken down by the source that contributed it, which always sums to Value. Reported on share class nodes and omitted on the fund node; on a share class node it is present even when nothing contributed in the period, as an empty map. The keys are 'classSpecific' for amounts booked directly to the share class, 'nonClassSpecific' for fund-level amounts apportioned to it, and an allocation group's code for amounts allocated to that group and apportioned to the share class. Sources contributing nothing to the bucket are omitted.",
             "nullable": true
           },
           "perUnitValue": {
             "type": "number",
-            "description": "The bucket's movement over the period per unit in issue (Value divided by UnitsInIssue), in the fund currency, rounded to the share class's PricePrecision. Reported only where both the share class and the bucket are unitised and there are units in issue to divide by.",
+            "description": "The bucket's movement over the period per unit in issue (Value divided by UnitsInIssue), in the fund currency, rounded to the share class's PricePrecision. Omitted where either the share class or the bucket is not unitised, and where a unitised share class has no units in issue to divide by (UnitsInIssue is then reported as zero).",
             "format": "double",
             "nullable": true
           },
           "unitsInIssue": {
             "type": "number",
-            "description": "The share class's units in issue at the end of the period. Reported only where both the share class and the bucket are unitised.",
+            "description": "The share class's units in issue at the end of the period. Omitted where either the share class or the bucket is not unitised.",
             "format": "double",
             "nullable": true
           },
           "previousCumulativePerUnitValue": {
             "type": "number",
-            "description": "The bucket's cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period's unit count.",
+            "description": "The bucket's cumulative value at the start of the period, per unit in issue at that point - so it reads as it did at the previous valuation point rather than being restated at this period's unit count. Omitted where the bucket had no per-unit value at the previous valuation point: on the fund node, where the share class or the bucket is not unitised, where the share class then had no units in issue, and at the fund's first valuation point.",
             "format": "double",
             "nullable": true
           },
           "cumulativePerUnitValue": {
             "type": "number",
-            "description": "The bucket's cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Reported only where both the share class and the bucket are unitised and there are units in issue to divide by.",
+            "description": "The bucket's cumulative value at the end of the period per unit in issue (CumulativeValue divided by UnitsInIssue). Omitted where either the share class or the bucket is not unitised, and where a unitised share class has no units in issue to divide by.",
             "format": "double",
             "nullable": true
           },
@@ -182682,6 +182716,9 @@
             "type": "string",
             "description": "The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.",
             "nullable": true
+          },
+          "fractionalUnitsTrueUpConfiguration": {
+            "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
           }
         },
         "additionalProperties": false
@@ -182696,6 +182733,9 @@
             "type": "string",
             "description": "The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. If not supplied, the portfolio's current value is left unchanged; supply Default to reset it. A reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.",
             "nullable": true
+          },
+          "fractionalUnitsTrueUpConfiguration": {
+            "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
           }
         },
         "additionalProperties": false
@@ -183643,6 +183683,9 @@
             "type": "string",
             "description": "The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.",
             "nullable": true
+          },
+          "fractionalUnitsTrueUpConfiguration": {
+            "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
           }
         },
         "additionalProperties": false
@@ -194068,6 +194111,29 @@
         ],
         "description": "LUSID representation of a Forward Rate Agreement."
       },
+      "FractionalUnitsTrueUpConfiguration": {
+        "type": "object",
+        "properties": {
+          "fractionalUnitsHandling": {
+            "type": "string",
+            "description": "The fractional-units handling scheme for the portfolio's corporate-action processing. This can be: LotLevelRounding or CustodianLevelTrueUp. Defaults to LotLevelRounding, today's per-lot-only processing, if not specified. Available values: LotLevelRounding, CustodianLevelTrueUp.",
+            "nullable": true
+          },
+          "nominatedSubHoldingKey": {
+            "type": "string",
+            "description": "The sub-holding key (from the 'Transaction' domain) that custodian-level fractional-units true-ups are booked to. The key must be one of the portfolio's sub-holding keys, must have a pre-defined property definition, and event processing never creates it.",
+            "nullable": true
+          },
+          "nominatedSubHoldingKeyValue": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string",
+            "description": "The value of the nominated sub-holding key under which the true-up holding is booked, for example the bucket that quarantines fractional rounding true-ups.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "FromRecipe": {
         "type": "object",
         "properties": {
@@ -195761,6 +195827,11 @@
           "movementName": {
             "type": "string",
             "description": "If the JE Line is generated from a transaction, the name of the side in the transaction type's movement. If from a valuation, this is 'MarkToMarket'.",
+            "nullable": true
+          },
+          "txnType": {
+            "type": "string",
+            "description": "If the JE Line is generated from a transaction, the type of that transaction. Null where the line is not linked to a transaction, such as a valuation line.",
             "nullable": true
           },
           "holdingType": {
@@ -203633,6 +203704,11 @@
           "movementName": {
             "type": "string",
             "description": "If the JE Line is generated from a transaction, the name of the side in the transaction type's movement. If from a valuation, this is 'MarkToMarket'.",
+            "nullable": true
+          },
+          "txnType": {
+            "type": "string",
+            "description": "If the JE Line is generated from a transaction, the type of that transaction. Null where the line is not linked to a transaction, such as a valuation line.",
             "nullable": true
           },
           "holdingType": {
@@ -215147,7 +215223,7 @@
           "type": {
             "minLength": 1,
             "type": "string",
-            "description": "The type of this placement (Market, Limit, Stop, StopLimit, etc). A Limit placement must specify a limit price, a Stop placement a stop price, and a StopLimit placement both."
+            "description": "The type of this placement (Market, Limit, etc)."
           },
           "createdDate": {
             "type": "string",
@@ -215260,7 +215336,7 @@
           "type": {
             "minLength": 1,
             "type": "string",
-            "description": "The type of this placement (Market, Limit, Stop, StopLimit, etc). A Limit placement must specify a limit price, a Stop placement a stop price, and a StopLimit placement both."
+            "description": "The type of this placement (Market, Limit, etc)."
           },
           "createdDate": {
             "type": "string",
@@ -215341,18 +215417,18 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
-            "description": "Optionally changes the type of this placement (Market, Limit, Stop, StopLimit). A type may only be tightened: a Market placement may become Limit, Stop or StopLimit, and any placement may become StopLimit. A placement may be relaxed to Market only when the associated block is of type 'Market'. Changing to a priced type requires a currency and the price(s) that type carries; a price the new type does not carry is cleared. Changing to Market clears both prices and may not be combined with a price update. A change to or from any other type is not subject to these rules, leaves both prices as they are, and is permitted only when the associated block is of type 'Market'.",
+            "description": "The type of this placement (Market, Limit, etc).",
             "nullable": true
           },
           "limitPrice": {
             "type": "number",
-            "description": "Optionally updates the limit price of this placement, in the placement's limit price currency unless a currency is also specified. A currency is required if the placement has no limit price currency.",
+            "description": "The optional price, as currency and amount, associated with this placement.",
             "format": "double",
             "nullable": true
           },
           "stopPrice": {
             "type": "number",
-            "description": "Optionally updates the stop price of this placement, in the placement's stop price currency unless a currency is also specified. A currency is required if the placement has no stop price currency.",
+            "description": "The optional price, as currency and amount, associated with this placement.",
             "format": "double",
             "nullable": true
           },
@@ -215374,17 +215450,10 @@
             "type": "string",
             "description": "Optionally specifies the entry type of this placement. Available values: Undecided, Manual, Direct, Ems, External.",
             "nullable": true
-          },
-          "currency": {
-            "maxLength": 3,
-            "minLength": 0,
-            "type": "string",
-            "description": "The ISO currency code of the stop and/or limit price carried by the placement's type. Required when the type is changed to Stop, Limit or StopLimit, or when a price is set that the placement has no currency for; not permitted for a Market placement. For a value placement it must match the currency of the amount exactly, whether that amount is on the placement or in the update.",
-            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "A request to update a Placement."
+        "description": "A request to create or update a Placement."
       },
       "PnlJournalEntryLine": {
         "type": "object",
@@ -215558,6 +215627,9 @@
             "type": "string",
             "description": "The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.",
             "nullable": true
+          },
+          "fractionalUnitsTrueUpConfiguration": {
+            "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
           },
           "links": {
             "type": "array",
@@ -215813,6 +215885,9 @@
             "type": "string",
             "description": "The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.",
             "nullable": true
+          },
+          "fractionalUnitsTrueUpConfiguration": {
+            "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
           },
           "links": {
             "type": "array",
@@ -217267,6 +217342,9 @@
             "description": "The cost figure that cost-referencing accounting methods evaluate when selecting tax lots for a disposal. This can be: Cost or AmortisedCost. Defaults to Cost if not specified. Supply Default to explicitly reset it; a reset or never-configured basis reads back as absent. Available values: Default, Cost, AmortisedCost.",
             "nullable": true
           },
+          "fractionalUnitsTrueUpConfiguration": {
+            "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -218016,6 +218094,10 @@
           },
           "mbsValuationUsingHoldingCurrentFace": {
             "type": "boolean"
+          },
+          "fixedIncomeValuationsUsingCurrentFace": {
+            "type": "boolean",
+            "description": "Scale holding-level fixed-income results by the holding's current face over the instrument's\r\nface per unit, rather than by the holding's traded units. Applies to Bond, ComplexBond and\r\nInflationLinkedBond. Defaults to false.\r\n            \r\nGoverns scaling basis only, and only for bonds outside the asset-backed family. An asset-backed\r\nbond keeps its own machinery and its own option, MbsValuationUsingHoldingCurrentFace: because a\r\ncurrent face is defined as poolFactor x contractSize x units, the two are the same arithmetic at\r\nthe contract size of 1 that convention recommends, so there is nothing for this option to add\r\nthere. Neither option implies the other.\r\n            \r\nTurning this on without supplying current-face data changes no published number: a holding with\r\nno current face scales by a quantity equal to its unit count. Numbers move only where a current\r\nface has been supplied, whether on a transaction or by a face-moving instrument event."
           },
           "convertSrsCashFlowsToPortfolioCurrency": {
             "type": "boolean",

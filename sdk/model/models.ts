@@ -562,6 +562,7 @@ export * from './flowConventionName';
 export * from './flowConventions';
 export * from './forwardRateAgreement';
 export * from './forwardRateAgreementAllOf';
+export * from './fractionalUnitsTrueUpConfiguration';
 export * from './fromRecipe';
 export * from './fund';
 export * from './fundA2BDataRecord';
@@ -2157,6 +2158,7 @@ import { FlowConventionName } from './flowConventionName';
 import { FlowConventions } from './flowConventions';
 import { ForwardRateAgreement } from './forwardRateAgreement';
 import { ForwardRateAgreementAllOf } from './forwardRateAgreementAllOf';
+import { FractionalUnitsTrueUpConfiguration } from './fractionalUnitsTrueUpConfiguration';
 import { FromRecipe } from './fromRecipe';
 import { Fund } from './fund';
 import { FundA2BDataRecord } from './fundA2BDataRecord';
@@ -4451,6 +4453,7 @@ let typeMap: {[index: string]: any} = {
     "FlowConventions": FlowConventions,
     "ForwardRateAgreement": ForwardRateAgreement,
     "ForwardRateAgreementAllOf": ForwardRateAgreementAllOf,
+    "FractionalUnitsTrueUpConfiguration": FractionalUnitsTrueUpConfiguration,
     "FromRecipe": FromRecipe,
     "Fund": Fund,
     "FundA2BDataRecord": FundA2BDataRecord,
