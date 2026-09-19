@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1657",
+    "version": "2.0.1658",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -149461,7 +149461,7 @@
           "Transaction Portfolios"
         ],
         "summary": "PatchPortfolioDetails: Patch portfolio details",
-        "description": "Create or update certain details for a particular transaction portfolio.\r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.\r\nThe behaviour is defined by the JSON Patch specification.\r\n\r\nCurrently supported fields are: BaseCurrency, AccountingMethod, SubHoldingKeys, AmortisationMethod, TransactionTypeScope, CashGainLossCalculationDate, InstrumentEventConfiguration, AmortisationRuleSetId, TaxRuleSetScope, SettlementConfiguration, TransactionExclusionFilter, TaxLotSelectionCostBasis, FractionalUnitsTrueUpConfiguration.",
+        "description": "Create or update certain details for a particular transaction portfolio.\r\nNote that not all elements of a transaction portfolio definition are\r\nmodifiable once it has been created due to the potential implications for data already stored.\r\nThe behaviour is defined by the JSON Patch specification.\r\n\r\nCurrently supported fields are: BaseCurrency, AccountingMethod, SubHoldingKeys, AmortisationMethod, TransactionTypeScope, CashGainLossCalculationDate, InstrumentEventConfiguration, AmortisationRuleSetId, TaxRuleSetScope, SettlementConfiguration, TransactionExclusionFilter, TaxLotSelectionCostBasis, FractionalUnitsTrueUpConfiguration, HoldingsFungibility.",
         "operationId": "PatchPortfolioDetails",
         "parameters": [
           {
@@ -182719,6 +182719,11 @@
           },
           "fractionalUnitsTrueUpConfiguration": {
             "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
+          },
+          "holdingsFungibility": {
+            "type": "string",
+            "description": "Whether the portfolio's holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -182736,6 +182741,11 @@
           },
           "fractionalUnitsTrueUpConfiguration": {
             "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
+          },
+          "holdingsFungibility": {
+            "type": "string",
+            "description": "Whether the portfolio's holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. If not supplied, the portfolio's current value is left unchanged; supply Default to reset it. A reset or never-configured flag reads back as absent. Available values: Default, Enabled.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -183686,6 +183696,11 @@
           },
           "fractionalUnitsTrueUpConfiguration": {
             "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
+          },
+          "holdingsFungibility": {
+            "type": "string",
+            "description": "Whether the portfolio's holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -215631,6 +215646,11 @@
           "fractionalUnitsTrueUpConfiguration": {
             "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
           },
+          "holdingsFungibility": {
+            "type": "string",
+            "description": "Whether the portfolio's holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled.",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -215888,6 +215908,11 @@
           },
           "fractionalUnitsTrueUpConfiguration": {
             "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
+          },
+          "holdingsFungibility": {
+            "type": "string",
+            "description": "Whether the portfolio's holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled.",
+            "nullable": true
           },
           "links": {
             "type": "array",
@@ -217344,6 +217369,11 @@
           },
           "fractionalUnitsTrueUpConfiguration": {
             "$ref": "#/components/schemas/FractionalUnitsTrueUpConfiguration"
+          },
+          "holdingsFungibility": {
+            "type": "string",
+            "description": "Whether the portfolio's holdings are fungible across the currencies of a currency group. This can be: Default or Enabled. Defaults to Default if not specified, which currently means holdings fungibility is not applied. Supply Default to explicitly reset it; a reset or never-configured flag reads back as absent. Available values: Default, Enabled.",
+            "nullable": true
           },
           "links": {
             "type": "array",
