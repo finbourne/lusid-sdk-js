@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1663",
+    "version": "2.0.1664",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -20612,6 +20612,12 @@
                       },
                       "DecimalParameter": {
                         "value": 0,
+                        "inclusiveBounds": false,
+                        "complianceParameterType": "DecimalComplianceParameter"
+                      },
+                      "InclusiveDecimalParameter": {
+                        "value": 0,
+                        "inclusiveBounds": true,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "StringParameter": {
@@ -20732,18 +20738,22 @@
                     "parameters": {
                       "UpperBound": {
                         "value": 15,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "LowerBound": {
                         "value": 0,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "UpperWarning": {
                         "value": 15,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "LowerWarning": {
                         "value": 0,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "Metric": {
@@ -20826,6 +20836,12 @@
                       },
                       "DecimalParameter": {
                         "value": 0,
+                        "inclusiveBounds": false,
+                        "complianceParameterType": "DecimalComplianceParameter"
+                      },
+                      "InclusiveDecimalParameter": {
+                        "value": 0,
+                        "inclusiveBounds": true,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "StringParameter": {
@@ -20946,18 +20962,22 @@
                     "parameters": {
                       "UpperBound": {
                         "value": 15,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "LowerBound": {
                         "value": 0,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "UpperWarning": {
                         "value": 15,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "LowerWarning": {
                         "value": 0,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "Metric": {
@@ -21040,6 +21060,12 @@
                       },
                       "DecimalParameter": {
                         "value": 0,
+                        "inclusiveBounds": false,
+                        "complianceParameterType": "DecimalComplianceParameter"
+                      },
+                      "InclusiveDecimalParameter": {
+                        "value": 0,
+                        "inclusiveBounds": true,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "StringParameter": {
@@ -21160,18 +21186,22 @@
                     "parameters": {
                       "UpperBound": {
                         "value": 15,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "LowerBound": {
                         "value": 0,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "UpperWarning": {
                         "value": 15,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "LowerWarning": {
                         "value": 0,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "Metric": {
@@ -21254,6 +21284,12 @@
                       },
                       "DecimalParameter": {
                         "value": 0,
+                        "inclusiveBounds": false,
+                        "complianceParameterType": "DecimalComplianceParameter"
+                      },
+                      "InclusiveDecimalParameter": {
+                        "value": 0,
+                        "inclusiveBounds": true,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "StringParameter": {
@@ -21374,18 +21410,22 @@
                     "parameters": {
                       "UpperBound": {
                         "value": 15,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "LowerBound": {
                         "value": 0,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "UpperWarning": {
                         "value": 15,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "LowerWarning": {
                         "value": 0,
+                        "inclusiveBounds": false,
                         "complianceParameterType": "DecimalComplianceParameter"
                       },
                       "Metric": {
@@ -21468,6 +21508,7 @@
                   "parameters": {
                     "UpperBound": {
                       "value": 30,
+                      "inclusiveBounds": false,
                       "complianceParameterType": "DecimalComplianceParameter"
                     }
                   },
@@ -21520,6 +21561,7 @@
                   "parameters": {
                     "UpperBound": {
                       "value": 30,
+                      "inclusiveBounds": false,
                       "complianceParameterType": "DecimalComplianceParameter"
                     }
                   },
@@ -21572,6 +21614,7 @@
                   "parameters": {
                     "UpperBound": {
                       "value": 30,
+                      "inclusiveBounds": false,
                       "complianceParameterType": "DecimalComplianceParameter"
                     }
                   },
@@ -21736,6 +21779,7 @@
                       "parameters": {
                         "UpperBound": {
                           "value": 30,
+                          "inclusiveBounds": false,
                           "complianceParameterType": "DecimalComplianceParameter"
                         }
                       },
@@ -21794,6 +21838,7 @@
                       "parameters": {
                         "UpperBound": {
                           "value": 30,
+                          "inclusiveBounds": false,
                           "complianceParameterType": "DecimalComplianceParameter"
                         }
                       },
@@ -21852,6 +21897,7 @@
                       "parameters": {
                         "UpperBound": {
                           "value": 30,
+                          "inclusiveBounds": false,
                           "complianceParameterType": "DecimalComplianceParameter"
                         }
                       },
@@ -22010,6 +22056,7 @@
                   "parameters": {
                     "UpperBound": {
                       "value": 30,
+                      "inclusiveBounds": false,
                       "complianceParameterType": "DecimalComplianceParameter"
                     }
                   },
@@ -22062,6 +22109,7 @@
                   "parameters": {
                     "UpperBound": {
                       "value": 30,
+                      "inclusiveBounds": false,
                       "complianceParameterType": "DecimalComplianceParameter"
                     }
                   },
@@ -22114,6 +22162,7 @@
                   "parameters": {
                     "UpperBound": {
                       "value": 30,
+                      "inclusiveBounds": false,
                       "complianceParameterType": "DecimalComplianceParameter"
                     }
                   },
@@ -80883,9 +80932,9 @@
                   },
                   "type": "Limit",
                   "limitPrice": 100,
-                  "stopPrice": 100,
                   "counterparty": "SomeCounterparty",
-                  "entryType": "Manual"
+                  "entryType": "Manual",
+                  "currency": "USD"
                 }
               }
             },
@@ -80913,9 +80962,9 @@
                   },
                   "type": "Limit",
                   "limitPrice": 100,
-                  "stopPrice": 100,
                   "counterparty": "SomeCounterparty",
-                  "entryType": "Manual"
+                  "entryType": "Manual",
+                  "currency": "USD"
                 }
               }
             },
@@ -80943,9 +80992,9 @@
                   },
                   "type": "Limit",
                   "limitPrice": 100,
-                  "stopPrice": 100,
                   "counterparty": "SomeCounterparty",
-                  "entryType": "Manual"
+                  "entryType": "Manual",
+                  "currency": "USD"
                 }
               }
             },
@@ -80973,9 +81022,9 @@
                   },
                   "type": "Limit",
                   "limitPrice": 100,
-                  "stopPrice": 100,
                   "counterparty": "SomeCounterparty",
-                  "entryType": "Manual"
+                  "entryType": "Manual",
+                  "currency": "USD"
                 }
               }
             }
@@ -168194,6 +168243,12 @@
           "dataModelMembership": {
             "$ref": "#/components/schemas/DataModelMembership"
           },
+          "direction": {
+            "type": "integer",
+            "description": "The direction of the allocation's side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved.",
+            "format": "int32",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -185959,6 +186014,10 @@
               "value": {
                 "type": "number",
                 "format": "double"
+              },
+              "inclusiveBounds": {
+                "type": "boolean",
+                "description": "Whether the bound is inclusive of the value; when true a candidate landing exactly on the bound satisfies it. Defaults to false (exclusive)."
               },
               "complianceParameterType": {
                 "enum": [
@@ -209653,6 +209712,12 @@
             "description": "The approval state of the order.",
             "nullable": true
           },
+          "direction": {
+            "type": "integer",
+            "description": "The direction of the order's side, derived from its transaction type at write time: 1 the side increases the position (longer), -1 it decreases it (shorter), null when no direction could be resolved.",
+            "format": "int32",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -209746,6 +209811,12 @@
             "minLength": 1,
             "type": "string",
             "description": "The overall approval state of a block, derived from approval of the block's orders. Available values: Pending, Rejected, Approved, Placed."
+          },
+          "derivedDirection": {
+            "type": "integer",
+            "description": "The overall direction of a block, derived from its orders' transaction types: 1 the block increases the position (longer), -1 it decreases it (shorter), 0 its orders net flat, null when no direction could be resolved (including unsolicited blocks).",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -215282,6 +215353,12 @@
           "dataModelMembership": {
             "$ref": "#/components/schemas/DataModelMembership"
           },
+          "direction": {
+            "type": "integer",
+            "description": "The direction of the placement's side, inherited at creation from its block's orders: 1 the side increases the position (longer), -1 it decreases it (shorter), 0 the block's orders net flat, null when no direction could be resolved.",
+            "format": "int32",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -215442,18 +215519,18 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
-            "description": "The type of this placement (Market, Limit, etc).",
+            "description": "Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type 'Market', and leaves the placement's prices as they are.",
             "nullable": true
           },
           "limitPrice": {
             "type": "number",
-            "description": "The optional price, as currency and amount, associated with this placement.",
+            "description": "Optionally updates the limit price of this placement, in the placement's limit price currency unless a currency is also specified. A price on a placement with no limit price currency is stored but not returned until a currency is supplied.",
             "format": "double",
             "nullable": true
           },
           "stopPrice": {
             "type": "number",
-            "description": "The optional price, as currency and amount, associated with this placement.",
+            "description": "Optionally updates the stop price of this placement, in the placement's stop price currency unless a currency is also specified. A price on a placement with no stop price currency is stored but not returned until a currency is supplied.",
             "format": "double",
             "nullable": true
           },
@@ -215475,10 +215552,17 @@
             "type": "string",
             "description": "Optionally specifies the entry type of this placement. Available values: Undecided, Manual, Direct, Ems, External.",
             "nullable": true
+          },
+          "currency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "description": "Optionally sets the ISO currency code of the placement's stop and/or limit price. Not permitted for a Market placement. For a value placement it must match the currency of the amount exactly, whether that amount is on the placement or in the update. When omitted, no currency checks are applied.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "A request to create or update a Placement."
+        "description": "A request to update a Placement."
       },
       "PnlJournalEntryLine": {
         "type": "object",
