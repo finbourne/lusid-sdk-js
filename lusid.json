@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1664",
+    "version": "2.0.1665",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -233056,6 +233056,11 @@
             "type": "number",
             "description": "The Minimum Order Increment\r\nMust be non-negative and defaults to 0 if not set.",
             "format": "double"
+          },
+          "priceQuotationType": {
+            "type": "string",
+            "description": "Conventional price quotation type of the instrument.\r\nWhether its quoted price excludes accrued interest (Clean) or includes it (Dirty).\r\nDefaults to Clean if not set.\r\n            \r\nSupported string (enumeration) values are: [Clean, Dirty]. Available values: Clean, Dirty.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
