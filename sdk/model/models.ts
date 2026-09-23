@@ -364,6 +364,8 @@ export * from './createTransactionFeeTypeRequest';
 export * from './createTransactionPortfolioRequest';
 export * from './createUnitDefinition';
 export * from './createValuationPointRequest';
+export * from './createWithholdingTaxDataset';
+export * from './createWithholdingTaxDatasetDefinitionsRequest';
 export * from './creditDefaultSwap';
 export * from './creditDefaultSwapAllOf';
 export * from './creditPremiumCashFlowEvent';
@@ -972,6 +974,8 @@ export * from './pagedResourceListOfValuationPointInstrument';
 export * from './pagedResourceListOfValuationPointOverview';
 export * from './pagedResourceListOfVersion';
 export * from './pagedResourceListOfVirtualRow';
+export * from './pagedResourceListOfWithholdingTaxConfiguration';
+export * from './pagedResourceListOfWithholdingTaxDataset';
 export * from './pariPassuEvent';
 export * from './pariPassuEventAllOf';
 export * from './partialClosureConstituent';
@@ -1296,6 +1300,7 @@ export * from './sellEntitlementElection';
 export * from './sequenceDefinition';
 export * from './seriesDefinition';
 export * from './seriesDefinitionRequest';
+export * from './seriesIdentifierField';
 export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
 export * from './setPersonIdentifiersRequest';
@@ -1387,6 +1392,8 @@ export * from './toBeAnnouncedOption';
 export * from './toBeAnnouncedOptionAllOf';
 export * from './totalReturnSwap';
 export * from './totalReturnSwapAllOf';
+export * from './totalReturnSwapCashFlowEvent';
+export * from './totalReturnSwapCashFlowEventAllOf';
 export * from './touch';
 export * from './tradingConventions';
 export * from './transaction';
@@ -1524,6 +1531,7 @@ export * from './upsertTransactionPropertiesResponse';
 export * from './upsertTranslationScriptRequest';
 export * from './upsertValuationPointRequest';
 export * from './upsertVirtualTransactionOverrideResponse';
+export * from './upsertWithholdingTaxConfigurationRequest';
 export * from './user';
 export * from './valuationPoint';
 export * from './valuationPointDataQueryParameters';
@@ -1577,6 +1585,10 @@ export * from './weekendMask';
 export * from './weightedInstrument';
 export * from './weightedInstrumentInLineLookupIdentifiers';
 export * from './weightedInstruments';
+export * from './withholdingTaxConfiguration';
+export * from './withholdingTaxDataset';
+export * from './withholdingTaxDatasetDefinitions';
+export * from './withholdingTaxValueSource';
 export * from './worthlessEvent';
 export * from './worthlessEventAllOf';
 export * from './yearMonthDay';
@@ -1960,6 +1972,8 @@ import { CreateTransactionFeeTypeRequest } from './createTransactionFeeTypeReque
 import { CreateTransactionPortfolioRequest } from './createTransactionPortfolioRequest';
 import { CreateUnitDefinition } from './createUnitDefinition';
 import { CreateValuationPointRequest } from './createValuationPointRequest';
+import { CreateWithholdingTaxDataset } from './createWithholdingTaxDataset';
+import { CreateWithholdingTaxDatasetDefinitionsRequest } from './createWithholdingTaxDatasetDefinitionsRequest';
 import { CreditDefaultSwap } from './creditDefaultSwap';
 import { CreditDefaultSwapAllOf } from './creditDefaultSwapAllOf';
 import { CreditPremiumCashFlowEvent } from './creditPremiumCashFlowEvent';
@@ -2568,6 +2582,8 @@ import { PagedResourceListOfValuationPointInstrument } from './pagedResourceList
 import { PagedResourceListOfValuationPointOverview } from './pagedResourceListOfValuationPointOverview';
 import { PagedResourceListOfVersion } from './pagedResourceListOfVersion';
 import { PagedResourceListOfVirtualRow } from './pagedResourceListOfVirtualRow';
+import { PagedResourceListOfWithholdingTaxConfiguration } from './pagedResourceListOfWithholdingTaxConfiguration';
+import { PagedResourceListOfWithholdingTaxDataset } from './pagedResourceListOfWithholdingTaxDataset';
 import { PariPassuEvent } from './pariPassuEvent';
 import { PariPassuEventAllOf } from './pariPassuEventAllOf';
 import { PartialClosureConstituent } from './partialClosureConstituent';
@@ -2892,6 +2908,7 @@ import { SellEntitlementElection } from './sellEntitlementElection';
 import { SequenceDefinition } from './sequenceDefinition';
 import { SeriesDefinition } from './seriesDefinition';
 import { SeriesDefinitionRequest } from './seriesDefinitionRequest';
+import { SeriesIdentifierField } from './seriesIdentifierField';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
 import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
@@ -2983,6 +3000,8 @@ import { ToBeAnnouncedOption } from './toBeAnnouncedOption';
 import { ToBeAnnouncedOptionAllOf } from './toBeAnnouncedOptionAllOf';
 import { TotalReturnSwap } from './totalReturnSwap';
 import { TotalReturnSwapAllOf } from './totalReturnSwapAllOf';
+import { TotalReturnSwapCashFlowEvent } from './totalReturnSwapCashFlowEvent';
+import { TotalReturnSwapCashFlowEventAllOf } from './totalReturnSwapCashFlowEventAllOf';
 import { Touch } from './touch';
 import { TradingConventions } from './tradingConventions';
 import { Transaction } from './transaction';
@@ -3120,6 +3139,7 @@ import { UpsertTransactionPropertiesResponse } from './upsertTransactionProperti
 import { UpsertTranslationScriptRequest } from './upsertTranslationScriptRequest';
 import { UpsertValuationPointRequest } from './upsertValuationPointRequest';
 import { UpsertVirtualTransactionOverrideResponse } from './upsertVirtualTransactionOverrideResponse';
+import { UpsertWithholdingTaxConfigurationRequest } from './upsertWithholdingTaxConfigurationRequest';
 import { User } from './user';
 import { ValuationPoint } from './valuationPoint';
 import { ValuationPointDataQueryParameters } from './valuationPointDataQueryParameters';
@@ -3173,6 +3193,10 @@ import { WeekendMask } from './weekendMask';
 import { WeightedInstrument } from './weightedInstrument';
 import { WeightedInstrumentInLineLookupIdentifiers } from './weightedInstrumentInLineLookupIdentifiers';
 import { WeightedInstruments } from './weightedInstruments';
+import { WithholdingTaxConfiguration } from './withholdingTaxConfiguration';
+import { WithholdingTaxDataset } from './withholdingTaxDataset';
+import { WithholdingTaxDatasetDefinitions } from './withholdingTaxDatasetDefinitions';
+import { WithholdingTaxValueSource } from './withholdingTaxValueSource';
 import { WorthlessEvent } from './worthlessEvent';
 import { WorthlessEventAllOf } from './worthlessEventAllOf';
 import { YearMonthDay } from './yearMonthDay';
@@ -3861,6 +3885,8 @@ let enumsMap: {[index: string]: any} = {
         "ToBeAnnouncedOptionAllOf.InstrumentTypeEnum": ToBeAnnouncedOptionAllOf.InstrumentTypeEnum,
         "TotalReturnSwap.InstrumentTypeEnum": TotalReturnSwap.InstrumentTypeEnum,
         "TotalReturnSwapAllOf.InstrumentTypeEnum": TotalReturnSwapAllOf.InstrumentTypeEnum,
+        "TotalReturnSwapCashFlowEvent.InstrumentEventTypeEnum": TotalReturnSwapCashFlowEvent.InstrumentEventTypeEnum,
+        "TotalReturnSwapCashFlowEventAllOf.InstrumentEventTypeEnum": TotalReturnSwapCashFlowEventAllOf.InstrumentEventTypeEnum,
         "Transaction.TransactionStatusEnum": Transaction.TransactionStatusEnum,
         "TransactionConfigurationMovementData.MovementTypesEnum": TransactionConfigurationMovementData.MovementTypesEnum,
         "TransactionConfigurationMovementDataRequest.MovementTypesEnum": TransactionConfigurationMovementDataRequest.MovementTypesEnum,
@@ -4256,6 +4282,8 @@ let typeMap: {[index: string]: any} = {
     "CreateTransactionPortfolioRequest": CreateTransactionPortfolioRequest,
     "CreateUnitDefinition": CreateUnitDefinition,
     "CreateValuationPointRequest": CreateValuationPointRequest,
+    "CreateWithholdingTaxDataset": CreateWithholdingTaxDataset,
+    "CreateWithholdingTaxDatasetDefinitionsRequest": CreateWithholdingTaxDatasetDefinitionsRequest,
     "CreditDefaultSwap": CreditDefaultSwap,
     "CreditDefaultSwapAllOf": CreditDefaultSwapAllOf,
     "CreditPremiumCashFlowEvent": CreditPremiumCashFlowEvent,
@@ -4863,6 +4891,8 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfValuationPointOverview": PagedResourceListOfValuationPointOverview,
     "PagedResourceListOfVersion": PagedResourceListOfVersion,
     "PagedResourceListOfVirtualRow": PagedResourceListOfVirtualRow,
+    "PagedResourceListOfWithholdingTaxConfiguration": PagedResourceListOfWithholdingTaxConfiguration,
+    "PagedResourceListOfWithholdingTaxDataset": PagedResourceListOfWithholdingTaxDataset,
     "PariPassuEvent": PariPassuEvent,
     "PariPassuEventAllOf": PariPassuEventAllOf,
     "PartialClosureConstituent": PartialClosureConstituent,
@@ -5187,6 +5217,7 @@ let typeMap: {[index: string]: any} = {
     "SequenceDefinition": SequenceDefinition,
     "SeriesDefinition": SeriesDefinition,
     "SeriesDefinitionRequest": SeriesDefinitionRequest,
+    "SeriesIdentifierField": SeriesIdentifierField,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
     "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
@@ -5278,6 +5309,8 @@ let typeMap: {[index: string]: any} = {
     "ToBeAnnouncedOptionAllOf": ToBeAnnouncedOptionAllOf,
     "TotalReturnSwap": TotalReturnSwap,
     "TotalReturnSwapAllOf": TotalReturnSwapAllOf,
+    "TotalReturnSwapCashFlowEvent": TotalReturnSwapCashFlowEvent,
+    "TotalReturnSwapCashFlowEventAllOf": TotalReturnSwapCashFlowEventAllOf,
     "Touch": Touch,
     "TradingConventions": TradingConventions,
     "Transaction": Transaction,
@@ -5415,6 +5448,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertTranslationScriptRequest": UpsertTranslationScriptRequest,
     "UpsertValuationPointRequest": UpsertValuationPointRequest,
     "UpsertVirtualTransactionOverrideResponse": UpsertVirtualTransactionOverrideResponse,
+    "UpsertWithholdingTaxConfigurationRequest": UpsertWithholdingTaxConfigurationRequest,
     "User": User,
     "ValuationPoint": ValuationPoint,
     "ValuationPointDataQueryParameters": ValuationPointDataQueryParameters,
@@ -5467,6 +5501,10 @@ let typeMap: {[index: string]: any} = {
     "WeightedInstrument": WeightedInstrument,
     "WeightedInstrumentInLineLookupIdentifiers": WeightedInstrumentInLineLookupIdentifiers,
     "WeightedInstruments": WeightedInstruments,
+    "WithholdingTaxConfiguration": WithholdingTaxConfiguration,
+    "WithholdingTaxDataset": WithholdingTaxDataset,
+    "WithholdingTaxDatasetDefinitions": WithholdingTaxDatasetDefinitions,
+    "WithholdingTaxValueSource": WithholdingTaxValueSource,
     "WorthlessEvent": WorthlessEvent,
     "WorthlessEventAllOf": WorthlessEventAllOf,
     "YearMonthDay": YearMonthDay,
