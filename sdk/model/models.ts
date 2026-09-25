@@ -283,11 +283,14 @@ export * from './complexMarketDataId';
 export * from './complianceParameter';
 export * from './complianceRuleBreakdown';
 export * from './complianceRuleBreakdownRequest';
+export * from './complianceRuleBreakdownWithContributions';
+export * from './complianceRuleContribution';
 export * from './complianceRuleEntity';
 export * from './complianceRuleResponse';
 export * from './complianceRuleResultDetail';
 export * from './complianceRuleResultPortfolioDetail';
 export * from './complianceRuleResultV2';
+export * from './complianceRuleResultV2WithContributions';
 export * from './complianceRuleTemplate';
 export * from './complianceRuleTemplateEntity';
 export * from './complianceRunConfiguration';
@@ -296,6 +299,7 @@ export * from './complianceStep';
 export * from './complianceStepRequest';
 export * from './complianceSummaryRuleResult';
 export * from './complianceSummaryRuleResultRequest';
+export * from './complianceSummaryRuleResultWithContributions';
 export * from './complianceTemplate';
 export * from './complianceTemplateParameter';
 export * from './complianceTemplateVariation';
@@ -1891,11 +1895,14 @@ import { ComplexMarketDataId } from './complexMarketDataId';
 import { ComplianceParameter } from './complianceParameter';
 import { ComplianceRuleBreakdown } from './complianceRuleBreakdown';
 import { ComplianceRuleBreakdownRequest } from './complianceRuleBreakdownRequest';
+import { ComplianceRuleBreakdownWithContributions } from './complianceRuleBreakdownWithContributions';
+import { ComplianceRuleContribution } from './complianceRuleContribution';
 import { ComplianceRuleEntity } from './complianceRuleEntity';
 import { ComplianceRuleResponse } from './complianceRuleResponse';
 import { ComplianceRuleResultDetail } from './complianceRuleResultDetail';
 import { ComplianceRuleResultPortfolioDetail } from './complianceRuleResultPortfolioDetail';
 import { ComplianceRuleResultV2 } from './complianceRuleResultV2';
+import { ComplianceRuleResultV2WithContributions } from './complianceRuleResultV2WithContributions';
 import { ComplianceRuleTemplate } from './complianceRuleTemplate';
 import { ComplianceRuleTemplateEntity } from './complianceRuleTemplateEntity';
 import { ComplianceRunConfiguration } from './complianceRunConfiguration';
@@ -1904,6 +1911,7 @@ import { ComplianceStep } from './complianceStep';
 import { ComplianceStepRequest } from './complianceStepRequest';
 import { ComplianceSummaryRuleResult } from './complianceSummaryRuleResult';
 import { ComplianceSummaryRuleResultRequest } from './complianceSummaryRuleResultRequest';
+import { ComplianceSummaryRuleResultWithContributions } from './complianceSummaryRuleResultWithContributions';
 import { ComplianceTemplate } from './complianceTemplate';
 import { ComplianceTemplateParameter } from './complianceTemplateParameter';
 import { ComplianceTemplateVariation } from './complianceTemplateVariation';
@@ -4201,11 +4209,14 @@ let typeMap: {[index: string]: any} = {
     "ComplianceParameter": ComplianceParameter,
     "ComplianceRuleBreakdown": ComplianceRuleBreakdown,
     "ComplianceRuleBreakdownRequest": ComplianceRuleBreakdownRequest,
+    "ComplianceRuleBreakdownWithContributions": ComplianceRuleBreakdownWithContributions,
+    "ComplianceRuleContribution": ComplianceRuleContribution,
     "ComplianceRuleEntity": ComplianceRuleEntity,
     "ComplianceRuleResponse": ComplianceRuleResponse,
     "ComplianceRuleResultDetail": ComplianceRuleResultDetail,
     "ComplianceRuleResultPortfolioDetail": ComplianceRuleResultPortfolioDetail,
     "ComplianceRuleResultV2": ComplianceRuleResultV2,
+    "ComplianceRuleResultV2WithContributions": ComplianceRuleResultV2WithContributions,
     "ComplianceRuleTemplate": ComplianceRuleTemplate,
     "ComplianceRuleTemplateEntity": ComplianceRuleTemplateEntity,
     "ComplianceRunConfiguration": ComplianceRunConfiguration,
@@ -4214,6 +4225,7 @@ let typeMap: {[index: string]: any} = {
     "ComplianceStepRequest": ComplianceStepRequest,
     "ComplianceSummaryRuleResult": ComplianceSummaryRuleResult,
     "ComplianceSummaryRuleResultRequest": ComplianceSummaryRuleResultRequest,
+    "ComplianceSummaryRuleResultWithContributions": ComplianceSummaryRuleResultWithContributions,
     "ComplianceTemplate": ComplianceTemplate,
     "ComplianceTemplateParameter": ComplianceTemplateParameter,
     "ComplianceTemplateVariation": ComplianceTemplateVariation,

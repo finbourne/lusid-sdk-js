@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1668",
+    "version": "2.0.1669",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -22619,6 +22619,454 @@
                   ],
                   "href": "https://myco.lusid.com/api/api/compliance/generic/runs/",
                   "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/compliance/runs/breakdown/{runScope}/{runCode}/{ruleScope}/{ruleCode}": {
+      "get": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EARLY ACCESS] GetComplianceRuleBreakdown: Get the position-level breakdown for a single rule of a compliance run.",
+        "description": "Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get the per-position contributions behind that rule's breakdown groups.",
+        "operationId": "GetComplianceRuleBreakdown",
+        "parameters": [
+          {
+            "name": "runScope",
+            "in": "path",
+            "description": "Required: Run Scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "runCode",
+            "in": "path",
+            "description": "Required: Run Code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "ruleScope",
+            "in": "path",
+            "description": "Required: Rule Scope.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "ruleCode",
+            "in": "path",
+            "description": "Required: Rule Code.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The position-level breakdown for the requested rule of a compliance run.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleResultV2WithContributions"
+                },
+                "example": {
+                  "runId": {
+                    "scope": "SomeScope",
+                    "code": "run-1"
+                  },
+                  "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
+                  "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                  "schedule": "PreTrade",
+                  "ruleResult": {
+                    "ruleId": {
+                      "scope": "SomeScope",
+                      "code": "rule-1"
+                    },
+                    "templateId": {
+                      "scope": "system",
+                      "code": "template-1"
+                    },
+                    "variation": "standard",
+                    "ruleStatus": "failed",
+                    "affectedPortfolios": [
+                      {
+                        "scope": "PortfolioScope",
+                        "code": "PortfolioCode"
+                      }
+                    ],
+                    "affectedOrders": [
+                      {
+                        "scope": "OrderScope",
+                        "code": "OrderCode"
+                      }
+                    ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
+                    "ruleBreakdown": [
+                      {
+                        "groupStatus": "failed",
+                        "resultsUsed": {
+                          "Valuation/PV": 650,
+                          "Exposure/PV": 650
+                        },
+                        "propertiesUsed": {
+                          "Instrument/data/Issuer": [
+                            {
+                              "key": "Instrument/data/Issuer",
+                              "value": {
+                                "labelValue": "ABC"
+                              }
+                            }
+                          ]
+                        },
+                        "missingDataInformation": [
+                          "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
+                          }
+                        ],
+                        "contributions": [
+                          {
+                            "index": 0,
+                            "portfolioId": {
+                              "scope": "PortfolioScope",
+                              "code": "PortfolioCode"
+                            },
+                            "instrument": "LUID_00003D5F",
+                            "instrumentType": "Bond",
+                            "holdingType": "P",
+                            "holdingId": "1234567890",
+                            "resultValues": {
+                              "Valuation/PV": 650
+                            },
+                            "properties": {
+                              "Instrument/data/Issuer": {
+                                "key": "Instrument/data/Issuer",
+                                "value": {
+                                  "labelValue": "ABC"
+                                }
+                              }
+                            },
+                            "relatedProperties": {
+                              "LegalEntity/data/LEI": "5493001KJTIIGC8Y1R12"
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "otherPositionsConsidered": []
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleResultV2WithContributions"
+                },
+                "example": {
+                  "runId": {
+                    "scope": "SomeScope",
+                    "code": "run-1"
+                  },
+                  "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
+                  "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                  "schedule": "PreTrade",
+                  "ruleResult": {
+                    "ruleId": {
+                      "scope": "SomeScope",
+                      "code": "rule-1"
+                    },
+                    "templateId": {
+                      "scope": "system",
+                      "code": "template-1"
+                    },
+                    "variation": "standard",
+                    "ruleStatus": "failed",
+                    "affectedPortfolios": [
+                      {
+                        "scope": "PortfolioScope",
+                        "code": "PortfolioCode"
+                      }
+                    ],
+                    "affectedOrders": [
+                      {
+                        "scope": "OrderScope",
+                        "code": "OrderCode"
+                      }
+                    ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
+                    "ruleBreakdown": [
+                      {
+                        "groupStatus": "failed",
+                        "resultsUsed": {
+                          "Valuation/PV": 650,
+                          "Exposure/PV": 650
+                        },
+                        "propertiesUsed": {
+                          "Instrument/data/Issuer": [
+                            {
+                              "key": "Instrument/data/Issuer",
+                              "value": {
+                                "labelValue": "ABC"
+                              }
+                            }
+                          ]
+                        },
+                        "missingDataInformation": [
+                          "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
+                          }
+                        ],
+                        "contributions": [
+                          {
+                            "index": 0,
+                            "portfolioId": {
+                              "scope": "PortfolioScope",
+                              "code": "PortfolioCode"
+                            },
+                            "instrument": "LUID_00003D5F",
+                            "instrumentType": "Bond",
+                            "holdingType": "P",
+                            "holdingId": "1234567890",
+                            "resultValues": {
+                              "Valuation/PV": 650
+                            },
+                            "properties": {
+                              "Instrument/data/Issuer": {
+                                "key": "Instrument/data/Issuer",
+                                "value": {
+                                  "labelValue": "ABC"
+                                }
+                              }
+                            },
+                            "relatedProperties": {
+                              "LegalEntity/data/LEI": "5493001KJTIIGC8Y1R12"
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "otherPositionsConsidered": []
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceRuleResultV2WithContributions"
+                },
+                "example": {
+                  "runId": {
+                    "scope": "SomeScope",
+                    "code": "run-1"
+                  },
+                  "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
+                  "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                  "schedule": "PreTrade",
+                  "ruleResult": {
+                    "ruleId": {
+                      "scope": "SomeScope",
+                      "code": "rule-1"
+                    },
+                    "templateId": {
+                      "scope": "system",
+                      "code": "template-1"
+                    },
+                    "variation": "standard",
+                    "ruleStatus": "failed",
+                    "affectedPortfolios": [
+                      {
+                        "scope": "PortfolioScope",
+                        "code": "PortfolioCode"
+                      }
+                    ],
+                    "affectedOrders": [
+                      {
+                        "scope": "OrderScope",
+                        "code": "OrderCode"
+                      }
+                    ],
+                    "parametersUsed": {
+                      "UpperBound": "30",
+                      "LowerBound": "0"
+                    },
+                    "ruleBreakdown": [
+                      {
+                        "groupStatus": "failed",
+                        "resultsUsed": {
+                          "Valuation/PV": 650,
+                          "Exposure/PV": 650
+                        },
+                        "propertiesUsed": {
+                          "Instrument/data/Issuer": [
+                            {
+                              "key": "Instrument/data/Issuer",
+                              "value": {
+                                "labelValue": "ABC"
+                              }
+                            }
+                          ]
+                        },
+                        "missingDataInformation": [
+                          "No Missing Data"
+                        ],
+                        "lineage": [
+                          {
+                            "index": 0,
+                            "label": "Initial",
+                            "subLabel": "Initial",
+                            "infoType": "",
+                            "information": ""
+                          },
+                          {
+                            "index": 1,
+                            "label": "Step1",
+                            "subLabel": "SomeStep1Information",
+                            "infoType": "",
+                            "information": ""
+                          },
+                          {
+                            "index": 2,
+                            "label": "Step2",
+                            "subLabel": "Step2",
+                            "infoType": "",
+                            "information": ""
+                          }
+                        ],
+                        "contributions": [
+                          {
+                            "index": 0,
+                            "portfolioId": {
+                              "scope": "PortfolioScope",
+                              "code": "PortfolioCode"
+                            },
+                            "instrument": "LUID_00003D5F",
+                            "instrumentType": "Bond",
+                            "holdingType": "P",
+                            "holdingId": "1234567890",
+                            "resultValues": {
+                              "Valuation/PV": 650
+                            },
+                            "properties": {
+                              "Instrument/data/Issuer": {
+                                "key": "Instrument/data/Issuer",
+                                "value": {
+                                  "labelValue": "ABC"
+                                }
+                              }
+                            },
+                            "relatedProperties": {
+                              "LegalEntity/data/LEI": "5493001KJTIIGC8Y1R12"
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "otherPositionsConsidered": []
+                  }
                 }
               }
             }
@@ -60456,7 +60904,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.",
-        "description": "Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,\r\nlooking back from inception. Settlement status is point-in-time: post-cutoff settlement\r\nactivity does not alter the result.\r\nThe Valuation Point must be identified either by the date or diaryEntry query parameters or by the\r\n'dateOrDiaryEntry' parameter in the request body; when both are supplied the query parameters are used.",
+        "description": "Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,\r\nlooking back from inception. Settlement status is point-in-time: post-cutoff settlement\r\nactivity does not alter the result.",
         "operationId": "GetValuationPointUnsettledTransactions",
         "parameters": [
           {
@@ -60539,41 +60987,10 @@
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string"
             }
-          },
-          {
-            "name": "date",
-            "in": "query",
-            "description": "The optional date of the Valuation Point to report against, as an alternative to supplying\r\n            it in the request body. Must not be supplied together with diaryEntry.",
-            "schema": {
-              "type": "string",
-              "format": "dateorcutlabel"
-            }
-          },
-          {
-            "name": "diaryEntry",
-            "in": "query",
-            "description": "The optional diary entry code of the Valuation Point to report against, as an\r\n            alternative to supplying it in the request body. Must not be supplied together with date.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "variant",
-            "in": "query",
-            "description": "The optional variant code of the Valuation Point to report against, as an alternative to\r\n            supplying it in the request body. Only required when it is necessary to choose between scenarios with multiple\r\n            estimates.",
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string"
-            }
           }
         ],
         "requestBody": {
-          "description": "The optional arguments to use for querying the unsettled transactions. Can be\r\n            omitted when the Valuation Point is identified by the date or diaryEntry query parameters.",
+          "description": "The arguments to use for querying the unsettled transactions.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -60615,7 +61032,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -172483,6 +172901,28 @@
                 "description": "Free-text detail: court, jurisdiction, trustee, plan reference. Optional.",
                 "nullable": true
               },
+              "paymentDate": {
+                "type": "string",
+                "description": "Settlement date of the cash leg. Required when a CashOfferElection is offered, and accepted\r\nbut unused otherwise — inbound ballot notifications populate a pay date on pure votes that\r\nsettle no cash.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "cashOfferElections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CashOfferElection"
+                },
+                "description": "One election per ballot option that pays cash, keyed \"{OptionNumber}-{OptionCode}\", for\r\nexample \"1-CASH\". Each election's CashOfferPrice is per eligible unit, not per 1000 of face.\r\nDefaults to an empty list.",
+                "nullable": true
+              },
+              "lapseElections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LapseElection"
+                },
+                "description": "One election per ballot option that pays nothing — consent granted with no fee, consent\r\ndenied, abstain, or no action — keyed \"{OptionNumber}-{OptionCode}\", for example \"6-NOAC\".\r\nKeys are free-form because a real ballot carries CONY twice and CONN twice. Defaults to an\r\nempty list.",
+                "nullable": true
+              },
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
@@ -172604,7 +173044,7 @@
             }
           }
         ],
-        "description": "A Bankruptcy (BRUP) event recording the legal status of a company unable to meet its financial\r\nobligations. Pure informational marker — generates no transactions and has no position impact."
+        "description": "A Bankruptcy (BRUP) event recording the legal status of a company unable to meet its financial\r\nobligations. With no elections it is a pure informational marker, generating no transactions and\r\nhaving no position impact. It may also carry a ballot: one CashOfferElection per option that pays\r\ncash and one LapseElection per option that pays nothing."
       },
       "Barrier": {
         "required": [
@@ -182587,6 +183027,139 @@
         },
         "additionalProperties": false
       },
+      "ComplianceRuleBreakdownWithContributions": {
+        "required": [
+          "contributions",
+          "groupStatus",
+          "lineage",
+          "missingDataInformation",
+          "propertiesUsed",
+          "resultsUsed"
+        ],
+        "type": "object",
+        "properties": {
+          "groupStatus": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The status of this subset of results."
+          },
+          "resultsUsed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double"
+            },
+            "description": "Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule."
+          },
+          "propertiesUsed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Property"
+              },
+              "nullable": true
+            },
+            "description": "Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule"
+          },
+          "missingDataInformation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of string information detailing data that was missing from contributions processed in this rule"
+          },
+          "lineage": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineageMember"
+            }
+          },
+          "contributions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceRuleContribution"
+            },
+            "description": "The per-position contributions aggregated into this rule breakdown group. Empty when the run\r\ngenuinely produced no contributions; a run with no recorded breakdown (e.g. one that predates\r\nthis feature) returns a 404 rather than this response."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComplianceRuleContribution": {
+        "required": [
+          "index",
+          "instrument",
+          "portfolioId",
+          "properties",
+          "relatedProperties",
+          "resultValues"
+        ],
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "The position of this contribution within the compliance run.",
+            "format": "int32"
+          },
+          "portfolioId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "orderId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "instrument": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string",
+            "description": "The LUSID instrument identifier (LUID) of the instrument for this contribution."
+          },
+          "instrumentType": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string",
+            "description": "Optional. The economic type of the instrument for this contribution.",
+            "nullable": true
+          },
+          "holdingType": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string",
+            "description": "Optional. The holding type of this contribution.",
+            "nullable": true
+          },
+          "holdingId": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string",
+            "description": "Optional. The internal holding identifier encoding the detail of what the holding includes.",
+            "nullable": true
+          },
+          "resultValues": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double"
+            },
+            "description": "Dictionary of AddressKey (as string) and their corresponding decimal valuation results for this contribution."
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "Dictionary of PropertyKey (as string) and their corresponding property for this contribution."
+          },
+          "relatedProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Dictionary of related property keys (as string) and their string values, read from related entities across a relationship."
+          }
+        },
+        "additionalProperties": false
+      },
       "ComplianceRuleEntity": {
         "required": [
           "entityUniqueId",
@@ -182831,6 +183404,38 @@
           },
           "ruleResult": {
             "$ref": "#/components/schemas/ComplianceSummaryRuleResult"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComplianceRuleResultV2WithContributions": {
+        "required": [
+          "completedAt",
+          "instigatedAt",
+          "ruleResult",
+          "runId",
+          "schedule"
+        ],
+        "type": "object",
+        "properties": {
+          "runId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "instigatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "schedule": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Available values: PreTrade, PostTrade, PreAndPostTrade."
+          },
+          "ruleResult": {
+            "$ref": "#/components/schemas/ComplianceSummaryRuleResultWithContributions"
           }
         },
         "additionalProperties": false
@@ -183166,6 +183771,69 @@
             "items": {
               "$ref": "#/components/schemas/ComplianceRuleBreakdownRequest"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComplianceSummaryRuleResultWithContributions": {
+        "required": [
+          "affectedOrders",
+          "affectedPortfolios",
+          "otherPositionsConsidered",
+          "parametersUsed",
+          "ruleBreakdown",
+          "ruleId",
+          "ruleStatus",
+          "templateId",
+          "variation"
+        ],
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "templateId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "variation": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "ruleStatus": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "affectedPortfolios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            }
+          },
+          "affectedOrders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            }
+          },
+          "parametersUsed": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "ruleBreakdown": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceRuleBreakdownWithContributions"
+            }
+          },
+          "otherPositionsConsidered": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceRuleContribution"
+            },
+            "description": "The rest of the basis the rule was measured against but did not directly evaluate — the positions in\r\nthe referenced/denominator (or initial) group that are not in the RuleBreakdown's\r\ncontributions. Together with those contributions this forms the whole basis, with no overlap, so a\r\nbreach can be explained against the full picture (e.g. the non-equity remainder behind an equity limit).\r\nEmpty when the rule evaluated everything it considered."
           }
         },
         "additionalProperties": false
@@ -193235,6 +193903,7 @@
                 "items": {
                   "$ref": "#/components/schemas/CashOfferElection"
                 },
+                "description": "List of possible CashOfferElections for this exchange offer event (CASH).\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- If ParticipationType is Mandatory, CashOfferElection is not permitted.\r\n\r\n- If ParticipationType is MandatoryWithChoices or Voluntary, at most one CashOfferElection may be supplied.\r\n\r\n- Exactly one election on the event must be the default, and at most one may be chosen.",
                 "nullable": true
               },
               "securityOfferElections": {
@@ -193242,6 +193911,7 @@
                 "items": {
                   "$ref": "#/components/schemas/SecurityOfferElection"
                 },
+                "description": "List of possible SecurityOfferElections for this exchange offer event (SECU).\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of SecurityOfferElections may be supplied.\r\n\r\n- A NewInstrument is required on the event when this list is non-empty.\r\n\r\n- Exactly one election on the event must be the default, and at most one may be chosen.\r\n\r\n- If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.",
                 "nullable": true
               },
               "mixedLotConstituentsElections": {
@@ -193249,6 +193919,7 @@
                 "items": {
                   "$ref": "#/components/schemas/MixedLotConstituentsElection"
                 },
+                "description": "List of possible MixedLotConstituentsElections for this exchange offer event.\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of MixedLotConstituentsElections may be supplied, up to a limit of 100 entries.\r\n\r\n- Exactly one election on the event must be the default, and at most one may be chosen.\r\n\r\n- If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.",
                 "nullable": true
               },
               "lapseElections": {
@@ -193256,6 +193927,7 @@
                 "items": {
                   "$ref": "#/components/schemas/LapseElection"
                 },
+                "description": "List of possible LapseElections for this exchange offer event (NOAC).\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- If ParticipationType is Mandatory, LapseElection is not permitted.\r\n\r\n- If ParticipationType is MandatoryWithChoices, any number of LapseElections may be supplied, but none of them may be the default.\r\n\r\n- If ParticipationType is Voluntary, at most one LapseElection may be supplied.",
                 "nullable": true
               },
               "cashAndSecurityOfferElections": {
@@ -193263,7 +193935,7 @@
                 "items": {
                   "$ref": "#/components/schemas/CashAndSecurityOfferElection"
                 },
-                "description": "List of possible CashAndSecurityOfferElections for this exchange offer event.",
+                "description": "List of possible CashAndSecurityOfferElections for this exchange offer event (CASE).\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of CashAndSecurityOfferElections may be supplied.\r\n\r\n- Exactly one election on the event must be the default, and at most one may be chosen.\r\n\r\n- If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.",
                 "nullable": true
               },
               "consentAndExchangeElections": {
@@ -193271,7 +193943,7 @@
                 "items": {
                   "$ref": "#/components/schemas/ConsentAndExchangeElection"
                 },
-                "description": "List of possible consent-and-exchange elections for this event (CTEN-style consent paired with the exchange).",
+                "description": "List of possible ConsentAndExchangeElections for this exchange offer event (CEXC).\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of ConsentAndExchangeElections may be supplied.\r\n\r\n- Exactly one election on the event must be the default, and at most one may be chosen.\r\n\r\n- If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.",
                 "nullable": true
               },
               "abstainElections": {
@@ -193279,7 +193951,7 @@
                 "items": {
                   "$ref": "#/components/schemas/AbstainElection"
                 },
-                "description": "List of possible abstain elections for this event (ABST) — decline to vote on the consent.",
+                "description": "List of possible AbstainElections for this exchange offer event (ABST).\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of AbstainElections may be supplied.\r\n\r\n- Exactly one election on the event must be the default, and at most one may be chosen.\r\n\r\n- If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.",
                 "nullable": true
               },
               "unknownProceedsElections": {
@@ -193287,7 +193959,7 @@
                 "items": {
                   "$ref": "#/components/schemas/UnknownProceedsElection"
                 },
-                "description": "List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.",
+                "description": "List of possible UnknownProceedsElections for this exchange offer event (UNKNOWN).\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of UnknownProceedsElections may be supplied.\r\n\r\n- Exactly one election on the event must be the default, and at most one may be chosen.\r\n\r\n- If ParticipationType is Mandatory, the event must carry exactly one election in total; if MandatoryWithChoices, at least two.",
                 "nullable": true
               },
               "minPieceSize": {
@@ -193444,7 +194116,8 @@
               }
             }
           }
-        ]
+        ],
+        "description": "Exchange Offer Event (EXOF)."
       },
       "ExchangeTradedOption": {
         "allOf": [
@@ -226115,21 +226788,21 @@
                 "items": {
                   "$ref": "#/components/schemas/CashOfferElection"
                 },
-                "description": "List of possible CashOfferElections for this event. Only 1 should be provided."
+                "description": "List of possible CashOfferElections for this event.\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of CashOfferElections may be supplied.\r\n\r\n- At most one election on the event may be the default, and at most one may be chosen."
               },
               "lapseElections": {
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/LapseElection"
                 },
-                "description": "List of possible LapseElections for this event. Only 1 should be provided.\r\nAllows the user to opt out of the offer."
+                "description": "List of possible LapseElections for this event. Allows the user to opt out of the offer.\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of LapseElections may be supplied.\r\n\r\n- At most one election on the event may be the default, and at most one may be chosen."
               },
               "tenderOfferElections": {
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/TenderOfferElection"
                 },
-                "description": "List of possible TenderOfferElections for this event. Only 1 should be provided."
+                "description": "List of possible TenderOfferElections for this event.\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of TenderOfferElections may be supplied.\r\n\r\n- At most one election on the event may be the default, and at most one may be chosen."
               },
               "prorationRate": {
                 "type": "number",
@@ -226172,7 +226845,7 @@
                 "items": {
                   "$ref": "#/components/schemas/ConsentAndTenderElection"
                 },
-                "description": "List of possible consent-and-tender elections for this event (CTEN) — tender the holding and grant consent together.",
+                "description": "List of possible consent-and-tender elections for this event (CTEN) — tender the holding and grant consent together.\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of ConsentAndTenderElections may be supplied.\r\n\r\n- At most one election on the event may be the default, and at most one may be chosen.",
                 "nullable": true
               },
               "consentGrantedElections": {
@@ -226180,7 +226853,7 @@
                 "items": {
                   "$ref": "#/components/schemas/ConsentGrantedElection"
                 },
-                "description": "List of possible consent-granted elections for this event (CONY) — vote in favour, optionally attracting a consent fee.",
+                "description": "List of possible consent-granted elections for this event (CONY) — vote in favour, optionally attracting a consent fee.\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of ConsentGrantedElections may be supplied.\r\n\r\n- At most one election on the event may be the default, and at most one may be chosen.",
                 "nullable": true
               },
               "consentDeniedElections": {
@@ -226188,7 +226861,7 @@
                 "items": {
                   "$ref": "#/components/schemas/ConsentDeniedElection"
                 },
-                "description": "List of possible consent-denied elections for this event (CONN) — vote against the proposal.",
+                "description": "List of possible consent-denied elections for this event (CONN) — vote against the proposal.\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of ConsentDeniedElections may be supplied.\r\n\r\n- At most one election on the event may be the default, and at most one may be chosen.",
                 "nullable": true
               },
               "abstainElections": {
@@ -226196,7 +226869,7 @@
                 "items": {
                   "$ref": "#/components/schemas/AbstainElection"
                 },
-                "description": "List of possible abstain elections for this event (ABST) — decline to vote on the consent.",
+                "description": "List of possible abstain elections for this event (ABST) — decline to vote on the consent.\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of AbstainElections may be supplied.\r\n\r\n- At most one election on the event may be the default, and at most one may be chosen.",
                 "nullable": true
               },
               "unknownProceedsElections": {
@@ -226204,7 +226877,7 @@
                 "items": {
                   "$ref": "#/components/schemas/UnknownProceedsElection"
                 },
-                "description": "List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.",
+                "description": "List of possible unknown-proceeds elections for this event (UNKNOWN) — the outturn is not yet known.\r\n\r\n- The event requires at least one election of any type.\r\n\r\n- Any number of UnknownProceedsElections may be supplied.\r\n\r\n- At most one election on the event may be the default, and at most one may be chosen.",
                 "nullable": true
               },
               "instrumentEventType": {
@@ -244630,6 +245303,10 @@
       "description": "Methods for querying data about entities"
     },
     {
+      "name": "Entity Resolvers",
+      "description": "Endpoints for managing the order in which identifiers are matched when resolving an entity"
+    },
+    {
       "name": "Executions",
       "description": "Methods for interacting with Executions. An Execution represents a market's fill of a street order. Executions are treated monotemporally; any updates are effective at the as-at time of update, and its not possible to make retroactive (or forward) changes."
     },
@@ -244917,6 +245594,7 @@
       "Data Types",
       "Derived Transaction Portfolios",
       "Entities",
+      "Entity Resolvers",
       "Executions",
       "Fee Types",
       "Fund Configuration",
