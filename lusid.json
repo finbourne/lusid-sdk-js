@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1669",
+    "version": "2.0.1670",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -59434,6 +59434,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "returnExcludedTransactions",
+            "in": "query",
+            "description": "Option to specify whether or not to include transactions excluded by the\r\n            NavType's TransactionExclusionFilter. Defaults to False if not specified.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-nullable": true
           }
         ],
         "requestBody": {
@@ -174950,10 +174959,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -175180,10 +175190,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -179963,10 +179974,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -184502,14 +184514,14 @@
           },
           {
             "required": [
-              "consentType",
               "instrumentEventType"
             ],
             "type": "object",
             "properties": {
               "consentType": {
                 "type": "string",
-                "description": "The type of consent solicitation.\r\n            \r\nSupported string (enumeration) values are: [ChangeInTerms, DueAndPayable]. Available values: ChangeInTerms, DueAndPayable."
+                "description": "The type of consent solicitation. Optional; omitting it records Unknown.\r\n            \r\nSupported string (enumeration) values are: [ChangeInTerms, DueAndPayable, Unknown]. Available values: ChangeInTerms, DueAndPayable, Unknown.",
+                "nullable": true
               },
               "recordDate": {
                 "type": "string",
@@ -192960,10 +192972,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -193293,10 +193306,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -196436,6 +196450,12 @@
                 "type": "string",
                 "description": "The domestic currency of the instrument."
               },
+              "parentFacility": {
+                "type": "string",
+                "description": "The parent loan facility of this loan if this loan is a contract on a facility.\r\nThis resolves to the facility's LusidInstrumentId, falling back to its ClientInternal identifier,\r\nand is null when the loan is not a contract on a facility.",
+                "nullable": true,
+                "readOnly": true
+              },
               "parentFacilityDetails": {
                 "type": "object",
                 "additionalProperties": {
@@ -196550,10 +196570,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -199449,10 +199470,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -201179,10 +201201,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -203563,10 +203586,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -203750,10 +203774,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -211652,10 +211677,11 @@
               "FlexibleLoanPricerOptions",
               "HullWhiteModelOptions",
               "BondLookupModelOptions",
-              "BondForwardModelOptions"
+              "BondForwardModelOptions",
+              "SimpleModelOptions"
             ],
             "type": "string",
-            "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+            "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
           }
         },
         "additionalProperties": false,
@@ -212262,6 +212288,14 @@
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The Transaction Template Scope used by the NavType."
+          },
+          "transactionExclusionFilter": {
+            "maxLength": 16384,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "Optional filter expression to exclude specific transactions from this NavType's derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -212379,6 +212413,14 @@
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The Transaction Template Scope used by the NavType."
+          },
+          "transactionExclusionFilter": {
+            "maxLength": 16384,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "Optional filter expression to exclude specific transactions from this NavType's derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -212605,10 +212647,11 @@
                   "FlexibleLoanPricerOptions",
                   "HullWhiteModelOptions",
                   "BondLookupModelOptions",
-                  "BondForwardModelOptions"
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
                 ],
                 "type": "string",
-                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions."
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
               }
             }
           }
@@ -219301,7 +219344,7 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
-            "description": "Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type 'Market', and leaves the placement's prices as they are.",
+            "description": "Optionally changes the type of this placement (Market, Limit, Stop, StopLimit, etc). A type change is permitted only when the associated block is of type 'Market'. Setting the type to 'Market' clears the placement's stop and limit prices; any other type change leaves them as they are.",
             "nullable": true
           },
           "limitPrice": {
@@ -233451,6 +233494,49 @@
           }
         ],
         "description": "LUSID representation of a Simple Instrument, used as a basic definition of a generic instrument.\r\nNo analytics can be obtained for this."
+      },
+      "SimpleModelOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ModelOptions"
+          },
+          {
+            "required": [
+              "modelOptionsType"
+            ],
+            "type": "object",
+            "properties": {
+              "assumeAccruedIsZero": {
+                "type": "boolean",
+                "description": "Disable calculation for accrued interest\r\nThe simple static pricer will attempt to calculate accrued interest where an instrument is present\r\nand the accrued is requested. This may no be what is desired. If the user is sure they just want lookup\r\npricing then they can disable the accrued interest calculation attempt.\r\nIf set, the override accrued will be used if given but the calculation for accrued will just return zero.\r\nThis will also disable requesting any required instrument dependencies (e.g. resets) that might be required\r\nto calculate accrued."
+              },
+              "priceIsParOffset": {
+                "type": "boolean",
+                "description": "Interpret the instrument's price quote as an offset from par rather than as a currency value for\r\none unit of notional. The unit value becomes (price - basis) / basis, so a quote at par gives a\r\nunit value of zero. The basis is taken from the quote's own scale factor, or 100 when the quote carries none.\r\nThis is not the treatment a bond price receives: a bond price is a proportion of par and scales\r\nits value, whereas here only the distance from par carries value.\r\nSupported for an interest rate swap only; setting it for any other instrument type fails the\r\nvaluation.\r\nQuotes provided must have a quote type of either Price or DirtyPrice. The resulting unit\r\nvalue is then the clean PV for a Price quote and the dirty PV for a DirtyPrice quote,\r\nwith accrued giving the other.\r\nThe quote must describe the swap as it is defined. The legs' pay and receive directions do not\r\nsign the value taken from the quote, so a swap booked the other way round is expected to be\r\nquoted the other side of par."
+              },
+              "modelOptionsType": {
+                "enum": [
+                  "Invalid",
+                  "OpaqueModelOptions",
+                  "EmptyModelOptions",
+                  "IndexModelOptions",
+                  "FxForwardModelOptions",
+                  "FundingLegModelOptions",
+                  "EquityModelOptions",
+                  "CdsModelOptions",
+                  "FlexibleLoanPricerOptions",
+                  "HullWhiteModelOptions",
+                  "BondLookupModelOptions",
+                  "BondForwardModelOptions",
+                  "SimpleModelOptions"
+                ],
+                "type": "string",
+                "description": "Available values: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, CdsModelOptions, FlexibleLoanPricerOptions, HullWhiteModelOptions, BondLookupModelOptions, BondForwardModelOptions, SimpleModelOptions."
+              }
+            }
+          }
+        ],
+        "description": "Model options for a minimal pricer, allowing accrued interest calculation to be disabled and\r\nthe price quote to be interpreted as an offset from par."
       },
       "SimpleRoundingConvention": {
         "type": "object",

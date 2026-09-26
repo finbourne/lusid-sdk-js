@@ -1338,6 +1338,8 @@ export * from './simpleCashFlowLoan';
 export * from './simpleCashFlowLoanAllOf';
 export * from './simpleInstrument';
 export * from './simpleInstrumentAllOf';
+export * from './simpleModelOptions';
+export * from './simpleModelOptionsAllOf';
 export * from './simpleRoundingConvention';
 export * from './singleValuationPointQueryParameters';
 export * from './specificHoldingPricingInfo';
@@ -2950,6 +2952,8 @@ import { SimpleCashFlowLoan } from './simpleCashFlowLoan';
 import { SimpleCashFlowLoanAllOf } from './simpleCashFlowLoanAllOf';
 import { SimpleInstrument } from './simpleInstrument';
 import { SimpleInstrumentAllOf } from './simpleInstrumentAllOf';
+import { SimpleModelOptions } from './simpleModelOptions';
+import { SimpleModelOptionsAllOf } from './simpleModelOptionsAllOf';
 import { SimpleRoundingConvention } from './simpleRoundingConvention';
 import { SingleValuationPointQueryParameters } from './singleValuationPointQueryParameters';
 import { SpecificHoldingPricingInfo } from './specificHoldingPricingInfo';
@@ -3863,6 +3867,8 @@ let enumsMap: {[index: string]: any} = {
         "SimpleInstrument.InstrumentTypeEnum": SimpleInstrument.InstrumentTypeEnum,
         "SimpleInstrumentAllOf.AssetClassEnum": SimpleInstrumentAllOf.AssetClassEnum,
         "SimpleInstrumentAllOf.InstrumentTypeEnum": SimpleInstrumentAllOf.InstrumentTypeEnum,
+        "SimpleModelOptions.ModelOptionsTypeEnum": SimpleModelOptions.ModelOptionsTypeEnum,
+        "SimpleModelOptionsAllOf.ModelOptionsTypeEnum": SimpleModelOptionsAllOf.ModelOptionsTypeEnum,
         "SpinOffEvent.InstrumentEventTypeEnum": SpinOffEvent.InstrumentEventTypeEnum,
         "StepSchedule.ScheduleTypeEnum": StepSchedule.ScheduleTypeEnum,
         "StepScheduleAllOf.ScheduleTypeEnum": StepScheduleAllOf.ScheduleTypeEnum,
@@ -5263,6 +5269,8 @@ let typeMap: {[index: string]: any} = {
     "SimpleCashFlowLoanAllOf": SimpleCashFlowLoanAllOf,
     "SimpleInstrument": SimpleInstrument,
     "SimpleInstrumentAllOf": SimpleInstrumentAllOf,
+    "SimpleModelOptions": SimpleModelOptions,
+    "SimpleModelOptionsAllOf": SimpleModelOptionsAllOf,
     "SimpleRoundingConvention": SimpleRoundingConvention,
     "SingleValuationPointQueryParameters": SingleValuationPointQueryParameters,
     "SpecificHoldingPricingInfo": SpecificHoldingPricingInfo,
