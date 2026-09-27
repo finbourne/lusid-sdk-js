@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1671",
+    "version": "2.0.1672",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -61662,7 +61662,8 @@
                   "code": "default"
                 },
                 "reportCurrency": "USD",
-                "excludeUnsettledTrades": false
+                "excludeUnsettledTrades": false,
+                "cashType": "SettleDate"
               }
             },
             "application/json": {
@@ -61687,7 +61688,8 @@
                   "code": "default"
                 },
                 "reportCurrency": "USD",
-                "excludeUnsettledTrades": false
+                "excludeUnsettledTrades": false,
+                "cashType": "SettleDate"
               }
             },
             "text/json": {
@@ -61712,7 +61714,8 @@
                   "code": "default"
                 },
                 "reportCurrency": "USD",
-                "excludeUnsettledTrades": false
+                "excludeUnsettledTrades": false,
+                "cashType": "SettleDate"
               }
             },
             "application/*+json": {
@@ -61737,7 +61740,8 @@
                   "code": "default"
                 },
                 "reportCurrency": "USD",
-                "excludeUnsettledTrades": false
+                "excludeUnsettledTrades": false,
+                "cashType": "SettleDate"
               }
             }
           }
@@ -178979,7 +178983,19 @@
           },
           "error": {
             "type": "string",
-            "description": "Only present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. When set, the amount is null rather than zero.",
+            "description": "Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the portfolio-currency FX lookup failed (see AmountInPortfolioCcy), in which case the base Amount remains populated and only AmountInPortfolioCcy and TradeToPortfolioRate are null.",
+            "nullable": true
+          },
+          "amountInPortfolioCcy": {
+            "type": "number",
+            "description": "The signed amount of the cashflow (see Amount), converted into the portfolio's base currency. Not present when the FX rate used to convert into the portfolio currency could not be resolved; see Error.",
+            "format": "double",
+            "nullable": true
+          },
+          "tradeToPortfolioRate": {
+            "type": "number",
+            "description": "The FX rate used to convert the cashflow amount into the portfolio's base currency, resolved at the cashflow's transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error.",
+            "format": "double",
             "nullable": true
           },
           "links": {
@@ -223903,6 +223919,11 @@
             },
             "description": "Optional ordered haircut rules applied to cashflow inflows; the first matching rule wins and a rule with no criteria acts as a catch-all. When supplied, each returned cashflow carries its gross amount, haircut fraction, net amount and the rule that was applied; with no rules those fields are omitted and the results are unchanged.",
             "nullable": true
+          },
+          "cashType": {
+            "type": "string",
+            "description": "Which date basis buckets cash flows: TradeDate uses each cash flow's transaction date, SettleDate (default) uses its payment date. The response's CashFlowDetail.PaymentDate reflects whichever basis was used. Available values: TradeDate, SettleDate.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -235058,7 +235079,7 @@
           },
           "subscriptionType": {
             "type": "string",
-            "description": "The kind of data the subscription streams (holdings or transactions), defaulting to holdings.\r\nAddress keys and byTaxLots are not valid for a transactions subscription. Available values: Holdings, Transactions.",
+            "description": "The kind of data the subscription streams, defaulting to holdings: before/after effects per\r\nholding (holdings), the transactions themselves (transactions), or each changed holding's\r\ncomplete current state (positions). Address keys and byTaxLots are not valid for a\r\ntransactions subscription. Available values: Holdings, Transactions, Positions.",
             "nullable": true
           },
           "startEffectiveAt": {
