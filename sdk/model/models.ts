@@ -333,6 +333,7 @@ export * from './conversionEvent';
 export * from './conversionEventAllOf';
 export * from './corporateAction';
 export * from './corporateActionSource';
+export * from './corporateActionSourceEntity';
 export * from './corporateActionTransition';
 export * from './corporateActionTransitionComponent';
 export * from './corporateActionTransitionComponentRequest';
@@ -1947,6 +1948,7 @@ import { ConversionEvent } from './conversionEvent';
 import { ConversionEventAllOf } from './conversionEventAllOf';
 import { CorporateAction } from './corporateAction';
 import { CorporateActionSource } from './corporateActionSource';
+import { CorporateActionSourceEntity } from './corporateActionSourceEntity';
 import { CorporateActionTransition } from './corporateActionTransition';
 import { CorporateActionTransitionComponent } from './corporateActionTransitionComponent';
 import { CorporateActionTransitionComponentRequest } from './corporateActionTransitionComponentRequest';
@@ -4265,6 +4267,7 @@ let typeMap: {[index: string]: any} = {
     "ConversionEventAllOf": ConversionEventAllOf,
     "CorporateAction": CorporateAction,
     "CorporateActionSource": CorporateActionSource,
+    "CorporateActionSourceEntity": CorporateActionSourceEntity,
     "CorporateActionTransition": CorporateActionTransition,
     "CorporateActionTransitionComponent": CorporateActionTransitionComponent,
     "CorporateActionTransitionComponentRequest": CorporateActionTransitionComponentRequest,

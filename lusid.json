@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1677",
+    "version": "2.0.1678",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -36228,6 +36228,110 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ComplianceRuleTemplateEntity"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/entities/corporateactionsources/{entityUniqueId}": {
+      "get": {
+        "tags": [
+          "Entities"
+        ],
+        "summary": "[EARLY ACCESS] GetCorporateActionSourceByEntityUniqueId: Get corporate action source by EntityUniqueId",
+        "description": "Retrieve the definition of a particular corporate action source.\r\n\r\nIf the corporate action source is deleted, this will return the state of the source immediately prior to deletion.",
+        "operationId": "GetCorporateActionSourceByEntityUniqueId",
+        "parameters": [
+          {
+            "name": "entityUniqueId",
+            "in": "path",
+            "description": "The universally unique identifier of the corporate action source.",
+            "required": true,
+            "schema": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[a-zA-Z0-9\\-]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the corporate action source. Defaults to returning the latest version of the corporate action source if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "previews",
+            "in": "query",
+            "description": "The ids of the staged modifications to be previewed in the response.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested corporate action source entity",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorporateActionSourceEntity"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorporateActionSourceEntity"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorporateActionSourceEntity"
                 }
               }
             }
@@ -178990,18 +179094,18 @@
           },
           "error": {
             "type": "string",
-            "description": "Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the portfolio-currency FX lookup failed (see AmountInPortfolioCcy), in which case the base Amount remains populated and only AmountInPortfolioCcy and TradeToPortfolioRate are null.",
+            "description": "Present when the cashflow could not be valued, for example because of missing market data: the valuation error, matching the CashflowError diagnostic reported by the QueryCashFlows endpoint. In that case the amount is null rather than zero. Error may also be set when only the report-currency FX lookup failed (see AmountInReportCurrency), in which case the base Amount remains populated and only AmountInReportCurrency and TradeToReportCurrencyRate are null.",
             "nullable": true
           },
-          "amountInPortfolioCcy": {
+          "amountInReportCurrency": {
             "type": "number",
-            "description": "The signed amount of the cashflow (see Amount), converted into the portfolio's base currency. Not present when the FX rate used to convert into the portfolio currency could not be resolved; see Error.",
+            "description": "The signed amount of the cashflow (see Amount), converted into the request's report currency (see QueryBucketCashFlowDrillDownRequest.ReportCurrency). Not present when the FX rate used to convert into the report currency could not be resolved; see Error.",
             "format": "double",
             "nullable": true
           },
-          "tradeToPortfolioRate": {
+          "tradeToReportCurrencyRate": {
             "type": "number",
-            "description": "The FX rate used to convert the cashflow amount into the portfolio's base currency, resolved at the cashflow's transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error.",
+            "description": "The FX rate used to convert the cashflow amount into the request's report currency, resolved at the cashflow's transaction (trade) date, not its payment date. Not present when the rate could not be resolved; see Error.",
             "format": "double",
             "nullable": true
           },
@@ -179890,7 +179994,7 @@
               },
               "isNonStandard": {
                 "type": "boolean",
-                "description": "By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment\r\nfrequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates\r\n(the 20th of March, June, September or December).\r\nIf IsNonStandard=true, the premium schedule uses the stated start and maturity dates and any payment\r\nfrequency is accepted. The payment dates roll back from the maturity, so a term that is not a whole\r\nnumber of payment periods has a short first period."
+                "description": "By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment\r\nfrequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates\r\n(the 20th of March, June, September or December).\r\nIf IsNonStandard=true, the premium schedule uses the stated start and maturity dates. The payment\r\nfrequency can be any whole number of days, weeks, months, quarters, half-years or years, for example\r\n1W, 1M or 4M. Term (T) and business-day (BD) frequencies are not accepted. The payment dates roll back\r\nfrom the maturity, so a term that is not a whole number of payment periods has a short first period."
               },
               "additionalPayments": {
                 "type": "array",
@@ -185533,6 +185637,9 @@
           "eventInheritance": {
             "$ref": "#/components/schemas/EventInheritance"
           },
+          "stagedModifications": {
+            "$ref": "#/components/schemas/StagedModificationsInfo"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -185543,6 +185650,81 @@
         },
         "additionalProperties": false,
         "description": "A corporate action source"
+      },
+      "CorporateActionSourceEntity": {
+        "required": [
+          "entityUniqueId",
+          "href",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri"
+          },
+          "entityUniqueId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The unique id of the entity."
+          },
+          "asAtVersionNumber": {
+            "type": "integer",
+            "description": "The integer version number for the entity (the entity was created at version 1)",
+            "format": "int32",
+            "nullable": true
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The status of the entity at the current time. Available values: Prevailing, Deleted, DoesNotExist."
+          },
+          "asAtDeleted": {
+            "type": "string",
+            "description": "The asAt datetime at which the entity was deleted.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "userIdDeleted": {
+            "type": "string",
+            "description": "The unique id of the user who deleted the entity.",
+            "nullable": true
+          },
+          "requestIdDeleted": {
+            "type": "string",
+            "description": "The unique request id of the command that deleted the entity.",
+            "nullable": true
+          },
+          "effectiveAtCreated": {
+            "type": "string",
+            "description": "The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "prevailingCorporateActionSource": {
+            "$ref": "#/components/schemas/CorporateActionSource"
+          },
+          "deletedCorporateActionSource": {
+            "$ref": "#/components/schemas/CorporateActionSource"
+          },
+          "previewedStatus": {
+            "type": "string",
+            "description": "The status of the previewed entity. Available values: Prevailing, Deleted, DoesNotExist.",
+            "nullable": true
+          },
+          "previewedCorporateActionSource": {
+            "$ref": "#/components/schemas/CorporateActionSource"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "CorporateActionTransition": {
         "type": "object",
@@ -187617,7 +187799,7 @@
               },
               "isNonStandard": {
                 "type": "boolean",
-                "description": "By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment\r\nfrequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates\r\n(the 20th of March, June, September or December).\r\nIf IsNonStandard=true, the premium schedule uses the stated start and maturity dates and any payment\r\nfrequency is accepted. The payment dates roll back from the maturity, so a term that is not a whole\r\nnumber of payment periods has a short first period."
+                "description": "By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment\r\nfrequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates\r\n(the 20th of March, June, September or December).\r\nIf IsNonStandard=true, the premium schedule uses the stated start and maturity dates. The payment\r\nfrequency can be any whole number of days, weeks, months, quarters, half-years or years, for example\r\n1W, 1M or 4M. Term (T) and business-day (BD) frequencies are not accepted. The payment dates roll back\r\nfrom the maturity, so a term that is not a whole number of payment periods has a short first period."
               },
               "protectionDetailSpecification": {
                 "$ref": "#/components/schemas/CdsProtectionDetailSpecification"
@@ -201294,6 +201476,12 @@
                 },
                 "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy), expressed in pips"
               },
+              "pipMultiplier": {
+                "type": "number",
+                "description": "Optional. The scaling factor applied to the pip rates to convert them into a forward rate adjustment,\r\nso that forwardRate = spotRate + pipRate * pipMultiplier. Must be strictly positive when supplied.\r\nWhen omitted, the market convention for the currency pair is used:\r\n0.01 when the foreign (quote) currency is JPY, and 0.0001 (the four-decimal-place convention of the major pairs) otherwise.",
+                "format": "double",
+                "nullable": true
+              },
               "lineage": {
                 "maxLength": 1024,
                 "minLength": 0,
@@ -201733,6 +201921,12 @@
                   "format": "double"
                 },
                 "description": "Rates provided for the fx forward (price in FgnCcy per unit of DomCcy), expressed in pips"
+              },
+              "pipMultiplier": {
+                "type": "number",
+                "description": "Optional. The scaling factor applied to the pip rates to convert them into a forward rate adjustment,\r\nso that forwardRate = spotRate + pipRate * pipMultiplier. Must be strictly positive when supplied.\r\nWhen omitted, the market convention for the currency pair is used:\r\n0.01 when the foreign (quote) currency is JPY, and 0.0001 (the four-decimal-place convention of the major pairs) otherwise.",
+                "format": "double",
+                "nullable": true
               },
               "lineage": {
                 "maxLength": 1024,
@@ -236972,7 +237166,7 @@
             }
           }
         ],
-        "description": "A swap in which one party makes payments based on leg rates (fixed or floating) while the other party makes payments based on the return of an underlying instrument.\r\nThe underlying instrument can be provided as an inline economic definition or as a reference instrument pointing to an already upserted instrument.\r\nA reference instrument in this case would consist of instrument scope, instrument id and instrument id type (ISIN, LUID etc.).\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see [How does LUSID handle instrument legs?](https://support.lusid.com/docs/how-does-lusid-handle-instrument-legs).\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | AssetLeg | Cash flows relating to the returns generated by the underlying instrument. |\r\n| 2 | FundingLeg | The funding leg of the swap. |\r\n| 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |"
+        "description": "A swap in which one party makes payments based on leg rates (fixed or floating) while the other party makes payments based on the return of an underlying instrument.\r\nThe underlying instrument can be provided as an inline economic definition or as a MasteredInstrument pointing to an already upserted instrument by its identifiers.\r\nThe older ReferenceInstrument pointer (instrument scope, id and id type) remains accepted for existing definitions but is deprecated in favour of the MasteredInstrument.\r\n            \r\nThis instrument has multiple legs, to see how legs are used in LUSID see [How does LUSID handle instrument legs?](https://support.lusid.com/docs/how-does-lusid-handle-instrument-legs).\r\n            \r\n| Leg Index | Leg Identifier | Description |\r\n| --------- | -------------- | ----------- |\r\n| 1 | AssetLeg | Cash flows relating to the returns generated by the underlying instrument. |\r\n| 2 | FundingLeg | The funding leg of the swap. |\r\n| 3 | AdditionalPayments | Cash flows relating to any additional payments (optional). |"
       },
       "TotalReturnSwapCashFlowEvent": {
         "allOf": [
