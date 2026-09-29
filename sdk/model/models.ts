@@ -424,6 +424,7 @@ export * from './decimalList';
 export * from './decimalListAllOf';
 export * from './decimalListComplianceParameter';
 export * from './decoratedComplianceRunSummary';
+export * from './decoratedComplianceRunSummaryRequest';
 export * from './deleteAccountsResponse';
 export * from './deleteCustodianAccountsResponse';
 export * from './deleteInstrumentPropertiesResponse';
@@ -2039,6 +2040,7 @@ import { DecimalList } from './decimalList';
 import { DecimalListAllOf } from './decimalListAllOf';
 import { DecimalListComplianceParameter } from './decimalListComplianceParameter';
 import { DecoratedComplianceRunSummary } from './decoratedComplianceRunSummary';
+import { DecoratedComplianceRunSummaryRequest } from './decoratedComplianceRunSummaryRequest';
 import { DeleteAccountsResponse } from './deleteAccountsResponse';
 import { DeleteCustodianAccountsResponse } from './deleteCustodianAccountsResponse';
 import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
@@ -4357,6 +4359,7 @@ let typeMap: {[index: string]: any} = {
     "DecimalListAllOf": DecimalListAllOf,
     "DecimalListComplianceParameter": DecimalListComplianceParameter,
     "DecoratedComplianceRunSummary": DecoratedComplianceRunSummary,
+    "DecoratedComplianceRunSummaryRequest": DecoratedComplianceRunSummaryRequest,
     "DeleteAccountsResponse": DeleteAccountsResponse,
     "DeleteCustodianAccountsResponse": DeleteCustodianAccountsResponse,
     "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,

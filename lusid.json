@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1678",
+    "version": "2.0.1679",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -23766,6 +23766,594 @@
                           ]
                         }
                       ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/compliance/runs/summary/$decorate": {
+      "post": {
+        "tags": [
+          "Compliance"
+        ],
+        "summary": "[EARLY ACCESS] GetFilteredDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run, optionally restricted to a set of portfolios or portfolio groups.",
+        "description": "Specify a run scope and code from a previously run compliance check to get an overview of result details.\r\nSupply an optional list of portfolios and/or portfolio groups to return only the rule results affecting them;\r\nportfolio groups are expanded to their member portfolios (including nested groups). An empty or omitted list\r\nreturns the full, unfiltered summary.",
+        "operationId": "GetFilteredDecoratedComplianceRunSummary",
+        "requestBody": {
+          "description": "The run to summarise, the optional portfolio/portfolio-group filter, and the property keys to decorate.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecoratedComplianceRunSummaryRequest"
+              },
+              "example": {
+                "runId": {
+                  "scope": "live",
+                  "code": "UCITS-2024-01"
+                },
+                "portfolioEntityIds": [
+                  {
+                    "scope": "myScope",
+                    "code": "myPortfolio",
+                    "portfolioEntityType": "SinglePortfolio"
+                  },
+                  {
+                    "scope": "myScope",
+                    "code": "myPortfolioGroup",
+                    "portfolioEntityType": "GroupPortfolio"
+                  }
+                ],
+                "propertyKeys": [
+                  "Compliance/live/UCITS"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecoratedComplianceRunSummaryRequest"
+              },
+              "example": {
+                "runId": {
+                  "scope": "live",
+                  "code": "UCITS-2024-01"
+                },
+                "portfolioEntityIds": [
+                  {
+                    "scope": "myScope",
+                    "code": "myPortfolio",
+                    "portfolioEntityType": "SinglePortfolio"
+                  },
+                  {
+                    "scope": "myScope",
+                    "code": "myPortfolioGroup",
+                    "portfolioEntityType": "GroupPortfolio"
+                  }
+                ],
+                "propertyKeys": [
+                  "Compliance/live/UCITS"
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecoratedComplianceRunSummaryRequest"
+              },
+              "example": {
+                "runId": {
+                  "scope": "live",
+                  "code": "UCITS-2024-01"
+                },
+                "portfolioEntityIds": [
+                  {
+                    "scope": "myScope",
+                    "code": "myPortfolio",
+                    "portfolioEntityType": "SinglePortfolio"
+                  },
+                  {
+                    "scope": "myScope",
+                    "code": "myPortfolioGroup",
+                    "portfolioEntityType": "GroupPortfolio"
+                  }
+                ],
+                "propertyKeys": [
+                  "Compliance/live/UCITS"
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecoratedComplianceRunSummaryRequest"
+              },
+              "example": {
+                "runId": {
+                  "scope": "live",
+                  "code": "UCITS-2024-01"
+                },
+                "portfolioEntityIds": [
+                  {
+                    "scope": "myScope",
+                    "code": "myPortfolio",
+                    "portfolioEntityType": "SinglePortfolio"
+                  },
+                  {
+                    "scope": "myScope",
+                    "code": "myPortfolioGroup",
+                    "portfolioEntityType": "GroupPortfolio"
+                  }
+                ],
+                "propertyKeys": [
+                  "Compliance/live/UCITS"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The requested compliance run details.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecoratedComplianceRunSummary"
+                },
+                "example": {
+                  "runId": {
+                    "scope": "MyScope",
+                    "code": "MyCode"
+                  },
+                  "details": [
+                    {
+                      "ruleId": {
+                        "scope": "MyRule",
+                        "code": "1"
+                      },
+                      "affectedPortfoliosDetails": [
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "1"
+                          },
+                          "name": "Portfolio1 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "2"
+                          },
+                          "name": "Portfolio2 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "3"
+                          },
+                          "name": "Portfolio3 Name"
+                        }
+                      ],
+                      "affectedOrders": [
+                        {
+                          "scope": "MyOrder",
+                          "code": "1"
+                        },
+                        {
+                          "scope": "MyOrder",
+                          "code": "1"
+                        }
+                      ],
+                      "templateId": {
+                        "scope": "system",
+                        "code": "SomeTemplate"
+                      },
+                      "templateDescription": "The template's description",
+                      "templateVariation": "standard",
+                      "status": "Failed",
+                      "ruleName": "Rule1 Name",
+                      "ruleDescription": "Rule1 Description",
+                      "outcome": "Rule failed: example reason"
+                    },
+                    {
+                      "ruleId": {
+                        "scope": "MyRule",
+                        "code": "2"
+                      },
+                      "affectedPortfoliosDetails": [
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "1"
+                          },
+                          "name": "Portfolio1 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "2"
+                          },
+                          "name": "Portfolio2 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "3"
+                          },
+                          "name": "Portfolio3 Name"
+                        }
+                      ],
+                      "affectedOrders": [],
+                      "templateId": {
+                        "scope": "system",
+                        "code": "SomeTemplate"
+                      },
+                      "templateDescription": "The template's description",
+                      "templateVariation": "standard",
+                      "status": "Passed",
+                      "ruleName": "Rule2 Name",
+                      "ruleDescription": "Rule2 Description",
+                      "outcome": "Rule passed"
+                    },
+                    {
+                      "ruleId": {
+                        "scope": "MyRule",
+                        "code": "3"
+                      },
+                      "affectedPortfoliosDetails": [
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "1"
+                          },
+                          "name": "Portfolio1 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "2"
+                          },
+                          "name": "Portfolio2 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "3"
+                          },
+                          "name": "Portfolio3 Name"
+                        }
+                      ],
+                      "affectedOrders": [],
+                      "templateId": {
+                        "scope": "system",
+                        "code": "SomeTemplate"
+                      },
+                      "templateDescription": "The template's description",
+                      "templateVariation": "standard",
+                      "status": "MissingData",
+                      "ruleName": "Rule3 Name",
+                      "ruleDescription": "Rule3 Description",
+                      "outcome": "Rule had missing data"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecoratedComplianceRunSummary"
+                },
+                "example": {
+                  "runId": {
+                    "scope": "MyScope",
+                    "code": "MyCode"
+                  },
+                  "details": [
+                    {
+                      "ruleId": {
+                        "scope": "MyRule",
+                        "code": "1"
+                      },
+                      "affectedPortfoliosDetails": [
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "1"
+                          },
+                          "name": "Portfolio1 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "2"
+                          },
+                          "name": "Portfolio2 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "3"
+                          },
+                          "name": "Portfolio3 Name"
+                        }
+                      ],
+                      "affectedOrders": [
+                        {
+                          "scope": "MyOrder",
+                          "code": "1"
+                        },
+                        {
+                          "scope": "MyOrder",
+                          "code": "1"
+                        }
+                      ],
+                      "templateId": {
+                        "scope": "system",
+                        "code": "SomeTemplate"
+                      },
+                      "templateDescription": "The template's description",
+                      "templateVariation": "standard",
+                      "status": "Failed",
+                      "ruleName": "Rule1 Name",
+                      "ruleDescription": "Rule1 Description",
+                      "outcome": "Rule failed: example reason"
+                    },
+                    {
+                      "ruleId": {
+                        "scope": "MyRule",
+                        "code": "2"
+                      },
+                      "affectedPortfoliosDetails": [
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "1"
+                          },
+                          "name": "Portfolio1 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "2"
+                          },
+                          "name": "Portfolio2 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "3"
+                          },
+                          "name": "Portfolio3 Name"
+                        }
+                      ],
+                      "affectedOrders": [],
+                      "templateId": {
+                        "scope": "system",
+                        "code": "SomeTemplate"
+                      },
+                      "templateDescription": "The template's description",
+                      "templateVariation": "standard",
+                      "status": "Passed",
+                      "ruleName": "Rule2 Name",
+                      "ruleDescription": "Rule2 Description",
+                      "outcome": "Rule passed"
+                    },
+                    {
+                      "ruleId": {
+                        "scope": "MyRule",
+                        "code": "3"
+                      },
+                      "affectedPortfoliosDetails": [
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "1"
+                          },
+                          "name": "Portfolio1 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "2"
+                          },
+                          "name": "Portfolio2 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "3"
+                          },
+                          "name": "Portfolio3 Name"
+                        }
+                      ],
+                      "affectedOrders": [],
+                      "templateId": {
+                        "scope": "system",
+                        "code": "SomeTemplate"
+                      },
+                      "templateDescription": "The template's description",
+                      "templateVariation": "standard",
+                      "status": "MissingData",
+                      "ruleName": "Rule3 Name",
+                      "ruleDescription": "Rule3 Description",
+                      "outcome": "Rule had missing data"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecoratedComplianceRunSummary"
+                },
+                "example": {
+                  "runId": {
+                    "scope": "MyScope",
+                    "code": "MyCode"
+                  },
+                  "details": [
+                    {
+                      "ruleId": {
+                        "scope": "MyRule",
+                        "code": "1"
+                      },
+                      "affectedPortfoliosDetails": [
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "1"
+                          },
+                          "name": "Portfolio1 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "2"
+                          },
+                          "name": "Portfolio2 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "3"
+                          },
+                          "name": "Portfolio3 Name"
+                        }
+                      ],
+                      "affectedOrders": [
+                        {
+                          "scope": "MyOrder",
+                          "code": "1"
+                        },
+                        {
+                          "scope": "MyOrder",
+                          "code": "1"
+                        }
+                      ],
+                      "templateId": {
+                        "scope": "system",
+                        "code": "SomeTemplate"
+                      },
+                      "templateDescription": "The template's description",
+                      "templateVariation": "standard",
+                      "status": "Failed",
+                      "ruleName": "Rule1 Name",
+                      "ruleDescription": "Rule1 Description",
+                      "outcome": "Rule failed: example reason"
+                    },
+                    {
+                      "ruleId": {
+                        "scope": "MyRule",
+                        "code": "2"
+                      },
+                      "affectedPortfoliosDetails": [
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "1"
+                          },
+                          "name": "Portfolio1 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "2"
+                          },
+                          "name": "Portfolio2 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "3"
+                          },
+                          "name": "Portfolio3 Name"
+                        }
+                      ],
+                      "affectedOrders": [],
+                      "templateId": {
+                        "scope": "system",
+                        "code": "SomeTemplate"
+                      },
+                      "templateDescription": "The template's description",
+                      "templateVariation": "standard",
+                      "status": "Passed",
+                      "ruleName": "Rule2 Name",
+                      "ruleDescription": "Rule2 Description",
+                      "outcome": "Rule passed"
+                    },
+                    {
+                      "ruleId": {
+                        "scope": "MyRule",
+                        "code": "3"
+                      },
+                      "affectedPortfoliosDetails": [
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "1"
+                          },
+                          "name": "Portfolio1 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "2"
+                          },
+                          "name": "Portfolio2 Name"
+                        },
+                        {
+                          "id": {
+                            "scope": "MyPortfolio",
+                            "code": "3"
+                          },
+                          "name": "Portfolio3 Name"
+                        }
+                      ],
+                      "affectedOrders": [],
+                      "templateId": {
+                        "scope": "system",
+                        "code": "SomeTemplate"
+                      },
+                      "templateDescription": "The template's description",
+                      "templateVariation": "standard",
+                      "status": "MissingData",
+                      "ruleName": "Rule3 Name",
+                      "ruleDescription": "Rule3 Description",
+                      "outcome": "Rule had missing data"
                     }
                   ]
                 }
@@ -52115,9 +52703,11 @@
                             "previousNavShareClassCurrency": 179999.98
                           }
                         ],
-                        "displayName": "Bucket Set Display Name"
+                        "displayName": "Bucket Set Display Name",
+                        "isBackfilled": false
                       }
-                    ]
+                    ],
+                    "isBackfilled": false
                   },
                   "latestValuationPoint": {
                     "href": "http://finbourne.com",
@@ -52283,9 +52873,11 @@
                             "previousNavShareClassCurrency": 179999.98
                           }
                         ],
-                        "displayName": "Bucket Set Display Name"
+                        "displayName": "Bucket Set Display Name",
+                        "isBackfilled": false
                       }
-                    ]
+                    ],
+                    "isBackfilled": false
                   }
                 }
               },
@@ -52459,9 +53051,11 @@
                             "previousNavShareClassCurrency": 179999.98
                           }
                         ],
-                        "displayName": "Bucket Set Display Name"
+                        "displayName": "Bucket Set Display Name",
+                        "isBackfilled": false
                       }
-                    ]
+                    ],
+                    "isBackfilled": false
                   },
                   "latestValuationPoint": {
                     "href": "http://finbourne.com",
@@ -52627,9 +53221,11 @@
                             "previousNavShareClassCurrency": 179999.98
                           }
                         ],
-                        "displayName": "Bucket Set Display Name"
+                        "displayName": "Bucket Set Display Name",
+                        "isBackfilled": false
                       }
-                    ]
+                    ],
+                    "isBackfilled": false
                   }
                 }
               },
@@ -52803,9 +53399,11 @@
                             "previousNavShareClassCurrency": 179999.98
                           }
                         ],
-                        "displayName": "Bucket Set Display Name"
+                        "displayName": "Bucket Set Display Name",
+                        "isBackfilled": false
                       }
-                    ]
+                    ],
+                    "isBackfilled": false
                   },
                   "latestValuationPoint": {
                     "href": "http://finbourne.com",
@@ -52971,9 +53569,11 @@
                             "previousNavShareClassCurrency": 179999.98
                           }
                         ],
-                        "displayName": "Bucket Set Display Name"
+                        "displayName": "Bucket Set Display Name",
+                        "isBackfilled": false
                       }
-                    ]
+                    ],
+                    "isBackfilled": false
                   }
                 }
               }
@@ -53537,9 +54137,11 @@
                           "previousNavShareClassCurrency": 179999.98
                         }
                       ],
-                      "displayName": "Bucket Set Display Name"
+                      "displayName": "Bucket Set Display Name",
+                      "isBackfilled": false
                     }
-                  ]
+                  ],
+                  "isBackfilled": false
                 }
               },
               "application/json": {
@@ -53710,9 +54312,11 @@
                           "previousNavShareClassCurrency": 179999.98
                         }
                       ],
-                      "displayName": "Bucket Set Display Name"
+                      "displayName": "Bucket Set Display Name",
+                      "isBackfilled": false
                     }
-                  ]
+                  ],
+                  "isBackfilled": false
                 }
               },
               "text/json": {
@@ -53883,9 +54487,11 @@
                           "previousNavShareClassCurrency": 179999.98
                         }
                       ],
-                      "displayName": "Bucket Set Display Name"
+                      "displayName": "Bucket Set Display Name",
+                      "isBackfilled": false
                     }
-                  ]
+                  ],
+                  "isBackfilled": false
                 }
               }
             }
@@ -54206,9 +54812,11 @@
                           "previousNavShareClassCurrency": 179999.98
                         }
                       ],
-                      "displayName": "Bucket Set Display Name"
+                      "displayName": "Bucket Set Display Name",
+                      "isBackfilled": false
                     }
-                  ]
+                  ],
+                  "isBackfilled": false
                 }
               },
               "application/json": {
@@ -54379,9 +54987,11 @@
                           "previousNavShareClassCurrency": 179999.98
                         }
                       ],
-                      "displayName": "Bucket Set Display Name"
+                      "displayName": "Bucket Set Display Name",
+                      "isBackfilled": false
                     }
-                  ]
+                  ],
+                  "isBackfilled": false
                 }
               },
               "text/json": {
@@ -54552,9 +55162,11 @@
                           "previousNavShareClassCurrency": 179999.98
                         }
                       ],
-                      "displayName": "Bucket Set Display Name"
+                      "displayName": "Bucket Set Display Name",
+                      "isBackfilled": false
                     }
-                  ]
+                  ],
+                  "isBackfilled": false
                 }
               }
             }
@@ -54853,9 +55465,11 @@
                           "previousNavShareClassCurrency": 179999.98
                         }
                       ],
-                      "displayName": "Bucket Set Display Name"
+                      "displayName": "Bucket Set Display Name",
+                      "isBackfilled": false
                     }
-                  ]
+                  ],
+                  "isBackfilled": false
                 }
               },
               "application/json": {
@@ -55026,9 +55640,11 @@
                           "previousNavShareClassCurrency": 179999.98
                         }
                       ],
-                      "displayName": "Bucket Set Display Name"
+                      "displayName": "Bucket Set Display Name",
+                      "isBackfilled": false
                     }
-                  ]
+                  ],
+                  "isBackfilled": false
                 }
               },
               "text/json": {
@@ -55199,9 +55815,11 @@
                           "previousNavShareClassCurrency": 179999.98
                         }
                       ],
-                      "displayName": "Bucket Set Display Name"
+                      "displayName": "Bucket Set Display Name",
+                      "isBackfilled": false
                     }
-                  ]
+                  ],
+                  "isBackfilled": false
                 }
               }
             }
@@ -175284,7 +175902,7 @@
             "properties": {
               "spreadAnchoredRisk": {
                 "type": "boolean",
-                "description": "Price the bond by discounting its own cashflows over its discounting curve at a constant\r\nspread, instead of marking it to its quoted price. Marking to a quote declares no curve\r\ndependency, so a lookup-priced bond reports no curve delta at all. In this mode the pricer\r\ndeclares both the discounting curve and a ZSpread quote for the instrument and prices off\r\nthem, so holding the spread fixed while the curve is perturbed produces the curve's delta.\r\nOff by default, as the mode changes both the declared dependencies and where the price\r\ncomes from."
+                "description": "Price the bond by discounting its own cashflows over its discounting curve at a constant\r\nspread, instead of marking it to its quoted price. Marking to a quote declares no curve\r\ndependency, so a lookup-priced bond reports no curve delta at all. In this mode the pricer\r\ndeclares both the discounting curve and a ZSpread quote for the instrument and prices off\r\nthem, so holding the spread fixed while the curve is perturbed produces the curve's delta.\r\nThe anchor may also be served as a per-instrument CreditSpreadCurve complex market data\r\ndocument (rule key Credit.CreditSpreadCurve[.IdentifierType], market asset\r\nCreditSpreadCurve/<identifier>), which takes precedence over the quote when present.\r\nOnly the spread at the bond's maturity is read off it; the document's recoveryRate is not\r\nused by this pricer.\r\nOff by default, as the mode changes both the declared dependencies and where the price\r\ncomes from."
               },
               "cs01BumpWidth": {
                 "type": "number",
@@ -176764,6 +177382,10 @@
             "type": "string",
             "description": "The display name of the bucket set, as configured on the fund configuration.",
             "nullable": true
+          },
+          "isBackfilled": {
+            "type": "boolean",
+            "description": "Set to True if this bucket set was backfilled from fund inception at this valuation point, because the previous valuation point has no results for it. Its values then hold the whole history, and its previous cumulative values are zero. False otherwise."
           }
         },
         "additionalProperties": false,
@@ -190028,6 +190650,34 @@
         },
         "additionalProperties": false
       },
+      "DecoratedComplianceRunSummaryRequest": {
+        "required": [
+          "runId"
+        ],
+        "type": "object",
+        "properties": {
+          "runId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "portfolioEntityIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioEntityId"
+            },
+            "nullable": true
+          },
+          "propertyKeys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Specification for retrieving a decorated compliance run summary, optionally restricted to a\r\nset of portfolios and/or portfolio groups."
+      },
       "DeleteAccountsResponse": {
         "type": "object",
         "properties": {
@@ -195430,7 +196080,7 @@
           },
           "calculationBase": {
             "type": "number",
-            "description": "The result of the evaluating the fee's calculation base expression.",
+            "description": "The basis the annual accrual derives from: the result of evaluating the fee's calculation base expression, or the configured annual amount for a fixed-amount fee.",
             "format": "double"
           },
           "amount": {
@@ -204663,6 +205313,30 @@
               "stubType": {
                 "type": "string",
                 "description": "StubType. Most Inflation linked bonds have a ShortFront stub type so this is the default, however in some cases\r\nwith a long front stub LongFront should be selected.\r\nStubType Both is not supported for InflationLinkedBonds.\r\n\r\nSupported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both].",
+                "nullable": true
+              },
+              "firstCouponPayDate": {
+                "type": "string",
+                "description": "Optional. The date on which the first coupon is paid. Set this date for an irregular first coupon period.\r\nIf this date is an adjusted date, also set SecondPeriodStartDate.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "secondPeriodStartDate": {
+                "type": "string",
+                "description": "Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.\r\nSet this date together with FirstCouponPayDate when the first coupon pay date is an adjusted date.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "penultimateCouponPayDate": {
+                "type": "string",
+                "description": "Optional. The date on which the penultimate coupon is paid. Set this date for an irregular last coupon period.\r\nIf this date is an adjusted date, also set LastPeriodStartDate.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "lastPeriodStartDate": {
+                "type": "string",
+                "description": "Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.\r\nSet this date together with PenultimateCouponPayDate when the penultimate coupon pay date is an adjusted date.",
+                "format": "date-time",
                 "nullable": true
               },
               "roundingConventions": {
@@ -242902,6 +243576,10 @@
           "stagedModifications": {
             "$ref": "#/components/schemas/StagedModificationsInfo"
           },
+          "isBackfilled": {
+            "type": "boolean",
+            "description": "Set to True if the Valuation Point has backfilled bucket set results, False otherwise."
+          },
           "links": {
             "type": "array",
             "items": {
@@ -245881,7 +246559,7 @@
     },
     {
       "name": "Transfers",
-      "description": "Methods for creating transfers: paired transaction legs that move a position between portfolios, exchange one instrument for another within a portfolio, or do both at once."
+      "description": "Methods for managing transfers: paired transaction legs that move a position between portfolios, exchange one instrument for another within a portfolio, or do both at once."
     },
     {
       "name": "Translation",
