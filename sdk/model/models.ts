@@ -1593,6 +1593,8 @@ export * from './weekendMask';
 export * from './weightedInstrument';
 export * from './weightedInstrumentInLineLookupIdentifiers';
 export * from './weightedInstruments';
+export * from './wholeLoanFacility';
+export * from './wholeLoanFacilityAllOf';
 export * from './withholdingTaxConfiguration';
 export * from './withholdingTaxDataset';
 export * from './withholdingTaxDatasetDefinitions';
@@ -3209,6 +3211,8 @@ import { WeekendMask } from './weekendMask';
 import { WeightedInstrument } from './weightedInstrument';
 import { WeightedInstrumentInLineLookupIdentifiers } from './weightedInstrumentInLineLookupIdentifiers';
 import { WeightedInstruments } from './weightedInstruments';
+import { WholeLoanFacility } from './wholeLoanFacility';
+import { WholeLoanFacilityAllOf } from './wholeLoanFacilityAllOf';
 import { WithholdingTaxConfiguration } from './withholdingTaxConfiguration';
 import { WithholdingTaxDataset } from './withholdingTaxDataset';
 import { WithholdingTaxDatasetDefinitions } from './withholdingTaxDatasetDefinitions';
@@ -3929,6 +3933,8 @@ let enumsMap: {[index: string]: any} = {
         "VolatilitySwapAllOf.InstrumentTypeEnum": VolatilitySwapAllOf.InstrumentTypeEnum,
         "WarrantsExerciseEvent.InstrumentEventTypeEnum": WarrantsExerciseEvent.InstrumentEventTypeEnum,
         "WarrantsExerciseEventAllOf.InstrumentEventTypeEnum": WarrantsExerciseEventAllOf.InstrumentEventTypeEnum,
+        "WholeLoanFacility.InstrumentTypeEnum": WholeLoanFacility.InstrumentTypeEnum,
+        "WholeLoanFacilityAllOf.InstrumentTypeEnum": WholeLoanFacilityAllOf.InstrumentTypeEnum,
         "WorthlessEvent.InstrumentEventTypeEnum": WorthlessEvent.InstrumentEventTypeEnum,
         "WorthlessEventAllOf.InstrumentEventTypeEnum": WorthlessEventAllOf.InstrumentEventTypeEnum,
         "YieldCurveData.MarketDataTypeEnum": YieldCurveData.MarketDataTypeEnum,
@@ -5527,6 +5533,8 @@ let typeMap: {[index: string]: any} = {
     "WeightedInstrument": WeightedInstrument,
     "WeightedInstrumentInLineLookupIdentifiers": WeightedInstrumentInLineLookupIdentifiers,
     "WeightedInstruments": WeightedInstruments,
+    "WholeLoanFacility": WholeLoanFacility,
+    "WholeLoanFacilityAllOf": WholeLoanFacilityAllOf,
     "WithholdingTaxConfiguration": WithholdingTaxConfiguration,
     "WithholdingTaxDataset": WithholdingTaxDataset,
     "WithholdingTaxDatasetDefinitions": WithholdingTaxDatasetDefinitions,
