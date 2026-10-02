@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1681",
+    "version": "2.0.1682",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -158562,11 +158562,13 @@
                           "Instrument/default/Figi": "BBG000C6K6G9",
                           "Instrument/default/Isin": "GB00BH4HKS39"
                         },
+                        "status": "Orphan",
                         "isActive": true,
                         "version": {
                           "effectiveFrom": "2023-03-05T00:00:00.0000000+00:00",
                           "asAtDate": "2023-03-04T23:50:00.0000000+00:00"
-                        }
+                        },
+                        "problemCode": "TransactionNotFound"
                       }
                     }
                   ],
@@ -158721,11 +158723,13 @@
                           "Instrument/default/Figi": "BBG000C6K6G9",
                           "Instrument/default/Isin": "GB00BH4HKS39"
                         },
+                        "status": "Orphan",
                         "isActive": true,
                         "version": {
                           "effectiveFrom": "2023-03-05T00:00:00.0000000+00:00",
                           "asAtDate": "2023-03-04T23:50:00.0000000+00:00"
-                        }
+                        },
+                        "problemCode": "TransactionNotFound"
                       }
                     }
                   ],
@@ -158880,11 +158884,13 @@
                           "Instrument/default/Figi": "BBG000C6K6G9",
                           "Instrument/default/Isin": "GB00BH4HKS39"
                         },
+                        "status": "Orphan",
                         "isActive": true,
                         "version": {
                           "effectiveFrom": "2023-03-05T00:00:00.0000000+00:00",
                           "asAtDate": "2023-03-04T23:50:00.0000000+00:00"
-                        }
+                        },
+                        "problemCode": "TransactionNotFound"
                       }
                     }
                   ],
@@ -204452,6 +204458,12 @@
                 "format": "int32",
                 "nullable": true
               },
+              "maxLatticeNodes": {
+                "type": "integer",
+                "description": "A ceiling on the lattice size, counted as (steps + 1) x rate levels, that the pricer may\r\nbuild for one instrument. An instrument whose lattice would exceed it is declined by the\r\nmodel before any allocation, so the cost of a long-dated or finely-stepped row can be\r\nbounded. Must be at least 1 when supplied. Absent, no ceiling applies.",
+                "format": "int32",
+                "nullable": true
+              },
               "modelOptionsType": {
                 "enum": [
                   "Invalid",
@@ -239397,6 +239409,11 @@
           },
           "version": {
             "$ref": "#/components/schemas/Version"
+          },
+          "problemCode": {
+            "type": "string",
+            "description": "Why the settlement instruction was not applied. Set only when the status is Invalid, Orphan or Rejected.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -245908,7 +245925,7 @@
             }
           }
         ],
-        "description": "Whole Loan Facility. A loan facility wholly funded by a single lender: it shares the contractual terms of a\r\nLoanFacility, but ownership is not shared pro-rata across investors. Like a LoanFacility, this is a lightweight\r\ninstrument; the state of the facility is carried by the holding rather than by the instrument itself."
+        "description": "Whole Loan Facility. A loan facility wholly funded by a single lender: it shares the contractual terms, schedules\r\nand instrument events of a LoanFacility, but ownership is not shared pro-rata across investors, and it is valued\r\nat par rather than from a price quote. Like a LoanFacility, this is a lightweight instrument which acts as a\r\nplaceholder for the state that is built from the instrument events, with its contracts modelled via FlexibleLoan\r\ninstruments in LUSID."
       },
       "WithholdingTaxConfiguration": {
         "required": [
