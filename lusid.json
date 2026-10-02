@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1680",
+    "version": "2.0.1681",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -169527,7 +169527,7 @@
           "Withholding Tax"
         ],
         "summary": "[EARLY ACCESS] PatchWithholdingTaxDatasetDefinition: Patch a Withholding Tax dataset definition.",
-        "description": "Amend one Withholding Tax relational dataset definition, adding a matching dimension being the common case.\r\nSubject to the platform's own rules on what may be changed on a populated dataset.\r\n            \r\nOnly the matching dimensions the document addresses are affected; a dimension it does not address is left as\r\nit is. Append a dimension with an add on \"/dimensions/-\", and amend one in place with an add on its index.\r\n            \r\nA dimension whose name collides with a mandatory core field is rejected, as is any attempt to add a rate tier:\r\nthe tier set is fixed at four and cannot be extended by schema evolution, because the engine could never read\r\na tier it does not know by name. The mandatory core is not addressable by this endpoint at all.\r\n            \r\nThe amended dataset is returned in the same shape the get and the list return: the matching dimensions alone.\r\nRead the full field schema from the relational dataset definition at the returned href.\r\nThe behaviour is defined by the JSON Patch specification.\r\n\r\nCurrently supported fields are: Dimensions.",
+        "description": "Amend one Withholding Tax relational dataset definition, adding a matching dimension being the common case.\r\nSubject to the platform's own rules on what may be changed on a populated dataset.\r\n            \r\nOnly the matching dimensions the document addresses are affected; a dimension it does not address is left as\r\nit is. Append a dimension with an add on \"/dimensions/-\", insert one at a position with an add on its index,\r\nand remove one with a remove on its index. To amend a dimension, remove it and add it again.\r\n            \r\nA dimension whose name collides with a mandatory core field is rejected, as is any attempt to add a rate tier:\r\nthe tier set is fixed at four and cannot be extended by schema evolution, because the engine could never read\r\na tier it does not know by name. The mandatory core is not addressable by this endpoint at all.\r\n            \r\nThe amended dataset is returned in the same shape the get and the list return: the matching dimensions alone.\r\nRead the full field schema from the relational dataset definition at the returned href.\r\nThe behaviour is defined by the JSON Patch specification.\r\n\r\nCurrently supported fields are: Dimensions.",
         "operationId": "PatchWithholdingTaxDatasetDefinition",
         "parameters": [
           {
@@ -169578,19 +169578,6 @@
                   },
                   "path": "/dimensions/-",
                   "op": "add"
-                },
-                {
-                  "value": {
-                    "fieldName": "custodian",
-                    "displayName": "Custodian",
-                    "description": "The custodian holding the position the rate row applies to.",
-                    "dataTypeId": {
-                      "scope": "system",
-                      "code": "string"
-                    }
-                  },
-                  "path": "/dimensions/1",
-                  "op": "add"
                 }
               ]
             },
@@ -169613,19 +169600,6 @@
                     }
                   },
                   "path": "/dimensions/-",
-                  "op": "add"
-                },
-                {
-                  "value": {
-                    "fieldName": "custodian",
-                    "displayName": "Custodian",
-                    "description": "The custodian holding the position the rate row applies to.",
-                    "dataTypeId": {
-                      "scope": "system",
-                      "code": "string"
-                    }
-                  },
-                  "path": "/dimensions/1",
                   "op": "add"
                 }
               ]
@@ -169650,19 +169624,6 @@
                   },
                   "path": "/dimensions/-",
                   "op": "add"
-                },
-                {
-                  "value": {
-                    "fieldName": "custodian",
-                    "displayName": "Custodian",
-                    "description": "The custodian holding the position the rate row applies to.",
-                    "dataTypeId": {
-                      "scope": "system",
-                      "code": "string"
-                    }
-                  },
-                  "path": "/dimensions/1",
-                  "op": "add"
                 }
               ]
             },
@@ -169685,19 +169646,6 @@
                     }
                   },
                   "path": "/dimensions/-",
-                  "op": "add"
-                },
-                {
-                  "value": {
-                    "fieldName": "custodian",
-                    "displayName": "Custodian",
-                    "description": "The custodian holding the position the rate row applies to.",
-                    "dataTypeId": {
-                      "scope": "system",
-                      "code": "string"
-                    }
-                  },
-                  "path": "/dimensions/1",
                   "op": "add"
                 }
               ]
@@ -204493,6 +204441,17 @@
                 "description": "The maturity buckets of the Analytic/EffectiveKeyRateDuration ladder, as tenor strings\r\nsuch as \"1Y\" or \"6M\", in strictly increasing order. Each bucket is repriced under a\r\ntent-shaped curve shift centred on its own tenor, so the ladder sums to the parallel\r\neffective duration to first order. Buckets past an instrument's maturity report zero, so\r\none grid can serve a whole book. Defaults to the 1Y, 2Y, 3Y, 5Y, 7Y, 10Y, 20Y, 30Y grid\r\nwhen not supplied; an empty list is rejected.",
                 "nullable": true
               },
+              "priceToFirstReset": {
+                "type": "boolean",
+                "description": "Value a fixed-to-float callable bond only to its first reset. The bond must be a\r\nComplexBond with one fixed schedule, one floating schedule starting on the fixed schedule's\r\nmaturity, and a call exercisable on that date; it is then valued as if called there, redeemed\r\nat the call strike on the principal outstanding, with the fixed coupon paid on that date kept\r\nand no floating coupon projected. Any call before that date stays live on the lattice. Bonds\r\nof any other shape are refused by name rather than valued over their full life. Rows priced\r\nthis way carry the reset date in the Diagnostics/Model/PricingHorizon valuation key. Defaults\r\nto false, which values the bond over its full life.",
+                "nullable": true
+              },
+              "latticeStepsPerYear": {
+                "type": "integer",
+                "description": "The lattice time-step density as steps per year. When supplied, the lattice uses\r\nceil(horizon in years x this value) steps, raised if necessary so that one step is no longer\r\nthan the shortest gap between consecutive cashflows, so the fixed LatticeSteps is ignored and\r\nthe \"lattice coarser than coupon spacing\" refusal cannot fire. Must be at least 1 when\r\nsupplied. Absent, the fixed LatticeSteps count applies.",
+                "format": "int32",
+                "nullable": true
+              },
               "modelOptionsType": {
                 "enum": [
                   "Invalid",
@@ -238706,8 +238665,7 @@
       },
       "TransactionEntityLink": {
         "required": [
-          "entityIdName",
-          "entityIdValue",
+          "entityId",
           "entityType",
           "restrictEditing"
         ],
@@ -238718,15 +238676,12 @@
             "type": "string",
             "description": "Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry."
           },
-          "entityIdName": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string"
-          },
-          "entityIdValue": {
-            "maxLength": 256,
-            "minLength": 0,
-            "type": "string"
+          "entityId": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            }
           },
           "restrictEditing": {
             "type": "boolean"
