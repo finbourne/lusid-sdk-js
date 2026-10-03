@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1683",
+    "version": "2.0.1684",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -115027,7 +115027,8 @@
                       "attemptToInferMissingFx": false,
                       "attemptToInferMissingFxOnFixings": false,
                       "calendarScope": "CoppClarkHolidayCalendars",
-                      "conventionScope": "Conventions"
+                      "conventionScope": "Conventions",
+                      "pricingBasis": "Mid"
                     },
                     "specificRules": [],
                     "groupedMarketRules": []
@@ -115117,7 +115118,8 @@
                       "attemptToInferMissingFx": false,
                       "attemptToInferMissingFxOnFixings": false,
                       "calendarScope": "CoppClarkHolidayCalendars",
-                      "conventionScope": "Conventions"
+                      "conventionScope": "Conventions",
+                      "pricingBasis": "Mid"
                     },
                     "specificRules": [],
                     "groupedMarketRules": []
@@ -115207,7 +115209,8 @@
                       "attemptToInferMissingFx": false,
                       "attemptToInferMissingFxOnFixings": false,
                       "calendarScope": "CoppClarkHolidayCalendars",
-                      "conventionScope": "Conventions"
+                      "conventionScope": "Conventions",
+                      "pricingBasis": "Mid"
                     },
                     "specificRules": [],
                     "groupedMarketRules": []
@@ -115297,7 +115300,8 @@
                       "attemptToInferMissingFx": false,
                       "attemptToInferMissingFxOnFixings": false,
                       "calendarScope": "CoppClarkHolidayCalendars",
-                      "conventionScope": "Conventions"
+                      "conventionScope": "Conventions",
+                      "pricingBasis": "Mid"
                     },
                     "specificRules": [],
                     "groupedMarketRules": []
@@ -115485,7 +115489,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -115582,7 +115587,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -115685,7 +115691,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -115782,7 +115789,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -115885,7 +115893,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -115982,7 +115991,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -116755,7 +116765,8 @@
                         "attemptToInferMissingFx": false,
                         "attemptToInferMissingFxOnFixings": false,
                         "calendarScope": "CoppClarkHolidayCalendars",
-                        "conventionScope": "Conventions"
+                        "conventionScope": "Conventions",
+                        "pricingBasis": "Mid"
                       },
                       "specificRules": [],
                       "groupedMarketRules": []
@@ -116857,7 +116868,8 @@
                         "attemptToInferMissingFx": false,
                         "attemptToInferMissingFxOnFixings": false,
                         "calendarScope": "CoppClarkHolidayCalendars",
-                        "conventionScope": "Conventions"
+                        "conventionScope": "Conventions",
+                        "pricingBasis": "Mid"
                       },
                       "specificRules": [],
                       "groupedMarketRules": []
@@ -116959,7 +116971,8 @@
                         "attemptToInferMissingFx": false,
                         "attemptToInferMissingFxOnFixings": false,
                         "calendarScope": "CoppClarkHolidayCalendars",
-                        "conventionScope": "Conventions"
+                        "conventionScope": "Conventions",
+                        "pricingBasis": "Mid"
                       },
                       "specificRules": [],
                       "groupedMarketRules": []
@@ -117410,7 +117423,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -117507,7 +117521,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -117610,7 +117625,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -117707,7 +117723,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -117810,7 +117827,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -117907,7 +117925,8 @@
                             "attemptToInferMissingFx": false,
                             "attemptToInferMissingFxOnFixings": false,
                             "calendarScope": "CoppClarkHolidayCalendars",
-                            "conventionScope": "Conventions"
+                            "conventionScope": "Conventions",
+                            "pricingBasis": "Mid"
                           },
                           "specificRules": [],
                           "groupedMarketRules": []
@@ -118097,7 +118116,8 @@
                         "attemptToInferMissingFx": false,
                         "attemptToInferMissingFxOnFixings": false,
                         "calendarScope": "CoppClarkHolidayCalendars",
-                        "conventionScope": "Conventions"
+                        "conventionScope": "Conventions",
+                        "pricingBasis": "Mid"
                       },
                       "specificRules": [],
                       "groupedMarketRules": []
@@ -118199,7 +118219,8 @@
                         "attemptToInferMissingFx": false,
                         "attemptToInferMissingFxOnFixings": false,
                         "calendarScope": "CoppClarkHolidayCalendars",
-                        "conventionScope": "Conventions"
+                        "conventionScope": "Conventions",
+                        "pricingBasis": "Mid"
                       },
                       "specificRules": [],
                       "groupedMarketRules": []
@@ -118301,7 +118322,8 @@
                         "attemptToInferMissingFx": false,
                         "attemptToInferMissingFxOnFixings": false,
                         "calendarScope": "CoppClarkHolidayCalendars",
-                        "conventionScope": "Conventions"
+                        "conventionScope": "Conventions",
+                        "pricingBasis": "Mid"
                       },
                       "specificRules": [],
                       "groupedMarketRules": []
@@ -118492,7 +118514,8 @@
                         "attemptToInferMissingFx": false,
                         "attemptToInferMissingFxOnFixings": false,
                         "calendarScope": "CoppClarkHolidayCalendars",
-                        "conventionScope": "Conventions"
+                        "conventionScope": "Conventions",
+                        "pricingBasis": "Mid"
                       },
                       "specificRules": [],
                       "groupedMarketRules": []
@@ -118594,7 +118617,8 @@
                         "attemptToInferMissingFx": false,
                         "attemptToInferMissingFxOnFixings": false,
                         "calendarScope": "CoppClarkHolidayCalendars",
-                        "conventionScope": "Conventions"
+                        "conventionScope": "Conventions",
+                        "pricingBasis": "Mid"
                       },
                       "specificRules": [],
                       "groupedMarketRules": []
@@ -118696,7 +118720,8 @@
                         "attemptToInferMissingFx": false,
                         "attemptToInferMissingFxOnFixings": false,
                         "calendarScope": "CoppClarkHolidayCalendars",
-                        "conventionScope": "Conventions"
+                        "conventionScope": "Conventions",
+                        "pricingBasis": "Mid"
                       },
                       "specificRules": [],
                       "groupedMarketRules": []
@@ -199910,6 +199935,14 @@
             "type": "string",
             "description": "The currency of the fund which is the same as the base currency of all the portfolios of the fund's Abor.",
             "nullable": true
+          },
+          "pricingBasis": {
+            "type": "string",
+            "description": "The side of the quote the NAV type valued the fund on: Mid, Bid or Ask. Absent when the NAV type defers to the valuation recipe's own pricing basis. When the NAV type has a swing pricing rule this is the basis the rule applied.",
+            "nullable": true
+          },
+          "swingPricing": {
+            "$ref": "#/components/schemas/SwingPricingDecision"
           }
         },
         "additionalProperties": false,
@@ -211004,6 +211037,11 @@
             "type": "string",
             "description": "The scope in which conventions stored",
             "nullable": true
+          },
+          "pricingBasis": {
+            "type": "string",
+            "description": "The side of the instrument price quote the recipe values on: Mid (the default), Bid or Ask. This is a\r\nproperty of the pricing methodology, not of any one column: with Bid or Ask, every instrument price rule\r\nin the market data waterfall reads that quote field, so the same rules, scopes and fallbacks produce a\r\nbid- or ask-struck valuation (for example a swing-priced NAV). Mid leaves each rule reading the field it\r\nwas written with (mid where none is given), which is the historical behaviour. FX, curve, spread, rate\r\nand volatility rules are never affected. Available values: Mid, Bid, Ask.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -213220,6 +213258,14 @@
             "type": "string",
             "description": "Optional filter expression to exclude specific transactions from this NavType's derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties.",
             "nullable": true
+          },
+          "pricingBasis": {
+            "type": "string",
+            "description": "The side of the quote this Nav Type values the fund on: Mid, Bid or Ask. Overrides the pricing basis of the valuation recipe's market options for this Nav Type only, so a bid NAV and an ask NAV can share one recipe. Omit it to value on the recipe's own pricing basis. Available values: Mid, Bid, Ask.",
+            "nullable": true
+          },
+          "swingPricing": {
+            "$ref": "#/components/schemas/SwingPricingRule"
           }
         },
         "additionalProperties": false
@@ -213345,6 +213391,14 @@
             "type": "string",
             "description": "Optional filter expression to exclude specific transactions from this NavType's derived portfolios. The filter can reference Transaction, Portfolio, or Instrument fields and properties.",
             "nullable": true
+          },
+          "pricingBasis": {
+            "type": "string",
+            "description": "The side of the quote this Nav Type values the fund on: Mid, Bid or Ask. Overrides the pricing basis of the valuation recipe's market options for this Nav Type only, so a bid NAV and an ask NAV can share one recipe. Omit it to value on the recipe's own pricing basis. Available values: Mid, Bid, Ask.",
+            "nullable": true
+          },
+          "swingPricing": {
+            "$ref": "#/components/schemas/SwingPricingRule"
           }
         },
         "additionalProperties": false
@@ -236343,6 +236397,64 @@
           }
         ],
         "description": "Definition of a Swap Principal Event.\r\nThis is an event that describes the occurence of a cashflow due to the principal payment."
+      },
+      "SwingPricingDecision": {
+        "type": "object",
+        "properties": {
+          "netDealingFlow": {
+            "type": "number",
+            "description": "The net dealing flow the rule measured for the valuation point, in the fund currency. Subscriptions are positive and redemptions negative.",
+            "format": "double"
+          },
+          "netDealingFlowPercentageOfNav": {
+            "type": "number",
+            "description": "The net dealing flow as a percentage of the previous valuation point's NAV. Zero when there is no previous NAV to measure against.",
+            "format": "double"
+          },
+          "thresholdPercentageOfNav": {
+            "type": "number",
+            "description": "The threshold the rule compared the flow with.",
+            "format": "double"
+          },
+          "direction": {
+            "type": "string",
+            "description": "Whether the fund swung and which way: None, Inflow or Outflow.",
+            "nullable": true
+          },
+          "pricingBasisApplied": {
+            "type": "string",
+            "description": "The pricing basis the valuation point was valued on after the rule was applied. Absent when the fund did not swing and the NAV type defers to the recipe.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "What the NAV type's swing pricing rule decided for a valuation point: the net dealing flow it measured, how\r\nit compared with the threshold, and the pricing basis the point was valued on as a result."
+      },
+      "SwingPricingRule": {
+        "required": [
+          "thresholdPercentageOfNav"
+        ],
+        "type": "object",
+        "properties": {
+          "thresholdPercentageOfNav": {
+            "minimum": 0,
+            "type": "number",
+            "description": "The net dealing flow, as a percentage of the previous valuation point's NAV, above which the fund swings. Must be zero or more; zero swings on any non-zero flow.",
+            "format": "double"
+          },
+          "inflowBasis": {
+            "type": "string",
+            "description": "The pricing basis the fund is valued on when net subscriptions exceed the threshold: Mid, Bid or Ask. Defaults to Ask. Available values: Mid, Bid, Ask.",
+            "nullable": true
+          },
+          "outflowBasis": {
+            "type": "string",
+            "description": "The pricing basis the fund is valued on when net redemptions exceed the threshold: Mid, Bid or Ask. Defaults to Bid. Available values: Mid, Bid, Ask.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Moves a NAV type's pricing basis with its net dealing flow. When the flow, as a percentage of the previous\r\nvaluation point's NAV, exceeds the threshold the fund is valued on the inflow or outflow basis instead of\r\nthe NAV type's own basis."
       },
       "TargetTaxLot": {
         "required": [

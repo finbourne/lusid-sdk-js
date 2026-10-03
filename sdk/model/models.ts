@@ -1379,6 +1379,8 @@ export * from './swapCashFlowEvent';
 export * from './swapCashFlowEventAllOf';
 export * from './swapPrincipalEvent';
 export * from './swapPrincipalEventAllOf';
+export * from './swingPricingDecision';
+export * from './swingPricingRule';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './templateField';
@@ -2997,6 +2999,8 @@ import { SwapCashFlowEvent } from './swapCashFlowEvent';
 import { SwapCashFlowEventAllOf } from './swapCashFlowEventAllOf';
 import { SwapPrincipalEvent } from './swapPrincipalEvent';
 import { SwapPrincipalEventAllOf } from './swapPrincipalEventAllOf';
+import { SwingPricingDecision } from './swingPricingDecision';
+import { SwingPricingRule } from './swingPricingRule';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { TemplateField } from './templateField';
@@ -5320,6 +5324,8 @@ let typeMap: {[index: string]: any} = {
     "SwapCashFlowEventAllOf": SwapCashFlowEventAllOf,
     "SwapPrincipalEvent": SwapPrincipalEvent,
     "SwapPrincipalEventAllOf": SwapPrincipalEventAllOf,
+    "SwingPricingDecision": SwingPricingDecision,
+    "SwingPricingRule": SwingPricingRule,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "TemplateField": TemplateField,
