@@ -107,6 +107,7 @@ export * from './batchUpsertPortfolioTransactionsResponse';
 export * from './batchUpsertPropertyDefinitionPropertiesResponse';
 export * from './batchUpsertRelationalDatasetsResponse';
 export * from './batchUpsertTransactionSettlementInstructionResponse';
+export * from './batchUpsertWithholdingTaxRatesResponse';
 export * from './block';
 export * from './blockAndOrderIdRequest';
 export * from './blockAndOrders';
@@ -432,6 +433,7 @@ export * from './deleteInstrumentResponse';
 export * from './deleteInstrumentsResponse';
 export * from './deleteRelationalDataPointRequest';
 export * from './deleteRelationshipRequest';
+export * from './deleteWithholdingTaxRateRequest';
 export * from './deletedEntityResponse';
 export * from './delistingEvent';
 export * from './delistingEventAllOf';
@@ -1093,6 +1095,8 @@ export * from './propertyValue';
 export * from './protectionPayoutCashFlowEvent';
 export * from './putRedemptionEvent';
 export * from './putRedemptionEventAllOf';
+export * from './qualifierDefinition';
+export * from './qualifierDefinitionRequest';
 export * from './quantityInstructed';
 export * from './queryApplicableInstrumentEventsRequest';
 export * from './queryBucketCashFlowDrillDownRequest';
@@ -1275,6 +1279,7 @@ export * from './reverseStressRequest';
 export * from './reverseStressResponse';
 export * from './reverseStressRung';
 export * from './revertValuationPointDataRequest';
+export * from './revertValuationPointResponse';
 export * from './riskBumpOptions';
 export * from './rollInterestUpdates';
 export * from './rollPrincipalUpdates';
@@ -1542,6 +1547,7 @@ export * from './upsertTranslationScriptRequest';
 export * from './upsertValuationPointRequest';
 export * from './upsertVirtualTransactionOverrideResponse';
 export * from './upsertWithholdingTaxConfigurationRequest';
+export * from './upsertWithholdingTaxRateRequest';
 export * from './user';
 export * from './valuationPoint';
 export * from './valuationPointDataQueryParameters';
@@ -1600,6 +1606,7 @@ export * from './wholeLoanFacilityAllOf';
 export * from './withholdingTaxConfiguration';
 export * from './withholdingTaxDataset';
 export * from './withholdingTaxDatasetDefinitions';
+export * from './withholdingTaxRateResponse';
 export * from './withholdingTaxValueSource';
 export * from './worthlessEvent';
 export * from './worthlessEventAllOf';
@@ -1727,6 +1734,7 @@ import { BatchUpsertPortfolioTransactionsResponse } from './batchUpsertPortfolio
 import { BatchUpsertPropertyDefinitionPropertiesResponse } from './batchUpsertPropertyDefinitionPropertiesResponse';
 import { BatchUpsertRelationalDatasetsResponse } from './batchUpsertRelationalDatasetsResponse';
 import { BatchUpsertTransactionSettlementInstructionResponse } from './batchUpsertTransactionSettlementInstructionResponse';
+import { BatchUpsertWithholdingTaxRatesResponse } from './batchUpsertWithholdingTaxRatesResponse';
 import { Block } from './block';
 import { BlockAndOrderIdRequest } from './blockAndOrderIdRequest';
 import { BlockAndOrders } from './blockAndOrders';
@@ -2052,6 +2060,7 @@ import { DeleteInstrumentResponse } from './deleteInstrumentResponse';
 import { DeleteInstrumentsResponse } from './deleteInstrumentsResponse';
 import { DeleteRelationalDataPointRequest } from './deleteRelationalDataPointRequest';
 import { DeleteRelationshipRequest } from './deleteRelationshipRequest';
+import { DeleteWithholdingTaxRateRequest } from './deleteWithholdingTaxRateRequest';
 import { DeletedEntityResponse } from './deletedEntityResponse';
 import { DelistingEvent } from './delistingEvent';
 import { DelistingEventAllOf } from './delistingEventAllOf';
@@ -2713,6 +2722,8 @@ import { PropertyValue } from './propertyValue';
 import { ProtectionPayoutCashFlowEvent } from './protectionPayoutCashFlowEvent';
 import { PutRedemptionEvent } from './putRedemptionEvent';
 import { PutRedemptionEventAllOf } from './putRedemptionEventAllOf';
+import { QualifierDefinition } from './qualifierDefinition';
+import { QualifierDefinitionRequest } from './qualifierDefinitionRequest';
 import { QuantityInstructed } from './quantityInstructed';
 import { QueryApplicableInstrumentEventsRequest } from './queryApplicableInstrumentEventsRequest';
 import { QueryBucketCashFlowDrillDownRequest } from './queryBucketCashFlowDrillDownRequest';
@@ -2895,6 +2906,7 @@ import { ReverseStressRequest } from './reverseStressRequest';
 import { ReverseStressResponse } from './reverseStressResponse';
 import { ReverseStressRung } from './reverseStressRung';
 import { RevertValuationPointDataRequest } from './revertValuationPointDataRequest';
+import { RevertValuationPointResponse } from './revertValuationPointResponse';
 import { RiskBumpOptions } from './riskBumpOptions';
 import { RollInterestUpdates } from './rollInterestUpdates';
 import { RollPrincipalUpdates } from './rollPrincipalUpdates';
@@ -3162,6 +3174,7 @@ import { UpsertTranslationScriptRequest } from './upsertTranslationScriptRequest
 import { UpsertValuationPointRequest } from './upsertValuationPointRequest';
 import { UpsertVirtualTransactionOverrideResponse } from './upsertVirtualTransactionOverrideResponse';
 import { UpsertWithholdingTaxConfigurationRequest } from './upsertWithholdingTaxConfigurationRequest';
+import { UpsertWithholdingTaxRateRequest } from './upsertWithholdingTaxRateRequest';
 import { User } from './user';
 import { ValuationPoint } from './valuationPoint';
 import { ValuationPointDataQueryParameters } from './valuationPointDataQueryParameters';
@@ -3220,6 +3233,7 @@ import { WholeLoanFacilityAllOf } from './wholeLoanFacilityAllOf';
 import { WithholdingTaxConfiguration } from './withholdingTaxConfiguration';
 import { WithholdingTaxDataset } from './withholdingTaxDataset';
 import { WithholdingTaxDatasetDefinitions } from './withholdingTaxDatasetDefinitions';
+import { WithholdingTaxRateResponse } from './withholdingTaxRateResponse';
 import { WithholdingTaxValueSource } from './withholdingTaxValueSource';
 import { WorthlessEvent } from './worthlessEvent';
 import { WorthlessEventAllOf } from './worthlessEventAllOf';
@@ -4053,6 +4067,7 @@ let typeMap: {[index: string]: any} = {
     "BatchUpsertPropertyDefinitionPropertiesResponse": BatchUpsertPropertyDefinitionPropertiesResponse,
     "BatchUpsertRelationalDatasetsResponse": BatchUpsertRelationalDatasetsResponse,
     "BatchUpsertTransactionSettlementInstructionResponse": BatchUpsertTransactionSettlementInstructionResponse,
+    "BatchUpsertWithholdingTaxRatesResponse": BatchUpsertWithholdingTaxRatesResponse,
     "Block": Block,
     "BlockAndOrderIdRequest": BlockAndOrderIdRequest,
     "BlockAndOrders": BlockAndOrders,
@@ -4377,6 +4392,7 @@ let typeMap: {[index: string]: any} = {
     "DeleteInstrumentsResponse": DeleteInstrumentsResponse,
     "DeleteRelationalDataPointRequest": DeleteRelationalDataPointRequest,
     "DeleteRelationshipRequest": DeleteRelationshipRequest,
+    "DeleteWithholdingTaxRateRequest": DeleteWithholdingTaxRateRequest,
     "DeletedEntityResponse": DeletedEntityResponse,
     "DelistingEvent": DelistingEvent,
     "DelistingEventAllOf": DelistingEventAllOf,
@@ -5038,6 +5054,8 @@ let typeMap: {[index: string]: any} = {
     "ProtectionPayoutCashFlowEvent": ProtectionPayoutCashFlowEvent,
     "PutRedemptionEvent": PutRedemptionEvent,
     "PutRedemptionEventAllOf": PutRedemptionEventAllOf,
+    "QualifierDefinition": QualifierDefinition,
+    "QualifierDefinitionRequest": QualifierDefinitionRequest,
     "QuantityInstructed": QuantityInstructed,
     "QueryApplicableInstrumentEventsRequest": QueryApplicableInstrumentEventsRequest,
     "QueryBucketCashFlowDrillDownRequest": QueryBucketCashFlowDrillDownRequest,
@@ -5220,6 +5238,7 @@ let typeMap: {[index: string]: any} = {
     "ReverseStressResponse": ReverseStressResponse,
     "ReverseStressRung": ReverseStressRung,
     "RevertValuationPointDataRequest": RevertValuationPointDataRequest,
+    "RevertValuationPointResponse": RevertValuationPointResponse,
     "RiskBumpOptions": RiskBumpOptions,
     "RollInterestUpdates": RollInterestUpdates,
     "RollPrincipalUpdates": RollPrincipalUpdates,
@@ -5487,6 +5506,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertValuationPointRequest": UpsertValuationPointRequest,
     "UpsertVirtualTransactionOverrideResponse": UpsertVirtualTransactionOverrideResponse,
     "UpsertWithholdingTaxConfigurationRequest": UpsertWithholdingTaxConfigurationRequest,
+    "UpsertWithholdingTaxRateRequest": UpsertWithholdingTaxRateRequest,
     "User": User,
     "ValuationPoint": ValuationPoint,
     "ValuationPointDataQueryParameters": ValuationPointDataQueryParameters,
@@ -5544,6 +5564,7 @@ let typeMap: {[index: string]: any} = {
     "WithholdingTaxConfiguration": WithholdingTaxConfiguration,
     "WithholdingTaxDataset": WithholdingTaxDataset,
     "WithholdingTaxDatasetDefinitions": WithholdingTaxDatasetDefinitions,
+    "WithholdingTaxRateResponse": WithholdingTaxRateResponse,
     "WithholdingTaxValueSource": WithholdingTaxValueSource,
     "WorthlessEvent": WorthlessEvent,
     "WorthlessEventAllOf": WorthlessEventAllOf,

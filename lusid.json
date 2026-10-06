@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1687",
+    "version": "2.0.1688",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -41796,7 +41796,7 @@
                     }
                   }
                 ],
-                "type": "Master",
+                "type": "Standalone",
                 "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "primaryNavType": {
@@ -41929,7 +41929,7 @@
                     }
                   }
                 ],
-                "type": "Master",
+                "type": "Standalone",
                 "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "primaryNavType": {
@@ -42062,7 +42062,7 @@
                     }
                   }
                 ],
-                "type": "Master",
+                "type": "Standalone",
                 "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "primaryNavType": {
@@ -42195,7 +42195,7 @@
                     }
                   }
                 ],
-                "type": "Master",
+                "type": "Standalone",
                 "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "primaryNavType": {
@@ -42335,7 +42335,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -42481,7 +42481,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -42627,7 +42627,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -42834,7 +42834,7 @@
                     }
                   }
                 ],
-                "type": "Master",
+                "type": "Standalone",
                 "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "yearEndDate": {
@@ -42883,7 +42883,7 @@
                     }
                   }
                 ],
-                "type": "Master",
+                "type": "Standalone",
                 "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "yearEndDate": {
@@ -42932,7 +42932,7 @@
                     }
                   }
                 ],
-                "type": "Master",
+                "type": "Standalone",
                 "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "yearEndDate": {
@@ -42981,7 +42981,7 @@
                     }
                   }
                 ],
-                "type": "Master",
+                "type": "Standalone",
                 "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                 "decimalPlaces": 6,
                 "yearEndDate": {
@@ -43042,7 +43042,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -43188,7 +43188,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -43334,7 +43334,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -43591,7 +43591,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -43737,7 +43737,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -43883,7 +43883,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -44416,7 +44416,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -44562,7 +44562,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -44708,7 +44708,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -45755,7 +45755,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -45901,7 +45901,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -46047,7 +46047,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -47139,7 +47139,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -47285,7 +47285,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -47431,7 +47431,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -50665,7 +50665,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -50811,7 +50811,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -50957,7 +50957,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -51260,7 +51260,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -51406,7 +51406,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -51552,7 +51552,7 @@
                       "instrumentScope": "MyScope"
                     }
                   ],
-                  "type": "Master",
+                  "type": "Standalone",
                   "inceptionDate": "2024-01-01T00:00:00.0000000+00:00",
                   "decimalPlaces": 6,
                   "primaryNavType": {
@@ -55225,7 +55225,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] RevertValuationPointToEstimate: Reverts a Final Valuation Point to Estimate.",
-        "description": "Moves a 'Final' status Valuation Point to status 'Estimate'.",
+        "description": "Moves a 'Final' status Valuation Point to status 'Estimate'.\r\nReturns the reverted Valuation Point alongside every variant that\r\nfinalising it had rejected.",
         "operationId": "RevertValuationPointToEstimate",
         "parameters": [
           {
@@ -55304,531 +55304,159 @@
         },
         "responses": {
           "200": {
-            "description": "The updated Valuation Point response as a result of it be marked as Estimate.",
+            "description": "The reverted Estimate Valuation Point, with every variant resurrected by the revert",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValuationPointDataResponse"
+                  "$ref": "#/components/schemas/RevertValuationPointResponse"
                 },
                 "example": {
-                  "href": "http://finbourne.com",
-                  "type": "ValuationPoint",
+                  "valuationPointCode": "ValuationJan2024",
+                  "navTypeCode": "Primary",
                   "status": "Estimate",
-                  "fundDetails": {
-                    "currency": "GBP"
+                  "applyClearDown": true,
+                  "effectiveAt": "2024-01-31T23:59:59.0000000+00:00",
+                  "previous": {
+                    "valuationPointCode": "ValuationDec2023",
+                    "name": "ValuationDec2023",
+                    "effectiveAt": "2023-12-31T23:59:59.0000000+00:00",
+                    "queryAsAt": "2024-01-01T09:00:00.0000000+00:00",
+                    "holdingsAsAt": "2024-01-01T09:00:00.0000000+00:00",
+                    "valuationAsAt": "2024-01-01T09:00:00.0000000+00:00"
                   },
-                  "fundValuationPointData": {
-                    "backOut": {},
-                    "dealing": {},
-                    "pnL": {
-                      "nonClassSpecificPnl": {},
-                      "aggregatedClassPnl": {},
-                      "aggregatedGroupPnl": {},
-                      "totalPnl": {}
-                    },
-                    "gav": 99999.99,
-                    "fees": {},
-                    "nav": 99999.99,
-                    "miscellaneous": {},
-                    "previousValuationPointData": {
-                      "nav": {
-                        "amount": 0
-                      }
-                    }
-                  },
-                  "shareClassData": [
+                  "variants": [
                     {
-                      "shareClassBreakdown": {
-                        "backOut": {},
-                        "dealing": {
-                          "classDealing": {},
-                          "classDealingUnits": {}
-                        },
-                        "pnL": {
-                          "apportionedNonClassSpecificPnl": {},
-                          "classPnl": {},
-                          "groupApportionedPnl": {},
-                          "totalPnl": {}
-                        },
-                        "gav": {
-                          "fundCurrencyAmount": 99999.99,
-                          "shareClassCurrencyAmount": 99999.99
-                        },
-                        "fees": {},
-                        "nav": {
-                          "fundCurrencyAmount": 99999.99,
-                          "shareClassCurrencyAmount": 99999.99
-                        },
-                        "miscellaneous": {},
-                        "shareClassToFundFxRate": 1,
-                        "capitalRatio": 1,
-                        "previousShareClassBreakdown": {
-                          "nav": {
-                            "amount": {
-                              "fundCurrencyAmount": 0,
-                              "shareClassCurrencyAmount": 0
-                            }
-                          },
-                          "shareClassToFundFxRate": 1
+                      "variant": "default",
+                      "displayName": "ValuationJan2024",
+                      "description": "Valuation Point for January 2024",
+                      "asAt": "2024-02-01T09:00:00.0000000+00:00",
+                      "properties": {
+                        "DiaryEntry/AccountingDiary/Reports": {
+                          "key": "DiaryEntry/AccountingDiary/Reports",
+                          "value": {
+                            "labelValue": "Some comments"
+                          }
                         }
                       },
-                      "shareClassDetails": {
-                        "lusidInstrumentId": "LUID_12345678",
-                        "instrumentScope": "default",
-                        "shortCode": "ShareClassShortCode",
-                        "domCurrency": "USD",
-                        "instrumentActive": true
+                      "version": {
+                        "effectiveFrom": "2024-01-31T23:59:59.0000000+00:00",
+                        "asAtDate": "2024-02-01T09:00:00.0000000+00:00"
+                      }
+                    },
+                    {
+                      "variant": "first",
+                      "displayName": "ValuationJan2024",
+                      "description": "Alternative fee accrual for January 2024",
+                      "asAt": "2024-02-01T09:00:00.0000000+00:00",
+                      "properties": {},
+                      "version": {
+                        "effectiveFrom": "2024-01-31T23:59:59.0000000+00:00",
+                        "asAtDate": "2024-02-01T09:00:00.0000000+00:00"
                       }
                     }
-                  ],
-                  "valuationPointCode": "FebValuationPoint",
-                  "previousValuationPointCode": "JanValuationPoint",
-                  "apportionmentResults": [
-                    {
-                      "apportionmentLevel": "Fund",
-                      "apportionmentMethodPropertyKey": "AllocationMethod/default/PriorAdjustedNav",
-                      "factors": [
-                        {
-                          "memberIdentifier": "ShareClassShortCode",
-                          "fundScope": "FundScope",
-                          "fundCode": "FundCode",
-                          "baseValue": 99999.99,
-                          "apportionmentFactor": 1,
-                          "inputs": [
-                            {
-                              "code": "openingNav",
-                              "displayName": "Opening NAV",
-                              "value": 89999.99
-                            },
-                            {
-                              "code": "netDealing",
-                              "displayName": "Net dealing",
-                              "value": 10000
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  "bucketSetResults": [
-                    {
-                      "bucketSetCode": "BucketSetCode",
-                      "isApportionment": true,
-                      "nodes": [
-                        {
-                          "nodeType": "Fund",
-                          "nav": 99999.99,
-                          "buckets": [
-                            {
-                              "bucketId": "PnL",
-                              "bucketType": "PnL",
-                              "value": 999.99,
-                              "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99,
-                              "displayName": "Profit and Loss"
-                            }
-                          ],
-                          "label": "Fund Display Name",
-                          "previousNav": 89999.99
-                        },
-                        {
-                          "nodeType": "Class",
-                          "shareClassShortCode": "ShareClassShortCode",
-                          "nav": 99999.99,
-                          "capitalRatio": 1,
-                          "buckets": [
-                            {
-                              "bucketId": "PnL",
-                              "bucketType": "PnL",
-                              "value": 999.99,
-                              "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99,
-                              "sourceBreakdown": {
-                                "classSpecific": 99.99,
-                                "nonClassSpecific": 800,
-                                "AllocationGroupCode": 100
-                              },
-                              "perUnitValue": 0.0999,
-                              "unitsInIssue": 10000,
-                              "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999,
-                              "displayName": "Profit and Loss"
-                            }
-                          ],
-                          "perUnitValue": 9.9999,
-                          "sharesInIssue": 10000,
-                          "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000,
-                          "label": "Share Class Name",
-                          "previousNav": 89999.99,
-                          "netDealingUnits": 0,
-                          "shareClassDetails": {
-                            "lusidInstrumentId": "LUID_12345678",
-                            "instrumentScope": "default",
-                            "shortCode": "ShareClassShortCode",
-                            "domCurrency": "USD",
-                            "instrumentActive": true
-                          },
-                          "navShareClassCurrency": 142857.12857142856,
-                          "shareClassToFundFxRate": 0.7,
-                          "previousNavShareClassCurrency": 179999.98
-                        }
-                      ],
-                      "displayName": "Bucket Set Display Name",
-                      "isBackfilled": false
-                    }
-                  ],
-                  "isBackfilled": false
+                  ]
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValuationPointDataResponse"
+                  "$ref": "#/components/schemas/RevertValuationPointResponse"
                 },
                 "example": {
-                  "href": "http://finbourne.com",
-                  "type": "ValuationPoint",
+                  "valuationPointCode": "ValuationJan2024",
+                  "navTypeCode": "Primary",
                   "status": "Estimate",
-                  "fundDetails": {
-                    "currency": "GBP"
+                  "applyClearDown": true,
+                  "effectiveAt": "2024-01-31T23:59:59.0000000+00:00",
+                  "previous": {
+                    "valuationPointCode": "ValuationDec2023",
+                    "name": "ValuationDec2023",
+                    "effectiveAt": "2023-12-31T23:59:59.0000000+00:00",
+                    "queryAsAt": "2024-01-01T09:00:00.0000000+00:00",
+                    "holdingsAsAt": "2024-01-01T09:00:00.0000000+00:00",
+                    "valuationAsAt": "2024-01-01T09:00:00.0000000+00:00"
                   },
-                  "fundValuationPointData": {
-                    "backOut": {},
-                    "dealing": {},
-                    "pnL": {
-                      "nonClassSpecificPnl": {},
-                      "aggregatedClassPnl": {},
-                      "aggregatedGroupPnl": {},
-                      "totalPnl": {}
-                    },
-                    "gav": 99999.99,
-                    "fees": {},
-                    "nav": 99999.99,
-                    "miscellaneous": {},
-                    "previousValuationPointData": {
-                      "nav": {
-                        "amount": 0
-                      }
-                    }
-                  },
-                  "shareClassData": [
+                  "variants": [
                     {
-                      "shareClassBreakdown": {
-                        "backOut": {},
-                        "dealing": {
-                          "classDealing": {},
-                          "classDealingUnits": {}
-                        },
-                        "pnL": {
-                          "apportionedNonClassSpecificPnl": {},
-                          "classPnl": {},
-                          "groupApportionedPnl": {},
-                          "totalPnl": {}
-                        },
-                        "gav": {
-                          "fundCurrencyAmount": 99999.99,
-                          "shareClassCurrencyAmount": 99999.99
-                        },
-                        "fees": {},
-                        "nav": {
-                          "fundCurrencyAmount": 99999.99,
-                          "shareClassCurrencyAmount": 99999.99
-                        },
-                        "miscellaneous": {},
-                        "shareClassToFundFxRate": 1,
-                        "capitalRatio": 1,
-                        "previousShareClassBreakdown": {
-                          "nav": {
-                            "amount": {
-                              "fundCurrencyAmount": 0,
-                              "shareClassCurrencyAmount": 0
-                            }
-                          },
-                          "shareClassToFundFxRate": 1
+                      "variant": "default",
+                      "displayName": "ValuationJan2024",
+                      "description": "Valuation Point for January 2024",
+                      "asAt": "2024-02-01T09:00:00.0000000+00:00",
+                      "properties": {
+                        "DiaryEntry/AccountingDiary/Reports": {
+                          "key": "DiaryEntry/AccountingDiary/Reports",
+                          "value": {
+                            "labelValue": "Some comments"
+                          }
                         }
                       },
-                      "shareClassDetails": {
-                        "lusidInstrumentId": "LUID_12345678",
-                        "instrumentScope": "default",
-                        "shortCode": "ShareClassShortCode",
-                        "domCurrency": "USD",
-                        "instrumentActive": true
+                      "version": {
+                        "effectiveFrom": "2024-01-31T23:59:59.0000000+00:00",
+                        "asAtDate": "2024-02-01T09:00:00.0000000+00:00"
+                      }
+                    },
+                    {
+                      "variant": "first",
+                      "displayName": "ValuationJan2024",
+                      "description": "Alternative fee accrual for January 2024",
+                      "asAt": "2024-02-01T09:00:00.0000000+00:00",
+                      "properties": {},
+                      "version": {
+                        "effectiveFrom": "2024-01-31T23:59:59.0000000+00:00",
+                        "asAtDate": "2024-02-01T09:00:00.0000000+00:00"
                       }
                     }
-                  ],
-                  "valuationPointCode": "FebValuationPoint",
-                  "previousValuationPointCode": "JanValuationPoint",
-                  "apportionmentResults": [
-                    {
-                      "apportionmentLevel": "Fund",
-                      "apportionmentMethodPropertyKey": "AllocationMethod/default/PriorAdjustedNav",
-                      "factors": [
-                        {
-                          "memberIdentifier": "ShareClassShortCode",
-                          "fundScope": "FundScope",
-                          "fundCode": "FundCode",
-                          "baseValue": 99999.99,
-                          "apportionmentFactor": 1,
-                          "inputs": [
-                            {
-                              "code": "openingNav",
-                              "displayName": "Opening NAV",
-                              "value": 89999.99
-                            },
-                            {
-                              "code": "netDealing",
-                              "displayName": "Net dealing",
-                              "value": 10000
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  "bucketSetResults": [
-                    {
-                      "bucketSetCode": "BucketSetCode",
-                      "isApportionment": true,
-                      "nodes": [
-                        {
-                          "nodeType": "Fund",
-                          "nav": 99999.99,
-                          "buckets": [
-                            {
-                              "bucketId": "PnL",
-                              "bucketType": "PnL",
-                              "value": 999.99,
-                              "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99,
-                              "displayName": "Profit and Loss"
-                            }
-                          ],
-                          "label": "Fund Display Name",
-                          "previousNav": 89999.99
-                        },
-                        {
-                          "nodeType": "Class",
-                          "shareClassShortCode": "ShareClassShortCode",
-                          "nav": 99999.99,
-                          "capitalRatio": 1,
-                          "buckets": [
-                            {
-                              "bucketId": "PnL",
-                              "bucketType": "PnL",
-                              "value": 999.99,
-                              "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99,
-                              "sourceBreakdown": {
-                                "classSpecific": 99.99,
-                                "nonClassSpecific": 800,
-                                "AllocationGroupCode": 100
-                              },
-                              "perUnitValue": 0.0999,
-                              "unitsInIssue": 10000,
-                              "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999,
-                              "displayName": "Profit and Loss"
-                            }
-                          ],
-                          "perUnitValue": 9.9999,
-                          "sharesInIssue": 10000,
-                          "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000,
-                          "label": "Share Class Name",
-                          "previousNav": 89999.99,
-                          "netDealingUnits": 0,
-                          "shareClassDetails": {
-                            "lusidInstrumentId": "LUID_12345678",
-                            "instrumentScope": "default",
-                            "shortCode": "ShareClassShortCode",
-                            "domCurrency": "USD",
-                            "instrumentActive": true
-                          },
-                          "navShareClassCurrency": 142857.12857142856,
-                          "shareClassToFundFxRate": 0.7,
-                          "previousNavShareClassCurrency": 179999.98
-                        }
-                      ],
-                      "displayName": "Bucket Set Display Name",
-                      "isBackfilled": false
-                    }
-                  ],
-                  "isBackfilled": false
+                  ]
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValuationPointDataResponse"
+                  "$ref": "#/components/schemas/RevertValuationPointResponse"
                 },
                 "example": {
-                  "href": "http://finbourne.com",
-                  "type": "ValuationPoint",
+                  "valuationPointCode": "ValuationJan2024",
+                  "navTypeCode": "Primary",
                   "status": "Estimate",
-                  "fundDetails": {
-                    "currency": "GBP"
+                  "applyClearDown": true,
+                  "effectiveAt": "2024-01-31T23:59:59.0000000+00:00",
+                  "previous": {
+                    "valuationPointCode": "ValuationDec2023",
+                    "name": "ValuationDec2023",
+                    "effectiveAt": "2023-12-31T23:59:59.0000000+00:00",
+                    "queryAsAt": "2024-01-01T09:00:00.0000000+00:00",
+                    "holdingsAsAt": "2024-01-01T09:00:00.0000000+00:00",
+                    "valuationAsAt": "2024-01-01T09:00:00.0000000+00:00"
                   },
-                  "fundValuationPointData": {
-                    "backOut": {},
-                    "dealing": {},
-                    "pnL": {
-                      "nonClassSpecificPnl": {},
-                      "aggregatedClassPnl": {},
-                      "aggregatedGroupPnl": {},
-                      "totalPnl": {}
-                    },
-                    "gav": 99999.99,
-                    "fees": {},
-                    "nav": 99999.99,
-                    "miscellaneous": {},
-                    "previousValuationPointData": {
-                      "nav": {
-                        "amount": 0
-                      }
-                    }
-                  },
-                  "shareClassData": [
+                  "variants": [
                     {
-                      "shareClassBreakdown": {
-                        "backOut": {},
-                        "dealing": {
-                          "classDealing": {},
-                          "classDealingUnits": {}
-                        },
-                        "pnL": {
-                          "apportionedNonClassSpecificPnl": {},
-                          "classPnl": {},
-                          "groupApportionedPnl": {},
-                          "totalPnl": {}
-                        },
-                        "gav": {
-                          "fundCurrencyAmount": 99999.99,
-                          "shareClassCurrencyAmount": 99999.99
-                        },
-                        "fees": {},
-                        "nav": {
-                          "fundCurrencyAmount": 99999.99,
-                          "shareClassCurrencyAmount": 99999.99
-                        },
-                        "miscellaneous": {},
-                        "shareClassToFundFxRate": 1,
-                        "capitalRatio": 1,
-                        "previousShareClassBreakdown": {
-                          "nav": {
-                            "amount": {
-                              "fundCurrencyAmount": 0,
-                              "shareClassCurrencyAmount": 0
-                            }
-                          },
-                          "shareClassToFundFxRate": 1
+                      "variant": "default",
+                      "displayName": "ValuationJan2024",
+                      "description": "Valuation Point for January 2024",
+                      "asAt": "2024-02-01T09:00:00.0000000+00:00",
+                      "properties": {
+                        "DiaryEntry/AccountingDiary/Reports": {
+                          "key": "DiaryEntry/AccountingDiary/Reports",
+                          "value": {
+                            "labelValue": "Some comments"
+                          }
                         }
                       },
-                      "shareClassDetails": {
-                        "lusidInstrumentId": "LUID_12345678",
-                        "instrumentScope": "default",
-                        "shortCode": "ShareClassShortCode",
-                        "domCurrency": "USD",
-                        "instrumentActive": true
+                      "version": {
+                        "effectiveFrom": "2024-01-31T23:59:59.0000000+00:00",
+                        "asAtDate": "2024-02-01T09:00:00.0000000+00:00"
+                      }
+                    },
+                    {
+                      "variant": "first",
+                      "displayName": "ValuationJan2024",
+                      "description": "Alternative fee accrual for January 2024",
+                      "asAt": "2024-02-01T09:00:00.0000000+00:00",
+                      "properties": {},
+                      "version": {
+                        "effectiveFrom": "2024-01-31T23:59:59.0000000+00:00",
+                        "asAtDate": "2024-02-01T09:00:00.0000000+00:00"
                       }
                     }
-                  ],
-                  "valuationPointCode": "FebValuationPoint",
-                  "previousValuationPointCode": "JanValuationPoint",
-                  "apportionmentResults": [
-                    {
-                      "apportionmentLevel": "Fund",
-                      "apportionmentMethodPropertyKey": "AllocationMethod/default/PriorAdjustedNav",
-                      "factors": [
-                        {
-                          "memberIdentifier": "ShareClassShortCode",
-                          "fundScope": "FundScope",
-                          "fundCode": "FundCode",
-                          "baseValue": 99999.99,
-                          "apportionmentFactor": 1,
-                          "inputs": [
-                            {
-                              "code": "openingNav",
-                              "displayName": "Opening NAV",
-                              "value": 89999.99
-                            },
-                            {
-                              "code": "netDealing",
-                              "displayName": "Net dealing",
-                              "value": 10000
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  "bucketSetResults": [
-                    {
-                      "bucketSetCode": "BucketSetCode",
-                      "isApportionment": true,
-                      "nodes": [
-                        {
-                          "nodeType": "Fund",
-                          "nav": 99999.99,
-                          "buckets": [
-                            {
-                              "bucketId": "PnL",
-                              "bucketType": "PnL",
-                              "value": 999.99,
-                              "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99,
-                              "displayName": "Profit and Loss"
-                            }
-                          ],
-                          "label": "Fund Display Name",
-                          "previousNav": 89999.99
-                        },
-                        {
-                          "nodeType": "Class",
-                          "shareClassShortCode": "ShareClassShortCode",
-                          "nav": 99999.99,
-                          "capitalRatio": 1,
-                          "buckets": [
-                            {
-                              "bucketId": "PnL",
-                              "bucketType": "PnL",
-                              "value": 999.99,
-                              "previousCumulativeValue": 9000,
-                              "cumulativeValue": 9999.99,
-                              "sourceBreakdown": {
-                                "classSpecific": 99.99,
-                                "nonClassSpecific": 800,
-                                "AllocationGroupCode": 100
-                              },
-                              "perUnitValue": 0.0999,
-                              "unitsInIssue": 10000,
-                              "previousCumulativePerUnitValue": 0.9,
-                              "cumulativePerUnitValue": 0.9999,
-                              "displayName": "Profit and Loss"
-                            }
-                          ],
-                          "perUnitValue": 9.9999,
-                          "sharesInIssue": 10000,
-                          "previousPerUnitValue": 9,
-                          "previousSharesInIssue": 10000,
-                          "label": "Share Class Name",
-                          "previousNav": 89999.99,
-                          "netDealingUnits": 0,
-                          "shareClassDetails": {
-                            "lusidInstrumentId": "LUID_12345678",
-                            "instrumentScope": "default",
-                            "shortCode": "ShareClassShortCode",
-                            "domCurrency": "USD",
-                            "instrumentActive": true
-                          },
-                          "navShareClassCurrency": 142857.12857142856,
-                          "shareClassToFundFxRate": 0.7,
-                          "previousNavShareClassCurrency": 179999.98
-                        }
-                      ],
-                      "displayName": "Bucket Set Display Name",
-                      "isBackfilled": false
-                    }
-                  ],
-                  "isBackfilled": false
+                  ]
                 }
               }
             }
@@ -61725,6 +61353,17 @@
               "maxLength": 64,
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
               "type": "string"
             }
           }
@@ -169985,6 +169624,588 @@
         ],
         "x-fbn-apistatus": "EarlyAccess"
       }
+    },
+    "/api/withholdingtax/rates/{scope}/{code}/$batchDelete": {
+      "post": {
+        "tags": [
+          "Withholding Tax"
+        ],
+        "summary": "[EARLY ACCESS] BatchDeleteWithholdingTaxRates: Batch delete Withholding Tax rate rows from a rate dataset.",
+        "description": "Also how a rate with no replacement is expired, there being no effectiveTo field. Deletes are\r\nbitemporal, so rows stay readable at a prior asAt.",
+        "operationId": "BatchDeleteWithholdingTaxRates",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The Scope of the rate dataset's relational dataset definition.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The Code of the rate dataset's relational dataset definition.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "successMode",
+            "in": "query",
+            "description": "Atomic or Partial; defaults to Atomic. In Partial mode failures are returned\r\n            in the response body with a 200 status.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "default": "Atomic"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The rate rows to delete, keyed by a correlation id echoed back in the response.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/DeleteWithholdingTaxRateRequest"
+                }
+              },
+              "example": {
+                "gb-treaty-us": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "US"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/DeleteWithholdingTaxRateRequest"
+                }
+              },
+              "example": {
+                "gb-treaty-us": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "US"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/DeleteWithholdingTaxRateRequest"
+                }
+              },
+              "example": {
+                "gb-treaty-us": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "US"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/DeleteWithholdingTaxRateRequest"
+                }
+              },
+              "example": {
+                "gb-treaty-us": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "US"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The deleted rate row metadata.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchDeleteRelationalDataResponse"
+                },
+                "example": {
+                  "values": {
+                    "point1": "2025-01-01T12:00:00.0000000+00:00"
+                  },
+                  "failed": {
+                    "point2": {
+                      "id": "NotFound",
+                      "type": "The data point could not be found for deletion."
+                    }
+                  },
+                  "href": "http://example.com"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchDeleteRelationalDataResponse"
+                },
+                "example": {
+                  "values": {
+                    "point1": "2025-01-01T12:00:00.0000000+00:00"
+                  },
+                  "failed": {
+                    "point2": {
+                      "id": "NotFound",
+                      "type": "The data point could not be found for deletion."
+                    }
+                  },
+                  "href": "http://example.com"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchDeleteRelationalDataResponse"
+                },
+                "example": {
+                  "values": {
+                    "point1": "2025-01-01T12:00:00.0000000+00:00"
+                  },
+                  "failed": {
+                    "point2": {
+                      "id": "NotFound",
+                      "type": "The data point could not be found for deletion."
+                    }
+                  },
+                  "href": "http://example.com"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/withholdingtax/rates/{scope}/{code}/$batchUpsert": {
+      "post": {
+        "tags": [
+          "Withholding Tax"
+        ],
+        "summary": "[EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.",
+        "description": "Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a\r\nlater effectiveAt for the same dimensions.",
+        "operationId": "BatchUpsertWithholdingTaxRates",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The Scope of the rate dataset's relational dataset definition.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The Code of the rate dataset's relational dataset definition.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "successMode",
+            "in": "query",
+            "description": "Atomic or Partial; defaults to Atomic, because a partly loaded feed silently\r\n            under-withholds. In Partial mode failures are returned in the response body with a 200 status.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string",
+              "default": "Atomic"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The rate rows to upsert, keyed by a correlation id echoed back in the response.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/UpsertWithholdingTaxRateRequest"
+                }
+              },
+              "example": {
+                "gb-treaty-us": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "US"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                  "valueFields": {
+                    "countryRate": 0.3,
+                    "treatyRate": 0.15,
+                    "treatyRAS": true
+                  }
+                },
+                "gb-treaty-fr": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "FR"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                  "valueFields": {
+                    "countryRate": 0.25,
+                    "treatyRate": 0.15,
+                    "treatyRAS": false
+                  }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/UpsertWithholdingTaxRateRequest"
+                }
+              },
+              "example": {
+                "gb-treaty-us": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "US"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                  "valueFields": {
+                    "countryRate": 0.3,
+                    "treatyRate": 0.15,
+                    "treatyRAS": true
+                  }
+                },
+                "gb-treaty-fr": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "FR"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                  "valueFields": {
+                    "countryRate": 0.25,
+                    "treatyRate": 0.15,
+                    "treatyRAS": false
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/UpsertWithholdingTaxRateRequest"
+                }
+              },
+              "example": {
+                "gb-treaty-us": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "US"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                  "valueFields": {
+                    "countryRate": 0.3,
+                    "treatyRate": 0.15,
+                    "treatyRAS": true
+                  }
+                },
+                "gb-treaty-fr": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "FR"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                  "valueFields": {
+                    "countryRate": 0.25,
+                    "treatyRate": 0.15,
+                    "treatyRAS": false
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/UpsertWithholdingTaxRateRequest"
+                }
+              },
+              "example": {
+                "gb-treaty-us": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "US"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                  "valueFields": {
+                    "countryRate": 0.3,
+                    "treatyRate": 0.15,
+                    "treatyRAS": true
+                  }
+                },
+                "gb-treaty-fr": {
+                  "seriesIdentifiers": {
+                    "taxCountry": "GB",
+                    "profileType": "TreatyEligible",
+                    "instrumentDomicile": "FR"
+                  },
+                  "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                  "valueFields": {
+                    "countryRate": 0.25,
+                    "treatyRate": 0.15,
+                    "treatyRAS": false
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The Withholding Tax rate rows that were upserted.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchUpsertWithholdingTaxRatesResponse"
+                },
+                "example": {
+                  "values": {
+                    "gb-treaty-us": {
+                      "relationalDatasetDefinitionId": {
+                        "scope": "WithholdingTax",
+                        "code": "wht-main-rates"
+                      },
+                      "seriesIdentifiers": {
+                        "taxCountry": {
+                          "value": "GB"
+                        },
+                        "profileType": {
+                          "value": "TreatyEligible"
+                        },
+                        "instrumentDomicile": {
+                          "value": "US"
+                        }
+                      },
+                      "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                      "valueFields": {
+                        "countryRate": {
+                          "value": 0.3
+                        },
+                        "treatyRate": {
+                          "value": 0.15
+                        },
+                        "treatyRAS": {
+                          "value": true
+                        }
+                      },
+                      "metaDataFields": {},
+                      "effectiveAtEntered": "2026-01-01T00:00:00.0000000+00:00"
+                    }
+                  },
+                  "failed": {}
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchUpsertWithholdingTaxRatesResponse"
+                },
+                "example": {
+                  "values": {
+                    "gb-treaty-us": {
+                      "relationalDatasetDefinitionId": {
+                        "scope": "WithholdingTax",
+                        "code": "wht-main-rates"
+                      },
+                      "seriesIdentifiers": {
+                        "taxCountry": {
+                          "value": "GB"
+                        },
+                        "profileType": {
+                          "value": "TreatyEligible"
+                        },
+                        "instrumentDomicile": {
+                          "value": "US"
+                        }
+                      },
+                      "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                      "valueFields": {
+                        "countryRate": {
+                          "value": 0.3
+                        },
+                        "treatyRate": {
+                          "value": 0.15
+                        },
+                        "treatyRAS": {
+                          "value": true
+                        }
+                      },
+                      "metaDataFields": {},
+                      "effectiveAtEntered": "2026-01-01T00:00:00.0000000+00:00"
+                    }
+                  },
+                  "failed": {}
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchUpsertWithholdingTaxRatesResponse"
+                },
+                "example": {
+                  "values": {
+                    "gb-treaty-us": {
+                      "relationalDatasetDefinitionId": {
+                        "scope": "WithholdingTax",
+                        "code": "wht-main-rates"
+                      },
+                      "seriesIdentifiers": {
+                        "taxCountry": {
+                          "value": "GB"
+                        },
+                        "profileType": {
+                          "value": "TreatyEligible"
+                        },
+                        "instrumentDomicile": {
+                          "value": "US"
+                        }
+                      },
+                      "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
+                      "valueFields": {
+                        "countryRate": {
+                          "value": 0.3
+                        },
+                        "treatyRate": {
+                          "value": 0.15
+                        },
+                        "treatyRAS": {
+                          "value": true
+                        }
+                      },
+                      "metaDataFields": {},
+                      "effectiveAtEntered": "2026-01-01T00:00:00.0000000+00:00"
+                    }
+                  },
+                  "failed": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
     }
   },
   "components": {
@@ -174351,6 +174572,43 @@
         },
         "additionalProperties": false
       },
+      "BatchUpsertWithholdingTaxRatesResponse": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/WithholdingTaxRateResponse"
+            },
+            "description": "A list of data points that were successfully upserted."
+          },
+          "failed": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "description": "A list of data points that failed to be upserted, along with the associated error message.",
+            "nullable": true
+          },
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Block": {
         "required": [
           "createdDate",
@@ -175899,6 +176157,16 @@
                 "type": "number",
                 "description": "The TOTAL width of the central-difference stencil behind the CS01/Central measure: the\r\ninstrument's own z-spread is repriced at spread ± width/2, so a width of 0.0001 means\r\n±0.5bp reprice points. The width is the whole distance between the two reprice points,\r\nNOT the half-shift. The reported measure is always per one basis point of widening\r\nwhatever width is configured. Must be strictly positive.\r\nDefaults to 0.0001 (1bp, repriced at ±0.5bp) when not supplied.",
                 "format": "double",
+                "nullable": true
+              },
+              "spreadAnchorSource": {
+                "type": "string",
+                "description": "Where the spread anchor comes from when no CreditSpreadCurve is served for the instrument. Only\r\nread when SpreadAnchoredRisk is true.\r\n            \r\nSupported string (enumeration) values are: [MarketData, SolvedFromPrice].\r\nDefaults to MarketData - the original behaviour, where a ZSpread quote must be served from the\r\nquote store or as a market data override - when not supplied.\r\n            \r\nSolvedFromPrice: a served CreditSpreadCurve or ZSpread quote still wins. When neither is served,\r\nthe bond is valued exactly as the plain lookup values it, and the anchor is the z-spread its\r\nlooked-up price implies over the discounting curve (the value Analytic/ZSpread returns). Risk\r\nmeasures, carry and scenario columns solve that anchor against the unperturbed market and hold it,\r\nso no spread has to be stored or sent.",
+                "nullable": true
+              },
+              "spreadTermStructure": {
+                "type": "boolean",
+                "description": "In spread-anchored mode with a credit-spread curve (a served CreditSpreadCurve, or the curve the\r\nrisk engine builds from the ZSpread quote), discount each cash flow at the curve's level on its own\r\npayment date instead of discounting every flow at the level at maturity. Pointwise and bucketed\r\nRisk/Credit ladders then split CS01 by cash flow, and the curve built from a quote carries one pillar\r\nper remaining payment date. The price is unchanged on a flat curve (and so on any curve built from a\r\nquote) but not on a sloped served curve.\r\nDefaults to false - the level at maturity - when not supplied.",
                 "nullable": true
               },
               "modelOptionsType": {
@@ -187467,6 +187735,15 @@
             "type": "string",
             "description": "The format in which values for this property definition should be represented. Available values: Text, Html.",
             "nullable": true
+          },
+          "qualifierDefinitions": {
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QualifierDefinitionRequest"
+            },
+            "description": "The qualifiers to declare against this property definition. A qualifier attaches an individually typed supporting fact to a value of this property, sharing that value's interval. Supported only where the constraint style is Property and no collection type is set.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -190920,6 +191197,28 @@
             "description": "The effective datetime until which the relationship will be deleted. If not supplied the deletion will be permanent.",
             "format": "dateorcutlabel",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteWithholdingTaxRateRequest": {
+        "required": [
+          "effectiveAt"
+        ],
+        "type": "object",
+        "properties": {
+          "seriesIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "description": "The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The effectiveAt or cut-label datetime of the DataPoint."
           }
         },
         "additionalProperties": false
@@ -198856,7 +199155,12 @@
           },
           "type": {
             "type": "string",
-            "description": "The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.",
+            "description": "The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Master and Feeder are deprecated: the structural role of a fund now lives on its fund structure node, and a fund with either type cannot be a member of a fund structure. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.",
+            "nullable": true
+          },
+          "taxTransparency": {
+            "type": "string",
+            "description": "Whether the Fund is looked through for tax: Transparent passes its income and gains to its holders as their own, Opaque is taxed in its own right. Optional; if not set, a TaxBlocker is Opaque and a CarryVehicle or GPInterestHolder is Transparent. A fund structure requires it on every SPV and AIV member. Available values: Transparent, Opaque.",
             "nullable": true
           },
           "inceptionDate": {
@@ -199877,7 +200181,12 @@
           },
           "type": {
             "type": "string",
-            "description": "The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.",
+            "description": "The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Master and Feeder are deprecated: the structural role of a fund now lives on its fund structure node, and a fund with either type cannot be a member of a fund structure. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA.",
+            "nullable": true
+          },
+          "taxTransparency": {
+            "type": "string",
+            "description": "Whether the Fund is looked through for tax: Transparent passes its income and gains to its holders as their own, Opaque is taxed in its own right. Optional; if not set, a TaxBlocker is Opaque and a CarryVehicle or GPInterestHolder is Transparent. A fund structure requires it on every SPV and AIV member. Available values: Transparent, Opaque.",
             "nullable": true
           },
           "inceptionDate": {
@@ -200727,7 +201036,7 @@
           "type": {
             "minLength": 1,
             "type": "string",
-            "description": "The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Standalone, Master and Feeder are retained for compatibility; the structural role of a fund now lives on its fund structure node. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA."
+            "description": "The kind of vehicle the fund is, one of the values of the system/fundVehicleType data type. Master and Feeder are deprecated: the structural role of a fund now lives on its fund structure node, and a fund with either type cannot be a member of a fund structure. Available values: Standalone, Master, Feeder, SPV, AIV, TaxBlocker, CarryVehicle, SponsorCommitmentVehicle, CoInvestVehicle, GPInterestHolder, SMA, CTA."
           },
           "inceptionDate": {
             "type": "string",
@@ -204495,6 +204804,11 @@
                 "type": "integer",
                 "description": "A ceiling on the lattice size, counted as (steps + 1) x rate levels, that the pricer may\r\nbuild for one instrument. An instrument whose lattice would exceed it is declined by the\r\nmodel before any allocation, so the cost of a long-dated or finely-stepped row can be\r\nbounded. Must be at least 1 when supplied. Absent, no ceiling applies.",
                 "format": "int32",
+                "nullable": true
+              },
+              "priceAtQuoteImpliedOas": {
+                "type": "boolean",
+                "description": "Price at the option-adjusted spread implied by the instrument's quoted price instead of at zero\r\nspread, so the present value reproduces the quote and curve risk is measured with the spread\r\nheld. The spread is taken from an OAS quote served for the instrument (a quote with descriptor\r\n[\"OAS\"] keyed by its identifiers, from a Rate-typed market data rule or a market data override)\r\nwhen there is one, and is then held across every bumped valuation; otherwise it is solved\r\nagainst the quote in the valuation's own market. A request for a Risk measure requires the OAS\r\nquote, since a spread re-solved under each bump would leave the measure at zero. Also prices\r\ncompounded-in-arrears floating coupons, exercises inside an unfixed floating period and\r\nasset-backed bonds, which are otherwise refused. For an asset-backed bond the pool is held at\r\nits latest factor to legal final with no prepayment, so EffectiveDuration and Pv01 on those\r\nrows are legal-final durations that ignore prepayment. A constant prepayment rate served for the\r\npool is not read, so the lattice, the cash flows and WeightedAverageLife all run the pool to\r\nlegal final. Rows carry the source of the spread in the Diagnostics/Model/PricingSpreadSource\r\nvaluation key. Defaults to false.",
                 "nullable": true
               },
               "modelOptionsType": {
@@ -210687,6 +211001,22 @@
             },
             "description": "The list of groups of rules that will be used in market data resolution.\r\nRules given within a group will, if the group is being used to resolve data,\r\nall be applied with the results of those individual resolution attempts combined into a single result.\r\nThe method for combining results is determined by the operation detailed in the GroupOfMarketDataKeyRules.\r\n            \r\nNotes:\r\n- When resolving MarketData, MarketRules will be applied first followed by GroupedMarketRules\r\nif data could not be found using only the MarketRules provided.\r\n- GroupedMarketRules can only be used for resolving data from the QuoteStore.\r\n            \r\nCaution: As every rule in a given group will be applied in resolution if the group is applied,\r\ngroups are computationally expensive for market data resolution.\r\nTherefore, heuristically, rule groups should be kept as small as possible.",
             "nullable": true
+          },
+          "bidMarketRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketDataKeyRule"
+            },
+            "description": "An optional, separate set of market data key rules for the bid side of a valuation, used when a bid\r\nresult is requested (a Valuation/PV address key with the PricingBasis option set to Bid) or the recipe's\r\npricing basis (MarketOptions.PricingBasis) is Bid. When supplied,\r\ninstrument prices (Price, DirtyPrice and ForwardPrice quotes) are resolved from these rules only, and are\r\nreported as missing if none of them finds the price; rates curves and volatility surfaces are taken from\r\nthese rules where one of them matches, and from the market rules otherwise; FX rates, fixings and resets\r\nalways come from the market rules. Each rule reads the quote field it is written with. When omitted, the\r\nbid side re-targets the instrument price rules in MarketRules onto the bid field, as before.",
+            "nullable": true
+          },
+          "offerMarketRules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketDataKeyRule"
+            },
+            "description": "An optional, separate set of market data key rules for the offer (ask) side of a valuation, used when an\r\nask result is requested (a Valuation/PV address key with the PricingBasis option set to Ask) or the recipe's\r\npricing basis (MarketOptions.PricingBasis) is Ask. Resolved in the\r\nsame way as BidMarketRules. When omitted, the offer side re-targets the instrument price rules in\r\nMarketRules onto the ask field, as before.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -213266,6 +213596,9 @@
           },
           "swingPricing": {
             "$ref": "#/components/schemas/SwingPricingRule"
+          },
+          "notionalDealingCostTableId": {
+            "$ref": "#/components/schemas/ResourceId"
           }
         },
         "additionalProperties": false
@@ -213399,6 +213732,9 @@
           },
           "swingPricing": {
             "$ref": "#/components/schemas/SwingPricingRule"
+          },
+          "notionalDealingCostTableId": {
+            "$ref": "#/components/schemas/ResourceId"
           }
         },
         "additionalProperties": false
@@ -215460,10 +215796,12 @@
               "Cancelled",
               "ActiveReversal",
               "ActiveTrueUp",
-              "CancelledTrueUp"
+              "CancelledTrueUp",
+              "PendingReversal",
+              "Reversed"
             ],
             "type": "string",
-            "description": "The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp."
+            "description": "The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp, PendingReversal, Reversed."
           },
           "entryDateTime": {
             "type": "string",
@@ -223630,6 +223968,14 @@
             "description": "The format in which values for this property definition should be represented.",
             "nullable": true
           },
+          "qualifierDefinitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QualifierDefinition"
+            },
+            "description": "The qualifiers declared against this property definition, each with its value type resolved from its data type. Absent where the definition declares no qualifiers. Qualifiers are supported only on single-value properties.",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -224649,6 +224995,80 @@
           }
         ],
         "description": "Put Redemption (BPUT) — early redemption of a bond at the holder's election under an\r\nindenture-defined put option. Supports both Voluntary (the AMI-SeCo canonical shape) and\r\nMandatory (a deliberate market extension beyond SCoRE) participation on Bond, ComplexBond,\r\nand InflationLinkedBond instruments. Cloned from RepurchaseOfferEvent (BIDS) and narrowed\r\nto debt with a fixed event-level OfferPrice instead of a per-election holder-bid price."
+      },
+      "QualifierDefinition": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The key by which the qualifier is addressed, for example 'direction'. Addressed in filters, sort orders and derivation formulae as Properties[{propertyKey}].Qualifiers[{qualifierKey}]. Validated under the same rules as a property code.",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "description": "The display name of the qualifier.",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Describes the qualifier. Optional; null where not supplied.",
+            "nullable": true
+          },
+          "dataTypeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "valueType": {
+            "type": "string",
+            "description": "The type of value this qualifier carries, resolved from its data type. Available values: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel, UnindexedText.",
+            "nullable": true
+          },
+          "isRequired": {
+            "type": "boolean",
+            "description": "Whether a value for this qualifier must be supplied when a value of the property is written. Defaults to false, and is returned as a boolean rather than as null. Validated on write only, so setting it true does not retroactively invalidate values stored before the change."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A qualifier as returned on read: the request shape plus the value type resolved from its data type."
+      },
+      "QualifierDefinitionRequest": {
+        "required": [
+          "dataTypeId",
+          "displayName",
+          "key"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The key by which the qualifier is addressed, for example 'direction'. Addressed in filters, sort orders and derivation formulae as Properties[{propertyKey}].Qualifiers[{qualifierKey}]. Validated under the same rules as a property code."
+          },
+          "displayName": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The display name of the qualifier."
+          },
+          "description": {
+            "maxLength": 512,
+            "minLength": 0,
+            "type": "string",
+            "description": "Describes the qualifier. Optional; null where not supplied.",
+            "nullable": true
+          },
+          "dataTypeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "isRequired": {
+            "type": "boolean",
+            "description": "Whether a value for this qualifier must be supplied when a value of the property is written. Defaults to false, and is returned as a boolean rather than as null. Validated on write only, so setting it true does not retroactively invalidate values stored before the change.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A qualifier to declare against a single-value property definition."
       },
       "QuantityInstructed": {
         "required": [
@@ -231799,6 +232219,68 @@
         "additionalProperties": false,
         "description": "The RevertValuationPointDataRequest."
       },
+      "RevertValuationPointResponse": {
+        "required": [
+          "effectiveAt",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "valuationPointCode": {
+            "type": "string",
+            "description": "The code of the Valuation Point.",
+            "nullable": true
+          },
+          "navTypeCode": {
+            "type": "string",
+            "description": "The navTypeCode of the Fund Calendar Entry. This is the code of the NAV type that this Calendar Entry is associated with.",
+            "nullable": true
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The status of the Valuation Point. Available values: Undefined, Estimate, Final, Candidate, Rejected, Unofficial."
+          },
+          "applyClearDown": {
+            "type": "boolean",
+            "description": "Indicates whether a clear down was applied when the Valuation Point was created."
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The effective time of the Valuation Point.",
+            "format": "date-time"
+          },
+          "previous": {
+            "$ref": "#/components/schemas/PreviousValuationPoint"
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EstimateVariant"
+            },
+            "description": "The variants of the Estimate Valuation Point. ",
+            "nullable": true
+          },
+          "stagedModifications": {
+            "$ref": "#/components/schemas/StagedModificationsInfo"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Valuation Point reverted to Estimate, with all of its variants. Any variant that finalising the Valuation Point\r\nhad rejected is brought back as an Estimate by the revert, and is reported here alongside it."
+      },
       "RiskBumpOptions": {
         "type": "object",
         "properties": {
@@ -236517,6 +236999,12 @@
             "description": "The amortised cost of the tax-lot in the settlement currency, for example a supplied amortised cost at migration. If supplied, this value seeds the tax-lot's amortised cost at the adjustment date and amortisation continues forward from it; if not supplied, the amortised cost defaults to the cost of the tax-lot.",
             "format": "double",
             "nullable": true
+          },
+          "currentFace": {
+            "type": "number",
+            "description": "The current face of the tax-lot, i.e. its outstanding notional after any reduction by the instrument's pool factor. If supplied, this value seeds the tax-lot's current face, so that later paydowns on an asset-backed instrument reduce the cost against it; if not supplied, a tax-lot that already has a current face keeps its pool factor as its units change.",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -236581,6 +237069,12 @@
           "amortisedCost": {
             "type": "number",
             "description": "The amortised cost of the tax-lot in the settlement currency, for example a supplied amortised cost at migration. If supplied, this value seeds the tax-lot's amortised cost at the adjustment date and amortisation continues forward from it; if not supplied, the amortised cost defaults to the cost of the tax-lot.",
+            "format": "double",
+            "nullable": true
+          },
+          "currentFace": {
+            "type": "number",
+            "description": "The current face of the tax-lot, i.e. its outstanding notional after any reduction by the instrument's pool factor. If supplied, this value seeds the tax-lot's current face, so that later paydowns on an asset-backed instrument reduce the cost against it; if not supplied, a tax-lot that already has a current face keeps its pool factor as its units change.",
             "format": "double",
             "nullable": true
           }
@@ -238325,10 +238819,12 @@
               "Cancelled",
               "ActiveReversal",
               "ActiveTrueUp",
-              "CancelledTrueUp"
+              "CancelledTrueUp",
+              "PendingReversal",
+              "Reversed"
             ],
             "type": "string",
-            "description": "The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp."
+            "description": "The status of the transaction. Available values: Active, Amended, Cancelled, ActiveReversal, ActiveTrueUp, CancelledTrueUp, PendingReversal, Reversed."
           },
           "cancelDateTime": {
             "type": "string",
@@ -241501,6 +241997,15 @@
             "type": "string",
             "description": "The format in which values for this property definition should be represented. Available values: Text, Html.",
             "nullable": true
+          },
+          "qualifierDefinitions": {
+            "maxItems": 50,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QualifierDefinitionRequest"
+            },
+            "description": "The qualifiers declared against this property definition. Omit this field, or supply it as null, to leave the declared qualifiers unchanged. Otherwise the supplied array replaces the stored array in full, so a qualifier omitted from it is no longer declared and can no longer be set, and an empty array clears every declaration. Stored qualifier values are retained in every case and become readable again if the same keys are re-declared with the same data types.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -243495,6 +244000,44 @@
               "$ref": "#/components/schemas/WithholdingTaxValueSource"
             },
             "description": "One declaration per customer-defined matching dimension across both datasets, naming where the engine reads that dimension's value from. A dataset column name cannot imply a storage location, so a declaration is required for every customer dimension: an unmapped dimension is never supplied by the matching request, so no row ever matches on it and the customer silently gets a broader rate than they configured. No declaration is required for taxCountry or profileType, which the engine fills from the waterfall, nor for ruleSource, which is compared against SourcePriority.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpsertWithholdingTaxRateRequest": {
+        "required": [
+          "effectiveAt",
+          "valueFields"
+        ],
+        "type": "object",
+        "properties": {
+          "seriesIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "description": "The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.",
+            "nullable": true
+          },
+          "effectiveAt": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The effectiveAt or cut-label datetime of the DataPoint."
+          },
+          "valueFields": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "description": "The values associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition."
+          },
+          "metaDataFields": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "description": "The metadata associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition.",
             "nullable": true
           }
         },
@@ -246151,6 +246694,57 @@
           },
           "mainDataset": {
             "$ref": "#/components/schemas/WithholdingTaxDataset"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WithholdingTaxRateResponse": {
+        "required": [
+          "effectiveAt",
+          "effectiveAtEntered",
+          "metaDataFields",
+          "relationalDatasetDefinitionId",
+          "seriesIdentifiers",
+          "valueFields"
+        ],
+        "type": "object",
+        "properties": {
+          "relationalDatasetDefinitionId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "seriesIdentifiers": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/RelationalDataPointFieldValueResponse"
+            },
+            "description": "The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition."
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The effectiveAt or cut-label datetime of the DataPoint.",
+            "format": "date-time"
+          },
+          "valueFields": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/RelationalDataPointFieldValueResponse"
+            },
+            "description": "The values associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition."
+          },
+          "metaDataFields": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/RelationalDataPointFieldValueResponse"
+            },
+            "description": "The metadata associated with the DataPoint, structured according to the FieldSchema of the parent RelationalDatasetDefinition."
+          },
+          "effectiveAtEntered": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The effectiveAt datetime as entered when the DataPoint was created."
+          },
+          "dataPointVersion": {
+            "$ref": "#/components/schemas/DataPointVersion"
           }
         },
         "additionalProperties": false
