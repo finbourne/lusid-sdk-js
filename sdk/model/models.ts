@@ -667,6 +667,9 @@ export * from './getScenarioResponse';
 export * from './getStructuredResultDataResponse';
 export * from './getSubscriptionResponse';
 export * from './getVirtualDocumentResponse';
+export * from './globalLoanFacilityContractState';
+export * from './globalLoanFacilityReinitialisationEvent';
+export * from './globalLoanFacilityReinitialisationEventAllOf';
 export * from './groupBySelectorComplianceParameter';
 export * from './groupByStep';
 export * from './groupByStepRequest';
@@ -759,6 +762,8 @@ export * from './intermediateSecuritiesDistributionEvent';
 export * from './intermediateSecuritiesDistributionEventAllOf';
 export * from './investor';
 export * from './investorIdentifier';
+export * from './investorLoanFacilityReinitialisationEvent';
+export * from './investorLoanFacilityReinitialisationEventAllOf';
 export * from './investorRecord';
 export * from './irVolCubeData';
 export * from './irVolCubeDataAllOf';
@@ -790,6 +795,8 @@ export * from './loanFacilityContractRolloverEvent';
 export * from './loanFacilityContractRolloverEventAllOf';
 export * from './loanFacilityDelayedCompensationPaymentEvent';
 export * from './loanFacilityDelayedCompensationPaymentEventAllOf';
+export * from './loanFacilityTaxLotAllocation';
+export * from './loanFacilityTaxLotState';
 export * from './loanInterestCapitalisationEvent';
 export * from './loanInterestCapitalisationEventAllOf';
 export * from './loanInterestRepaymentEvent';
@@ -851,6 +858,7 @@ export * from './movedOrderToDifferentBlockResponse';
 export * from './movementConditionMatch';
 export * from './movementSettlementSummary';
 export * from './multiCurrencyAmounts';
+export * from './namedPrice';
 export * from './navActivityAdjustment';
 export * from './navActivityAdjustmentResponse';
 export * from './navReportEvent';
@@ -1553,6 +1561,7 @@ export * from './valuationPoint';
 export * from './valuationPointDataQueryParameters';
 export * from './valuationPointDataRequest';
 export * from './valuationPointDataResponse';
+export * from './valuationPointDiagnostic';
 export * from './valuationPointEntity';
 export * from './valuationPointInstrument';
 export * from './valuationPointOverview';
@@ -2294,6 +2303,9 @@ import { GetScenarioResponse } from './getScenarioResponse';
 import { GetStructuredResultDataResponse } from './getStructuredResultDataResponse';
 import { GetSubscriptionResponse } from './getSubscriptionResponse';
 import { GetVirtualDocumentResponse } from './getVirtualDocumentResponse';
+import { GlobalLoanFacilityContractState } from './globalLoanFacilityContractState';
+import { GlobalLoanFacilityReinitialisationEvent } from './globalLoanFacilityReinitialisationEvent';
+import { GlobalLoanFacilityReinitialisationEventAllOf } from './globalLoanFacilityReinitialisationEventAllOf';
 import { GroupBySelectorComplianceParameter } from './groupBySelectorComplianceParameter';
 import { GroupByStep } from './groupByStep';
 import { GroupByStepRequest } from './groupByStepRequest';
@@ -2386,6 +2398,8 @@ import { IntermediateSecuritiesDistributionEvent } from './intermediateSecuritie
 import { IntermediateSecuritiesDistributionEventAllOf } from './intermediateSecuritiesDistributionEventAllOf';
 import { Investor } from './investor';
 import { InvestorIdentifier } from './investorIdentifier';
+import { InvestorLoanFacilityReinitialisationEvent } from './investorLoanFacilityReinitialisationEvent';
+import { InvestorLoanFacilityReinitialisationEventAllOf } from './investorLoanFacilityReinitialisationEventAllOf';
 import { InvestorRecord } from './investorRecord';
 import { IrVolCubeData } from './irVolCubeData';
 import { IrVolCubeDataAllOf } from './irVolCubeDataAllOf';
@@ -2417,6 +2431,8 @@ import { LoanFacilityContractRolloverEvent } from './loanFacilityContractRollove
 import { LoanFacilityContractRolloverEventAllOf } from './loanFacilityContractRolloverEventAllOf';
 import { LoanFacilityDelayedCompensationPaymentEvent } from './loanFacilityDelayedCompensationPaymentEvent';
 import { LoanFacilityDelayedCompensationPaymentEventAllOf } from './loanFacilityDelayedCompensationPaymentEventAllOf';
+import { LoanFacilityTaxLotAllocation } from './loanFacilityTaxLotAllocation';
+import { LoanFacilityTaxLotState } from './loanFacilityTaxLotState';
 import { LoanInterestCapitalisationEvent } from './loanInterestCapitalisationEvent';
 import { LoanInterestCapitalisationEventAllOf } from './loanInterestCapitalisationEventAllOf';
 import { LoanInterestRepaymentEvent } from './loanInterestRepaymentEvent';
@@ -2478,6 +2494,7 @@ import { MovedOrderToDifferentBlockResponse } from './movedOrderToDifferentBlock
 import { MovementConditionMatch } from './movementConditionMatch';
 import { MovementSettlementSummary } from './movementSettlementSummary';
 import { MultiCurrencyAmounts } from './multiCurrencyAmounts';
+import { NamedPrice } from './namedPrice';
 import { NavActivityAdjustment } from './navActivityAdjustment';
 import { NavActivityAdjustmentResponse } from './navActivityAdjustmentResponse';
 import { NavReportEvent } from './navReportEvent';
@@ -3180,6 +3197,7 @@ import { ValuationPoint } from './valuationPoint';
 import { ValuationPointDataQueryParameters } from './valuationPointDataQueryParameters';
 import { ValuationPointDataRequest } from './valuationPointDataRequest';
 import { ValuationPointDataResponse } from './valuationPointDataResponse';
+import { ValuationPointDiagnostic } from './valuationPointDiagnostic';
 import { ValuationPointEntity } from './valuationPointEntity';
 import { ValuationPointInstrument } from './valuationPointInstrument';
 import { ValuationPointOverview } from './valuationPointOverview';
@@ -3605,6 +3623,8 @@ let enumsMap: {[index: string]: any} = {
         "FxVolSurfaceData.MarketDataTypeEnum": FxVolSurfaceData.MarketDataTypeEnum,
         "GetReferencePortfolioConstituentsResponse.WeightTypeEnum": GetReferencePortfolioConstituentsResponse.WeightTypeEnum,
         "GetReferencePortfolioConstituentsResponse.PeriodTypeEnum": GetReferencePortfolioConstituentsResponse.PeriodTypeEnum,
+        "GlobalLoanFacilityReinitialisationEvent.InstrumentEventTypeEnum": GlobalLoanFacilityReinitialisationEvent.InstrumentEventTypeEnum,
+        "GlobalLoanFacilityReinitialisationEventAllOf.InstrumentEventTypeEnum": GlobalLoanFacilityReinitialisationEventAllOf.InstrumentEventTypeEnum,
         "GroupBySelectorComplianceParameter.ComplianceParameterTypeEnum": GroupBySelectorComplianceParameter.ComplianceParameterTypeEnum,
         "GroupByStep.ComplianceStepTypeEnum": GroupByStep.ComplianceStepTypeEnum,
         "GroupByStepRequest.ComplianceStepTypeRequestEnum": GroupByStepRequest.ComplianceStepTypeRequestEnum,
@@ -3668,6 +3688,8 @@ let enumsMap: {[index: string]: any} = {
         "InterestRateSwaptionAllOf.InstrumentTypeEnum": InterestRateSwaptionAllOf.InstrumentTypeEnum,
         "IntermediateSecuritiesDistributionEvent.InstrumentEventTypeEnum": IntermediateSecuritiesDistributionEvent.InstrumentEventTypeEnum,
         "IntermediateSecuritiesDistributionEventAllOf.InstrumentEventTypeEnum": IntermediateSecuritiesDistributionEventAllOf.InstrumentEventTypeEnum,
+        "InvestorLoanFacilityReinitialisationEvent.InstrumentEventTypeEnum": InvestorLoanFacilityReinitialisationEvent.InstrumentEventTypeEnum,
+        "InvestorLoanFacilityReinitialisationEventAllOf.InstrumentEventTypeEnum": InvestorLoanFacilityReinitialisationEventAllOf.InstrumentEventTypeEnum,
         "IrVolCubeData.MarketDataTypeEnum": IrVolCubeData.MarketDataTypeEnum,
         "IrVolCubeDataAllOf.MarketDataTypeEnum": IrVolCubeDataAllOf.MarketDataTypeEnum,
         "IrVolDependency.DependencyTypeEnum": IrVolDependency.DependencyTypeEnum,
@@ -4626,6 +4648,9 @@ let typeMap: {[index: string]: any} = {
     "GetStructuredResultDataResponse": GetStructuredResultDataResponse,
     "GetSubscriptionResponse": GetSubscriptionResponse,
     "GetVirtualDocumentResponse": GetVirtualDocumentResponse,
+    "GlobalLoanFacilityContractState": GlobalLoanFacilityContractState,
+    "GlobalLoanFacilityReinitialisationEvent": GlobalLoanFacilityReinitialisationEvent,
+    "GlobalLoanFacilityReinitialisationEventAllOf": GlobalLoanFacilityReinitialisationEventAllOf,
     "GroupBySelectorComplianceParameter": GroupBySelectorComplianceParameter,
     "GroupByStep": GroupByStep,
     "GroupByStepRequest": GroupByStepRequest,
@@ -4718,6 +4743,8 @@ let typeMap: {[index: string]: any} = {
     "IntermediateSecuritiesDistributionEventAllOf": IntermediateSecuritiesDistributionEventAllOf,
     "Investor": Investor,
     "InvestorIdentifier": InvestorIdentifier,
+    "InvestorLoanFacilityReinitialisationEvent": InvestorLoanFacilityReinitialisationEvent,
+    "InvestorLoanFacilityReinitialisationEventAllOf": InvestorLoanFacilityReinitialisationEventAllOf,
     "InvestorRecord": InvestorRecord,
     "IrVolCubeData": IrVolCubeData,
     "IrVolCubeDataAllOf": IrVolCubeDataAllOf,
@@ -4749,6 +4776,8 @@ let typeMap: {[index: string]: any} = {
     "LoanFacilityContractRolloverEventAllOf": LoanFacilityContractRolloverEventAllOf,
     "LoanFacilityDelayedCompensationPaymentEvent": LoanFacilityDelayedCompensationPaymentEvent,
     "LoanFacilityDelayedCompensationPaymentEventAllOf": LoanFacilityDelayedCompensationPaymentEventAllOf,
+    "LoanFacilityTaxLotAllocation": LoanFacilityTaxLotAllocation,
+    "LoanFacilityTaxLotState": LoanFacilityTaxLotState,
     "LoanInterestCapitalisationEvent": LoanInterestCapitalisationEvent,
     "LoanInterestCapitalisationEventAllOf": LoanInterestCapitalisationEventAllOf,
     "LoanInterestRepaymentEvent": LoanInterestRepaymentEvent,
@@ -4810,6 +4839,7 @@ let typeMap: {[index: string]: any} = {
     "MovementConditionMatch": MovementConditionMatch,
     "MovementSettlementSummary": MovementSettlementSummary,
     "MultiCurrencyAmounts": MultiCurrencyAmounts,
+    "NamedPrice": NamedPrice,
     "NavActivityAdjustment": NavActivityAdjustment,
     "NavActivityAdjustmentResponse": NavActivityAdjustmentResponse,
     "NavReportEvent": NavReportEvent,
@@ -5512,6 +5542,7 @@ let typeMap: {[index: string]: any} = {
     "ValuationPointDataQueryParameters": ValuationPointDataQueryParameters,
     "ValuationPointDataRequest": ValuationPointDataRequest,
     "ValuationPointDataResponse": ValuationPointDataResponse,
+    "ValuationPointDiagnostic": ValuationPointDiagnostic,
     "ValuationPointEntity": ValuationPointEntity,
     "ValuationPointInstrument": ValuationPointInstrument,
     "ValuationPointOverview": ValuationPointOverview,
