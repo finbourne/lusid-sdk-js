@@ -68,6 +68,7 @@ export * from './amount';
 export * from './annulQuotesResponse';
 export * from './annulSingleStructuredDataResponse';
 export * from './annulStructuredDataResponse';
+export * from './apiEndpoint';
 export * from './appendComplexMarketDataRequest';
 export * from './appendFxForwardCurveByQuoteReference';
 export * from './appendFxForwardCurveByQuoteReferenceAllOf';
@@ -1320,6 +1321,7 @@ export * from './sequenceDefinition';
 export * from './seriesDefinition';
 export * from './seriesDefinitionRequest';
 export * from './seriesIdentifierField';
+export * from './serviceApiEndpoints';
 export * from './setLegalEntityIdentifiersRequest';
 export * from './setLegalEntityPropertiesRequest';
 export * from './setPersonIdentifiersRequest';
@@ -1704,6 +1706,7 @@ import { Amount } from './amount';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
 import { AnnulStructuredDataResponse } from './annulStructuredDataResponse';
+import { ApiEndpoint } from './apiEndpoint';
 import { AppendComplexMarketDataRequest } from './appendComplexMarketDataRequest';
 import { AppendFxForwardCurveByQuoteReference } from './appendFxForwardCurveByQuoteReference';
 import { AppendFxForwardCurveByQuoteReferenceAllOf } from './appendFxForwardCurveByQuoteReferenceAllOf';
@@ -2956,6 +2959,7 @@ import { SequenceDefinition } from './sequenceDefinition';
 import { SeriesDefinition } from './seriesDefinition';
 import { SeriesDefinitionRequest } from './seriesDefinitionRequest';
 import { SeriesIdentifierField } from './seriesIdentifierField';
+import { ServiceApiEndpoints } from './serviceApiEndpoints';
 import { SetLegalEntityIdentifiersRequest } from './setLegalEntityIdentifiersRequest';
 import { SetLegalEntityPropertiesRequest } from './setLegalEntityPropertiesRequest';
 import { SetPersonIdentifiersRequest } from './setPersonIdentifiersRequest';
@@ -4050,6 +4054,7 @@ let typeMap: {[index: string]: any} = {
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
     "AnnulStructuredDataResponse": AnnulStructuredDataResponse,
+    "ApiEndpoint": ApiEndpoint,
     "AppendComplexMarketDataRequest": AppendComplexMarketDataRequest,
     "AppendFxForwardCurveByQuoteReference": AppendFxForwardCurveByQuoteReference,
     "AppendFxForwardCurveByQuoteReferenceAllOf": AppendFxForwardCurveByQuoteReferenceAllOf,
@@ -5301,6 +5306,7 @@ let typeMap: {[index: string]: any} = {
     "SeriesDefinition": SeriesDefinition,
     "SeriesDefinitionRequest": SeriesDefinitionRequest,
     "SeriesIdentifierField": SeriesIdentifierField,
+    "ServiceApiEndpoints": ServiceApiEndpoints,
     "SetLegalEntityIdentifiersRequest": SetLegalEntityIdentifiersRequest,
     "SetLegalEntityPropertiesRequest": SetLegalEntityPropertiesRequest,
     "SetPersonIdentifiersRequest": SetPersonIdentifiersRequest,
