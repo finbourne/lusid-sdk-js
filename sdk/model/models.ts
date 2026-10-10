@@ -420,6 +420,7 @@ export * from './dateTimeComplianceParameterAllOf';
 export * from './dateTimeListComplianceParameter';
 export * from './dayMonth';
 export * from './dayOfWeek';
+export * from './dealingFlowSummary';
 export * from './decimalComplianceParameter';
 export * from './decimalComplianceParameterAllOf';
 export * from './decimalList';
@@ -455,6 +456,7 @@ export * from './dialectId';
 export * from './dialectSchema';
 export * from './diaryEntry';
 export * from './diaryEntryRequest';
+export * from './directionSpreads';
 export * from './discountFactorCurveData';
 export * from './discountFactorCurveDataAllOf';
 export * from './discountingDependency';
@@ -468,6 +470,8 @@ export * from './drawdownEvent';
 export * from './drawdownEventAllOf';
 export * from './drawingEvent';
 export * from './drawingEventAllOf';
+export * from './dualPriceDealing';
+export * from './dualPriceDerivation';
 export * from './dutchAuctionEvent';
 export * from './dutchAuctionEventAllOf';
 export * from './earlyCloseOutEvent';
@@ -1081,6 +1085,12 @@ export * from './previousValuationPoint';
 export * from './priceShiftDefinition';
 export * from './priceShiftDefinitionAllOf';
 export * from './pricingContext';
+export * from './pricingMethodology';
+export * from './pricingMethodologyAudit';
+export * from './pricingMethodologyEngineProposal';
+export * from './pricingMethodologyOverride';
+export * from './pricingMethodologyOverrideRequest';
+export * from './pricingMethodologyResult';
 export * from './pricingOptions';
 export * from './priorityIssueEvent';
 export * from './priorityIssueEventAllOf';
@@ -1178,6 +1188,7 @@ export * from './repoCashFlowEvent';
 export * from './repoCashFlowEventAllOf';
 export * from './repoPartialClosureEvent';
 export * from './repoPartialClosureEventAllOf';
+export * from './reportingPrice';
 export * from './repurchaseOfferEvent';
 export * from './repurchaseOfferEventAllOf';
 export * from './requestedChanges';
@@ -1358,6 +1369,7 @@ export * from './simpleInstrumentAllOf';
 export * from './simpleModelOptions';
 export * from './simpleModelOptionsAllOf';
 export * from './simpleRoundingConvention';
+export * from './singlePriceDealing';
 export * from './singleValuationPointQueryParameters';
 export * from './specificHoldingPricingInfo';
 export * from './spinOffEvent';
@@ -1394,8 +1406,16 @@ export * from './swapCashFlowEvent';
 export * from './swapCashFlowEventAllOf';
 export * from './swapPrincipalEvent';
 export * from './swapPrincipalEventAllOf';
+export * from './swingBaseline';
+export * from './swingPolicy';
 export * from './swingPricingDecision';
 export * from './swingPricingRule';
+export * from './swingSpreadApplied';
+export * from './swingSpreadTier';
+export * from './swingSpreadTierBounds';
+export * from './swingSpreads';
+export * from './swingTrigger';
+export * from './swingTriggerEvaluation';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
 export * from './templateField';
@@ -2058,6 +2078,7 @@ import { DateTimeComplianceParameterAllOf } from './dateTimeComplianceParameterA
 import { DateTimeListComplianceParameter } from './dateTimeListComplianceParameter';
 import { DayMonth } from './dayMonth';
 import { DayOfWeek } from './dayOfWeek';
+import { DealingFlowSummary } from './dealingFlowSummary';
 import { DecimalComplianceParameter } from './decimalComplianceParameter';
 import { DecimalComplianceParameterAllOf } from './decimalComplianceParameterAllOf';
 import { DecimalList } from './decimalList';
@@ -2093,6 +2114,7 @@ import { DialectId } from './dialectId';
 import { DialectSchema } from './dialectSchema';
 import { DiaryEntry } from './diaryEntry';
 import { DiaryEntryRequest } from './diaryEntryRequest';
+import { DirectionSpreads } from './directionSpreads';
 import { DiscountFactorCurveData } from './discountFactorCurveData';
 import { DiscountFactorCurveDataAllOf } from './discountFactorCurveDataAllOf';
 import { DiscountingDependency } from './discountingDependency';
@@ -2106,6 +2128,8 @@ import { DrawdownEvent } from './drawdownEvent';
 import { DrawdownEventAllOf } from './drawdownEventAllOf';
 import { DrawingEvent } from './drawingEvent';
 import { DrawingEventAllOf } from './drawingEventAllOf';
+import { DualPriceDealing } from './dualPriceDealing';
+import { DualPriceDerivation } from './dualPriceDerivation';
 import { DutchAuctionEvent } from './dutchAuctionEvent';
 import { DutchAuctionEventAllOf } from './dutchAuctionEventAllOf';
 import { EarlyCloseOutEvent } from './earlyCloseOutEvent';
@@ -2719,6 +2743,12 @@ import { PreviousValuationPoint } from './previousValuationPoint';
 import { PriceShiftDefinition } from './priceShiftDefinition';
 import { PriceShiftDefinitionAllOf } from './priceShiftDefinitionAllOf';
 import { PricingContext } from './pricingContext';
+import { PricingMethodology } from './pricingMethodology';
+import { PricingMethodologyAudit } from './pricingMethodologyAudit';
+import { PricingMethodologyEngineProposal } from './pricingMethodologyEngineProposal';
+import { PricingMethodologyOverride } from './pricingMethodologyOverride';
+import { PricingMethodologyOverrideRequest } from './pricingMethodologyOverrideRequest';
+import { PricingMethodologyResult } from './pricingMethodologyResult';
 import { PricingOptions } from './pricingOptions';
 import { PriorityIssueEvent } from './priorityIssueEvent';
 import { PriorityIssueEventAllOf } from './priorityIssueEventAllOf';
@@ -2816,6 +2846,7 @@ import { RepoCashFlowEvent } from './repoCashFlowEvent';
 import { RepoCashFlowEventAllOf } from './repoCashFlowEventAllOf';
 import { RepoPartialClosureEvent } from './repoPartialClosureEvent';
 import { RepoPartialClosureEventAllOf } from './repoPartialClosureEventAllOf';
+import { ReportingPrice } from './reportingPrice';
 import { RepurchaseOfferEvent } from './repurchaseOfferEvent';
 import { RepurchaseOfferEventAllOf } from './repurchaseOfferEventAllOf';
 import { RequestedChanges } from './requestedChanges';
@@ -2996,6 +3027,7 @@ import { SimpleInstrumentAllOf } from './simpleInstrumentAllOf';
 import { SimpleModelOptions } from './simpleModelOptions';
 import { SimpleModelOptionsAllOf } from './simpleModelOptionsAllOf';
 import { SimpleRoundingConvention } from './simpleRoundingConvention';
+import { SinglePriceDealing } from './singlePriceDealing';
 import { SingleValuationPointQueryParameters } from './singleValuationPointQueryParameters';
 import { SpecificHoldingPricingInfo } from './specificHoldingPricingInfo';
 import { SpinOffEvent } from './spinOffEvent';
@@ -3032,8 +3064,16 @@ import { SwapCashFlowEvent } from './swapCashFlowEvent';
 import { SwapCashFlowEventAllOf } from './swapCashFlowEventAllOf';
 import { SwapPrincipalEvent } from './swapPrincipalEvent';
 import { SwapPrincipalEventAllOf } from './swapPrincipalEventAllOf';
+import { SwingBaseline } from './swingBaseline';
+import { SwingPolicy } from './swingPolicy';
 import { SwingPricingDecision } from './swingPricingDecision';
 import { SwingPricingRule } from './swingPricingRule';
+import { SwingSpreadApplied } from './swingSpreadApplied';
+import { SwingSpreadTier } from './swingSpreadTier';
+import { SwingSpreadTierBounds } from './swingSpreadTierBounds';
+import { SwingSpreads } from './swingSpreads';
+import { SwingTrigger } from './swingTrigger';
+import { SwingTriggerEvaluation } from './swingTriggerEvaluation';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
 import { TemplateField } from './templateField';
@@ -4405,6 +4445,7 @@ let typeMap: {[index: string]: any} = {
     "DateTimeComplianceParameterAllOf": DateTimeComplianceParameterAllOf,
     "DateTimeListComplianceParameter": DateTimeListComplianceParameter,
     "DayMonth": DayMonth,
+    "DealingFlowSummary": DealingFlowSummary,
     "DecimalComplianceParameter": DecimalComplianceParameter,
     "DecimalComplianceParameterAllOf": DecimalComplianceParameterAllOf,
     "DecimalList": DecimalList,
@@ -4440,6 +4481,7 @@ let typeMap: {[index: string]: any} = {
     "DialectSchema": DialectSchema,
     "DiaryEntry": DiaryEntry,
     "DiaryEntryRequest": DiaryEntryRequest,
+    "DirectionSpreads": DirectionSpreads,
     "DiscountFactorCurveData": DiscountFactorCurveData,
     "DiscountFactorCurveDataAllOf": DiscountFactorCurveDataAllOf,
     "DiscountingDependency": DiscountingDependency,
@@ -4453,6 +4495,8 @@ let typeMap: {[index: string]: any} = {
     "DrawdownEventAllOf": DrawdownEventAllOf,
     "DrawingEvent": DrawingEvent,
     "DrawingEventAllOf": DrawingEventAllOf,
+    "DualPriceDealing": DualPriceDealing,
+    "DualPriceDerivation": DualPriceDerivation,
     "DutchAuctionEvent": DutchAuctionEvent,
     "DutchAuctionEventAllOf": DutchAuctionEventAllOf,
     "EarlyCloseOutEvent": EarlyCloseOutEvent,
@@ -5066,6 +5110,12 @@ let typeMap: {[index: string]: any} = {
     "PriceShiftDefinition": PriceShiftDefinition,
     "PriceShiftDefinitionAllOf": PriceShiftDefinitionAllOf,
     "PricingContext": PricingContext,
+    "PricingMethodology": PricingMethodology,
+    "PricingMethodologyAudit": PricingMethodologyAudit,
+    "PricingMethodologyEngineProposal": PricingMethodologyEngineProposal,
+    "PricingMethodologyOverride": PricingMethodologyOverride,
+    "PricingMethodologyOverrideRequest": PricingMethodologyOverrideRequest,
+    "PricingMethodologyResult": PricingMethodologyResult,
     "PricingOptions": PricingOptions,
     "PriorityIssueEvent": PriorityIssueEvent,
     "PriorityIssueEventAllOf": PriorityIssueEventAllOf,
@@ -5163,6 +5213,7 @@ let typeMap: {[index: string]: any} = {
     "RepoCashFlowEventAllOf": RepoCashFlowEventAllOf,
     "RepoPartialClosureEvent": RepoPartialClosureEvent,
     "RepoPartialClosureEventAllOf": RepoPartialClosureEventAllOf,
+    "ReportingPrice": ReportingPrice,
     "RepurchaseOfferEvent": RepurchaseOfferEvent,
     "RepurchaseOfferEventAllOf": RepurchaseOfferEventAllOf,
     "RequestedChanges": RequestedChanges,
@@ -5343,6 +5394,7 @@ let typeMap: {[index: string]: any} = {
     "SimpleModelOptions": SimpleModelOptions,
     "SimpleModelOptionsAllOf": SimpleModelOptionsAllOf,
     "SimpleRoundingConvention": SimpleRoundingConvention,
+    "SinglePriceDealing": SinglePriceDealing,
     "SingleValuationPointQueryParameters": SingleValuationPointQueryParameters,
     "SpecificHoldingPricingInfo": SpecificHoldingPricingInfo,
     "SpinOffEvent": SpinOffEvent,
@@ -5379,8 +5431,16 @@ let typeMap: {[index: string]: any} = {
     "SwapCashFlowEventAllOf": SwapCashFlowEventAllOf,
     "SwapPrincipalEvent": SwapPrincipalEvent,
     "SwapPrincipalEventAllOf": SwapPrincipalEventAllOf,
+    "SwingBaseline": SwingBaseline,
+    "SwingPolicy": SwingPolicy,
     "SwingPricingDecision": SwingPricingDecision,
     "SwingPricingRule": SwingPricingRule,
+    "SwingSpreadApplied": SwingSpreadApplied,
+    "SwingSpreadTier": SwingSpreadTier,
+    "SwingSpreadTierBounds": SwingSpreadTierBounds,
+    "SwingSpreads": SwingSpreads,
+    "SwingTrigger": SwingTrigger,
+    "SwingTriggerEvaluation": SwingTriggerEvaluation,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
     "TemplateField": TemplateField,

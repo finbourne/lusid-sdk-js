@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1691",
+    "version": "2.0.1692",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -44038,7 +44038,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] PatchFund: Patch a Fund.",
-        "description": "Update fields on a Fund.\r\nThe behaviour is defined by the JSON Patch specification.\r\n\r\nCurrently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate.",
+        "description": "Update fields on a Fund.\r\nThe behaviour is defined by the JSON Patch specification.\r\n\r\nCurrently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate, PricingMethodology, ReportingPrices.",
         "operationId": "PatchFund",
         "parameters": [
           {
@@ -135267,8 +135267,8 @@
                     "code": "eod-timeline"
                   },
                   "addressKeys": [
-                    "Holding/default/Units",
-                    "Holding/default/PV"
+                    "Holding/Units",
+                    "Holding/Cost/Dom"
                   ],
                   "byTaxLots": false,
                   "subscriptionType": "Holdings",
@@ -135295,8 +135295,8 @@
                     "code": "eod-timeline"
                   },
                   "addressKeys": [
-                    "Holding/default/Units",
-                    "Holding/default/PV"
+                    "Holding/Units",
+                    "Holding/Cost/Dom"
                   ],
                   "byTaxLots": false,
                   "subscriptionType": "Holdings",
@@ -135323,8 +135323,8 @@
                     "code": "eod-timeline"
                   },
                   "addressKeys": [
-                    "Holding/default/Units",
-                    "Holding/default/PV"
+                    "Holding/Units",
+                    "Holding/Cost/Dom"
                   ],
                   "byTaxLots": false,
                   "subscriptionType": "Holdings",
@@ -135351,8 +135351,8 @@
                     "code": "eod-timeline"
                   },
                   "addressKeys": [
-                    "Holding/default/Units",
-                    "Holding/default/PV"
+                    "Holding/Units",
+                    "Holding/Cost/Dom"
                   ],
                   "byTaxLots": false,
                   "subscriptionType": "Holdings",
@@ -144475,6 +144475,49 @@
               "maxLength": 16384,
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "splitHeldAndTradingReturns",
+            "in": "query",
+            "description": "When true, P&L is split into separate Held and Trading returns: Held returns capture\r\n            market movement on the starting position, and Trading returns capture profit from buy/sell decisions made during the period.\r\n            When false (the default), the standard combined A2B report is returned. Cannot currently be combined with the timeline\r\n            parameters (timelineScope, timelineCode, closedPeriodId).",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "timelineScope",
+            "in": "query",
+            "description": "The scope of the timeline to use for loading data per closed period.",
+            "schema": {
+              "maxLength": 512,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "timelineCode",
+            "in": "query",
+            "description": "The code of the timeline to use for loading data per closed period.",
+            "schema": {
+              "maxLength": 1025,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+(:[a-zA-Z0-9\\-_]+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "closedPeriodId",
+            "in": "query",
+            "description": "The closed period ID. If specified, both timelineScope and timelineCode must also be specified.\r\n            When provided, the timeline A2B is filtered to only the matching closed period. The fromEffectiveAt and toEffectiveAt\r\n            parameters still define the overall query window; the closedPeriodId restricts which closed period's data is returned within that window.",
+            "schema": {
+              "maxLength": 512,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string"
             }
           }
@@ -168029,7 +168072,7 @@
           "Withholding Tax"
         ],
         "summary": "[EARLY ACCESS] CreateWithholdingTaxDatasetDefinitions: Create the Withholding Tax dataset definitions.",
-        "description": "Create the anomaly and the main relational dataset definition for a customer domain, in a single call.\r\n            \r\nThe definitions are constructed rather than accepted as given, so the fields the engine reads by name cannot\r\nbe absent, misspelled or created in the wrong field category. LUSID adds the mandatory core to both: taxCountry\r\nand profileType as series identifiers, countryRate, treatyRate, betterRate and enhancedRate as value fields,\r\ntreatyRAS, betterRAS and enhancedRAS as value fields, and rank as a value field on the anomaly definition only.\r\n            \r\nThe caller supplies only their own matching dimensions, given per dataset. The two schemas need not be\r\nidentical: a dimension present on only one dataset is simply not matched on when the other is queried, an ISIN\r\ndimension on the anomaly dataset alone being the usual case. The request is rejected if it names a dimension\r\nthat collides with a mandatory core field, or if it omits a scope or a code.",
+        "description": "Create the anomaly and the main relational dataset definition for a customer domain, in a single call.\r\n            \r\nThe definitions are constructed rather than accepted as given, so the fields the engine reads by name cannot\r\nbe absent, misspelled or created in the wrong field category. LUSID adds the mandatory core to both: taxCountry,\r\nprofileType and ruleSource as series identifiers (ruleSource optional), countryRate, treatyRate, betterRate and\r\nenhancedRate as value fields, treatyRAS, betterRAS and enhancedRAS as value fields, and rank as a value field on\r\nthe anomaly definition only.\r\n            \r\nThe caller supplies only their own matching dimensions, given per dataset. The two schemas need not be\r\nidentical: a dimension present on only one dataset is simply not matched on when the other is queried, an ISIN\r\ndimension on the anomaly dataset alone being the usual case. The request is rejected if it names a dimension\r\nthat collides with a mandatory core field, or if it omits a scope or a code.",
         "operationId": "CreateWithholdingTaxDatasetDefinitions",
         "requestBody": {
           "description": "The scope, code and matching dimensions of each of the two datasets to create.",
@@ -185777,13 +185820,13 @@
               },
               "earlyResponseDeadline": {
                 "type": "string",
-                "description": "Deadline for early consent. Required when a CONY-early CashOfferElection is offered.\r\nMust be earlier than ResponseDeadline.",
+                "description": "Deadline for instructions that qualify for an early fee. Optional. When set, must be earlier than ResponseDeadline. Must be null on a Mandatory event.",
                 "format": "date-time",
                 "nullable": true
               },
               "paymentDate": {
                 "type": "string",
-                "description": "Date on which the consent fee is paid. Required when any CashOfferElection is offered.",
+                "description": "Date on which the fee is paid. Required when a CashOfferElection or a fee-bearing ConsentGrantedElection is offered; otherwise must be null.",
                 "format": "date-time",
                 "nullable": true
               },
@@ -185792,7 +185835,7 @@
                 "items": {
                   "$ref": "#/components/schemas/CashOfferElection"
                 },
-                "description": "List of possible cash offer elections for this event. Each tier (CONY-standard, CONY-early)\r\nis modelled as a separate entry; the election carries the per-unit fee rate and currency.",
+                "description": "Options that pay a cash fee to the holder who chooses them, whatever the vote: for example a fee for voting against, for a split vote or for an ineligible-holder confirmation. Keys are free-form and unique across all election lists. The price is quoted per 1,000 of face for bonds (the current notional at the record date: amortised face for a ComplexBond, inflation-adjusted face for an InflationLinkedBond) and per unit for equities and simple instruments. On a Mandatory event, exactly one, both default and chosen.",
                 "nullable": true
               },
               "lapseElections": {
@@ -185950,7 +185993,7 @@
             }
           }
         ],
-        "description": "Consent Event (CONS) — a voluntary corporate action where an issuer seeks approval\r\nfrom security holders to amend the terms of an outstanding instrument."
+        "description": "A consent solicitation (CONS) or a bondholder meeting's fee (BMET): voluntary when holders respond to it, mandatory when it pays a fee to every eligible holder without an instruction."
       },
       "ConsentGrantedElection": {
         "required": [
@@ -185973,7 +186016,7 @@
           },
           "consentFeePrice": {
             "type": "number",
-            "description": "Optional. The consent fee paid per unit for granting consent.",
+            "description": "The consent fee, quoted per 1,000 of face for bonds (the current notional at the record date for amortising and inflation-linked bonds) and per unit otherwise.",
             "format": "double",
             "nullable": true
           },
@@ -190999,6 +191042,33 @@
         ],
         "type": "string"
       },
+      "DealingFlowSummary": {
+        "required": [
+          "count",
+          "grossInflow",
+          "grossOutflow"
+        ],
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "How many orders were summed.",
+            "format": "int32"
+          },
+          "grossInflow": {
+            "type": "number",
+            "description": "The sum of the inflows, in the fund currency. Zero or more.",
+            "format": "double"
+          },
+          "grossOutflow": {
+            "type": "number",
+            "description": "The sum of the outflows, in the fund currency, as a magnitude. Zero or more.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The transfer agency estimates a swing decision was made on: how many orders were dealt at the valuation point and what they summed."
+      },
       "DecimalComplianceParameter": {
         "allOf": [
           {
@@ -192596,6 +192666,29 @@
         "additionalProperties": false,
         "description": "The request to add a diary entry"
       },
+      "DirectionSpreads": {
+        "required": [
+          "basis",
+          "tiers"
+        ],
+        "type": "object",
+        "properties": {
+          "basis": {
+            "minLength": 1,
+            "type": "string",
+            "description": "What the tier bounds measure: Amount, the size of the net cashflow in the fund currency, or PctOfNav, the net cashflow as a percentage of the previous valuation point's NAV. Available values: Amount, PctOfNav."
+          },
+          "tiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SwingSpreadTier"
+            },
+            "description": "The tiers, in ascending order. Each starts where the previous one ends, and only the last is unbounded above. The first tier's lower bound is the threshold: a flow at or below it does not swing."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The tiers of spread for one direction of net cashflow and what their bounds measure."
+      },
       "DiscountFactorCurveData": {
         "allOf": [
           {
@@ -193543,6 +193636,79 @@
           }
         ],
         "description": "Mandatory partial bond redemption (DRAW) where the issuer lottery-selects specific bonds for early redemption.\r\nThe affected face amount (AFFB) is the lottery-selected portion of a holding that is redeemed. Because the\r\nlottery selects per holder, AFFB genuinely differs between portfolios holding the same instrument, so it is\r\nsupplied per portfolio via an instrument event instruction rather than on the event itself. The event-level\r\nAffectedAmount remains available as an optional fallback applied uniformly to every holding."
+      },
+      "DualPriceDealing": {
+        "type": "object",
+        "properties": {
+          "dealingBid": {
+            "type": "number",
+            "description": "The price redemptions deal at, rounded as the share class unit price is. Absent when the class has no units in issue or the valuation did not price the side.",
+            "format": "double",
+            "nullable": true
+          },
+          "dealingOffer": {
+            "type": "number",
+            "description": "The price subscriptions deal at, rounded as the share class unit price is. Absent when the class has no units in issue or the valuation did not price the side.",
+            "format": "double",
+            "nullable": true
+          },
+          "bidPerValuationSource": {
+            "type": "string",
+            "description": "The share class price the dealing bid was read or derived from: Bid when it is the bid read as published, Offer or Mid when it was derived from that price. Absent when nothing was dealt.",
+            "nullable": true
+          },
+          "offerPerValuationSource": {
+            "type": "string",
+            "description": "The share class price the dealing offer was read or derived from: Offer when it is the offer read as published, Bid or Mid when it was derived from that price. Absent when nothing was dealt.",
+            "nullable": true
+          },
+          "bidSpreadBps": {
+            "type": "number",
+            "description": "The spread, in basis points, the dealing bid was set below the price it was derived from by. Absent when the bid was read.",
+            "format": "double",
+            "nullable": true
+          },
+          "offerSpreadBps": {
+            "type": "number",
+            "description": "The spread, in basis points, the dealing offer was set above the price it was derived from by. Absent when the offer was read.",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The bid and offer dealing prices a share class of a Dual fund publishes at a valuation point."
+      },
+      "DualPriceDerivation": {
+        "required": [
+          "includeNdc",
+          "realSide"
+        ],
+        "type": "object",
+        "properties": {
+          "realSide": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The price read from the valuation: Bid or Offer, from which the other side is derived, or Mid, the share class unit price, from which both sides are derived, for a fund whose market data has no bid or offer. Available values: Bid, Offer, Mid."
+          },
+          "includeNdc": {
+            "type": "boolean",
+            "description": "Whether the real side is read including notional dealing costs, which needs the NAV type to have a notional dealing cost table. Must be false for Mid."
+          },
+          "bidSpreadBps": {
+            "type": "number",
+            "description": "How far below the real price the bid is set, in basis points of the real price. Zero or more. Required when the bid is derived, for an Offer or Mid real side, and absent for a Bid one.",
+            "format": "double",
+            "nullable": true
+          },
+          "offerSpreadBps": {
+            "type": "number",
+            "description": "How far above the real price the offer is set, in basis points of the real price. Zero or more. Required when the offer is derived, for a Bid or Mid real side, and absent for an Offer one.",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "How a Dual fund derives its dealing prices from one real price by fixed spreads."
       },
       "DutchAuctionEvent": {
         "allOf": [
@@ -199507,6 +199673,17 @@
           "fundInstrument": {
             "$ref": "#/components/schemas/FundInstrument"
           },
+          "pricingMethodology": {
+            "$ref": "#/components/schemas/PricingMethodology"
+          },
+          "reportingPrices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportingPrice"
+            },
+            "description": "Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices.",
+            "nullable": true
+          },
           "version": {
             "$ref": "#/components/schemas/Version"
           },
@@ -200518,6 +200695,17 @@
             },
             "description": "An optional list of Share Class definitions for the Fund.",
             "nullable": true
+          },
+          "pricingMethodology": {
+            "$ref": "#/components/schemas/PricingMethodology"
+          },
+          "reportingPrices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportingPrice"
+            },
+            "description": "Share class prices the Fund publishes at each valuation point under labels of its own, alongside the dealing price, for example a mid price for performance reporting. Optional. Each source other than Mid must be published by the valuation recipe of every active NAV type. Labels must be unique and cannot be dealingPrice, dealingBid or dealingOffer. Patch the list whole at /reportingPrices.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -201362,15 +201550,14 @@
           {
             "required": [
               "domCcy",
-              "instrumentType",
-              "shortCode"
+              "instrumentType"
             ],
             "type": "object",
             "properties": {
               "shortCode": {
-                "minLength": 1,
                 "type": "string",
-                "description": "A short identifier, unique across a single fund, usually made up of the ShareClass components. Eg \"A Accumulation Euro Hedged Class\" could become \"A Acc H EUR\"."
+                "description": "A short identifier, unique across a single fund, usually made up of the ShareClass components. Eg \"A Accumulation Euro Hedged Class\" could become \"A Acc H EUR\".",
+                "nullable": true
               },
               "fundShareClassType": {
                 "type": "string",
@@ -216645,7 +216832,7 @@
           },
           "sourceType": {
             "type": "string",
-            "description": "The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction.",
+            "description": "The type of source that the transaction originated from. Available values: Unknown, InputTransaction, InstrumentEvent, HoldingAdjustment, OverriddenVirtualTransaction, Reversal.",
             "nullable": true
           },
           "sourceInstrumentEventId": {
@@ -224130,6 +224317,189 @@
         "additionalProperties": false,
         "description": "Pricing context node. In order to price an instrument a number of configuration parameters are required to determine which\r\n(a) pricing model (ranging from a simple lookup of a market quote/price through to a Monte-Carlo simulation for the behaviour of its cashflows)\r\n(b) vendor library (Lusid internal models or those provided through an external Vendor such as Refinitiv (proprietary) or QuantLib (open source)\r\nare used in the pricing.\r\n\r\nIn conjunction with these there are a number of parameters that govern the behaviour of these models. For example, in pricing an Fx volatility\r\ndependent product such as an Fx option, there are various parameters that affect model behaviour for the smile. In Lusid a distinction is made between\r\nthose which are understood natively and those which are only held for use with a given vendor-model combination. The problem is that, unlike market\r\nquote data, there are few standards around model descriptions. Hence, apparently similar terminology can be mis-leading; for example in SABR models where\r\nthe basic parameters are agreed upon but most practical models have used an approximation with adjustments where the parameters can have wildly different meanings.\r\nTo avoid confusion or mis-behaviour in this area, where parameters are not understood to be interchangeable, they are only settable on a per-library per-model\r\nbasis, essentially as opaque data that will be given to the Vendor library \"verbatim\" but not used with any other."
       },
+      "PricingMethodology": {
+        "required": [
+          "outputShape"
+        ],
+        "type": "object",
+        "properties": {
+          "outputShape": {
+            "minLength": 1,
+            "type": "string",
+            "description": "How many dealing prices each share class publishes: Single, one price that subscriptions and redemptions both deal at, or Dual, a bid that redemptions deal at and an offer that subscriptions deal at. Available values: Single, Dual."
+          },
+          "swingPolicy": {
+            "$ref": "#/components/schemas/SwingPolicy"
+          },
+          "priceLabels": {
+            "type": "string",
+            "description": "What a Dual fund's two prices are. BidOffer is the only label available: the bid and the offer, including notional dealing costs, that the valuation recipe of each active NAV type publishes. Required for a Dual fund and must be omitted for a Single fund. Available values: BidOffer, CreationCancellation.",
+            "nullable": true
+          },
+          "derivation": {
+            "$ref": "#/components/schemas/DualPriceDerivation"
+          }
+        },
+        "additionalProperties": false,
+        "description": "How a fund prices its share classes for dealing. A Single fund deals at one price per class, which starts at a\r\nbaseline and may swing with the fund's net cashflow. A Dual fund deals at a bid and an offer per class."
+      },
+      "PricingMethodologyAudit": {
+        "required": [
+          "engineProposal",
+          "netCashflow"
+        ],
+        "type": "object",
+        "properties": {
+          "netCashflow": {
+            "type": "number",
+            "description": "The fund's net dealing cashflow for the valuation point, in the fund currency. An inflow is positive and an outflow negative.",
+            "format": "double"
+          },
+          "netCashflowPctOfNav": {
+            "type": "number",
+            "description": "The net cashflow as a percentage of the previous valuation point's NAV. Absent when there is no previous NAV to measure it against.",
+            "format": "double",
+            "nullable": true
+          },
+          "spreadsApplied": {
+            "$ref": "#/components/schemas/SwingSpreadApplied"
+          },
+          "engineProposal": {
+            "$ref": "#/components/schemas/PricingMethodologyEngineProposal"
+          },
+          "override": {
+            "$ref": "#/components/schemas/PricingMethodologyOverride"
+          },
+          "inflowTrigger": {
+            "$ref": "#/components/schemas/SwingTriggerEvaluation"
+          },
+          "outflowTrigger": {
+            "$ref": "#/components/schemas/SwingTriggerEvaluation"
+          },
+          "dealingFlows": {
+            "$ref": "#/components/schemas/DealingFlowSummary"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The working behind a share class's dealing price: the net cashflow it was decided on, the spread applied and\r\nwhat the methodology alone proposed, with how any Market swing triggers were evaluated."
+      },
+      "PricingMethodologyEngineProposal": {
+        "required": [
+          "swung"
+        ],
+        "type": "object",
+        "properties": {
+          "swung": {
+            "type": "boolean",
+            "description": "Whether the methodology swings the price."
+          },
+          "swingDirection": {
+            "type": "string",
+            "description": "Offer or Bid when the methodology swings the price. Absent when it does not.",
+            "nullable": true
+          },
+          "spreadSource": {
+            "type": "string",
+            "description": "Where the methodology's spread came from: Stored or Market. Absent when it does not swing.",
+            "nullable": true
+          },
+          "spreadBps": {
+            "type": "number",
+            "description": "The stored spread the methodology applies, in basis points. Absent when it does not swing or swings to a market price.",
+            "format": "double",
+            "nullable": true
+          },
+          "dealingPrice": {
+            "type": "number",
+            "description": "The dealing price the methodology publishes. Absent when the class has no units in issue.",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "What the pricing methodology alone publishes for a share class, kept alongside any decision that replaces it."
+      },
+      "PricingMethodologyOverride": {
+        "required": [
+          "decision",
+          "reason",
+          "timestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "decision": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The basis the dealing price is published on: Mid, Bid or Offer. Under a Stored spread source the spread for Bid or Offer is the stored tier the net cashflow matches in that direction, or that direction's first tier when the flow is below every tier. Under a Market spread source Bid or Offer reads that side's price including notional dealing costs, which every active NAV type's valuation recipe must publish."
+          },
+          "reason": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Why the fund manager overrode the methodology's decision."
+          },
+          "user": {
+            "type": "string",
+            "description": "The user who made the override.",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "When the override was made.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The fund manager's override a share class's dealing price follows instead of the pricing methodology's proposal,\r\nand who made it when."
+      },
+      "PricingMethodologyOverrideRequest": {
+        "required": [
+          "decision",
+          "reason"
+        ],
+        "type": "object",
+        "properties": {
+          "decision": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The basis the dealing price is published on: Mid, Bid or Offer. Under a Stored spread source the spread for Bid or Offer is the stored tier the net cashflow matches in that direction, or that direction's first tier when the flow is below every tier. Under a Market spread source Bid or Offer reads that side's price including notional dealing costs, which every active NAV type's valuation recipe must publish. Available values: Mid, Bid, Offer."
+          },
+          "reason": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "Why the fund manager overrode the methodology's decision."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A fund manager's choice of basis for a valuation point's dealing price, in place of the pricing methodology's\r\ndecision. The spread still comes from the methodology."
+      },
+      "PricingMethodologyResult": {
+        "type": "object",
+        "properties": {
+          "dealing": {
+            "$ref": "#/components/schemas/SinglePriceDealing"
+          },
+          "audit": {
+            "$ref": "#/components/schemas/PricingMethodologyAudit"
+          },
+          "dualDealing": {
+            "$ref": "#/components/schemas/DualPriceDealing"
+          },
+          "reporting": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "description": "The Fund's reporting prices for the share class, keyed by label and rounded as the unit price is. A price is absent when the class has no units in issue or the valuation recipe does not publish it. Absent when the Fund has no reporting prices.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "What a share class deals at under the fund's pricing methodology at a valuation point, the working behind it, and\r\nthe reporting prices the fund publishes for it."
+      },
       "PricingOptions": {
         "type": "object",
         "properties": {
@@ -229051,6 +229421,29 @@
           }
         ],
         "description": "Event representing the partial closure of a repurchase \r\nagreement. Each event reduces the outstanding notional \r\nand generates a corresponding receive-leg cashflow. The \r\nfinal maturity cashflow is adjusted accordingly.\r\n\r\nIf multiple events are created, their effects compound. \r\nOnce the total repaid amount reaches the original purchase \r\nprice, no further receive-leg cashflows are generated. Any \r\nevent exceeding the remaining notional is marked with a \r\ndiagnostic to indicate it is invalid due to excessive repayment.\r\n\r\nFor example, for a repo with a 5% rate, 1% haircut and \r\ncollateral value of 100 (purchase price = 99), a partial \r\nclosure of cash amount 10 followed by one of 100 results in \r\nonly the first event producing a cashflow. The second, \r\nexceeding the remaining balance, is ignored and flagged \r\nwith a diagnostic. The remaining balance is settled at \r\nmaturity of the repurchase agreement."
+      },
+      "ReportingPrice": {
+        "required": [
+          "label",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "source": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The share class price published: Mid, the unit price, or Bid, Offer, BidIncNdc or OfferIncNdc, as the valuation recipe of each active NAV type publishes it. Available values: Mid, Bid, Offer, BidIncNdc, OfferIncNdc, Creation, Cancellation."
+          },
+          "label": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The name the price is published under in the share class's reporting prices. Unique within the fund."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A share class price a fund publishes at each valuation point under a label of its own, alongside the dealing price."
       },
       "RepurchaseOfferEvent": {
         "allOf": [
@@ -235201,6 +235594,9 @@
           },
           "shareClassDetails": {
             "$ref": "#/components/schemas/ShareClassDetails"
+          },
+          "pricingMethodology": {
+            "$ref": "#/components/schemas/PricingMethodologyResult"
           }
         },
         "additionalProperties": false,
@@ -235917,6 +236313,47 @@
         },
         "additionalProperties": false,
         "description": "Certain bonds will follow certain rounding conventions.\r\nFor example, Thai government bonds will round accrued interest and cashflow values 2dp, whereas for\r\nFrench government bonds, the rounding is to 7dp."
+      },
+      "SinglePriceDealing": {
+        "required": [
+          "swung"
+        ],
+        "type": "object",
+        "properties": {
+          "dealingPrice": {
+            "type": "number",
+            "description": "The price subscriptions and redemptions deal at, rounded as the share class unit price is. Absent when the class has no units in issue.",
+            "format": "double",
+            "nullable": true
+          },
+          "swung": {
+            "type": "boolean",
+            "description": "Whether the dealing price moved away from its baseline."
+          },
+          "swingDirection": {
+            "type": "string",
+            "description": "Offer when a net inflow swung the price up, Bid when a net outflow swung it down. Absent when the price did not swing.",
+            "nullable": true
+          },
+          "swingFrom": {
+            "type": "string",
+            "description": "The baseline the price swung away from. Absent when it did not swing.",
+            "nullable": true
+          },
+          "perValuationSource": {
+            "type": "string",
+            "description": "Bid or Offer when the dealing price is that side's share class price read as published, from a Bid or Offer baseline or a Market swing. Absent when the price is the mid or a stored spread was applied to it.",
+            "nullable": true
+          },
+          "spreadBps": {
+            "type": "number",
+            "description": "The stored spread applied, in basis points. Absent when the price did not swing or swung to a market price.",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The single dealing price a share class publishes at a valuation point."
       },
       "SingleValuationPointQueryParameters": {
         "required": [
@@ -237377,7 +237814,8 @@
         "required": [
           "code",
           "portfolioId",
-          "scope"
+          "scope",
+          "subscriptionType"
         ],
         "type": "object",
         "properties": {
@@ -237426,9 +237864,9 @@
             "type": "boolean"
           },
           "subscriptionType": {
+            "minLength": 1,
             "type": "string",
-            "description": "The kind of data the subscription streams, defaulting to holdings: before/after effects per\r\nholding (holdings), the transactions themselves (transactions), or each changed holding's\r\ncomplete current state (positions). Address keys and byTaxLots are not valid for a\r\ntransactions subscription. Available values: Holdings, Transactions, Positions.",
-            "nullable": true
+            "description": "Required. The kind of data the subscription streams: before/after effects per\r\nholding (holdings), the transactions themselves (transactions), or each changed holding's\r\ncomplete current state (positions). Address keys and byTaxLots are not valid for a\r\ntransactions subscription. Available values: Holdings, Transactions, Positions."
           },
           "startEffectiveAt": {
             "type": "string",
@@ -237781,6 +238219,53 @@
         ],
         "description": "Definition of a Swap Principal Event.\r\nThis is an event that describes the occurence of a cashflow due to the principal payment."
       },
+      "SwingBaseline": {
+        "required": [
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "source": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The price the dealing price starts from: Mid, the share class unit price, or Bid or Offer, the share class price that the valuation recipe of each active NAV type publishes on that side. Available values: Mid, Bid, Offer."
+          },
+          "includeNdc": {
+            "type": "boolean",
+            "description": "Whether a Bid or Offer baseline reads the price including notional dealing costs, which needs the NAV type to have a notional dealing cost table. Required for a Bid or Offer baseline and must be omitted for a Mid baseline.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The price a Single fund's dealing price starts from before any swing."
+      },
+      "SwingPolicy": {
+        "required": [
+          "baseline"
+        ],
+        "type": "object",
+        "properties": {
+          "baseline": {
+            "$ref": "#/components/schemas/SwingBaseline"
+          },
+          "defaultSpreadSource": {
+            "type": "string",
+            "description": "Where the swing comes from. Stored swings by the tiers in spreads. Market swings to the bid or offer, including notional dealing costs, that the valuation recipe of each active NAV type publishes, when the net cashflow passes inflowTrigger or outflowTrigger. Omit it for a fund that never swings and always deals at its baseline. Available values: Stored, Market.",
+            "nullable": true
+          },
+          "spreads": {
+            "$ref": "#/components/schemas/SwingSpreads"
+          },
+          "inflowTrigger": {
+            "$ref": "#/components/schemas/SwingTrigger"
+          },
+          "outflowTrigger": {
+            "$ref": "#/components/schemas/SwingTrigger"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The baseline a Single fund's dealing price starts from, the spreads it swings by and, for a Market swing, the\r\ntriggers that say when it swings."
+      },
       "SwingPricingDecision": {
         "type": "object",
         "properties": {
@@ -237811,7 +238296,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "What the NAV type's swing pricing rule decided for a valuation point: the net dealing flow it measured, how\r\nit compared with the threshold, and the pricing basis the point was valued on as a result."
+        "description": "Deprecated and no longer produced; see the share class's pricing methodology result.\r\nWhat the NAV type's swing pricing rule decided for a valuation point: the net dealing flow it measured, how\r\nit compared with the threshold, and the pricing basis the point was valued on as a result."
       },
       "SwingPricingRule": {
         "required": [
@@ -237837,7 +238322,134 @@
           }
         },
         "additionalProperties": false,
-        "description": "Moves a NAV type's pricing basis with its net dealing flow. When the flow, as a percentage of the previous\r\nvaluation point's NAV, exceeds the threshold the fund is valued on the inflow or outflow basis instead of\r\nthe NAV type's own basis."
+        "description": "Deprecated and ignored; use the Fund's pricing methodology.\r\nMoved a NAV type's pricing basis with its net dealing flow. When the flow, as a percentage of the previous\r\nvaluation point's NAV, exceeded the threshold the fund was valued on the inflow or outflow basis instead of\r\nthe NAV type's own basis."
+      },
+      "SwingSpreadApplied": {
+        "required": [
+          "bps",
+          "tierMatched"
+        ],
+        "type": "object",
+        "properties": {
+          "bps": {
+            "type": "number",
+            "description": "The spread applied, in basis points.",
+            "format": "double"
+          },
+          "tierMatched": {
+            "$ref": "#/components/schemas/SwingSpreadTierBounds"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The stored spread applied to a share class's baseline price and the tier it came from."
+      },
+      "SwingSpreads": {
+        "type": "object",
+        "properties": {
+          "inflow": {
+            "$ref": "#/components/schemas/DirectionSpreads"
+          },
+          "outflow": {
+            "$ref": "#/components/schemas/DirectionSpreads"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The stored spreads a Single fund swings by, one set for each direction of net cashflow."
+      },
+      "SwingSpreadTier": {
+        "required": [
+          "bps",
+          "lowerBoundExclusive"
+        ],
+        "type": "object",
+        "properties": {
+          "lowerBoundExclusive": {
+            "type": "number",
+            "description": "The size of net cashflow, as a magnitude, above which the tier applies. Zero or more; zero on the first tier swings on any net flow.",
+            "format": "double"
+          },
+          "upperBoundInclusive": {
+            "type": "number",
+            "description": "The size of net cashflow, as a magnitude, up to and including which the tier applies. Omit it on the last tier, which covers every larger flow.",
+            "format": "double",
+            "nullable": true
+          },
+          "bps": {
+            "type": "number",
+            "description": "The spread, in basis points of the baseline price, applied when the net cashflow falls in the tier. Zero or more.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "One tier of spread: the band of net cashflow it covers and the spread applied when the flow falls in it."
+      },
+      "SwingSpreadTierBounds": {
+        "required": [
+          "lowerBoundExclusive"
+        ],
+        "type": "object",
+        "properties": {
+          "lowerBoundExclusive": {
+            "type": "number",
+            "description": "The tier's lower bound, which the net cashflow was above.",
+            "format": "double"
+          },
+          "upperBoundInclusive": {
+            "type": "number",
+            "description": "The tier's upper bound, which the net cashflow was at or below. Absent for the unbounded last tier.",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The bounds of the spread tier a net cashflow fell in."
+      },
+      "SwingTrigger": {
+        "required": [
+          "threshold",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "description": "What the threshold measures: NetCashflowAbsolute, the size of the net cashflow in the fund currency, or NetCashflowPctOfNav, the net cashflow as a percentage of the previous valuation point's NAV. A NetCashflowPctOfNav trigger does not fire when there is no previous NAV. Available values: NetCashflowAbsolute, NetCashflowPctOfNav."
+          },
+          "threshold": {
+            "type": "number",
+            "description": "The size of net cashflow, as a magnitude, the flow must be above for the trigger to fire. Above zero.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "When a Market swing fires in one direction: the net cashflow measure and the size it must exceed."
+      },
+      "SwingTriggerEvaluation": {
+        "required": [
+          "fired",
+          "metric",
+          "threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "fired": {
+            "type": "boolean",
+            "description": "Whether the net cashflow was in the trigger's direction and above its threshold."
+          },
+          "threshold": {
+            "type": "number",
+            "description": "The trigger's threshold.",
+            "format": "double"
+          },
+          "metric": {
+            "minLength": 1,
+            "type": "string",
+            "description": "What the threshold measured: NetCashflowAbsolute or NetCashflowPctOfNav."
+          }
+        },
+        "additionalProperties": false,
+        "description": "How a Market swing trigger was evaluated at a valuation point."
       },
       "TargetTaxLot": {
         "required": [
@@ -242196,6 +242808,30 @@
             "type": "number",
             "description": "The net dealing in units for the share class at a valuation point. This could be the sum of negative redemptions (in units) and positive subscriptions (in units).",
             "format": "double"
+          },
+          "bidPrice": {
+            "type": "number",
+            "description": "The price of one unit of the share class on the bid side at a valuation point: the class's NAV with the fund's holdings marked at their bid prices. Equal to the unit price when the fund is struck on the bid. Absent when a holding's bid could not be priced.",
+            "format": "double",
+            "nullable": true
+          },
+          "offerPrice": {
+            "type": "number",
+            "description": "The price of one unit of the share class on the offer side at a valuation point: the class's NAV with the fund's holdings marked at their ask prices. Equal to the unit price when the fund is struck on the ask. Absent when a holding's ask could not be priced.",
+            "format": "double",
+            "nullable": true
+          },
+          "bidPriceIncNdc": {
+            "type": "number",
+            "description": "The bid price of one unit of the share class less the class's share of the notional dealing costs of selling the fund's holdings, at a valuation point. Absent when the NAV type has no notional dealing cost table.",
+            "format": "double",
+            "nullable": true
+          },
+          "offerPriceIncNdc": {
+            "type": "number",
+            "description": "The offer price of one unit of the share class plus the class's share of the notional dealing costs of buying the fund's holdings, at a valuation point. Absent when the NAV type has no notional dealing cost table.",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -243240,6 +243876,9 @@
             "type": "boolean",
             "description": "Defaults to null. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities.",
             "nullable": true
+          },
+          "pricingMethodologyOverride": {
+            "$ref": "#/components/schemas/PricingMethodologyOverrideRequest"
           }
         },
         "additionalProperties": false,
