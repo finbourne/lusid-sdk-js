@@ -2,7 +2,7 @@
  * LUSID API
  * # Introduction  This page documents the [LUSID APIs](../../../api/swagger), which allows authorised clients to query and update their data within the LUSID platform.  SDKs to interact with the LUSID APIs are available in the following languages and frameworks:  * [C#](https://github.com/finbourne/lusid-sdk-csharp) * [Java](https://github.com/finbourne/lusid-sdk-java) * [JavaScript](https://github.com/finbourne/lusid-sdk-js) * [Python](https://github.com/finbourne/lusid-sdk-python) * [Angular](https://github.com/finbourne/lusid-sdk-angular)  The LUSID platform is made up of a number of sub-applications. You can find the API / swagger documentation by following the links in the table below.   | Application   | Description                                                                       | API / Swagger Documentation                          | |---------------|-----------------------------------------------------------------------------------|------------------------------------------------------| | LUSID         | Open, API-first, developer-friendly investment data platform.                     | [Swagger](../../../api/swagger/index.html)           | | Web app       | User-facing front end for LUSID.                                                  | [Swagger](../../../app/swagger/index.html)           | | Scheduler     | Automated job scheduler.                                                          | [Swagger](../../../scheduler2/swagger/index.html)    | | Insights      | Monitoring and troubleshooting service.                                           | [Swagger](../../../insights/swagger/index.html)      | | Identity      | Identity management for LUSID (in conjunction with Access)                        | [Swagger](../../../identity/swagger/index.html)      | | Access        | Access control for LUSID (in conjunction with Identity)                           | [Swagger](../../../access/swagger/index.html)        | | Drive         | Secure file repository and manager for collaboration.                             | [Swagger](../../../drive/swagger/index.html)         | | Luminesce     | Data virtualisation service (query data from multiple providers, including LUSID) | [Swagger](../../../honeycomb/swagger/index.html)     | | Notification  | Notification service.                                                             | [Swagger](../../../notification/swagger/index.html)  | | Configuration | File store for secrets and other sensitive information.                           | [Swagger](../../../configuration/swagger/index.html) | | Workflow      | Workflow service.                                                                 | [Swagger](../../../workflow/swagger/index.html)      |   # Error Codes  | Code|Name|Description | | ---|---|--- | | <a name=\"-10\">-10</a>|Server Configuration Error|  | | <a name=\"-1\">-1</a>|Unknown error|An unexpected error was encountered on our side. | | <a name=\"102\">102</a>|Version Not Found|  | | <a name=\"103\">103</a>|Api Rate Limit Violation|  | | <a name=\"104\">104</a>|Instrument Not Found|  | | <a name=\"105\">105</a>|Property Not Found|  | | <a name=\"106\">106</a>|Portfolio Recursion Depth|  | | <a name=\"108\">108</a>|Group Not Found|  | | <a name=\"109\">109</a>|Portfolio Not Found|  | | <a name=\"110\">110</a>|Property Schema Not Found|  | | <a name=\"111\">111</a>|Portfolio Ancestry Not Found|  | | <a name=\"112\">112</a>|Portfolio With Id Already Exists|  | | <a name=\"113\">113</a>|Orphaned Portfolio|  | | <a name=\"119\">119</a>|Missing Base Claims|  | | <a name=\"121\">121</a>|Property Not Defined|  | | <a name=\"122\">122</a>|Cannot Delete System Property|  | | <a name=\"123\">123</a>|Cannot Modify Immutable Property Field|  | | <a name=\"124\">124</a>|Property Already Exists|  | | <a name=\"125\">125</a>|Invalid Property Life Time|  | | <a name=\"126\">126</a>|Property Constraint Style Excludes Properties|  | | <a name=\"127\">127</a>|Cannot Modify Default Data Type|  | | <a name=\"128\">128</a>|Group Already Exists|  | | <a name=\"129\">129</a>|No Such Data Type|  | | <a name=\"130\">130</a>|Undefined Value For Data Type|  | | <a name=\"131\">131</a>|Unsupported Value Type Defined On Data Type|  | | <a name=\"132\">132</a>|Validation Error|  | | <a name=\"133\">133</a>|Loop Detected In Group Hierarchy|  | | <a name=\"134\">134</a>|Undefined Acceptable Values|  | | <a name=\"135\">135</a>|Sub Group Already Exists|  | | <a name=\"138\">138</a>|Price Source Not Found|  | | <a name=\"139\">139</a>|Analytic Store Not Found|  | | <a name=\"141\">141</a>|Analytic Store Already Exists|  | | <a name=\"143\">143</a>|Client Instrument Already Exists|  | | <a name=\"144\">144</a>|Duplicate In Parameter Set|  | | <a name=\"147\">147</a>|Results Not Found|  | | <a name=\"148\">148</a>|Order Field Not In Result Set|  | | <a name=\"149\">149</a>|Operation Failed|  | | <a name=\"150\">150</a>|Elastic Search Error|  | | <a name=\"151\">151</a>|Invalid Parameter Value|  | | <a name=\"153\">153</a>|Command Processing Failure|  | | <a name=\"154\">154</a>|Entity State Construction Failure|  | | <a name=\"155\">155</a>|Entity Timeline Does Not Exist|  | | <a name=\"156\">156</a>|Concurrency Conflict Failure|  | | <a name=\"157\">157</a>|Invalid Request|  | | <a name=\"158\">158</a>|Event Publish Unknown|  | | <a name=\"159\">159</a>|Event Query Failure|  | | <a name=\"160\">160</a>|Blob Did Not Exist|  | | <a name=\"162\">162</a>|Sub System Request Failure|  | | <a name=\"163\">163</a>|Sub System Configuration Failure|  | | <a name=\"165\">165</a>|Failed To Delete|  | | <a name=\"166\">166</a>|Upsert Client Instrument Failure|  | | <a name=\"167\">167</a>|Illegal As At Interval|  | | <a name=\"168\">168</a>|Illegal Bitemporal Query|  | | <a name=\"169\">169</a>|Invalid Alternate Id|  | | <a name=\"170\">170</a>|Cannot Add Non-Writable Properties To Entity|  | | <a name=\"171\">171</a>|Entity Already Exists In Group|  | | <a name=\"172\">172</a>|Entity With Id Does Not Exist|  | | <a name=\"173\">173</a>|Entity With Id Already Exists|  | | <a name=\"174\">174</a>|Derived Portfolio Details Do Not Exist|  | | <a name=\"175\">175</a>|Entity Not In Group|  | | <a name=\"176\">176</a>|Portfolio With Name Already Exists|  | | <a name=\"177\">177</a>|Invalid Transactions|  | | <a name=\"178\">178</a>|Reference Portfolio Not Found|  | | <a name=\"179\">179</a>|Duplicate Id|  | | <a name=\"180\">180</a>|Command Retrieval Failure|  | | <a name=\"181\">181</a>|Data Filter Application Failure|  | | <a name=\"182\">182</a>|Search Failed|  | | <a name=\"183\">183</a>|Movements Engine Configuration Key Failure|  | | <a name=\"184\">184</a>|Fx Rate Source Not Found|  | | <a name=\"185\">185</a>|Accrual Source Not Found|  | | <a name=\"186\">186</a>|Access Denied|  | | <a name=\"187\">187</a>|Invalid Identity Token|  | | <a name=\"188\">188</a>|Invalid Request Headers|  | | <a name=\"189\">189</a>|Price Not Found|  | | <a name=\"190\">190</a>|Invalid Sub Holding Keys Provided|  | | <a name=\"191\">191</a>|Duplicate Sub Holding Keys Provided|  | | <a name=\"192\">192</a>|Cut Definition Not Found|  | | <a name=\"193\">193</a>|Cut Definition Invalid|  | | <a name=\"194\">194</a>|Time Variant Property Deletion Date Unspecified|  | | <a name=\"195\">195</a>|Perpetual Property Deletion Date Specified|  | | <a name=\"196\">196</a>|Time Variant Property Upsert Date Unspecified|  | | <a name=\"197\">197</a>|Perpetual Property Upsert Date Specified|  | | <a name=\"200\">200</a>|Invalid Unit For Data Type|  | | <a name=\"201\">201</a>|Invalid Type For Data Type|  | | <a name=\"202\">202</a>|Invalid Value For Data Type|  | | <a name=\"203\">203</a>|Unit Not Defined For Data Type|  | | <a name=\"204\">204</a>|Units Not Supported On Data Type|  | | <a name=\"205\">205</a>|Cannot Specify Units On Data Type|  | | <a name=\"206\">206</a>|Unit Schema Inconsistent With Data Type|  | | <a name=\"207\">207</a>|Unit Definition Not Specified|  | | <a name=\"208\">208</a>|Duplicate Unit Definitions Specified|  | | <a name=\"209\">209</a>|Invalid Units Definition|  | | <a name=\"210\">210</a>|Invalid Instrument Identifier Unit|  | | <a name=\"211\">211</a>|Holdings Adjustment Does Not Exist|  | | <a name=\"212\">212</a>|Could Not Build Excel Url|  | | <a name=\"213\">213</a>|Could Not Get Excel Version|  | | <a name=\"214\">214</a>|Instrument By Code Not Found|  | | <a name=\"215\">215</a>|Entity Schema Does Not Exist|  | | <a name=\"216\">216</a>|Feature Not Supported On Portfolio Type|  | | <a name=\"217\">217</a>|Quote Not Found|  | | <a name=\"218\">218</a>|Invalid Quote Identifier|  | | <a name=\"219\">219</a>|Invalid Metric For Data Type|  | | <a name=\"220\">220</a>|Invalid Instrument Definition|  | | <a name=\"221\">221</a>|Instrument Upsert Failure|  | | <a name=\"222\">222</a>|Reference Portfolio Request Not Supported|  | | <a name=\"223\">223</a>|Transaction Portfolio Request Not Supported|  | | <a name=\"224\">224</a>|Invalid Property Value Assignment|  | | <a name=\"230\">230</a>|Transaction Type Not Found|  | | <a name=\"231\">231</a>|Transaction Type Duplication|  | | <a name=\"232\">232</a>|Portfolio Does Not Exist At Given Date|  | | <a name=\"233\">233</a>|Query Parser Failure|  | | <a name=\"234\">234</a>|Duplicate Constituent|  | | <a name=\"235\">235</a>|Unresolved Instrument Constituent|  | | <a name=\"236\">236</a>|Unresolved Instrument In Transition|  | | <a name=\"237\">237</a>|Missing Side Definitions|  | | <a name=\"240\">240</a>|Duplicate Calculations Failure|  | | <a name=\"299\">299</a>|Invalid Recipe|  | | <a name=\"300\">300</a>|Missing Recipe|  | | <a name=\"301\">301</a>|Dependencies|  | | <a name=\"304\">304</a>|Portfolio Preprocess Failure|  | | <a name=\"310\">310</a>|Valuation Engine Failure|  | | <a name=\"311\">311</a>|Task Factory Failure|  | | <a name=\"312\">312</a>|Task Evaluation Failure|  | | <a name=\"313\">313</a>|Task Generation Failure|  | | <a name=\"314\">314</a>|Engine Configuration Failure|  | | <a name=\"315\">315</a>|Model Specification Failure|  | | <a name=\"320\">320</a>|Market Data Key Failure|  | | <a name=\"321\">321</a>|Market Resolver Failure|  | | <a name=\"322\">322</a>|Market Data Failure|  | | <a name=\"330\">330</a>|Curve Failure|  | | <a name=\"331\">331</a>|Volatility Surface Failure|  | | <a name=\"332\">332</a>|Volatility Cube Failure|  | | <a name=\"350\">350</a>|Instrument Failure|  | | <a name=\"351\">351</a>|Cash Flows Failure|  | | <a name=\"352\">352</a>|Reference Data Failure|  | | <a name=\"360\">360</a>|Aggregation Failure|  | | <a name=\"361\">361</a>|Aggregation Measure Failure|  | | <a name=\"370\">370</a>|Result Retrieval Failure|  | | <a name=\"371\">371</a>|Result Processing Failure|  | | <a name=\"372\">372</a>|Vendor Result Processing Failure|  | | <a name=\"373\">373</a>|Vendor Result Mapping Failure|  | | <a name=\"374\">374</a>|Vendor Library Unauthorised|  | | <a name=\"375\">375</a>|Vendor Connectivity Error|  | | <a name=\"376\">376</a>|Vendor Interface Error|  | | <a name=\"377\">377</a>|Vendor Pricing Failure|  | | <a name=\"378\">378</a>|Vendor Translation Failure|  | | <a name=\"379\">379</a>|Vendor Key Mapping Failure|  | | <a name=\"380\">380</a>|Vendor Reflection Failure|  | | <a name=\"381\">381</a>|Vendor Process Failure|  | | <a name=\"382\">382</a>|Vendor System Failure|  | | <a name=\"390\">390</a>|Attempt To Upsert Duplicate Quotes|  | | <a name=\"391\">391</a>|Corporate Action Source Does Not Exist|  | | <a name=\"392\">392</a>|Corporate Action Source Already Exists|  | | <a name=\"393\">393</a>|Instrument Identifier Already In Use|  | | <a name=\"394\">394</a>|Properties Not Found|  | | <a name=\"395\">395</a>|Batch Operation Aborted|  | | <a name=\"400\">400</a>|Invalid Iso4217 Currency Code|  | | <a name=\"401\">401</a>|Cannot Assign Instrument Identifier To Currency|  | | <a name=\"402\">402</a>|Cannot Assign Currency Identifier To Non Currency|  | | <a name=\"403\">403</a>|Currency Instrument Cannot Be Deleted|  | | <a name=\"404\">404</a>|Currency Instrument Cannot Have Economic Definition|  | | <a name=\"405\">405</a>|Currency Instrument Cannot Have Lookthrough Portfolio|  | | <a name=\"406\">406</a>|Cannot Create Currency Instrument With Multiple Identifiers|  | | <a name=\"407\">407</a>|Specified Currency Is Undefined|  | | <a name=\"410\">410</a>|Index Does Not Exist|  | | <a name=\"411\">411</a>|Sort Field Does Not Exist|  | | <a name=\"413\">413</a>|Negative Pagination Parameters|  | | <a name=\"414\">414</a>|Invalid Search Syntax|  | | <a name=\"415\">415</a>|Filter Execution Timeout|  | | <a name=\"420\">420</a>|Side Definition Inconsistent|  | | <a name=\"450\">450</a>|Invalid Quote Access Metadata Rule|  | | <a name=\"451\">451</a>|Access Metadata Not Found|  | | <a name=\"452\">452</a>|Invalid Access Metadata Identifier|  | | <a name=\"460\">460</a>|Standard Resource Not Found|  | | <a name=\"461\">461</a>|Standard Resource Conflict|  | | <a name=\"462\">462</a>|Calendar Not Found|  | | <a name=\"463\">463</a>|Date In A Calendar Not Found|  | | <a name=\"464\">464</a>|Invalid Date Source Data|  | | <a name=\"465\">465</a>|Invalid Timezone|  | | <a name=\"601\">601</a>|Person Identifier Already In Use|  | | <a name=\"602\">602</a>|Person Not Found|  | | <a name=\"603\">603</a>|Cannot Set Identifier|  | | <a name=\"617\">617</a>|Invalid Recipe Specification In Request|  | | <a name=\"618\">618</a>|Inline Recipe Deserialisation Failure|  | | <a name=\"619\">619</a>|Identifier Types Not Set For Entity|  | | <a name=\"620\">620</a>|Cannot Delete All Client Defined Identifiers|  | | <a name=\"650\">650</a>|The Order requested was not found.|  | | <a name=\"654\">654</a>|The Allocation requested was not found.|  | | <a name=\"655\">655</a>|Cannot build the fx forward target with the given holdings.|  | | <a name=\"656\">656</a>|Group does not contain expected entities.|  | | <a name=\"665\">665</a>|Destination directory not found|  | | <a name=\"667\">667</a>|Relation definition already exists|  | | <a name=\"672\">672</a>|Could not retrieve file contents|  | | <a name=\"673\">673</a>|Missing entitlements for entities in Group|  | | <a name=\"674\">674</a>|Next Best Action not found|  | | <a name=\"676\">676</a>|Relation definition not defined|  | | <a name=\"677\">677</a>|Invalid entity identifier for relation|  | | <a name=\"681\">681</a>|Sorting by specified field not supported|One or more of the provided fields to order by were either invalid or not supported. | | <a name=\"682\">682</a>|Too many fields to sort by|The number of fields to sort the data by exceeds the number allowed by the endpoint | | <a name=\"684\">684</a>|Sequence Not Found|  | | <a name=\"685\">685</a>|Sequence Already Exists|  | | <a name=\"686\">686</a>|Non-cycling sequence has been exhausted|  | | <a name=\"687\">687</a>|Legal Entity Identifier Already In Use|  | | <a name=\"688\">688</a>|Legal Entity Not Found|  | | <a name=\"689\">689</a>|The supplied pagination token is invalid|  | | <a name=\"690\">690</a>|Property Type Is Not Supported|  | | <a name=\"691\">691</a>|Multiple Tax-lots For Currency Type Is Not Supported|  | | <a name=\"692\">692</a>|This endpoint does not support impersonation|  | | <a name=\"693\">693</a>|Entity type is not supported for Relationship|  | | <a name=\"694\">694</a>|Relationship Validation Failure|  | | <a name=\"695\">695</a>|Relationship Not Found|  | | <a name=\"697\">697</a>|Derived Property Formula No Longer Valid|  | | <a name=\"698\">698</a>|Story is not available|  | | <a name=\"703\">703</a>|Corporate Action Does Not Exist|  | | <a name=\"720\">720</a>|The provided sort and filter combination is not valid|  | | <a name=\"721\">721</a>|A2B generation failed|  | | <a name=\"722\">722</a>|Aggregated Return Calculation Failure|  | | <a name=\"723\">723</a>|Custom Entity Definition Identifier Already In Use|  | | <a name=\"724\">724</a>|Custom Entity Definition Not Found|  | | <a name=\"725\">725</a>|The Placement requested was not found.|  | | <a name=\"726\">726</a>|The Execution requested was not found.|  | | <a name=\"727\">727</a>|The Block requested was not found.|  | | <a name=\"728\">728</a>|The Participation requested was not found.|  | | <a name=\"729\">729</a>|The Package requested was not found.|  | | <a name=\"730\">730</a>|The OrderInstruction requested was not found.|  | | <a name=\"732\">732</a>|Custom Entity not found.|  | | <a name=\"733\">733</a>|Custom Entity Identifier already in use.|  | | <a name=\"735\">735</a>|Calculation Failed.|  | | <a name=\"736\">736</a>|An expected key on HttpResponse is missing.|  | | <a name=\"737\">737</a>|A required fee detail is missing.|  | | <a name=\"738\">738</a>|Zero rows were returned from Luminesce|  | | <a name=\"739\">739</a>|Provided Weekend Mask was invalid|  | | <a name=\"742\">742</a>|Custom Entity fields do not match the definition|  | | <a name=\"746\">746</a>|The provided sequence is not valid.|  | | <a name=\"751\">751</a>|The type of the Custom Entity is different than the type provided in the definition.|  | | <a name=\"752\">752</a>|Luminesce process returned an error.|  | | <a name=\"753\">753</a>|File name or content incompatible with operation.|  | | <a name=\"755\">755</a>|Schema of response from Drive is not as expected.|  | | <a name=\"757\">757</a>|Schema of response from Luminesce is not as expected.|  | | <a name=\"758\">758</a>|Luminesce timed out.|  | | <a name=\"763\">763</a>|Invalid Lusid Entity Identifier Unit|  | | <a name=\"768\">768</a>|Fee rule not found.|  | | <a name=\"769\">769</a>|Cannot update the base currency of a portfolio with transactions loaded|  | | <a name=\"771\">771</a>|Transaction configuration source not found|  | | <a name=\"774\">774</a>|Compliance rule not found.|  | | <a name=\"775\">775</a>|Fund accounting document cannot be processed.|  | | <a name=\"778\">778</a>|Unable to look up FX rate from trade ccy to portfolio ccy for some of the trades.|  | | <a name=\"782\">782</a>|The Property definition dataType is not matching the derivation formula dataType|  | | <a name=\"783\">783</a>|The Property definition domain is not supported for derived properties|  | | <a name=\"788\">788</a>|Compliance run not found failure.|  | | <a name=\"790\">790</a>|Custom Entity has missing or invalid identifiers|  | | <a name=\"791\">791</a>|Custom Entity definition already exists|  | | <a name=\"792\">792</a>|Compliance PropertyKey is missing.|  | | <a name=\"793\">793</a>|Compliance Criteria Value for matching is missing.|  | | <a name=\"795\">795</a>|Cannot delete identifier definition|  | | <a name=\"796\">796</a>|Tax rule set not found.|  | | <a name=\"797\">797</a>|A tax rule set with this id already exists.|  | | <a name=\"798\">798</a>|Multiple rule sets for the same property key are applicable.|  | | <a name=\"799\">799</a>|The request must contain a date or diary entry.|  | | <a name=\"800\">800</a>|Can not upsert an instrument event of this type.|  | | <a name=\"801\">801</a>|The instrument event does not exist.|  | | <a name=\"802\">802</a>|The Instrument event is missing salient information.|  | | <a name=\"803\">803</a>|The Instrument event could not be processed.|  | | <a name=\"804\">804</a>|Some data requested does not follow the order graph assumptions.|  | | <a name=\"805\">805</a>|The instrument event type does not exist.|  | | <a name=\"806\">806</a>|The transaction template specification does not exist.|  | | <a name=\"807\">807</a>|The default transaction template does not exist.|  | | <a name=\"808\">808</a>|The transaction template does not exist.|  | | <a name=\"811\">811</a>|A price could not be found for an order.|  | | <a name=\"812\">812</a>|A price could not be found for an allocation.|  | | <a name=\"813\">813</a>|Chart of Accounts not found.|  | | <a name=\"814\">814</a>|Account not found.|  | | <a name=\"815\">815</a>|Abor not found.|  | | <a name=\"816\">816</a>|Abor Configuration not found.|  | | <a name=\"817\">817</a>|Reconciliation mapping not found|  | | <a name=\"818\">818</a>|Attribute type could not be deleted because it doesn\'t exist.|  | | <a name=\"819\">819</a>|Reconciliation not found.|  | | <a name=\"820\">820</a>|Custodian Account not found.|  | | <a name=\"821\">821</a>|Allocation Failure|  | | <a name=\"822\">822</a>|Reconciliation run not found|  | | <a name=\"823\">823</a>|Reconciliation break not found|  | | <a name=\"824\">824</a>|Entity link type could not be deleted because it doesn\'t exist.|  | | <a name=\"828\">828</a>|Address key definition not found.|  | | <a name=\"829\">829</a>|Compliance template not found.|  | | <a name=\"830\">830</a>|Action not supported|  | | <a name=\"831\">831</a>|Reference list not found.|  | | <a name=\"832\">832</a>|Posting Module not found.|  | | <a name=\"833\">833</a>|The type of parameter provided did not match that required by the compliance rule.|  | | <a name=\"834\">834</a>|The parameters provided by a rule did not match those required by its template.|  | | <a name=\"835\">835</a>|The entity has a property in a domain that is not supprted for that entity type.|  | | <a name=\"836\">836</a>|Structured result data not found.|  | | <a name=\"837\">837</a>|Diary entry not found.|  | | <a name=\"838\">838</a>|Diary entry could not be created.|  | | <a name=\"839\">839</a>|Diary entry already exists.|  | | <a name=\"861\">861</a>|Compliance run summary not found.|  | | <a name=\"869\">869</a>|Conflicting instrument properties in batch.|  | | <a name=\"870\">870</a>|Compliance run summary already exists.|  | | <a name=\"871\">871</a>|The specified impersonated user does not exist|  | | <a name=\"874\">874</a>|Provided Property Domain is not supported for entity filter.|  | | <a name=\"875\">875</a>|Cannot Delete System Reference List.|  | | <a name=\"876\">876</a>|Cleardown Module not found.|  | | <a name=\"879\">879</a>|Portfolios do not have the same base currency|  | | <a name=\"880\">880</a>|There was a problem with the definition of the compliance expression.|  | | <a name=\"881\">881</a>|Block overplaced.|  | | <a name=\"882\">882</a>|Order not approved.|  | | <a name=\"883\">883</a>|Cannot update the shared fields of a block with associated orders.|  | | <a name=\"886\">886</a>|Cannot lock the period.|  | | <a name=\"887\">887</a>|Cannot apply clear down module.|  | | <a name=\"888\">888</a>|Cannot upsert Instrument Event Instruction.|  | | <a name=\"889\">889</a>|Cannot read Instrument Event Instruction.|  | | <a name=\"895\">895</a>|The Capital Ratio Calculation Is Wrong.|  | | <a name=\"910\">910</a>|Cannot update a block referenced by a placement.|  | | <a name=\"911\">911</a>|A Fund that references this Abor already exists.|  | | <a name=\"912\">912</a>|Cannot add decision to Staged Modification.|  | | <a name=\"913\">913</a>|The Staged Modification could not be applied.|  | | <a name=\"914\">914</a>|Action cannot be executed.|  | | <a name=\"915\">915</a>|Cannot upsert multiple versions of the same property in one request.|  | | <a name=\"916\">916</a>|Placement and direct descendents have more executed quantity than total placement quantity.|  | | <a name=\"917\">917</a>|Cannot update a placement with this EntryType.|  | | <a name=\"918\">918</a>|Cannot update a placement in this State.|  | | <a name=\"919\">919</a>|Placement could not be cancelled.|  | | <a name=\"920\">920</a>|Share Class not configured in Fund|  | | <a name=\"921\">921</a>|Share Class Sub Holding Key not configured in Portfolio|  | | <a name=\"922\">922</a>|Could not update an order.|  | | <a name=\"923\">923</a>|Multiple sets of Share Class Sub Holding Keys configured across the Portfolios of a Fund.|  | | <a name=\"924\">924</a>|One or more matrix cells could not be added to the matrix.|  | | <a name=\"925\">925</a>|There was a problem with the provided matrix definition.|  | | <a name=\"926\">926</a>|Matrix definition does not exist.|  | | <a name=\"927\">927</a>|Matrix definition could not be deleted because it doesn\'t exist.|  | | <a name=\"928\">928</a>|DataType with Id already exists.|  | | <a name=\"929\">929</a>|Square matrix is incomplete.|  | | <a name=\"930\">930</a>|A conditional license term has been exceeded.|  | | <a name=\"931\">931</a>|The Custom Data Model requested is not intended for the entity provided.|  | | <a name=\"932\">932</a>|The entity provided does not have a mandatory property specified by the Custom Data Model.|  | | <a name=\"933\">933</a>|The entity provided has a property not allowed by the specified Custom Data Model.|  | | <a name=\"934\">934</a>|The entity provided does not have a mandatory identifier specified by the Custom Data Model.|  | | <a name=\"935\">935</a>|The entity provided has an identifier not allowed by the specified Custom Data Model.|  | | <a name=\"936\">936</a>|The Custom Data Model included an alias or sort-by attribute that was not on the definition.|  | | <a name=\"937\">937</a>|The ClosedPeriod with the Id already exists on the Timeline|  | | <a name=\"938\">938</a>|The new Closed Period would cause the Timeline to have non-contiguous Closed Periods|  | | <a name=\"939\">939</a>|Blocked by a Network Zone|  | | <a name=\"940\">940</a>|The entity provided does not meet the conditions of the Custom Data Model.|  | | <a name=\"941\">941</a>|Order not compliant.|  | | <a name=\"942\">942</a>|Action would create a circular dependency.|  | | <a name=\"944\">944</a>|Derived Property calculation not complete.|  | | <a name=\"945\">945</a>|Derived Property is not filterable.|  | | <a name=\"946\">946</a>|The conditions provided have one or more errors.|  | | <a name=\"947\">947</a>|The property/identifier domain and entity domain do not match.|  | | <a name=\"948\">948</a>|Invalid Timeline|  | | <a name=\"949\">949</a>|Filterable Derived Property limit reached.|  | | <a name=\"950\">950</a>|Investor Record Identifier Already In Use|  | | <a name=\"951\">951</a>|Investor Record Not Found|  | | <a name=\"952\">952</a>|Investment Account Identifier Already In Use|  | | <a name=\"953\">953</a>|Investment Account Not Found|  | | <a name=\"954\">954</a>|Could Not Sweep Block|  | | <a name=\"955\">955</a>|Entity Unique Id has the wrong format|  | | <a name=\"956\">956</a>|Post Close Activity is invalid|  | | <a name=\"957\">957</a>|The ClosedPeriod with the Id does not exist on the Timeline|  | | <a name=\"958\">958</a>|Invalid Settlement Instructions|  | | <a name=\"959\">959</a>|Order requires quantity.|  | | <a name=\"960\">960</a>|Invalid DataPoint Value Assignment|  | | <a name=\"961\">961</a>|Invalid Relational Dataset Field Definition|  | | <a name=\"962\">962</a>|Relational Dataset Definition Does Not Exist|  | | <a name=\"963\">963</a>|Timeline Bookmark Not In Open Period|  | | <a name=\"964\">964</a>|The Custom Data Model specified identifiers but the entity does not support identifiers|  | | <a name=\"965\">965</a>|The sort by provided has one or more errors|  | | <a name=\"966\">966</a>|Invalid Custom Data Model Definition|  | | <a name=\"967\">967</a>|Rule set does not exist on the Check Definition|  | | <a name=\"968\">968</a>|The Closed Period is invalid|  | | <a name=\"969\">969</a>|Cannot update a placement with this Stop Price.|  | | <a name=\"970\">970</a>|Cannot update a placement with this Limit Price.|  | | <a name=\"971\">971</a>|Cannot update a placement with the current Type.|  | | <a name=\"974\">974</a>|Cannot PlaceBlocks against an \'Unsolicited\' Block (block containing 0 Orders).|  | | <a name=\"975\">975</a>|No Portfolio Group Selected|  | | <a name=\"976\">976</a>|Ambiguous Scope|  | | <a name=\"977\">977</a>|The provided entity match request is not valid|  | | <a name=\"978\">978</a>|Invalid Transfer|  | | <a name=\"979\">979</a>|The named series matching pattern is not usable on the dataset at the requested time|  | 
  *
- * The version of the OpenAPI document: 2.0.1695
+ * The version of the OpenAPI document: 2.0.1696
  * Contact: info@finbourne.com
  *
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
@@ -17,6 +17,8 @@ import http from 'http';
 /* tslint:disable:no-unused-locals */
 import { AcceptEstimateValuationPointResponse } from '../model/acceptEstimateValuationPointResponse';
 import { AllocationGroupDefinition } from '../model/allocationGroupDefinition';
+import { CarryAccrualRequest } from '../model/carryAccrualRequest';
+import { CarryAccrualResult } from '../model/carryAccrualResult';
 import { CreateValuationPointRequest } from '../model/createValuationPointRequest';
 import { DeletedEntityResponse } from '../model/deletedEntityResponse';
 import { DiaryEntry } from '../model/diaryEntry';
@@ -33,6 +35,8 @@ import { FundValuationRequest } from '../model/fundValuationRequest';
 import { ListAggregationResponse } from '../model/listAggregationResponse';
 import { LusidProblemDetails } from '../model/lusidProblemDetails';
 import { LusidValidationProblemDetails } from '../model/lusidValidationProblemDetails';
+import { ManagementFeeRequest } from '../model/managementFeeRequest';
+import { ManagementFeeResult } from '../model/managementFeeResult';
 import { NavActivityAdjustment } from '../model/navActivityAdjustment';
 import { NavActivityAdjustmentResponse } from '../model/navActivityAdjustmentResponse';
 import { Operation } from '../model/operation';
@@ -41,11 +45,22 @@ import { PagedResourceListOfFund } from '../model/pagedResourceListOfFund';
 import { PagedResourceListOfFundCalendarEntries } from '../model/pagedResourceListOfFundCalendarEntries';
 import { PagedResourceListOfFundCalendarEntry } from '../model/pagedResourceListOfFundCalendarEntry';
 import { PagedResourceListOfFundPartner } from '../model/pagedResourceListOfFundPartner';
+import { PagedResourceListOfPartnerCapitalAccount } from '../model/pagedResourceListOfPartnerCapitalAccount';
 import { PagedResourceListOfValuationPointInstrument } from '../model/pagedResourceListOfValuationPointInstrument';
 import { PagedResourceListOfValuationPointOverview } from '../model/pagedResourceListOfValuationPointOverview';
+import { PartnerAllocationRunRequest } from '../model/partnerAllocationRunRequest';
+import { PartnerAllocationRunResult } from '../model/partnerAllocationRunResult';
+import { PartnerCapitalAccount } from '../model/partnerCapitalAccount';
+import { PartnerPerformance } from '../model/partnerPerformance';
+import { PartnerStatement } from '../model/partnerStatement';
+import { PartnerStatementDiff } from '../model/partnerStatementDiff';
+import { PartnerStatementRequest } from '../model/partnerStatementRequest';
+import { PartnershipConfigPack } from '../model/partnershipConfigPack';
 import { Property } from '../model/property';
 import { QueryFundCashStatementParameters } from '../model/queryFundCashStatementParameters';
 import { ResourceListOfNavActivityAdjustmentResponse } from '../model/resourceListOfNavActivityAdjustmentResponse';
+import { ResourceListOfPartnerStatement } from '../model/resourceListOfPartnerStatement';
+import { ResourceListOfSeries } from '../model/resourceListOfSeries';
 import { RevertValuationPointDataRequest } from '../model/revertValuationPointDataRequest';
 import { RevertValuationPointResponse } from '../model/revertValuationPointResponse';
 import { SeriesDefinitionRequest } from '../model/seriesDefinitionRequest';
@@ -244,6 +259,97 @@ export class FundsApi {
         });
     }
     /**
+     * Take the carry each partner has earned to the period end, as the waterfall states it, and book the movement  against what is already accrued on the books.
+     * @summary [EARLY ACCESS] AccrueCarry: [EXPERIMENTAL] AccrueCarry: Accrue carried interest to the Fund\'s partners.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param carryAccrualRequest The carry to accrue.
+     * @param asAt The asAt datetime at which to read the Fund. Defaults to return the latest version if not specified.
+     */
+    public async accrueCarry (scope: string, code: string, carryAccrualRequest: CarryAccrualRequest, asAt?: Date, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: CarryAccrualResult;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/carry/$accrue'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling accrueCarry.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling accrueCarry.');
+        }
+
+        // verify required parameter 'carryAccrualRequest' is not null or undefined
+        if (carryAccrualRequest === null || carryAccrualRequest === undefined) {
+            throw new Error('Required parameter carryAccrualRequest was null or undefined when calling accrueCarry.');
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(carryAccrualRequest, "CarryAccrualRequest")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: CarryAccrualResult;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "CarryAccrualResult");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
      * Add the given Allocation Group definitions to the Fund.
      * @summary [EARLY ACCESS] AddAllocationGroups: Add Allocation Groups to a Fund.
      * @param scope The scope of the Fund.
@@ -405,6 +511,97 @@ export class FundsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "Fund");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * Charge the Fund\'s management fee on each partner\'s capital base for the period, net of any fee income offsets,  and book the net fee unless the request asks only for the calculation.
+     * @summary [EARLY ACCESS] CalculateManagementFees: [EXPERIMENTAL] CalculateManagementFees: Calculate the management fee per partner for a period.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param managementFeeRequest The fee period, basis and offsets.
+     * @param asAt The asAt datetime at which to read the Fund. Defaults to return the latest version if not specified.
+     */
+    public async calculateManagementFees (scope: string, code: string, managementFeeRequest: ManagementFeeRequest, asAt?: Date, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ManagementFeeResult;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/fees/$calculate'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling calculateManagementFees.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling calculateManagementFees.');
+        }
+
+        // verify required parameter 'managementFeeRequest' is not null or undefined
+        if (managementFeeRequest === null || managementFeeRequest === undefined) {
+            throw new Error('Required parameter managementFeeRequest was null or undefined when calling calculateManagementFees.');
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(managementFeeRequest, "ManagementFeeRequest")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: ManagementFeeResult;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ManagementFeeResult");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -1209,6 +1406,99 @@ export class FundsApi {
         });
     }
     /**
+     * Removes the Series from the Share Class. A Series that still has units in issue cannot be removed.
+     * @summary [EARLY ACCESS] DeleteSeries: [EARLY ACCESS] DeleteSeries: Remove a Series from a Share Class of a Fund.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param shareClassCode The short code of the Share Class the Series belongs to.
+     * @param seriesIdentifier The identifier of the Series to remove.
+     */
+    public async deleteSeries (scope: string, code: string, shareClassCode: string, seriesIdentifier: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: DeletedEntityResponse;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/shareclasses/{shareClassCode}/series/{seriesIdentifier}'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)))
+            .replace('{' + 'shareClassCode' + '}', encodeURIComponent(String(shareClassCode)))
+            .replace('{' + 'seriesIdentifier' + '}', encodeURIComponent(String(seriesIdentifier)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling deleteSeries.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling deleteSeries.');
+        }
+
+        // verify required parameter 'shareClassCode' is not null or undefined
+        if (shareClassCode === null || shareClassCode === undefined) {
+            throw new Error('Required parameter shareClassCode was null or undefined when calling deleteSeries.');
+        }
+
+        // verify required parameter 'seriesIdentifier' is not null or undefined
+        if (seriesIdentifier === null || seriesIdentifier === undefined) {
+            throw new Error('Required parameter seriesIdentifier was null or undefined when calling deleteSeries.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'DELETE',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: DeletedEntityResponse;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "DeletedEntityResponse");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
      * Deletes the given Valuation Point.
      * @summary [EARLY ACCESS] DeleteValuationPoint: Delete a Valuation Point.
      * @param scope The scope of the Fund.
@@ -1294,6 +1584,109 @@ export class FundsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "DeletedEntityResponse");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * Compare a partner\'s statement against another produced for the same partner, figure by figure.
+     * @summary [EARLY ACCESS] DiffPartnerStatement: [EXPERIMENTAL] DiffPartnerStatement: Compare two of a partner\'s statements.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param investorRecordId The investor record the statements are for.
+     * @param statementId The identifier of the statement to compare.
+     * @param against The identifier of the statement to compare against.
+     */
+    public async diffPartnerStatement (scope: string, code: string, investorRecordId: string, statementId: string, against: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PartnerStatementDiff;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/partners/{investorRecordId}/statements/{statementId}/$diff'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)))
+            .replace('{' + 'investorRecordId' + '}', encodeURIComponent(String(investorRecordId)))
+            .replace('{' + 'statementId' + '}', encodeURIComponent(String(statementId)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling diffPartnerStatement.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling diffPartnerStatement.');
+        }
+
+        // verify required parameter 'investorRecordId' is not null or undefined
+        if (investorRecordId === null || investorRecordId === undefined) {
+            throw new Error('Required parameter investorRecordId was null or undefined when calling diffPartnerStatement.');
+        }
+
+        // verify required parameter 'statementId' is not null or undefined
+        if (statementId === null || statementId === undefined) {
+            throw new Error('Required parameter statementId was null or undefined when calling diffPartnerStatement.');
+        }
+
+        // verify required parameter 'against' is not null or undefined
+        if (against === null || against === undefined) {
+            throw new Error('Required parameter against was null or undefined when calling diffPartnerStatement.');
+        }
+
+        if (against !== undefined) {
+            localVarQueryParameters['against'] = ObjectSerializer.serialize(against, "string");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: PartnerStatementDiff;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "PartnerStatementDiff");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -1899,6 +2292,95 @@ export class FundsApi {
         });
     }
     /**
+     * The fund\'s PIC, DPI, RVPI, TVPI and net IRR built from the capital activity of every partner on the  register, open or closed, with the same optional with- and without-facility views as the partner read.
+     * @summary [EARLY ACCESS] GetFundPerformance: [EARLY ACCESS] GetFundPerformance: Get a fund\'s performance measures over all its partners.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param navTypeCode The NAV type to read the register and ledger under. Defaults to the fund\&#39;s primary NAV type.
+     * @param asAt The asAt datetime at which to read the fund. Defaults to returning the latest version if not specified.
+     */
+    public async getFundPerformance (scope: string, code: string, navTypeCode?: string, asAt?: Date, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PartnerPerformance;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/performance'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling getFundPerformance.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling getFundPerformance.');
+        }
+
+        if (navTypeCode !== undefined) {
+            localVarQueryParameters['navTypeCode'] = ObjectSerializer.serialize(navTypeCode, "string");
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: PartnerPerformance;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "PartnerPerformance");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
      * Get all the properties of a single fund.
      * @summary [EARLY ACCESS] GetFundProperties: Get Fund properties.
      * @param scope The scope of the Fund to list the properties for.
@@ -2232,6 +2714,222 @@ export class FundsApi {
         });
     }
     /**
+     * One partner\'s capital account over a period, rolled from beginning capital through contributions,  distributions, transfers, allocated income, fees, gains and carried interest to ending capital, with  quarter-, year- and inception-to-date columns. The memo block carries the commitment position. The  statement is an estimate until a final valuation point covers the period end.
+     * @summary [EARLY ACCESS] GetPartnerCapitalAccount: [EARLY ACCESS] GetPartnerCapitalAccount: Get a partner\'s capital account statement.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param irScope The scope of the partner\&#39;s investor record.
+     * @param irCode The code of the partner\&#39;s investor record.
+     * @param periodStart The effective datetime the statement period opens at. Defaults to the start of the quarter containing the period end.
+     * @param periodEnd The effective datetime the statement period closes at. Defaults to the current LUSID system datetime.
+     * @param navTypeCode The NAV type to read the register and ledger under. Defaults to the fund\&#39;s primary NAV type.
+     * @param asAt The asAt datetime at which to read the fund. Defaults to returning the latest version if not specified.
+     */
+    public async getPartnerCapitalAccount (scope: string, code: string, irScope: string, irCode: string, periodStart?: Date, periodEnd?: Date, navTypeCode?: string, asAt?: Date, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PartnerCapitalAccount;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/partners/{irScope}/{irCode}/capitalaccount'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)))
+            .replace('{' + 'irScope' + '}', encodeURIComponent(String(irScope)))
+            .replace('{' + 'irCode' + '}', encodeURIComponent(String(irCode)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling getPartnerCapitalAccount.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling getPartnerCapitalAccount.');
+        }
+
+        // verify required parameter 'irScope' is not null or undefined
+        if (irScope === null || irScope === undefined) {
+            throw new Error('Required parameter irScope was null or undefined when calling getPartnerCapitalAccount.');
+        }
+
+        // verify required parameter 'irCode' is not null or undefined
+        if (irCode === null || irCode === undefined) {
+            throw new Error('Required parameter irCode was null or undefined when calling getPartnerCapitalAccount.');
+        }
+
+        if (periodStart !== undefined) {
+            localVarQueryParameters['periodStart'] = ObjectSerializer.serialize(periodStart, "Date");
+        }
+
+        if (periodEnd !== undefined) {
+            localVarQueryParameters['periodEnd'] = ObjectSerializer.serialize(periodEnd, "Date");
+        }
+
+        if (navTypeCode !== undefined) {
+            localVarQueryParameters['navTypeCode'] = ObjectSerializer.serialize(navTypeCode, "string");
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: PartnerCapitalAccount;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "PartnerCapitalAccount");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * One partner\'s paid-in to committed (PIC), distributions to paid-in (DPI), residual value to paid-in (RVPI),  total value to paid-in (TVPI) and net IRR, together with the dated cash flows the IRR was solved from.  Where any of the partner\'s events were financed by a subscription facility, the measures are also given  with and without the facility, the latter re-dating facility-funded calls to the deal funding date.
+     * @summary [EARLY ACCESS] GetPartnerPerformance: [EARLY ACCESS] GetPartnerPerformance: Get a partner\'s performance measures.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param irScope The scope of the partner\&#39;s investor record.
+     * @param irCode The code of the partner\&#39;s investor record.
+     * @param navTypeCode The NAV type to read the register and ledger under. Defaults to the fund\&#39;s primary NAV type.
+     * @param asAt The asAt datetime at which to read the fund. Defaults to returning the latest version if not specified.
+     */
+    public async getPartnerPerformance (scope: string, code: string, irScope: string, irCode: string, navTypeCode?: string, asAt?: Date, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PartnerPerformance;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/partners/{irScope}/{irCode}/performance'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)))
+            .replace('{' + 'irScope' + '}', encodeURIComponent(String(irScope)))
+            .replace('{' + 'irCode' + '}', encodeURIComponent(String(irCode)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling getPartnerPerformance.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling getPartnerPerformance.');
+        }
+
+        // verify required parameter 'irScope' is not null or undefined
+        if (irScope === null || irScope === undefined) {
+            throw new Error('Required parameter irScope was null or undefined when calling getPartnerPerformance.');
+        }
+
+        // verify required parameter 'irCode' is not null or undefined
+        if (irCode === null || irCode === undefined) {
+            throw new Error('Required parameter irCode was null or undefined when calling getPartnerPerformance.');
+        }
+
+        if (navTypeCode !== undefined) {
+            localVarQueryParameters['navTypeCode'] = ObjectSerializer.serialize(navTypeCode, "string");
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: PartnerPerformance;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "PartnerPerformance");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
      * Reconciles one partner\'s unfunded commitment over a period: the register\'s opening unfunded, less capital  called inside the commitment, plus recallable distributions, less recallable distributions that expired,  plus or minus commitment changes and transfers, gives the closing unfunded, which is checked against the  register\'s unfunded at the close. Every booked allocation to the partner in the period is listed with the  ILPA transaction type it is reported under.
      * @summary [EARLY ACCESS] GetPartnerUnfundedReconciliation: [EARLY ACCESS] GetPartnerUnfundedReconciliation: Get a partner\'s unfunded commitment statement.
      * @param scope The scope of the Fund.
@@ -2431,6 +3129,184 @@ export class FundsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "PagedResourceListOfFundPartner");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * Resolve the partnership configuration pack the Fund\'s configuration names: the partnership transaction types,  the accounts partner capital is posted to and the rules that move each type between them.
+     * @summary [EARLY ACCESS] GetPartnershipConfigPack: [EXPERIMENTAL] GetPartnershipConfigPack: Get the partnership configuration pack of a Fund.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param asAt The asAt datetime at which to retrieve the pack. Defaults to return the latest version if not specified.
+     */
+    public async getPartnershipConfigPack (scope: string, code: string, asAt?: Date, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PartnershipConfigPack;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/partnershipaccounting/configpack'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling getPartnershipConfigPack.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling getPartnershipConfigPack.');
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: PartnershipConfigPack;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "PartnershipConfigPack");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * Lists the Series defined on the Share Classes of the Fund, optionally restricted to a single Share Class.
+     * @summary [EARLY ACCESS] GetSeries: [EARLY ACCESS] GetSeries: List the Series of a Fund.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param shareClassCode Optionally, the short code of the Share Class whose Series to list. Defaults to all Share Classes.
+     * @param effectiveAt The effective datetime or cut label at which to read the Fund. Defaults to the current LUSID system datetime if not specified.
+     * @param asAt The asAt datetime at which to read the Fund. Defaults to returning the latest version if not specified.
+     */
+    public async getSeries (scope: string, code: string, shareClassCode?: string, effectiveAt?: string, asAt?: Date, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ResourceListOfSeries;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/series'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling getSeries.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling getSeries.');
+        }
+
+        if (shareClassCode !== undefined) {
+            localVarQueryParameters['shareClassCode'] = ObjectSerializer.serialize(shareClassCode, "string");
+        }
+
+        if (effectiveAt !== undefined) {
+            localVarQueryParameters['effectiveAt'] = ObjectSerializer.serialize(effectiveAt, "string");
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: ResourceListOfSeries;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResourceListOfSeries");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -3906,6 +4782,201 @@ export class FundsApi {
         });
     }
     /**
+     * The capital account statement of every open partner on the fund\'s register over a period, paged in  register order.
+     * @summary [EARLY ACCESS] ListPartnerCapitalAccounts: [EARLY ACCESS] ListPartnerCapitalAccounts: List the capital account statements of a fund\'s partners.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param periodStart The effective datetime the statement period opens at. Defaults to the start of the quarter containing the period end.
+     * @param periodEnd The effective datetime the statement period closes at. Defaults to the current LUSID system datetime.
+     * @param navTypeCode The NAV type to read the register and ledger under. Defaults to the fund\&#39;s primary NAV type.
+     * @param asAt The asAt datetime at which to read the fund. Defaults to returning the latest version if not specified.
+     * @param page The pagination token to use to continue listing statements from a previous call. This value is returned from the previous call.
+     * @param limit When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
+     */
+    public async listPartnerCapitalAccounts (scope: string, code: string, periodStart?: Date, periodEnd?: Date, navTypeCode?: string, asAt?: Date, page?: string, limit?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PagedResourceListOfPartnerCapitalAccount;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/capitalaccounts'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling listPartnerCapitalAccounts.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling listPartnerCapitalAccounts.');
+        }
+
+        if (periodStart !== undefined) {
+            localVarQueryParameters['periodStart'] = ObjectSerializer.serialize(periodStart, "Date");
+        }
+
+        if (periodEnd !== undefined) {
+            localVarQueryParameters['periodEnd'] = ObjectSerializer.serialize(periodEnd, "Date");
+        }
+
+        if (navTypeCode !== undefined) {
+            localVarQueryParameters['navTypeCode'] = ObjectSerializer.serialize(navTypeCode, "string");
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        if (page !== undefined) {
+            localVarQueryParameters['page'] = ObjectSerializer.serialize(page, "string");
+        }
+
+        if (limit !== undefined) {
+            localVarQueryParameters['limit'] = ObjectSerializer.serialize(limit, "number");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: PagedResourceListOfPartnerCapitalAccount;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "PagedResourceListOfPartnerCapitalAccount");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * List every statement produced for the partner on this Fund, most recent first.
+     * @summary [EARLY ACCESS] ListPartnerStatements: [EXPERIMENTAL] ListPartnerStatements: List the statements produced for a partner.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param investorRecordId The investor record the statements are for.
+     */
+    public async listPartnerStatements (scope: string, code: string, investorRecordId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: ResourceListOfPartnerStatement;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/partners/{investorRecordId}/statements'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)))
+            .replace('{' + 'investorRecordId' + '}', encodeURIComponent(String(investorRecordId)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling listPartnerStatements.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling listPartnerStatements.');
+        }
+
+        // verify required parameter 'investorRecordId' is not null or undefined
+        if (investorRecordId === null || investorRecordId === undefined) {
+            throw new Error('Required parameter investorRecordId was null or undefined when calling listPartnerStatements.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: ResourceListOfPartnerStatement;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResourceListOfPartnerStatement");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
      * Lists all complex market data within the effective date range of the specified Valuation Point for a Fund,  including any items added via a Complex Close (Post-Close Activity).
      * @summary [EARLY ACCESS] ListValuationPointComplexMarketData: List the Complex Market Data for the given Fund and Valuation Point.
      * @param scope The scope of the Fund.
@@ -4348,7 +5419,7 @@ export class FundsApi {
         });
     }
     /**
-     * Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate, PricingMethodology, ReportingPrices.
+     * Update fields on a Fund.  The behaviour is defined by the JSON Patch specification.    Currently supported fields are: DisplayName, Description, BaseCurrency, PortfolioIds, FundConfigurationId, ShareClassInstruments, Type, InceptionDate, DecimalPlaces, PrimaryNavType, AdditionalNavTypes, AborId, YearEndDate, PricingMethodology, ReportingPrices, WhtParameters, ShareClasses.
      * @summary [EARLY ACCESS] PatchFund: Patch a Fund.
      * @param scope The scope of the Fund.
      * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
@@ -4428,6 +5499,104 @@ export class FundsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "Fund");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * Produce the capital account statement of one partner for the period: opening capital, contributions,  distributions, allocated income, carry and fees, and closing capital. The statement is kept so later  statements for the same period can be compared against it.
+     * @summary [EARLY ACCESS] ProducePartnerStatement: [EXPERIMENTAL] ProducePartnerStatement: Produce a partner\'s capital statement for a period.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param investorRecordId The investor record the statement is for.
+     * @param partnerStatementRequest The statement period.
+     * @param asAt The asAt datetime at which to read the Fund. Defaults to return the latest version if not specified.
+     */
+    public async producePartnerStatement (scope: string, code: string, investorRecordId: string, partnerStatementRequest: PartnerStatementRequest, asAt?: Date, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PartnerStatement;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/partners/{investorRecordId}/statements'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)))
+            .replace('{' + 'investorRecordId' + '}', encodeURIComponent(String(investorRecordId)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling producePartnerStatement.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling producePartnerStatement.');
+        }
+
+        // verify required parameter 'investorRecordId' is not null or undefined
+        if (investorRecordId === null || investorRecordId === undefined) {
+            throw new Error('Required parameter investorRecordId was null or undefined when calling producePartnerStatement.');
+        }
+
+        // verify required parameter 'partnerStatementRequest' is not null or undefined
+        if (partnerStatementRequest === null || partnerStatementRequest === undefined) {
+            throw new Error('Required parameter partnerStatementRequest was null or undefined when calling producePartnerStatement.');
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(partnerStatementRequest, "PartnerStatementRequest")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: PartnerStatement;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "PartnerStatement");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -4751,6 +5920,97 @@ export class FundsApi {
                         reject(error);
                     } else {
                         body = ObjectSerializer.deserialize(body, "RevertValuationPointResponse");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * Share the Fund\'s income, gains and expenses for the period across the partners on its register, pool by pool,  and book the allocation unless the run is a dry run.
+     * @summary [EARLY ACCESS] RunPartnerAllocations: [EXPERIMENTAL] RunPartnerAllocations: Allocate a period\'s income to the Fund\'s partners.
+     * @param scope The scope of the Fund.
+     * @param code The code of the Fund. Together with the scope this uniquely identifies the Fund.
+     * @param partnerAllocationRunRequest The period to allocate and how.
+     * @param asAt The asAt datetime at which to read the Fund. Defaults to return the latest version if not specified.
+     */
+    public async runPartnerAllocations (scope: string, code: string, partnerAllocationRunRequest: PartnerAllocationRunRequest, asAt?: Date, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PartnerAllocationRunResult;  }> {
+        const localVarPath = this.basePath + '/api/funds/{scope}/{code}/partnerallocations/$run'
+            .replace('{' + 'scope' + '}', encodeURIComponent(String(scope)))
+            .replace('{' + 'code' + '}', encodeURIComponent(String(code)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['text/plain', 'application/json', 'text/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'scope' is not null or undefined
+        if (scope === null || scope === undefined) {
+            throw new Error('Required parameter scope was null or undefined when calling runPartnerAllocations.');
+        }
+
+        // verify required parameter 'code' is not null or undefined
+        if (code === null || code === undefined) {
+            throw new Error('Required parameter code was null or undefined when calling runPartnerAllocations.');
+        }
+
+        // verify required parameter 'partnerAllocationRunRequest' is not null or undefined
+        if (partnerAllocationRunRequest === null || partnerAllocationRunRequest === undefined) {
+            throw new Error('Required parameter partnerAllocationRunRequest was null or undefined when calling runPartnerAllocations.');
+        }
+
+        if (asAt !== undefined) {
+            localVarQueryParameters['asAt'] = ObjectSerializer.serialize(asAt, "Date");
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(partnerAllocationRunRequest, "PartnerAllocationRunRequest")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.oauth2.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.oauth2.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: PartnerAllocationRunResult;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "PartnerAllocationRunResult");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

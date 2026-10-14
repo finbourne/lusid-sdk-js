@@ -6,8 +6,12 @@ export * from './addressKeyDefinitionApi';
 import { AddressKeyDefinitionApi } from './addressKeyDefinitionApi';
 export * from './aggregationApi';
 import { AggregationApi } from './aggregationApi';
+export * from './allocationEventsApi';
+import { AllocationEventsApi } from './allocationEventsApi';
 export * from './allocationsApi';
 import { AllocationsApi } from './allocationsApi';
+export * from './amortisationRuleSetsApi';
+import { AmortisationRuleSetsApi } from './amortisationRuleSetsApi';
 export * from './applicationMetadataApi';
 import { ApplicationMetadataApi } from './applicationMetadataApi';
 export * from './blocksApi';
@@ -46,6 +50,8 @@ export * from './feeTypesApi';
 import { FeeTypesApi } from './feeTypesApi';
 export * from './fundConfigurationApi';
 import { FundConfigurationApi } from './fundConfigurationApi';
+export * from './fundStructuresApi';
+import { FundStructuresApi } from './fundStructuresApi';
 export * from './fundsApi';
 import { FundsApi } from './fundsApi';
 export * from './instrumentEventTypesApi';
@@ -141,4 +147,4 @@ import { WithholdingTaxApi } from './withholdingTaxApi';
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AborApi, AborConfigurationApi, AddressKeyDefinitionApi, AggregationApi, AllocationsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ChartOfAccountsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, FeeTypesApi, FundConfigurationApi, FundsApi, InstrumentEventTypesApi, InstrumentEventsApi, InstrumentsApi, InvestmentAccountsApi, InvestorRecordsApi, LegalEntitiesApi, MarketDataFieldConfigurationApi, OrderGraphApi, OrderInstructionsApi, OrderManagementApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QueryableKeysApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationalDatasetDefinitionApi, RelationalDatasetsApi, RelationshipDefinitionsApi, RelationshipsApi, ResourceRecordApi, ScenariosApi, SchemasApi, ScopesApi, ScriptedTranslationApi, SearchApi, SequencesApi, SettlementActivityApi, SimplePositionPortfoliosApi, StagedModificationsApi, StagingRuleSetApi, StructuredResultDataApi, SubscriptionsApi, SystemConfigurationApi, TransactionConfigurationApi, TransactionFeeTypesApi, TransactionFeesApi, TransactionPortfoliosApi, WithholdingTaxApi];
+export const APIS = [AborApi, AborConfigurationApi, AddressKeyDefinitionApi, AggregationApi, AllocationEventsApi, AllocationsApi, AmortisationRuleSetsApi, ApplicationMetadataApi, BlocksApi, CalendarsApi, ChartOfAccountsApi, ComplexMarketDataApi, ComplianceApi, ConfigurationRecipeApi, CorporateActionSourcesApi, CounterpartiesApi, CustomEntitiesApi, CustomEntityDefinitionsApi, CustomEntityTypesApi, CutLabelDefinitionsApi, DataTypesApi, DerivedTransactionPortfoliosApi, EntitiesApi, ExecutionsApi, FeeTypesApi, FundConfigurationApi, FundStructuresApi, FundsApi, InstrumentEventTypesApi, InstrumentEventsApi, InstrumentsApi, InvestmentAccountsApi, InvestorRecordsApi, LegalEntitiesApi, MarketDataFieldConfigurationApi, OrderGraphApi, OrderInstructionsApi, OrderManagementApi, OrdersApi, ParticipationsApi, PersonsApi, PlacementsApi, PortfolioGroupsApi, PortfoliosApi, PropertyDefinitionsApi, QueryableKeysApi, QuotesApi, ReconciliationsApi, ReferenceListsApi, ReferencePortfolioApi, RelationalDatasetDefinitionApi, RelationalDatasetsApi, RelationshipDefinitionsApi, RelationshipsApi, ResourceRecordApi, ScenariosApi, SchemasApi, ScopesApi, ScriptedTranslationApi, SearchApi, SequencesApi, SettlementActivityApi, SimplePositionPortfoliosApi, StagedModificationsApi, StagingRuleSetApi, StructuredResultDataApi, SubscriptionsApi, SystemConfigurationApi, TransactionConfigurationApi, TransactionFeeTypesApi, TransactionFeesApi, TransactionPortfoliosApi, WithholdingTaxApi];

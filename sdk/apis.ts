@@ -2,7 +2,9 @@ import {AborApi} from './api/aborApi';
 import {AborConfigurationApi} from './api/aborConfigurationApi';
 import {AddressKeyDefinitionApi} from './api/addressKeyDefinitionApi';
 import {AggregationApi} from './api/aggregationApi';
+import {AllocationEventsApi} from './api/allocationEventsApi';
 import {AllocationsApi} from './api/allocationsApi';
+import {AmortisationRuleSetsApi} from './api/amortisationRuleSetsApi';
 import {ApplicationMetadataApi} from './api/applicationMetadataApi';
 import {BlocksApi} from './api/blocksApi';
 import {CalendarsApi} from './api/calendarsApi';
@@ -23,6 +25,7 @@ import {ExecutionsApi} from './api/executionsApi';
 import {FeeTypesApi} from './api/feeTypesApi';
 import {FundConfigurationApi} from './api/fundConfigurationApi';
 import {FundsApi} from './api/fundsApi';
+import {FundStructuresApi} from './api/fundStructuresApi';
 import {InstrumentEventsApi} from './api/instrumentEventsApi';
 import {InstrumentEventTypesApi} from './api/instrumentEventTypesApi';
 import {InstrumentsApi} from './api/instrumentsApi';
@@ -74,7 +77,9 @@ export class Api {
     public aborConfiguration:  AborConfigurationApi
     public addressKeyDefinition:  AddressKeyDefinitionApi
     public aggregation:  AggregationApi
+    public allocationEvents:  AllocationEventsApi
     public allocations:  AllocationsApi
+    public amortisationRuleSets:  AmortisationRuleSetsApi
     public applicationMetadata:  ApplicationMetadataApi
     public blocks:  BlocksApi
     public calendars:  CalendarsApi
@@ -95,6 +100,7 @@ export class Api {
     public feeTypes:  FeeTypesApi
     public fundConfiguration:  FundConfigurationApi
     public funds:  FundsApi
+    public fundStructures:  FundStructuresApi
     public instrumentEvents:  InstrumentEventsApi
     public instrumentEventTypes:  InstrumentEventTypesApi
     public instruments:  InstrumentsApi

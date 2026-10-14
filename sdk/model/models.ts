@@ -53,10 +53,19 @@ export * from './aggregationMeasureFailureDetail';
 export * from './aggregationOptions';
 export * from './aggregationQuery';
 export * from './allocation';
+export * from './allocationEventNotice';
+export * from './allocationEventNoticeCumulative';
+export * from './allocationEventNoticeEvent';
+export * from './allocationEventNoticeLine';
+export * from './allocationEventNoticePartner';
+export * from './allocationEventNoticeUnfundedReconciliation';
+export * from './allocationEventNoticeWire';
 export * from './allocationGroup';
 export * from './allocationGroupClass';
 export * from './allocationGroupClassDefinition';
 export * from './allocationGroupDefinition';
+export * from './allocationPaymentHold';
+export * from './allocationPaymentHoldRequest';
 export * from './allocationRequest';
 export * from './allocationServiceRunResponse';
 export * from './allocationSetRequest';
@@ -64,6 +73,7 @@ export * from './amendCommitmentEvent';
 export * from './amendCommitmentEventAllOf';
 export * from './amortisationEvent';
 export * from './amortisationEventAllOf';
+export * from './amortisationRule';
 export * from './amount';
 export * from './annulQuotesResponse';
 export * from './annulSingleStructuredDataResponse';
@@ -203,7 +213,12 @@ export * from './capitalInterestTransferEvent';
 export * from './capitalInterestTransferEventAllOf';
 export * from './capletFloorletCashFlowEvent';
 export * from './capletFloorletCashFlowEventAllOf';
+export * from './carryAccrualAmount';
+export * from './carryAccrualLine';
+export * from './carryAccrualRequest';
+export * from './carryAccrualResult';
 export * from './carryParameters';
+export * from './carryTierAmount';
 export * from './cash';
 export * from './cashAllOf';
 export * from './cashAndSecurityOfferElection';
@@ -547,6 +562,7 @@ export * from './feeAccrual';
 export * from './feeCalculationRequest';
 export * from './feeDefinition';
 export * from './feeProperties';
+export * from './feeRateTier';
 export * from './feeRequest';
 export * from './feeRule';
 export * from './feeRuleUpsertRequest';
@@ -621,6 +637,7 @@ export * from './fundIdList';
 export * from './fundIdListAllOf';
 export * from './fundInstrument';
 export * from './fundJournalEntryLine';
+export * from './fundNavTypeCodes';
 export * from './fundPartner';
 export * from './fundPartnerBalances';
 export * from './fundPartnerUnfundedReconciliation';
@@ -632,6 +649,9 @@ export * from './fundProperties';
 export * from './fundRequest';
 export * from './fundShareClass';
 export * from './fundShareClassAllOf';
+export * from './fundStructureCloseRequest';
+export * from './fundStructureCloseResult';
+export * from './fundStructureCloseStep';
 export * from './fundTerms';
 export * from './fundTermsVersion';
 export * from './fundValuationPointData';
@@ -752,6 +772,8 @@ export * from './informationalEventAllOf';
 export * from './inlineValuationRequest';
 export * from './inlineValuationsReconciliationRequest';
 export * from './inputTransition';
+export * from './instalmentCallEvent';
+export * from './instalmentCallEventAllOf';
 export * from './instrument';
 export * from './instrumentActivity';
 export * from './instrumentActivityAdjustment';
@@ -764,6 +786,7 @@ export * from './instrumentDefinitionFormat';
 export * from './instrumentEntity';
 export * from './instrumentEvent';
 export * from './instrumentEventConfiguration';
+export * from './instrumentEventEntity';
 export * from './instrumentEventHolder';
 export * from './instrumentEventInstruction';
 export * from './instrumentEventInstructionRequest';
@@ -841,6 +864,11 @@ export * from './lusidProblemDetails';
 export * from './lusidTradeTicket';
 export * from './lusidUniqueId';
 export * from './lusidValidationProblemDetails';
+export * from './managementFeeLine';
+export * from './managementFeeOffset';
+export * from './managementFeeRequest';
+export * from './managementFeeResult';
+export * from './managementFeeTotals';
 export * from './mappedString';
 export * from './mapping';
 export * from './mappingRule';
@@ -955,6 +983,9 @@ export * from './overrideDefinitionResponse';
 export * from './overrideEntryResponse';
 export * from './overrideVirtualTransactionsRequest';
 export * from './oversubscribeElection';
+export * from './packAccount';
+export * from './packPostingRule';
+export * from './packTransactionType';
 export * from './pagedResourceListOfAbor';
 export * from './pagedResourceListOfAborConfiguration';
 export * from './pagedResourceListOfAccount';
@@ -997,6 +1028,7 @@ export * from './pagedResourceListOfOrderGraphBlock';
 export * from './pagedResourceListOfOrderGraphPlacement';
 export * from './pagedResourceListOfOrderInstruction';
 export * from './pagedResourceListOfParticipation';
+export * from './pagedResourceListOfPartnerCapitalAccount';
 export * from './pagedResourceListOfPerson';
 export * from './pagedResourceListOfPlacement';
 export * from './pagedResourceListOfPortfolioGroup';
@@ -1032,7 +1064,24 @@ export * from './partialDefeasanceEventAllOf';
 export * from './participation';
 export * from './participationRequest';
 export * from './participationSetRequest';
+export * from './partnerAllocation';
+export * from './partnerAllocationPool';
+export * from './partnerAllocationRunRequest';
+export * from './partnerAllocationRunResult';
+export * from './partnerCapitalAccount';
+export * from './partnerCapitalAccountMemo';
+export * from './partnerCapitalAccountRow';
+export * from './partnerPerformance';
+export * from './partnerPerformanceCashFlow';
+export * from './partnerPerformanceMeasures';
+export * from './partnerStatement';
+export * from './partnerStatementDiff';
+export * from './partnerStatementLine';
+export * from './partnerStatementLineDifference';
+export * from './partnerStatementRequest';
 export * from './partnershipAccountingConfiguration';
+export * from './partnershipAccountingValuationPointData';
+export * from './partnershipConfigPack';
 export * from './paymentInKindEvent';
 export * from './paymentInKindEventAllOf';
 export * from './percentCheckStep';
@@ -1069,6 +1118,7 @@ export * from './portfolioEntityIdWithDetails';
 export * from './portfolioGroup';
 export * from './portfolioGroupIdComplianceParameter';
 export * from './portfolioGroupIdList';
+export * from './portfolioGroupIdListAllOf';
 export * from './portfolioGroupIdListComplianceParameter';
 export * from './portfolioGroupProperties';
 export * from './portfolioGroupSearchResult';
@@ -1105,6 +1155,7 @@ export * from './preferredShare';
 export * from './preferredShareAllOf';
 export * from './preferredShareAllOfIdentifiers';
 export * from './premium';
+export * from './presentationConfiguration';
 export * from './previousFundCalendarEntry';
 export * from './previousFundValuationPointData';
 export * from './previousNAV';
@@ -1154,6 +1205,8 @@ export * from './queryInstrumentEventsRequest';
 export * from './queryRelationalDatasetRequest';
 export * from './queryTradeTicketsRequest';
 export * from './queryableKey';
+export * from './queryableKeysForMetricsRequest';
+export * from './queryableKeysForMetricsResponse';
 export * from './quote';
 export * from './quoteAccessMetadataRule';
 export * from './quoteAccessMetadataRuleId';
@@ -1236,6 +1289,8 @@ export * from './resourceListOfAddressKeyDefinition';
 export * from './resourceListOfAggregatedReturn';
 export * from './resourceListOfAggregationQuery';
 export * from './resourceListOfAllocation';
+export * from './resourceListOfAllocationEventNotice';
+export * from './resourceListOfAllocationPaymentHold';
 export * from './resourceListOfApplicableInstrumentEvent';
 export * from './resourceListOfBlock';
 export * from './resourceListOfBlockAndOrders';
@@ -1269,6 +1324,7 @@ export * from './resourceListOfOrder';
 export * from './resourceListOfOrderInstruction';
 export * from './resourceListOfOutputTransaction';
 export * from './resourceListOfParticipation';
+export * from './resourceListOfPartnerStatement';
 export * from './resourceListOfPerformanceReturn';
 export * from './resourceListOfPerson';
 export * from './resourceListOfPlacement';
@@ -1287,8 +1343,10 @@ export * from './resourceListOfQuoteAccessMetadataRule';
 export * from './resourceListOfReconciliationBreak';
 export * from './resourceListOfRelation';
 export * from './resourceListOfRelationship';
+export * from './resourceListOfRulesInterval';
 export * from './resourceListOfScenarioTemplateDefinition';
 export * from './resourceListOfScopeDefinition';
+export * from './resourceListOfSeries';
 export * from './resourceListOfSideDefinition';
 export * from './resourceListOfString';
 export * from './resourceListOfTransaction';
@@ -1338,6 +1396,7 @@ export * from './rolloverConstituent';
 export * from './roundingConfiguration';
 export * from './roundingConfigurationComponent';
 export * from './roundingConvention';
+export * from './rulesInterval';
 export * from './scenarioDefinition';
 export * from './scenarioDiagnostics';
 export * from './scenarioPreviewAppliedShift';
@@ -1360,6 +1419,8 @@ export * from './securityWriteOffEvent';
 export * from './securityWriteOffEventAllOf';
 export * from './sellEntitlementElection';
 export * from './sequenceDefinition';
+export * from './series';
+export * from './seriesBreakdown';
 export * from './seriesConfiguration';
 export * from './seriesDefinition';
 export * from './seriesDefinitionRequest';
@@ -1527,6 +1588,7 @@ export * from './trialBalanceQueryParameters';
 export * from './triggerEvent';
 export * from './triggerEventAllOf';
 export * from './typedResourceId';
+export * from './unattributedAmount';
 export * from './unitisationData';
 export * from './unitsRatio';
 export * from './unknownProceedsElection';
@@ -1666,6 +1728,7 @@ export * from './weightedInstrumentInLineLookupIdentifiers';
 export * from './weightedInstruments';
 export * from './wholeLoanFacility';
 export * from './wholeLoanFacilityAllOf';
+export * from './whtParameters';
 export * from './withholdingTaxConfiguration';
 export * from './withholdingTaxDataset';
 export * from './withholdingTaxDatasetDefinitions';
@@ -1743,10 +1806,19 @@ import { AggregationMeasureFailureDetail } from './aggregationMeasureFailureDeta
 import { AggregationOptions } from './aggregationOptions';
 import { AggregationQuery } from './aggregationQuery';
 import { Allocation } from './allocation';
+import { AllocationEventNotice } from './allocationEventNotice';
+import { AllocationEventNoticeCumulative } from './allocationEventNoticeCumulative';
+import { AllocationEventNoticeEvent } from './allocationEventNoticeEvent';
+import { AllocationEventNoticeLine } from './allocationEventNoticeLine';
+import { AllocationEventNoticePartner } from './allocationEventNoticePartner';
+import { AllocationEventNoticeUnfundedReconciliation } from './allocationEventNoticeUnfundedReconciliation';
+import { AllocationEventNoticeWire } from './allocationEventNoticeWire';
 import { AllocationGroup } from './allocationGroup';
 import { AllocationGroupClass } from './allocationGroupClass';
 import { AllocationGroupClassDefinition } from './allocationGroupClassDefinition';
 import { AllocationGroupDefinition } from './allocationGroupDefinition';
+import { AllocationPaymentHold } from './allocationPaymentHold';
+import { AllocationPaymentHoldRequest } from './allocationPaymentHoldRequest';
 import { AllocationRequest } from './allocationRequest';
 import { AllocationServiceRunResponse } from './allocationServiceRunResponse';
 import { AllocationSetRequest } from './allocationSetRequest';
@@ -1754,6 +1826,7 @@ import { AmendCommitmentEvent } from './amendCommitmentEvent';
 import { AmendCommitmentEventAllOf } from './amendCommitmentEventAllOf';
 import { AmortisationEvent } from './amortisationEvent';
 import { AmortisationEventAllOf } from './amortisationEventAllOf';
+import { AmortisationRule } from './amortisationRule';
 import { Amount } from './amount';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
 import { AnnulSingleStructuredDataResponse } from './annulSingleStructuredDataResponse';
@@ -1893,7 +1966,12 @@ import { CapitalInterestTransferEvent } from './capitalInterestTransferEvent';
 import { CapitalInterestTransferEventAllOf } from './capitalInterestTransferEventAllOf';
 import { CapletFloorletCashFlowEvent } from './capletFloorletCashFlowEvent';
 import { CapletFloorletCashFlowEventAllOf } from './capletFloorletCashFlowEventAllOf';
+import { CarryAccrualAmount } from './carryAccrualAmount';
+import { CarryAccrualLine } from './carryAccrualLine';
+import { CarryAccrualRequest } from './carryAccrualRequest';
+import { CarryAccrualResult } from './carryAccrualResult';
 import { CarryParameters } from './carryParameters';
+import { CarryTierAmount } from './carryTierAmount';
 import { Cash } from './cash';
 import { CashAllOf } from './cashAllOf';
 import { CashAndSecurityOfferElection } from './cashAndSecurityOfferElection';
@@ -2237,6 +2315,7 @@ import { FeeAccrual } from './feeAccrual';
 import { FeeCalculationRequest } from './feeCalculationRequest';
 import { FeeDefinition } from './feeDefinition';
 import { FeeProperties } from './feeProperties';
+import { FeeRateTier } from './feeRateTier';
 import { FeeRequest } from './feeRequest';
 import { FeeRule } from './feeRule';
 import { FeeRuleUpsertRequest } from './feeRuleUpsertRequest';
@@ -2311,6 +2390,7 @@ import { FundIdList } from './fundIdList';
 import { FundIdListAllOf } from './fundIdListAllOf';
 import { FundInstrument } from './fundInstrument';
 import { FundJournalEntryLine } from './fundJournalEntryLine';
+import { FundNavTypeCodes } from './fundNavTypeCodes';
 import { FundPartner } from './fundPartner';
 import { FundPartnerBalances } from './fundPartnerBalances';
 import { FundPartnerUnfundedReconciliation } from './fundPartnerUnfundedReconciliation';
@@ -2322,6 +2402,9 @@ import { FundProperties } from './fundProperties';
 import { FundRequest } from './fundRequest';
 import { FundShareClass } from './fundShareClass';
 import { FundShareClassAllOf } from './fundShareClassAllOf';
+import { FundStructureCloseRequest } from './fundStructureCloseRequest';
+import { FundStructureCloseResult } from './fundStructureCloseResult';
+import { FundStructureCloseStep } from './fundStructureCloseStep';
 import { FundTerms } from './fundTerms';
 import { FundTermsVersion } from './fundTermsVersion';
 import { FundValuationPointData } from './fundValuationPointData';
@@ -2442,6 +2525,8 @@ import { InformationalEventAllOf } from './informationalEventAllOf';
 import { InlineValuationRequest } from './inlineValuationRequest';
 import { InlineValuationsReconciliationRequest } from './inlineValuationsReconciliationRequest';
 import { InputTransition } from './inputTransition';
+import { InstalmentCallEvent } from './instalmentCallEvent';
+import { InstalmentCallEventAllOf } from './instalmentCallEventAllOf';
 import { Instrument } from './instrument';
 import { InstrumentActivity } from './instrumentActivity';
 import { InstrumentActivityAdjustment } from './instrumentActivityAdjustment';
@@ -2454,6 +2539,7 @@ import { InstrumentDefinitionFormat } from './instrumentDefinitionFormat';
 import { InstrumentEntity } from './instrumentEntity';
 import { InstrumentEvent } from './instrumentEvent';
 import { InstrumentEventConfiguration } from './instrumentEventConfiguration';
+import { InstrumentEventEntity } from './instrumentEventEntity';
 import { InstrumentEventHolder } from './instrumentEventHolder';
 import { InstrumentEventInstruction } from './instrumentEventInstruction';
 import { InstrumentEventInstructionRequest } from './instrumentEventInstructionRequest';
@@ -2531,6 +2617,11 @@ import { LusidProblemDetails } from './lusidProblemDetails';
 import { LusidTradeTicket } from './lusidTradeTicket';
 import { LusidUniqueId } from './lusidUniqueId';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
+import { ManagementFeeLine } from './managementFeeLine';
+import { ManagementFeeOffset } from './managementFeeOffset';
+import { ManagementFeeRequest } from './managementFeeRequest';
+import { ManagementFeeResult } from './managementFeeResult';
+import { ManagementFeeTotals } from './managementFeeTotals';
 import { MappedString } from './mappedString';
 import { Mapping } from './mapping';
 import { MappingRule } from './mappingRule';
@@ -2645,6 +2736,9 @@ import { OverrideDefinitionResponse } from './overrideDefinitionResponse';
 import { OverrideEntryResponse } from './overrideEntryResponse';
 import { OverrideVirtualTransactionsRequest } from './overrideVirtualTransactionsRequest';
 import { OversubscribeElection } from './oversubscribeElection';
+import { PackAccount } from './packAccount';
+import { PackPostingRule } from './packPostingRule';
+import { PackTransactionType } from './packTransactionType';
 import { PagedResourceListOfAbor } from './pagedResourceListOfAbor';
 import { PagedResourceListOfAborConfiguration } from './pagedResourceListOfAborConfiguration';
 import { PagedResourceListOfAccount } from './pagedResourceListOfAccount';
@@ -2687,6 +2781,7 @@ import { PagedResourceListOfOrderGraphBlock } from './pagedResourceListOfOrderGr
 import { PagedResourceListOfOrderGraphPlacement } from './pagedResourceListOfOrderGraphPlacement';
 import { PagedResourceListOfOrderInstruction } from './pagedResourceListOfOrderInstruction';
 import { PagedResourceListOfParticipation } from './pagedResourceListOfParticipation';
+import { PagedResourceListOfPartnerCapitalAccount } from './pagedResourceListOfPartnerCapitalAccount';
 import { PagedResourceListOfPerson } from './pagedResourceListOfPerson';
 import { PagedResourceListOfPlacement } from './pagedResourceListOfPlacement';
 import { PagedResourceListOfPortfolioGroup } from './pagedResourceListOfPortfolioGroup';
@@ -2722,7 +2817,24 @@ import { PartialDefeasanceEventAllOf } from './partialDefeasanceEventAllOf';
 import { Participation } from './participation';
 import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
+import { PartnerAllocation } from './partnerAllocation';
+import { PartnerAllocationPool } from './partnerAllocationPool';
+import { PartnerAllocationRunRequest } from './partnerAllocationRunRequest';
+import { PartnerAllocationRunResult } from './partnerAllocationRunResult';
+import { PartnerCapitalAccount } from './partnerCapitalAccount';
+import { PartnerCapitalAccountMemo } from './partnerCapitalAccountMemo';
+import { PartnerCapitalAccountRow } from './partnerCapitalAccountRow';
+import { PartnerPerformance } from './partnerPerformance';
+import { PartnerPerformanceCashFlow } from './partnerPerformanceCashFlow';
+import { PartnerPerformanceMeasures } from './partnerPerformanceMeasures';
+import { PartnerStatement } from './partnerStatement';
+import { PartnerStatementDiff } from './partnerStatementDiff';
+import { PartnerStatementLine } from './partnerStatementLine';
+import { PartnerStatementLineDifference } from './partnerStatementLineDifference';
+import { PartnerStatementRequest } from './partnerStatementRequest';
 import { PartnershipAccountingConfiguration } from './partnershipAccountingConfiguration';
+import { PartnershipAccountingValuationPointData } from './partnershipAccountingValuationPointData';
+import { PartnershipConfigPack } from './partnershipConfigPack';
 import { PaymentInKindEvent } from './paymentInKindEvent';
 import { PaymentInKindEventAllOf } from './paymentInKindEventAllOf';
 import { PercentCheckStep } from './percentCheckStep';
@@ -2759,6 +2871,7 @@ import { PortfolioEntityIdWithDetails } from './portfolioEntityIdWithDetails';
 import { PortfolioGroup } from './portfolioGroup';
 import { PortfolioGroupIdComplianceParameter } from './portfolioGroupIdComplianceParameter';
 import { PortfolioGroupIdList } from './portfolioGroupIdList';
+import { PortfolioGroupIdListAllOf } from './portfolioGroupIdListAllOf';
 import { PortfolioGroupIdListComplianceParameter } from './portfolioGroupIdListComplianceParameter';
 import { PortfolioGroupProperties } from './portfolioGroupProperties';
 import { PortfolioGroupSearchResult } from './portfolioGroupSearchResult';
@@ -2795,6 +2908,7 @@ import { PreferredShare } from './preferredShare';
 import { PreferredShareAllOf } from './preferredShareAllOf';
 import { PreferredShareAllOfIdentifiers } from './preferredShareAllOfIdentifiers';
 import { Premium } from './premium';
+import { PresentationConfiguration } from './presentationConfiguration';
 import { PreviousFundCalendarEntry } from './previousFundCalendarEntry';
 import { PreviousFundValuationPointData } from './previousFundValuationPointData';
 import { PreviousNAV } from './previousNAV';
@@ -2844,6 +2958,8 @@ import { QueryInstrumentEventsRequest } from './queryInstrumentEventsRequest';
 import { QueryRelationalDatasetRequest } from './queryRelationalDatasetRequest';
 import { QueryTradeTicketsRequest } from './queryTradeTicketsRequest';
 import { QueryableKey } from './queryableKey';
+import { QueryableKeysForMetricsRequest } from './queryableKeysForMetricsRequest';
+import { QueryableKeysForMetricsResponse } from './queryableKeysForMetricsResponse';
 import { Quote } from './quote';
 import { QuoteAccessMetadataRule } from './quoteAccessMetadataRule';
 import { QuoteAccessMetadataRuleId } from './quoteAccessMetadataRuleId';
@@ -2926,6 +3042,8 @@ import { ResourceListOfAddressKeyDefinition } from './resourceListOfAddressKeyDe
 import { ResourceListOfAggregatedReturn } from './resourceListOfAggregatedReturn';
 import { ResourceListOfAggregationQuery } from './resourceListOfAggregationQuery';
 import { ResourceListOfAllocation } from './resourceListOfAllocation';
+import { ResourceListOfAllocationEventNotice } from './resourceListOfAllocationEventNotice';
+import { ResourceListOfAllocationPaymentHold } from './resourceListOfAllocationPaymentHold';
 import { ResourceListOfApplicableInstrumentEvent } from './resourceListOfApplicableInstrumentEvent';
 import { ResourceListOfBlock } from './resourceListOfBlock';
 import { ResourceListOfBlockAndOrders } from './resourceListOfBlockAndOrders';
@@ -2959,6 +3077,7 @@ import { ResourceListOfOrder } from './resourceListOfOrder';
 import { ResourceListOfOrderInstruction } from './resourceListOfOrderInstruction';
 import { ResourceListOfOutputTransaction } from './resourceListOfOutputTransaction';
 import { ResourceListOfParticipation } from './resourceListOfParticipation';
+import { ResourceListOfPartnerStatement } from './resourceListOfPartnerStatement';
 import { ResourceListOfPerformanceReturn } from './resourceListOfPerformanceReturn';
 import { ResourceListOfPerson } from './resourceListOfPerson';
 import { ResourceListOfPlacement } from './resourceListOfPlacement';
@@ -2977,8 +3096,10 @@ import { ResourceListOfQuoteAccessMetadataRule } from './resourceListOfQuoteAcce
 import { ResourceListOfReconciliationBreak } from './resourceListOfReconciliationBreak';
 import { ResourceListOfRelation } from './resourceListOfRelation';
 import { ResourceListOfRelationship } from './resourceListOfRelationship';
+import { ResourceListOfRulesInterval } from './resourceListOfRulesInterval';
 import { ResourceListOfScenarioTemplateDefinition } from './resourceListOfScenarioTemplateDefinition';
 import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
+import { ResourceListOfSeries } from './resourceListOfSeries';
 import { ResourceListOfSideDefinition } from './resourceListOfSideDefinition';
 import { ResourceListOfString } from './resourceListOfString';
 import { ResourceListOfTransaction } from './resourceListOfTransaction';
@@ -3028,6 +3149,7 @@ import { RolloverConstituent } from './rolloverConstituent';
 import { RoundingConfiguration } from './roundingConfiguration';
 import { RoundingConfigurationComponent } from './roundingConfigurationComponent';
 import { RoundingConvention } from './roundingConvention';
+import { RulesInterval } from './rulesInterval';
 import { ScenarioDefinition } from './scenarioDefinition';
 import { ScenarioDiagnostics } from './scenarioDiagnostics';
 import { ScenarioPreviewAppliedShift } from './scenarioPreviewAppliedShift';
@@ -3050,6 +3172,8 @@ import { SecurityWriteOffEvent } from './securityWriteOffEvent';
 import { SecurityWriteOffEventAllOf } from './securityWriteOffEventAllOf';
 import { SellEntitlementElection } from './sellEntitlementElection';
 import { SequenceDefinition } from './sequenceDefinition';
+import { Series } from './series';
+import { SeriesBreakdown } from './seriesBreakdown';
 import { SeriesConfiguration } from './seriesConfiguration';
 import { SeriesDefinition } from './seriesDefinition';
 import { SeriesDefinitionRequest } from './seriesDefinitionRequest';
@@ -3217,6 +3341,7 @@ import { TrialBalanceQueryParameters } from './trialBalanceQueryParameters';
 import { TriggerEvent } from './triggerEvent';
 import { TriggerEventAllOf } from './triggerEventAllOf';
 import { TypedResourceId } from './typedResourceId';
+import { UnattributedAmount } from './unattributedAmount';
 import { UnitisationData } from './unitisationData';
 import { UnitsRatio } from './unitsRatio';
 import { UnknownProceedsElection } from './unknownProceedsElection';
@@ -3356,6 +3481,7 @@ import { WeightedInstrumentInLineLookupIdentifiers } from './weightedInstrumentI
 import { WeightedInstruments } from './weightedInstruments';
 import { WholeLoanFacility } from './wholeLoanFacility';
 import { WholeLoanFacilityAllOf } from './wholeLoanFacilityAllOf';
+import { WhtParameters } from './whtParameters';
 import { WithholdingTaxConfiguration } from './withholdingTaxConfiguration';
 import { WithholdingTaxDataset } from './withholdingTaxDataset';
 import { WithholdingTaxDatasetDefinitions } from './withholdingTaxDatasetDefinitions';
@@ -3648,7 +3774,9 @@ let enumsMap: {[index: string]: any} = {
         "FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum": FilterPredicateComplianceParameterAllOf.ComplianceParameterTypeEnum,
         "FilterStep.ComplianceStepTypeEnum": FilterStep.ComplianceStepTypeEnum,
         "FilterStepRequest.ComplianceStepTypeRequestEnum": FilterStepRequest.ComplianceStepTypeRequestEnum,
+        "FilteredFundIdList.NavTypeSelectionEnum": FilteredFundIdList.NavTypeSelectionEnum,
         "FilteredFundIdList.ReferenceListTypeEnum": FilteredFundIdList.ReferenceListTypeEnum,
+        "FilteredFundIdListAllOf.NavTypeSelectionEnum": FilteredFundIdListAllOf.NavTypeSelectionEnum,
         "FilteredFundIdListAllOf.ReferenceListTypeEnum": FilteredFundIdListAllOf.ReferenceListTypeEnum,
         "FinalisedValuationPoint.EntryTypeEnum": FinalisedValuationPoint.EntryTypeEnum,
         "FinalisedValuationPoint.FundCalendarEntriesTypeEnum": FinalisedValuationPoint.FundCalendarEntriesTypeEnum,
@@ -3788,6 +3916,8 @@ let enumsMap: {[index: string]: any} = {
         "InformationalErrorEventAllOf.InstrumentEventTypeEnum": InformationalErrorEventAllOf.InstrumentEventTypeEnum,
         "InformationalEvent.InstrumentEventTypeEnum": InformationalEvent.InstrumentEventTypeEnum,
         "InformationalEventAllOf.InstrumentEventTypeEnum": InformationalEventAllOf.InstrumentEventTypeEnum,
+        "InstalmentCallEvent.InstrumentEventTypeEnum": InstalmentCallEvent.InstrumentEventTypeEnum,
+        "InstalmentCallEventAllOf.InstrumentEventTypeEnum": InstalmentCallEventAllOf.InstrumentEventTypeEnum,
         "Instrument.StateEnum": Instrument.StateEnum,
         "Instrument.AssetClassEnum": Instrument.AssetClassEnum,
         "InstrumentActivity.NavActivityAdjustmentTypeEnum": InstrumentActivity.NavActivityAdjustmentTypeEnum,
@@ -3904,6 +4034,7 @@ let enumsMap: {[index: string]: any} = {
         "PortfolioDetails.AccountingMethodEnum": PortfolioDetails.AccountingMethodEnum,
         "PortfolioGroupIdComplianceParameter.ComplianceParameterTypeEnum": PortfolioGroupIdComplianceParameter.ComplianceParameterTypeEnum,
         "PortfolioGroupIdList.ReferenceListTypeEnum": PortfolioGroupIdList.ReferenceListTypeEnum,
+        "PortfolioGroupIdListAllOf.ReferenceListTypeEnum": PortfolioGroupIdListAllOf.ReferenceListTypeEnum,
         "PortfolioGroupIdListComplianceParameter.ComplianceParameterTypeEnum": PortfolioGroupIdListComplianceParameter.ComplianceParameterTypeEnum,
         "PortfolioIdComplianceParameter.ComplianceParameterTypeEnum": PortfolioIdComplianceParameter.ComplianceParameterTypeEnum,
         "PortfolioIdList.ReferenceListTypeEnum": PortfolioIdList.ReferenceListTypeEnum,
@@ -4157,10 +4288,19 @@ let typeMap: {[index: string]: any} = {
     "AggregationOptions": AggregationOptions,
     "AggregationQuery": AggregationQuery,
     "Allocation": Allocation,
+    "AllocationEventNotice": AllocationEventNotice,
+    "AllocationEventNoticeCumulative": AllocationEventNoticeCumulative,
+    "AllocationEventNoticeEvent": AllocationEventNoticeEvent,
+    "AllocationEventNoticeLine": AllocationEventNoticeLine,
+    "AllocationEventNoticePartner": AllocationEventNoticePartner,
+    "AllocationEventNoticeUnfundedReconciliation": AllocationEventNoticeUnfundedReconciliation,
+    "AllocationEventNoticeWire": AllocationEventNoticeWire,
     "AllocationGroup": AllocationGroup,
     "AllocationGroupClass": AllocationGroupClass,
     "AllocationGroupClassDefinition": AllocationGroupClassDefinition,
     "AllocationGroupDefinition": AllocationGroupDefinition,
+    "AllocationPaymentHold": AllocationPaymentHold,
+    "AllocationPaymentHoldRequest": AllocationPaymentHoldRequest,
     "AllocationRequest": AllocationRequest,
     "AllocationServiceRunResponse": AllocationServiceRunResponse,
     "AllocationSetRequest": AllocationSetRequest,
@@ -4168,6 +4308,7 @@ let typeMap: {[index: string]: any} = {
     "AmendCommitmentEventAllOf": AmendCommitmentEventAllOf,
     "AmortisationEvent": AmortisationEvent,
     "AmortisationEventAllOf": AmortisationEventAllOf,
+    "AmortisationRule": AmortisationRule,
     "Amount": Amount,
     "AnnulQuotesResponse": AnnulQuotesResponse,
     "AnnulSingleStructuredDataResponse": AnnulSingleStructuredDataResponse,
@@ -4307,7 +4448,12 @@ let typeMap: {[index: string]: any} = {
     "CapitalInterestTransferEventAllOf": CapitalInterestTransferEventAllOf,
     "CapletFloorletCashFlowEvent": CapletFloorletCashFlowEvent,
     "CapletFloorletCashFlowEventAllOf": CapletFloorletCashFlowEventAllOf,
+    "CarryAccrualAmount": CarryAccrualAmount,
+    "CarryAccrualLine": CarryAccrualLine,
+    "CarryAccrualRequest": CarryAccrualRequest,
+    "CarryAccrualResult": CarryAccrualResult,
     "CarryParameters": CarryParameters,
+    "CarryTierAmount": CarryTierAmount,
     "Cash": Cash,
     "CashAllOf": CashAllOf,
     "CashAndSecurityOfferElection": CashAndSecurityOfferElection,
@@ -4650,6 +4796,7 @@ let typeMap: {[index: string]: any} = {
     "FeeCalculationRequest": FeeCalculationRequest,
     "FeeDefinition": FeeDefinition,
     "FeeProperties": FeeProperties,
+    "FeeRateTier": FeeRateTier,
     "FeeRequest": FeeRequest,
     "FeeRule": FeeRule,
     "FeeRuleUpsertRequest": FeeRuleUpsertRequest,
@@ -4724,6 +4871,7 @@ let typeMap: {[index: string]: any} = {
     "FundIdListAllOf": FundIdListAllOf,
     "FundInstrument": FundInstrument,
     "FundJournalEntryLine": FundJournalEntryLine,
+    "FundNavTypeCodes": FundNavTypeCodes,
     "FundPartner": FundPartner,
     "FundPartnerBalances": FundPartnerBalances,
     "FundPartnerUnfundedReconciliation": FundPartnerUnfundedReconciliation,
@@ -4735,6 +4883,9 @@ let typeMap: {[index: string]: any} = {
     "FundRequest": FundRequest,
     "FundShareClass": FundShareClass,
     "FundShareClassAllOf": FundShareClassAllOf,
+    "FundStructureCloseRequest": FundStructureCloseRequest,
+    "FundStructureCloseResult": FundStructureCloseResult,
+    "FundStructureCloseStep": FundStructureCloseStep,
     "FundTerms": FundTerms,
     "FundTermsVersion": FundTermsVersion,
     "FundValuationPointData": FundValuationPointData,
@@ -4855,6 +5006,8 @@ let typeMap: {[index: string]: any} = {
     "InlineValuationRequest": InlineValuationRequest,
     "InlineValuationsReconciliationRequest": InlineValuationsReconciliationRequest,
     "InputTransition": InputTransition,
+    "InstalmentCallEvent": InstalmentCallEvent,
+    "InstalmentCallEventAllOf": InstalmentCallEventAllOf,
     "Instrument": Instrument,
     "InstrumentActivity": InstrumentActivity,
     "InstrumentActivityAdjustment": InstrumentActivityAdjustment,
@@ -4867,6 +5020,7 @@ let typeMap: {[index: string]: any} = {
     "InstrumentEntity": InstrumentEntity,
     "InstrumentEvent": InstrumentEvent,
     "InstrumentEventConfiguration": InstrumentEventConfiguration,
+    "InstrumentEventEntity": InstrumentEventEntity,
     "InstrumentEventHolder": InstrumentEventHolder,
     "InstrumentEventInstruction": InstrumentEventInstruction,
     "InstrumentEventInstructionRequest": InstrumentEventInstructionRequest,
@@ -4944,6 +5098,11 @@ let typeMap: {[index: string]: any} = {
     "LusidTradeTicket": LusidTradeTicket,
     "LusidUniqueId": LusidUniqueId,
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
+    "ManagementFeeLine": ManagementFeeLine,
+    "ManagementFeeOffset": ManagementFeeOffset,
+    "ManagementFeeRequest": ManagementFeeRequest,
+    "ManagementFeeResult": ManagementFeeResult,
+    "ManagementFeeTotals": ManagementFeeTotals,
     "MappedString": MappedString,
     "Mapping": Mapping,
     "MappingRule": MappingRule,
@@ -5058,6 +5217,9 @@ let typeMap: {[index: string]: any} = {
     "OverrideEntryResponse": OverrideEntryResponse,
     "OverrideVirtualTransactionsRequest": OverrideVirtualTransactionsRequest,
     "OversubscribeElection": OversubscribeElection,
+    "PackAccount": PackAccount,
+    "PackPostingRule": PackPostingRule,
+    "PackTransactionType": PackTransactionType,
     "PagedResourceListOfAbor": PagedResourceListOfAbor,
     "PagedResourceListOfAborConfiguration": PagedResourceListOfAborConfiguration,
     "PagedResourceListOfAccount": PagedResourceListOfAccount,
@@ -5100,6 +5262,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfOrderGraphPlacement": PagedResourceListOfOrderGraphPlacement,
     "PagedResourceListOfOrderInstruction": PagedResourceListOfOrderInstruction,
     "PagedResourceListOfParticipation": PagedResourceListOfParticipation,
+    "PagedResourceListOfPartnerCapitalAccount": PagedResourceListOfPartnerCapitalAccount,
     "PagedResourceListOfPerson": PagedResourceListOfPerson,
     "PagedResourceListOfPlacement": PagedResourceListOfPlacement,
     "PagedResourceListOfPortfolioGroup": PagedResourceListOfPortfolioGroup,
@@ -5135,7 +5298,24 @@ let typeMap: {[index: string]: any} = {
     "Participation": Participation,
     "ParticipationRequest": ParticipationRequest,
     "ParticipationSetRequest": ParticipationSetRequest,
+    "PartnerAllocation": PartnerAllocation,
+    "PartnerAllocationPool": PartnerAllocationPool,
+    "PartnerAllocationRunRequest": PartnerAllocationRunRequest,
+    "PartnerAllocationRunResult": PartnerAllocationRunResult,
+    "PartnerCapitalAccount": PartnerCapitalAccount,
+    "PartnerCapitalAccountMemo": PartnerCapitalAccountMemo,
+    "PartnerCapitalAccountRow": PartnerCapitalAccountRow,
+    "PartnerPerformance": PartnerPerformance,
+    "PartnerPerformanceCashFlow": PartnerPerformanceCashFlow,
+    "PartnerPerformanceMeasures": PartnerPerformanceMeasures,
+    "PartnerStatement": PartnerStatement,
+    "PartnerStatementDiff": PartnerStatementDiff,
+    "PartnerStatementLine": PartnerStatementLine,
+    "PartnerStatementLineDifference": PartnerStatementLineDifference,
+    "PartnerStatementRequest": PartnerStatementRequest,
     "PartnershipAccountingConfiguration": PartnershipAccountingConfiguration,
+    "PartnershipAccountingValuationPointData": PartnershipAccountingValuationPointData,
+    "PartnershipConfigPack": PartnershipConfigPack,
     "PaymentInKindEvent": PaymentInKindEvent,
     "PaymentInKindEventAllOf": PaymentInKindEventAllOf,
     "PercentCheckStep": PercentCheckStep,
@@ -5172,6 +5352,7 @@ let typeMap: {[index: string]: any} = {
     "PortfolioGroup": PortfolioGroup,
     "PortfolioGroupIdComplianceParameter": PortfolioGroupIdComplianceParameter,
     "PortfolioGroupIdList": PortfolioGroupIdList,
+    "PortfolioGroupIdListAllOf": PortfolioGroupIdListAllOf,
     "PortfolioGroupIdListComplianceParameter": PortfolioGroupIdListComplianceParameter,
     "PortfolioGroupProperties": PortfolioGroupProperties,
     "PortfolioGroupSearchResult": PortfolioGroupSearchResult,
@@ -5208,6 +5389,7 @@ let typeMap: {[index: string]: any} = {
     "PreferredShareAllOf": PreferredShareAllOf,
     "PreferredShareAllOfIdentifiers": PreferredShareAllOfIdentifiers,
     "Premium": Premium,
+    "PresentationConfiguration": PresentationConfiguration,
     "PreviousFundCalendarEntry": PreviousFundCalendarEntry,
     "PreviousFundValuationPointData": PreviousFundValuationPointData,
     "PreviousNAV": PreviousNAV,
@@ -5257,6 +5439,8 @@ let typeMap: {[index: string]: any} = {
     "QueryRelationalDatasetRequest": QueryRelationalDatasetRequest,
     "QueryTradeTicketsRequest": QueryTradeTicketsRequest,
     "QueryableKey": QueryableKey,
+    "QueryableKeysForMetricsRequest": QueryableKeysForMetricsRequest,
+    "QueryableKeysForMetricsResponse": QueryableKeysForMetricsResponse,
     "Quote": Quote,
     "QuoteAccessMetadataRule": QuoteAccessMetadataRule,
     "QuoteAccessMetadataRuleId": QuoteAccessMetadataRuleId,
@@ -5339,6 +5523,8 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfAggregatedReturn": ResourceListOfAggregatedReturn,
     "ResourceListOfAggregationQuery": ResourceListOfAggregationQuery,
     "ResourceListOfAllocation": ResourceListOfAllocation,
+    "ResourceListOfAllocationEventNotice": ResourceListOfAllocationEventNotice,
+    "ResourceListOfAllocationPaymentHold": ResourceListOfAllocationPaymentHold,
     "ResourceListOfApplicableInstrumentEvent": ResourceListOfApplicableInstrumentEvent,
     "ResourceListOfBlock": ResourceListOfBlock,
     "ResourceListOfBlockAndOrders": ResourceListOfBlockAndOrders,
@@ -5372,6 +5558,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfOrderInstruction": ResourceListOfOrderInstruction,
     "ResourceListOfOutputTransaction": ResourceListOfOutputTransaction,
     "ResourceListOfParticipation": ResourceListOfParticipation,
+    "ResourceListOfPartnerStatement": ResourceListOfPartnerStatement,
     "ResourceListOfPerformanceReturn": ResourceListOfPerformanceReturn,
     "ResourceListOfPerson": ResourceListOfPerson,
     "ResourceListOfPlacement": ResourceListOfPlacement,
@@ -5390,8 +5577,10 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfReconciliationBreak": ResourceListOfReconciliationBreak,
     "ResourceListOfRelation": ResourceListOfRelation,
     "ResourceListOfRelationship": ResourceListOfRelationship,
+    "ResourceListOfRulesInterval": ResourceListOfRulesInterval,
     "ResourceListOfScenarioTemplateDefinition": ResourceListOfScenarioTemplateDefinition,
     "ResourceListOfScopeDefinition": ResourceListOfScopeDefinition,
+    "ResourceListOfSeries": ResourceListOfSeries,
     "ResourceListOfSideDefinition": ResourceListOfSideDefinition,
     "ResourceListOfString": ResourceListOfString,
     "ResourceListOfTransaction": ResourceListOfTransaction,
@@ -5441,6 +5630,7 @@ let typeMap: {[index: string]: any} = {
     "RoundingConfiguration": RoundingConfiguration,
     "RoundingConfigurationComponent": RoundingConfigurationComponent,
     "RoundingConvention": RoundingConvention,
+    "RulesInterval": RulesInterval,
     "ScenarioDefinition": ScenarioDefinition,
     "ScenarioDiagnostics": ScenarioDiagnostics,
     "ScenarioPreviewAppliedShift": ScenarioPreviewAppliedShift,
@@ -5463,6 +5653,8 @@ let typeMap: {[index: string]: any} = {
     "SecurityWriteOffEventAllOf": SecurityWriteOffEventAllOf,
     "SellEntitlementElection": SellEntitlementElection,
     "SequenceDefinition": SequenceDefinition,
+    "Series": Series,
+    "SeriesBreakdown": SeriesBreakdown,
     "SeriesConfiguration": SeriesConfiguration,
     "SeriesDefinition": SeriesDefinition,
     "SeriesDefinitionRequest": SeriesDefinitionRequest,
@@ -5630,6 +5822,7 @@ let typeMap: {[index: string]: any} = {
     "TriggerEvent": TriggerEvent,
     "TriggerEventAllOf": TriggerEventAllOf,
     "TypedResourceId": TypedResourceId,
+    "UnattributedAmount": UnattributedAmount,
     "UnitisationData": UnitisationData,
     "UnitsRatio": UnitsRatio,
     "UnknownProceedsElection": UnknownProceedsElection,
@@ -5768,6 +5961,7 @@ let typeMap: {[index: string]: any} = {
     "WeightedInstruments": WeightedInstruments,
     "WholeLoanFacility": WholeLoanFacility,
     "WholeLoanFacilityAllOf": WholeLoanFacilityAllOf,
+    "WhtParameters": WhtParameters,
     "WithholdingTaxConfiguration": WithholdingTaxConfiguration,
     "WithholdingTaxDataset": WithholdingTaxDataset,
     "WithholdingTaxDatasetDefinitions": WithholdingTaxDatasetDefinitions,
