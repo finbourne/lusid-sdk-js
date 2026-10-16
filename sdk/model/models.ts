@@ -463,6 +463,8 @@ export * from './delistingEventAllOf';
 export * from './dependencySourceFilter';
 export * from './depositCloseEvent';
 export * from './depositCloseEventAllOf';
+export * from './depositInterestCapitalisationEvent';
+export * from './depositInterestCapitalisationEventAllOf';
 export * from './depositInterestPaymentEvent';
 export * from './depositInterestPaymentEventAllOf';
 export * from './depositRollEvent';
@@ -824,6 +826,7 @@ export * from './irVolCubeDataAllOf';
 export * from './irVolDependency';
 export * from './irVolDependencyAllOf';
 export * from './isBusinessDayResponse';
+export * from './itemAndWorkspace';
 export * from './journalEntryLine';
 export * from './journalEntryLineShareClassBreakdown';
 export * from './journalEntryLinesQueryParameters';
@@ -1022,6 +1025,7 @@ export * from './pagedResourceListOfGetSubscriptionResponse';
 export * from './pagedResourceListOfInstrument';
 export * from './pagedResourceListOfInstrumentEventHolder';
 export * from './pagedResourceListOfInstrumentEventInstruction';
+export * from './pagedResourceListOfItemAndWorkspace';
 export * from './pagedResourceListOfLegalEntity';
 export * from './pagedResourceListOfOrder';
 export * from './pagedResourceListOfOrderGraphBlock';
@@ -1056,6 +1060,8 @@ export * from './pagedResourceListOfVersion';
 export * from './pagedResourceListOfVirtualRow';
 export * from './pagedResourceListOfWithholdingTaxConfiguration';
 export * from './pagedResourceListOfWithholdingTaxDataset';
+export * from './pagedResourceListOfWorkspace';
+export * from './pagedResourceListOfWorkspaceItem';
 export * from './pariPassuEvent';
 export * from './pariPassuEventAllOf';
 export * from './partialClosureConstituent';
@@ -1734,6 +1740,13 @@ export * from './withholdingTaxDataset';
 export * from './withholdingTaxDatasetDefinitions';
 export * from './withholdingTaxRateResponse';
 export * from './withholdingTaxValueSource';
+export * from './workspace';
+export * from './workspaceCreationRequest';
+export * from './workspaceItem';
+export * from './workspaceItemCreationRequest';
+export * from './workspaceItemUpdateRequest';
+export * from './workspacePermittedItemActions';
+export * from './workspaceUpdateRequest';
 export * from './worthlessEvent';
 export * from './worthlessEventAllOf';
 export * from './yearMonthDay';
@@ -2216,6 +2229,8 @@ import { DelistingEventAllOf } from './delistingEventAllOf';
 import { DependencySourceFilter } from './dependencySourceFilter';
 import { DepositCloseEvent } from './depositCloseEvent';
 import { DepositCloseEventAllOf } from './depositCloseEventAllOf';
+import { DepositInterestCapitalisationEvent } from './depositInterestCapitalisationEvent';
+import { DepositInterestCapitalisationEventAllOf } from './depositInterestCapitalisationEventAllOf';
 import { DepositInterestPaymentEvent } from './depositInterestPaymentEvent';
 import { DepositInterestPaymentEventAllOf } from './depositInterestPaymentEventAllOf';
 import { DepositRollEvent } from './depositRollEvent';
@@ -2577,6 +2592,7 @@ import { IrVolCubeDataAllOf } from './irVolCubeDataAllOf';
 import { IrVolDependency } from './irVolDependency';
 import { IrVolDependencyAllOf } from './irVolDependencyAllOf';
 import { IsBusinessDayResponse } from './isBusinessDayResponse';
+import { ItemAndWorkspace } from './itemAndWorkspace';
 import { JournalEntryLine } from './journalEntryLine';
 import { JournalEntryLineShareClassBreakdown } from './journalEntryLineShareClassBreakdown';
 import { JournalEntryLinesQueryParameters } from './journalEntryLinesQueryParameters';
@@ -2775,6 +2791,7 @@ import { PagedResourceListOfGetSubscriptionResponse } from './pagedResourceListO
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PagedResourceListOfInstrumentEventHolder } from './pagedResourceListOfInstrumentEventHolder';
 import { PagedResourceListOfInstrumentEventInstruction } from './pagedResourceListOfInstrumentEventInstruction';
+import { PagedResourceListOfItemAndWorkspace } from './pagedResourceListOfItemAndWorkspace';
 import { PagedResourceListOfLegalEntity } from './pagedResourceListOfLegalEntity';
 import { PagedResourceListOfOrder } from './pagedResourceListOfOrder';
 import { PagedResourceListOfOrderGraphBlock } from './pagedResourceListOfOrderGraphBlock';
@@ -2809,6 +2826,8 @@ import { PagedResourceListOfVersion } from './pagedResourceListOfVersion';
 import { PagedResourceListOfVirtualRow } from './pagedResourceListOfVirtualRow';
 import { PagedResourceListOfWithholdingTaxConfiguration } from './pagedResourceListOfWithholdingTaxConfiguration';
 import { PagedResourceListOfWithholdingTaxDataset } from './pagedResourceListOfWithholdingTaxDataset';
+import { PagedResourceListOfWorkspace } from './pagedResourceListOfWorkspace';
+import { PagedResourceListOfWorkspaceItem } from './pagedResourceListOfWorkspaceItem';
 import { PariPassuEvent } from './pariPassuEvent';
 import { PariPassuEventAllOf } from './pariPassuEventAllOf';
 import { PartialClosureConstituent } from './partialClosureConstituent';
@@ -3487,6 +3506,13 @@ import { WithholdingTaxDataset } from './withholdingTaxDataset';
 import { WithholdingTaxDatasetDefinitions } from './withholdingTaxDatasetDefinitions';
 import { WithholdingTaxRateResponse } from './withholdingTaxRateResponse';
 import { WithholdingTaxValueSource } from './withholdingTaxValueSource';
+import { Workspace } from './workspace';
+import { WorkspaceCreationRequest } from './workspaceCreationRequest';
+import { WorkspaceItem } from './workspaceItem';
+import { WorkspaceItemCreationRequest } from './workspaceItemCreationRequest';
+import { WorkspaceItemUpdateRequest } from './workspaceItemUpdateRequest';
+import { WorkspacePermittedItemActions } from './workspacePermittedItemActions';
+import { WorkspaceUpdateRequest } from './workspaceUpdateRequest';
 import { WorthlessEvent } from './worthlessEvent';
 import { WorthlessEventAllOf } from './worthlessEventAllOf';
 import { YearMonthDay } from './yearMonthDay';
@@ -3707,6 +3733,8 @@ let enumsMap: {[index: string]: any} = {
         "DelistingEventAllOf.InstrumentEventTypeEnum": DelistingEventAllOf.InstrumentEventTypeEnum,
         "DepositCloseEvent.InstrumentEventTypeEnum": DepositCloseEvent.InstrumentEventTypeEnum,
         "DepositCloseEventAllOf.InstrumentEventTypeEnum": DepositCloseEventAllOf.InstrumentEventTypeEnum,
+        "DepositInterestCapitalisationEvent.InstrumentEventTypeEnum": DepositInterestCapitalisationEvent.InstrumentEventTypeEnum,
+        "DepositInterestCapitalisationEventAllOf.InstrumentEventTypeEnum": DepositInterestCapitalisationEventAllOf.InstrumentEventTypeEnum,
         "DepositInterestPaymentEvent.InstrumentEventTypeEnum": DepositInterestPaymentEvent.InstrumentEventTypeEnum,
         "DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum": DepositInterestPaymentEventAllOf.InstrumentEventTypeEnum,
         "DepositRollEvent.InstrumentEventTypeEnum": DepositRollEvent.InstrumentEventTypeEnum,
@@ -4697,6 +4725,8 @@ let typeMap: {[index: string]: any} = {
     "DependencySourceFilter": DependencySourceFilter,
     "DepositCloseEvent": DepositCloseEvent,
     "DepositCloseEventAllOf": DepositCloseEventAllOf,
+    "DepositInterestCapitalisationEvent": DepositInterestCapitalisationEvent,
+    "DepositInterestCapitalisationEventAllOf": DepositInterestCapitalisationEventAllOf,
     "DepositInterestPaymentEvent": DepositInterestPaymentEvent,
     "DepositInterestPaymentEventAllOf": DepositInterestPaymentEventAllOf,
     "DepositRollEvent": DepositRollEvent,
@@ -5058,6 +5088,7 @@ let typeMap: {[index: string]: any} = {
     "IrVolDependency": IrVolDependency,
     "IrVolDependencyAllOf": IrVolDependencyAllOf,
     "IsBusinessDayResponse": IsBusinessDayResponse,
+    "ItemAndWorkspace": ItemAndWorkspace,
     "JournalEntryLine": JournalEntryLine,
     "JournalEntryLineShareClassBreakdown": JournalEntryLineShareClassBreakdown,
     "JournalEntryLinesQueryParameters": JournalEntryLinesQueryParameters,
@@ -5256,6 +5287,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PagedResourceListOfInstrumentEventHolder": PagedResourceListOfInstrumentEventHolder,
     "PagedResourceListOfInstrumentEventInstruction": PagedResourceListOfInstrumentEventInstruction,
+    "PagedResourceListOfItemAndWorkspace": PagedResourceListOfItemAndWorkspace,
     "PagedResourceListOfLegalEntity": PagedResourceListOfLegalEntity,
     "PagedResourceListOfOrder": PagedResourceListOfOrder,
     "PagedResourceListOfOrderGraphBlock": PagedResourceListOfOrderGraphBlock,
@@ -5290,6 +5322,8 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfVirtualRow": PagedResourceListOfVirtualRow,
     "PagedResourceListOfWithholdingTaxConfiguration": PagedResourceListOfWithholdingTaxConfiguration,
     "PagedResourceListOfWithholdingTaxDataset": PagedResourceListOfWithholdingTaxDataset,
+    "PagedResourceListOfWorkspace": PagedResourceListOfWorkspace,
+    "PagedResourceListOfWorkspaceItem": PagedResourceListOfWorkspaceItem,
     "PariPassuEvent": PariPassuEvent,
     "PariPassuEventAllOf": PariPassuEventAllOf,
     "PartialClosureConstituent": PartialClosureConstituent,
@@ -5967,6 +6001,13 @@ let typeMap: {[index: string]: any} = {
     "WithholdingTaxDatasetDefinitions": WithholdingTaxDatasetDefinitions,
     "WithholdingTaxRateResponse": WithholdingTaxRateResponse,
     "WithholdingTaxValueSource": WithholdingTaxValueSource,
+    "Workspace": Workspace,
+    "WorkspaceCreationRequest": WorkspaceCreationRequest,
+    "WorkspaceItem": WorkspaceItem,
+    "WorkspaceItemCreationRequest": WorkspaceItemCreationRequest,
+    "WorkspaceItemUpdateRequest": WorkspaceItemUpdateRequest,
+    "WorkspacePermittedItemActions": WorkspacePermittedItemActions,
+    "WorkspaceUpdateRequest": WorkspaceUpdateRequest,
     "WorthlessEvent": WorthlessEvent,
     "WorthlessEventAllOf": WorthlessEventAllOf,
     "YearMonthDay": YearMonthDay,

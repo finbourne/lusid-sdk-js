@@ -71,6 +71,7 @@ import {TransactionFeesApi} from './api/transactionFeesApi';
 import {TransactionFeeTypesApi} from './api/transactionFeeTypesApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
 import {WithholdingTaxApi} from './api/withholdingTaxApi';
+import {WorkspaceApi} from './api/workspaceApi';
 
 export class Api {
     public abor:  AborApi
@@ -146,4 +147,5 @@ export class Api {
     public transactionFeeTypes:  TransactionFeeTypesApi
     public transactionPortfolios:  TransactionPortfoliosApi
     public withholdingTax:  WithholdingTaxApi
+    public workspace:  WorkspaceApi
 }
