@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1700",
+    "version": "2.0.1701",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -138714,15 +138714,13 @@
                   "scope": "hds",
                   "code": "daily-holdings",
                   "displayName": "Daily Holdings Feed",
-                  "description": "Streams holdings for the main equity portfolio against the EOD timeline",
+                  "description": "Streams holdings for every equity strategy portfolio in the equities scope against the timeline named by each portfolio's OfficialTimeline property",
                   "portfolioId": {
                     "scope": "equities",
-                    "code": "global-equity"
+                    "code": "*"
                   },
-                  "timelineId": {
-                    "scope": "valuations",
-                    "code": "eod-timeline"
-                  },
+                  "timelineProperty": "Portfolio/equities/OfficialTimeline",
+                  "portfolioFilter": "properties[Portfolio/equities/Strategy] eq 'Equity'",
                   "addressKeys": [
                     "Holding/Units",
                     "Holding/Cost/Dom"
@@ -138742,15 +138740,13 @@
                   "scope": "hds",
                   "code": "daily-holdings",
                   "displayName": "Daily Holdings Feed",
-                  "description": "Streams holdings for the main equity portfolio against the EOD timeline",
+                  "description": "Streams holdings for every equity strategy portfolio in the equities scope against the timeline named by each portfolio's OfficialTimeline property",
                   "portfolioId": {
                     "scope": "equities",
-                    "code": "global-equity"
+                    "code": "*"
                   },
-                  "timelineId": {
-                    "scope": "valuations",
-                    "code": "eod-timeline"
-                  },
+                  "timelineProperty": "Portfolio/equities/OfficialTimeline",
+                  "portfolioFilter": "properties[Portfolio/equities/Strategy] eq 'Equity'",
                   "addressKeys": [
                     "Holding/Units",
                     "Holding/Cost/Dom"
@@ -138770,15 +138766,13 @@
                   "scope": "hds",
                   "code": "daily-holdings",
                   "displayName": "Daily Holdings Feed",
-                  "description": "Streams holdings for the main equity portfolio against the EOD timeline",
+                  "description": "Streams holdings for every equity strategy portfolio in the equities scope against the timeline named by each portfolio's OfficialTimeline property",
                   "portfolioId": {
                     "scope": "equities",
-                    "code": "global-equity"
+                    "code": "*"
                   },
-                  "timelineId": {
-                    "scope": "valuations",
-                    "code": "eod-timeline"
-                  },
+                  "timelineProperty": "Portfolio/equities/OfficialTimeline",
+                  "portfolioFilter": "properties[Portfolio/equities/Strategy] eq 'Equity'",
                   "addressKeys": [
                     "Holding/Units",
                     "Holding/Cost/Dom"
@@ -138798,15 +138792,13 @@
                   "scope": "hds",
                   "code": "daily-holdings",
                   "displayName": "Daily Holdings Feed",
-                  "description": "Streams holdings for the main equity portfolio against the EOD timeline",
+                  "description": "Streams holdings for every equity strategy portfolio in the equities scope against the timeline named by each portfolio's OfficialTimeline property",
                   "portfolioId": {
                     "scope": "equities",
-                    "code": "global-equity"
+                    "code": "*"
                   },
-                  "timelineId": {
-                    "scope": "valuations",
-                    "code": "eod-timeline"
-                  },
+                  "timelineProperty": "Portfolio/equities/OfficialTimeline",
+                  "portfolioFilter": "properties[Portfolio/equities/Strategy] eq 'Equity'",
                   "addressKeys": [
                     "Holding/Units",
                     "Holding/Cost/Dom"
@@ -249711,6 +249703,21 @@
           },
           "timelineId": {
             "$ref": "#/components/schemas/ResourceId"
+          },
+          "timelineProperty": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "A portfolio property key (Portfolio/scope/code) naming a perpetual portfolio property whose value\r\n(scope/code) identifies the timeline for each portfolio. Mutually exclusive with timelineId.\r\nThe property must be defined, with a data type of value type ResourceId or String.",
+            "nullable": true
+          },
+          "portfolioFilter": {
+            "maxLength": 16384,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "A filter, in the syntax of the list portfolios filter, that narrows a wildcard portfolioId to the portfolios\r\nof the scope that match it. Only valid when portfolioId.code is \"*\". It may use the portfolio's own fields and\r\nits perpetual Portfolio properties; time-variant and derived properties and relationships are not supported.\r\nA portfolio that starts or stops matching joins or leaves the subscription.",
+            "nullable": true
           },
           "addressKeys": {
             "maxItems": 100,
