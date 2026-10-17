@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1698",
+    "version": "2.0.1699",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -260558,7 +260558,7 @@
           },
           "type": {
             "minLength": 1,
-            "pattern": "^(luminesce-saved-query|lusid-web-rebalance-control-panel|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|mesa-source-factory|lusid-web-favourites)$",
+            "pattern": "^(luminesce-saved-query|luminesce-multi-query|lusid-web-rebalance-control-panel|lusid-web-rebalance-in-progress|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|mesa-source-factory|lusid-web-favourites)$",
             "type": "string",
             "description": "The type of the workspace item."
           }
@@ -260592,7 +260592,7 @@
           },
           "type": {
             "minLength": 1,
-            "pattern": "^(luminesce-saved-query|lusid-web-rebalance-control-panel|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|mesa-source-factory|lusid-web-favourites)$",
+            "pattern": "^(luminesce-saved-query|luminesce-multi-query|lusid-web-rebalance-control-panel|lusid-web-rebalance-in-progress|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|mesa-source-factory|lusid-web-favourites)$",
             "type": "string",
             "description": "The type of the workspace item."
           }
