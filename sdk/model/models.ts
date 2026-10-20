@@ -791,6 +791,7 @@ export * from './instrumentEventConfiguration';
 export * from './instrumentEventEntity';
 export * from './instrumentEventHolder';
 export * from './instrumentEventInstruction';
+export * from './instrumentEventInstructionEntity';
 export * from './instrumentEventInstructionRequest';
 export * from './instrumentEventInstructionsResponse';
 export * from './instrumentIdTypeDescriptor';
@@ -1287,6 +1288,7 @@ export * from './resetEventAllOf';
 export * from './resetSchedule';
 export * from './resolveTenorsRequest';
 export * from './resolveTenorsResponse';
+export * from './resolveWithholdingTaxRequest';
 export * from './resolvedCustodianAccount';
 export * from './resourceId';
 export * from './resourceListOfAccessControlledResource';
@@ -1735,10 +1737,18 @@ export * from './weightedInstruments';
 export * from './wholeLoanFacility';
 export * from './wholeLoanFacilityAllOf';
 export * from './whtParameters';
+export * from './withholdingTaxAlternativeMatch';
 export * from './withholdingTaxConfiguration';
 export * from './withholdingTaxDataset';
 export * from './withholdingTaxDatasetDefinitions';
+export * from './withholdingTaxMatchedRule';
 export * from './withholdingTaxRateResponse';
+export * from './withholdingTaxRateSplit';
+export * from './withholdingTaxRateTiers';
+export * from './withholdingTaxReliefAtSourceFlags';
+export * from './withholdingTaxResolution';
+export * from './withholdingTaxResolutionProvenance';
+export * from './withholdingTaxUnresolvedDimension';
 export * from './withholdingTaxValueSource';
 export * from './workspace';
 export * from './workspaceCreationRequest';
@@ -2557,6 +2567,7 @@ import { InstrumentEventConfiguration } from './instrumentEventConfiguration';
 import { InstrumentEventEntity } from './instrumentEventEntity';
 import { InstrumentEventHolder } from './instrumentEventHolder';
 import { InstrumentEventInstruction } from './instrumentEventInstruction';
+import { InstrumentEventInstructionEntity } from './instrumentEventInstructionEntity';
 import { InstrumentEventInstructionRequest } from './instrumentEventInstructionRequest';
 import { InstrumentEventInstructionsResponse } from './instrumentEventInstructionsResponse';
 import { InstrumentIdTypeDescriptor } from './instrumentIdTypeDescriptor';
@@ -3053,6 +3064,7 @@ import { ResetEventAllOf } from './resetEventAllOf';
 import { ResetSchedule } from './resetSchedule';
 import { ResolveTenorsRequest } from './resolveTenorsRequest';
 import { ResolveTenorsResponse } from './resolveTenorsResponse';
+import { ResolveWithholdingTaxRequest } from './resolveWithholdingTaxRequest';
 import { ResolvedCustodianAccount } from './resolvedCustodianAccount';
 import { ResourceId } from './resourceId';
 import { ResourceListOfAccessControlledResource } from './resourceListOfAccessControlledResource';
@@ -3501,10 +3513,18 @@ import { WeightedInstruments } from './weightedInstruments';
 import { WholeLoanFacility } from './wholeLoanFacility';
 import { WholeLoanFacilityAllOf } from './wholeLoanFacilityAllOf';
 import { WhtParameters } from './whtParameters';
+import { WithholdingTaxAlternativeMatch } from './withholdingTaxAlternativeMatch';
 import { WithholdingTaxConfiguration } from './withholdingTaxConfiguration';
 import { WithholdingTaxDataset } from './withholdingTaxDataset';
 import { WithholdingTaxDatasetDefinitions } from './withholdingTaxDatasetDefinitions';
+import { WithholdingTaxMatchedRule } from './withholdingTaxMatchedRule';
 import { WithholdingTaxRateResponse } from './withholdingTaxRateResponse';
+import { WithholdingTaxRateSplit } from './withholdingTaxRateSplit';
+import { WithholdingTaxRateTiers } from './withholdingTaxRateTiers';
+import { WithholdingTaxReliefAtSourceFlags } from './withholdingTaxReliefAtSourceFlags';
+import { WithholdingTaxResolution } from './withholdingTaxResolution';
+import { WithholdingTaxResolutionProvenance } from './withholdingTaxResolutionProvenance';
+import { WithholdingTaxUnresolvedDimension } from './withholdingTaxUnresolvedDimension';
 import { WithholdingTaxValueSource } from './withholdingTaxValueSource';
 import { Workspace } from './workspace';
 import { WorkspaceCreationRequest } from './workspaceCreationRequest';
@@ -5053,6 +5073,7 @@ let typeMap: {[index: string]: any} = {
     "InstrumentEventEntity": InstrumentEventEntity,
     "InstrumentEventHolder": InstrumentEventHolder,
     "InstrumentEventInstruction": InstrumentEventInstruction,
+    "InstrumentEventInstructionEntity": InstrumentEventInstructionEntity,
     "InstrumentEventInstructionRequest": InstrumentEventInstructionRequest,
     "InstrumentEventInstructionsResponse": InstrumentEventInstructionsResponse,
     "InstrumentIdTypeDescriptor": InstrumentIdTypeDescriptor,
@@ -5549,6 +5570,7 @@ let typeMap: {[index: string]: any} = {
     "ResetSchedule": ResetSchedule,
     "ResolveTenorsRequest": ResolveTenorsRequest,
     "ResolveTenorsResponse": ResolveTenorsResponse,
+    "ResolveWithholdingTaxRequest": ResolveWithholdingTaxRequest,
     "ResolvedCustodianAccount": ResolvedCustodianAccount,
     "ResourceId": ResourceId,
     "ResourceListOfAccessControlledResource": ResourceListOfAccessControlledResource,
@@ -5996,10 +6018,18 @@ let typeMap: {[index: string]: any} = {
     "WholeLoanFacility": WholeLoanFacility,
     "WholeLoanFacilityAllOf": WholeLoanFacilityAllOf,
     "WhtParameters": WhtParameters,
+    "WithholdingTaxAlternativeMatch": WithholdingTaxAlternativeMatch,
     "WithholdingTaxConfiguration": WithholdingTaxConfiguration,
     "WithholdingTaxDataset": WithholdingTaxDataset,
     "WithholdingTaxDatasetDefinitions": WithholdingTaxDatasetDefinitions,
+    "WithholdingTaxMatchedRule": WithholdingTaxMatchedRule,
     "WithholdingTaxRateResponse": WithholdingTaxRateResponse,
+    "WithholdingTaxRateSplit": WithholdingTaxRateSplit,
+    "WithholdingTaxRateTiers": WithholdingTaxRateTiers,
+    "WithholdingTaxReliefAtSourceFlags": WithholdingTaxReliefAtSourceFlags,
+    "WithholdingTaxResolution": WithholdingTaxResolution,
+    "WithholdingTaxResolutionProvenance": WithholdingTaxResolutionProvenance,
+    "WithholdingTaxUnresolvedDimension": WithholdingTaxUnresolvedDimension,
     "WithholdingTaxValueSource": WithholdingTaxValueSource,
     "Workspace": Workspace,
     "WorkspaceCreationRequest": WorkspaceCreationRequest,
