@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1710",
+    "version": "2.0.1711",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -109315,7 +109315,8 @@
                     "failure": {
                       "detail": "Example Failure"
                     }
-                  }
+                  },
+                  "staged": {}
                 }
               },
               "application/json": {
@@ -109357,7 +109358,8 @@
                     "failure": {
                       "detail": "Example Failure"
                     }
-                  }
+                  },
+                  "staged": {}
                 }
               },
               "text/json": {
@@ -109399,7 +109401,8 @@
                     "failure": {
                       "detail": "Example Failure"
                     }
-                  }
+                  },
+                  "staged": {}
                 }
               }
             }
@@ -115131,7 +115134,8 @@
                 "RecResult",
                 "JournalEntry",
                 "CollateralAgreement",
-                "EligibleCollateralSchedule"
+                "EligibleCollateralSchedule",
+                "RelationalDatasetDefinition"
               ],
               "type": "string"
             }
@@ -115513,7 +115517,8 @@
                 "RecResult",
                 "JournalEntry",
                 "CollateralAgreement",
-                "EligibleCollateralSchedule"
+                "EligibleCollateralSchedule",
+                "RelationalDatasetDefinition"
               ],
               "type": "string"
             }
@@ -115865,7 +115870,8 @@
                 "RecResult",
                 "JournalEntry",
                 "CollateralAgreement",
-                "EligibleCollateralSchedule"
+                "EligibleCollateralSchedule",
+                "RelationalDatasetDefinition"
               ],
               "type": "string"
             }
@@ -116076,7 +116082,8 @@
                 "RecResult",
                 "JournalEntry",
                 "CollateralAgreement",
-                "EligibleCollateralSchedule"
+                "EligibleCollateralSchedule",
+                "RelationalDatasetDefinition"
               ],
               "type": "string"
             }
@@ -116407,7 +116414,8 @@
                 "RecResult",
                 "JournalEntry",
                 "CollateralAgreement",
-                "EligibleCollateralSchedule"
+                "EligibleCollateralSchedule",
+                "RelationalDatasetDefinition"
               ],
               "type": "string"
             }
@@ -116792,7 +116800,8 @@
                 "RecResult",
                 "JournalEntry",
                 "CollateralAgreement",
-                "EligibleCollateralSchedule"
+                "EligibleCollateralSchedule",
+                "RelationalDatasetDefinition"
               ],
               "type": "string"
             }
@@ -117072,7 +117081,8 @@
                 "RecResult",
                 "JournalEntry",
                 "CollateralAgreement",
-                "EligibleCollateralSchedule"
+                "EligibleCollateralSchedule",
+                "RelationalDatasetDefinition"
               ],
               "type": "string"
             }
@@ -173353,6 +173363,17 @@
               "type": "string",
               "default": "Atomic"
             }
+          },
+          {
+            "name": "ruleSource",
+            "in": "query",
+            "description": "The source of the rows to delete, since it is part of each row's identity. Omit it\r\n            to delete rows that apply at every source; a source's rows are only deleted when it is given. A row may not\r\n            carry ruleSource in its own series identifiers.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -173535,7 +173556,7 @@
           "Withholding Tax"
         ],
         "summary": "[EARLY ACCESS] BatchUpsertWithholdingTaxRates: Batch upsert Withholding Tax rate rows, applying the write-time gates before any row lands.",
-        "description": "Row identity is the matching dimensions plus effectiveAt; a rate is superseded by loading a row with a\r\nlater effectiveAt for the same dimensions.",
+        "description": "Row identity is the series identifiers plus effectiveAt; a rate is superseded by loading a row with a\r\nlater effectiveAt for the same series identifiers. One batch carries one rule source, so a feed mixing rows\r\nfrom a source with rows that apply at every source is loaded in two calls.",
         "operationId": "BatchUpsertWithholdingTaxRates",
         "parameters": [
           {
@@ -173571,6 +173592,17 @@
               "minLength": 1,
               "type": "string",
               "default": "Atomic"
+            }
+          },
+          {
+            "name": "ruleSource",
+            "in": "query",
+            "description": "The source every row in the batch is attributed to, compared against the\r\n            configuration's source priority. Omit it for rows that apply at every source. A row may not carry ruleSource\r\n            in its own series identifiers.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
             }
           }
         ],
@@ -173748,6 +173780,9 @@
                         },
                         "instrumentDomicile": {
                           "value": "US"
+                        },
+                        "ruleSource": {
+                          "value": "TaxVendor"
                         }
                       },
                       "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
@@ -173789,6 +173824,9 @@
                         },
                         "instrumentDomicile": {
                           "value": "US"
+                        },
+                        "ruleSource": {
+                          "value": "TaxVendor"
                         }
                       },
                       "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
@@ -173830,6 +173868,9 @@
                         },
                         "instrumentDomicile": {
                           "value": "US"
+                        },
+                        "ruleSource": {
+                          "value": "TaxVendor"
                         }
                       },
                       "effectiveAt": "2026-01-01T00:00:00.0000000+00:00",
@@ -194572,7 +194613,8 @@
               "RecResult",
               "JournalEntry",
               "CollateralAgreement",
-              "EligibleCollateralSchedule"
+              "EligibleCollateralSchedule",
+              "RelationalDatasetDefinition"
             ],
             "type": "string",
             "description": "The domain that the property exists in. Not all available values are currently supported, please check the documentation: https://support.lusid.com/docs/what-is-an-entity. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule."
@@ -194953,7 +194995,8 @@
               "RecResult",
               "JournalEntry",
               "CollateralAgreement",
-              "EligibleCollateralSchedule"
+              "EligibleCollateralSchedule",
+              "RelationalDatasetDefinition"
             ],
             "type": "string",
             "description": "The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule."
@@ -198534,7 +198577,7 @@
             "additionalProperties": {
               "nullable": true
             },
-            "description": "The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.",
+            "description": "The series identifiers that, with effectiveAt, identify the rate row: taxCountry, profileType and the dataset's own matching dimensions, structured according to its field schema. ruleSource is not accepted here: pass it as the ruleSource query parameter, which applies it to every row in the batch, and omit it for rows that apply at every source.",
             "nullable": true
           },
           "effectiveAt": {
@@ -204756,7 +204799,7 @@
             "maxLength": 1024,
             "minLength": 0,
             "type": "string",
-            "description": "The calculation base for a Fee that is calculated using a percentage (TotalAnnualAccrualAmount and CalculationBase cannot both be present). When the Fee is a ShareClass Fee (i.e: when ShareClasses contains at least one value), each of the following would be a valid CalculationBase: \"10000.00\", \"ShareClass.GAV\", \"ShareClass.GAV - ShareClass.Fees[ShareClassFeeCode1].Amount\", \"ShareClass.Fees[ShareClassFeeCode1].CalculationBase\". When the Fee is a NonShareClassSpecific Fee (i.e: when ShareClasses contains no values), each of the following would be a valid CalculationBase: \"10000.00\", \"GAV\", \"GAV - Fees[NonClassSpecificFeeCode1].Amount\", \"Fees[NonClassSpecificFeeCode1].CalculationBase\". ",
+            "description": "The calculation base for a Fee that is calculated using a percentage (TotalAnnualAccrualAmount and CalculationBase cannot both be present). An arithmetic expression (+, -, *, /, numeric literals) over data points from the valuation point being calculated and from the previous valuation point (via the \"Previous.\" prefix; these resolve to zero at a fund's first valuation point). All values are in the fund currency unless stated otherwise. When the Fee is a NonShareClassSpecific Fee (i.e: when ShareClasses contains no values), the available data points are: \"GAV\", \"NAVPreFees\" (GAV adjusted for external fees, before any fee accruals), \"Amount\" (the previous valuation point's NAV), \"Dealing[dealingFilterId]\", \"BackOut[backOutFilterId]\", \"PnL[pnlFilterId]\", \"ExternalFees[externalFeeFilterId]\", \"Fees[feeCode].Amount|TotalAccrual|PreviousTotalAccrual|CalculationBase\", \"Properties[Fund/scope/code]\" (numeric, non-derived fund properties), and under the \"Previous.\" prefix: \"Previous.GAV\", \"Previous.NAV\", \"Previous.Dealing[id]\", \"Previous.BackOut[id]\", \"Previous.PnL[id]\", \"Previous.ExternalFees[id]\" and \"Previous.Fees[feeCode].Amount|TotalAccrual|CalculationBase\". \"GAV\" is the gross asset value before any external fees, whereas \"Previous.GAV\" is the previous valuation point's reported GAV, which is after any external fees that apply to a PnL bucket; for a like-for-like period comparison use \"NAVPreFees\" against \"Previous.NAV\". \"ExternalFees[id]\" is the sum of the fund level external fees (positive amounts) and the share class external fees (booked as negative movements) matching the filter. Each id must be one the fund configuration defines: a filter id, or on a fund configuration with bucket sets, a bucket id of the apportionment bucket set of the matching bucket type (BackOut is not available with bucket sets). For example: \"10000.00\", \"GAV\", \"GAV - Fees[FeeCode1].Amount\", \"Previous.NAV - Dealing[Redemptions] + Dealing[Subscriptions]\". When the Fee is a ShareClass Fee (i.e: when ShareClasses contains at least one value), the same data points are available for the share class under the \"ShareClass.\" prefix (e.g. \"ShareClass.GAV\", \"ShareClass.Previous.NAV\", \"ShareClass.Fees[FeeCode1].Amount\"), with \"ShareClass.PreviousNAV\" as the previous NAV, plus \"ShareClass.DealingUnits[id]\", \"ShareClass.CapitalRatio\", \"ShareClass.Previous.SharesInIssue\", \"ShareClass.Previous.UnitPrice\", and the share class currency data points \"ShareClass.ShareClassCcyGAV\", \"ShareClass.ShareClassCcyPreviousNAV\", \"ShareClass.ShareClassCcyNAVPreFees\", \"ShareClass.ShareClassCcyGAVPreManagementFees\", \"ShareClass.ShareClassCcyPerformanceFeeGAV\", \"ShareClass.ShareClassToFundFxRate\", \"ShareClass.PreviousShareClassToFundFxRate\", \"ShareClass.Previous.ShareClassCcyGAV\" and \"ShareClass.Previous.ShareClassCcyNAV\". The expression must evaluate to a fund currency amount, so convert any share class currency data point explicitly, e.g. \"ShareClass.Previous.ShareClassCcyNAV * ShareClass.ShareClassToFundFxRate\". \"ShareClass.ExternalFees[id]\" and \"ShareClass.Previous.ExternalFees[id]\" are both the external fees booked to the share class itself. Two pre-defined bases control the order fees are calculated in: fees are calculated in three tiers, and a fee's tier is fixed by its calculation base at creation. \"GAVPreManagementFees\" (NAVPreFees less the accruals of all Ordinary tier fees) makes the fee a Management tier fee, calculated after all Ordinary fees. \"PerformanceFeeGAV\" (NAVPreFees less the accruals of all Ordinary and Management tier fees) makes the fee a Performance tier fee, calculated last. Any other base makes the fee an Ordinary tier fee. Fees in the same tier see the same pre-defined base value regardless of creation order, so each pre-defined base is the value of the fund after all external fees and all earlier tier fees have been applied, and a fee cannot reference the accrual of a fee in a later tier. The ShareClass forms (\"ShareClass.GAVPreManagementFees\", \"ShareClass.PerformanceFeeGAV\") use the share class NAVPreFees less that share class's earlier tier fee accruals, including its capital ratio share of fund level fees; their share class currency forms (\"ShareClass.ShareClassCcyGAVPreManagementFees\", \"ShareClass.ShareClassCcyPerformanceFeeGAV\") put the fee in the same tier. No floor is applied to any calculation base: a negative base produces a negative accrual.",
             "nullable": true
           },
           "accrualCurrency": {
@@ -205122,7 +205165,7 @@
             "maxLength": 1024,
             "minLength": 0,
             "type": "string",
-            "description": "The calculation base for a Fee that is calculated using a percentage (TotalAnnualAccrualAmount and CalculationBase cannot both be present). When the Fee is a ShareClass Fee (i.e: when ShareClasses contains at least one value), each of the following would be a valid CalculationBase: \"10000.00\", \"ShareClass.GAV\", \"ShareClass.GAV - ShareClass.Fees[ShareClassFeeCode1].Amount\", \"ShareClass.Fees[ShareClassFeeCode1].CalculationBase\". When the Fee is a NonShareClassSpecific Fee (i.e: when ShareClasses contains no values), each of the following would be a valid CalculationBase: \"10000.00\", \"GAV\", \"GAV - Fees[NonClassSpecificFeeCode1].Amount\", \"Fees[NonClassSpecificFeeCode1].CalculationBase\". ",
+            "description": "The calculation base for a Fee that is calculated using a percentage (TotalAnnualAccrualAmount and CalculationBase cannot both be present). An arithmetic expression (+, -, *, /, numeric literals) over data points from the valuation point being calculated and from the previous valuation point (via the \"Previous.\" prefix; these resolve to zero at a fund's first valuation point). All values are in the fund currency unless stated otherwise. When the Fee is a NonShareClassSpecific Fee (i.e: when ShareClasses contains no values), the available data points are: \"GAV\", \"NAVPreFees\" (GAV adjusted for external fees, before any fee accruals), \"Amount\" (the previous valuation point's NAV), \"Dealing[dealingFilterId]\", \"BackOut[backOutFilterId]\", \"PnL[pnlFilterId]\", \"ExternalFees[externalFeeFilterId]\", \"Fees[feeCode].Amount|TotalAccrual|PreviousTotalAccrual|CalculationBase\", \"Properties[Fund/scope/code]\" (numeric, non-derived fund properties), and under the \"Previous.\" prefix: \"Previous.GAV\", \"Previous.NAV\", \"Previous.Dealing[id]\", \"Previous.BackOut[id]\", \"Previous.PnL[id]\", \"Previous.ExternalFees[id]\" and \"Previous.Fees[feeCode].Amount|TotalAccrual|CalculationBase\". \"GAV\" is the gross asset value before any external fees, whereas \"Previous.GAV\" is the previous valuation point's reported GAV, which is after any external fees that apply to a PnL bucket; for a like-for-like period comparison use \"NAVPreFees\" against \"Previous.NAV\". \"ExternalFees[id]\" is the sum of the fund level external fees (positive amounts) and the share class external fees (booked as negative movements) matching the filter. Each id must be one the fund configuration defines: a filter id, or on a fund configuration with bucket sets, a bucket id of the apportionment bucket set of the matching bucket type (BackOut is not available with bucket sets). For example: \"10000.00\", \"GAV\", \"GAV - Fees[FeeCode1].Amount\", \"Previous.NAV - Dealing[Redemptions] + Dealing[Subscriptions]\". When the Fee is a ShareClass Fee (i.e: when ShareClasses contains at least one value), the same data points are available for the share class under the \"ShareClass.\" prefix (e.g. \"ShareClass.GAV\", \"ShareClass.Previous.NAV\", \"ShareClass.Fees[FeeCode1].Amount\"), with \"ShareClass.PreviousNAV\" as the previous NAV, plus \"ShareClass.DealingUnits[id]\", \"ShareClass.CapitalRatio\", \"ShareClass.Previous.SharesInIssue\", \"ShareClass.Previous.UnitPrice\", and the share class currency data points \"ShareClass.ShareClassCcyGAV\", \"ShareClass.ShareClassCcyPreviousNAV\", \"ShareClass.ShareClassCcyNAVPreFees\", \"ShareClass.ShareClassCcyGAVPreManagementFees\", \"ShareClass.ShareClassCcyPerformanceFeeGAV\", \"ShareClass.ShareClassToFundFxRate\", \"ShareClass.PreviousShareClassToFundFxRate\", \"ShareClass.Previous.ShareClassCcyGAV\" and \"ShareClass.Previous.ShareClassCcyNAV\". The expression must evaluate to a fund currency amount, so convert any share class currency data point explicitly, e.g. \"ShareClass.Previous.ShareClassCcyNAV * ShareClass.ShareClassToFundFxRate\". \"ShareClass.ExternalFees[id]\" and \"ShareClass.Previous.ExternalFees[id]\" are both the external fees booked to the share class itself. Two pre-defined bases control the order fees are calculated in: fees are calculated in three tiers, and a fee's tier is fixed by its calculation base at creation. \"GAVPreManagementFees\" (NAVPreFees less the accruals of all Ordinary tier fees) makes the fee a Management tier fee, calculated after all Ordinary fees. \"PerformanceFeeGAV\" (NAVPreFees less the accruals of all Ordinary and Management tier fees) makes the fee a Performance tier fee, calculated last. Any other base makes the fee an Ordinary tier fee. Fees in the same tier see the same pre-defined base value regardless of creation order, so each pre-defined base is the value of the fund after all external fees and all earlier tier fees have been applied, and a fee cannot reference the accrual of a fee in a later tier. The ShareClass forms (\"ShareClass.GAVPreManagementFees\", \"ShareClass.PerformanceFeeGAV\") use the share class NAVPreFees less that share class's earlier tier fee accruals, including its capital ratio share of fund level fees; their share class currency forms (\"ShareClass.ShareClassCcyGAVPreManagementFees\", \"ShareClass.ShareClassCcyPerformanceFeeGAV\") put the fee in the same tier. No floor is applied to any calculation base: a negative base produces a negative accrual.",
             "nullable": true
           },
           "accrualCurrency": {
@@ -207716,6 +207759,9 @@
             "nullable": true
           },
           "couponPaymentLag": {
+            "$ref": "#/components/schemas/RelativeDateOffset"
+          },
+          "principalPaymentLag": {
             "$ref": "#/components/schemas/RelativeDateOffset"
           },
           "scope": {
@@ -217182,6 +217228,9 @@
             "type": "boolean",
             "description": "For loan facility holding instructions, set this flag to 'true' if you want the event to not impact cost. If you want to use this option, do not add multiple instructions to the same tax lot or you will get undefined behaviour."
           },
+          "stagedModifications": {
+            "$ref": "#/components/schemas/StagedModificationsInfo"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -217269,10 +217318,18 @@
             },
             "description": "The collection of error information for instructions that could not be upserted",
             "nullable": true
+          },
+          "staged": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/InstrumentEventInstruction"
+            },
+            "description": "The instructions that have been staged pending approval.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "The collection of successfully upserted instructions, and the collection of failures for those instructions that could not be upserted"
+        "description": "The collection of successfully upserted instructions, the collection of those staged pending approval, and the collection of failures for those instructions that could not be upserted"
       },
       "InstrumentIdTypeDescriptor": {
         "required": [
@@ -226743,6 +226800,14 @@
           "isExcluded": {
             "type": "boolean",
             "description": "Whether the transaction was excluded from the portfolio's holdings by the portfolio's transaction exclusion filter."
+          },
+          "entityLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionEntityLink"
+            },
+            "description": "Links to the entities that manage this transaction.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -236153,7 +236218,8 @@
               "RecResult",
               "JournalEntry",
               "CollateralAgreement",
-              "EligibleCollateralSchedule"
+              "EligibleCollateralSchedule",
+              "RelationalDatasetDefinition"
             ],
             "type": "string",
             "description": "The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule."
@@ -236502,7 +236568,8 @@
               "RecResult",
               "JournalEntry",
               "CollateralAgreement",
-              "EligibleCollateralSchedule"
+              "EligibleCollateralSchedule",
+              "RelationalDatasetDefinition"
             ],
             "type": "string",
             "description": "The domain that the property exists in. Available values: Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, PortfolioGroup, Person, Order, Allocation, Calendar, LegalEntity, InvestorRecord, InvestmentAccount, Placement, Execution, Block, Participation, Package, OrderInstruction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, CheckDefinition, Abor, AborConfiguration, Fund, FundConfiguration, FundStructure, ProcessingGroup, Fee, Reconciliation, PropertyDefinition, Compliance, DiaryEntry, Leg, DerivedValuation, Timeline, ClosedPeriod, TaskDefinition, Workflow, IdentifierDefinition, SettlementInstruction, TransactionFeeType, PaymentInstruction, Transfer, RecDefinition, RecResult, JournalEntry, CollateralAgreement, EligibleCollateralSchedule."
@@ -252333,7 +252400,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionEntityLink"
             },
-            "description": "Links to the entities related to this transaction.",
+            "description": "Links to the entities that manage this transaction.",
             "nullable": true
           }
         },
@@ -257540,7 +257607,7 @@
             "items": {
               "type": "string"
             },
-            "description": "The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and leaves ruleSource blank on every rate row, in which case no source filter is applied and specificity alone decides.",
+            "description": "The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and loads its rate rows without a ruleSource, in which case no source filter is applied and specificity alone decides.",
             "nullable": true
           },
           "valueSources": {
@@ -257566,7 +257633,7 @@
             "additionalProperties": {
               "nullable": true
             },
-            "description": "The identifiers that uniquely define this DataSeries, if any, structured according to the FieldSchema of the parent RelationalDatasetDefinition.",
+            "description": "The series identifiers that, with effectiveAt, identify the rate row: taxCountry, profileType and the dataset's own matching dimensions, structured according to its field schema. ruleSource is not accepted here: pass it as the ruleSource query parameter, which applies it to every row in the batch, and omit it for rows that apply at every source.",
             "nullable": true
           },
           "effectiveAt": {
@@ -260243,7 +260310,7 @@
             "items": {
               "type": "string"
             },
-            "description": "The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and leaves ruleSource blank on every rate row, in which case no source filter is applied and specificity alone decides.",
+            "description": "The rule sources in priority order, most preferred first. Optional: a single-source customer configures none and loads its rate rows without a ruleSource, in which case no source filter is applied and specificity alone decides.",
             "nullable": true
           },
           "valueSources": {
@@ -260565,7 +260632,7 @@
           },
           "type": {
             "minLength": 1,
-            "pattern": "^(luminesce-saved-query|luminesce-multi-query|lusid-web-rebalance-control-panel|lusid-web-rebalance-in-progress|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|mesa-source-factory|lusid-web-favourites)$",
+            "pattern": "^(luminesce-saved-query|luminesce-multi-query|lusid-web-rebalance-control-panel|lusid-web-rebalance-in-progress|lusid-web-table-view|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|mesa-source-factory|lusid-web-favourites)$",
             "type": "string",
             "description": "The type of the workspace item."
           }
@@ -260599,7 +260666,7 @@
           },
           "type": {
             "minLength": 1,
-            "pattern": "^(luminesce-saved-query|luminesce-multi-query|lusid-web-rebalance-control-panel|lusid-web-rebalance-in-progress|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|mesa-source-factory|lusid-web-favourites)$",
+            "pattern": "^(luminesce-saved-query|luminesce-multi-query|lusid-web-rebalance-control-panel|lusid-web-rebalance-in-progress|lusid-web-table-view|lusid-web-dashboard|lusid-web-dashboard-set|mesa-dashboard|mesa-source-factory|lusid-web-favourites)$",
             "type": "string",
             "description": "The type of the workspace item."
           }
