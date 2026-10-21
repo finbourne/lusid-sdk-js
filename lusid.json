@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1713",
+    "version": "2.0.1714",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -206964,6 +206964,11 @@
               "setCleanPVToZero": {
                 "type": "boolean",
                 "description": "If set to true the CleanPV will be set to zero in valuations and PV will effectively just be the Accrual."
+              },
+              "usePriceQuoteForCleanPV": {
+                "type": "boolean",
+                "description": "If set to true the CleanPV calculation will be looking for a price quote (no default price is assumed). CleanPV will be calculated as Holding/Balance * priceQuote / quoteScaleFactor",
+                "nullable": true
               },
               "modelOptionsType": {
                 "enum": [
