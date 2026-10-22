@@ -1040,7 +1040,7 @@ export * from './pagedResourceListOfPortfolioGroup';
 export * from './pagedResourceListOfPortfolioGroupSearchResult';
 export * from './pagedResourceListOfPortfolioSearchResult';
 export * from './pagedResourceListOfPostingModuleResponse';
-export * from './pagedResourceListOfPostingModuleRule';
+export * from './pagedResourceListOfPostingModuleRuleResponse';
 export * from './pagedResourceListOfPropertyDefinition';
 export * from './pagedResourceListOfPropertyDefinitionSearchResult';
 export * from './pagedResourceListOfReferenceListResponse';
@@ -1156,6 +1156,7 @@ export * from './postingModuleDetails';
 export * from './postingModuleRequest';
 export * from './postingModuleResponse';
 export * from './postingModuleRule';
+export * from './postingModuleRuleResponse';
 export * from './postingModuleRulesUpdatedResponse';
 export * from './preTradeConfiguration';
 export * from './preferredShare';
@@ -1502,6 +1503,7 @@ export * from './structuredResultData';
 export * from './structuredResultDataId';
 export * from './subscribeElection';
 export * from './subscriptionDefinition';
+export * from './supersedePostingModuleRuleRequest';
 export * from './suppressionEntryResponse';
 export * from './swapCashFlowEvent';
 export * from './swapCashFlowEventAllOf';
@@ -2816,7 +2818,7 @@ import { PagedResourceListOfPortfolioGroup } from './pagedResourceListOfPortfoli
 import { PagedResourceListOfPortfolioGroupSearchResult } from './pagedResourceListOfPortfolioGroupSearchResult';
 import { PagedResourceListOfPortfolioSearchResult } from './pagedResourceListOfPortfolioSearchResult';
 import { PagedResourceListOfPostingModuleResponse } from './pagedResourceListOfPostingModuleResponse';
-import { PagedResourceListOfPostingModuleRule } from './pagedResourceListOfPostingModuleRule';
+import { PagedResourceListOfPostingModuleRuleResponse } from './pagedResourceListOfPostingModuleRuleResponse';
 import { PagedResourceListOfPropertyDefinition } from './pagedResourceListOfPropertyDefinition';
 import { PagedResourceListOfPropertyDefinitionSearchResult } from './pagedResourceListOfPropertyDefinitionSearchResult';
 import { PagedResourceListOfReferenceListResponse } from './pagedResourceListOfReferenceListResponse';
@@ -2932,6 +2934,7 @@ import { PostingModuleDetails } from './postingModuleDetails';
 import { PostingModuleRequest } from './postingModuleRequest';
 import { PostingModuleResponse } from './postingModuleResponse';
 import { PostingModuleRule } from './postingModuleRule';
+import { PostingModuleRuleResponse } from './postingModuleRuleResponse';
 import { PostingModuleRulesUpdatedResponse } from './postingModuleRulesUpdatedResponse';
 import { PreTradeConfiguration } from './preTradeConfiguration';
 import { PreferredShare } from './preferredShare';
@@ -3278,6 +3281,7 @@ import { StructuredResultData } from './structuredResultData';
 import { StructuredResultDataId } from './structuredResultDataId';
 import { SubscribeElection } from './subscribeElection';
 import { SubscriptionDefinition } from './subscriptionDefinition';
+import { SupersedePostingModuleRuleRequest } from './supersedePostingModuleRuleRequest';
 import { SuppressionEntryResponse } from './suppressionEntryResponse';
 import { SwapCashFlowEvent } from './swapCashFlowEvent';
 import { SwapCashFlowEventAllOf } from './swapCashFlowEventAllOf';
@@ -5322,7 +5326,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfPortfolioGroupSearchResult": PagedResourceListOfPortfolioGroupSearchResult,
     "PagedResourceListOfPortfolioSearchResult": PagedResourceListOfPortfolioSearchResult,
     "PagedResourceListOfPostingModuleResponse": PagedResourceListOfPostingModuleResponse,
-    "PagedResourceListOfPostingModuleRule": PagedResourceListOfPostingModuleRule,
+    "PagedResourceListOfPostingModuleRuleResponse": PagedResourceListOfPostingModuleRuleResponse,
     "PagedResourceListOfPropertyDefinition": PagedResourceListOfPropertyDefinition,
     "PagedResourceListOfPropertyDefinitionSearchResult": PagedResourceListOfPropertyDefinitionSearchResult,
     "PagedResourceListOfReferenceListResponse": PagedResourceListOfReferenceListResponse,
@@ -5438,6 +5442,7 @@ let typeMap: {[index: string]: any} = {
     "PostingModuleRequest": PostingModuleRequest,
     "PostingModuleResponse": PostingModuleResponse,
     "PostingModuleRule": PostingModuleRule,
+    "PostingModuleRuleResponse": PostingModuleRuleResponse,
     "PostingModuleRulesUpdatedResponse": PostingModuleRulesUpdatedResponse,
     "PreTradeConfiguration": PreTradeConfiguration,
     "PreferredShare": PreferredShare,
@@ -5784,6 +5789,7 @@ let typeMap: {[index: string]: any} = {
     "StructuredResultDataId": StructuredResultDataId,
     "SubscribeElection": SubscribeElection,
     "SubscriptionDefinition": SubscriptionDefinition,
+    "SupersedePostingModuleRuleRequest": SupersedePostingModuleRuleRequest,
     "SuppressionEntryResponse": SuppressionEntryResponse,
     "SwapCashFlowEvent": SwapCashFlowEvent,
     "SwapCashFlowEventAllOf": SwapCashFlowEventAllOf,
