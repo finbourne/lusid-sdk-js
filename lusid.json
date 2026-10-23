@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1719",
+    "version": "2.0.1720",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -52161,7 +52161,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] GetPartners: [EARLY ACCESS] GetPartners: Get the partners of a partnership fund.",
-        "description": "Lists the register lines of a partnership-accounting fund with each partner's capital balances at the\r\nrequested effective date, together with totals across the whole register.",
+        "description": "Lists the register lines of a partnership-accounting fund with each partner's capital balances at the\r\nrequested effective date, together with totals across the whole register. Committed capital is totalled per\r\ncommitment currency, and each line's share of commitments is of the total in its own currency; amounts in\r\ndifferent currencies are never added together.",
         "operationId": "GetPartners",
         "parameters": [
           {
@@ -210705,7 +210705,7 @@
           },
           "shareOfCommitments": {
             "type": "number",
-            "description": "The partner's committed capital as a decimal fraction of the fund's total commitments.",
+            "description": "The partner's committed capital as a decimal fraction of the fund's total commitments in the same commitment currency.",
             "format": "double"
           },
           "admittedOn": {
@@ -210780,15 +210780,18 @@
       },
       "FundPartnersTotals": {
         "required": [
-          "committed",
+          "committedByCurrency",
           "partnerCount"
         ],
         "type": "object",
         "properties": {
-          "committed": {
-            "type": "number",
-            "description": "The total committed capital across all partners.",
-            "format": "double"
+          "committedByCurrency": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double"
+            },
+            "description": "The total committed capital across all partners, per commitment currency, keyed by currency code. Commitments in different currencies are not added together."
           },
           "partnerCount": {
             "type": "integer",
@@ -210797,7 +210800,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Totals across every register line of the fund, independent of paging."
+        "description": "Totals across every register line of the fund, independent of paging. Commitments are totalled per commitment\r\ncurrency; amounts in different currencies are never added together."
       },
       "FundPartnerUnfundedReconciliation": {
         "required": [
