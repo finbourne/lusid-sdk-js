@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1722",
+    "version": "2.0.1723",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -187119,6 +187119,24 @@
                 "format": "double",
                 "nullable": true
               },
+              "paidInCapitalPortfolioCcyAmount": {
+                "type": "number",
+                "description": "The paid-in capital the destination line takes over, already in the portfolio's base currency: the source line's PaidInCapitalPortfolioCcy balance share, accumulated at historical rates, not a spot conversion of PaidInCapitalAmount. Used on the 'In' side only; must not be negative.",
+                "format": "double",
+                "nullable": true
+              },
+              "returnedCapitalPortfolioCcyAmount": {
+                "type": "number",
+                "description": "The returned capital the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative.",
+                "format": "double",
+                "nullable": true
+              },
+              "excessCapitalReturnedPortfolioCcyAmount": {
+                "type": "number",
+                "description": "The cumulative excess capital returned that the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative.",
+                "format": "double",
+                "nullable": true
+              },
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
@@ -215441,12 +215459,12 @@
           "holdingPropertyKey": {
             "minLength": 1,
             "type": "string",
-            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'ExcessCapitalReturned', 'FundedCapital' and 'UnfundedCapital'. 'ExcessCapitalReturned' is the cumulative excess capital the fund has handed back, kept separately because a return of excess lowers PaidInCapital and restores UncalledCommitment at the same time. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment, ExcessCapitalReturned."
+            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'ExcessCapitalReturned', 'PaidInCapitalPortfolioCcy', 'ReturnedCapitalPortfolioCcy', 'ExcessCapitalReturnedPortfolioCcy', 'FundedCapital' and 'UnfundedCapital'. The '...PortfolioCcy' balances are the same balances in the portfolio's base currency, each movement converted at its own RateToPortfolio on the day it was booked and never re-translated at a later spot rate; source them from 'PortfolioAmount'. 'ExcessCapitalReturned' is the cumulative excess capital the fund has handed back, kept separately because a return of excess lowers PaidInCapital and restores UncalledCommitment at the same time. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment, ExcessCapitalReturned, PaidInCapitalPortfolioCcy, ReturnedCapitalPortfolioCcy, ExcessCapitalReturnedPortfolioCcy."
           },
           "source": {
             "minLength": 1,
             "type": "string",
-            "description": "The movement value that sources the adjustment. Allowed values: 'Amount' (the movement's signed amount in transaction currency), 'Units' (the movement's signed units), 'PortfolioAmount' (the movement's signed amount converted to portfolio currency) and 'ProportionOfBalance' (the movement's amount is read as a proportion between 0 and 1 of the balance already held under the key, and the adjustment is that proportion of the balance rounded to the holding currency's minor unit). Available values: Amount, Units, PortfolioAmount, ProportionOfBalance."
+            "description": "The movement value that sources the adjustment. Allowed values: 'Amount' (the movement's signed amount in transaction currency), 'Units' (the movement's signed units), 'PortfolioAmount' (the movement's signed amount converted to portfolio currency) and 'ProportionOfBalance' (the movement's amount is read as a proportion between 0 and 1 of the balance already held under the key, and the adjustment is that proportion of the balance rounded to the holding currency's minor unit). 'PortfolioAmount' is accepted only on the '...PortfolioCcy' keys, which are kept in the portfolio's base currency; 'Units' is not accepted on any key. Available values: Amount, Units, PortfolioAmount, ProportionOfBalance."
           },
           "direction": {
             "minLength": 1,
