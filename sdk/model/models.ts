@@ -53,6 +53,7 @@ export * from './aggregationMeasureFailureDetail';
 export * from './aggregationOptions';
 export * from './aggregationQuery';
 export * from './allocation';
+export * from './allocationBasisRule';
 export * from './allocationEventNotice';
 export * from './allocationEventNoticeCumulative';
 export * from './allocationEventNoticeEvent';
@@ -169,10 +170,16 @@ export * from './bucket';
 export * from './bucketBorderConfiguration';
 export * from './bucketDefinition';
 export * from './bucketMembership';
+export * from './bucketSeedValue';
+export * from './bucketSeedValueRequest';
+export * from './bucketSetClassSeed';
+export * from './bucketSetClassSeedRequest';
 export * from './bucketSetDefinition';
 export * from './bucketSetNode';
 export * from './bucketSetResult';
 export * from './bucketSetResultBucket';
+export * from './bucketSetSeed';
+export * from './bucketSetSeedRequest';
 export * from './bucketSetShareClassDetails';
 export * from './bucketedCashFlowRequest';
 export * from './bucketedCashFlowResponse';
@@ -1831,6 +1838,7 @@ import { AggregationMeasureFailureDetail } from './aggregationMeasureFailureDeta
 import { AggregationOptions } from './aggregationOptions';
 import { AggregationQuery } from './aggregationQuery';
 import { Allocation } from './allocation';
+import { AllocationBasisRule } from './allocationBasisRule';
 import { AllocationEventNotice } from './allocationEventNotice';
 import { AllocationEventNoticeCumulative } from './allocationEventNoticeCumulative';
 import { AllocationEventNoticeEvent } from './allocationEventNoticeEvent';
@@ -1947,10 +1955,16 @@ import { Bucket } from './bucket';
 import { BucketBorderConfiguration } from './bucketBorderConfiguration';
 import { BucketDefinition } from './bucketDefinition';
 import { BucketMembership } from './bucketMembership';
+import { BucketSeedValue } from './bucketSeedValue';
+import { BucketSeedValueRequest } from './bucketSeedValueRequest';
+import { BucketSetClassSeed } from './bucketSetClassSeed';
+import { BucketSetClassSeedRequest } from './bucketSetClassSeedRequest';
 import { BucketSetDefinition } from './bucketSetDefinition';
 import { BucketSetNode } from './bucketSetNode';
 import { BucketSetResult } from './bucketSetResult';
 import { BucketSetResultBucket } from './bucketSetResultBucket';
+import { BucketSetSeed } from './bucketSetSeed';
+import { BucketSetSeedRequest } from './bucketSetSeedRequest';
 import { BucketSetShareClassDetails } from './bucketSetShareClassDetails';
 import { BucketedCashFlowRequest } from './bucketedCashFlowRequest';
 import { BucketedCashFlowResponse } from './bucketedCashFlowResponse';
@@ -4340,6 +4354,7 @@ let typeMap: {[index: string]: any} = {
     "AggregationOptions": AggregationOptions,
     "AggregationQuery": AggregationQuery,
     "Allocation": Allocation,
+    "AllocationBasisRule": AllocationBasisRule,
     "AllocationEventNotice": AllocationEventNotice,
     "AllocationEventNoticeCumulative": AllocationEventNoticeCumulative,
     "AllocationEventNoticeEvent": AllocationEventNoticeEvent,
@@ -4456,10 +4471,16 @@ let typeMap: {[index: string]: any} = {
     "BucketBorderConfiguration": BucketBorderConfiguration,
     "BucketDefinition": BucketDefinition,
     "BucketMembership": BucketMembership,
+    "BucketSeedValue": BucketSeedValue,
+    "BucketSeedValueRequest": BucketSeedValueRequest,
+    "BucketSetClassSeed": BucketSetClassSeed,
+    "BucketSetClassSeedRequest": BucketSetClassSeedRequest,
     "BucketSetDefinition": BucketSetDefinition,
     "BucketSetNode": BucketSetNode,
     "BucketSetResult": BucketSetResult,
     "BucketSetResultBucket": BucketSetResultBucket,
+    "BucketSetSeed": BucketSetSeed,
+    "BucketSetSeedRequest": BucketSetSeedRequest,
     "BucketSetShareClassDetails": BucketSetShareClassDetails,
     "BucketedCashFlowRequest": BucketedCashFlowRequest,
     "BucketedCashFlowResponse": BucketedCashFlowResponse,

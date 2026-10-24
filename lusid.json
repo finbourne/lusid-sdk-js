@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1720",
+    "version": "2.0.1721",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -3905,7 +3905,7 @@
           "Abor"
         ],
         "summary": "[EARLY ACCESS] GetTrialBalance: Get the Trial Balance for the given Abor.",
-        "description": "Gets the Trial Balance for the given Abor.\r\n\r\nThe Trial Balance has been generated from transactions, translated via Posting Rules\r\nand aggregated based on a General Ledger Profile (where specified).\r\n            \r\nSupplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.\r\nAny caller with access to this endpoint may use it; it is not role-restricted.",
+        "description": "Gets the Trial Balance for the given Abor.\r\n\r\nThe Trial Balance has been generated from transactions, translated via Posting Rules\r\nand aggregated based on a General Ledger Profile (where specified).\r\n            \r\nRows are returned ordered by General Ledger Account Code (ordinal, with rows no posting rule mapped first) and then by Levels, so the order is stable across pages.\r\n            \r\nSupplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.\r\nAny caller with access to this endpoint may use it; it is not role-restricted.",
         "operationId": "GetTrialBalance",
         "parameters": [
           {
@@ -17948,7 +17948,7 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The pagination token to use to continue listing posting module rules; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter\r\n            and asAt fields must not have changed since the original request.",
+            "description": "The pagination token to use to continue listing posting module rules; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
             "schema": {
               "maxLength": 500,
               "minLength": 1,
@@ -17977,6 +17977,15 @@
               "minLength": 0,
               "pattern": "^[\\s\\S]*$",
               "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to list the rules. If specified, only\r\n            the rules whose effective window contains this date are returned. Defaults to returning all rules if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
             }
           }
         ],
@@ -55794,7 +55803,23 @@
                 "valuationPointCode": "ValuationJan2024",
                 "variant": "first",
                 "name": "ValuationJan2024",
-                "properties": {}
+                "properties": {},
+                "bucketSetSeeds": [
+                  {
+                    "bucketSetCode": "Distribution",
+                    "classSeeds": [
+                      {
+                        "shareClassShortCode": "ClassA",
+                        "buckets": [
+                          {
+                            "bucketId": "Capital",
+                            "absoluteValue": 50000
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "application/json": {
@@ -55805,7 +55830,23 @@
                 "valuationPointCode": "ValuationJan2024",
                 "variant": "first",
                 "name": "ValuationJan2024",
-                "properties": {}
+                "properties": {},
+                "bucketSetSeeds": [
+                  {
+                    "bucketSetCode": "Distribution",
+                    "classSeeds": [
+                      {
+                        "shareClassShortCode": "ClassA",
+                        "buckets": [
+                          {
+                            "bucketId": "Capital",
+                            "absoluteValue": 50000
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "text/json": {
@@ -55816,7 +55857,23 @@
                 "valuationPointCode": "ValuationJan2024",
                 "variant": "first",
                 "name": "ValuationJan2024",
-                "properties": {}
+                "properties": {},
+                "bucketSetSeeds": [
+                  {
+                    "bucketSetCode": "Distribution",
+                    "classSeeds": [
+                      {
+                        "shareClassShortCode": "ClassA",
+                        "buckets": [
+                          {
+                            "bucketId": "Capital",
+                            "absoluteValue": 50000
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "application/*+json": {
@@ -55827,7 +55884,23 @@
                 "valuationPointCode": "ValuationJan2024",
                 "variant": "first",
                 "name": "ValuationJan2024",
-                "properties": {}
+                "properties": {},
+                "bucketSetSeeds": [
+                  {
+                    "bucketSetCode": "Distribution",
+                    "classSeeds": [
+                      {
+                        "shareClassShortCode": "ClassA",
+                        "buckets": [
+                          {
+                            "bucketId": "Capital",
+                            "absoluteValue": 50000
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             }
           },
@@ -56257,7 +56330,8 @@
                           }
                         ],
                         "displayName": "Bucket Set Display Name",
-                        "isBackfilled": false
+                        "isBackfilled": false,
+                        "isSeeded": false
                       }
                     ],
                     "isBackfilled": false,
@@ -56429,7 +56503,8 @@
                           }
                         ],
                         "displayName": "Bucket Set Display Name",
-                        "isBackfilled": false
+                        "isBackfilled": false,
+                        "isSeeded": false
                       }
                     ],
                     "isBackfilled": false,
@@ -56609,7 +56684,8 @@
                           }
                         ],
                         "displayName": "Bucket Set Display Name",
-                        "isBackfilled": false
+                        "isBackfilled": false,
+                        "isSeeded": false
                       }
                     ],
                     "isBackfilled": false,
@@ -56781,7 +56857,8 @@
                           }
                         ],
                         "displayName": "Bucket Set Display Name",
-                        "isBackfilled": false
+                        "isBackfilled": false,
+                        "isSeeded": false
                       }
                     ],
                     "isBackfilled": false,
@@ -56961,7 +57038,8 @@
                           }
                         ],
                         "displayName": "Bucket Set Display Name",
-                        "isBackfilled": false
+                        "isBackfilled": false,
+                        "isSeeded": false
                       }
                     ],
                     "isBackfilled": false,
@@ -57133,7 +57211,8 @@
                           }
                         ],
                         "displayName": "Bucket Set Display Name",
-                        "isBackfilled": false
+                        "isBackfilled": false,
+                        "isSeeded": false
                       }
                     ],
                     "isBackfilled": false,
@@ -57244,7 +57323,23 @@
                 "applyClearDown": true,
                 "holdingsAsAtOverride": "2024-01-31T23:59:59.0000000+00:00",
                 "valuationsAsAtOverride": "2024-01-31T23:59:59.0000000+00:00",
-                "updateInclusionDateNavAdjustments": false
+                "updateInclusionDateNavAdjustments": false,
+                "bucketSetSeeds": [
+                  {
+                    "bucketSetCode": "Distribution",
+                    "classSeeds": [
+                      {
+                        "shareClassShortCode": "ClassA",
+                        "buckets": [
+                          {
+                            "bucketId": "Capital",
+                            "absoluteValue": 50000
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "application/json": {
@@ -57261,7 +57356,23 @@
                 "applyClearDown": true,
                 "holdingsAsAtOverride": "2024-01-31T23:59:59.0000000+00:00",
                 "valuationsAsAtOverride": "2024-01-31T23:59:59.0000000+00:00",
-                "updateInclusionDateNavAdjustments": false
+                "updateInclusionDateNavAdjustments": false,
+                "bucketSetSeeds": [
+                  {
+                    "bucketSetCode": "Distribution",
+                    "classSeeds": [
+                      {
+                        "shareClassShortCode": "ClassA",
+                        "buckets": [
+                          {
+                            "bucketId": "Capital",
+                            "absoluteValue": 50000
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "text/json": {
@@ -57278,7 +57389,23 @@
                 "applyClearDown": true,
                 "holdingsAsAtOverride": "2024-01-31T23:59:59.0000000+00:00",
                 "valuationsAsAtOverride": "2024-01-31T23:59:59.0000000+00:00",
-                "updateInclusionDateNavAdjustments": false
+                "updateInclusionDateNavAdjustments": false,
+                "bucketSetSeeds": [
+                  {
+                    "bucketSetCode": "Distribution",
+                    "classSeeds": [
+                      {
+                        "shareClassShortCode": "ClassA",
+                        "buckets": [
+                          {
+                            "bucketId": "Capital",
+                            "absoluteValue": 50000
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "application/*+json": {
@@ -57295,7 +57422,23 @@
                 "applyClearDown": true,
                 "holdingsAsAtOverride": "2024-01-31T23:59:59.0000000+00:00",
                 "valuationsAsAtOverride": "2024-01-31T23:59:59.0000000+00:00",
-                "updateInclusionDateNavAdjustments": false
+                "updateInclusionDateNavAdjustments": false,
+                "bucketSetSeeds": [
+                  {
+                    "bucketSetCode": "Distribution",
+                    "classSeeds": [
+                      {
+                        "shareClassShortCode": "ClassA",
+                        "buckets": [
+                          {
+                            "bucketId": "Capital",
+                            "absoluteValue": 50000
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             }
           },
@@ -57703,7 +57846,8 @@
                         }
                       ],
                       "displayName": "Bucket Set Display Name",
-                      "isBackfilled": false
+                      "isBackfilled": false,
+                      "isSeeded": false
                     }
                   ],
                   "isBackfilled": false,
@@ -57880,7 +58024,8 @@
                         }
                       ],
                       "displayName": "Bucket Set Display Name",
-                      "isBackfilled": false
+                      "isBackfilled": false,
+                      "isSeeded": false
                     }
                   ],
                   "isBackfilled": false,
@@ -58057,7 +58202,8 @@
                         }
                       ],
                       "displayName": "Bucket Set Display Name",
-                      "isBackfilled": false
+                      "isBackfilled": false,
+                      "isSeeded": false
                     }
                   ],
                   "isBackfilled": false,
@@ -58384,7 +58530,8 @@
                         }
                       ],
                       "displayName": "Bucket Set Display Name",
-                      "isBackfilled": false
+                      "isBackfilled": false,
+                      "isSeeded": false
                     }
                   ],
                   "isBackfilled": false,
@@ -58561,7 +58708,8 @@
                         }
                       ],
                       "displayName": "Bucket Set Display Name",
-                      "isBackfilled": false
+                      "isBackfilled": false,
+                      "isSeeded": false
                     }
                   ],
                   "isBackfilled": false,
@@ -58738,7 +58886,8 @@
                         }
                       ],
                       "displayName": "Bucket Set Display Name",
-                      "isBackfilled": false
+                      "isBackfilled": false,
+                      "isSeeded": false
                     }
                   ],
                   "isBackfilled": false,
@@ -64168,7 +64317,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] GetValuationPointTrialBalance: Get Trial Balance for the given Fund.",
-        "description": "Gets the Trial Balance for the given Valuation Point for a Fund.\r\n            \r\nThe Trial Balance has been generated from transactions, translated via Posting Rules\r\nand aggregated based on a General Ledger Profile (where specified).\r\n            \r\nSupplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.\r\nAny caller with access to this endpoint may use it; it is not role-restricted.",
+        "description": "Gets the Trial Balance for the given Valuation Point for a Fund.\r\n            \r\nThe Trial Balance has been generated from transactions, translated via Posting Rules\r\nand aggregated based on a General Ledger Profile (where specified).\r\n            \r\nRows are returned ordered by General Ledger Account Code (ordinal, with rows no posting rule mapped first) and then by Levels, so the order is stable across pages.\r\n            \r\nSupplying the X-LUSID-SuppressImbalanceValidation header suppresses the imbalance check.\r\nAny caller with access to this endpoint may use it; it is not role-restricted.",
         "operationId": "GetValuationPointTrialBalance",
         "parameters": [
           {
@@ -178867,6 +179016,26 @@
         "additionalProperties": false,
         "description": "An Allocation of a certain quantity of a specific instrument against an originating\r\nOrder."
       },
+      "AllocationBasisRule": {
+        "required": [
+          "basis",
+          "character"
+        ],
+        "type": "object",
+        "properties": {
+          "character": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "basis": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Available values: CommittedCapital, PaidInCapital, DealPaidIn."
+          }
+        },
+        "additionalProperties": false
+      },
       "AllocationEventNotice": {
         "required": [
           "cumulative",
@@ -184422,6 +184591,108 @@
         "additionalProperties": false,
         "description": "The bucket a Journal Entry Line was assigned to within one of a Fund Configuration's bucket sets.\r\nComputed when the lines are read, from the bucket set definitions in force at that point."
       },
+      "BucketSeedValue": {
+        "required": [
+          "absoluteValue",
+          "bucketId"
+        ],
+        "type": "object",
+        "properties": {
+          "bucketId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The identifier of the seeded bucket."
+          },
+          "absoluteValue": {
+            "type": "number",
+            "description": "The bucket's seeded cumulative value at the valuation point, in the fund currency.",
+            "format": "double"
+          },
+          "perUnitValue": {
+            "type": "number",
+            "description": "The per-unit value given with the seed, unrounded. Omitted where none was given, in which case the valuation point reads it off the share class's units in issue.",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "One bucket's seeded cumulative value, as stored."
+      },
+      "BucketSeedValueRequest": {
+        "required": [
+          "absoluteValue",
+          "bucketId"
+        ],
+        "type": "object",
+        "properties": {
+          "bucketId": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The identifier of the seeded bucket."
+          },
+          "absoluteValue": {
+            "type": "number",
+            "description": "The bucket's cumulative value at the valuation point, in the fund currency. It is trusted input: nothing reconciles it to the share class NAV.",
+            "format": "double"
+          },
+          "perUnitValue": {
+            "type": "number",
+            "description": "The bucket's cumulative value per unit in issue. It is stored rounded to the share class's price precision. When omitted on a unitised bucket it is the absolute value over the share class's units in issue at the valuation point. Must be omitted on a bucket that is not unitised.",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "One bucket's cumulative value to seed."
+      },
+      "BucketSetClassSeed": {
+        "required": [
+          "buckets",
+          "shareClassShortCode"
+        ],
+        "type": "object",
+        "properties": {
+          "shareClassShortCode": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The short code of the seeded share class."
+          },
+          "buckets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketSeedValue"
+            },
+            "description": "The seeded buckets of the share class."
+          }
+        },
+        "additionalProperties": false,
+        "description": "One share class's seeded bucket values."
+      },
+      "BucketSetClassSeedRequest": {
+        "required": [
+          "buckets",
+          "shareClassShortCode"
+        ],
+        "type": "object",
+        "properties": {
+          "shareClassShortCode": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The short code of the seeded share class."
+          },
+          "buckets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketSeedValueRequest"
+            },
+            "description": "The seeded buckets of the share class. Only the bucket set's flow buckets (dealing, P&L and fees) accumulate, so only they can be seeded."
+          }
+        },
+        "additionalProperties": false,
+        "description": "One share class's bucket values to seed."
+      },
       "BucketSetDefinition": {
         "required": [
           "buckets",
@@ -184593,6 +184864,10 @@
           "isBackfilled": {
             "type": "boolean",
             "description": "Set to True if this bucket set was backfilled from fund inception at this valuation point, because the previous valuation point has no results for it. Its values then hold the whole history, and its previous cumulative values are zero. False otherwise."
+          },
+          "isSeeded": {
+            "type": "boolean",
+            "description": "Set to True if this bucket set's flow bucket values at this valuation point are the seed set on this variant of the valuation point rather than its journal entry lines. The next valuation point opens from them. False otherwise."
           }
         },
         "additionalProperties": false,
@@ -184674,6 +184949,53 @@
         },
         "additionalProperties": false,
         "description": "One bucket's values within a bucket set node: the movement in the period plus the cumulative values before\r\nand after it (CumulativeValue = Value + PreviousCumulativeValue), and - on share class nodes - the breakdown\r\nof the movement by the source that contributed it and the same values restated per unit in issue."
+      },
+      "BucketSetSeed": {
+        "required": [
+          "bucketSetCode",
+          "classSeeds"
+        ],
+        "type": "object",
+        "properties": {
+          "bucketSetCode": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The code of the seeded bucket set on the fund configuration."
+          },
+          "classSeeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketSetClassSeed"
+            },
+            "description": "The bucket set's seeded closing balances at the valuation point, per share class. They replace everything the bucket set holds up to and including the valuation point. A share class or bucket not listed is zero."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The closing balances seeded for a bucket set on a valuation point."
+      },
+      "BucketSetSeedRequest": {
+        "required": [
+          "bucketSetCode",
+          "classSeeds"
+        ],
+        "type": "object",
+        "properties": {
+          "bucketSetCode": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "The code of the bucket set on the fund configuration to seed."
+          },
+          "classSeeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketSetClassSeedRequest"
+            },
+            "description": "The bucket set's closing balances at the valuation point, per share class. They replace everything the bucket set holds up to and including the valuation point. A share class or bucket left out is zero."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The closing balances to seed for a bucket set on an estimate valuation point."
       },
       "BucketSetShareClassDetails": {
         "required": [
@@ -186788,6 +187110,12 @@
               "fundedCapitalAmount": {
                 "type": "number",
                 "description": "The funded capital received by the destination line, for a line whose drawdowns were booked against the stored funded balance rather than paid-in capital. Used on the 'In' side only; must not be negative.",
+                "format": "double",
+                "nullable": true
+              },
+              "excessCapitalReturnedAmount": {
+                "type": "number",
+                "description": "The cumulative excess capital returned that the destination line takes over from the source line. Used on the 'In' side only; must not be negative.",
                 "format": "double",
                 "nullable": true
               },
@@ -196561,6 +196889,14 @@
           "updateInclusionDateNavAdjustments": {
             "type": "boolean",
             "description": "Defaults to false. Set to true if you have the required licence and want the InclusionDate property values to be used to determine whether items should be automatically included in the post close activities."
+          },
+          "bucketSetSeeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketSetSeedRequest"
+            },
+            "description": "Defaults to null. The closing balances to seed for bucket sets at this estimate valuation point, at most one per bucket set. While the valuation point is an estimate, each seeded bucket set's flow bucket values are its seed; finalising the valuation point stores them, and the next valuation point opens from them. A bucket set can only be seeded when the previous final valuation point has no values for it. The seed is trusted input: it is not reconciled to the share class NAVs.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -208728,6 +209064,14 @@
             "type": "boolean",
             "description": "Whether to create instruments for the Fund's share classes, series, or partner classes upon creation. Defaults to false."
           },
+          "instrumentScope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The scope in which the instruments are created when CreateInstrument is true. Defaults to the default instrument scope. Legacy share class instruments are resolved in ShareClassInstrumentScopes instead.",
+            "nullable": true
+          },
           "allocationGroups": {
             "type": "array",
             "items": {
@@ -209822,6 +210166,14 @@
             "type": "boolean",
             "description": "Whether to create instruments for the Fund's share classes, series, or partner classes upon creation. Defaults to false."
           },
+          "instrumentScope": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The scope in which the instruments are created when CreateInstrument is true. Defaults to the default instrument scope. Legacy share class instruments are resolved in ShareClassInstrumentScopes instead.",
+            "nullable": true
+          },
           "shareClasses": {
             "type": "array",
             "items": {
@@ -210658,6 +211010,7 @@
           "lusidInstrumentId",
           "partnerRole",
           "portfolioId",
+          "registerRole",
           "shareOfCommitments",
           "totals"
         ],
@@ -210693,7 +211046,12 @@
           "partnerRole": {
             "minLength": 1,
             "type": "string",
-            "description": "The role of the register line. Available values: GPRegister, LPInvestment."
+            "description": "The role the partner plays in the partnership. Available values: LimitedPartner (the default), GeneralPartner, GPAffiliate, Employee, CarryVehicle."
+          },
+          "registerRole": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The role of the register line. Available values: GPRegister, LPInvestment (the default)."
           },
           "commitmentCurrency": {
             "minLength": 1,
@@ -215083,7 +215441,7 @@
           "holdingPropertyKey": {
             "minLength": 1,
             "type": "string",
-            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'FundedCapital' and 'UnfundedCapital'. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment."
+            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'ExcessCapitalReturned', 'FundedCapital' and 'UnfundedCapital'. 'ExcessCapitalReturned' is the cumulative excess capital the fund has handed back, kept separately because a return of excess lowers PaidInCapital and restores UncalledCommitment at the same time. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment, ExcessCapitalReturned."
           },
           "source": {
             "minLength": 1,
@@ -231565,6 +231923,13 @@
           },
           "presentation": {
             "$ref": "#/components/schemas/PresentationConfiguration"
+          },
+          "allocationBases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AllocationBasisRule"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -231579,7 +231944,7 @@
         "properties": {
           "unallocatedIncomeSummary": {
             "type": "number",
-            "description": "The balance on the income summary account over the valuation point's period that has not yet been allocated to the partners. Must be zero before the valuation point can be finalised.",
+            "description": "The profit and loss of the valuation point's period that has not yet been allocated to the partners: what the period's income, gain and expense lines would pool, less what the partner allocation has posted for the period. Must be zero before the valuation point can be finalised.",
             "format": "double"
           },
           "configPackScope": {
@@ -254665,6 +255030,13 @@
             },
             "description": "A set of component transactions that relate to the template to be created."
           },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            },
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -256903,6 +257275,14 @@
           },
           "pricingMethodologyOverride": {
             "$ref": "#/components/schemas/PricingMethodologyOverrideRequest"
+          },
+          "bucketSetSeeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketSetSeedRequest"
+            },
+            "description": "Defaults to null. The closing balances to seed for bucket sets at this estimate valuation point, at most one per bucket set. They replace the seeds this variant of the valuation point had, and none removes them. Null leaves them as they are. While the valuation point is an estimate, each seeded bucket set's flow bucket values are its seed; finalising the valuation point stores them, and the next valuation point opens from them. A bucket set can only be seeded when the previous final valuation point has no values for it. The seed is trusted input: it is not reconciled to the share class NAVs.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -258720,6 +259100,14 @@
           "stagedModifications": {
             "$ref": "#/components/schemas/StagedModificationsInfo"
           },
+          "bucketSetSeeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketSetSeed"
+            },
+            "description": "The bucket set seeds set on this variant of the Valuation Point. Null when it has none.",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -258861,6 +259249,14 @@
               "$ref": "#/components/schemas/ValuationPointDiagnostic"
             },
             "description": "Findings made while striking the valuation point that did not stop it but should be looked at, such as a fund structure holder whose declared sharing percentage in a member has drifted from the share its contributions make of that member's capital. Absent when there are none.",
+            "nullable": true
+          },
+          "bucketSetSeeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketSetSeed"
+            },
+            "description": "The bucket set seeds set on the Valuation Point, when the request resolved to the Valuation Point itself. Null when it has none.",
             "nullable": true
           },
           "links": {
@@ -259111,6 +259507,14 @@
               "$ref": "#/components/schemas/Property"
             },
             "description": "The Fee properties. These will be from the 'Fee' domain.",
+            "nullable": true
+          },
+          "bucketSetSeeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketSetSeed"
+            },
+            "description": "The bucket set seeds set on this variant of the Valuation Point. Null when it has none.",
             "nullable": true
           },
           "links": {
