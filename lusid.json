@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1724",
+    "version": "2.0.1725",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -187121,19 +187121,19 @@
               },
               "paidInCapitalPortfolioCcyAmount": {
                 "type": "number",
-                "description": "The paid-in capital the destination line takes over, already in the portfolio's base currency: the source line's PaidInCapitalPortfolioCcy balance share, accumulated at historical rates, not a spot conversion of PaidInCapitalAmount. Used on the 'In' side only; must not be negative.",
+                "description": "The paid-in capital the destination line takes over, already in the portfolio's base currency: the source line's PaidInCapitalPortfolioCcy balance share, accumulated at historical rates, not a spot conversion of PaidInCapitalAmount. Used on the 'In' side only; must not be negative. An In side that omits it books zero for PaidInCapitalPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the PaidInCapitalPortfolioCcy movement for the twin to move.",
                 "format": "double",
                 "nullable": true
               },
               "returnedCapitalPortfolioCcyAmount": {
                 "type": "number",
-                "description": "The returned capital the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative.",
+                "description": "The returned capital the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative. An In side that omits it books zero for ReturnedCapitalPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the ReturnedCapitalPortfolioCcy movement for the twin to move.",
                 "format": "double",
                 "nullable": true
               },
               "excessCapitalReturnedPortfolioCcyAmount": {
                 "type": "number",
-                "description": "The cumulative excess capital returned that the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative.",
+                "description": "The cumulative excess capital returned that the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative. An In side that omits it books zero for ExcessCapitalReturnedPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the ExcessCapitalReturnedPortfolioCcy movement for the twin to move.",
                 "format": "double",
                 "nullable": true
               },
@@ -187269,7 +187269,7 @@
             }
           }
         ],
-        "description": "The movement of a proportion of a CapitalInterest line's capital balances from one line to another.\r\nThe source (Out) side moves every balance by the fraction; the destination (In) side receives the\r\namounts given on the event. Mode distinguishes a genuine transfer between investors from a correction\r\nof a mis-booked position."
+        "description": "The movement of a proportion of a CapitalInterest line's capital balances from one line to another.\r\nThe source (Out) side moves every balance by the fraction; the destination (In) side receives the\r\namounts given on the event. Mode distinguishes a genuine transfer between investors from a correction\r\nof a mis-booked position. The portfolio-currency twin amounts (PaidInCapitalPortfolioCcyAmount,\r\nReturnedCapitalPortfolioCcyAmount and ExcessCapitalReturnedPortfolioCcyAmount) are not derived: an In side\r\nthat omits them books zero for the ...PortfolioCcy twins while the Out side gives up its share, and a\r\nclient-maintained transaction type configuration must include the ...PortfolioCcy twin movements for the\r\ntwins to move at all."
       },
       "CapletFloorletCashFlowEvent": {
         "allOf": [
