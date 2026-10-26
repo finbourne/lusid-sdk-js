@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1726",
+    "version": "2.0.1727",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -191896,6 +191896,9 @@
                 "format": "date-time",
                 "nullable": true
               },
+              "underlying": {
+                "$ref": "#/components/schemas/LusidInstrument"
+              },
               "roundingConventions": {
                 "type": "array",
                 "items": {
@@ -203461,7 +203464,6 @@
           },
           {
             "required": [
-              "code",
               "equityFlowConventions",
               "fundingLeg",
               "includeDividends",
@@ -203470,8 +203472,7 @@
               "maturityDate",
               "notionalReset",
               "quantity",
-              "startDate",
-              "underlyingIdentifier"
+              "startDate"
             ],
             "type": "object",
             "properties": {
@@ -203486,9 +203487,9 @@
                 "format": "date-time"
               },
               "code": {
-                "minLength": 1,
                 "type": "string",
-                "description": "The code of the underlying."
+                "description": "The code of the underlying.",
+                "nullable": true
               },
               "equityFlowConventions": {
                 "$ref": "#/components/schemas/FlowConventions"
@@ -203515,9 +203516,12 @@
                 "format": "double"
               },
               "underlyingIdentifier": {
-                "minLength": 1,
                 "type": "string",
-                "description": "External market codes and identifiers for the EquitySwap, e.g. RIC.\r\n\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]."
+                "description": "External market codes and identifiers for the EquitySwap, e.g. RIC.\r\n\r\nSupported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].",
+                "nullable": true
+              },
+              "underlying": {
+                "$ref": "#/components/schemas/LusidInstrument"
               },
               "equitySwapDividendPaymentTiming": {
                 "type": "string",
