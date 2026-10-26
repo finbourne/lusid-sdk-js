@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1727",
+    "version": "2.0.1728",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -83126,6 +83126,16 @@
             "schema": {
               "type": "boolean",
               "default": false
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "includeSwept",
+            "in": "query",
+            "description": "Include Swept Order Blocks. (default: true)",
+            "schema": {
+              "type": "boolean",
+              "default": true
             },
             "x-nullable": true
           }
