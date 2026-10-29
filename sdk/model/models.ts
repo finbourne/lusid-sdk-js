@@ -68,7 +68,9 @@ export * from './allocationGroupDefinition';
 export * from './allocationPaymentHold';
 export * from './allocationPaymentHoldRequest';
 export * from './allocationRequest';
+export * from './allocationServiceRunAllocation';
 export * from './allocationServiceRunResponse';
+export * from './allocationServiceRunWarning';
 export * from './allocationSetRequest';
 export * from './amendCommitmentEvent';
 export * from './amendCommitmentEventAllOf';
@@ -1075,6 +1077,8 @@ export * from './pariPassuEventAllOf';
 export * from './partialClosureConstituent';
 export * from './partialDefeasanceEvent';
 export * from './partialDefeasanceEventAllOf';
+export * from './partialRedemptionWithoutReductionOfNominalValueEvent';
+export * from './partialRedemptionWithoutReductionOfNominalValueEventAllOf';
 export * from './participation';
 export * from './participationRequest';
 export * from './participationSetRequest';
@@ -1853,7 +1857,9 @@ import { AllocationGroupDefinition } from './allocationGroupDefinition';
 import { AllocationPaymentHold } from './allocationPaymentHold';
 import { AllocationPaymentHoldRequest } from './allocationPaymentHoldRequest';
 import { AllocationRequest } from './allocationRequest';
+import { AllocationServiceRunAllocation } from './allocationServiceRunAllocation';
 import { AllocationServiceRunResponse } from './allocationServiceRunResponse';
+import { AllocationServiceRunWarning } from './allocationServiceRunWarning';
 import { AllocationSetRequest } from './allocationSetRequest';
 import { AmendCommitmentEvent } from './amendCommitmentEvent';
 import { AmendCommitmentEventAllOf } from './amendCommitmentEventAllOf';
@@ -2860,6 +2866,8 @@ import { PariPassuEventAllOf } from './pariPassuEventAllOf';
 import { PartialClosureConstituent } from './partialClosureConstituent';
 import { PartialDefeasanceEvent } from './partialDefeasanceEvent';
 import { PartialDefeasanceEventAllOf } from './partialDefeasanceEventAllOf';
+import { PartialRedemptionWithoutReductionOfNominalValueEvent } from './partialRedemptionWithoutReductionOfNominalValueEvent';
+import { PartialRedemptionWithoutReductionOfNominalValueEventAllOf } from './partialRedemptionWithoutReductionOfNominalValueEventAllOf';
 import { Participation } from './participation';
 import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
@@ -4081,6 +4089,8 @@ let enumsMap: {[index: string]: any} = {
         "PariPassuEventAllOf.InstrumentEventTypeEnum": PariPassuEventAllOf.InstrumentEventTypeEnum,
         "PartialDefeasanceEvent.InstrumentEventTypeEnum": PartialDefeasanceEvent.InstrumentEventTypeEnum,
         "PartialDefeasanceEventAllOf.InstrumentEventTypeEnum": PartialDefeasanceEventAllOf.InstrumentEventTypeEnum,
+        "PartialRedemptionWithoutReductionOfNominalValueEvent.InstrumentEventTypeEnum": PartialRedemptionWithoutReductionOfNominalValueEvent.InstrumentEventTypeEnum,
+        "PartialRedemptionWithoutReductionOfNominalValueEventAllOf.InstrumentEventTypeEnum": PartialRedemptionWithoutReductionOfNominalValueEventAllOf.InstrumentEventTypeEnum,
         "PaymentInKindEvent.InstrumentEventTypeEnum": PaymentInKindEvent.InstrumentEventTypeEnum,
         "PaymentInKindEventAllOf.InstrumentEventTypeEnum": PaymentInKindEventAllOf.InstrumentEventTypeEnum,
         "PercentCheckStep.ComplianceStepTypeEnum": PercentCheckStep.ComplianceStepTypeEnum,
@@ -4369,7 +4379,9 @@ let typeMap: {[index: string]: any} = {
     "AllocationPaymentHold": AllocationPaymentHold,
     "AllocationPaymentHoldRequest": AllocationPaymentHoldRequest,
     "AllocationRequest": AllocationRequest,
+    "AllocationServiceRunAllocation": AllocationServiceRunAllocation,
     "AllocationServiceRunResponse": AllocationServiceRunResponse,
+    "AllocationServiceRunWarning": AllocationServiceRunWarning,
     "AllocationSetRequest": AllocationSetRequest,
     "AmendCommitmentEvent": AmendCommitmentEvent,
     "AmendCommitmentEventAllOf": AmendCommitmentEventAllOf,
@@ -5375,6 +5387,8 @@ let typeMap: {[index: string]: any} = {
     "PartialClosureConstituent": PartialClosureConstituent,
     "PartialDefeasanceEvent": PartialDefeasanceEvent,
     "PartialDefeasanceEventAllOf": PartialDefeasanceEventAllOf,
+    "PartialRedemptionWithoutReductionOfNominalValueEvent": PartialRedemptionWithoutReductionOfNominalValueEvent,
+    "PartialRedemptionWithoutReductionOfNominalValueEventAllOf": PartialRedemptionWithoutReductionOfNominalValueEventAllOf,
     "Participation": Participation,
     "ParticipationRequest": ParticipationRequest,
     "ParticipationSetRequest": ParticipationSetRequest,
