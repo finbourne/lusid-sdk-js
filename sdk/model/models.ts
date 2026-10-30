@@ -54,6 +54,17 @@ export * from './aggregationOptions';
 export * from './aggregationQuery';
 export * from './allocation';
 export * from './allocationBasisRule';
+export * from './allocationEvent';
+export * from './allocationEventBasisDiagnostics';
+export * from './allocationEventBasisWarning';
+export * from './allocationEventBookRequest';
+export * from './allocationEventBookingError';
+export * from './allocationEventBookingWarning';
+export * from './allocationEventComponent';
+export * from './allocationEventDealFunding';
+export * from './allocationEventEqualisation';
+export * from './allocationEventEqualisationFeeCatchUp';
+export * from './allocationEventEqualisationMark';
 export * from './allocationEventNotice';
 export * from './allocationEventNoticeCumulative';
 export * from './allocationEventNoticeEvent';
@@ -61,12 +72,43 @@ export * from './allocationEventNoticeLine';
 export * from './allocationEventNoticePartner';
 export * from './allocationEventNoticeUnfundedReconciliation';
 export * from './allocationEventNoticeWire';
+export * from './allocationEventReallocateRequest';
+export * from './allocationEventReceipt';
+export * from './allocationEventReceiptRequest';
+export * from './allocationEventRefund';
+export * from './allocationEventRequest';
+export * from './allocationEventReversal';
+export * from './allocationEventReverseRequest';
+export * from './allocationEventRoundingResidual';
+export * from './allocationEventTransfer';
+export * from './allocationEventTransferConsideration';
+export * from './allocationEventUnbookRequest';
+export * from './allocationEventUseOfProceeds';
 export * from './allocationGroup';
 export * from './allocationGroupClass';
 export * from './allocationGroupClassDefinition';
 export * from './allocationGroupDefinition';
+export * from './allocationMap';
+export * from './allocationMapAllocation';
+export * from './allocationMapBasis';
+export * from './allocationMapBasisValue';
+export * from './allocationMapEventBasis';
+export * from './allocationMapException';
+export * from './allocationMapFixedFactor';
+export * from './allocationMapIlpaTransactionType';
+export * from './allocationMapParticipants';
+export * from './allocationMapRequest';
+export * from './allocationMapResolution';
+export * from './allocationMapResolveRequest';
 export * from './allocationPaymentHold';
 export * from './allocationPaymentHoldRequest';
+export * from './allocationPostingCounts';
+export * from './allocationPostingFundLine';
+export * from './allocationPostingLpLine';
+export * from './allocationPostingPlan';
+export * from './allocationPostingRollUp';
+export * from './allocationReceivable';
+export * from './allocationReceivablesAgeing';
 export * from './allocationRequest';
 export * from './allocationServiceRunAllocation';
 export * from './allocationServiceRunResponse';
@@ -450,7 +492,9 @@ export * from './dateTimeComplianceParameterAllOf';
 export * from './dateTimeListComplianceParameter';
 export * from './dayMonth';
 export * from './dayOfWeek';
+export * from './dealingEstimates';
 export * from './dealingFlowSummary';
+export * from './dealingFlowValuation';
 export * from './decimalComplianceParameter';
 export * from './decimalComplianceParameterAllOf';
 export * from './decimalList';
@@ -540,6 +584,9 @@ export * from './equityVolDependencyAllOf';
 export * from './equityVolSurfaceData';
 export * from './equityVolSurfaceDataAllOf';
 export * from './errorDetail';
+export * from './estimateValuation';
+export * from './estimateValuationDifference';
+export * from './estimateValuationOutcome';
 export * from './estimateVariant';
 export * from './eventDateRange';
 export * from './eventInheritance';
@@ -660,9 +707,17 @@ export * from './fundProperties';
 export * from './fundRequest';
 export * from './fundShareClass';
 export * from './fundShareClassAllOf';
+export * from './fundStructure';
+export * from './fundStructureAllocationBasis';
 export * from './fundStructureCloseRequest';
 export * from './fundStructureCloseResult';
 export * from './fundStructureCloseStep';
+export * from './fundStructureDriftMateriality';
+export * from './fundStructureEdge';
+export * from './fundStructureEdgeTarget';
+export * from './fundStructureMemberRequest';
+export * from './fundStructureNode';
+export * from './fundStructureRequest';
 export * from './fundTerms';
 export * from './fundTermsVersion';
 export * from './fundValuationPointData';
@@ -1004,6 +1059,8 @@ export * from './pagedResourceListOfAborConfiguration';
 export * from './pagedResourceListOfAccount';
 export * from './pagedResourceListOfAddressKeyDefinition';
 export * from './pagedResourceListOfAllocation';
+export * from './pagedResourceListOfAllocationEvent';
+export * from './pagedResourceListOfAllocationMap';
 export * from './pagedResourceListOfBlock';
 export * from './pagedResourceListOfCalendar';
 export * from './pagedResourceListOfChartOfAccounts';
@@ -1029,6 +1086,7 @@ export * from './pagedResourceListOfFundCalendarEntries';
 export * from './pagedResourceListOfFundCalendarEntry';
 export * from './pagedResourceListOfFundConfiguration';
 export * from './pagedResourceListOfFundPartner';
+export * from './pagedResourceListOfFundStructure';
 export * from './pagedResourceListOfGeneralLedgerProfileResponse';
 export * from './pagedResourceListOfGetScenarioResponse';
 export * from './pagedResourceListOfGetSubscriptionResponse';
@@ -1510,6 +1568,12 @@ export * from './strategy';
 export * from './stringComplianceParameter';
 export * from './stringList';
 export * from './stringListComplianceParameter';
+export * from './stripBond';
+export * from './stripBondAllOf';
+export * from './stripBondCashflowEvent';
+export * from './stripBondCashflowEventAllOf';
+export * from './stripBondModelOptions';
+export * from './stripBondModelOptionsAllOf';
 export * from './structuredResultData';
 export * from './structuredResultDataId';
 export * from './subscribeElection';
@@ -1843,6 +1907,17 @@ import { AggregationOptions } from './aggregationOptions';
 import { AggregationQuery } from './aggregationQuery';
 import { Allocation } from './allocation';
 import { AllocationBasisRule } from './allocationBasisRule';
+import { AllocationEvent } from './allocationEvent';
+import { AllocationEventBasisDiagnostics } from './allocationEventBasisDiagnostics';
+import { AllocationEventBasisWarning } from './allocationEventBasisWarning';
+import { AllocationEventBookRequest } from './allocationEventBookRequest';
+import { AllocationEventBookingError } from './allocationEventBookingError';
+import { AllocationEventBookingWarning } from './allocationEventBookingWarning';
+import { AllocationEventComponent } from './allocationEventComponent';
+import { AllocationEventDealFunding } from './allocationEventDealFunding';
+import { AllocationEventEqualisation } from './allocationEventEqualisation';
+import { AllocationEventEqualisationFeeCatchUp } from './allocationEventEqualisationFeeCatchUp';
+import { AllocationEventEqualisationMark } from './allocationEventEqualisationMark';
 import { AllocationEventNotice } from './allocationEventNotice';
 import { AllocationEventNoticeCumulative } from './allocationEventNoticeCumulative';
 import { AllocationEventNoticeEvent } from './allocationEventNoticeEvent';
@@ -1850,12 +1925,43 @@ import { AllocationEventNoticeLine } from './allocationEventNoticeLine';
 import { AllocationEventNoticePartner } from './allocationEventNoticePartner';
 import { AllocationEventNoticeUnfundedReconciliation } from './allocationEventNoticeUnfundedReconciliation';
 import { AllocationEventNoticeWire } from './allocationEventNoticeWire';
+import { AllocationEventReallocateRequest } from './allocationEventReallocateRequest';
+import { AllocationEventReceipt } from './allocationEventReceipt';
+import { AllocationEventReceiptRequest } from './allocationEventReceiptRequest';
+import { AllocationEventRefund } from './allocationEventRefund';
+import { AllocationEventRequest } from './allocationEventRequest';
+import { AllocationEventReversal } from './allocationEventReversal';
+import { AllocationEventReverseRequest } from './allocationEventReverseRequest';
+import { AllocationEventRoundingResidual } from './allocationEventRoundingResidual';
+import { AllocationEventTransfer } from './allocationEventTransfer';
+import { AllocationEventTransferConsideration } from './allocationEventTransferConsideration';
+import { AllocationEventUnbookRequest } from './allocationEventUnbookRequest';
+import { AllocationEventUseOfProceeds } from './allocationEventUseOfProceeds';
 import { AllocationGroup } from './allocationGroup';
 import { AllocationGroupClass } from './allocationGroupClass';
 import { AllocationGroupClassDefinition } from './allocationGroupClassDefinition';
 import { AllocationGroupDefinition } from './allocationGroupDefinition';
+import { AllocationMap } from './allocationMap';
+import { AllocationMapAllocation } from './allocationMapAllocation';
+import { AllocationMapBasis } from './allocationMapBasis';
+import { AllocationMapBasisValue } from './allocationMapBasisValue';
+import { AllocationMapEventBasis } from './allocationMapEventBasis';
+import { AllocationMapException } from './allocationMapException';
+import { AllocationMapFixedFactor } from './allocationMapFixedFactor';
+import { AllocationMapIlpaTransactionType } from './allocationMapIlpaTransactionType';
+import { AllocationMapParticipants } from './allocationMapParticipants';
+import { AllocationMapRequest } from './allocationMapRequest';
+import { AllocationMapResolution } from './allocationMapResolution';
+import { AllocationMapResolveRequest } from './allocationMapResolveRequest';
 import { AllocationPaymentHold } from './allocationPaymentHold';
 import { AllocationPaymentHoldRequest } from './allocationPaymentHoldRequest';
+import { AllocationPostingCounts } from './allocationPostingCounts';
+import { AllocationPostingFundLine } from './allocationPostingFundLine';
+import { AllocationPostingLpLine } from './allocationPostingLpLine';
+import { AllocationPostingPlan } from './allocationPostingPlan';
+import { AllocationPostingRollUp } from './allocationPostingRollUp';
+import { AllocationReceivable } from './allocationReceivable';
+import { AllocationReceivablesAgeing } from './allocationReceivablesAgeing';
 import { AllocationRequest } from './allocationRequest';
 import { AllocationServiceRunAllocation } from './allocationServiceRunAllocation';
 import { AllocationServiceRunResponse } from './allocationServiceRunResponse';
@@ -2239,7 +2345,9 @@ import { DateTimeComplianceParameterAllOf } from './dateTimeComplianceParameterA
 import { DateTimeListComplianceParameter } from './dateTimeListComplianceParameter';
 import { DayMonth } from './dayMonth';
 import { DayOfWeek } from './dayOfWeek';
+import { DealingEstimates } from './dealingEstimates';
 import { DealingFlowSummary } from './dealingFlowSummary';
+import { DealingFlowValuation } from './dealingFlowValuation';
 import { DecimalComplianceParameter } from './decimalComplianceParameter';
 import { DecimalComplianceParameterAllOf } from './decimalComplianceParameterAllOf';
 import { DecimalList } from './decimalList';
@@ -2329,6 +2437,9 @@ import { EquityVolDependencyAllOf } from './equityVolDependencyAllOf';
 import { EquityVolSurfaceData } from './equityVolSurfaceData';
 import { EquityVolSurfaceDataAllOf } from './equityVolSurfaceDataAllOf';
 import { ErrorDetail } from './errorDetail';
+import { EstimateValuation } from './estimateValuation';
+import { EstimateValuationDifference } from './estimateValuationDifference';
+import { EstimateValuationOutcome } from './estimateValuationOutcome';
 import { EstimateVariant } from './estimateVariant';
 import { EventDateRange } from './eventDateRange';
 import { EventInheritance } from './eventInheritance';
@@ -2449,9 +2560,17 @@ import { FundProperties } from './fundProperties';
 import { FundRequest } from './fundRequest';
 import { FundShareClass } from './fundShareClass';
 import { FundShareClassAllOf } from './fundShareClassAllOf';
+import { FundStructure } from './fundStructure';
+import { FundStructureAllocationBasis } from './fundStructureAllocationBasis';
 import { FundStructureCloseRequest } from './fundStructureCloseRequest';
 import { FundStructureCloseResult } from './fundStructureCloseResult';
 import { FundStructureCloseStep } from './fundStructureCloseStep';
+import { FundStructureDriftMateriality } from './fundStructureDriftMateriality';
+import { FundStructureEdge } from './fundStructureEdge';
+import { FundStructureEdgeTarget } from './fundStructureEdgeTarget';
+import { FundStructureMemberRequest } from './fundStructureMemberRequest';
+import { FundStructureNode } from './fundStructureNode';
+import { FundStructureRequest } from './fundStructureRequest';
 import { FundTerms } from './fundTerms';
 import { FundTermsVersion } from './fundTermsVersion';
 import { FundValuationPointData } from './fundValuationPointData';
@@ -2793,6 +2912,8 @@ import { PagedResourceListOfAborConfiguration } from './pagedResourceListOfAborC
 import { PagedResourceListOfAccount } from './pagedResourceListOfAccount';
 import { PagedResourceListOfAddressKeyDefinition } from './pagedResourceListOfAddressKeyDefinition';
 import { PagedResourceListOfAllocation } from './pagedResourceListOfAllocation';
+import { PagedResourceListOfAllocationEvent } from './pagedResourceListOfAllocationEvent';
+import { PagedResourceListOfAllocationMap } from './pagedResourceListOfAllocationMap';
 import { PagedResourceListOfBlock } from './pagedResourceListOfBlock';
 import { PagedResourceListOfCalendar } from './pagedResourceListOfCalendar';
 import { PagedResourceListOfChartOfAccounts } from './pagedResourceListOfChartOfAccounts';
@@ -2818,6 +2939,7 @@ import { PagedResourceListOfFundCalendarEntries } from './pagedResourceListOfFun
 import { PagedResourceListOfFundCalendarEntry } from './pagedResourceListOfFundCalendarEntry';
 import { PagedResourceListOfFundConfiguration } from './pagedResourceListOfFundConfiguration';
 import { PagedResourceListOfFundPartner } from './pagedResourceListOfFundPartner';
+import { PagedResourceListOfFundStructure } from './pagedResourceListOfFundStructure';
 import { PagedResourceListOfGeneralLedgerProfileResponse } from './pagedResourceListOfGeneralLedgerProfileResponse';
 import { PagedResourceListOfGetScenarioResponse } from './pagedResourceListOfGetScenarioResponse';
 import { PagedResourceListOfGetSubscriptionResponse } from './pagedResourceListOfGetSubscriptionResponse';
@@ -3299,6 +3421,12 @@ import { Strategy } from './strategy';
 import { StringComplianceParameter } from './stringComplianceParameter';
 import { StringList } from './stringList';
 import { StringListComplianceParameter } from './stringListComplianceParameter';
+import { StripBond } from './stripBond';
+import { StripBondAllOf } from './stripBondAllOf';
+import { StripBondCashflowEvent } from './stripBondCashflowEvent';
+import { StripBondCashflowEventAllOf } from './stripBondCashflowEventAllOf';
+import { StripBondModelOptions } from './stripBondModelOptions';
+import { StripBondModelOptionsAllOf } from './stripBondModelOptionsAllOf';
 import { StructuredResultData } from './structuredResultData';
 import { StructuredResultDataId } from './structuredResultDataId';
 import { SubscribeElection } from './subscribeElection';
@@ -4256,6 +4384,12 @@ let enumsMap: {[index: string]: any} = {
         "StringComplianceParameter.ComplianceParameterTypeEnum": StringComplianceParameter.ComplianceParameterTypeEnum,
         "StringList.ReferenceListTypeEnum": StringList.ReferenceListTypeEnum,
         "StringListComplianceParameter.ComplianceParameterTypeEnum": StringListComplianceParameter.ComplianceParameterTypeEnum,
+        "StripBond.InstrumentTypeEnum": StripBond.InstrumentTypeEnum,
+        "StripBondAllOf.InstrumentTypeEnum": StripBondAllOf.InstrumentTypeEnum,
+        "StripBondCashflowEvent.InstrumentEventTypeEnum": StripBondCashflowEvent.InstrumentEventTypeEnum,
+        "StripBondCashflowEventAllOf.InstrumentEventTypeEnum": StripBondCashflowEventAllOf.InstrumentEventTypeEnum,
+        "StripBondModelOptions.ModelOptionsTypeEnum": StripBondModelOptions.ModelOptionsTypeEnum,
+        "StripBondModelOptionsAllOf.ModelOptionsTypeEnum": StripBondModelOptionsAllOf.ModelOptionsTypeEnum,
         "SwapCashFlowEvent.InstrumentEventTypeEnum": SwapCashFlowEvent.InstrumentEventTypeEnum,
         "SwapCashFlowEventAllOf.InstrumentEventTypeEnum": SwapCashFlowEventAllOf.InstrumentEventTypeEnum,
         "SwapPrincipalEvent.InstrumentEventTypeEnum": SwapPrincipalEvent.InstrumentEventTypeEnum,
@@ -4365,6 +4499,17 @@ let typeMap: {[index: string]: any} = {
     "AggregationQuery": AggregationQuery,
     "Allocation": Allocation,
     "AllocationBasisRule": AllocationBasisRule,
+    "AllocationEvent": AllocationEvent,
+    "AllocationEventBasisDiagnostics": AllocationEventBasisDiagnostics,
+    "AllocationEventBasisWarning": AllocationEventBasisWarning,
+    "AllocationEventBookRequest": AllocationEventBookRequest,
+    "AllocationEventBookingError": AllocationEventBookingError,
+    "AllocationEventBookingWarning": AllocationEventBookingWarning,
+    "AllocationEventComponent": AllocationEventComponent,
+    "AllocationEventDealFunding": AllocationEventDealFunding,
+    "AllocationEventEqualisation": AllocationEventEqualisation,
+    "AllocationEventEqualisationFeeCatchUp": AllocationEventEqualisationFeeCatchUp,
+    "AllocationEventEqualisationMark": AllocationEventEqualisationMark,
     "AllocationEventNotice": AllocationEventNotice,
     "AllocationEventNoticeCumulative": AllocationEventNoticeCumulative,
     "AllocationEventNoticeEvent": AllocationEventNoticeEvent,
@@ -4372,12 +4517,43 @@ let typeMap: {[index: string]: any} = {
     "AllocationEventNoticePartner": AllocationEventNoticePartner,
     "AllocationEventNoticeUnfundedReconciliation": AllocationEventNoticeUnfundedReconciliation,
     "AllocationEventNoticeWire": AllocationEventNoticeWire,
+    "AllocationEventReallocateRequest": AllocationEventReallocateRequest,
+    "AllocationEventReceipt": AllocationEventReceipt,
+    "AllocationEventReceiptRequest": AllocationEventReceiptRequest,
+    "AllocationEventRefund": AllocationEventRefund,
+    "AllocationEventRequest": AllocationEventRequest,
+    "AllocationEventReversal": AllocationEventReversal,
+    "AllocationEventReverseRequest": AllocationEventReverseRequest,
+    "AllocationEventRoundingResidual": AllocationEventRoundingResidual,
+    "AllocationEventTransfer": AllocationEventTransfer,
+    "AllocationEventTransferConsideration": AllocationEventTransferConsideration,
+    "AllocationEventUnbookRequest": AllocationEventUnbookRequest,
+    "AllocationEventUseOfProceeds": AllocationEventUseOfProceeds,
     "AllocationGroup": AllocationGroup,
     "AllocationGroupClass": AllocationGroupClass,
     "AllocationGroupClassDefinition": AllocationGroupClassDefinition,
     "AllocationGroupDefinition": AllocationGroupDefinition,
+    "AllocationMap": AllocationMap,
+    "AllocationMapAllocation": AllocationMapAllocation,
+    "AllocationMapBasis": AllocationMapBasis,
+    "AllocationMapBasisValue": AllocationMapBasisValue,
+    "AllocationMapEventBasis": AllocationMapEventBasis,
+    "AllocationMapException": AllocationMapException,
+    "AllocationMapFixedFactor": AllocationMapFixedFactor,
+    "AllocationMapIlpaTransactionType": AllocationMapIlpaTransactionType,
+    "AllocationMapParticipants": AllocationMapParticipants,
+    "AllocationMapRequest": AllocationMapRequest,
+    "AllocationMapResolution": AllocationMapResolution,
+    "AllocationMapResolveRequest": AllocationMapResolveRequest,
     "AllocationPaymentHold": AllocationPaymentHold,
     "AllocationPaymentHoldRequest": AllocationPaymentHoldRequest,
+    "AllocationPostingCounts": AllocationPostingCounts,
+    "AllocationPostingFundLine": AllocationPostingFundLine,
+    "AllocationPostingLpLine": AllocationPostingLpLine,
+    "AllocationPostingPlan": AllocationPostingPlan,
+    "AllocationPostingRollUp": AllocationPostingRollUp,
+    "AllocationReceivable": AllocationReceivable,
+    "AllocationReceivablesAgeing": AllocationReceivablesAgeing,
     "AllocationRequest": AllocationRequest,
     "AllocationServiceRunAllocation": AllocationServiceRunAllocation,
     "AllocationServiceRunResponse": AllocationServiceRunResponse,
@@ -4760,7 +4936,9 @@ let typeMap: {[index: string]: any} = {
     "DateTimeComplianceParameterAllOf": DateTimeComplianceParameterAllOf,
     "DateTimeListComplianceParameter": DateTimeListComplianceParameter,
     "DayMonth": DayMonth,
+    "DealingEstimates": DealingEstimates,
     "DealingFlowSummary": DealingFlowSummary,
+    "DealingFlowValuation": DealingFlowValuation,
     "DecimalComplianceParameter": DecimalComplianceParameter,
     "DecimalComplianceParameterAllOf": DecimalComplianceParameterAllOf,
     "DecimalList": DecimalList,
@@ -4850,6 +5028,9 @@ let typeMap: {[index: string]: any} = {
     "EquityVolSurfaceData": EquityVolSurfaceData,
     "EquityVolSurfaceDataAllOf": EquityVolSurfaceDataAllOf,
     "ErrorDetail": ErrorDetail,
+    "EstimateValuation": EstimateValuation,
+    "EstimateValuationDifference": EstimateValuationDifference,
+    "EstimateValuationOutcome": EstimateValuationOutcome,
     "EstimateVariant": EstimateVariant,
     "EventDateRange": EventDateRange,
     "EventInheritance": EventInheritance,
@@ -4970,9 +5151,17 @@ let typeMap: {[index: string]: any} = {
     "FundRequest": FundRequest,
     "FundShareClass": FundShareClass,
     "FundShareClassAllOf": FundShareClassAllOf,
+    "FundStructure": FundStructure,
+    "FundStructureAllocationBasis": FundStructureAllocationBasis,
     "FundStructureCloseRequest": FundStructureCloseRequest,
     "FundStructureCloseResult": FundStructureCloseResult,
     "FundStructureCloseStep": FundStructureCloseStep,
+    "FundStructureDriftMateriality": FundStructureDriftMateriality,
+    "FundStructureEdge": FundStructureEdge,
+    "FundStructureEdgeTarget": FundStructureEdgeTarget,
+    "FundStructureMemberRequest": FundStructureMemberRequest,
+    "FundStructureNode": FundStructureNode,
+    "FundStructureRequest": FundStructureRequest,
     "FundTerms": FundTerms,
     "FundTermsVersion": FundTermsVersion,
     "FundValuationPointData": FundValuationPointData,
@@ -5314,6 +5503,8 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfAccount": PagedResourceListOfAccount,
     "PagedResourceListOfAddressKeyDefinition": PagedResourceListOfAddressKeyDefinition,
     "PagedResourceListOfAllocation": PagedResourceListOfAllocation,
+    "PagedResourceListOfAllocationEvent": PagedResourceListOfAllocationEvent,
+    "PagedResourceListOfAllocationMap": PagedResourceListOfAllocationMap,
     "PagedResourceListOfBlock": PagedResourceListOfBlock,
     "PagedResourceListOfCalendar": PagedResourceListOfCalendar,
     "PagedResourceListOfChartOfAccounts": PagedResourceListOfChartOfAccounts,
@@ -5339,6 +5530,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfFundCalendarEntry": PagedResourceListOfFundCalendarEntry,
     "PagedResourceListOfFundConfiguration": PagedResourceListOfFundConfiguration,
     "PagedResourceListOfFundPartner": PagedResourceListOfFundPartner,
+    "PagedResourceListOfFundStructure": PagedResourceListOfFundStructure,
     "PagedResourceListOfGeneralLedgerProfileResponse": PagedResourceListOfGeneralLedgerProfileResponse,
     "PagedResourceListOfGetScenarioResponse": PagedResourceListOfGetScenarioResponse,
     "PagedResourceListOfGetSubscriptionResponse": PagedResourceListOfGetSubscriptionResponse,
@@ -5820,6 +6012,12 @@ let typeMap: {[index: string]: any} = {
     "StringComplianceParameter": StringComplianceParameter,
     "StringList": StringList,
     "StringListComplianceParameter": StringListComplianceParameter,
+    "StripBond": StripBond,
+    "StripBondAllOf": StripBondAllOf,
+    "StripBondCashflowEvent": StripBondCashflowEvent,
+    "StripBondCashflowEventAllOf": StripBondCashflowEventAllOf,
+    "StripBondModelOptions": StripBondModelOptions,
+    "StripBondModelOptionsAllOf": StripBondModelOptionsAllOf,
     "StructuredResultData": StructuredResultData,
     "StructuredResultDataId": StructuredResultDataId,
     "SubscribeElection": SubscribeElection,
