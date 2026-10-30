@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1731",
+    "version": "2.0.1732",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -213737,7 +213737,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Reserved; not yet enforced. Where the Fund's dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, estimates supplied from outside LUSID. At least one, each at most once. Available values: LusidTA, External."
+            "description": "Where the Fund's dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, orders dealt outside LUSID and reported to it. At least one, each at most once. Available values: LusidTA, External."
           },
           "requireComplete": {
             "type": "boolean",
@@ -231769,7 +231769,7 @@
               },
               "secondPeriodStartDate": {
                 "type": "string",
-                "description": "Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.\r\nThe regular coupon periods roll forward from the roll grid date nearest to this date, so a business day adjusted date stands for the grid date it was adjusted from.\r\nWithout a roll convention the coupon periods roll on the day of the month of the maturity date, or of the start date for a back stub. A date more than ten days from that grid is the grid date itself.",
+                "description": "Optional. The date on which the second coupon period starts. This is also the accrual end date of the first coupon period.\r\nThe regular coupon periods roll forward from the roll grid date nearest to this date, so a business day adjusted date stands for the grid date it was adjusted from.\r\nWhen the last coupon period is not given, a LongBack stub type gives a long last period; any other stub type gives a short last period when the dates are not tenor aligned.\r\nWithout a roll convention the coupon periods roll on the day of the month of the maturity date, or of the start date for a back stub. A date more than ten days from that grid is the grid date itself.",
                 "format": "date-time",
                 "nullable": true
               },
@@ -231781,7 +231781,7 @@
               },
               "lastPeriodStartDate": {
                 "type": "string",
-                "description": "Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.\r\nWhen the first coupon period is not given, the regular coupon periods roll backward from the roll grid date nearest to this date, so a business day adjusted date stands for the grid date it was adjusted from.\r\nWithout a roll convention the coupon periods roll on the day of the month of the maturity date, or of the start date for a back stub. A date more than ten days from that grid is the grid date itself.",
+                "description": "Optional. The date on which the last coupon period starts. This is also the accrual end date of the penultimate coupon period.\r\nWhen the first coupon period is not given, the regular coupon periods roll backward from the roll grid date nearest to this date, so a business day adjusted date stands for the grid date it was adjusted from.\r\nA LongFront stub type then gives a long first period; any other stub type gives a short first period when the dates are not tenor aligned.\r\nWithout a roll convention the coupon periods roll on the day of the month of the maturity date, or of the start date for a back stub. A date more than ten days from that grid is the grid date itself.",
                 "format": "date-time",
                 "nullable": true
               },
