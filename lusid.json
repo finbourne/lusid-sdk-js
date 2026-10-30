@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1730",
+    "version": "2.0.1731",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -267953,8 +267953,9 @@
               },
               "exDate": {
                 "type": "string",
-                "description": "The ex date (entitlement date) of the event.",
-                "format": "date-time"
+                "description": "The ex date (entitlement date) of the event. Optional: if not supplied, it is set to the earliest of the record date, response deadline, market deadline and payment date that is present.",
+                "format": "date-time",
+                "nullable": true
               },
               "recordDate": {
                 "type": "string",
