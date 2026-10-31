@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1733",
+    "version": "2.0.1734",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -214069,7 +214069,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Where the Fund's dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, orders dealt outside LUSID and reported to it. At least one, each at most once. Available values: LusidTA, External."
+            "description": "Where the Fund's dealing estimates are read from: LusidTA, orders held in LUSID Transfer Agency, or External, orders dealt outside LUSID and reported to it. At least one, each at most once. Naming both sums the two books with no de-duplication between them; each source's completeness is tracked on its own. Available values: LusidTA, External."
           },
           "requireComplete": {
             "type": "boolean",
