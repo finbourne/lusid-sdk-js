@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1737",
+    "version": "2.0.1738",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -214504,6 +214504,36 @@
         ],
         "type": "string"
       },
+      "DealingBookCompleteness": {
+        "required": [
+          "complete"
+        ],
+        "type": "object",
+        "properties": {
+          "complete": {
+            "type": "boolean",
+            "description": "Whether every share class's dealing cut-off had passed at the strike's as-at. True when no cut-off is configured."
+          },
+          "cutOff": {
+            "type": "string",
+            "description": "The latest dealing cut-off among the share classes that configure one. Absent when none does.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lateNotCounted": {
+            "type": "integer",
+            "description": "How many orders at the valuation point were written to the book after their class's cut-off and so were reported but not counted. Absent when a cut-off is configured but lateness could not be judged because an order at the valuation point carries no version.",
+            "format": "int32",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "description": "Why the book was judged complete or incomplete: the cut-off that had or had not passed, or that none is configured and completeness was assumed.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DealingEstimates": {
         "required": [
           "sources",
@@ -214520,12 +214550,12 @@
           },
           "requireComplete": {
             "type": "boolean",
-            "description": "Reserved; not yet enforced. Whether every source must have reported before the valuation point can be struck. Defaults to true.",
+            "description": "Whether the dealing book must be complete before a swing is proposed. For the LusidTA source the book is complete once each share class's TA/DealingSchedule cut-off has passed at the strike's as-at; a class with no cut-off configured is treated as complete and the audit says so. An order written after its class's cut-off is late: reported on the audit but not counted. When true and the book is incomplete the valuation point is still struck, at the unswung baseline, and no swing is proposed; the audit says why. Defaults to true.",
             "nullable": true
           },
           "countPending": {
             "type": "boolean",
-            "description": "Whether pending orders count towards the estimated flow alongside confirmed ones. Defaults to false.",
+            "description": "Whether a Pending order at the valuation point counts towards the estimated flow. Orders in the New and Priced states always count. When true a Pending order is folded into the flows like them; when false it is left out of the decision and reported on the audit as pending and not counted, with its value where one can be read. Defaults to false.",
             "nullable": true
           },
           "unitValuation": {
@@ -214542,7 +214572,10 @@
           "count",
           "grossInflow",
           "grossOutflow",
-          "pendingNotCounted"
+          "pendingGrossInflow",
+          "pendingGrossOutflow",
+          "pendingNotCounted",
+          "pendingUnvaluedCount"
         ],
         "type": "object",
         "properties": {
@@ -214565,10 +214598,25 @@
             "type": "integer",
             "description": "How many pending orders at the valuation point were left out of the sums because the fund's dealing estimates do not count pending orders. Zero when the fund counts them.",
             "format": "int32"
+          },
+          "pendingGrossInflow": {
+            "type": "number",
+            "description": "The sum of the inflows among the pending orders left out, in the fund currency, with units at the estimate price. Zero or more; zero when the fund counts pending orders.",
+            "format": "double"
+          },
+          "pendingGrossOutflow": {
+            "type": "number",
+            "description": "The sum of the outflows among the pending orders left out, in the fund currency, as a magnitude, with units at the estimate price. Zero or more; zero when the fund counts pending orders.",
+            "format": "double"
+          },
+          "pendingUnvaluedCount": {
+            "type": "integer",
+            "description": "How many of the pending orders left out could not be valued, such as a unit order with no price yet. They are in pendingNotCounted but absent from pendingGrossInflow and pendingGrossOutflow.",
+            "format": "int32"
           }
         },
         "additionalProperties": false,
-        "description": "The transfer agency estimates a swing decision was made on: the orders dealt at the valuation point, what they summed, and how many pending orders were left out."
+        "description": "The transfer agency estimates a swing decision was made on: the orders dealt at the valuation point, what they summed, and how many pending orders were left out and what those were worth."
       },
       "DealingFlowValuation": {
         "required": [
@@ -219324,8 +219372,7 @@
       "EstimateValuation": {
         "required": [
           "atEstimatePrice",
-          "decisionPrice",
-          "unitBasedShare"
+          "decisionPrice"
         ],
         "type": "object",
         "properties": {
@@ -253326,6 +253373,9 @@
             },
             "description": "The dealing lines read for the swing decision that could not be valued into the share class currency: an amount in a currency that is neither the fund's nor any share class's, or a weight-only line. While any are present and no pricingMethodologyOverride has been submitted, no swing decision is taken, the dealing price is absent and the valuation point cannot be finalised; under an override the override's price stands and the lines remain listed here. Absent when every line was valued or the methodology does not swing.",
             "nullable": true
+          },
+          "completeness": {
+            "$ref": "#/components/schemas/DealingBookCompleteness"
           }
         },
         "additionalProperties": false,

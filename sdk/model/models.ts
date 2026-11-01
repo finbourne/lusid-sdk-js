@@ -496,6 +496,7 @@ export * from './dateTimeComplianceParameterAllOf';
 export * from './dateTimeListComplianceParameter';
 export * from './dayMonth';
 export * from './dayOfWeek';
+export * from './dealingBookCompleteness';
 export * from './dealingEstimates';
 export * from './dealingFlowSummary';
 export * from './dealingFlowValuation';
@@ -2360,6 +2361,7 @@ import { DateTimeComplianceParameterAllOf } from './dateTimeComplianceParameterA
 import { DateTimeListComplianceParameter } from './dateTimeListComplianceParameter';
 import { DayMonth } from './dayMonth';
 import { DayOfWeek } from './dayOfWeek';
+import { DealingBookCompleteness } from './dealingBookCompleteness';
 import { DealingEstimates } from './dealingEstimates';
 import { DealingFlowSummary } from './dealingFlowSummary';
 import { DealingFlowValuation } from './dealingFlowValuation';
@@ -4964,6 +4966,7 @@ let typeMap: {[index: string]: any} = {
     "DateTimeComplianceParameterAllOf": DateTimeComplianceParameterAllOf,
     "DateTimeListComplianceParameter": DateTimeListComplianceParameter,
     "DayMonth": DayMonth,
+    "DealingBookCompleteness": DealingBookCompleteness,
     "DealingEstimates": DealingEstimates,
     "DealingFlowSummary": DealingFlowSummary,
     "DealingFlowValuation": DealingFlowValuation,
