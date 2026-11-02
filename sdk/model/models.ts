@@ -43,6 +43,9 @@ export * from './adjustGlobalCommitmentEventAllOf';
 export * from './adjustHolding';
 export * from './adjustHoldingForDateRequest';
 export * from './adjustHoldingRequest';
+export * from './adjustmentDefinitionRequest';
+export * from './adjustmentDefinitionResponse';
+export * from './adjustmentEntryResponse';
 export * from './aggregateSpec';
 export * from './aggregatedReturn';
 export * from './aggregatedReturnsDispersionRequest';
@@ -1908,6 +1911,9 @@ import { AdjustGlobalCommitmentEventAllOf } from './adjustGlobalCommitmentEventA
 import { AdjustHolding } from './adjustHolding';
 import { AdjustHoldingForDateRequest } from './adjustHoldingForDateRequest';
 import { AdjustHoldingRequest } from './adjustHoldingRequest';
+import { AdjustmentDefinitionRequest } from './adjustmentDefinitionRequest';
+import { AdjustmentDefinitionResponse } from './adjustmentDefinitionResponse';
+import { AdjustmentEntryResponse } from './adjustmentEntryResponse';
 import { AggregateSpec } from './aggregateSpec';
 import { AggregatedReturn } from './aggregatedReturn';
 import { AggregatedReturnsDispersionRequest } from './aggregatedReturnsDispersionRequest';
@@ -4514,6 +4520,9 @@ let typeMap: {[index: string]: any} = {
     "AdjustHolding": AdjustHolding,
     "AdjustHoldingForDateRequest": AdjustHoldingForDateRequest,
     "AdjustHoldingRequest": AdjustHoldingRequest,
+    "AdjustmentDefinitionRequest": AdjustmentDefinitionRequest,
+    "AdjustmentDefinitionResponse": AdjustmentDefinitionResponse,
+    "AdjustmentEntryResponse": AdjustmentEntryResponse,
     "AggregateSpec": AggregateSpec,
     "AggregatedReturn": AggregatedReturn,
     "AggregatedReturnsDispersionRequest": AggregatedReturnsDispersionRequest,

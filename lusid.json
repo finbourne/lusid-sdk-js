@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1742",
+    "version": "2.0.1743",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -172092,7 +172092,12 @@
                 },
                 "suppressions": [
                   "LUID_00000000_BondCouponEvent_20200701-holding002"
-                ]
+                ],
+                "adjustments": {
+                  "LUID_00000000_BondCouponEvent_20200701-holding003": {
+                    "settlementDate": "2020-07-08T00:00:00.0000000+00:00"
+                  }
+                }
               }
             },
             "application/json": {
@@ -172128,7 +172133,12 @@
                 },
                 "suppressions": [
                   "LUID_00000000_BondCouponEvent_20200701-holding002"
-                ]
+                ],
+                "adjustments": {
+                  "LUID_00000000_BondCouponEvent_20200701-holding003": {
+                    "settlementDate": "2020-07-08T00:00:00.0000000+00:00"
+                  }
+                }
               }
             },
             "text/json": {
@@ -172164,7 +172174,12 @@
                 },
                 "suppressions": [
                   "LUID_00000000_BondCouponEvent_20200701-holding002"
-                ]
+                ],
+                "adjustments": {
+                  "LUID_00000000_BondCouponEvent_20200701-holding003": {
+                    "settlementDate": "2020-07-08T00:00:00.0000000+00:00"
+                  }
+                }
               }
             },
             "application/*+json": {
@@ -172200,7 +172215,12 @@
                 },
                 "suppressions": [
                   "LUID_00000000_BondCouponEvent_20200701-holding002"
-                ]
+                ],
+                "adjustments": {
+                  "LUID_00000000_BondCouponEvent_20200701-holding003": {
+                    "settlementDate": "2020-07-08T00:00:00.0000000+00:00"
+                  }
+                }
               }
             }
           },
@@ -172236,7 +172256,12 @@
                   "overrides": {},
                   "suppressions": [
                     "LUID_00000000_BondCouponEvent_20200701-holding002"
-                  ]
+                  ],
+                  "adjustments": {
+                    "LUID_00000000_BondCouponEvent_20200701-holding003": {
+                      "settlementDate": "2020-07-08T00:00:00.0000000+00:00"
+                    }
+                  }
                 }
               },
               "application/json": {
@@ -172265,7 +172290,12 @@
                   "overrides": {},
                   "suppressions": [
                     "LUID_00000000_BondCouponEvent_20200701-holding002"
-                  ]
+                  ],
+                  "adjustments": {
+                    "LUID_00000000_BondCouponEvent_20200701-holding003": {
+                      "settlementDate": "2020-07-08T00:00:00.0000000+00:00"
+                    }
+                  }
                 }
               },
               "text/json": {
@@ -172294,7 +172324,12 @@
                   "overrides": {},
                   "suppressions": [
                     "LUID_00000000_BondCouponEvent_20200701-holding002"
-                  ]
+                  ],
+                  "adjustments": {
+                    "LUID_00000000_BondCouponEvent_20200701-holding003": {
+                      "settlementDate": "2020-07-08T00:00:00.0000000+00:00"
+                    }
+                  }
                 }
               }
             }
@@ -191541,6 +191576,132 @@
         },
         "additionalProperties": false,
         "description": "This request specifies target holdings. i.e. holding data that the\r\nsystem should match. When processed by the movement\r\nengine, it will create 'true-up' adjustments on the fly."
+      },
+      "AdjustmentDefinitionRequest": {
+        "type": "object",
+        "properties": {
+          "settlementDate": {
+            "type": "string",
+            "description": "The settlement date to use in place of the instrument event's.",
+            "format": "dateorcutlabel",
+            "nullable": true
+          },
+          "units": {
+            "type": "number",
+            "description": "The units to use in place of the instrument event's. The total consideration is worked out again unless it is also supplied.",
+            "format": "double",
+            "nullable": true
+          },
+          "tradePrice": {
+            "type": "number",
+            "description": "The price to use in place of the instrument event's. The total consideration is worked out again unless it is also supplied.",
+            "format": "double",
+            "nullable": true
+          },
+          "totalConsideration": {
+            "type": "number",
+            "description": "The total consideration, in the settlement currency, to use in place of the instrument event's. It is also used as the gross consideration. Must be greater than zero.",
+            "format": "double",
+            "nullable": true
+          },
+          "exchangeRate": {
+            "type": "number",
+            "description": "The exchange rate from the trade currency to the settlement currency. The total consideration is worked out again at this rate unless it is also supplied. Must be greater than zero, and is required when the settlement currency is changed.",
+            "format": "double",
+            "nullable": true
+          },
+          "settlementCurrency": {
+            "type": "string",
+            "description": "The settlement currency to use in place of the instrument event's. Requires an exchange rate.",
+            "nullable": true
+          },
+          "custodianAccountId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "description": "Properties to set on the virtual transaction, replacing any it carries with the same key.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The fields to change on a virtual transaction generated by an instrument event; every field left out keeps\r\nfollowing the event."
+      },
+      "AdjustmentDefinitionResponse": {
+        "type": "object",
+        "properties": {
+          "settlementDate": {
+            "type": "string",
+            "description": "The settlement date to use in place of the instrument event's.",
+            "format": "dateorcutlabel",
+            "nullable": true
+          },
+          "units": {
+            "type": "number",
+            "description": "The units to use in place of the instrument event's. The total consideration is worked out again unless it is also supplied.",
+            "format": "double",
+            "nullable": true
+          },
+          "tradePrice": {
+            "type": "number",
+            "description": "The price to use in place of the instrument event's. The total consideration is worked out again unless it is also supplied.",
+            "format": "double",
+            "nullable": true
+          },
+          "totalConsideration": {
+            "type": "number",
+            "description": "The total consideration, in the settlement currency, to use in place of the instrument event's. It is also used as the gross consideration. Must be greater than zero.",
+            "format": "double",
+            "nullable": true
+          },
+          "exchangeRate": {
+            "type": "number",
+            "description": "The exchange rate from the trade currency to the settlement currency. The total consideration is worked out again at this rate unless it is also supplied. Must be greater than zero, and is required when the settlement currency is changed.",
+            "format": "double",
+            "nullable": true
+          },
+          "settlementCurrency": {
+            "type": "string",
+            "description": "The settlement currency to use in place of the instrument event's. Requires an exchange rate.",
+            "nullable": true
+          },
+          "custodianAccountId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "description": "Properties to set on the virtual transaction, replacing any it carries with the same key.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The stored fields of an adjustment to a virtual transaction generated by an instrument event."
+      },
+      "AdjustmentEntryResponse": {
+        "type": "object",
+        "properties": {
+          "adjustment": {
+            "$ref": "#/components/schemas/AdjustmentDefinitionResponse"
+          },
+          "status": {
+            "type": "string",
+            "description": "Whether this entry's target virtual transaction id still matches one the event currently generates. Available values: Applied, Orphaned, Superseded.",
+            "nullable": true
+          },
+          "virtualTransactionId": {
+            "type": "string",
+            "description": "The id of the virtual transaction this entry targets, as it appears in the requested portfolio. Null when the entry targets no virtual transaction the requested portfolio currently generates.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A single adjustments entry on a virtual transaction override record: the fields it changes and its status."
       },
       "AggregatedReturn": {
         "required": [
@@ -244553,10 +244714,18 @@
             },
             "description": "The virtual transaction ids to suppress. A virtual transaction id cannot also appear in Overrides.",
             "nullable": true
+          },
+          "adjustments": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AdjustmentDefinitionRequest"
+            },
+            "description": "A map of virtual transaction id to the fields to change on it. Fields left out keep following the instrument event. A virtual transaction id cannot also appear in Overrides or Suppressions.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "Upserts overrides and suppressions of virtual transactions generated by a single instrument event.\r\nOverrides are keyed by the virtual transaction id being overridden; suppressions are the list of virtual\r\ntransaction ids being suppressed. A virtual transaction id must not appear in both. This is a full\r\nreplace of the previously stored overrides and suppressions for the targeted instrument event - any\r\npreviously stored entry not present in this request is removed."
+        "description": "Upserts overrides, suppressions and adjustments of virtual transactions generated by a single instrument event.\r\nOverrides and adjustments are keyed by the virtual transaction id they target; suppressions are the list of\r\nvirtual transaction ids being suppressed. A virtual transaction id must appear in only one of them. This is a\r\nfull replace of the previously stored overrides, suppressions and adjustments for the targeted instrument\r\nevent - any previously stored entry not present in this request is removed."
       },
       "OversubscribeElection": {
         "required": [
@@ -276139,6 +276308,14 @@
             "description": "True when an active event-level Cancel instruction also exists for this instrument event, taking precedence over the entries in this record.",
             "nullable": true
           },
+          "adjustments": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AdjustmentDefinitionResponse"
+            },
+            "description": "The adjustments stored for the instrument event, keyed by virtual transaction id.",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {
@@ -278136,6 +278313,14 @@
           },
           "version": {
             "$ref": "#/components/schemas/Version"
+          },
+          "adjustments": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AdjustmentEntryResponse"
+            },
+            "description": "The adjustments in this record, keyed by the virtual transaction id they were stored against.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
