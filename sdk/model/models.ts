@@ -615,10 +615,10 @@ export * from './exoticInstrumentAllOf';
 export * from './expandedGroup';
 export * from './expiryEvent';
 export * from './expiryEventAllOf';
+export * from './externalDealingEstimateAmount';
+export * from './externalDealingEstimateLine';
+export * from './externalDealingEstimateSource';
 export * from './externalFeeComponentFilter';
-export * from './externalTransferAgencyOrderAmount';
-export * from './externalTransferAgencyOrderLine';
-export * from './externalTransferAgencyOrderSource';
 export * from './facilityCommitmentFeeEvent';
 export * from './facilityCommitmentFeeEventAllOf';
 export * from './facilityDrawEvent';
@@ -1245,6 +1245,7 @@ export * from './preferredShareAllOf';
 export * from './preferredShareAllOfIdentifiers';
 export * from './premium';
 export * from './presentationConfiguration';
+export * from './previewBlocksRequest';
 export * from './previousFundCalendarEntry';
 export * from './previousFundValuationPointData';
 export * from './previousNAV';
@@ -1279,6 +1280,7 @@ export * from './propertyListComplianceParameter';
 export * from './propertyReferenceDataValue';
 export * from './propertySchema';
 export * from './propertyValue';
+export * from './proposedBlockAndOrders';
 export * from './protectionPayoutCashFlowEvent';
 export * from './putRedemptionEvent';
 export * from './putRedemptionEventAllOf';
@@ -1427,6 +1429,7 @@ export * from './resourceListOfProperty';
 export * from './resourceListOfPropertyDefinition';
 export * from './resourceListOfPropertyInterval';
 export * from './resourceListOfPropertyIntervalTimeSeries';
+export * from './resourceListOfProposedBlockAndOrders';
 export * from './resourceListOfQueryableKey';
 export * from './resourceListOfQuote';
 export * from './resourceListOfQuoteAccessMetadataRule';
@@ -1472,6 +1475,7 @@ export * from './resultValueString';
 export * from './resultValueStringAllOf';
 export * from './retainElection';
 export * from './returnZeroPvOptions';
+export * from './revaluationProblem';
 export * from './reverseStockSplitEvent';
 export * from './reverseStockSplitEventAllOf';
 export * from './reverseStressRequest';
@@ -1541,6 +1545,8 @@ export * from './shareClassDealingBreakdown';
 export * from './shareClassDefinition';
 export * from './shareClassDetails';
 export * from './shareClassPnlBreakdown';
+export * from './sharesPremiumDividendEvent';
+export * from './sharesPremiumDividendEventAllOf';
 export * from './sideConfigurationData';
 export * from './sideDefinition';
 export * from './sideDefinitionRequest';
@@ -1690,6 +1696,8 @@ export * from './unitisationData';
 export * from './unitsRatio';
 export * from './unknownProceedsElection';
 export * from './unsettledTransaction';
+export * from './unsettledTransactionCounterLegRevaluation';
+export * from './unsettledTransactionRevaluation';
 export * from './updateCalendarRequest';
 export * from './updateComplianceTemplateRequest';
 export * from './updateCustomEntityDefinitionRequest';
@@ -1728,9 +1736,9 @@ export * from './upsertCreditSupportAnnexRequest';
 export * from './upsertCustomEntitiesResponse';
 export * from './upsertCustomEntityAccessMetadataRequest';
 export * from './upsertDialectRequest';
-export * from './upsertExternalTransferAgencyOrderResult';
-export * from './upsertExternalTransferAgencyOrdersRequest';
-export * from './upsertExternalTransferAgencyOrdersResponse';
+export * from './upsertExternalDealingEstimateResult';
+export * from './upsertExternalDealingEstimatesRequest';
+export * from './upsertExternalDealingEstimatesResponse';
 export * from './upsertFundBookmarkRequest';
 export * from './upsertInstrumentEventRequest';
 export * from './upsertInstrumentEventsResponse';
@@ -2483,10 +2491,10 @@ import { ExoticInstrumentAllOf } from './exoticInstrumentAllOf';
 import { ExpandedGroup } from './expandedGroup';
 import { ExpiryEvent } from './expiryEvent';
 import { ExpiryEventAllOf } from './expiryEventAllOf';
+import { ExternalDealingEstimateAmount } from './externalDealingEstimateAmount';
+import { ExternalDealingEstimateLine } from './externalDealingEstimateLine';
+import { ExternalDealingEstimateSource } from './externalDealingEstimateSource';
 import { ExternalFeeComponentFilter } from './externalFeeComponentFilter';
-import { ExternalTransferAgencyOrderAmount } from './externalTransferAgencyOrderAmount';
-import { ExternalTransferAgencyOrderLine } from './externalTransferAgencyOrderLine';
-import { ExternalTransferAgencyOrderSource } from './externalTransferAgencyOrderSource';
 import { FacilityCommitmentFeeEvent } from './facilityCommitmentFeeEvent';
 import { FacilityCommitmentFeeEventAllOf } from './facilityCommitmentFeeEventAllOf';
 import { FacilityDrawEvent } from './facilityDrawEvent';
@@ -3113,6 +3121,7 @@ import { PreferredShareAllOf } from './preferredShareAllOf';
 import { PreferredShareAllOfIdentifiers } from './preferredShareAllOfIdentifiers';
 import { Premium } from './premium';
 import { PresentationConfiguration } from './presentationConfiguration';
+import { PreviewBlocksRequest } from './previewBlocksRequest';
 import { PreviousFundCalendarEntry } from './previousFundCalendarEntry';
 import { PreviousFundValuationPointData } from './previousFundValuationPointData';
 import { PreviousNAV } from './previousNAV';
@@ -3147,6 +3156,7 @@ import { PropertyListComplianceParameter } from './propertyListComplianceParamet
 import { PropertyReferenceDataValue } from './propertyReferenceDataValue';
 import { PropertySchema } from './propertySchema';
 import { PropertyValue } from './propertyValue';
+import { ProposedBlockAndOrders } from './proposedBlockAndOrders';
 import { ProtectionPayoutCashFlowEvent } from './protectionPayoutCashFlowEvent';
 import { PutRedemptionEvent } from './putRedemptionEvent';
 import { PutRedemptionEventAllOf } from './putRedemptionEventAllOf';
@@ -3295,6 +3305,7 @@ import { ResourceListOfProperty } from './resourceListOfProperty';
 import { ResourceListOfPropertyDefinition } from './resourceListOfPropertyDefinition';
 import { ResourceListOfPropertyInterval } from './resourceListOfPropertyInterval';
 import { ResourceListOfPropertyIntervalTimeSeries } from './resourceListOfPropertyIntervalTimeSeries';
+import { ResourceListOfProposedBlockAndOrders } from './resourceListOfProposedBlockAndOrders';
 import { ResourceListOfQueryableKey } from './resourceListOfQueryableKey';
 import { ResourceListOfQuote } from './resourceListOfQuote';
 import { ResourceListOfQuoteAccessMetadataRule } from './resourceListOfQuoteAccessMetadataRule';
@@ -3340,6 +3351,7 @@ import { ResultValueString } from './resultValueString';
 import { ResultValueStringAllOf } from './resultValueStringAllOf';
 import { RetainElection } from './retainElection';
 import { ReturnZeroPvOptions } from './returnZeroPvOptions';
+import { RevaluationProblem } from './revaluationProblem';
 import { ReverseStockSplitEvent } from './reverseStockSplitEvent';
 import { ReverseStockSplitEventAllOf } from './reverseStockSplitEventAllOf';
 import { ReverseStressRequest } from './reverseStressRequest';
@@ -3409,6 +3421,8 @@ import { ShareClassDealingBreakdown } from './shareClassDealingBreakdown';
 import { ShareClassDefinition } from './shareClassDefinition';
 import { ShareClassDetails } from './shareClassDetails';
 import { ShareClassPnlBreakdown } from './shareClassPnlBreakdown';
+import { SharesPremiumDividendEvent } from './sharesPremiumDividendEvent';
+import { SharesPremiumDividendEventAllOf } from './sharesPremiumDividendEventAllOf';
 import { SideConfigurationData } from './sideConfigurationData';
 import { SideDefinition } from './sideDefinition';
 import { SideDefinitionRequest } from './sideDefinitionRequest';
@@ -3558,6 +3572,8 @@ import { UnitisationData } from './unitisationData';
 import { UnitsRatio } from './unitsRatio';
 import { UnknownProceedsElection } from './unknownProceedsElection';
 import { UnsettledTransaction } from './unsettledTransaction';
+import { UnsettledTransactionCounterLegRevaluation } from './unsettledTransactionCounterLegRevaluation';
+import { UnsettledTransactionRevaluation } from './unsettledTransactionRevaluation';
 import { UpdateCalendarRequest } from './updateCalendarRequest';
 import { UpdateComplianceTemplateRequest } from './updateComplianceTemplateRequest';
 import { UpdateCustomEntityDefinitionRequest } from './updateCustomEntityDefinitionRequest';
@@ -3596,9 +3612,9 @@ import { UpsertCreditSupportAnnexRequest } from './upsertCreditSupportAnnexReque
 import { UpsertCustomEntitiesResponse } from './upsertCustomEntitiesResponse';
 import { UpsertCustomEntityAccessMetadataRequest } from './upsertCustomEntityAccessMetadataRequest';
 import { UpsertDialectRequest } from './upsertDialectRequest';
-import { UpsertExternalTransferAgencyOrderResult } from './upsertExternalTransferAgencyOrderResult';
-import { UpsertExternalTransferAgencyOrdersRequest } from './upsertExternalTransferAgencyOrdersRequest';
-import { UpsertExternalTransferAgencyOrdersResponse } from './upsertExternalTransferAgencyOrdersResponse';
+import { UpsertExternalDealingEstimateResult } from './upsertExternalDealingEstimateResult';
+import { UpsertExternalDealingEstimatesRequest } from './upsertExternalDealingEstimatesRequest';
+import { UpsertExternalDealingEstimatesResponse } from './upsertExternalDealingEstimatesResponse';
 import { UpsertFundBookmarkRequest } from './upsertFundBookmarkRequest';
 import { UpsertInstrumentEventRequest } from './upsertInstrumentEventRequest';
 import { UpsertInstrumentEventsResponse } from './upsertInstrumentEventsResponse';
@@ -4398,6 +4414,8 @@ let enumsMap: {[index: string]: any} = {
         "ScripDividendEventAllOf.InstrumentEventTypeEnum": ScripDividendEventAllOf.InstrumentEventTypeEnum,
         "SecurityWriteOffEvent.InstrumentEventTypeEnum": SecurityWriteOffEvent.InstrumentEventTypeEnum,
         "SecurityWriteOffEventAllOf.InstrumentEventTypeEnum": SecurityWriteOffEventAllOf.InstrumentEventTypeEnum,
+        "SharesPremiumDividendEvent.InstrumentEventTypeEnum": SharesPremiumDividendEvent.InstrumentEventTypeEnum,
+        "SharesPremiumDividendEventAllOf.InstrumentEventTypeEnum": SharesPremiumDividendEventAllOf.InstrumentEventTypeEnum,
         "SimpleCashFlowLoan.InstrumentTypeEnum": SimpleCashFlowLoan.InstrumentTypeEnum,
         "SimpleCashFlowLoanAllOf.InstrumentTypeEnum": SimpleCashFlowLoanAllOf.InstrumentTypeEnum,
         "SimpleInstrument.AssetClassEnum": SimpleInstrument.AssetClassEnum,
@@ -5091,10 +5109,10 @@ let typeMap: {[index: string]: any} = {
     "ExpandedGroup": ExpandedGroup,
     "ExpiryEvent": ExpiryEvent,
     "ExpiryEventAllOf": ExpiryEventAllOf,
+    "ExternalDealingEstimateAmount": ExternalDealingEstimateAmount,
+    "ExternalDealingEstimateLine": ExternalDealingEstimateLine,
+    "ExternalDealingEstimateSource": ExternalDealingEstimateSource,
     "ExternalFeeComponentFilter": ExternalFeeComponentFilter,
-    "ExternalTransferAgencyOrderAmount": ExternalTransferAgencyOrderAmount,
-    "ExternalTransferAgencyOrderLine": ExternalTransferAgencyOrderLine,
-    "ExternalTransferAgencyOrderSource": ExternalTransferAgencyOrderSource,
     "FacilityCommitmentFeeEvent": FacilityCommitmentFeeEvent,
     "FacilityCommitmentFeeEventAllOf": FacilityCommitmentFeeEventAllOf,
     "FacilityDrawEvent": FacilityDrawEvent,
@@ -5721,6 +5739,7 @@ let typeMap: {[index: string]: any} = {
     "PreferredShareAllOfIdentifiers": PreferredShareAllOfIdentifiers,
     "Premium": Premium,
     "PresentationConfiguration": PresentationConfiguration,
+    "PreviewBlocksRequest": PreviewBlocksRequest,
     "PreviousFundCalendarEntry": PreviousFundCalendarEntry,
     "PreviousFundValuationPointData": PreviousFundValuationPointData,
     "PreviousNAV": PreviousNAV,
@@ -5755,6 +5774,7 @@ let typeMap: {[index: string]: any} = {
     "PropertyReferenceDataValue": PropertyReferenceDataValue,
     "PropertySchema": PropertySchema,
     "PropertyValue": PropertyValue,
+    "ProposedBlockAndOrders": ProposedBlockAndOrders,
     "ProtectionPayoutCashFlowEvent": ProtectionPayoutCashFlowEvent,
     "PutRedemptionEvent": PutRedemptionEvent,
     "PutRedemptionEventAllOf": PutRedemptionEventAllOf,
@@ -5903,6 +5923,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfPropertyDefinition": ResourceListOfPropertyDefinition,
     "ResourceListOfPropertyInterval": ResourceListOfPropertyInterval,
     "ResourceListOfPropertyIntervalTimeSeries": ResourceListOfPropertyIntervalTimeSeries,
+    "ResourceListOfProposedBlockAndOrders": ResourceListOfProposedBlockAndOrders,
     "ResourceListOfQueryableKey": ResourceListOfQueryableKey,
     "ResourceListOfQuote": ResourceListOfQuote,
     "ResourceListOfQuoteAccessMetadataRule": ResourceListOfQuoteAccessMetadataRule,
@@ -5948,6 +5969,7 @@ let typeMap: {[index: string]: any} = {
     "ResultValueStringAllOf": ResultValueStringAllOf,
     "RetainElection": RetainElection,
     "ReturnZeroPvOptions": ReturnZeroPvOptions,
+    "RevaluationProblem": RevaluationProblem,
     "ReverseStockSplitEvent": ReverseStockSplitEvent,
     "ReverseStockSplitEventAllOf": ReverseStockSplitEventAllOf,
     "ReverseStressRequest": ReverseStressRequest,
@@ -6017,6 +6039,8 @@ let typeMap: {[index: string]: any} = {
     "ShareClassDefinition": ShareClassDefinition,
     "ShareClassDetails": ShareClassDetails,
     "ShareClassPnlBreakdown": ShareClassPnlBreakdown,
+    "SharesPremiumDividendEvent": SharesPremiumDividendEvent,
+    "SharesPremiumDividendEventAllOf": SharesPremiumDividendEventAllOf,
     "SideConfigurationData": SideConfigurationData,
     "SideDefinition": SideDefinition,
     "SideDefinitionRequest": SideDefinitionRequest,
@@ -6166,6 +6190,8 @@ let typeMap: {[index: string]: any} = {
     "UnitsRatio": UnitsRatio,
     "UnknownProceedsElection": UnknownProceedsElection,
     "UnsettledTransaction": UnsettledTransaction,
+    "UnsettledTransactionCounterLegRevaluation": UnsettledTransactionCounterLegRevaluation,
+    "UnsettledTransactionRevaluation": UnsettledTransactionRevaluation,
     "UpdateCalendarRequest": UpdateCalendarRequest,
     "UpdateComplianceTemplateRequest": UpdateComplianceTemplateRequest,
     "UpdateCustomEntityDefinitionRequest": UpdateCustomEntityDefinitionRequest,
@@ -6204,9 +6230,9 @@ let typeMap: {[index: string]: any} = {
     "UpsertCustomEntitiesResponse": UpsertCustomEntitiesResponse,
     "UpsertCustomEntityAccessMetadataRequest": UpsertCustomEntityAccessMetadataRequest,
     "UpsertDialectRequest": UpsertDialectRequest,
-    "UpsertExternalTransferAgencyOrderResult": UpsertExternalTransferAgencyOrderResult,
-    "UpsertExternalTransferAgencyOrdersRequest": UpsertExternalTransferAgencyOrdersRequest,
-    "UpsertExternalTransferAgencyOrdersResponse": UpsertExternalTransferAgencyOrdersResponse,
+    "UpsertExternalDealingEstimateResult": UpsertExternalDealingEstimateResult,
+    "UpsertExternalDealingEstimatesRequest": UpsertExternalDealingEstimatesRequest,
+    "UpsertExternalDealingEstimatesResponse": UpsertExternalDealingEstimatesResponse,
     "UpsertFundBookmarkRequest": UpsertFundBookmarkRequest,
     "UpsertInstrumentEventRequest": UpsertInstrumentEventRequest,
     "UpsertInstrumentEventsResponse": UpsertInstrumentEventsResponse,

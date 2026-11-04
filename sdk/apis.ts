@@ -71,7 +71,6 @@ import {TransactionConfigurationApi} from './api/transactionConfigurationApi';
 import {TransactionFeesApi} from './api/transactionFeesApi';
 import {TransactionFeeTypesApi} from './api/transactionFeeTypesApi';
 import {TransactionPortfoliosApi} from './api/transactionPortfoliosApi';
-import {TransferAgencyApi} from './api/transferAgencyApi';
 import {WithholdingTaxApi} from './api/withholdingTaxApi';
 import {WorkspaceApi} from './api/workspaceApi';
 
@@ -149,7 +148,6 @@ export class Api {
     public transactionFees:  TransactionFeesApi
     public transactionFeeTypes:  TransactionFeeTypesApi
     public transactionPortfolios:  TransactionPortfoliosApi
-    public transferAgency:  TransferAgencyApi
     public withholdingTax:  WithholdingTaxApi
     public workspace:  WorkspaceApi
 }
