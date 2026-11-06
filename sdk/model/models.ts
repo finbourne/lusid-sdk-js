@@ -214,9 +214,17 @@ export * from './branchStepAllOf';
 export * from './branchStepRequest';
 export * from './branchStepRequestAllOf';
 export * from './bucket';
+export * from './bucketAmounts';
+export * from './bucketBalanceFigures';
 export * from './bucketBorderConfiguration';
+export * from './bucketCashFlowBalance';
+export * from './bucketCashFlowBucket';
+export * from './bucketCashFlowDrillDownResponse';
+export * from './bucketCashFlowSubtotal';
+export * from './bucketCurrencySubtotal';
 export * from './bucketDefinition';
 export * from './bucketMembership';
+export * from './bucketNetOfHaircutBalance';
 export * from './bucketSeedValue';
 export * from './bucketSeedValueRequest';
 export * from './bucketSetClassSeed';
@@ -280,6 +288,8 @@ export * from './cashAllOf';
 export * from './cashAndSecurityOfferElection';
 export * from './cashDependency';
 export * from './cashDependencyAllOf';
+export * from './cashDistributionFromNonEligibleSecuritiesSalesEvent';
+export * from './cashDistributionFromNonEligibleSecuritiesSalesEventAllOf';
 export * from './cashDividendEvent';
 export * from './cashDividendEventAllOf';
 export * from './cashElection';
@@ -652,6 +662,8 @@ export * from './filterStep';
 export * from './filterStepRequest';
 export * from './filteredFundIdList';
 export * from './filteredFundIdListAllOf';
+export * from './filteredPortfolioIdList';
+export * from './filteredPortfolioIdListAllOf';
 export * from './finalisedValuationPoint';
 export * from './finalisedValuationPointAllOf';
 export * from './fixedLeg';
@@ -1387,7 +1399,6 @@ export * from './resourceListOfApplicableInstrumentEvent';
 export * from './resourceListOfBlock';
 export * from './resourceListOfBlockAndOrders';
 export * from './resourceListOfCalendarDate';
-export * from './resourceListOfCashFlowDetail';
 export * from './resourceListOfChange';
 export * from './resourceListOfChangeHistory';
 export * from './resourceListOfChangeInterval';
@@ -1545,6 +1556,7 @@ export * from './shareClassDealingBreakdown';
 export * from './shareClassDefinition';
 export * from './shareClassDetails';
 export * from './shareClassPnlBreakdown';
+export * from './shareClassRoundingConvention';
 export * from './sharesPremiumDividendEvent';
 export * from './sharesPremiumDividendEventAllOf';
 export * from './sideConfigurationData';
@@ -2090,9 +2102,17 @@ import { BranchStepAllOf } from './branchStepAllOf';
 import { BranchStepRequest } from './branchStepRequest';
 import { BranchStepRequestAllOf } from './branchStepRequestAllOf';
 import { Bucket } from './bucket';
+import { BucketAmounts } from './bucketAmounts';
+import { BucketBalanceFigures } from './bucketBalanceFigures';
 import { BucketBorderConfiguration } from './bucketBorderConfiguration';
+import { BucketCashFlowBalance } from './bucketCashFlowBalance';
+import { BucketCashFlowBucket } from './bucketCashFlowBucket';
+import { BucketCashFlowDrillDownResponse } from './bucketCashFlowDrillDownResponse';
+import { BucketCashFlowSubtotal } from './bucketCashFlowSubtotal';
+import { BucketCurrencySubtotal } from './bucketCurrencySubtotal';
 import { BucketDefinition } from './bucketDefinition';
 import { BucketMembership } from './bucketMembership';
+import { BucketNetOfHaircutBalance } from './bucketNetOfHaircutBalance';
 import { BucketSeedValue } from './bucketSeedValue';
 import { BucketSeedValueRequest } from './bucketSeedValueRequest';
 import { BucketSetClassSeed } from './bucketSetClassSeed';
@@ -2156,6 +2176,8 @@ import { CashAllOf } from './cashAllOf';
 import { CashAndSecurityOfferElection } from './cashAndSecurityOfferElection';
 import { CashDependency } from './cashDependency';
 import { CashDependencyAllOf } from './cashDependencyAllOf';
+import { CashDistributionFromNonEligibleSecuritiesSalesEvent } from './cashDistributionFromNonEligibleSecuritiesSalesEvent';
+import { CashDistributionFromNonEligibleSecuritiesSalesEventAllOf } from './cashDistributionFromNonEligibleSecuritiesSalesEventAllOf';
 import { CashDividendEvent } from './cashDividendEvent';
 import { CashDividendEventAllOf } from './cashDividendEventAllOf';
 import { CashElection } from './cashElection';
@@ -2528,6 +2550,8 @@ import { FilterStep } from './filterStep';
 import { FilterStepRequest } from './filterStepRequest';
 import { FilteredFundIdList } from './filteredFundIdList';
 import { FilteredFundIdListAllOf } from './filteredFundIdListAllOf';
+import { FilteredPortfolioIdList } from './filteredPortfolioIdList';
+import { FilteredPortfolioIdListAllOf } from './filteredPortfolioIdListAllOf';
 import { FinalisedValuationPoint } from './finalisedValuationPoint';
 import { FinalisedValuationPointAllOf } from './finalisedValuationPointAllOf';
 import { FixedLeg } from './fixedLeg';
@@ -3263,7 +3287,6 @@ import { ResourceListOfApplicableInstrumentEvent } from './resourceListOfApplica
 import { ResourceListOfBlock } from './resourceListOfBlock';
 import { ResourceListOfBlockAndOrders } from './resourceListOfBlockAndOrders';
 import { ResourceListOfCalendarDate } from './resourceListOfCalendarDate';
-import { ResourceListOfCashFlowDetail } from './resourceListOfCashFlowDetail';
 import { ResourceListOfChange } from './resourceListOfChange';
 import { ResourceListOfChangeHistory } from './resourceListOfChangeHistory';
 import { ResourceListOfChangeInterval } from './resourceListOfChangeInterval';
@@ -3421,6 +3444,7 @@ import { ShareClassDealingBreakdown } from './shareClassDealingBreakdown';
 import { ShareClassDefinition } from './shareClassDefinition';
 import { ShareClassDetails } from './shareClassDetails';
 import { ShareClassPnlBreakdown } from './shareClassPnlBreakdown';
+import { ShareClassRoundingConvention } from './shareClassRoundingConvention';
 import { SharesPremiumDividendEvent } from './sharesPremiumDividendEvent';
 import { SharesPremiumDividendEventAllOf } from './sharesPremiumDividendEventAllOf';
 import { SideConfigurationData } from './sideConfigurationData';
@@ -3850,6 +3874,8 @@ let enumsMap: {[index: string]: any} = {
         "CashAllOf.InstrumentTypeEnum": CashAllOf.InstrumentTypeEnum,
         "CashDependency.DependencyTypeEnum": CashDependency.DependencyTypeEnum,
         "CashDependencyAllOf.DependencyTypeEnum": CashDependencyAllOf.DependencyTypeEnum,
+        "CashDistributionFromNonEligibleSecuritiesSalesEvent.InstrumentEventTypeEnum": CashDistributionFromNonEligibleSecuritiesSalesEvent.InstrumentEventTypeEnum,
+        "CashDistributionFromNonEligibleSecuritiesSalesEventAllOf.InstrumentEventTypeEnum": CashDistributionFromNonEligibleSecuritiesSalesEventAllOf.InstrumentEventTypeEnum,
         "CashDividendEvent.InstrumentEventTypeEnum": CashDividendEvent.InstrumentEventTypeEnum,
         "CashDividendEventAllOf.InstrumentEventTypeEnum": CashDividendEventAllOf.InstrumentEventTypeEnum,
         "CashFlowEvent.InstrumentEventTypeEnum": CashFlowEvent.InstrumentEventTypeEnum,
@@ -4028,6 +4054,8 @@ let enumsMap: {[index: string]: any} = {
         "FilteredFundIdList.ReferenceListTypeEnum": FilteredFundIdList.ReferenceListTypeEnum,
         "FilteredFundIdListAllOf.NavTypeSelectionEnum": FilteredFundIdListAllOf.NavTypeSelectionEnum,
         "FilteredFundIdListAllOf.ReferenceListTypeEnum": FilteredFundIdListAllOf.ReferenceListTypeEnum,
+        "FilteredPortfolioIdList.ReferenceListTypeEnum": FilteredPortfolioIdList.ReferenceListTypeEnum,
+        "FilteredPortfolioIdListAllOf.ReferenceListTypeEnum": FilteredPortfolioIdListAllOf.ReferenceListTypeEnum,
         "FinalisedValuationPoint.EntryTypeEnum": FinalisedValuationPoint.EntryTypeEnum,
         "FinalisedValuationPoint.FundCalendarEntriesTypeEnum": FinalisedValuationPoint.FundCalendarEntriesTypeEnum,
         "FinalisedValuationPointAllOf.EntryTypeEnum": FinalisedValuationPointAllOf.EntryTypeEnum,
@@ -4709,9 +4737,17 @@ let typeMap: {[index: string]: any} = {
     "BranchStepRequest": BranchStepRequest,
     "BranchStepRequestAllOf": BranchStepRequestAllOf,
     "Bucket": Bucket,
+    "BucketAmounts": BucketAmounts,
+    "BucketBalanceFigures": BucketBalanceFigures,
     "BucketBorderConfiguration": BucketBorderConfiguration,
+    "BucketCashFlowBalance": BucketCashFlowBalance,
+    "BucketCashFlowBucket": BucketCashFlowBucket,
+    "BucketCashFlowDrillDownResponse": BucketCashFlowDrillDownResponse,
+    "BucketCashFlowSubtotal": BucketCashFlowSubtotal,
+    "BucketCurrencySubtotal": BucketCurrencySubtotal,
     "BucketDefinition": BucketDefinition,
     "BucketMembership": BucketMembership,
+    "BucketNetOfHaircutBalance": BucketNetOfHaircutBalance,
     "BucketSeedValue": BucketSeedValue,
     "BucketSeedValueRequest": BucketSeedValueRequest,
     "BucketSetClassSeed": BucketSetClassSeed,
@@ -4775,6 +4811,8 @@ let typeMap: {[index: string]: any} = {
     "CashAndSecurityOfferElection": CashAndSecurityOfferElection,
     "CashDependency": CashDependency,
     "CashDependencyAllOf": CashDependencyAllOf,
+    "CashDistributionFromNonEligibleSecuritiesSalesEvent": CashDistributionFromNonEligibleSecuritiesSalesEvent,
+    "CashDistributionFromNonEligibleSecuritiesSalesEventAllOf": CashDistributionFromNonEligibleSecuritiesSalesEventAllOf,
     "CashDividendEvent": CashDividendEvent,
     "CashDividendEventAllOf": CashDividendEventAllOf,
     "CashElection": CashElection,
@@ -5146,6 +5184,8 @@ let typeMap: {[index: string]: any} = {
     "FilterStepRequest": FilterStepRequest,
     "FilteredFundIdList": FilteredFundIdList,
     "FilteredFundIdListAllOf": FilteredFundIdListAllOf,
+    "FilteredPortfolioIdList": FilteredPortfolioIdList,
+    "FilteredPortfolioIdListAllOf": FilteredPortfolioIdListAllOf,
     "FinalisedValuationPoint": FinalisedValuationPoint,
     "FinalisedValuationPointAllOf": FinalisedValuationPointAllOf,
     "FixedLeg": FixedLeg,
@@ -5881,7 +5921,6 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfBlock": ResourceListOfBlock,
     "ResourceListOfBlockAndOrders": ResourceListOfBlockAndOrders,
     "ResourceListOfCalendarDate": ResourceListOfCalendarDate,
-    "ResourceListOfCashFlowDetail": ResourceListOfCashFlowDetail,
     "ResourceListOfChange": ResourceListOfChange,
     "ResourceListOfChangeHistory": ResourceListOfChangeHistory,
     "ResourceListOfChangeInterval": ResourceListOfChangeInterval,
@@ -6039,6 +6078,7 @@ let typeMap: {[index: string]: any} = {
     "ShareClassDefinition": ShareClassDefinition,
     "ShareClassDetails": ShareClassDetails,
     "ShareClassPnlBreakdown": ShareClassPnlBreakdown,
+    "ShareClassRoundingConvention": ShareClassRoundingConvention,
     "SharesPremiumDividendEvent": SharesPremiumDividendEvent,
     "SharesPremiumDividendEventAllOf": SharesPremiumDividendEventAllOf,
     "SideConfigurationData": SideConfigurationData,
