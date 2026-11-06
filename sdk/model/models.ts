@@ -849,6 +849,8 @@ export * from './inflationCurveShiftDefinitionAllOf';
 export * from './inflationFixingDependency';
 export * from './inflationFixingDependencyAllOf';
 export * from './inflationIndexConventions';
+export * from './inflationIndexationEvent';
+export * from './inflationIndexationEventAllOf';
 export * from './inflationLeg';
 export * from './inflationLegAllOf';
 export * from './inflationLinkedBond';
@@ -2737,6 +2739,8 @@ import { InflationCurveShiftDefinitionAllOf } from './inflationCurveShiftDefinit
 import { InflationFixingDependency } from './inflationFixingDependency';
 import { InflationFixingDependencyAllOf } from './inflationFixingDependencyAllOf';
 import { InflationIndexConventions } from './inflationIndexConventions';
+import { InflationIndexationEvent } from './inflationIndexationEvent';
+import { InflationIndexationEventAllOf } from './inflationIndexationEventAllOf';
 import { InflationLeg } from './inflationLeg';
 import { InflationLegAllOf } from './inflationLegAllOf';
 import { InflationLinkedBond } from './inflationLinkedBond';
@@ -4184,6 +4188,8 @@ let enumsMap: {[index: string]: any} = {
         "InflationCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum": InflationCurveShiftDefinitionAllOf.ScenarioShiftTypeEnum,
         "InflationFixingDependency.DependencyTypeEnum": InflationFixingDependency.DependencyTypeEnum,
         "InflationFixingDependencyAllOf.DependencyTypeEnum": InflationFixingDependencyAllOf.DependencyTypeEnum,
+        "InflationIndexationEvent.InstrumentEventTypeEnum": InflationIndexationEvent.InstrumentEventTypeEnum,
+        "InflationIndexationEventAllOf.InstrumentEventTypeEnum": InflationIndexationEventAllOf.InstrumentEventTypeEnum,
         "InflationLeg.InstrumentTypeEnum": InflationLeg.InstrumentTypeEnum,
         "InflationLegAllOf.InstrumentTypeEnum": InflationLegAllOf.InstrumentTypeEnum,
         "InflationLinkedBond.InstrumentTypeEnum": InflationLinkedBond.InstrumentTypeEnum,
@@ -5371,6 +5377,8 @@ let typeMap: {[index: string]: any} = {
     "InflationFixingDependency": InflationFixingDependency,
     "InflationFixingDependencyAllOf": InflationFixingDependencyAllOf,
     "InflationIndexConventions": InflationIndexConventions,
+    "InflationIndexationEvent": InflationIndexationEvent,
+    "InflationIndexationEventAllOf": InflationIndexationEventAllOf,
     "InflationLeg": InflationLeg,
     "InflationLegAllOf": InflationLegAllOf,
     "InflationLinkedBond": InflationLinkedBond,
