@@ -112,6 +112,7 @@ export * from './allocationPostingPlan';
 export * from './allocationPostingRollUp';
 export * from './allocationReceivable';
 export * from './allocationReceivablesAgeing';
+export * from './allocationRegisterReceivable';
 export * from './allocationRequest';
 export * from './allocationServiceRunAllocation';
 export * from './allocationServiceRunResponse';
@@ -742,6 +743,7 @@ export * from './fundStructureEdgeTarget';
 export * from './fundStructureMemberRequest';
 export * from './fundStructureNode';
 export * from './fundStructureRequest';
+export * from './fundTaxExceptionItem';
 export * from './fundTaxScope';
 export * from './fundTaxScopeExclusions';
 export * from './fundTerms';
@@ -1414,6 +1416,7 @@ export * from './resourceListOfCorporateAction';
 export * from './resourceListOfDataType';
 export * from './resourceListOfExecution';
 export * from './resourceListOfFeeRule';
+export * from './resourceListOfFundTaxExceptionItem';
 export * from './resourceListOfGetCounterpartyAgreementResponse';
 export * from './resourceListOfGetCreditSupportAnnexResponse';
 export * from './resourceListOfGetRecipeComposerResponse';
@@ -1459,6 +1462,7 @@ export * from './resourceListOfScopeDefinition';
 export * from './resourceListOfSeries';
 export * from './resourceListOfSideDefinition';
 export * from './resourceListOfString';
+export * from './resourceListOfTaxExceptionItem';
 export * from './resourceListOfTransaction';
 export * from './resourceListOfTransactionFeeType';
 export * from './resourceListOfTransactionSettlementInstruction';
@@ -1632,6 +1636,10 @@ export * from './swingTrigger';
 export * from './swingTriggerEvaluation';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
+export * from './taxExceptionItem';
+export * from './taxExceptionRootCause';
+export * from './taxPortfolioSyncStatus';
+export * from './taxSyncStatus';
 export * from './templateField';
 export * from './tenderEvent';
 export * from './tenderEventAllOf';
@@ -2006,6 +2014,7 @@ import { AllocationPostingPlan } from './allocationPostingPlan';
 import { AllocationPostingRollUp } from './allocationPostingRollUp';
 import { AllocationReceivable } from './allocationReceivable';
 import { AllocationReceivablesAgeing } from './allocationReceivablesAgeing';
+import { AllocationRegisterReceivable } from './allocationRegisterReceivable';
 import { AllocationRequest } from './allocationRequest';
 import { AllocationServiceRunAllocation } from './allocationServiceRunAllocation';
 import { AllocationServiceRunResponse } from './allocationServiceRunResponse';
@@ -2636,6 +2645,7 @@ import { FundStructureEdgeTarget } from './fundStructureEdgeTarget';
 import { FundStructureMemberRequest } from './fundStructureMemberRequest';
 import { FundStructureNode } from './fundStructureNode';
 import { FundStructureRequest } from './fundStructureRequest';
+import { FundTaxExceptionItem } from './fundTaxExceptionItem';
 import { FundTaxScope } from './fundTaxScope';
 import { FundTaxScopeExclusions } from './fundTaxScopeExclusions';
 import { FundTerms } from './fundTerms';
@@ -3308,6 +3318,7 @@ import { ResourceListOfCorporateAction } from './resourceListOfCorporateAction';
 import { ResourceListOfDataType } from './resourceListOfDataType';
 import { ResourceListOfExecution } from './resourceListOfExecution';
 import { ResourceListOfFeeRule } from './resourceListOfFeeRule';
+import { ResourceListOfFundTaxExceptionItem } from './resourceListOfFundTaxExceptionItem';
 import { ResourceListOfGetCounterpartyAgreementResponse } from './resourceListOfGetCounterpartyAgreementResponse';
 import { ResourceListOfGetCreditSupportAnnexResponse } from './resourceListOfGetCreditSupportAnnexResponse';
 import { ResourceListOfGetRecipeComposerResponse } from './resourceListOfGetRecipeComposerResponse';
@@ -3353,6 +3364,7 @@ import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResourceListOfSeries } from './resourceListOfSeries';
 import { ResourceListOfSideDefinition } from './resourceListOfSideDefinition';
 import { ResourceListOfString } from './resourceListOfString';
+import { ResourceListOfTaxExceptionItem } from './resourceListOfTaxExceptionItem';
 import { ResourceListOfTransaction } from './resourceListOfTransaction';
 import { ResourceListOfTransactionFeeType } from './resourceListOfTransactionFeeType';
 import { ResourceListOfTransactionSettlementInstruction } from './resourceListOfTransactionSettlementInstruction';
@@ -3526,6 +3538,10 @@ import { SwingTrigger } from './swingTrigger';
 import { SwingTriggerEvaluation } from './swingTriggerEvaluation';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
+import { TaxExceptionItem } from './taxExceptionItem';
+import { TaxExceptionRootCause } from './taxExceptionRootCause';
+import { TaxPortfolioSyncStatus } from './taxPortfolioSyncStatus';
+import { TaxSyncStatus } from './taxSyncStatus';
 import { TemplateField } from './templateField';
 import { TenderEvent } from './tenderEvent';
 import { TenderEventAllOf } from './tenderEventAllOf';
@@ -4649,6 +4665,7 @@ let typeMap: {[index: string]: any} = {
     "AllocationPostingRollUp": AllocationPostingRollUp,
     "AllocationReceivable": AllocationReceivable,
     "AllocationReceivablesAgeing": AllocationReceivablesAgeing,
+    "AllocationRegisterReceivable": AllocationRegisterReceivable,
     "AllocationRequest": AllocationRequest,
     "AllocationServiceRunAllocation": AllocationServiceRunAllocation,
     "AllocationServiceRunResponse": AllocationServiceRunResponse,
@@ -5278,6 +5295,7 @@ let typeMap: {[index: string]: any} = {
     "FundStructureMemberRequest": FundStructureMemberRequest,
     "FundStructureNode": FundStructureNode,
     "FundStructureRequest": FundStructureRequest,
+    "FundTaxExceptionItem": FundTaxExceptionItem,
     "FundTaxScope": FundTaxScope,
     "FundTaxScopeExclusions": FundTaxScopeExclusions,
     "FundTerms": FundTerms,
@@ -5950,6 +5968,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfDataType": ResourceListOfDataType,
     "ResourceListOfExecution": ResourceListOfExecution,
     "ResourceListOfFeeRule": ResourceListOfFeeRule,
+    "ResourceListOfFundTaxExceptionItem": ResourceListOfFundTaxExceptionItem,
     "ResourceListOfGetCounterpartyAgreementResponse": ResourceListOfGetCounterpartyAgreementResponse,
     "ResourceListOfGetCreditSupportAnnexResponse": ResourceListOfGetCreditSupportAnnexResponse,
     "ResourceListOfGetRecipeComposerResponse": ResourceListOfGetRecipeComposerResponse,
@@ -5995,6 +6014,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfSeries": ResourceListOfSeries,
     "ResourceListOfSideDefinition": ResourceListOfSideDefinition,
     "ResourceListOfString": ResourceListOfString,
+    "ResourceListOfTaxExceptionItem": ResourceListOfTaxExceptionItem,
     "ResourceListOfTransaction": ResourceListOfTransaction,
     "ResourceListOfTransactionFeeType": ResourceListOfTransactionFeeType,
     "ResourceListOfTransactionSettlementInstruction": ResourceListOfTransactionSettlementInstruction,
@@ -6168,6 +6188,10 @@ let typeMap: {[index: string]: any} = {
     "SwingTriggerEvaluation": SwingTriggerEvaluation,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
+    "TaxExceptionItem": TaxExceptionItem,
+    "TaxExceptionRootCause": TaxExceptionRootCause,
+    "TaxPortfolioSyncStatus": TaxPortfolioSyncStatus,
+    "TaxSyncStatus": TaxSyncStatus,
     "TemplateField": TemplateField,
     "TenderEvent": TenderEvent,
     "TenderEventAllOf": TenderEventAllOf,
