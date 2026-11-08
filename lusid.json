@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1746",
+    "version": "2.0.1747",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -61671,6 +61671,176 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
+    "/api/funds/{scope}/{code}/tax/scope": {
+      "get": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] GetFundTaxScope: [EARLY ACCESS] GetFundTaxScope: Get the UK chargeable-gains tax scope of a fund.",
+        "description": "Returns the fund's portfolios within the UK chargeable-gains regime and the exclusions the regime's figures\r\napply. A fund portfolio is in scope when its own details elect the regime. A NAV type that elects the regime\r\nputs its derived portfolio for each fund portfolio in scope, since that is where the fund accounts for the\r\nholdings under the election.",
+        "operationId": "GetFundTaxScope",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to read the tax scope. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to read the tax scope. Defaults to returning the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The tax scope of the requested Fund.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FundTaxScope"
+                },
+                "example": {
+                  "href": "http://example.com",
+                  "portfolios": [
+                    {
+                      "scope": "PortfolioScope",
+                      "code": "LifeFundPortfolio"
+                    }
+                  ],
+                  "exclusions": {
+                    "instrumentTypes": [
+                      "Currency",
+                      "Bond"
+                    ],
+                    "leafOutcomes": [],
+                    "appliedInFigures": true
+                  },
+                  "effectiveAt": "2024-06-30T00:00:00.0000000+00:00",
+                  "asAt": "2025-01-15T00:00:00.0000000+00:00"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FundTaxScope"
+                },
+                "example": {
+                  "href": "http://example.com",
+                  "portfolios": [
+                    {
+                      "scope": "PortfolioScope",
+                      "code": "LifeFundPortfolio"
+                    }
+                  ],
+                  "exclusions": {
+                    "instrumentTypes": [
+                      "Currency",
+                      "Bond"
+                    ],
+                    "leafOutcomes": [],
+                    "appliedInFigures": true
+                  },
+                  "effectiveAt": "2024-06-30T00:00:00.0000000+00:00",
+                  "asAt": "2025-01-15T00:00:00.0000000+00:00"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FundTaxScope"
+                },
+                "example": {
+                  "href": "http://example.com",
+                  "portfolios": [
+                    {
+                      "scope": "PortfolioScope",
+                      "code": "LifeFundPortfolio"
+                    }
+                  ],
+                  "exclusions": {
+                    "instrumentTypes": [
+                      "Currency",
+                      "Bond"
+                    ],
+                    "leafOutcomes": [],
+                    "appliedInFigures": true
+                  },
+                  "effectiveAt": "2024-06-30T00:00:00.0000000+00:00",
+                  "asAt": "2025-01-15T00:00:00.0000000+00:00"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
     "/api/funds/{scope}/{code}/valuationPointOverview": {
       "get": {
         "tags": [
@@ -68043,7 +68213,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] QueryCashStatementLocalCurrency: [EXPERIMENTAL] QueryCashStatementLocalCurrency: Query the local-currency cash statement for a Fund valuation point.",
-        "description": "Returns settled cash movements with a running balance in local currency for the specified Fund\r\nvaluation point period. The cash statement is derived from Journal Entry Lines filtered to\r\nsettled cash (HoldType='B', SourceType=LusidTransaction). Use the DisplayMode parameter on the\r\nrequest body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated\r\n(collapses system-generated zero-net reversal/TrueUp pairs into SystemCorrection rows). Base\r\ncurrency columns are out of scope for this variant and are not returned.",
+        "description": "Returns settled cash movements with a running balance in local currency for the specified Fund\r\nvaluation point period. The cash statement is derived from Journal Entry Lines filtered to\r\nsettled cash (HoldType='B', SourceType=LusidTransaction). Use the DisplayMode parameter on the\r\nrequest body to choose between ShowReversal (full reversal/TrueUp detail) and Consolidated\r\n(collapses each transaction's system-generated reversal/TrueUp rows into a single SystemCorrection\r\nrow carrying their net cashflow, while user-entered rows are always shown individually). Base\r\ncurrency columns are out of scope for this variant and are not returned.",
         "operationId": "QueryCashStatementLocalCurrency",
         "parameters": [
           {
@@ -201295,7 +201465,7 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "The scope in which the share class instrument lies. Absent where the instrument has not been resolved.",
+            "description": "The scope in which the share class instrument lies, or the fund's instrument scope where the instrument has not been resolved.",
             "nullable": true
           },
           "shortCode": {
@@ -229574,6 +229744,82 @@
         },
         "additionalProperties": false,
         "description": "The request used to create a Fund Structure."
+      },
+      "FundTaxScope": {
+        "required": [
+          "asAt",
+          "effectiveAt",
+          "exclusions",
+          "portfolios"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "portfolios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The portfolios within the UK chargeable-gains regime. A fund portfolio is in scope when its own details elect the regime. A NAV type that elects the regime puts its derived portfolio for each fund portfolio in scope."
+          },
+          "exclusions": {
+            "$ref": "#/components/schemas/FundTaxScopeExclusions"
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The effective datetime at which the tax scope was read.",
+            "format": "date-time"
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt datetime at which the tax scope was read.",
+            "format": "date-time"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The UK chargeable-gains tax scope of a fund at a point in time: the portfolios inside the regime and what the\r\nregime's figures leave out."
+      },
+      "FundTaxScopeExclusions": {
+        "required": [
+          "appliedInFigures",
+          "instrumentTypes",
+          "leafOutcomes"
+        ],
+        "type": "object",
+        "properties": {
+          "instrumentTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Instrument types that stay on the portfolio's ordinary accounting method rather than being pooled, by name."
+          },
+          "leafOutcomes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Disposal-leg outcomes the configured regime options disapply. Empty under the standard options."
+          },
+          "appliedInFigures": {
+            "type": "boolean",
+            "description": "Whether the engine enforces these exclusions when building the pooled lots and gains."
+          }
+        },
+        "additionalProperties": false,
+        "description": "What the UK chargeable-gains figures leave out of the pooled computation."
       },
       "FundTerms": {
         "required": [
@@ -258849,9 +259095,80 @@
             },
             "description": "The sub-holding key properties of the holding this record was realised against, identifying the allocation slice it belongs to.",
             "nullable": true
+          },
+          "chargeableGains": {
+            "$ref": "#/components/schemas/RealisedGainLossChargeableGains"
           }
         },
         "additionalProperties": false
+      },
+      "RealisedGainLossChargeableGains": {
+        "type": "object",
+        "properties": {
+          "chargeableGain": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "indexationAllowance": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "indexationAllowanceTaken": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "proceeds": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "gainOnOriginalCost": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "gainOnMarketValue1982": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "basis": {
+            "type": "string",
+            "description": "Available values: IndexedCost, MarketValue1982, OriginalCost, NilGain.",
+            "nullable": true
+          },
+          "matchRule": {
+            "type": "string",
+            "description": "Available values: SameDay, TenDay, Section210B, Section104Pool, Holding1982, Holding1965.",
+            "nullable": true
+          },
+          "matchedLot": {
+            "$ref": "#/components/schemas/RealisedGainLossMatchedLot"
+          },
+          "marketValue1965": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "reversed": {
+            "type": "boolean"
+          },
+          "taxTreatment": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The UK chargeable-gains figures the engine worked for a realised-gain/loss leg: the chargeable gain, the\r\nindexation allowance and the part of it taken, the proceeds the leg was worked on, both sides of the s.35\r\nkink test on a 1982 holding, the basis and identification rule the leg was matched under, the lot it was\r\nmatched against, whether its transaction stands reversed, and the treatment applied. All amounts are in\r\nthe portfolio currency."
+      },
+      "RealisedGainLossMatchedLot": {
+        "type": "object",
+        "properties": {
+          "originalCost": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "purchaseDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "description": "Available values: DayLot, Section104Pool, Holding1982, Holding1965, FutureAcquisition.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The lot a realised chargeable-gains leg was matched against: its cost in the portfolio currency, the date of the\r\nacquisition that opened it and its chargeable-gains role."
       },
       "RecallableCapitalExpiryEvent": {
         "allOf": [
@@ -267736,7 +268053,7 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "LUSID's internal unique instrument identifier, resolved from the share class' instrument identifiers",
+            "description": "LUSID's internal unique instrument identifier, resolved from the share class' instrument identifiers. Absent where no instrument was resolved for the share class: a fund defined with inline share classes resolves none, whether or not it created their instruments.",
             "nullable": true
           },
           "instrumentScope": {
@@ -267744,7 +268061,7 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "The scope in which the share class instrument lies.",
+            "description": "The scope in which the share class instrument lies, or the fund's instrument scope where no instrument was resolved for the share class.",
             "nullable": true
           },
           "shortCode": {

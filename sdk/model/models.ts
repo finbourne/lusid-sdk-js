@@ -742,6 +742,8 @@ export * from './fundStructureEdgeTarget';
 export * from './fundStructureMemberRequest';
 export * from './fundStructureNode';
 export * from './fundStructureRequest';
+export * from './fundTaxScope';
+export * from './fundTaxScopeExclusions';
 export * from './fundTerms';
 export * from './fundTermsVersion';
 export * from './fundValuationPointData';
@@ -1330,6 +1332,8 @@ export * from './rawVendorEvent';
 export * from './rawVendorEventAllOf';
 export * from './reOpenPeriodDiaryEntryRequest';
 export * from './realisedGainLoss';
+export * from './realisedGainLossChargeableGains';
+export * from './realisedGainLossMatchedLot';
 export * from './recallableCapitalExpiryEvent';
 export * from './recallableCapitalExpiryEventAllOf';
 export * from './recipeBlock';
@@ -2632,6 +2636,8 @@ import { FundStructureEdgeTarget } from './fundStructureEdgeTarget';
 import { FundStructureMemberRequest } from './fundStructureMemberRequest';
 import { FundStructureNode } from './fundStructureNode';
 import { FundStructureRequest } from './fundStructureRequest';
+import { FundTaxScope } from './fundTaxScope';
+import { FundTaxScopeExclusions } from './fundTaxScopeExclusions';
 import { FundTerms } from './fundTerms';
 import { FundTermsVersion } from './fundTermsVersion';
 import { FundValuationPointData } from './fundValuationPointData';
@@ -3220,6 +3226,8 @@ import { RawVendorEvent } from './rawVendorEvent';
 import { RawVendorEventAllOf } from './rawVendorEventAllOf';
 import { ReOpenPeriodDiaryEntryRequest } from './reOpenPeriodDiaryEntryRequest';
 import { RealisedGainLoss } from './realisedGainLoss';
+import { RealisedGainLossChargeableGains } from './realisedGainLossChargeableGains';
+import { RealisedGainLossMatchedLot } from './realisedGainLossMatchedLot';
 import { RecallableCapitalExpiryEvent } from './recallableCapitalExpiryEvent';
 import { RecallableCapitalExpiryEventAllOf } from './recallableCapitalExpiryEventAllOf';
 import { RecipeBlock } from './recipeBlock';
@@ -5270,6 +5278,8 @@ let typeMap: {[index: string]: any} = {
     "FundStructureMemberRequest": FundStructureMemberRequest,
     "FundStructureNode": FundStructureNode,
     "FundStructureRequest": FundStructureRequest,
+    "FundTaxScope": FundTaxScope,
+    "FundTaxScopeExclusions": FundTaxScopeExclusions,
     "FundTerms": FundTerms,
     "FundTermsVersion": FundTermsVersion,
     "FundValuationPointData": FundValuationPointData,
@@ -5858,6 +5868,8 @@ let typeMap: {[index: string]: any} = {
     "RawVendorEventAllOf": RawVendorEventAllOf,
     "ReOpenPeriodDiaryEntryRequest": ReOpenPeriodDiaryEntryRequest,
     "RealisedGainLoss": RealisedGainLoss,
+    "RealisedGainLossChargeableGains": RealisedGainLossChargeableGains,
+    "RealisedGainLossMatchedLot": RealisedGainLossMatchedLot,
     "RecallableCapitalExpiryEvent": RecallableCapitalExpiryEvent,
     "RecallableCapitalExpiryEventAllOf": RecallableCapitalExpiryEventAllOf,
     "RecipeBlock": RecipeBlock,
