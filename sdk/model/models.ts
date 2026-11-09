@@ -1304,6 +1304,9 @@ export * from './putRedemptionEvent';
 export * from './putRedemptionEventAllOf';
 export * from './qualifierDefinition';
 export * from './qualifierDefinitionRequest';
+export * from './qualifyingInvestmentsCrossing';
+export * from './qualifyingInvestmentsHistory';
+export * from './qualifyingInvestmentsObservation';
 export * from './quantityInstructed';
 export * from './queryApplicableInstrumentEventsRequest';
 export * from './queryBucketCashFlowDrillDownRequest';
@@ -1462,6 +1465,8 @@ export * from './resourceListOfScopeDefinition';
 export * from './resourceListOfSeries';
 export * from './resourceListOfSideDefinition';
 export * from './resourceListOfString';
+export * from './resourceListOfTaxClassification';
+export * from './resourceListOfTaxClassificationExceptionRecord';
 export * from './resourceListOfTaxExceptionItem';
 export * from './resourceListOfTransaction';
 export * from './resourceListOfTransactionFeeType';
@@ -1636,6 +1641,13 @@ export * from './swingTrigger';
 export * from './swingTriggerEvaluation';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
+export * from './taxClassification';
+export * from './taxClassificationDecisionStep';
+export * from './taxClassificationDetail';
+export * from './taxClassificationException';
+export * from './taxClassificationExceptionRecord';
+export * from './taxClassificationFieldVersion';
+export * from './taxClassificationInputs';
 export * from './taxExceptionItem';
 export * from './taxExceptionRootCause';
 export * from './taxPortfolioSyncStatus';
@@ -1800,6 +1812,7 @@ export * from './upsertSingleStructuredDataResponse';
 export * from './upsertStructuredDataResponse';
 export * from './upsertStructuredResultDataRequest';
 export * from './upsertSubscriptionRequest';
+export * from './upsertTaxTreatmentOverrideRequest';
 export * from './upsertTransactionPropertiesResponse';
 export * from './upsertTranslationScriptRequest';
 export * from './upsertValuationPointRequest';
@@ -3206,6 +3219,9 @@ import { PutRedemptionEvent } from './putRedemptionEvent';
 import { PutRedemptionEventAllOf } from './putRedemptionEventAllOf';
 import { QualifierDefinition } from './qualifierDefinition';
 import { QualifierDefinitionRequest } from './qualifierDefinitionRequest';
+import { QualifyingInvestmentsCrossing } from './qualifyingInvestmentsCrossing';
+import { QualifyingInvestmentsHistory } from './qualifyingInvestmentsHistory';
+import { QualifyingInvestmentsObservation } from './qualifyingInvestmentsObservation';
 import { QuantityInstructed } from './quantityInstructed';
 import { QueryApplicableInstrumentEventsRequest } from './queryApplicableInstrumentEventsRequest';
 import { QueryBucketCashFlowDrillDownRequest } from './queryBucketCashFlowDrillDownRequest';
@@ -3364,6 +3380,8 @@ import { ResourceListOfScopeDefinition } from './resourceListOfScopeDefinition';
 import { ResourceListOfSeries } from './resourceListOfSeries';
 import { ResourceListOfSideDefinition } from './resourceListOfSideDefinition';
 import { ResourceListOfString } from './resourceListOfString';
+import { ResourceListOfTaxClassification } from './resourceListOfTaxClassification';
+import { ResourceListOfTaxClassificationExceptionRecord } from './resourceListOfTaxClassificationExceptionRecord';
 import { ResourceListOfTaxExceptionItem } from './resourceListOfTaxExceptionItem';
 import { ResourceListOfTransaction } from './resourceListOfTransaction';
 import { ResourceListOfTransactionFeeType } from './resourceListOfTransactionFeeType';
@@ -3538,6 +3556,13 @@ import { SwingTrigger } from './swingTrigger';
 import { SwingTriggerEvaluation } from './swingTriggerEvaluation';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
+import { TaxClassification } from './taxClassification';
+import { TaxClassificationDecisionStep } from './taxClassificationDecisionStep';
+import { TaxClassificationDetail } from './taxClassificationDetail';
+import { TaxClassificationException } from './taxClassificationException';
+import { TaxClassificationExceptionRecord } from './taxClassificationExceptionRecord';
+import { TaxClassificationFieldVersion } from './taxClassificationFieldVersion';
+import { TaxClassificationInputs } from './taxClassificationInputs';
 import { TaxExceptionItem } from './taxExceptionItem';
 import { TaxExceptionRootCause } from './taxExceptionRootCause';
 import { TaxPortfolioSyncStatus } from './taxPortfolioSyncStatus';
@@ -3702,6 +3727,7 @@ import { UpsertSingleStructuredDataResponse } from './upsertSingleStructuredData
 import { UpsertStructuredDataResponse } from './upsertStructuredDataResponse';
 import { UpsertStructuredResultDataRequest } from './upsertStructuredResultDataRequest';
 import { UpsertSubscriptionRequest } from './upsertSubscriptionRequest';
+import { UpsertTaxTreatmentOverrideRequest } from './upsertTaxTreatmentOverrideRequest';
 import { UpsertTransactionPropertiesResponse } from './upsertTransactionPropertiesResponse';
 import { UpsertTranslationScriptRequest } from './upsertTranslationScriptRequest';
 import { UpsertValuationPointRequest } from './upsertValuationPointRequest';
@@ -5856,6 +5882,9 @@ let typeMap: {[index: string]: any} = {
     "PutRedemptionEventAllOf": PutRedemptionEventAllOf,
     "QualifierDefinition": QualifierDefinition,
     "QualifierDefinitionRequest": QualifierDefinitionRequest,
+    "QualifyingInvestmentsCrossing": QualifyingInvestmentsCrossing,
+    "QualifyingInvestmentsHistory": QualifyingInvestmentsHistory,
+    "QualifyingInvestmentsObservation": QualifyingInvestmentsObservation,
     "QuantityInstructed": QuantityInstructed,
     "QueryApplicableInstrumentEventsRequest": QueryApplicableInstrumentEventsRequest,
     "QueryBucketCashFlowDrillDownRequest": QueryBucketCashFlowDrillDownRequest,
@@ -6014,6 +6043,8 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfSeries": ResourceListOfSeries,
     "ResourceListOfSideDefinition": ResourceListOfSideDefinition,
     "ResourceListOfString": ResourceListOfString,
+    "ResourceListOfTaxClassification": ResourceListOfTaxClassification,
+    "ResourceListOfTaxClassificationExceptionRecord": ResourceListOfTaxClassificationExceptionRecord,
     "ResourceListOfTaxExceptionItem": ResourceListOfTaxExceptionItem,
     "ResourceListOfTransaction": ResourceListOfTransaction,
     "ResourceListOfTransactionFeeType": ResourceListOfTransactionFeeType,
@@ -6188,6 +6219,13 @@ let typeMap: {[index: string]: any} = {
     "SwingTriggerEvaluation": SwingTriggerEvaluation,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
+    "TaxClassification": TaxClassification,
+    "TaxClassificationDecisionStep": TaxClassificationDecisionStep,
+    "TaxClassificationDetail": TaxClassificationDetail,
+    "TaxClassificationException": TaxClassificationException,
+    "TaxClassificationExceptionRecord": TaxClassificationExceptionRecord,
+    "TaxClassificationFieldVersion": TaxClassificationFieldVersion,
+    "TaxClassificationInputs": TaxClassificationInputs,
     "TaxExceptionItem": TaxExceptionItem,
     "TaxExceptionRootCause": TaxExceptionRootCause,
     "TaxPortfolioSyncStatus": TaxPortfolioSyncStatus,
@@ -6352,6 +6390,7 @@ let typeMap: {[index: string]: any} = {
     "UpsertStructuredDataResponse": UpsertStructuredDataResponse,
     "UpsertStructuredResultDataRequest": UpsertStructuredResultDataRequest,
     "UpsertSubscriptionRequest": UpsertSubscriptionRequest,
+    "UpsertTaxTreatmentOverrideRequest": UpsertTaxTreatmentOverrideRequest,
     "UpsertTransactionPropertiesResponse": UpsertTransactionPropertiesResponse,
     "UpsertTranslationScriptRequest": UpsertTranslationScriptRequest,
     "UpsertValuationPointRequest": UpsertValuationPointRequest,

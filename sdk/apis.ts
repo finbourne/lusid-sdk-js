@@ -67,6 +67,7 @@ import {StagingRuleSetApi} from './api/stagingRuleSetApi';
 import {StructuredResultDataApi} from './api/structuredResultDataApi';
 import {SubscriptionsApi} from './api/subscriptionsApi';
 import {SystemConfigurationApi} from './api/systemConfigurationApi';
+import {TaxClassificationsApi} from './api/taxClassificationsApi';
 import {TransactionConfigurationApi} from './api/transactionConfigurationApi';
 import {TransactionFeesApi} from './api/transactionFeesApi';
 import {TransactionFeeTypesApi} from './api/transactionFeeTypesApi';
@@ -144,6 +145,7 @@ export class Api {
     public structuredResultData:  StructuredResultDataApi
     public subscriptions:  SubscriptionsApi
     public systemConfiguration:  SystemConfigurationApi
+    public taxClassifications:  TaxClassificationsApi
     public transactionConfiguration:  TransactionConfigurationApi
     public transactionFees:  TransactionFeesApi
     public transactionFeeTypes:  TransactionFeeTypesApi
