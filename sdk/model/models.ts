@@ -522,6 +522,7 @@ export * from './decimalListAllOf';
 export * from './decimalListComplianceParameter';
 export * from './decoratedComplianceRunSummary';
 export * from './decoratedComplianceRunSummaryRequest';
+export * from './deemedDisposal';
 export * from './deleteAccountsResponse';
 export * from './deleteCustodianAccountsResponse';
 export * from './deleteInstrumentPropertiesResponse';
@@ -881,6 +882,10 @@ export * from './instrumentDefinition';
 export * from './instrumentDefinitionFormat';
 export * from './instrumentEntity';
 export * from './instrumentEvent';
+export * from './instrumentEventActivity';
+export * from './instrumentEventActivityAdjustment';
+export * from './instrumentEventActivityAdjustmentAllOf';
+export * from './instrumentEventActivityAllOf';
 export * from './instrumentEventConfiguration';
 export * from './instrumentEventEntity';
 export * from './instrumentEventHolder';
@@ -1343,6 +1348,7 @@ export * from './recallableCapitalExpiryEvent';
 export * from './recallableCapitalExpiryEventAllOf';
 export * from './recipeBlock';
 export * from './recipeComposer';
+export * from './recipeProvenance';
 export * from './recipeValue';
 export * from './recombineStep';
 export * from './reconcileDateTimeRule';
@@ -2437,6 +2443,7 @@ import { DecimalListAllOf } from './decimalListAllOf';
 import { DecimalListComplianceParameter } from './decimalListComplianceParameter';
 import { DecoratedComplianceRunSummary } from './decoratedComplianceRunSummary';
 import { DecoratedComplianceRunSummaryRequest } from './decoratedComplianceRunSummaryRequest';
+import { DeemedDisposal } from './deemedDisposal';
 import { DeleteAccountsResponse } from './deleteAccountsResponse';
 import { DeleteCustodianAccountsResponse } from './deleteCustodianAccountsResponse';
 import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
@@ -2796,6 +2803,10 @@ import { InstrumentDefinition } from './instrumentDefinition';
 import { InstrumentDefinitionFormat } from './instrumentDefinitionFormat';
 import { InstrumentEntity } from './instrumentEntity';
 import { InstrumentEvent } from './instrumentEvent';
+import { InstrumentEventActivity } from './instrumentEventActivity';
+import { InstrumentEventActivityAdjustment } from './instrumentEventActivityAdjustment';
+import { InstrumentEventActivityAdjustmentAllOf } from './instrumentEventActivityAdjustmentAllOf';
+import { InstrumentEventActivityAllOf } from './instrumentEventActivityAllOf';
 import { InstrumentEventConfiguration } from './instrumentEventConfiguration';
 import { InstrumentEventEntity } from './instrumentEventEntity';
 import { InstrumentEventHolder } from './instrumentEventHolder';
@@ -3258,6 +3269,7 @@ import { RecallableCapitalExpiryEvent } from './recallableCapitalExpiryEvent';
 import { RecallableCapitalExpiryEventAllOf } from './recallableCapitalExpiryEventAllOf';
 import { RecipeBlock } from './recipeBlock';
 import { RecipeComposer } from './recipeComposer';
+import { RecipeProvenance } from './recipeProvenance';
 import { RecipeValue } from './recipeValue';
 import { RecombineStep } from './recombineStep';
 import { ReconcileDateTimeRule } from './reconcileDateTimeRule';
@@ -4259,6 +4271,10 @@ let enumsMap: {[index: string]: any} = {
         "InstrumentActivityAdjustmentAllOf.NavActivityAdjustmentTypeEnum": InstrumentActivityAdjustmentAllOf.NavActivityAdjustmentTypeEnum,
         "InstrumentActivityAllOf.NavActivityAdjustmentTypeEnum": InstrumentActivityAllOf.NavActivityAdjustmentTypeEnum,
         "InstrumentEvent.InstrumentEventTypeEnum": InstrumentEvent.InstrumentEventTypeEnum,
+        "InstrumentEventActivity.NavActivityAdjustmentTypeEnum": InstrumentEventActivity.NavActivityAdjustmentTypeEnum,
+        "InstrumentEventActivityAdjustment.NavActivityAdjustmentTypeEnum": InstrumentEventActivityAdjustment.NavActivityAdjustmentTypeEnum,
+        "InstrumentEventActivityAdjustmentAllOf.NavActivityAdjustmentTypeEnum": InstrumentEventActivityAdjustmentAllOf.NavActivityAdjustmentTypeEnum,
+        "InstrumentEventActivityAllOf.NavActivityAdjustmentTypeEnum": InstrumentEventActivityAllOf.NavActivityAdjustmentTypeEnum,
         "InstrumentLeg.InstrumentTypeEnum": InstrumentLeg.InstrumentTypeEnum,
         "InstrumentLegAllOf.InstrumentTypeEnum": InstrumentLegAllOf.InstrumentTypeEnum,
         "InstrumentList.ReferenceListTypeEnum": InstrumentList.ReferenceListTypeEnum,
@@ -5100,6 +5116,7 @@ let typeMap: {[index: string]: any} = {
     "DecimalListComplianceParameter": DecimalListComplianceParameter,
     "DecoratedComplianceRunSummary": DecoratedComplianceRunSummary,
     "DecoratedComplianceRunSummaryRequest": DecoratedComplianceRunSummaryRequest,
+    "DeemedDisposal": DeemedDisposal,
     "DeleteAccountsResponse": DeleteAccountsResponse,
     "DeleteCustodianAccountsResponse": DeleteCustodianAccountsResponse,
     "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,
@@ -5459,6 +5476,10 @@ let typeMap: {[index: string]: any} = {
     "InstrumentDefinitionFormat": InstrumentDefinitionFormat,
     "InstrumentEntity": InstrumentEntity,
     "InstrumentEvent": InstrumentEvent,
+    "InstrumentEventActivity": InstrumentEventActivity,
+    "InstrumentEventActivityAdjustment": InstrumentEventActivityAdjustment,
+    "InstrumentEventActivityAdjustmentAllOf": InstrumentEventActivityAdjustmentAllOf,
+    "InstrumentEventActivityAllOf": InstrumentEventActivityAllOf,
     "InstrumentEventConfiguration": InstrumentEventConfiguration,
     "InstrumentEventEntity": InstrumentEventEntity,
     "InstrumentEventHolder": InstrumentEventHolder,
@@ -5921,6 +5942,7 @@ let typeMap: {[index: string]: any} = {
     "RecallableCapitalExpiryEventAllOf": RecallableCapitalExpiryEventAllOf,
     "RecipeBlock": RecipeBlock,
     "RecipeComposer": RecipeComposer,
+    "RecipeProvenance": RecipeProvenance,
     "RecipeValue": RecipeValue,
     "RecombineStep": RecombineStep,
     "ReconcileDateTimeRule": ReconcileDateTimeRule,

@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1749",
+    "version": "2.0.1750",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -52728,6 +52728,10 @@
                   "diaryEntry": "DiaryEntryMarch2018",
                   "holidayCalendars": [],
                   "valuationDateTimes": []
+                },
+                "recipeId": {
+                  "scope": "Finbourne-Examples",
+                  "code": "SupplementaryReportingRecipe"
                 }
               }
             },
@@ -52769,6 +52773,10 @@
                   "diaryEntry": "DiaryEntryMarch2018",
                   "holidayCalendars": [],
                   "valuationDateTimes": []
+                },
+                "recipeId": {
+                  "scope": "Finbourne-Examples",
+                  "code": "SupplementaryReportingRecipe"
                 }
               }
             },
@@ -52810,6 +52818,10 @@
                   "diaryEntry": "DiaryEntryMarch2018",
                   "holidayCalendars": [],
                   "valuationDateTimes": []
+                },
+                "recipeId": {
+                  "scope": "Finbourne-Examples",
+                  "code": "SupplementaryReportingRecipe"
                 }
               }
             },
@@ -52851,6 +52863,10 @@
                   "diaryEntry": "DiaryEntryMarch2018",
                   "holidayCalendars": [],
                   "valuationDateTimes": []
+                },
+                "recipeId": {
+                  "scope": "Finbourne-Examples",
+                  "code": "SupplementaryReportingRecipe"
                 }
               }
             }
@@ -57917,6 +57933,13 @@
                   "portfolioCode": "portfolioCode1",
                   "transactionId": "transactionId1",
                   "navActivityAdjustmentType": "PortfolioTransaction"
+                },
+                {
+                  "asAt": "2024-01-01T00:00:00.0000000+00:00",
+                  "corporateActionSourceScope": "corporateActionSourceScope1",
+                  "corporateActionSourceCode": "corporateActionSourceCode1",
+                  "instrumentEventId": "instrumentEventId1",
+                  "navActivityAdjustmentType": "InstrumentEventActivity"
                 }
               ]
             },
@@ -57934,6 +57957,13 @@
                   "portfolioCode": "portfolioCode1",
                   "transactionId": "transactionId1",
                   "navActivityAdjustmentType": "PortfolioTransaction"
+                },
+                {
+                  "asAt": "2024-01-01T00:00:00.0000000+00:00",
+                  "corporateActionSourceScope": "corporateActionSourceScope1",
+                  "corporateActionSourceCode": "corporateActionSourceCode1",
+                  "instrumentEventId": "instrumentEventId1",
+                  "navActivityAdjustmentType": "InstrumentEventActivity"
                 }
               ]
             },
@@ -57951,6 +57981,13 @@
                   "portfolioCode": "portfolioCode1",
                   "transactionId": "transactionId1",
                   "navActivityAdjustmentType": "PortfolioTransaction"
+                },
+                {
+                  "asAt": "2024-01-01T00:00:00.0000000+00:00",
+                  "corporateActionSourceScope": "corporateActionSourceScope1",
+                  "corporateActionSourceCode": "corporateActionSourceCode1",
+                  "instrumentEventId": "instrumentEventId1",
+                  "navActivityAdjustmentType": "InstrumentEventActivity"
                 }
               ]
             },
@@ -57968,6 +58005,13 @@
                   "portfolioCode": "portfolioCode1",
                   "transactionId": "transactionId1",
                   "navActivityAdjustmentType": "PortfolioTransaction"
+                },
+                {
+                  "asAt": "2024-01-01T00:00:00.0000000+00:00",
+                  "corporateActionSourceScope": "corporateActionSourceScope1",
+                  "corporateActionSourceCode": "corporateActionSourceCode1",
+                  "instrumentEventId": "instrumentEventId1",
+                  "navActivityAdjustmentType": "InstrumentEventActivity"
                 }
               ]
             }
@@ -58293,6 +58337,14 @@
                   "portfolioCode": "portfolioCode1",
                   "transactionId": "transactionId1",
                   "navActivityAdjustmentType": "PortfolioTransactionAdjustment"
+                },
+                {
+                  "navActivityAdjustmentSource": "Undefined",
+                  "asAt": "2024-01-01T00:00:00.0000000+00:00",
+                  "corporateActionSourceScope": "corporateActionSourceScope1",
+                  "corporateActionSourceCode": "corporateActionSourceCode1",
+                  "instrumentEventId": "instrumentEventId1",
+                  "navActivityAdjustmentType": "InstrumentEventActivityAdjustment"
                 }
               ]
             },
@@ -58311,6 +58363,14 @@
                   "portfolioCode": "portfolioCode1",
                   "transactionId": "transactionId1",
                   "navActivityAdjustmentType": "PortfolioTransactionAdjustment"
+                },
+                {
+                  "navActivityAdjustmentSource": "Undefined",
+                  "asAt": "2024-01-01T00:00:00.0000000+00:00",
+                  "corporateActionSourceScope": "corporateActionSourceScope1",
+                  "corporateActionSourceCode": "corporateActionSourceCode1",
+                  "instrumentEventId": "instrumentEventId1",
+                  "navActivityAdjustmentType": "InstrumentEventActivityAdjustment"
                 }
               ]
             },
@@ -58329,6 +58389,14 @@
                   "portfolioCode": "portfolioCode1",
                   "transactionId": "transactionId1",
                   "navActivityAdjustmentType": "PortfolioTransactionAdjustment"
+                },
+                {
+                  "navActivityAdjustmentSource": "Undefined",
+                  "asAt": "2024-01-01T00:00:00.0000000+00:00",
+                  "corporateActionSourceScope": "corporateActionSourceScope1",
+                  "corporateActionSourceCode": "corporateActionSourceCode1",
+                  "instrumentEventId": "instrumentEventId1",
+                  "navActivityAdjustmentType": "InstrumentEventActivityAdjustment"
                 }
               ]
             },
@@ -58347,6 +58415,14 @@
                   "portfolioCode": "portfolioCode1",
                   "transactionId": "transactionId1",
                   "navActivityAdjustmentType": "PortfolioTransactionAdjustment"
+                },
+                {
+                  "navActivityAdjustmentSource": "Undefined",
+                  "asAt": "2024-01-01T00:00:00.0000000+00:00",
+                  "corporateActionSourceScope": "corporateActionSourceScope1",
+                  "corporateActionSourceCode": "corporateActionSourceCode1",
+                  "instrumentEventId": "instrumentEventId1",
+                  "navActivityAdjustmentType": "InstrumentEventActivityAdjustment"
                 }
               ]
             }
@@ -99603,6 +99679,16 @@
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string"
             }
+          },
+          {
+            "name": "cancelAndCorrect",
+            "in": "query",
+            "description": "Whether to re-allocate allocations that already have booked transactions or to skip them.\r\nThe transactions booked against the re-allocated allocations are cancelled, and a subsequent call to\r\nBookTransactions books corrected ones.\r\nDefaults to false, which leaves allocations with booked transactions untouched.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-nullable": true
           }
         ],
         "requestBody": {
@@ -208363,7 +208449,7 @@
               },
               "isNonStandard": {
                 "type": "boolean",
-                "description": "By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment\r\nfrequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates\r\n(the 20th of March, June, September or December).\r\nIf IsNonStandard=true, the premium schedule uses the stated start and maturity dates. The payment\r\nfrequency can be any whole number of days, weeks, months, quarters, half-years or years, for example\r\n1W, 1M or 4M. Term (T) and business-day (BD) frequencies are not accepted. The payment dates roll back\r\nfrom the maturity, so a term that is not a whole number of payment periods has a short first period."
+                "description": "By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment\r\nfrequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates\r\n(the 20th of March, June, September or December).\r\nIf IsNonStandard=true, the premium schedule uses the stated start and maturity dates. The payment\r\nfrequency can be any whole number of days, weeks, months, quarters, half-years or years, for example\r\n1W, 1M or 4M. Term (T) and business-day (BD) frequencies are not accepted. The payment dates are\r\ngenerated as for a fixed leg with a short front stub: backwards from the maturity, so a term that is not\r\na whole number of payment periods has a short first period. When the roll convention is a day of the\r\nmonth (1 to 30) or EndOfMonth, each payment date falls on that day and the final period runs from the\r\nlast roll date to the maturity, for example a CDS on ABS paying on the 25th. Payments are adjusted to the\r\nfollowing business day. IMM and nth-weekday roll conventions are not accepted."
               },
               "protectionDetailSpecification": {
                 "$ref": "#/components/schemas/CdsProtectionDetailSpecification"
@@ -211490,10 +211576,11 @@
                   "PortfolioSettlementInstruction",
                   "InstrumentActivity",
                   "QuoteActivity",
-                  "ComplexMarketDataActivity"
+                  "ComplexMarketDataActivity",
+                  "InstrumentEventActivity"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity."
               }
             }
           }
@@ -211543,10 +211630,11 @@
                   "PortfolioSettlementInstructionAdjustment",
                   "InstrumentActivityAdjustment",
                   "QuoteActivityAdjustment",
-                  "ComplexMarketDataActivityAdjustment"
+                  "ComplexMarketDataActivityAdjustment",
+                  "InstrumentEventActivityAdjustment"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment, InstrumentEventActivityAdjustment."
               }
             }
           }
@@ -216481,7 +216569,7 @@
               },
               "isNonStandard": {
                 "type": "boolean",
-                "description": "By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment\r\nfrequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates\r\n(the 20th of March, June, September or December).\r\nIf IsNonStandard=true, the premium schedule uses the stated start and maturity dates. The payment\r\nfrequency can be any whole number of days, weeks, months, quarters, half-years or years, for example\r\n1W, 1M or 4M. Term (T) and business-day (BD) frequencies are not accepted. The payment dates roll back\r\nfrom the maturity, so a term that is not a whole number of payment periods has a short first period."
+                "description": "By default IsNonStandard is false, and the contract follows the IMM convention: the roll and payment\r\nfrequencies must be 3M or 6M, and the start and maturity dates are rolled onto IMM dates\r\n(the 20th of March, June, September or December).\r\nIf IsNonStandard=true, the premium schedule uses the stated start and maturity dates. The payment\r\nfrequency can be any whole number of days, weeks, months, quarters, half-years or years, for example\r\n1W, 1M or 4M. Term (T) and business-day (BD) frequencies are not accepted. The payment dates are\r\ngenerated as for a fixed leg with a short front stub: backwards from the maturity, so a term that is not\r\na whole number of payment periods has a short first period. When the roll convention is a day of the\r\nmonth (1 to 30) or EndOfMonth, each payment date falls on that day and the final period runs from the\r\nlast roll date to the maturity, for example a CDS on ABS paying on the 25th. Payments are adjusted to the\r\nfollowing business day. IMM and nth-weekday roll conventions are not accepted."
               },
               "protectionDetailSpecification": {
                 "$ref": "#/components/schemas/CdsProtectionDetailSpecification"
@@ -218944,6 +219032,41 @@
         },
         "additionalProperties": false,
         "description": "Specification for retrieving a decorated compliance run summary, optionally restricted to a\r\nset of portfolios and/or portfolio groups."
+      },
+      "DeemedDisposal": {
+        "required": [
+          "enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the Nav Type books a deemed disposal at period close. When true, in-scope holdings are treated as sold and immediately re-acquired at market value, realising their unrealised gain."
+          },
+          "costBase": {
+            "type": "string",
+            "description": "The cost the deemed disposal realises against: Book or Tax. Defaults to Book. Book: rebases book cost to base value and posts the movement as realised FX; it moves the portfolio's cost, so it is only valid on the primary Nav Type. Tax: writes a tax cost equal to market value and spreads the deemed gain since the prior tax cost. Available values: Book, Tax.",
+            "nullable": true
+          },
+          "holdingsFilter": {
+            "maxLength": 16384,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "An optional filter selecting which holdings are deemed disposed of at period close. Omit it for the cost base's default: under Book, every non-base-currency monetary item (cash, receivables, payables, accruals). Tax has no default yet, so set a filter.",
+            "nullable": true
+          },
+          "transactionTypeCode": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "An optional transaction type, in the Nav Type's transaction type scope, that the deemed disposal transactions are booked with. Omit it to use the domain default deemed disposal transaction type.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Settings for the deemed disposal a NAV type books at period close. When enabled, the in-scope holdings are\r\ntreated as sold and immediately re-acquired at market value, realising their unrealised gain against the\r\nchosen cost base."
       },
       "DeleteAccountsResponse": {
         "type": "object",
@@ -232469,6 +232592,9 @@
           },
           "corporateActionSourceId": {
             "$ref": "#/components/schemas/ResourceId"
+          },
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
           }
         },
         "additionalProperties": false,
@@ -238360,10 +238486,11 @@
                   "PortfolioSettlementInstruction",
                   "InstrumentActivity",
                   "QuoteActivity",
-                  "ComplexMarketDataActivity"
+                  "ComplexMarketDataActivity",
+                  "InstrumentEventActivity"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity."
               }
             }
           }
@@ -238414,10 +238541,11 @@
                   "PortfolioSettlementInstructionAdjustment",
                   "InstrumentActivityAdjustment",
                   "QuoteActivityAdjustment",
-                  "ComplexMarketDataActivityAdjustment"
+                  "ComplexMarketDataActivityAdjustment",
+                  "InstrumentEventActivityAdjustment"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment, InstrumentEventActivityAdjustment."
               }
             }
           }
@@ -238825,6 +238953,126 @@
         "discriminator": {
           "propertyName": "instrumentEventType"
         }
+      },
+      "InstrumentEventActivity": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NavActivityAdjustment"
+          },
+          {
+            "required": [
+              "asAt",
+              "corporateActionSourceCode",
+              "corporateActionSourceScope",
+              "instrumentEventId",
+              "navActivityAdjustmentType"
+            ],
+            "type": "object",
+            "properties": {
+              "asAt": {
+                "type": "string",
+                "description": "The asAt time for which the adjustment is being applied.",
+                "format": "date-time"
+              },
+              "corporateActionSourceScope": {
+                "maxLength": 64,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z0-9\\-_]+$",
+                "type": "string",
+                "description": "The scope of the corporate action source that the instrument event belongs to."
+              },
+              "corporateActionSourceCode": {
+                "maxLength": 64,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z0-9\\-_]+$",
+                "type": "string",
+                "description": "The code of the corporate action source that the instrument event belongs to."
+              },
+              "instrumentEventId": {
+                "maxLength": 64,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z0-9\\-_]+$",
+                "type": "string",
+                "description": "The Id of the instrument event being adjusted."
+              },
+              "navActivityAdjustmentType": {
+                "enum": [
+                  "PortfolioTransaction",
+                  "PortfolioSettlementInstruction",
+                  "InstrumentActivity",
+                  "QuoteActivity",
+                  "ComplexMarketDataActivity",
+                  "InstrumentEventActivity"
+                ],
+                "type": "string",
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity."
+              }
+            }
+          }
+        ]
+      },
+      "InstrumentEventActivityAdjustment": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NavActivityAdjustmentResponse"
+          },
+          {
+            "required": [
+              "asAt",
+              "corporateActionSourceCode",
+              "corporateActionSourceScope",
+              "instrumentEventId",
+              "navActivityAdjustmentSource",
+              "navActivityAdjustmentType"
+            ],
+            "type": "object",
+            "properties": {
+              "navActivityAdjustmentSource": {
+                "minLength": 1,
+                "type": "string",
+                "description": "The post closed activity source of the given entity, for example Manual. Available values: Undefined, Manual, Auto."
+              },
+              "asAt": {
+                "type": "string",
+                "description": "The asAt time for which the adjustment is being applied.",
+                "format": "date-time"
+              },
+              "corporateActionSourceScope": {
+                "maxLength": 64,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z0-9\\-_]+$",
+                "type": "string",
+                "description": "The scope of the corporate action source that the instrument event belongs to."
+              },
+              "corporateActionSourceCode": {
+                "maxLength": 64,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z0-9\\-_]+$",
+                "type": "string",
+                "description": "The code of the corporate action source that the instrument event belongs to."
+              },
+              "instrumentEventId": {
+                "maxLength": 64,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z0-9\\-_]+$",
+                "type": "string",
+                "description": "The Id of the instrument event being adjusted."
+              },
+              "navActivityAdjustmentType": {
+                "enum": [
+                  "PortfolioTransactionAdjustment",
+                  "PortfolioSettlementInstructionAdjustment",
+                  "InstrumentActivityAdjustment",
+                  "QuoteActivityAdjustment",
+                  "ComplexMarketDataActivityAdjustment",
+                  "InstrumentEventActivityAdjustment"
+                ],
+                "type": "string",
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment, InstrumentEventActivityAdjustment."
+              }
+            }
+          }
+        ]
       },
       "InstrumentEventConfiguration": {
         "type": "object",
@@ -241835,6 +242083,9 @@
           },
           "scenarioDiagnostics": {
             "$ref": "#/components/schemas/ScenarioDiagnostics"
+          },
+          "recipeProvenance": {
+            "$ref": "#/components/schemas/RecipeProvenance"
           },
           "links": {
             "type": "array",
@@ -246125,10 +246376,11 @@
               "PortfolioSettlementInstruction",
               "InstrumentActivity",
               "QuoteActivity",
-              "ComplexMarketDataActivity"
+              "ComplexMarketDataActivity",
+              "InstrumentEventActivity"
             ],
             "type": "string",
-            "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity."
+            "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity."
           }
         },
         "additionalProperties": false,
@@ -246148,10 +246400,11 @@
               "PortfolioSettlementInstructionAdjustment",
               "InstrumentActivityAdjustment",
               "QuoteActivityAdjustment",
-              "ComplexMarketDataActivityAdjustment"
+              "ComplexMarketDataActivityAdjustment",
+              "InstrumentEventActivityAdjustment"
             ],
             "type": "string",
-            "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment."
+            "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment, InstrumentEventActivityAdjustment."
           }
         },
         "additionalProperties": false,
@@ -246501,6 +246754,9 @@
             "type": "string",
             "description": "The chargeable gains regime the Nav Type's derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio's regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type's accounting method; it requires the Fund's base currency to be GBP. Available values: Default, UkChargeableGains.",
             "nullable": true
+          },
+          "deemedDisposal": {
+            "$ref": "#/components/schemas/DeemedDisposal"
           }
         },
         "additionalProperties": false
@@ -246645,6 +246901,9 @@
             "type": "string",
             "description": "The chargeable gains regime the Nav Type's derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio's regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type's accounting method; it requires the Fund's base currency to be GBP. Available values: Default, UkChargeableGains.",
             "nullable": true
+          },
+          "deemedDisposal": {
+            "$ref": "#/components/schemas/DeemedDisposal"
           }
         },
         "additionalProperties": false
@@ -256802,10 +257061,11 @@
                   "PortfolioSettlementInstruction",
                   "InstrumentActivity",
                   "QuoteActivity",
-                  "ComplexMarketDataActivity"
+                  "ComplexMarketDataActivity",
+                  "InstrumentEventActivity"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity."
               }
             }
           }
@@ -256864,10 +257124,11 @@
                   "PortfolioSettlementInstructionAdjustment",
                   "InstrumentActivityAdjustment",
                   "QuoteActivityAdjustment",
-                  "ComplexMarketDataActivityAdjustment"
+                  "ComplexMarketDataActivityAdjustment",
+                  "InstrumentEventActivityAdjustment"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment, InstrumentEventActivityAdjustment."
               }
             }
           }
@@ -256958,10 +257219,11 @@
                   "PortfolioSettlementInstruction",
                   "InstrumentActivity",
                   "QuoteActivity",
-                  "ComplexMarketDataActivity"
+                  "ComplexMarketDataActivity",
+                  "InstrumentEventActivity"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity."
               }
             }
           }
@@ -257020,10 +257282,11 @@
                   "PortfolioSettlementInstructionAdjustment",
                   "InstrumentActivityAdjustment",
                   "QuoteActivityAdjustment",
-                  "ComplexMarketDataActivityAdjustment"
+                  "ComplexMarketDataActivityAdjustment",
+                  "InstrumentEventActivityAdjustment"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment, InstrumentEventActivityAdjustment."
               }
             }
           }
@@ -261025,10 +261288,11 @@
                   "PortfolioSettlementInstruction",
                   "InstrumentActivity",
                   "QuoteActivity",
-                  "ComplexMarketDataActivity"
+                  "ComplexMarketDataActivity",
+                  "InstrumentEventActivity"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity."
               }
             }
           }
@@ -261084,10 +261348,11 @@
                   "PortfolioSettlementInstructionAdjustment",
                   "InstrumentActivityAdjustment",
                   "QuoteActivityAdjustment",
-                  "ComplexMarketDataActivityAdjustment"
+                  "ComplexMarketDataActivityAdjustment",
+                  "InstrumentEventActivityAdjustment"
                 ],
                 "type": "string",
-                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment."
+                "description": "The type of the entity being applied, for example a PortfolioTransaction. Available values: PortfolioTransactionAdjustment, PortfolioSettlementInstructionAdjustment, InstrumentActivityAdjustment, QuoteActivityAdjustment, ComplexMarketDataActivityAdjustment, InstrumentEventActivityAdjustment."
               }
             }
           }
@@ -261962,6 +262227,21 @@
         },
         "additionalProperties": false,
         "description": "Recipe composer is an object used to dynamically compose Configuration Recipe from atomic operations."
+      },
+      "RecipeProvenance": {
+        "type": "object",
+        "properties": {
+          "recipeId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "source": {
+            "type": "string",
+            "description": "Where the recipe came from. 'NavType' when it is the recipe on the nominated NAV type's definition;\r\n'Request' when the request named a recipeId that replaced it for pricing in that request only.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The recipe a fund valuation was priced with, and where it came from. Absent when the fund has no portfolios\r\nat the effective date, as nothing is priced and no recipe is resolved."
       },
       "RecipeValue": {
         "type": "object",
@@ -282622,7 +282902,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Collection of types of Post Close Activities which added this instrument. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity.",
+            "description": "Collection of types of Post Close Activities which added this instrument. Available values: PortfolioTransaction, PortfolioSettlementInstruction, InstrumentActivity, QuoteActivity, ComplexMarketDataActivity, InstrumentEventActivity.",
             "nullable": true
           },
           "properties": {
