@@ -216,16 +216,12 @@ export * from './branchStepRequest';
 export * from './branchStepRequestAllOf';
 export * from './bucket';
 export * from './bucketAmounts';
-export * from './bucketBalanceFigures';
 export * from './bucketBorderConfiguration';
-export * from './bucketCashFlowBalance';
 export * from './bucketCashFlowBucket';
 export * from './bucketCashFlowDrillDownResponse';
-export * from './bucketCashFlowSubtotal';
 export * from './bucketCurrencySubtotal';
 export * from './bucketDefinition';
 export * from './bucketMembership';
-export * from './bucketNetOfHaircutBalance';
 export * from './bucketSeedValue';
 export * from './bucketSeedValueRequest';
 export * from './bucketSetClassSeed';
@@ -522,7 +518,6 @@ export * from './decimalListAllOf';
 export * from './decimalListComplianceParameter';
 export * from './decoratedComplianceRunSummary';
 export * from './decoratedComplianceRunSummaryRequest';
-export * from './deemedDisposal';
 export * from './deleteAccountsResponse';
 export * from './deleteCustodianAccountsResponse';
 export * from './deleteInstrumentPropertiesResponse';
@@ -581,6 +576,7 @@ export * from './economicDependencyWithComplexMarketData';
 export * from './economicDependencyWithQuote';
 export * from './economics';
 export * from './effectiveRange';
+export * from './electionProrationRate';
 export * from './electionSpecification';
 export * from './eligibilityCalculation';
 export * from './emptyModelOptions';
@@ -726,6 +722,7 @@ export * from './fundPartner';
 export * from './fundPartnerBalances';
 export * from './fundPartnerUnfundedReconciliation';
 export * from './fundPartnerUnfundedReconciliationLine';
+export * from './fundPartnerUnfundedReconciliationWarning';
 export * from './fundPartnersTotals';
 export * from './fundPnlBreakdown';
 export * from './fundPreviousNAV';
@@ -2137,16 +2134,12 @@ import { BranchStepRequest } from './branchStepRequest';
 import { BranchStepRequestAllOf } from './branchStepRequestAllOf';
 import { Bucket } from './bucket';
 import { BucketAmounts } from './bucketAmounts';
-import { BucketBalanceFigures } from './bucketBalanceFigures';
 import { BucketBorderConfiguration } from './bucketBorderConfiguration';
-import { BucketCashFlowBalance } from './bucketCashFlowBalance';
 import { BucketCashFlowBucket } from './bucketCashFlowBucket';
 import { BucketCashFlowDrillDownResponse } from './bucketCashFlowDrillDownResponse';
-import { BucketCashFlowSubtotal } from './bucketCashFlowSubtotal';
 import { BucketCurrencySubtotal } from './bucketCurrencySubtotal';
 import { BucketDefinition } from './bucketDefinition';
 import { BucketMembership } from './bucketMembership';
-import { BucketNetOfHaircutBalance } from './bucketNetOfHaircutBalance';
 import { BucketSeedValue } from './bucketSeedValue';
 import { BucketSeedValueRequest } from './bucketSeedValueRequest';
 import { BucketSetClassSeed } from './bucketSetClassSeed';
@@ -2443,7 +2436,6 @@ import { DecimalListAllOf } from './decimalListAllOf';
 import { DecimalListComplianceParameter } from './decimalListComplianceParameter';
 import { DecoratedComplianceRunSummary } from './decoratedComplianceRunSummary';
 import { DecoratedComplianceRunSummaryRequest } from './decoratedComplianceRunSummaryRequest';
-import { DeemedDisposal } from './deemedDisposal';
 import { DeleteAccountsResponse } from './deleteAccountsResponse';
 import { DeleteCustodianAccountsResponse } from './deleteCustodianAccountsResponse';
 import { DeleteInstrumentPropertiesResponse } from './deleteInstrumentPropertiesResponse';
@@ -2502,6 +2494,7 @@ import { EconomicDependencyWithComplexMarketData } from './economicDependencyWit
 import { EconomicDependencyWithQuote } from './economicDependencyWithQuote';
 import { Economics } from './economics';
 import { EffectiveRange } from './effectiveRange';
+import { ElectionProrationRate } from './electionProrationRate';
 import { ElectionSpecification } from './electionSpecification';
 import { EligibilityCalculation } from './eligibilityCalculation';
 import { EmptyModelOptions } from './emptyModelOptions';
@@ -2647,6 +2640,7 @@ import { FundPartner } from './fundPartner';
 import { FundPartnerBalances } from './fundPartnerBalances';
 import { FundPartnerUnfundedReconciliation } from './fundPartnerUnfundedReconciliation';
 import { FundPartnerUnfundedReconciliationLine } from './fundPartnerUnfundedReconciliationLine';
+import { FundPartnerUnfundedReconciliationWarning } from './fundPartnerUnfundedReconciliationWarning';
 import { FundPartnersTotals } from './fundPartnersTotals';
 import { FundPnlBreakdown } from './fundPnlBreakdown';
 import { FundPreviousNAV } from './fundPreviousNAV';
@@ -4811,16 +4805,12 @@ let typeMap: {[index: string]: any} = {
     "BranchStepRequestAllOf": BranchStepRequestAllOf,
     "Bucket": Bucket,
     "BucketAmounts": BucketAmounts,
-    "BucketBalanceFigures": BucketBalanceFigures,
     "BucketBorderConfiguration": BucketBorderConfiguration,
-    "BucketCashFlowBalance": BucketCashFlowBalance,
     "BucketCashFlowBucket": BucketCashFlowBucket,
     "BucketCashFlowDrillDownResponse": BucketCashFlowDrillDownResponse,
-    "BucketCashFlowSubtotal": BucketCashFlowSubtotal,
     "BucketCurrencySubtotal": BucketCurrencySubtotal,
     "BucketDefinition": BucketDefinition,
     "BucketMembership": BucketMembership,
-    "BucketNetOfHaircutBalance": BucketNetOfHaircutBalance,
     "BucketSeedValue": BucketSeedValue,
     "BucketSeedValueRequest": BucketSeedValueRequest,
     "BucketSetClassSeed": BucketSetClassSeed,
@@ -5116,7 +5106,6 @@ let typeMap: {[index: string]: any} = {
     "DecimalListComplianceParameter": DecimalListComplianceParameter,
     "DecoratedComplianceRunSummary": DecoratedComplianceRunSummary,
     "DecoratedComplianceRunSummaryRequest": DecoratedComplianceRunSummaryRequest,
-    "DeemedDisposal": DeemedDisposal,
     "DeleteAccountsResponse": DeleteAccountsResponse,
     "DeleteCustodianAccountsResponse": DeleteCustodianAccountsResponse,
     "DeleteInstrumentPropertiesResponse": DeleteInstrumentPropertiesResponse,
@@ -5175,6 +5164,7 @@ let typeMap: {[index: string]: any} = {
     "EconomicDependencyWithQuote": EconomicDependencyWithQuote,
     "Economics": Economics,
     "EffectiveRange": EffectiveRange,
+    "ElectionProrationRate": ElectionProrationRate,
     "ElectionSpecification": ElectionSpecification,
     "EligibilityCalculation": EligibilityCalculation,
     "EmptyModelOptions": EmptyModelOptions,
@@ -5320,6 +5310,7 @@ let typeMap: {[index: string]: any} = {
     "FundPartnerBalances": FundPartnerBalances,
     "FundPartnerUnfundedReconciliation": FundPartnerUnfundedReconciliation,
     "FundPartnerUnfundedReconciliationLine": FundPartnerUnfundedReconciliationLine,
+    "FundPartnerUnfundedReconciliationWarning": FundPartnerUnfundedReconciliationWarning,
     "FundPartnersTotals": FundPartnersTotals,
     "FundPnlBreakdown": FundPnlBreakdown,
     "FundPreviousNAV": FundPreviousNAV,

@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1750",
+    "version": "2.0.1751",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -11616,6 +11616,15 @@
               "minLength": 1,
               "pattern": "^[a-zA-Z0-9\\-_]+$",
               "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label from which the definition applies, when the request body does not give one. Required to update an existing Allocation Map; a new one created without it applies from the beginning of time.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
             }
           }
         ],
@@ -59313,6 +59322,26 @@
               }
             }
           },
+          "404": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
           "default": {
             "description": "Error response",
             "content": {
@@ -79154,8 +79183,8 @@
         "tags": [
           "Instrument Events"
         ],
-        "summary": "QueryBucketCashFlowDrillDown: Returns the individual cashflows that make up a single cashflow bucket, with their source lineage.",
-        "description": "Returns the individual cashflows inside the requested bucket window for the holdings of the specified\r\nportfolios, annotated with the source (Instrument, Transaction or SRS) that produced each cashflow.\r\n            \r\nThe drill-down returns the complete resolved stream, including transaction-sourced cashflows, which\r\nbucketed responses using the (default) InstrumentCashFlow representation exclude. To reconcile the\r\ndrill-down against such a bucketed response, first exclude rows with a sourceType of 'Transaction'.",
+        "summary": "[EARLY ACCESS] QueryBucketCashFlowDrillDown: Returns the cashflow buckets of a range of dates, each with its balances and the individual cashflows that make it up, with their source lineage.",
+        "description": "Splits the range from BucketStart to BucketEnd into periods with the BucketingSchedule, and returns one bucket per period,\r\nmember portfolio, payment currency and sub-holding key combination. Each bucket has its opening balance, the individual\r\ncashflows that make up its activity, and its closing balance, so every balance and every cashflow appears once. Each\r\ncashflow is annotated with the source (Instrument, Transaction or SRS) that produced it.\r\n            \r\nThe drill-down returns the complete resolved stream, including transaction-sourced cashflows, which\r\nbucketed responses using the (default) InstrumentCashFlow representation exclude. To reconcile the\r\ndrill-down against such a bucketed response, first exclude rows with a sourceType of 'Transaction'.",
         "operationId": "QueryBucketCashFlowDrillDown",
         "requestBody": {
           "description": "The Query Information.",
@@ -79167,8 +79196,8 @@
               "example": {
                 "bucketStart": "2020-01-01T00:00:00.0000000+00:00",
                 "bucketEnd": "2020-07-01T00:00:00.0000000+00:00",
-                "startInclusive": true,
-                "endInclusive": false,
+                "startInclusive": false,
+                "endInclusive": true,
                 "portfolioEntityIds": [
                   {
                     "scope": "portfolioScope",
@@ -79185,7 +79214,11 @@
                 "excludeUnsettledTrades": false,
                 "cashType": "SettleDate",
                 "fxRateType": "FxSpot",
-                "startingBalance": "Zero"
+                "windowStart": "2020-01-01T00:00:00.0000000+00:00",
+                "startingBalance": "PortfolioCashBalance",
+                "bucketingSchedule": {
+                  "tenor": "1M"
+                }
               }
             },
             "application/json": {
@@ -79195,8 +79228,8 @@
               "example": {
                 "bucketStart": "2020-01-01T00:00:00.0000000+00:00",
                 "bucketEnd": "2020-07-01T00:00:00.0000000+00:00",
-                "startInclusive": true,
-                "endInclusive": false,
+                "startInclusive": false,
+                "endInclusive": true,
                 "portfolioEntityIds": [
                   {
                     "scope": "portfolioScope",
@@ -79213,7 +79246,11 @@
                 "excludeUnsettledTrades": false,
                 "cashType": "SettleDate",
                 "fxRateType": "FxSpot",
-                "startingBalance": "Zero"
+                "windowStart": "2020-01-01T00:00:00.0000000+00:00",
+                "startingBalance": "PortfolioCashBalance",
+                "bucketingSchedule": {
+                  "tenor": "1M"
+                }
               }
             },
             "text/json": {
@@ -79223,8 +79260,8 @@
               "example": {
                 "bucketStart": "2020-01-01T00:00:00.0000000+00:00",
                 "bucketEnd": "2020-07-01T00:00:00.0000000+00:00",
-                "startInclusive": true,
-                "endInclusive": false,
+                "startInclusive": false,
+                "endInclusive": true,
                 "portfolioEntityIds": [
                   {
                     "scope": "portfolioScope",
@@ -79241,7 +79278,11 @@
                 "excludeUnsettledTrades": false,
                 "cashType": "SettleDate",
                 "fxRateType": "FxSpot",
-                "startingBalance": "Zero"
+                "windowStart": "2020-01-01T00:00:00.0000000+00:00",
+                "startingBalance": "PortfolioCashBalance",
+                "bucketingSchedule": {
+                  "tenor": "1M"
+                }
               }
             },
             "application/*+json": {
@@ -79251,8 +79292,8 @@
               "example": {
                 "bucketStart": "2020-01-01T00:00:00.0000000+00:00",
                 "bucketEnd": "2020-07-01T00:00:00.0000000+00:00",
-                "startInclusive": true,
-                "endInclusive": false,
+                "startInclusive": false,
+                "endInclusive": true,
                 "portfolioEntityIds": [
                   {
                     "scope": "portfolioScope",
@@ -79269,14 +79310,18 @@
                 "excludeUnsettledTrades": false,
                 "cashType": "SettleDate",
                 "fxRateType": "FxSpot",
-                "startingBalance": "Zero"
+                "windowStart": "2020-01-01T00:00:00.0000000+00:00",
+                "startingBalance": "PortfolioCashBalance",
+                "bucketingSchedule": {
+                  "tenor": "1M"
+                }
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "The individual cashflows inside the requested bucket, with the bucket's balances.",
+            "description": "The buckets of the requested range, each with its balances and its cashflows.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -79331,7 +79376,7 @@
             "oauth2": []
           }
         ],
-        "x-fbn-apistatus": "Stable"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/instrumentevents/$queryBucketedCashFlows": {
@@ -195974,6 +196019,18 @@
             "type": "string",
             "description": "For a distribution component, the tax character of the amount: ROC, Gain, Income or Deemed.",
             "nullable": true
+          },
+          "recallableAmount": {
+            "type": "number",
+            "description": "For the ROC component of a Distribution only, how much of the component the fund may call back, between zero and the component amount. Shared pro rata to each investor's ROC share. Absent means the allocation map's recall window decides.",
+            "format": "double",
+            "nullable": true
+          },
+          "recallableUntil": {
+            "type": "string",
+            "description": "For the ROC component of a Distribution only, the last date the recallable amount may be called back. Must not be before the event date and requires a non-zero recallable amount.",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -196856,7 +196913,7 @@
           },
           "fraction": {
             "type": "number",
-            "description": "The fraction of the source line transferred, greater than zero and at most one. One closes the source line. Each balance moved is the source balance times the fraction, truncated to the currency's minor unit, so any remainder stays with the transferor.",
+            "description": "The fraction of the source line transferred, greater than zero and at most one. The legs out of one line together move each balance times the sum of their fractions, rounded to the currency's minor unit; each leg takes its share truncated to the minor unit and the last leg out of the line takes the remainder, so no leg takes more than its share, the legs never move more than the line holds, and fractions summing to one close the line.",
             "format": "double"
           },
           "pnlSplit": {
@@ -197177,6 +197234,12 @@
             "description": "The ILPA transaction types the map reports particular kinds of allocation event under, where they differ from the default for the event type and component. At most one entry per event type and component; an entry without a component is the default for the event type. Every value must be one the system IlpaTransactionType data type lists.",
             "nullable": true
           },
+          "excuseCapMultiple": {
+            "type": "number",
+            "description": "How far above its pro-rata share of a call a line may be taken when other participants are excused, as a multiple of that share: the LPA's over-call cap. At least 1. Absent means the platform default of 1.25.",
+            "format": "double",
+            "nullable": true
+          },
           "version": {
             "$ref": "#/components/schemas/Version"
           },
@@ -197245,6 +197308,12 @@
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
             "description": "The deal the share is for, when a capital call's use of proceeds split one component across deals. Absent when the component's own origin applies.",
+            "nullable": true
+          },
+          "recallableAmount": {
+            "type": "number",
+            "description": "For the ROC component of a Distribution with a recallable amount, the investor record's pro rata share of it. Absent otherwise.",
+            "format": "double",
             "nullable": true
           }
         },
@@ -197540,9 +197609,15 @@
             "description": "The ILPA transaction types the map reports particular kinds of allocation event under, where they differ from the default for the event type and component. At most one entry per event type and component; an entry without a component is the default for the event type. Every value must be one the system IlpaTransactionType data type lists.",
             "nullable": true
           },
+          "excuseCapMultiple": {
+            "type": "number",
+            "description": "How far above its pro-rata share of a call a line may be taken when other participants are excused, as a multiple of that share: the LPA's over-call cap. At least 1. Absent means the platform default of 1.25.",
+            "format": "double",
+            "nullable": true
+          },
           "effectiveAt": {
             "type": "string",
-            "description": "The effective datetime from which the Allocation Map applies. Defaults to the beginning of time if not specified, so that the map is visible at every effective datetime.",
+            "description": "The effective datetime from which the Allocation Map applies. On create, defaults to the beginning of time if not specified, so that the map is visible at every effective datetime. On update of an existing Allocation Map it is required, in the body or as the effectiveAt query parameter, so that a change is never back-dated or forward-dated by accident.",
             "format": "date-time",
             "nullable": true
           }
@@ -200548,7 +200623,8 @@
           },
           "isSwept": {
             "type": "boolean",
-            "description": "Swept blocks are considered no longer of active interest, and no longer take part in various order management processes"
+            "description": "Swept blocks are considered no longer of active interest, and no longer take part in various order management processes. If not supplied, an existing block keeps its current value and a new block is not swept.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -202945,12 +203021,6 @@
             "description": "The amount in the payment currency.",
             "format": "double"
           },
-          "reportCurrency": {
-            "type": "number",
-            "description": "The amount in the report currency. Absent when no report currency was requested.",
-            "format": "double",
-            "nullable": true
-          },
           "links": {
             "type": "array",
             "items": {
@@ -202960,36 +203030,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "An amount in the payment currency and, when a report currency was requested, in the report currency."
-      },
-      "BucketBalanceFigures": {
-        "type": "object",
-        "properties": {
-          "open": {
-            "type": "number",
-            "description": "The balance at the start of the bucket.",
-            "format": "double"
-          },
-          "activity": {
-            "type": "number",
-            "description": "The sum of the bucket's cash flows.",
-            "format": "double"
-          },
-          "close": {
-            "type": "number",
-            "description": "The balance at the end of the bucket: Open + Activity.",
-            "format": "double"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "A bucket's opening balance, activity and closing balance, which always satisfy opening + activity = closing."
+        "description": "An amount in the payment currency."
       },
       "BucketBorderConfiguration": {
         "type": "object",
@@ -203011,46 +203052,12 @@
         "additionalProperties": false,
         "description": "Configuration determining how the borders of bucket intervals behave when allocating cash flows to buckets.\r\nWhen supplied, cash flows are bucketed into intervals defined by the bucketing dates rather than being\r\nrounded to the nearest bucketing date."
       },
-      "BucketCashFlowBalance": {
-        "type": "object",
-        "properties": {
-          "currency": {
-            "type": "string",
-            "description": "The payment currency of the cash flows. Balances of different currencies are never added together.",
-            "nullable": true
-          },
-          "local": {
-            "$ref": "#/components/schemas/BucketBalanceFigures"
-          },
-          "reportCurrency": {
-            "$ref": "#/components/schemas/BucketBalanceFigures"
-          },
-          "startingBalanceRate": {
-            "type": "number",
-            "description": "With an FxRateType other than FxSpot, the spot rate that converts the ladder's starting balance in this currency into the report currency, when that balance is not zero: the spot as at the window start for FxSpotAtCashFlowDate (or as at the valuation date when the window starts after it, as nothing is known of a later spot rate), and as at the valuation date for FxForward and ForwardThenSpot.",
-            "format": "double",
-            "nullable": true
-          },
-          "netOfHaircut": {
-            "$ref": "#/components/schemas/BucketNetOfHaircutBalance"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "The balances of a bucket in one payment currency and, when a report currency was requested, in the report currency, and,\r\nwhen haircut rules were supplied, net of the haircuts."
-      },
       "BucketCashFlowBucket": {
         "type": "object",
         "properties": {
           "bucketId": {
             "type": "string",
-            "description": "Identifies the bucket: the bucket's start (as yyyy-MM-dd), the payment currency, each sub-holding key's address and value, and the portfolio's scope and code, separated by '|'.",
+            "description": "Identifies the bucket: a 32 character lowercase hexadecimal hash of its period (start and end), payment currency, portfolio and sub-holding keys. It is stable, the same bucket has the same id in every response, and it is opaque: compare it, do not take it apart.",
             "nullable": true
           },
           "bucketStart": {
@@ -203109,92 +203116,43 @@
       },
       "BucketCashFlowDrillDownResponse": {
         "required": [
-          "values"
+          "buckets",
+          "currencySubtotals",
+          "windowStart"
         ],
         "type": "object",
         "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CashFlowDetail"
-            }
-          },
-          "href": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
           "reportCurrency": {
             "type": "string",
-            "description": "The report currency the converted fields are in; absent when none was requested.",
-            "nullable": true
-          },
-          "balances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BucketCashFlowBalance"
-            },
-            "description": "The bucket's opening balance, activity and closing balance per payment currency, in the payment currency, in the report\r\ncurrency when one was requested, and net of haircut when haircut rules were supplied. Absent when no WindowStart was supplied, and when a BucketingSchedule was\r\nsupplied: the Buckets and CurrencySubtotals carry the balances then.",
-            "nullable": true
-          },
-          "nextPage": {
-            "type": "string",
-            "description": "The next page of results: never present, as the cash flows of a bucket are not paged; kept so this response is a superset of the list it replaces.",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "description": "The previous page of results: never present; see NextPage.",
-            "nullable": true
-          },
-          "issues": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Why balances, or report currency figures, are absent when they were asked for; absent when there is nothing to report.",
+            "description": "The report currency the cash flows' converted fields are in; absent when none was requested.",
             "nullable": true
           },
           "windowStart": {
             "type": "string",
-            "description": "The window start the buckets' balances run from. Present with BucketingSchedule.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The valuation date the cash flows were evaluated at. Present with BucketingSchedule.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "startInclusive": {
-            "type": "boolean",
-            "description": "Whether a cash flow paid exactly on a bucket's start is in it. Present with BucketingSchedule.",
-            "nullable": true
-          },
-          "endInclusive": {
-            "type": "boolean",
-            "description": "Whether a cash flow paid exactly on a bucket's end is in it. Present with BucketingSchedule.",
-            "nullable": true
+            "description": "The window start the buckets' balances run from: where the first bucket's opening balance is taken.",
+            "format": "date-time"
           },
           "buckets": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BucketCashFlowBucket"
             },
-            "description": "One bucket per period of the schedule, per member portfolio, payment currency and sub-holding key combination, each with its\r\nopening balance, closing balance and activity. Present only when a BucketingSchedule was supplied.",
-            "nullable": true
+            "description": "One bucket per period of the schedule, per member portfolio, payment currency and sub-holding key combination, each with its\r\nopening balance, activity and closing balance."
           },
           "currencySubtotals": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BucketCurrencySubtotal"
             },
-            "description": "The buckets summed across portfolios and sub-holding keys, one per period and payment currency. Present only with Buckets.",
-            "nullable": true
+            "description": "The buckets summed across portfolios and sub-holding keys, one per period and payment currency."
           },
-          "subtotal": {
-            "$ref": "#/components/schemas/BucketCashFlowSubtotal"
+          "issues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "What the balances do not cover, for example that they are in the payment currency only and gross of haircut; absent when there is nothing to report.",
+            "nullable": true
           },
           "links": {
             "type": "array",
@@ -203205,27 +203163,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "The cash flows inside one bucket, with the bucket's balances as the ladder of QueryBucketedCashFlows has them."
-      },
-      "BucketCashFlowSubtotal": {
-        "type": "object",
-        "properties": {
-          "reportCurrency": {
-            "$ref": "#/components/schemas/BucketBalanceFigures"
-          },
-          "netOfHaircut": {
-            "$ref": "#/components/schemas/BucketBalanceFigures"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "The balances of a bucket summed across all payment currencies, in the report currency. It carries only report currency\r\nfigures, as a total across currencies has no meaning in any single payment currency, and no rate, as there is no single rate."
+        "description": "The cash flows of a range of effective dates, split into periods by a BucketingSchedule: for each period, member portfolio,\r\npayment currency and sub-holding key combination, its opening balance, the cash flows that make up its activity, and its\r\nclosing balance. Each balance and each cash flow appears once, in its bucket."
       },
       "BucketCurrencySubtotal": {
         "type": "object",
@@ -203505,26 +203443,6 @@
         },
         "additionalProperties": false,
         "description": "The bucket a Journal Entry Line was assigned to within one of a Fund Configuration's bucket sets.\r\nComputed when the lines are read, from the bucket set definitions in force at that point."
-      },
-      "BucketNetOfHaircutBalance": {
-        "type": "object",
-        "properties": {
-          "local": {
-            "$ref": "#/components/schemas/BucketBalanceFigures"
-          },
-          "reportCurrency": {
-            "$ref": "#/components/schemas/BucketBalanceFigures"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "A bucket's balances with the haircut taken. The starting balance is not haircut; each cash flow is net of its haircut, and\r\nso the opening balance is net of the haircuts on the cash flows before the bucket."
       },
       "BucketSeedValue": {
         "required": [
@@ -206110,6 +206028,12 @@
               "excessCapitalReturnedPortfolioCcyAmount": {
                 "type": "number",
                 "description": "The cumulative excess capital returned that the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative. An In side that omits it books zero for ExcessCapitalReturnedPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the ExcessCapitalReturnedPortfolioCcy movement for the twin to move.",
+                "format": "double",
+                "nullable": true
+              },
+              "recalledCapitalAmount": {
+                "type": "number",
+                "description": "The cumulative recalled capital that the destination line takes over, in the commitment currency. Used on the 'In' side only; must not be negative. An In side that omits it books zero for RecalledCapital while the Out side gives up its share, and the transaction type configuration must include the RecalledCapital movement for the balance to move.",
                 "format": "double",
                 "nullable": true
               },
@@ -219033,41 +218957,6 @@
         "additionalProperties": false,
         "description": "Specification for retrieving a decorated compliance run summary, optionally restricted to a\r\nset of portfolios and/or portfolio groups."
       },
-      "DeemedDisposal": {
-        "required": [
-          "enabled"
-        ],
-        "type": "object",
-        "properties": {
-          "enabled": {
-            "type": "boolean",
-            "description": "Whether the Nav Type books a deemed disposal at period close. When true, in-scope holdings are treated as sold and immediately re-acquired at market value, realising their unrealised gain."
-          },
-          "costBase": {
-            "type": "string",
-            "description": "The cost the deemed disposal realises against: Book or Tax. Defaults to Book. Book: rebases book cost to base value and posts the movement as realised FX; it moves the portfolio's cost, so it is only valid on the primary Nav Type. Tax: writes a tax cost equal to market value and spreads the deemed gain since the prior tax cost. Available values: Book, Tax.",
-            "nullable": true
-          },
-          "holdingsFilter": {
-            "maxLength": 16384,
-            "minLength": 0,
-            "pattern": "^[\\s\\S]*$",
-            "type": "string",
-            "description": "An optional filter selecting which holdings are deemed disposed of at period close. Omit it for the cost base's default: under Book, every non-base-currency monetary item (cash, receivables, payables, accruals). Tax has no default yet, so set a filter.",
-            "nullable": true
-          },
-          "transactionTypeCode": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string",
-            "description": "An optional transaction type, in the Nav Type's transaction type scope, that the deemed disposal transactions are booked with. Omit it to use the domain default deemed disposal transaction type.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Settings for the deemed disposal a NAV type books at period close. When enabled, the in-scope holdings are\r\ntreated as sold and immediately re-acquired at market value, realising their unrealised gain against the\r\nchosen cost base."
-      },
       "DeleteAccountsResponse": {
         "type": "object",
         "properties": {
@@ -222000,6 +221889,31 @@
                 "format": "double",
                 "nullable": true
               },
+              "electionProrationRates": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ElectionProrationRate"
+                },
+                "description": "Optional proration rate per option, keyed by election key. An entry overrides ProrationRate for that\r\nelection; an option without an entry uses ProrationRate. Each key must name a TenderOffer, SecurityOffer,\r\nCashAndSecurityOffer or MixedLotConstituents election of this event, once, with a rate in (0, 1].",
+                "nullable": true
+              },
+              "minPieceSize": {
+                "type": "number",
+                "description": "Optional minimum tradable piece of the accepted quantity, in face for a bond and in units otherwise.\r\nMust be strictly positive when set. With AcceptedQuantityRounding RoundDown, an accepted quantity below it\r\nis rounded to zero.",
+                "format": "double",
+                "nullable": true
+              },
+              "minIncrement": {
+                "type": "number",
+                "description": "Optional tradable increment above MinPieceSize, in the same unit. When set, MinPieceSize must also be set.\r\nMust be strictly positive. With AcceptedQuantityRounding RoundDown, the accepted quantity is rounded down to\r\nMinPieceSize plus a whole number of increments.",
+                "format": "double",
+                "nullable": true
+              },
+              "acceptedQuantityRounding": {
+                "type": "string",
+                "description": "How a prorated accepted quantity that is not a whole tradable lot is disposed of. RoundDown rounds it down\r\nto the tradable lot, or to a whole unit when no lot size is given, and the remainder stays in the holding.\r\nCashInLieu accepts the unrounded quantity. When omitted the accepted quantity is not rounded. Available values: RoundDown, CashInLieu.",
+                "nullable": true
+              },
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
@@ -222674,6 +222588,28 @@
           }
         },
         "additionalProperties": false
+      },
+      "ElectionProrationRate": {
+        "required": [
+          "electionKey",
+          "prorationRate"
+        ],
+        "type": "object",
+        "properties": {
+          "electionKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The election key of the option this proration rate applies to."
+          },
+          "prorationRate": {
+            "type": "number",
+            "description": "The fraction of the quantity instructed on this option that the issuer accepts. Must be in (0, 1].",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The proration rate the issuer applies to one option of a multi-option event, keyed by the option's election key.\r\nAn entry overrides the event-level proration rate for that election only."
       },
       "ElectionSpecification": {
         "required": [
@@ -231318,7 +231254,7 @@
           },
           "outstandingCalls": {
             "type": "number",
-            "description": "Capital called but not yet paid in. Omitted on a register line that has had returned capital marked recallable, since recalled capital is not yet tracked as a balance and the figure would exclude it.",
+            "description": "Capital called but not yet paid in, counting capital that was returned as recallable and has since been recalled. Omitted while a line that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall.",
             "format": "double",
             "nullable": true
           }
@@ -231449,6 +231385,14 @@
               "$ref": "#/components/schemas/FundPartnerUnfundedReconciliationLine"
             },
             "description": "Every booked allocation to the partner over the period, in event date order, with the ILPA transaction type each is reported under and its effect on unfunded."
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FundPartnerUnfundedReconciliationWarning"
+            },
+            "description": "Soft warnings about how the statement was built. Empty when the period and the register agree without caveats.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -231512,6 +231456,27 @@
         },
         "additionalProperties": false,
         "description": "One booked allocation to the partner on the unfunded commitment statement."
+      },
+      "FundPartnerUnfundedReconciliationWarning": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The warning. PeriodStartsBeforeAdmission: the period opens before the partner was admitted, so the opening balances are zero and the admission commitment is counted as a commitment change."
+          },
+          "admittedOn": {
+            "type": "string",
+            "description": "For PeriodStartsBeforeAdmission, the date the partner was admitted to the fund.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A soft warning on an unfunded commitment statement: the statement is still produced, with a caveat."
       },
       "FundPnlBreakdown": {
         "required": [
@@ -236166,7 +236131,7 @@
           "holdingPropertyKey": {
             "minLength": 1,
             "type": "string",
-            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'ExcessCapitalReturned', 'PaidInCapitalPortfolioCcy', 'ReturnedCapitalPortfolioCcy', 'ExcessCapitalReturnedPortfolioCcy', 'FundedCapital' and 'UnfundedCapital'. The '...PortfolioCcy' balances are the same balances in the portfolio's base currency, each movement converted at its own RateToPortfolio on the day it was booked and never re-translated at a later spot rate; source them from 'PortfolioAmount'. 'ExcessCapitalReturned' is the cumulative excess capital the fund has handed back, kept separately because a return of excess lowers PaidInCapital and restores UncalledCommitment at the same time. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment, ExcessCapitalReturned, PaidInCapitalPortfolioCcy, ReturnedCapitalPortfolioCcy, ExcessCapitalReturnedPortfolioCcy."
+            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'ExcessCapitalReturned', 'RecalledCapital', 'PaidInCapitalPortfolioCcy', 'ReturnedCapitalPortfolioCcy', 'ExcessCapitalReturnedPortfolioCcy', 'FundedCapital' and 'UnfundedCapital'. The '...PortfolioCcy' balances are the same balances in the portfolio's base currency, each movement converted at its own RateToPortfolio on the day it was booked and never re-translated at a later spot rate; source them from 'PortfolioAmount'. 'ExcessCapitalReturned' is the cumulative excess capital the fund has handed back, kept separately because a return of excess lowers PaidInCapital and restores UncalledCommitment at the same time. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment, ExcessCapitalReturned, RecalledCapital, PaidInCapitalPortfolioCcy, ReturnedCapitalPortfolioCcy, ExcessCapitalReturnedPortfolioCcy."
           },
           "source": {
             "minLength": 1,
@@ -236962,7 +236927,7 @@
               },
               "eventDate": {
                 "type": "string",
-                "description": "The calendar day on which the new index ratio applies. On an event LUSID generates it carries the bond's\r\nlocal offset, so its date part is the bond's local calendar day; it is returned as generated and not\r\nnormalised to UTC. An upserted event may give it with any offset; it is normalised to UTC when stored.",
+                "description": "The instant from which the new index ratio applies: the bond's local midnight on the indexation day. On an\r\nevent LUSID generates it is returned in UTC, and the event id names the bond's local calendar day. An\r\nupserted event may give it with any offset; it is normalised to UTC when stored.",
                 "format": "date-time"
               },
               "indexRatioAfter": {
@@ -246754,9 +246719,6 @@
             "type": "string",
             "description": "The chargeable gains regime the Nav Type's derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio's regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type's accounting method; it requires the Fund's base currency to be GBP. Available values: Default, UkChargeableGains.",
             "nullable": true
-          },
-          "deemedDisposal": {
-            "$ref": "#/components/schemas/DeemedDisposal"
           }
         },
         "additionalProperties": false
@@ -246901,9 +246863,6 @@
             "type": "string",
             "description": "The chargeable gains regime the Nav Type's derived portfolio is elected into. This can be: Default or UkChargeableGains. Omit it, or supply Default, to leave the derived portfolio inheriting its parent portfolio's regime. Under UkChargeableGains, in-scope holdings in the derived portfolio are depleted under the UK chargeable gains rules regardless of the Nav Type's accounting method; it requires the Fund's base currency to be GBP. Available values: Default, UkChargeableGains.",
             "nullable": true
-          },
-          "deemedDisposal": {
-            "$ref": "#/components/schemas/DeemedDisposal"
           }
         },
         "additionalProperties": false
@@ -253177,7 +253136,7 @@
           },
           "contributionsReceivable": {
             "type": "number",
-            "description": "Called contributions not yet received from the partner. Omitted when a register line of the partner has had returned capital marked recallable, since recalled capital is not yet tracked as a balance and the figure would exclude it.",
+            "description": "Called contributions not yet received from the partner, counting capital that was returned as recallable and has since been recalled. Omitted while a register line of the partner that has had returned capital marked recallable has not been rebuilt with recalled capital as a balance, since the figure could then miss an unpaid recall; the declared distributions are then served gross.",
             "format": "double",
             "nullable": true
           },
@@ -260669,10 +260628,12 @@
       "QueryBucketCashFlowDrillDownRequest": {
         "required": [
           "bucketEnd",
+          "bucketingSchedule",
           "bucketStart",
           "effectiveAt",
           "portfolioEntityIds",
-          "recipeId"
+          "recipeId",
+          "windowStart"
         ],
         "type": "object",
         "properties": {
@@ -260746,9 +260707,8 @@
           },
           "windowStart": {
             "type": "string",
-            "description": "Where the ladder opens: the window start of the bucketed request being drilled into, on or before BucketStart. The opening balance of the bucket is the ladder's balance at BucketStart. Without it the cash flows are returned as before and the balances are left out.",
-            "format": "date-time",
-            "nullable": true
+            "description": "Where the ladder opens: the window start of the bucketed request being drilled into, on or before BucketStart. The opening balance of the first bucket is the ladder's balance at BucketStart. Required.",
+            "format": "date-time"
           },
           "startingBalance": {
             "type": "string",
@@ -260760,7 +260720,7 @@
           },
           "roundingMethod": {
             "type": "string",
-            "description": "With a BucketingSchedule, how a cash flow is allocated to a period. Only RoundUp, the default, is supported; RoundDown is refused. Which period a cash flow on a boundary falls in is decided by StartInclusive and EndInclusive. Available values: RoundUp, RoundDown.",
+            "description": "How a cash flow is allocated to a period. Only RoundUp, the default, is supported; RoundDown is refused. Which period a cash flow on a boundary falls in is decided by StartInclusive and EndInclusive. Available values: RoundUp, RoundDown.",
             "nullable": true
           }
         },
@@ -264548,6 +264508,9 @@
             "minLength": 0,
             "type": "string",
             "description": "The frequency at which the asset price is reset and the price return is exchanged, e.g. 3M."
+          },
+          "fundingStartLag": {
+            "$ref": "#/components/schemas/RelativeDateOffset"
           },
           "lastResetDate": {
             "type": "string",
@@ -273798,6 +273761,14 @@
             },
             "description": "The instrument identifiers each published holding carries, as Instrument/default/{type} property keys,\r\nfor example Instrument/default/ClientInternal. Each must name an instrument identifier type. At most 5.\r\nNot valid for a transactions subscription.",
             "nullable": true
+          },
+          "reportCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "pattern": "^[a-zA-Z]*$",
+            "type": "string",
+            "description": "The currency the report-currency values are given in, as a three-letter ISO code stored upper-case. Required\r\nwhen addressKeys names any key other than the quantity, cost, current face, notional cost, variation margin\r\nand currency keys: Holding/Units, Holding/SettledUnits, Holding/Cost/Dom, Holding/Cost/Pfolio,\r\nHolding/CurrentFace, Holding/NotionalCost, Holding/VariationMargin, Holding/VariationMarginInPortfolioCcy,\r\nHolding/HoldingType, Holding/DomCcy and Holding/PortfolioCcy. Not valid for a transactions subscription.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -282714,7 +282685,7 @@
             "items": {
               "$ref": "#/components/schemas/ApportionmentBreakdown"
             },
-            "description": "The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group.",
+            "description": "The apportionment results for the valuation point: one fund-level entry plus one entry per allocation group. Empty for a non-unitised fund, which has nothing to apportion.",
             "nullable": true
           },
           "bucketSetResults": {
@@ -282722,7 +282693,7 @@
             "items": {
               "$ref": "#/components/schemas/BucketSetResult"
             },
-            "description": "The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV.",
+            "description": "The bucket set results for the valuation point: for each bucket set, the per-node (fund and share class) buckets and NAV. A non-unitised fund has a fund node only.",
             "nullable": true
           },
           "stagedModifications": {
