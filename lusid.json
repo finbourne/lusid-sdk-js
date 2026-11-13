@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1751",
+    "version": "2.0.1752",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -29847,18 +29847,15 @@
                   },
                   "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
                   "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                  "ruleDefinitionsAsAt": "2020-01-05T00:00:00.0000000+00:00",
                   "schedule": "PreTrade",
                   "ruleResult": {
                     "ruleId": {
                       "scope": "SomeScope",
                       "code": "rule-1"
                     },
-                    "templateId": {
-                      "scope": "system",
-                      "code": "template-1"
-                    },
-                    "variation": "standard",
-                    "ruleStatus": "failed",
+                    "status": "failed",
+                    "checkType": "PercentCheck",
                     "affectedPortfolios": [
                       {
                         "scope": "PortfolioScope",
@@ -29871,18 +29868,15 @@
                         "code": "OrderCode"
                       }
                     ],
-                    "parametersUsed": {
-                      "UpperBound": "30",
-                      "LowerBound": "0"
-                    },
-                    "ruleBreakdown": [
+                    "groups": [
                       {
-                        "groupStatus": "failed",
-                        "resultsUsed": {
+                        "groupId": 0,
+                        "status": "failed",
+                        "results": {
                           "Valuation/PV": 650,
                           "Exposure/PV": 650
                         },
-                        "propertiesUsed": {
+                        "properties": {
                           "Instrument/data/Issuer": [
                             {
                               "key": "Instrument/data/Issuer",
@@ -29892,35 +29886,8 @@
                             }
                           ]
                         },
-                        "missingDataInformation": [
-                          "No Missing Data"
-                        ],
-                        "lineage": [
-                          {
-                            "index": 0,
-                            "label": "Initial",
-                            "subLabel": "Initial",
-                            "infoType": "",
-                            "information": ""
-                          },
-                          {
-                            "index": 1,
-                            "label": "Step1",
-                            "subLabel": "SomeStep1Information",
-                            "infoType": "",
-                            "information": ""
-                          },
-                          {
-                            "index": 2,
-                            "label": "Step2",
-                            "subLabel": "Step2",
-                            "infoType": "",
-                            "information": ""
-                          }
-                        ],
                         "contributions": [
                           {
-                            "index": 0,
                             "portfolioId": {
                               "scope": "PortfolioScope",
                               "code": "PortfolioCode"
@@ -29929,25 +29896,42 @@
                             "instrumentType": "Bond",
                             "holdingType": "P",
                             "holdingId": "1234567890",
-                            "resultValues": {
-                              "Valuation/PV": 650
-                            },
-                            "properties": {
-                              "Instrument/data/Issuer": {
+                            "heldBy": "portfolio",
+                            "keysUsed": [
+                              {
+                                "key": "Valuation/PV",
+                                "roles": [
+                                  "numerator"
+                                ],
+                                "value": 650,
+                                "source": "results"
+                              },
+                              {
                                 "key": "Instrument/data/Issuer",
-                                "value": {
-                                  "labelValue": "ABC"
-                                }
+                                "roles": [
+                                  "filter"
+                                ],
+                                "value": "ABC",
+                                "source": "properties"
+                              },
+                              {
+                                "key": "LegalEntity/data/LEI",
+                                "roles": [
+                                  "operand"
+                                ],
+                                "value": "5493001KJTIIGC8Y1R12",
+                                "source": "relatedProperties"
                               }
-                            },
-                            "relatedProperties": {
-                              "LegalEntity/data/LEI": "5493001KJTIIGC8Y1R12"
-                            }
+                            ]
                           }
-                        ]
+                        ],
+                        "missingDataInformation": [
+                          "No Missing Data"
+                        ],
+                        "contributionCount": 0,
+                        "contributionsTruncated": false
                       }
-                    ],
-                    "otherPositionsConsidered": []
+                    ]
                   }
                 }
               },
@@ -29962,18 +29946,15 @@
                   },
                   "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
                   "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                  "ruleDefinitionsAsAt": "2020-01-05T00:00:00.0000000+00:00",
                   "schedule": "PreTrade",
                   "ruleResult": {
                     "ruleId": {
                       "scope": "SomeScope",
                       "code": "rule-1"
                     },
-                    "templateId": {
-                      "scope": "system",
-                      "code": "template-1"
-                    },
-                    "variation": "standard",
-                    "ruleStatus": "failed",
+                    "status": "failed",
+                    "checkType": "PercentCheck",
                     "affectedPortfolios": [
                       {
                         "scope": "PortfolioScope",
@@ -29986,18 +29967,15 @@
                         "code": "OrderCode"
                       }
                     ],
-                    "parametersUsed": {
-                      "UpperBound": "30",
-                      "LowerBound": "0"
-                    },
-                    "ruleBreakdown": [
+                    "groups": [
                       {
-                        "groupStatus": "failed",
-                        "resultsUsed": {
+                        "groupId": 0,
+                        "status": "failed",
+                        "results": {
                           "Valuation/PV": 650,
                           "Exposure/PV": 650
                         },
-                        "propertiesUsed": {
+                        "properties": {
                           "Instrument/data/Issuer": [
                             {
                               "key": "Instrument/data/Issuer",
@@ -30007,35 +29985,8 @@
                             }
                           ]
                         },
-                        "missingDataInformation": [
-                          "No Missing Data"
-                        ],
-                        "lineage": [
-                          {
-                            "index": 0,
-                            "label": "Initial",
-                            "subLabel": "Initial",
-                            "infoType": "",
-                            "information": ""
-                          },
-                          {
-                            "index": 1,
-                            "label": "Step1",
-                            "subLabel": "SomeStep1Information",
-                            "infoType": "",
-                            "information": ""
-                          },
-                          {
-                            "index": 2,
-                            "label": "Step2",
-                            "subLabel": "Step2",
-                            "infoType": "",
-                            "information": ""
-                          }
-                        ],
                         "contributions": [
                           {
-                            "index": 0,
                             "portfolioId": {
                               "scope": "PortfolioScope",
                               "code": "PortfolioCode"
@@ -30044,25 +29995,42 @@
                             "instrumentType": "Bond",
                             "holdingType": "P",
                             "holdingId": "1234567890",
-                            "resultValues": {
-                              "Valuation/PV": 650
-                            },
-                            "properties": {
-                              "Instrument/data/Issuer": {
+                            "heldBy": "portfolio",
+                            "keysUsed": [
+                              {
+                                "key": "Valuation/PV",
+                                "roles": [
+                                  "numerator"
+                                ],
+                                "value": 650,
+                                "source": "results"
+                              },
+                              {
                                 "key": "Instrument/data/Issuer",
-                                "value": {
-                                  "labelValue": "ABC"
-                                }
+                                "roles": [
+                                  "filter"
+                                ],
+                                "value": "ABC",
+                                "source": "properties"
+                              },
+                              {
+                                "key": "LegalEntity/data/LEI",
+                                "roles": [
+                                  "operand"
+                                ],
+                                "value": "5493001KJTIIGC8Y1R12",
+                                "source": "relatedProperties"
                               }
-                            },
-                            "relatedProperties": {
-                              "LegalEntity/data/LEI": "5493001KJTIIGC8Y1R12"
-                            }
+                            ]
                           }
-                        ]
+                        ],
+                        "missingDataInformation": [
+                          "No Missing Data"
+                        ],
+                        "contributionCount": 0,
+                        "contributionsTruncated": false
                       }
-                    ],
-                    "otherPositionsConsidered": []
+                    ]
                   }
                 }
               },
@@ -30077,18 +30045,15 @@
                   },
                   "instigatedAt": "2020-01-05T00:00:00.0000000+00:00",
                   "completedAt": "2020-01-05T00:00:01.0000000+00:00",
+                  "ruleDefinitionsAsAt": "2020-01-05T00:00:00.0000000+00:00",
                   "schedule": "PreTrade",
                   "ruleResult": {
                     "ruleId": {
                       "scope": "SomeScope",
                       "code": "rule-1"
                     },
-                    "templateId": {
-                      "scope": "system",
-                      "code": "template-1"
-                    },
-                    "variation": "standard",
-                    "ruleStatus": "failed",
+                    "status": "failed",
+                    "checkType": "PercentCheck",
                     "affectedPortfolios": [
                       {
                         "scope": "PortfolioScope",
@@ -30101,18 +30066,15 @@
                         "code": "OrderCode"
                       }
                     ],
-                    "parametersUsed": {
-                      "UpperBound": "30",
-                      "LowerBound": "0"
-                    },
-                    "ruleBreakdown": [
+                    "groups": [
                       {
-                        "groupStatus": "failed",
-                        "resultsUsed": {
+                        "groupId": 0,
+                        "status": "failed",
+                        "results": {
                           "Valuation/PV": 650,
                           "Exposure/PV": 650
                         },
-                        "propertiesUsed": {
+                        "properties": {
                           "Instrument/data/Issuer": [
                             {
                               "key": "Instrument/data/Issuer",
@@ -30122,35 +30084,8 @@
                             }
                           ]
                         },
-                        "missingDataInformation": [
-                          "No Missing Data"
-                        ],
-                        "lineage": [
-                          {
-                            "index": 0,
-                            "label": "Initial",
-                            "subLabel": "Initial",
-                            "infoType": "",
-                            "information": ""
-                          },
-                          {
-                            "index": 1,
-                            "label": "Step1",
-                            "subLabel": "SomeStep1Information",
-                            "infoType": "",
-                            "information": ""
-                          },
-                          {
-                            "index": 2,
-                            "label": "Step2",
-                            "subLabel": "Step2",
-                            "infoType": "",
-                            "information": ""
-                          }
-                        ],
                         "contributions": [
                           {
-                            "index": 0,
                             "portfolioId": {
                               "scope": "PortfolioScope",
                               "code": "PortfolioCode"
@@ -30159,25 +30094,42 @@
                             "instrumentType": "Bond",
                             "holdingType": "P",
                             "holdingId": "1234567890",
-                            "resultValues": {
-                              "Valuation/PV": 650
-                            },
-                            "properties": {
-                              "Instrument/data/Issuer": {
+                            "heldBy": "portfolio",
+                            "keysUsed": [
+                              {
+                                "key": "Valuation/PV",
+                                "roles": [
+                                  "numerator"
+                                ],
+                                "value": 650,
+                                "source": "results"
+                              },
+                              {
                                 "key": "Instrument/data/Issuer",
-                                "value": {
-                                  "labelValue": "ABC"
-                                }
+                                "roles": [
+                                  "filter"
+                                ],
+                                "value": "ABC",
+                                "source": "properties"
+                              },
+                              {
+                                "key": "LegalEntity/data/LEI",
+                                "roles": [
+                                  "operand"
+                                ],
+                                "value": "5493001KJTIIGC8Y1R12",
+                                "source": "relatedProperties"
                               }
-                            },
-                            "relatedProperties": {
-                              "LegalEntity/data/LEI": "5493001KJTIIGC8Y1R12"
-                            }
+                            ]
                           }
-                        ]
+                        ],
+                        "missingDataInformation": [
+                          "No Missing Data"
+                        ],
+                        "contributionCount": 0,
+                        "contributionsTruncated": false
                       }
-                    ],
-                    "otherPositionsConsidered": []
+                    ]
                   }
                 }
               }
@@ -30648,6 +30600,7 @@
                       },
                       "ruleBreakdown": [
                         {
+                          "groupId": 0,
                           "groupStatus": "failed",
                           "resultsUsed": {
                             "Valuation/PV": 650,
@@ -30740,6 +30693,7 @@
                       },
                       "ruleBreakdown": [
                         {
+                          "groupId": 0,
                           "groupStatus": "failed",
                           "resultsUsed": {
                             "Valuation/PV": 650,
@@ -30832,6 +30786,7 @@
                       },
                       "ruleBreakdown": [
                         {
+                          "groupId": 0,
                           "groupStatus": "failed",
                           "resultsUsed": {
                             "Valuation/PV": 650,
@@ -31614,6 +31569,7 @@
                     },
                     "ruleBreakdown": [
                       {
+                        "groupId": 0,
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -31704,6 +31660,7 @@
                     },
                     "ruleBreakdown": [
                       {
+                        "groupId": 0,
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -31794,6 +31751,7 @@
                     },
                     "ruleBreakdown": [
                       {
+                        "groupId": 0,
                         "groupStatus": "failed",
                         "resultsUsed": {
                           "Valuation/PV": 650,
@@ -62006,6 +61964,454 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
+    "/api/funds/{scope}/{code}/tax/provision": {
+      "get": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] GetTaxProvision: [EARLY ACCESS] GetTaxProvision: Get the deferred-tax provision of a Valuation Point.",
+        "description": "Returns the deferred-tax provision struck for the specified Valuation Point. Where the provision has been\r\napproved by the asAt it is returned as stored, otherwise a live estimate is returned. Until tax elections\r\ncan be configured on the Fund every provision is struck under the default elections: a 20% rate, indexation\r\nallowance applied and losses carried forward.",
+        "operationId": "GetTaxProvision",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "diaryEntryCode",
+            "in": "query",
+            "description": "The Diary Entry code of the Valuation Point the provision is for.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the provision. Defaults to returning the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "navTypeCode",
+            "in": "query",
+            "description": "When provided, the provision of the specified NAV Type, otherwise the Primary NAV Type will be used.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The deferred-tax provision of the Valuation Point",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxProvision"
+                },
+                "example": {
+                  "href": "http://finbourne.com",
+                  "fund": {
+                    "scope": "FundScope",
+                    "code": "FundCode"
+                  },
+                  "navTypeCode": "DefaultNavType",
+                  "diaryEntryCode": "VP-2024-03-31",
+                  "effectiveAt": "2024-03-31T00:00:00.0000000+00:00",
+                  "asAt": "2024-04-01T09:00:00.0000000+00:00",
+                  "status": "Approved",
+                  "realisedGains": 125000,
+                  "unrealisedGains": 48000,
+                  "indexationAllowance": 12000,
+                  "lossesBroughtForward": 20000,
+                  "lossesUsed": 20000,
+                  "lossesCarriedForward": 0,
+                  "rateApplied": 0.25,
+                  "provisionAmount": 38250,
+                  "movement": {
+                    "realised": 31250,
+                    "unrealisedChange": 12000,
+                    "rateChange": 0,
+                    "lossOffset": -5000
+                  },
+                  "approvedBy": "00u1abc2defGHIJKLM3p7",
+                  "approvedAt": "2024-04-01T09:00:00.0000000+00:00"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxProvision"
+                },
+                "example": {
+                  "href": "http://finbourne.com",
+                  "fund": {
+                    "scope": "FundScope",
+                    "code": "FundCode"
+                  },
+                  "navTypeCode": "DefaultNavType",
+                  "diaryEntryCode": "VP-2024-03-31",
+                  "effectiveAt": "2024-03-31T00:00:00.0000000+00:00",
+                  "asAt": "2024-04-01T09:00:00.0000000+00:00",
+                  "status": "Approved",
+                  "realisedGains": 125000,
+                  "unrealisedGains": 48000,
+                  "indexationAllowance": 12000,
+                  "lossesBroughtForward": 20000,
+                  "lossesUsed": 20000,
+                  "lossesCarriedForward": 0,
+                  "rateApplied": 0.25,
+                  "provisionAmount": 38250,
+                  "movement": {
+                    "realised": 31250,
+                    "unrealisedChange": 12000,
+                    "rateChange": 0,
+                    "lossOffset": -5000
+                  },
+                  "approvedBy": "00u1abc2defGHIJKLM3p7",
+                  "approvedAt": "2024-04-01T09:00:00.0000000+00:00"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxProvision"
+                },
+                "example": {
+                  "href": "http://finbourne.com",
+                  "fund": {
+                    "scope": "FundScope",
+                    "code": "FundCode"
+                  },
+                  "navTypeCode": "DefaultNavType",
+                  "diaryEntryCode": "VP-2024-03-31",
+                  "effectiveAt": "2024-03-31T00:00:00.0000000+00:00",
+                  "asAt": "2024-04-01T09:00:00.0000000+00:00",
+                  "status": "Approved",
+                  "realisedGains": 125000,
+                  "unrealisedGains": 48000,
+                  "indexationAllowance": 12000,
+                  "lossesBroughtForward": 20000,
+                  "lossesUsed": 20000,
+                  "lossesCarriedForward": 0,
+                  "rateApplied": 0.25,
+                  "provisionAmount": 38250,
+                  "movement": {
+                    "realised": 31250,
+                    "unrealisedChange": 12000,
+                    "rateChange": 0,
+                    "lossOffset": -5000
+                  },
+                  "approvedBy": "00u1abc2defGHIJKLM3p7",
+                  "approvedAt": "2024-04-01T09:00:00.0000000+00:00"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/funds/{scope}/{code}/tax/provisions": {
+      "get": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] ListTaxProvisions: [EARLY ACCESS] ListTaxProvisions: List the deferred-tax provisions of a Fund.",
+        "description": "Returns the deferred-tax provision of every Valuation Point whose effective date lies in the window, oldest first.\r\nUnapproved Valuation Points are estimated live, so the window may cover at most 100 Valuation Points. Until tax\r\nelections can be configured on the Fund every provision is struck under the default elections: a 20% rate,\r\nindexation allowance applied and losses carried forward.",
+        "operationId": "ListTaxProvisions",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromEffectiveAt",
+            "in": "query",
+            "description": "The lower bound effective datetime (inclusive) of the Valuation Points to include. Defaults to the start of the Fund if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "toEffectiveAt",
+            "in": "query",
+            "description": "The upper bound effective datetime (inclusive) of the Valuation Points to include. Defaults to the latest Valuation Point if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the provisions. Defaults to returning the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "navTypeCode",
+            "in": "query",
+            "description": "When provided, the provisions of the specified NAV Type, otherwise the Primary NAV Type will be used.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The deferred-tax provisions of the Fund's Valuation Points in the window",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfTaxProvision"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "href": "http://finbourne.com",
+                      "fund": {
+                        "scope": "FundScope",
+                        "code": "FundCode"
+                      },
+                      "navTypeCode": "DefaultNavType",
+                      "diaryEntryCode": "VP-2024-03-31",
+                      "effectiveAt": "2024-03-31T00:00:00.0000000+00:00",
+                      "asAt": "2024-04-01T09:00:00.0000000+00:00",
+                      "status": "Approved",
+                      "realisedGains": 125000,
+                      "unrealisedGains": 48000,
+                      "indexationAllowance": 12000,
+                      "lossesBroughtForward": 20000,
+                      "lossesUsed": 20000,
+                      "lossesCarriedForward": 0,
+                      "rateApplied": 0.25,
+                      "provisionAmount": 38250,
+                      "movement": {
+                        "realised": 31250,
+                        "unrealisedChange": 12000,
+                        "rateChange": 0,
+                        "lossOffset": -5000
+                      },
+                      "approvedBy": "00u1abc2defGHIJKLM3p7",
+                      "approvedAt": "2024-04-01T09:00:00.0000000+00:00"
+                    }
+                  ],
+                  "href": "http://finbourne.com",
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfTaxProvision"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "href": "http://finbourne.com",
+                      "fund": {
+                        "scope": "FundScope",
+                        "code": "FundCode"
+                      },
+                      "navTypeCode": "DefaultNavType",
+                      "diaryEntryCode": "VP-2024-03-31",
+                      "effectiveAt": "2024-03-31T00:00:00.0000000+00:00",
+                      "asAt": "2024-04-01T09:00:00.0000000+00:00",
+                      "status": "Approved",
+                      "realisedGains": 125000,
+                      "unrealisedGains": 48000,
+                      "indexationAllowance": 12000,
+                      "lossesBroughtForward": 20000,
+                      "lossesUsed": 20000,
+                      "lossesCarriedForward": 0,
+                      "rateApplied": 0.25,
+                      "provisionAmount": 38250,
+                      "movement": {
+                        "realised": 31250,
+                        "unrealisedChange": 12000,
+                        "rateChange": 0,
+                        "lossOffset": -5000
+                      },
+                      "approvedBy": "00u1abc2defGHIJKLM3p7",
+                      "approvedAt": "2024-04-01T09:00:00.0000000+00:00"
+                    }
+                  ],
+                  "href": "http://finbourne.com",
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfTaxProvision"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "href": "http://finbourne.com",
+                      "fund": {
+                        "scope": "FundScope",
+                        "code": "FundCode"
+                      },
+                      "navTypeCode": "DefaultNavType",
+                      "diaryEntryCode": "VP-2024-03-31",
+                      "effectiveAt": "2024-03-31T00:00:00.0000000+00:00",
+                      "asAt": "2024-04-01T09:00:00.0000000+00:00",
+                      "status": "Approved",
+                      "realisedGains": 125000,
+                      "unrealisedGains": 48000,
+                      "indexationAllowance": 12000,
+                      "lossesBroughtForward": 20000,
+                      "lossesUsed": 20000,
+                      "lossesCarriedForward": 0,
+                      "rateApplied": 0.25,
+                      "provisionAmount": 38250,
+                      "movement": {
+                        "realised": 31250,
+                        "unrealisedChange": 12000,
+                        "rateChange": 0,
+                        "lossOffset": -5000
+                      },
+                      "approvedBy": "00u1abc2defGHIJKLM3p7",
+                      "approvedAt": "2024-04-01T09:00:00.0000000+00:00"
+                    }
+                  ],
+                  "href": "http://finbourne.com",
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
     "/api/funds/{scope}/{code}/tax/scope": {
       "get": {
         "tags": [
@@ -69321,7 +69727,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] GetValuationPointJournalEntryLines: Get the Journal Entry Lines for the given Fund.",
-        "description": "Gets the Journal Entry Lines for the given Valuation Point for a Fund.\r\n            \r\nThe Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.",
+        "description": "Gets the Journal Entry Lines for the given Valuation Point for a Fund.\r\n            \r\nThe Journal Entry Lines have been generated from transactions, translated via posting rules and used in the valuation point.\r\n            \r\nLines are returned grouped by portfolio, ordered by portfolio scope and then code (ordinal), with each portfolio's lines in the order the accounting engine produced them, so the order is stable across pages.",
         "operationId": "GetValuationPointJournalEntryLines",
         "parameters": [
           {
@@ -69846,7 +70252,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] GetValuationPointPnlSummary: Get a PnL summary for the given Valuation Point in the Fund.",
-        "description": "Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.",
+        "description": "Gets the PnL Summary lines from the Journal Entry Lines produced when calculating the Valuation Point.\r\n            \r\nRows are returned ordered by PnL bucket (ordinal), then portfolio scope and code (ordinal), then accounting date, activity date and source id, with the remaining Journal Entry Line fields as tie-breakers, so the order is total and stable across pages.",
         "operationId": "GetValuationPointPnlSummary",
         "parameters": [
           {
@@ -69887,7 +70293,7 @@
           {
             "name": "asAt",
             "in": "query",
-            "description": "The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version\r\n            of each transaction if not specified.",
+            "description": "The asAt datetime at which to retrieve PnL summary. Defaults to returning the latest version\r\n             of each transaction if not specified.",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -70479,7 +70885,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] GetValuationPointTransactions: Get the Transactions for the given Fund.",
-        "description": "Gets the Transactions for the given Valuation Point for a Fund.",
+        "description": "Gets the Transactions for the given Valuation Point for a Fund.\r\n            \r\nTransactions are returned grouped by portfolio, ordered by portfolio scope and then code (ordinal), with each portfolio's transactions in the order the accounting engine produced them, so the order is stable across pages.",
         "operationId": "GetValuationPointTransactions",
         "parameters": [
           {
@@ -70509,7 +70915,7 @@
           {
             "name": "asAt",
             "in": "query",
-            "description": "The asAt datetime at which to retrieve transactions. Defaults to returning the latest version\r\n            of each transaction if not specified.",
+            "description": "The asAt datetime at which to retrieve transactions. Defaults to returning the latest version\r\n             of each transaction if not specified.",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -70553,7 +70959,7 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'\r\n            domain to decorate onto the transactions.",
+            "description": "A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'\r\n             domain to decorate onto the transactions.",
             "schema": {
               "type": "array",
               "items": {
@@ -70599,7 +71005,7 @@
           {
             "name": "showCancelledTransactions",
             "in": "query",
-            "description": "Option to specify whether or not to include cancelled transactions,\r\n            including previous versions of transactions which have since been amended.\r\n            Defaults to False if not specified.",
+            "description": "Option to specify whether or not to include cancelled transactions,\r\n             including previous versions of transactions which have since been amended.\r\n             Defaults to False if not specified.",
             "schema": {
               "type": "boolean"
             },
@@ -70616,7 +71022,7 @@
           {
             "name": "returnExcludedTransactions",
             "in": "query",
-            "description": "Option to specify whether or not to include transactions excluded by the\r\n            NavType's TransactionExclusionFilter, flagged with isExcluded. The reversal of a previously included version of\r\n            a transaction that has since been amended to be excluded is returned regardless of this option.\r\n            Defaults to False if not specified.",
+            "description": "Option to specify whether or not to include transactions excluded by the\r\n             NavType's TransactionExclusionFilter, flagged with isExcluded. The reversal of a previously included version of\r\n             a transaction that has since been amended to be excluded is returned regardless of this option.\r\n             Defaults to False if not specified.",
             "schema": {
               "type": "boolean"
             },
@@ -72091,7 +72497,7 @@
           "Funds"
         ],
         "summary": "[EARLY ACCESS] GetValuationPointUnsettledTransactions: Get Unsettled Transactions for the given Fund.",
-        "description": "Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,\r\nlooking back from inception. Settlement status is point-in-time: post-cutoff settlement\r\nactivity does not alter the result.",
+        "description": "Gets all transactions that remain unsettled as at the specified Valuation Point for a Fund,\r\nlooking back from inception. Settlement status is point-in-time: post-cutoff settlement\r\nactivity does not alter the result.\r\n            \r\nRows are returned ordered by portfolio (scope then code, ordinal), then by trade date, entry time, transaction id (ordinal) and sub-holding keys, so the order is total and stable across pages.",
         "operationId": "GetValuationPointUnsettledTransactions",
         "parameters": [
           {
@@ -72154,7 +72560,7 @@
           {
             "name": "propertyKeys",
             "in": "query",
-            "description": "A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', or 'Account'\r\n            domain to decorate onto the transactions.",
+            "description": "A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', or 'Account'\r\n             domain to decorate onto the transactions.",
             "schema": {
               "type": "array",
               "items": {
@@ -72387,6 +72793,207 @@
                 },
                 "example": {
                   "asAt": "2018-03-05T10:10:10.0000000+00:00"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode}/tax/provision/approve": {
+      "post": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] ApproveTaxProvision: [EARLY ACCESS] ApproveTaxProvision: Approve the deferred-tax provision of a Valuation Point.",
+        "description": "Moves the Valuation Point's deferred-tax provision from Estimate to Approved, stores it as the official\r\ndocument and books the movement since the previous approved Valuation Point as an accrual on the Fund.\r\nApproving an already approved provision fails. Until tax elections can be configured on the Fund every\r\nprovision is struck under the default elections: a 20% rate, indexation allowance applied and losses carried\r\nforward.",
+        "operationId": "ApproveTaxProvision",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "diaryEntryCode",
+            "in": "path",
+            "description": "The Diary Entry code of the Valuation Point whose provision is approved.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "navTypeCode",
+            "in": "query",
+            "description": "When provided, approves the provision of the specified NAV Type, otherwise the Primary NAV Type will be used.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The approved deferred-tax provision",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxProvision"
+                },
+                "example": {
+                  "href": "http://finbourne.com",
+                  "fund": {
+                    "scope": "FundScope",
+                    "code": "FundCode"
+                  },
+                  "navTypeCode": "DefaultNavType",
+                  "diaryEntryCode": "VP-2024-03-31",
+                  "effectiveAt": "2024-03-31T00:00:00.0000000+00:00",
+                  "asAt": "2024-04-01T09:00:00.0000000+00:00",
+                  "status": "Approved",
+                  "realisedGains": 125000,
+                  "unrealisedGains": 48000,
+                  "indexationAllowance": 12000,
+                  "lossesBroughtForward": 20000,
+                  "lossesUsed": 20000,
+                  "lossesCarriedForward": 0,
+                  "rateApplied": 0.25,
+                  "provisionAmount": 38250,
+                  "movement": {
+                    "realised": 31250,
+                    "unrealisedChange": 12000,
+                    "rateChange": 0,
+                    "lossOffset": -5000
+                  },
+                  "approvedBy": "00u1abc2defGHIJKLM3p7",
+                  "approvedAt": "2024-04-01T09:00:00.0000000+00:00"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxProvision"
+                },
+                "example": {
+                  "href": "http://finbourne.com",
+                  "fund": {
+                    "scope": "FundScope",
+                    "code": "FundCode"
+                  },
+                  "navTypeCode": "DefaultNavType",
+                  "diaryEntryCode": "VP-2024-03-31",
+                  "effectiveAt": "2024-03-31T00:00:00.0000000+00:00",
+                  "asAt": "2024-04-01T09:00:00.0000000+00:00",
+                  "status": "Approved",
+                  "realisedGains": 125000,
+                  "unrealisedGains": 48000,
+                  "indexationAllowance": 12000,
+                  "lossesBroughtForward": 20000,
+                  "lossesUsed": 20000,
+                  "lossesCarriedForward": 0,
+                  "rateApplied": 0.25,
+                  "provisionAmount": 38250,
+                  "movement": {
+                    "realised": 31250,
+                    "unrealisedChange": 12000,
+                    "rateChange": 0,
+                    "lossOffset": -5000
+                  },
+                  "approvedBy": "00u1abc2defGHIJKLM3p7",
+                  "approvedAt": "2024-04-01T09:00:00.0000000+00:00"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxProvision"
+                },
+                "example": {
+                  "href": "http://finbourne.com",
+                  "fund": {
+                    "scope": "FundScope",
+                    "code": "FundCode"
+                  },
+                  "navTypeCode": "DefaultNavType",
+                  "diaryEntryCode": "VP-2024-03-31",
+                  "effectiveAt": "2024-03-31T00:00:00.0000000+00:00",
+                  "asAt": "2024-04-01T09:00:00.0000000+00:00",
+                  "status": "Approved",
+                  "realisedGains": 125000,
+                  "unrealisedGains": 48000,
+                  "indexationAllowance": 12000,
+                  "lossesBroughtForward": 20000,
+                  "lossesUsed": 20000,
+                  "lossesCarriedForward": 0,
+                  "rateApplied": 0.25,
+                  "provisionAmount": 38250,
+                  "movement": {
+                    "realised": 31250,
+                    "unrealisedChange": 12000,
+                    "rateChange": 0,
+                    "lossOffset": -5000
+                  },
+                  "approvedBy": "00u1abc2defGHIJKLM3p7",
+                  "approvedAt": "2024-04-01T09:00:00.0000000+00:00"
                 }
               }
             }
@@ -99798,6 +100405,568 @@
                   "code": "PLAC00000123"
                 }
               ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "A list of Allocations",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllocationServiceRunResponse"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "scope": "MyScope",
+                      "code": "PLAC00000123"
+                    },
+                    {
+                      "scope": "MyScope",
+                      "code": "PLAC00000789"
+                    }
+                  ],
+                  "failed": {
+                    "Scope:MyScope Code:PLAC00000456": {
+                      "id": "Scope:MyScope Code:PLAC00000456",
+                      "type": "EmptyPortfolioIdFailure",
+                      "detail": "Empty PortfolioId on Order"
+                    }
+                  },
+                  "allocations": [
+                    {
+                      "placementId": {
+                        "scope": "MyScope",
+                        "code": "PLAC00000123"
+                      },
+                      "allocation": {
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "ALLOC00000123"
+                        },
+                        "allocatedOrderId": {
+                          "scope": "MyScope",
+                          "code": "ORD00000123"
+                        },
+                        "portfolioId": {
+                          "scope": "MyScope",
+                          "code": "testPortfolio"
+                        },
+                        "quantity": 100,
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "version": {
+                          "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                          "userIdCreated": "AllocationUser1",
+                          "requestIdCreated": "AllocationRequestId1",
+                          "reasonCreated": "",
+                          "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                          "userIdModified": "AllocationUser2",
+                          "requestIdModified": "AllocationRequestId2",
+                          "reasonModified": "",
+                          "asAtVersionNumber": 2,
+                          "entityUniqueId": "67cd5403-60d3-4744-8455-c4522a3886cb"
+                        },
+                        "properties": {
+                          "Allocation/MyScope/SomeAllocationProperty": {
+                            "key": "Allocation/MyScope/SomeAllocationProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "lusidInstrumentId": "customInstrumentId",
+                        "placementIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "PLAC00000123"
+                          }
+                        ],
+                        "state": "New",
+                        "side": "Buy",
+                        "type": "Limit",
+                        "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
+                        "date": "2006-04-11T00:00:00.0000000+00:00",
+                        "price": {
+                          "amount": 12413.33,
+                          "currency": "USD"
+                        },
+                        "settlementCurrency": "USD",
+                        "settlementCurrencyFxRate": 1,
+                        "counterparty": "SomeCounterparty",
+                        "executionIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "EXEC00000123"
+                          }
+                        ]
+                      },
+                      "outcome": "Updated"
+                    }
+                  ],
+                  "warnings": [
+                    {
+                      "placementId": {
+                        "scope": "MyScope",
+                        "code": "PLAC00000123"
+                      },
+                      "code": "OffMinimumIncrement",
+                      "message": "Allocation 'MyScope/ALLOC00000123' has quantity 1500, which is not a multiple of the instrument's minimum increment of 1000: 500 is left over after rounding to the increment.",
+                      "allocationId": {
+                        "scope": "MyScope",
+                        "code": "ALLOC00000123"
+                      },
+                      "portfolioId": {
+                        "scope": "MyScope",
+                        "code": "PORT00000001"
+                      }
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllocationServiceRunResponse"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "scope": "MyScope",
+                      "code": "PLAC00000123"
+                    },
+                    {
+                      "scope": "MyScope",
+                      "code": "PLAC00000789"
+                    }
+                  ],
+                  "failed": {
+                    "Scope:MyScope Code:PLAC00000456": {
+                      "id": "Scope:MyScope Code:PLAC00000456",
+                      "type": "EmptyPortfolioIdFailure",
+                      "detail": "Empty PortfolioId on Order"
+                    }
+                  },
+                  "allocations": [
+                    {
+                      "placementId": {
+                        "scope": "MyScope",
+                        "code": "PLAC00000123"
+                      },
+                      "allocation": {
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "ALLOC00000123"
+                        },
+                        "allocatedOrderId": {
+                          "scope": "MyScope",
+                          "code": "ORD00000123"
+                        },
+                        "portfolioId": {
+                          "scope": "MyScope",
+                          "code": "testPortfolio"
+                        },
+                        "quantity": 100,
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "version": {
+                          "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                          "userIdCreated": "AllocationUser1",
+                          "requestIdCreated": "AllocationRequestId1",
+                          "reasonCreated": "",
+                          "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                          "userIdModified": "AllocationUser2",
+                          "requestIdModified": "AllocationRequestId2",
+                          "reasonModified": "",
+                          "asAtVersionNumber": 2,
+                          "entityUniqueId": "67cd5403-60d3-4744-8455-c4522a3886cb"
+                        },
+                        "properties": {
+                          "Allocation/MyScope/SomeAllocationProperty": {
+                            "key": "Allocation/MyScope/SomeAllocationProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "lusidInstrumentId": "customInstrumentId",
+                        "placementIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "PLAC00000123"
+                          }
+                        ],
+                        "state": "New",
+                        "side": "Buy",
+                        "type": "Limit",
+                        "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
+                        "date": "2006-04-11T00:00:00.0000000+00:00",
+                        "price": {
+                          "amount": 12413.33,
+                          "currency": "USD"
+                        },
+                        "settlementCurrency": "USD",
+                        "settlementCurrencyFxRate": 1,
+                        "counterparty": "SomeCounterparty",
+                        "executionIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "EXEC00000123"
+                          }
+                        ]
+                      },
+                      "outcome": "Updated"
+                    }
+                  ],
+                  "warnings": [
+                    {
+                      "placementId": {
+                        "scope": "MyScope",
+                        "code": "PLAC00000123"
+                      },
+                      "code": "OffMinimumIncrement",
+                      "message": "Allocation 'MyScope/ALLOC00000123' has quantity 1500, which is not a multiple of the instrument's minimum increment of 1000: 500 is left over after rounding to the increment.",
+                      "allocationId": {
+                        "scope": "MyScope",
+                        "code": "ALLOC00000123"
+                      },
+                      "portfolioId": {
+                        "scope": "MyScope",
+                        "code": "PORT00000001"
+                      }
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllocationServiceRunResponse"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "scope": "MyScope",
+                      "code": "PLAC00000123"
+                    },
+                    {
+                      "scope": "MyScope",
+                      "code": "PLAC00000789"
+                    }
+                  ],
+                  "failed": {
+                    "Scope:MyScope Code:PLAC00000456": {
+                      "id": "Scope:MyScope Code:PLAC00000456",
+                      "type": "EmptyPortfolioIdFailure",
+                      "detail": "Empty PortfolioId on Order"
+                    }
+                  },
+                  "allocations": [
+                    {
+                      "placementId": {
+                        "scope": "MyScope",
+                        "code": "PLAC00000123"
+                      },
+                      "allocation": {
+                        "id": {
+                          "scope": "MyScope",
+                          "code": "ALLOC00000123"
+                        },
+                        "allocatedOrderId": {
+                          "scope": "MyScope",
+                          "code": "ORD00000123"
+                        },
+                        "portfolioId": {
+                          "scope": "MyScope",
+                          "code": "testPortfolio"
+                        },
+                        "quantity": 100,
+                        "instrumentIdentifiers": {
+                          "Instrument/default/Currency": "GBP"
+                        },
+                        "version": {
+                          "effectiveFrom": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtDate": "2018-03-05T10:10:10.0000000+00:00",
+                          "asAtCreated": "2018-03-05T10:10:10.0000000+00:00",
+                          "userIdCreated": "AllocationUser1",
+                          "requestIdCreated": "AllocationRequestId1",
+                          "reasonCreated": "",
+                          "asAtModified": "2018-03-08T10:10:10.0000000+00:00",
+                          "userIdModified": "AllocationUser2",
+                          "requestIdModified": "AllocationRequestId2",
+                          "reasonModified": "",
+                          "asAtVersionNumber": 2,
+                          "entityUniqueId": "67cd5403-60d3-4744-8455-c4522a3886cb"
+                        },
+                        "properties": {
+                          "Allocation/MyScope/SomeAllocationProperty": {
+                            "key": "Allocation/MyScope/SomeAllocationProperty",
+                            "value": {
+                              "labelValue": "XYZ000034567"
+                            }
+                          }
+                        },
+                        "lusidInstrumentId": "customInstrumentId",
+                        "placementIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "PLAC00000123"
+                          }
+                        ],
+                        "state": "New",
+                        "side": "Buy",
+                        "type": "Limit",
+                        "settlementDate": "2006-04-14T00:00:00.0000000+00:00",
+                        "date": "2006-04-11T00:00:00.0000000+00:00",
+                        "price": {
+                          "amount": 12413.33,
+                          "currency": "USD"
+                        },
+                        "settlementCurrency": "USD",
+                        "settlementCurrencyFxRate": 1,
+                        "counterparty": "SomeCounterparty",
+                        "executionIds": [
+                          {
+                            "scope": "MyScope",
+                            "code": "EXEC00000123"
+                          }
+                        ]
+                      },
+                      "outcome": "Updated"
+                    }
+                  ],
+                  "warnings": [
+                    {
+                      "placementId": {
+                        "scope": "MyScope",
+                        "code": "PLAC00000123"
+                      },
+                      "code": "OffMinimumIncrement",
+                      "message": "Allocation 'MyScope/ALLOC00000123' has quantity 1500, which is not a multiple of the instrument's minimum increment of 1000: 500 is left over after rounding to the increment.",
+                      "allocationId": {
+                        "scope": "MyScope",
+                        "code": "ALLOC00000123"
+                      },
+                      "portfolioId": {
+                        "scope": "MyScope",
+                        "code": "PORT00000001"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "Stable"
+      }
+    },
+    "/api/ordermanagement/allocate/weighted": {
+      "post": {
+        "tags": [
+          "Order Management"
+        ],
+        "summary": "RunAllocationServiceWithWeights: Runs the Allocation Service with portfolio weights",
+        "description": "Allocates Executions for a given list of placements to a specified set of portfolios by weight,\r\ncreating Allocations to record the results. Used for the unsolicited Block and Block Trade booking flows where no Orders exist against the Block.\r\nWeights are relative to each other and are not required to sum to 1 or 100.",
+        "operationId": "RunAllocationServiceWithWeights",
+        "parameters": [
+          {
+            "name": "allocationAlgorithm",
+            "in": "query",
+            "description": "A string representation of the allocation algorithm you would like to use to allocate shares from executions e.g. \"PR-LF\".\r\nAllocating with weights means the base algorithm is always pro-rata, and the orphan allocation algorithm is either Largest First or Smallest First.\r\nThis defaults to \"PR-LF\". Valid values are \"PR-LF\", \"PR-SF\", \"LF\", \"SF\".",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "cancelAndCorrect",
+            "in": "query",
+            "description": "Whether to cancel the transactions booked against this placement's allocations once the run has re-split the\r\nfull executed quantity by the weights. A subsequent call to BookTransactions then books corrected ones.\r\nDefaults to true. Set to false to leave the booked transactions in place.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-nullable": true
+          }
+        ],
+        "requestBody": {
+          "description": "The placement IDs to allocate against, and the portfolio weights to use for the allocation split.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeightedAllocationServiceRunRequest"
+              },
+              "example": {
+                "placementIds": [
+                  {
+                    "scope": "MyScope",
+                    "code": "PLAC00000123"
+                  },
+                  {
+                    "scope": "MyScope",
+                    "code": "PLAC00000456"
+                  }
+                ],
+                "portfolioWeights": [
+                  {
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "Portfolio1"
+                    },
+                    "weight": 0.6
+                  },
+                  {
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "Portfolio2"
+                    },
+                    "weight": 0.4
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeightedAllocationServiceRunRequest"
+              },
+              "example": {
+                "placementIds": [
+                  {
+                    "scope": "MyScope",
+                    "code": "PLAC00000123"
+                  },
+                  {
+                    "scope": "MyScope",
+                    "code": "PLAC00000456"
+                  }
+                ],
+                "portfolioWeights": [
+                  {
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "Portfolio1"
+                    },
+                    "weight": 0.6
+                  },
+                  {
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "Portfolio2"
+                    },
+                    "weight": 0.4
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeightedAllocationServiceRunRequest"
+              },
+              "example": {
+                "placementIds": [
+                  {
+                    "scope": "MyScope",
+                    "code": "PLAC00000123"
+                  },
+                  {
+                    "scope": "MyScope",
+                    "code": "PLAC00000456"
+                  }
+                ],
+                "portfolioWeights": [
+                  {
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "Portfolio1"
+                    },
+                    "weight": 0.6
+                  },
+                  {
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "Portfolio2"
+                    },
+                    "weight": 0.4
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeightedAllocationServiceRunRequest"
+              },
+              "example": {
+                "placementIds": [
+                  {
+                    "scope": "MyScope",
+                    "code": "PLAC00000123"
+                  },
+                  {
+                    "scope": "MyScope",
+                    "code": "PLAC00000456"
+                  }
+                ],
+                "portfolioWeights": [
+                  {
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "Portfolio1"
+                    },
+                    "weight": 0.6
+                  },
+                  {
+                    "portfolioId": {
+                      "scope": "MyScope",
+                      "code": "Portfolio2"
+                    },
+                    "weight": 0.4
+                  }
+                ]
+              }
             }
           },
           "required": true
@@ -201901,7 +203070,7 @@
               },
               "workout": {
                 "type": "string",
-                "description": "The redemption date a callable ComplexBond is struck to.\r\n            \r\nSupported string (enumeration) values are: [Maturity, NextCall].\r\nDefaults to Maturity - the bond's flows to final maturity - when not supplied.\r\n            \r\nNextCall: the spread-anchored valuation (and so every Risk/Rates and Risk/Credit bump of it), the\r\nanchor solved from the price, and the z-spread family (Analytic/ZSpread, SpreadDuration, CS01,\r\nCS01/Central) discount the flows the bond pays if redeemed at its next call: no flow after the call,\r\nthe principal outstanding on the call date repaid at the call strike. The looked-up PV is unchanged,\r\nand Valuation/Diagnostics/Model/PricingHorizon reports the call date. A bond with no live call is\r\nstruck to maturity; a shape the workout truncation refuses fails by name.",
+                "description": "The redemption date a ComplexBond is struck to.\r\n            \r\nSupported string (enumeration) values are: [Maturity, NextCall, NextReset, ExpectedMaturity].\r\nDefaults to Maturity - the bond's flows to final maturity - when not supplied.\r\n            \r\nNextCall: the spread-anchored valuation (and so every Risk/Rates and Risk/Credit bump of it), the\r\nanchor solved from the price, and the z-spread family (Analytic/ZSpread, SpreadDuration, CS01,\r\nCS01/Central) discount the flows the bond pays if redeemed at its next call: no flow after the call,\r\nthe principal outstanding on the call date repaid at the call strike. The looked-up PV is unchanged,\r\nand Valuation/Diagnostics/Model/PricingHorizon reports the call date. A bond with no live call is\r\nstruck to maturity; a shape the workout truncation refuses fails by name.\r\n            \r\nNextReset: a floater is struck the same way to the accrual start of its next floating coupon, repaid\r\nat par, and PricingHorizon reports the reset date. A fixed bond, or a floater past its last reset, is\r\nstruck to maturity.\r\n            \r\nExpectedMaturity: an amortising bond, an asset-backed pool in particular, is struck to the\r\nweighted-average life of its principal flows after the valuation date rounded to the nearest payment\r\ndate: the scheduled and projected paydowns are kept to that date and the balance outstanding there is\r\nrepaid at par. The paydowns of an asset-backed pool follow its pool factors and constant prepayment\r\nrate, so the date agrees with the WeightedAverageLife analytic, and PricingHorizon reports it. A bullet,\r\nor a bond whose expected maturity is its final payment date, is struck to maturity.",
                 "nullable": true
               },
               "modelOptionsType": {
@@ -206003,7 +207172,7 @@
               },
               "fundedCapitalAmount": {
                 "type": "number",
-                "description": "The funded capital received by the destination line, for a line whose drawdowns were booked against the stored funded balance rather than paid-in capital. Used on the 'In' side only; must not be negative.",
+                "description": "The funded capital received by the destination line beyond its paid-in capital: the share of what the source line holds as a stored funded balance, from drawdowns booked against funded capital rather than paid-in capital. Paid-in capital already funds the destination, so for a line funded through paid-in capital this is zero or omitted; a figure here equal to the paid-in would fund the destination twice and is refused. Used on the 'In' side only; must not be negative.",
                 "format": "double",
                 "nullable": true
               },
@@ -206015,25 +207184,25 @@
               },
               "paidInCapitalPortfolioCcyAmount": {
                 "type": "number",
-                "description": "The paid-in capital the destination line takes over, already in the portfolio's base currency: the source line's PaidInCapitalPortfolioCcy balance share, accumulated at historical rates, not a spot conversion of PaidInCapitalAmount. Used on the 'In' side only; must not be negative. An In side that omits it books zero for PaidInCapitalPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the PaidInCapitalPortfolioCcy movement for the twin to move.",
+                "description": "The paid-in capital the destination line takes over, already in the portfolio's base currency: the source line's PaidInCapitalPortfolioCcy balance share, accumulated at historical rates, not a spot conversion of PaidInCapitalAmount. Used on the 'In' side only; must not be negative. An In side carries the source line's share of PaidInCapitalPortfolioCcy, as the Out side gives it up, and is refused when it omits a share the source line carries, and the transaction type configuration must include the PaidInCapitalPortfolioCcy movement for the twin to move.",
                 "format": "double",
                 "nullable": true
               },
               "returnedCapitalPortfolioCcyAmount": {
                 "type": "number",
-                "description": "The returned capital the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative. An In side that omits it books zero for ReturnedCapitalPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the ReturnedCapitalPortfolioCcy movement for the twin to move.",
+                "description": "The returned capital the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative. An In side carries the source line's share of ReturnedCapitalPortfolioCcy, as the Out side gives it up, and is refused when it omits a share the source line carries, and the transaction type configuration must include the ReturnedCapitalPortfolioCcy movement for the twin to move.",
                 "format": "double",
                 "nullable": true
               },
               "excessCapitalReturnedPortfolioCcyAmount": {
                 "type": "number",
-                "description": "The cumulative excess capital returned that the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative. An In side that omits it books zero for ExcessCapitalReturnedPortfolioCcy while the Out side gives up its share, and the transaction type configuration must include the ExcessCapitalReturnedPortfolioCcy movement for the twin to move.",
+                "description": "The cumulative excess capital returned that the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative. An In side carries the source line's share of ExcessCapitalReturnedPortfolioCcy, as the Out side gives it up, and is refused when it omits a share the source line carries, and the transaction type configuration must include the ExcessCapitalReturnedPortfolioCcy movement for the twin to move.",
                 "format": "double",
                 "nullable": true
               },
               "recalledCapitalAmount": {
                 "type": "number",
-                "description": "The cumulative recalled capital that the destination line takes over, in the commitment currency. Used on the 'In' side only; must not be negative. An In side that omits it books zero for RecalledCapital while the Out side gives up its share, and the transaction type configuration must include the RecalledCapital movement for the balance to move.",
+                "description": "The cumulative recalled capital that the destination line takes over, in the commitment currency. Used on the 'In' side only; must not be negative. An In side carries the source line's share of RecalledCapital, as the Out side gives it up, and is refused when it omits a share the source line carries, and the transaction type configuration must include the RecalledCapital movement for the balance to move.",
                 "format": "double",
                 "nullable": true
               },
@@ -206175,7 +207344,7 @@
             }
           }
         ],
-        "description": "The movement of a proportion of a CapitalInterest line's capital balances from one line to another.\r\nThe source (Out) side moves every balance by the fraction; the destination (In) side receives the\r\namounts given on the event. Mode distinguishes a genuine transfer between investors from a correction\r\nof a mis-booked position. The portfolio-currency twin amounts (PaidInCapitalPortfolioCcyAmount,\r\nReturnedCapitalPortfolioCcyAmount and ExcessCapitalReturnedPortfolioCcyAmount) are not derived: an In side\r\nthat omits them books zero for the ...PortfolioCcy twins while the Out side gives up its share, and a\r\nclient-maintained transaction type configuration must include the ...PortfolioCcy twin movements for the\r\ntwins to move at all."
+        "description": "The movement of a proportion of a CapitalInterest line's capital balances from one line to another.\r\nThe source (Out) side moves every balance by the fraction; the destination (In) side receives the\r\namounts given on the event. Mode distinguishes a genuine transfer between investors from a correction\r\nof a mis-booked position. The portfolio-currency twin amounts (PaidInCapitalPortfolioCcyAmount,\r\nReturnedCapitalPortfolioCcyAmount and ExcessCapitalReturnedPortfolioCcyAmount) are not derived from the\r\ncommitment-currency amounts: an In side carries the source line's share of each twin balance, as the Out side\r\ngives it up, and a client-maintained transaction type configuration must include the ...PortfolioCcy twin\r\nmovements for the twins to move at all.\r\nThe supported way to move an interest between partners is a Transfer allocation event (eventType Transfer on\r\nthe allocation events endpoint), which derives both sides from the register, plans and books them together\r\nand posts to the general ledger and the capital account. Direct Out/In pairs upserted as instrument events\r\nremain for migrations: they move register balances only, post nothing to the general ledger or the capital\r\naccount, and are validated as a pair. An In side must have an Out side for the same lines on the same date, in\r\nthe same request or already on the source, and its amounts must equal what that Out side moves, balance by\r\nbalance, the excess capital returned and the portfolio-currency twins included; otherwise the request is\r\nrefused naming the balance and both events, and nothing is written. One Out side has one In side: a second In\r\nside for the same lines on the same date is refused, and so is an In side whose Out side shares its source line\r\nand date with another Out side, in the request or already on the source, because the engine applies\r\nsame-instant transfers in entry order and the second moves what the first left; book transfers out of one\r\nline at distinct instants. The source line must already be on the register when the pair is upserted; a line\r\nwhose history arrives in the same request is refused as not on the register."
       },
       "CapitalisationEvent": {
         "allOf": [
@@ -211607,6 +212776,111 @@
         "additionalProperties": false,
         "description": "An identifier that uniquely describes an item of complex market data such as an interest rate curve or volatility surface."
       },
+      "ComplianceComparison": {
+        "required": [
+          "left",
+          "operator",
+          "predicate",
+          "right"
+        ],
+        "type": "object",
+        "properties": {
+          "predicate": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "left": {
+            "$ref": "#/components/schemas/ComplianceComparisonOperand"
+          },
+          "operator": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "right": {
+            "$ref": "#/components/schemas/ComplianceComparisonOperand"
+          },
+          "passed": {
+            "type": "boolean",
+            "description": "Whether this leaf met its criterion for the group: true where it held, false for a breaching leaf. Absent for a\r\ncomparison the group carried no data for (the criterion short-circuited past it).",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A single leaf comparison the check criterion made, re-evaluated for this group. A result of null is a comparison the\r\ngroup held no data for (the criterion short-circuited past it)."
+      },
+      "ComplianceComparisonOperand": {
+        "required": [
+          "expression"
+        ],
+        "type": "object",
+        "properties": {
+          "expression": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string"
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "One side of a comparison: the sub-expression that produced it and, where the group carried the data to evaluate it,\r\nits value. The value is absent for a non-numeric constant, a reference list, or an operand the group held no data for."
+      },
+      "ComplianceGroupKey": {
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string"
+          },
+          "value": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The dimension a group was formed on: the key the grouping step read, and this group's value for it."
+      },
+      "ComplianceKeyUsed": {
+        "required": [
+          "key",
+          "roles",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "value": {
+            "description": "This holding's own value for the key. Polymorphic: a number for a result or metric property, a label string for\r\na label property, or a string for a related property.",
+            "nullable": true
+          },
+          "source": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A key a holding contributed to the rule: the key, the role(s) it played in the rule, the holding's own value for\r\nit, and which bag the value was read from."
+      },
       "ComplianceParameter": {
         "required": [
           "complianceParameterType"
@@ -211649,6 +212923,7 @@
       },
       "ComplianceRuleBreakdown": {
         "required": [
+          "groupId",
           "groupStatus",
           "lineage",
           "missingDataInformation",
@@ -211657,6 +212932,11 @@
         ],
         "type": "object",
         "properties": {
+          "groupId": {
+            "type": "integer",
+            "description": "A stable identifier for this group within the rule, the same across the rule-result and breakdown endpoints,\r\nso a group can be correlated between the two.",
+            "format": "int32"
+          },
           "groupStatus": {
             "minLength": 1,
             "type": "string",
@@ -211763,29 +213043,51 @@
       },
       "ComplianceRuleBreakdownWithContributions": {
         "required": [
+          "contributionCount",
           "contributions",
-          "groupStatus",
-          "lineage",
-          "missingDataInformation",
-          "propertiesUsed",
-          "resultsUsed"
+          "contributionsTruncated",
+          "groupId",
+          "status"
         ],
         "type": "object",
         "properties": {
-          "groupStatus": {
+          "groupId": {
+            "type": "integer",
+            "description": "A stable identifier for this group within the rule, matching the same group in the rule-result endpoint.",
+            "format": "int32"
+          },
+          "status": {
             "minLength": 1,
             "type": "string",
             "description": "The status of this subset of results."
           },
-          "resultsUsed": {
+          "groupKey": {
+            "$ref": "#/components/schemas/ComplianceGroupKey"
+          },
+          "nav": {
+            "type": "number",
+            "description": "The portfolio net asset value the group sits within. Absent where no contribution carried it.",
+            "format": "double",
+            "nullable": true
+          },
+          "results": {
             "type": "object",
             "additionalProperties": {
               "type": "number",
               "format": "double"
             },
-            "description": "Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule."
+            "description": "The valuation result totals the group aggregated. Omitted when empty.",
+            "nullable": true
           },
-          "propertiesUsed": {
+          "comparisons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceComparison"
+            },
+            "description": "Every leaf comparison the check criterion made for this group, drawn from both the hard and the soft limit.\r\nOmitted for a group no check reached.",
+            "nullable": true
+          },
+          "properties": {
             "type": "object",
             "additionalProperties": {
               "type": "array",
@@ -211794,20 +213096,17 @@
               },
               "nullable": true
             },
-            "description": "Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule"
+            "description": "The property values the group aggregated. Omitted when empty.",
+            "nullable": true
           },
-          "missingDataInformation": {
-            "type": "array",
-            "items": {
-              "type": "string"
+          "formulaValues": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double"
             },
-            "description": "List of string information detailing data that was missing from contributions processed in this rule"
-          },
-          "lineage": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LineageMember"
-            }
+            "description": "The value each formula within the check criterion evaluated to for this group. Omitted when empty.",
+            "nullable": true
           },
           "contributions": {
             "type": "array",
@@ -211815,26 +213114,35 @@
               "$ref": "#/components/schemas/ComplianceRuleContribution"
             },
             "description": "The per-position contributions aggregated into this rule breakdown group. Empty when the run\r\ngenuinely produced no contributions; a run with no recorded breakdown (e.g. one that predates\r\nthis feature) returns a 404 rather than this response."
+          },
+          "missingDataInformation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of string information detailing data that was missing from contributions processed in this rule. Omitted when empty.",
+            "nullable": true
+          },
+          "contributionCount": {
+            "type": "integer",
+            "description": "The number of contributions aggregated into this group, before any cap.",
+            "format": "int32"
+          },
+          "contributionsTruncated": {
+            "type": "boolean",
+            "description": "Whether the reported contributions were capped below ContributionCount. Always false today."
           }
         },
         "additionalProperties": false
       },
       "ComplianceRuleContribution": {
         "required": [
-          "index",
           "instrument",
-          "portfolioId",
-          "properties",
-          "relatedProperties",
-          "resultValues"
+          "keysUsed",
+          "portfolioId"
         ],
         "type": "object",
         "properties": {
-          "index": {
-            "type": "integer",
-            "description": "The position of this contribution within the compliance run.",
-            "format": "int32"
-          },
           "portfolioId": {
             "$ref": "#/components/schemas/ResourceId"
           },
@@ -211868,28 +213176,19 @@
             "description": "Optional. The internal holding identifier encoding the detail of what the holding includes.",
             "nullable": true
           },
-          "resultValues": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "number",
-              "format": "double"
-            },
-            "description": "Dictionary of AddressKey (as string) and their corresponding decimal valuation results for this contribution."
+          "heldBy": {
+            "maxLength": 6000,
+            "minLength": 0,
+            "type": "string",
+            "description": "Optional. Where this holding sits relative to the rule's benchmark: portfolio, benchmark or both.\r\nMeaningful only for benchmark-relative rules.",
+            "nullable": true
           },
-          "properties": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Property"
+          "keysUsed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComplianceKeyUsed"
             },
-            "description": "Dictionary of PropertyKey (as string) and their corresponding property for this contribution."
-          },
-          "relatedProperties": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string",
-              "nullable": true
-            },
-            "description": "Dictionary of related property keys (as string) and their string values, read from related entities across a relationship."
+            "description": "The keys this holding contributed to the rule: each key the rule read (plus the portfolio NAV key), with the\r\nrole(s) it played, the holding's own value for it, and which bag the value came from."
           }
         },
         "additionalProperties": false
@@ -212146,6 +213445,7 @@
         "required": [
           "completedAt",
           "instigatedAt",
+          "ruleDefinitionsAsAt",
           "ruleResult",
           "runId",
           "schedule"
@@ -212160,6 +213460,10 @@
             "format": "date-time"
           },
           "completedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ruleDefinitionsAsAt": {
             "type": "string",
             "format": "date-time"
           },
@@ -212511,31 +213815,24 @@
       },
       "ComplianceSummaryRuleResultWithContributions": {
         "required": [
-          "affectedOrders",
           "affectedPortfolios",
-          "otherPositionsConsidered",
-          "parametersUsed",
-          "ruleBreakdown",
+          "groups",
           "ruleId",
-          "ruleStatus",
-          "templateId",
-          "variation"
+          "status"
         ],
         "type": "object",
         "properties": {
           "ruleId": {
             "$ref": "#/components/schemas/ResourceId"
           },
-          "templateId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "variation": {
+          "status": {
             "minLength": 1,
             "type": "string"
           },
-          "ruleStatus": {
-            "minLength": 1,
-            "type": "string"
+          "checkType": {
+            "type": "string",
+            "description": "The kind of check the rule applied across its groups: \"PercentCheck\" or \"Check\". Static per rule. Absent for a\r\nrule no check reached.",
+            "nullable": true
           },
           "affectedPortfolios": {
             "type": "array",
@@ -212547,16 +213844,11 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ResourceId"
-            }
+            },
+            "description": "The orders the rule affected. Omitted for a holdings-based run.",
+            "nullable": true
           },
-          "parametersUsed": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "ruleBreakdown": {
+          "groups": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ComplianceRuleBreakdownWithContributions"
@@ -212567,7 +213859,8 @@
             "items": {
               "$ref": "#/components/schemas/ComplianceRuleContribution"
             },
-            "description": "The rest of the basis the rule was measured against but did not directly evaluate — the positions in\r\nthe referenced/denominator (or initial) group that are not in the RuleBreakdown's\r\ncontributions. Together with those contributions this forms the whole basis, with no overlap, so a\r\nbreach can be explained against the full picture (e.g. the non-equity remainder behind an equity limit).\r\nEmpty when the rule evaluated everything it considered."
+            "description": "The rest of the basis the rule was measured against but did not directly evaluate — the positions in\r\nthe referenced/denominator (or initial) group that are not in a group's contributions. Together with those\r\ncontributions this forms the whole basis, with no overlap, so a breach can be explained against the full picture\r\n(e.g. the non-equity remainder behind an equity limit). Omitted when the rule evaluated everything it considered.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -223836,6 +225129,12 @@
                 "type": "string",
                 "nullable": true
               },
+              "accruedInterestPerUnit": {
+                "type": "number",
+                "description": "Optional per-unit interest accrued on the old bond that the offer pays in cash, on the same basis as the\r\ncash offer price. Taken from the offer terms and never calculated. If supplied and above zero, each chosen\r\nelection that removes the old units (security, cash, cash-and-security, consent-and-exchange or mixed lot)\r\nbooks one additional cash transaction per holding of units removed multiplied by this value. Bond and\r\ncomplex bond instrument types only. Must be 0 or more. If left empty or 0, no accrued interest is booked.",
+                "format": "double",
+                "nullable": true
+              },
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
@@ -232964,6 +234263,12 @@
                 "format": "double",
                 "nullable": true
               },
+              "paymentDate": {
+                "type": "string",
+                "description": "The date the variation margin is paid: the effective date plus the future's mark to market settlement offset.\r\nThis is an optional field; when absent the variation margin is paid on the effective date.",
+                "format": "date-time",
+                "nullable": true
+              },
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
@@ -236131,12 +237436,12 @@
           "holdingPropertyKey": {
             "minLength": 1,
             "type": "string",
-            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'ExcessCapitalReturned', 'RecalledCapital', 'PaidInCapitalPortfolioCcy', 'ReturnedCapitalPortfolioCcy', 'ExcessCapitalReturnedPortfolioCcy', 'FundedCapital' and 'UnfundedCapital'. The '...PortfolioCcy' balances are the same balances in the portfolio's base currency, each movement converted at its own RateToPortfolio on the day it was booked and never re-translated at a later spot rate; source them from 'PortfolioAmount'. 'ExcessCapitalReturned' is the cumulative excess capital the fund has handed back, kept separately because a return of excess lowers PaidInCapital and restores UncalledCommitment at the same time. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment, ExcessCapitalReturned, RecalledCapital, PaidInCapitalPortfolioCcy, ReturnedCapitalPortfolioCcy, ExcessCapitalReturnedPortfolioCcy."
+            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'ExcessCapitalReturned', 'RecalledCapital', 'PaidInCapitalPortfolioCcy', 'ReturnedCapitalPortfolioCcy', 'ExcessCapitalReturnedPortfolioCcy', 'FundedCapital' and 'UnfundedCapital'. The '...PortfolioCcy' balances are the same balances in the portfolio's base currency, each movement converted at its own RateToPortfolio on the day it was booked and never re-translated at a later spot rate; source them from 'PortfolioAmount', or from 'PortfolioAmountAtAverageRate' to unwind one at the average rate it was built at. 'ExcessCapitalReturned' is the cumulative excess capital the fund has handed back, kept separately because a return of excess lowers PaidInCapital and restores UncalledCommitment at the same time. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment, ExcessCapitalReturned, RecalledCapital, PaidInCapitalPortfolioCcy, ReturnedCapitalPortfolioCcy, ExcessCapitalReturnedPortfolioCcy."
           },
           "source": {
             "minLength": 1,
             "type": "string",
-            "description": "The movement value that sources the adjustment. Allowed values: 'Amount' (the movement's signed amount in transaction currency), 'Units' (the movement's signed units), 'PortfolioAmount' (the movement's signed amount converted to portfolio currency) and 'ProportionOfBalance' (the movement's amount is read as a proportion between 0 and 1 of the balance already held under the key, and the adjustment is that proportion of the balance rounded to the holding currency's minor unit). 'PortfolioAmount' is accepted only on the '...PortfolioCcy' keys, which are kept in the portfolio's base currency; 'Units' is not accepted on any key. Available values: Amount, Units, PortfolioAmount, ProportionOfBalance."
+            "description": "The movement value that sources the adjustment. Allowed values: 'Amount' (the movement's signed amount in transaction currency), 'Units' (the movement's signed units), 'PortfolioAmount' (the movement's signed amount converted to portfolio currency), 'ProportionOfBalance' (the movement's amount is read as a proportion between 0 and 1 of the balance already held under the key, and the adjustment is that proportion of the balance rounded to the holding currency's minor unit) and 'PortfolioAmountAtAverageRate' (the movement's signed amount converted to portfolio currency at the average rate the balance was built at, that is the balance over its holding-currency twin before the movement, or at the movement's own rate when the twin holds nothing; used to unwind a portfolio-currency balance at the rates it was built at). 'PortfolioAmount' and 'PortfolioAmountAtAverageRate' are accepted only on the '...PortfolioCcy' keys, which are kept in the portfolio's base currency; 'Units' is not accepted on any key. Available values: Amount, Units, PortfolioAmount, ProportionOfBalance, PortfolioAmountAtAverageRate."
           },
           "direction": {
             "minLength": 1,
@@ -237492,8 +238797,6 @@
           },
           {
             "required": [
-              "fixedLeg",
-              "inflationLeg",
               "instrumentType",
               "maturityDate",
               "startDate"
@@ -241626,6 +242929,18 @@
             "type": "boolean",
             "description": "Indicates whether there are intermediate notional exchanges.",
             "nullable": true
+          },
+          "initialExchangeAmount": {
+            "type": "number",
+            "description": "The amount exchanged at the start of the leg, when NotionalExchangeType is Initial or Both.\r\nDefaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be\r\nset together with an FxLinkedNotionalSchedule.",
+            "format": "double",
+            "nullable": true
+          },
+          "finalExchangeAmount": {
+            "type": "number",
+            "description": "The amount exchanged at maturity, when NotionalExchangeType is Final or Both.\r\nDefaults to the notional. Coupons accrue on the notional regardless. Must be non-negative, and cannot be\r\nset together with an FxLinkedNotionalSchedule.",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -244366,6 +245681,19 @@
             "minLength": 0,
             "type": "string",
             "description": "The minute tenor component of the time offset against the maturity date.\r\nThis is an optional field, if a value is provided it must be a positive value between '0min' and '59min'.",
+            "nullable": true
+          },
+          "mtmSettleDays": {
+            "type": "integer",
+            "description": "The number of business days after each mark to market date on which its variation margin is paid.\r\nThis is an optional field, defaulting to 0 (paid on the mark to market date); if a value is provided it must be between 0 and 10 inclusive.",
+            "format": "int32",
+            "nullable": true
+          },
+          "mtmSettlementCalendar": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "The calendar the mark to market settlement days are counted on.\r\nThis is an optional field; if no value is provided the mark to market calendar is used, and without that only weekends are non-business days.",
             "nullable": true
           }
         },
@@ -257251,6 +258579,25 @@
           }
         ]
       },
+      "PortfolioWeight": {
+        "required": [
+          "portfolioId",
+          "weight"
+        ],
+        "type": "object",
+        "properties": {
+          "portfolioId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "weight": {
+            "type": "number",
+            "description": "The relative weight of the Portfolio compared to the other Portfolios specified, used to determine the allocation split between Portfolios when there are no Orders within the Block to allocate to.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a portfolio and its target allocation weight."
+      },
       "PortfolioWithoutHref": {
         "required": [
           "created",
@@ -267174,6 +268521,41 @@
         },
         "additionalProperties": false
       },
+      "ResourceListOfTaxProvision": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TaxProvision"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ResourceListOfTransaction": {
         "required": [
           "values"
@@ -275018,6 +276400,158 @@
           }
         },
         "additionalProperties": false
+      },
+      "TaxProvision": {
+        "required": [
+          "asAt",
+          "diaryEntryCode",
+          "effectiveAt",
+          "fund",
+          "indexationAllowance",
+          "lossesBroughtForward",
+          "lossesCarriedForward",
+          "lossesUsed",
+          "movement",
+          "navTypeCode",
+          "provisionAmount",
+          "rateApplied",
+          "realisedGains",
+          "status",
+          "unrealisedGains"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "fund": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "navTypeCode": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The NAV type the provision was struck for."
+          },
+          "diaryEntryCode": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The diary entry code of the valuation point the provision was struck at."
+          },
+          "effectiveAt": {
+            "type": "string",
+            "description": "The effective date of the valuation point the provision was struck at.",
+            "format": "date-time"
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt datetime at which this version of the provision was recorded.",
+            "format": "date-time"
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Whether the provision is an Estimate or has been Approved. An approved provision has been posted to the fund as an accrual."
+          },
+          "realisedGains": {
+            "type": "number",
+            "description": "The chargeable gains realised by disposals since the start of the tax period, after indexation allowance.",
+            "format": "double"
+          },
+          "unrealisedGains": {
+            "type": "number",
+            "description": "The chargeable gains that would arise on a notional deemed disposal of the fund's holdings at the valuation point.",
+            "format": "double"
+          },
+          "indexationAllowance": {
+            "type": "number",
+            "description": "The indexation allowance taken against the gains in this provision.",
+            "format": "double"
+          },
+          "lossesBroughtForward": {
+            "type": "number",
+            "description": "The allowable losses standing at the start of the tax period and available to offset gains.",
+            "format": "double"
+          },
+          "lossesUsed": {
+            "type": "number",
+            "description": "The losses brought forward that were used against the gains in this provision.",
+            "format": "double"
+          },
+          "lossesCarriedForward": {
+            "type": "number",
+            "description": "The allowable losses remaining after this provision, to be carried forward to the next tax period. Only realised losses are carried; a notional loss on the deemed disposal is not.",
+            "format": "double"
+          },
+          "rateApplied": {
+            "type": "number",
+            "description": "The tax rate applied to the net chargeable gains to arrive at the provision amount.",
+            "format": "double"
+          },
+          "provisionAmount": {
+            "type": "number",
+            "description": "The deferred tax provision amount at the valuation point.",
+            "format": "double"
+          },
+          "movement": {
+            "$ref": "#/components/schemas/TaxProvisionMovement"
+          },
+          "approvedBy": {
+            "type": "string",
+            "description": "The user who approved the provision, if it has been approved.",
+            "nullable": true
+          },
+          "approvedAt": {
+            "type": "string",
+            "description": "The asAt datetime at which the provision was approved, if it has been approved.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The deferred tax provision struck for a fund at a valuation point: the realised and notionally realised\r\n(deemed disposal) gains it is built from, the indexation and loss relief applied, the rate, the resulting\r\nprovision amount, its movement since the previous valuation point and, once approved, who approved it."
+      },
+      "TaxProvisionMovement": {
+        "required": [
+          "lossOffset",
+          "rateChange",
+          "realised",
+          "unrealisedChange"
+        ],
+        "type": "object",
+        "properties": {
+          "realised": {
+            "type": "number",
+            "description": "The part of the movement that is due to gains realised in the period.",
+            "format": "double"
+          },
+          "unrealisedChange": {
+            "type": "number",
+            "description": "The part of the movement that is due to the change in the unrealised position.",
+            "format": "double"
+          },
+          "rateChange": {
+            "type": "number",
+            "description": "The part of the movement that is due to a change in the applied rate.",
+            "format": "double"
+          },
+          "lossOffset": {
+            "type": "number",
+            "description": "The part of the movement that is due to losses brought forward being offset against gains.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The movement in a fund's deferred tax provision between the previous valuation point and this one,\r\nsplit into the realised gains crystallised in the period, the change in the unrealised position,\r\nthe effect of a change in the applied rate and the offset from losses brought forward."
       },
       "TaxSyncStatus": {
         "required": [
@@ -284905,6 +286439,33 @@
           }
         },
         "additionalProperties": false
+      },
+      "WeightedAllocationServiceRunRequest": {
+        "required": [
+          "placementIds"
+        ],
+        "type": "object",
+        "properties": {
+          "placementIds": {
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The set of Placement IDs to allocate."
+          },
+          "portfolioWeights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortfolioWeight"
+            },
+            "description": "The set of Portfolios and their associated weights to use for allocation.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The request body for the RunAllocationServiceWithWeights endpoint."
       },
       "WeightedInstrument": {
         "type": "object",

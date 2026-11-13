@@ -368,6 +368,10 @@ export * from './complexMarketDataActivityAdjustment';
 export * from './complexMarketDataActivityAdjustmentAllOf';
 export * from './complexMarketDataActivityAllOf';
 export * from './complexMarketDataId';
+export * from './complianceComparison';
+export * from './complianceComparisonOperand';
+export * from './complianceGroupKey';
+export * from './complianceKeyUsed';
 export * from './complianceParameter';
 export * from './complianceRuleBreakdown';
 export * from './complianceRuleBreakdownRequest';
@@ -1251,6 +1255,7 @@ export * from './portfolioTransaction';
 export * from './portfolioTransactionAdjustment';
 export * from './portfolioTransactionAdjustmentAllOf';
 export * from './portfolioTransactionAllOf';
+export * from './portfolioWeight';
 export * from './portfolioWithoutHref';
 export * from './portfoliosReconciliationRequest';
 export * from './postingModuleDetails';
@@ -1471,6 +1476,7 @@ export * from './resourceListOfString';
 export * from './resourceListOfTaxClassification';
 export * from './resourceListOfTaxClassificationExceptionRecord';
 export * from './resourceListOfTaxExceptionItem';
+export * from './resourceListOfTaxProvision';
 export * from './resourceListOfTransaction';
 export * from './resourceListOfTransactionFeeType';
 export * from './resourceListOfTransactionSettlementInstruction';
@@ -1654,6 +1660,8 @@ export * from './taxClassificationInputs';
 export * from './taxExceptionItem';
 export * from './taxExceptionRootCause';
 export * from './taxPortfolioSyncStatus';
+export * from './taxProvision';
+export * from './taxProvisionMovement';
 export * from './taxSyncStatus';
 export * from './templateField';
 export * from './tenderEvent';
@@ -1873,6 +1881,7 @@ export * from './warning';
 export * from './warrantsExerciseEvent';
 export * from './warrantsExerciseEventAllOf';
 export * from './weekendMask';
+export * from './weightedAllocationServiceRunRequest';
 export * from './weightedInstrument';
 export * from './weightedInstrumentInLineLookupIdentifiers';
 export * from './weightedInstruments';
@@ -2286,6 +2295,10 @@ import { ComplexMarketDataActivityAdjustment } from './complexMarketDataActivity
 import { ComplexMarketDataActivityAdjustmentAllOf } from './complexMarketDataActivityAdjustmentAllOf';
 import { ComplexMarketDataActivityAllOf } from './complexMarketDataActivityAllOf';
 import { ComplexMarketDataId } from './complexMarketDataId';
+import { ComplianceComparison } from './complianceComparison';
+import { ComplianceComparisonOperand } from './complianceComparisonOperand';
+import { ComplianceGroupKey } from './complianceGroupKey';
+import { ComplianceKeyUsed } from './complianceKeyUsed';
 import { ComplianceParameter } from './complianceParameter';
 import { ComplianceRuleBreakdown } from './complianceRuleBreakdown';
 import { ComplianceRuleBreakdownRequest } from './complianceRuleBreakdownRequest';
@@ -3169,6 +3182,7 @@ import { PortfolioTransaction } from './portfolioTransaction';
 import { PortfolioTransactionAdjustment } from './portfolioTransactionAdjustment';
 import { PortfolioTransactionAdjustmentAllOf } from './portfolioTransactionAdjustmentAllOf';
 import { PortfolioTransactionAllOf } from './portfolioTransactionAllOf';
+import { PortfolioWeight } from './portfolioWeight';
 import { PortfolioWithoutHref } from './portfolioWithoutHref';
 import { PortfoliosReconciliationRequest } from './portfoliosReconciliationRequest';
 import { PostingModuleDetails } from './postingModuleDetails';
@@ -3389,6 +3403,7 @@ import { ResourceListOfString } from './resourceListOfString';
 import { ResourceListOfTaxClassification } from './resourceListOfTaxClassification';
 import { ResourceListOfTaxClassificationExceptionRecord } from './resourceListOfTaxClassificationExceptionRecord';
 import { ResourceListOfTaxExceptionItem } from './resourceListOfTaxExceptionItem';
+import { ResourceListOfTaxProvision } from './resourceListOfTaxProvision';
 import { ResourceListOfTransaction } from './resourceListOfTransaction';
 import { ResourceListOfTransactionFeeType } from './resourceListOfTransactionFeeType';
 import { ResourceListOfTransactionSettlementInstruction } from './resourceListOfTransactionSettlementInstruction';
@@ -3572,6 +3587,8 @@ import { TaxClassificationInputs } from './taxClassificationInputs';
 import { TaxExceptionItem } from './taxExceptionItem';
 import { TaxExceptionRootCause } from './taxExceptionRootCause';
 import { TaxPortfolioSyncStatus } from './taxPortfolioSyncStatus';
+import { TaxProvision } from './taxProvision';
+import { TaxProvisionMovement } from './taxProvisionMovement';
 import { TaxSyncStatus } from './taxSyncStatus';
 import { TemplateField } from './templateField';
 import { TenderEvent } from './tenderEvent';
@@ -3791,6 +3808,7 @@ import { Warning } from './warning';
 import { WarrantsExerciseEvent } from './warrantsExerciseEvent';
 import { WarrantsExerciseEventAllOf } from './warrantsExerciseEventAllOf';
 import { WeekendMask } from './weekendMask';
+import { WeightedAllocationServiceRunRequest } from './weightedAllocationServiceRunRequest';
 import { WeightedInstrument } from './weightedInstrument';
 import { WeightedInstrumentInLineLookupIdentifiers } from './weightedInstrumentInLineLookupIdentifiers';
 import { WeightedInstruments } from './weightedInstruments';
@@ -4957,6 +4975,10 @@ let typeMap: {[index: string]: any} = {
     "ComplexMarketDataActivityAdjustmentAllOf": ComplexMarketDataActivityAdjustmentAllOf,
     "ComplexMarketDataActivityAllOf": ComplexMarketDataActivityAllOf,
     "ComplexMarketDataId": ComplexMarketDataId,
+    "ComplianceComparison": ComplianceComparison,
+    "ComplianceComparisonOperand": ComplianceComparisonOperand,
+    "ComplianceGroupKey": ComplianceGroupKey,
+    "ComplianceKeyUsed": ComplianceKeyUsed,
     "ComplianceParameter": ComplianceParameter,
     "ComplianceRuleBreakdown": ComplianceRuleBreakdown,
     "ComplianceRuleBreakdownRequest": ComplianceRuleBreakdownRequest,
@@ -5839,6 +5861,7 @@ let typeMap: {[index: string]: any} = {
     "PortfolioTransactionAdjustment": PortfolioTransactionAdjustment,
     "PortfolioTransactionAdjustmentAllOf": PortfolioTransactionAdjustmentAllOf,
     "PortfolioTransactionAllOf": PortfolioTransactionAllOf,
+    "PortfolioWeight": PortfolioWeight,
     "PortfolioWithoutHref": PortfolioWithoutHref,
     "PortfoliosReconciliationRequest": PortfoliosReconciliationRequest,
     "PostingModuleDetails": PostingModuleDetails,
@@ -6059,6 +6082,7 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfTaxClassification": ResourceListOfTaxClassification,
     "ResourceListOfTaxClassificationExceptionRecord": ResourceListOfTaxClassificationExceptionRecord,
     "ResourceListOfTaxExceptionItem": ResourceListOfTaxExceptionItem,
+    "ResourceListOfTaxProvision": ResourceListOfTaxProvision,
     "ResourceListOfTransaction": ResourceListOfTransaction,
     "ResourceListOfTransactionFeeType": ResourceListOfTransactionFeeType,
     "ResourceListOfTransactionSettlementInstruction": ResourceListOfTransactionSettlementInstruction,
@@ -6242,6 +6266,8 @@ let typeMap: {[index: string]: any} = {
     "TaxExceptionItem": TaxExceptionItem,
     "TaxExceptionRootCause": TaxExceptionRootCause,
     "TaxPortfolioSyncStatus": TaxPortfolioSyncStatus,
+    "TaxProvision": TaxProvision,
+    "TaxProvisionMovement": TaxProvisionMovement,
     "TaxSyncStatus": TaxSyncStatus,
     "TemplateField": TemplateField,
     "TenderEvent": TenderEvent,
@@ -6460,6 +6486,7 @@ let typeMap: {[index: string]: any} = {
     "WarrantsExerciseEvent": WarrantsExerciseEvent,
     "WarrantsExerciseEventAllOf": WarrantsExerciseEventAllOf,
     "WeekendMask": WeekendMask,
+    "WeightedAllocationServiceRunRequest": WeightedAllocationServiceRunRequest,
     "WeightedInstrument": WeightedInstrument,
     "WeightedInstrumentInLineLookupIdentifiers": WeightedInstrumentInLineLookupIdentifiers,
     "WeightedInstruments": WeightedInstruments,
