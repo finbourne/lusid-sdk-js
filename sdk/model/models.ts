@@ -22,6 +22,7 @@ export * from './accountedComplexMarketData';
 export * from './accountedQuote';
 export * from './accountedTransaction';
 export * from './accountsUpsertResponse';
+export * from './accruedFeeLine';
 export * from './accumulationEvent';
 export * from './accumulationEventAllOf';
 export * from './actionId';
@@ -79,6 +80,8 @@ export * from './allocationEventReallocateRequest';
 export * from './allocationEventReceipt';
 export * from './allocationEventReceiptRequest';
 export * from './allocationEventRefund';
+export * from './allocationEventRefundPayment';
+export * from './allocationEventRefundPaymentRequest';
 export * from './allocationEventRequest';
 export * from './allocationEventReversal';
 export * from './allocationEventReverseRequest';
@@ -114,6 +117,8 @@ export * from './allocationReceivable';
 export * from './allocationReceivablesAgeing';
 export * from './allocationRegisterReceivable';
 export * from './allocationRequest';
+export * from './allocationRule';
+export * from './allocationRuleEffective';
 export * from './allocationServiceRunAllocation';
 export * from './allocationServiceRunResponse';
 export * from './allocationServiceRunWarning';
@@ -122,6 +127,7 @@ export * from './amendCommitmentEvent';
 export * from './amendCommitmentEventAllOf';
 export * from './amortisationEvent';
 export * from './amortisationEventAllOf';
+export * from './amortisationHorizon';
 export * from './amortisationRule';
 export * from './amount';
 export * from './annulQuotesResponse';
@@ -841,6 +847,7 @@ export * from './hullWhiteModelOptionsAllOf';
 export * from './iUnitDefinitionDto';
 export * from './idSelectorDefinition';
 export * from './identifierPartSchema';
+export * from './ignoredDistributionTag';
 export * from './indexConvention';
 export * from './indexModelOptions';
 export * from './indexModelOptionsAllOf';
@@ -1178,11 +1185,13 @@ export * from './participationRequest';
 export * from './participationSetRequest';
 export * from './partnerAllocation';
 export * from './partnerAllocationPool';
+export * from './partnerAllocationPoolSources';
 export * from './partnerAllocationRunRequest';
 export * from './partnerAllocationRunResult';
 export * from './partnerCapitalAccount';
 export * from './partnerCapitalAccountMemo';
 export * from './partnerCapitalAccountRow';
+export * from './partnerCapitalAccountRowDetail';
 export * from './partnerPerformance';
 export * from './partnerPerformanceCashFlow';
 export * from './partnerPerformanceMeasures';
@@ -1193,6 +1202,7 @@ export * from './partnerStatementLineDifference';
 export * from './partnerStatementRequest';
 export * from './partnershipAccountingConfiguration';
 export * from './partnershipAccountingValuationPointData';
+export * from './partnershipAllocationProblem';
 export * from './partnershipConfigPack';
 export * from './paymentInKindEvent';
 export * from './paymentInKindEventAllOf';
@@ -1565,6 +1575,7 @@ export * from './settlementActivityQuery';
 export * from './settlementConfigurationCategory';
 export * from './settlementConfigurationMethodOverride';
 export * from './settlementCycle';
+export * from './settlementFx';
 export * from './settlementInLieu';
 export * from './settlementInstructionAmendRequest';
 export * from './settlementInstructionQuery';
@@ -1580,6 +1591,7 @@ export * from './shareClassDealingBreakdown';
 export * from './shareClassDefinition';
 export * from './shareClassDetails';
 export * from './shareClassPnlBreakdown';
+export * from './shareClassProperties';
 export * from './shareClassRoundingConvention';
 export * from './sharesPremiumDividendEvent';
 export * from './sharesPremiumDividendEventAllOf';
@@ -1650,6 +1662,7 @@ export * from './swingTrigger';
 export * from './swingTriggerEvaluation';
 export * from './targetTaxLot';
 export * from './targetTaxLotRequest';
+export * from './taxAccountingPeriod';
 export * from './taxClassification';
 export * from './taxClassificationDecisionStep';
 export * from './taxClassificationDetail';
@@ -1657,11 +1670,29 @@ export * from './taxClassificationException';
 export * from './taxClassificationExceptionRecord';
 export * from './taxClassificationFieldVersion';
 export * from './taxClassificationInputs';
+export * from './taxDeemedDisposalResponse';
+export * from './taxDeemedDisposalsResponse';
 export * from './taxExceptionItem';
 export * from './taxExceptionRootCause';
+export * from './taxFundReconciliationHoldingResponse';
+export * from './taxFundReconciliationProxyRow';
+export * from './taxFundReconciliationResponse';
+export * from './taxLedgerReconciliationHoldingResponse';
+export * from './taxLedgerReconciliationResponse';
 export * from './taxPortfolioSyncStatus';
 export * from './taxProvision';
 export * from './taxProvisionMovement';
+export * from './taxReconciliationBridgeRow';
+export * from './taxReconciliationDifferenceRow';
+export * from './taxReturnDisposalRow';
+export * from './taxReturnExcludedRow';
+export * from './taxReturnLoanRelationshipRow';
+export * from './taxReturnMemoRow';
+export * from './taxReturnResponse';
+export * from './taxReturnSpreadInstalment';
+export * from './taxReturnTransitionRequest';
+export * from './taxReturnVintage';
+export * from './taxReturnWorkflowStep';
 export * from './taxSyncStatus';
 export * from './templateField';
 export * from './tenderEvent';
@@ -1744,6 +1775,7 @@ export * from './unattributedAmount';
 export * from './unitisationData';
 export * from './unitsRatio';
 export * from './unknownProceedsElection';
+export * from './unmatchedBreakdown';
 export * from './unsettledTransaction';
 export * from './unsettledTransactionCounterLegRevaluation';
 export * from './unsettledTransactionRevaluation';
@@ -1949,6 +1981,7 @@ import { AccountedComplexMarketData } from './accountedComplexMarketData';
 import { AccountedQuote } from './accountedQuote';
 import { AccountedTransaction } from './accountedTransaction';
 import { AccountsUpsertResponse } from './accountsUpsertResponse';
+import { AccruedFeeLine } from './accruedFeeLine';
 import { AccumulationEvent } from './accumulationEvent';
 import { AccumulationEventAllOf } from './accumulationEventAllOf';
 import { ActionId } from './actionId';
@@ -2006,6 +2039,8 @@ import { AllocationEventReallocateRequest } from './allocationEventReallocateReq
 import { AllocationEventReceipt } from './allocationEventReceipt';
 import { AllocationEventReceiptRequest } from './allocationEventReceiptRequest';
 import { AllocationEventRefund } from './allocationEventRefund';
+import { AllocationEventRefundPayment } from './allocationEventRefundPayment';
+import { AllocationEventRefundPaymentRequest } from './allocationEventRefundPaymentRequest';
 import { AllocationEventRequest } from './allocationEventRequest';
 import { AllocationEventReversal } from './allocationEventReversal';
 import { AllocationEventReverseRequest } from './allocationEventReverseRequest';
@@ -2041,6 +2076,8 @@ import { AllocationReceivable } from './allocationReceivable';
 import { AllocationReceivablesAgeing } from './allocationReceivablesAgeing';
 import { AllocationRegisterReceivable } from './allocationRegisterReceivable';
 import { AllocationRequest } from './allocationRequest';
+import { AllocationRule } from './allocationRule';
+import { AllocationRuleEffective } from './allocationRuleEffective';
 import { AllocationServiceRunAllocation } from './allocationServiceRunAllocation';
 import { AllocationServiceRunResponse } from './allocationServiceRunResponse';
 import { AllocationServiceRunWarning } from './allocationServiceRunWarning';
@@ -2049,6 +2086,7 @@ import { AmendCommitmentEvent } from './amendCommitmentEvent';
 import { AmendCommitmentEventAllOf } from './amendCommitmentEventAllOf';
 import { AmortisationEvent } from './amortisationEvent';
 import { AmortisationEventAllOf } from './amortisationEventAllOf';
+import { AmortisationHorizon } from './amortisationHorizon';
 import { AmortisationRule } from './amortisationRule';
 import { Amount } from './amount';
 import { AnnulQuotesResponse } from './annulQuotesResponse';
@@ -2768,6 +2806,7 @@ import { HullWhiteModelOptionsAllOf } from './hullWhiteModelOptionsAllOf';
 import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { IdentifierPartSchema } from './identifierPartSchema';
+import { IgnoredDistributionTag } from './ignoredDistributionTag';
 import { IndexConvention } from './indexConvention';
 import { IndexModelOptions } from './indexModelOptions';
 import { IndexModelOptionsAllOf } from './indexModelOptionsAllOf';
@@ -3105,11 +3144,13 @@ import { ParticipationRequest } from './participationRequest';
 import { ParticipationSetRequest } from './participationSetRequest';
 import { PartnerAllocation } from './partnerAllocation';
 import { PartnerAllocationPool } from './partnerAllocationPool';
+import { PartnerAllocationPoolSources } from './partnerAllocationPoolSources';
 import { PartnerAllocationRunRequest } from './partnerAllocationRunRequest';
 import { PartnerAllocationRunResult } from './partnerAllocationRunResult';
 import { PartnerCapitalAccount } from './partnerCapitalAccount';
 import { PartnerCapitalAccountMemo } from './partnerCapitalAccountMemo';
 import { PartnerCapitalAccountRow } from './partnerCapitalAccountRow';
+import { PartnerCapitalAccountRowDetail } from './partnerCapitalAccountRowDetail';
 import { PartnerPerformance } from './partnerPerformance';
 import { PartnerPerformanceCashFlow } from './partnerPerformanceCashFlow';
 import { PartnerPerformanceMeasures } from './partnerPerformanceMeasures';
@@ -3120,6 +3161,7 @@ import { PartnerStatementLineDifference } from './partnerStatementLineDifference
 import { PartnerStatementRequest } from './partnerStatementRequest';
 import { PartnershipAccountingConfiguration } from './partnershipAccountingConfiguration';
 import { PartnershipAccountingValuationPointData } from './partnershipAccountingValuationPointData';
+import { PartnershipAllocationProblem } from './partnershipAllocationProblem';
 import { PartnershipConfigPack } from './partnershipConfigPack';
 import { PaymentInKindEvent } from './paymentInKindEvent';
 import { PaymentInKindEventAllOf } from './paymentInKindEventAllOf';
@@ -3492,6 +3534,7 @@ import { SettlementActivityQuery } from './settlementActivityQuery';
 import { SettlementConfigurationCategory } from './settlementConfigurationCategory';
 import { SettlementConfigurationMethodOverride } from './settlementConfigurationMethodOverride';
 import { SettlementCycle } from './settlementCycle';
+import { SettlementFx } from './settlementFx';
 import { SettlementInLieu } from './settlementInLieu';
 import { SettlementInstructionAmendRequest } from './settlementInstructionAmendRequest';
 import { SettlementInstructionQuery } from './settlementInstructionQuery';
@@ -3507,6 +3550,7 @@ import { ShareClassDealingBreakdown } from './shareClassDealingBreakdown';
 import { ShareClassDefinition } from './shareClassDefinition';
 import { ShareClassDetails } from './shareClassDetails';
 import { ShareClassPnlBreakdown } from './shareClassPnlBreakdown';
+import { ShareClassProperties } from './shareClassProperties';
 import { ShareClassRoundingConvention } from './shareClassRoundingConvention';
 import { SharesPremiumDividendEvent } from './sharesPremiumDividendEvent';
 import { SharesPremiumDividendEventAllOf } from './sharesPremiumDividendEventAllOf';
@@ -3577,6 +3621,7 @@ import { SwingTrigger } from './swingTrigger';
 import { SwingTriggerEvaluation } from './swingTriggerEvaluation';
 import { TargetTaxLot } from './targetTaxLot';
 import { TargetTaxLotRequest } from './targetTaxLotRequest';
+import { TaxAccountingPeriod } from './taxAccountingPeriod';
 import { TaxClassification } from './taxClassification';
 import { TaxClassificationDecisionStep } from './taxClassificationDecisionStep';
 import { TaxClassificationDetail } from './taxClassificationDetail';
@@ -3584,11 +3629,29 @@ import { TaxClassificationException } from './taxClassificationException';
 import { TaxClassificationExceptionRecord } from './taxClassificationExceptionRecord';
 import { TaxClassificationFieldVersion } from './taxClassificationFieldVersion';
 import { TaxClassificationInputs } from './taxClassificationInputs';
+import { TaxDeemedDisposalResponse } from './taxDeemedDisposalResponse';
+import { TaxDeemedDisposalsResponse } from './taxDeemedDisposalsResponse';
 import { TaxExceptionItem } from './taxExceptionItem';
 import { TaxExceptionRootCause } from './taxExceptionRootCause';
+import { TaxFundReconciliationHoldingResponse } from './taxFundReconciliationHoldingResponse';
+import { TaxFundReconciliationProxyRow } from './taxFundReconciliationProxyRow';
+import { TaxFundReconciliationResponse } from './taxFundReconciliationResponse';
+import { TaxLedgerReconciliationHoldingResponse } from './taxLedgerReconciliationHoldingResponse';
+import { TaxLedgerReconciliationResponse } from './taxLedgerReconciliationResponse';
 import { TaxPortfolioSyncStatus } from './taxPortfolioSyncStatus';
 import { TaxProvision } from './taxProvision';
 import { TaxProvisionMovement } from './taxProvisionMovement';
+import { TaxReconciliationBridgeRow } from './taxReconciliationBridgeRow';
+import { TaxReconciliationDifferenceRow } from './taxReconciliationDifferenceRow';
+import { TaxReturnDisposalRow } from './taxReturnDisposalRow';
+import { TaxReturnExcludedRow } from './taxReturnExcludedRow';
+import { TaxReturnLoanRelationshipRow } from './taxReturnLoanRelationshipRow';
+import { TaxReturnMemoRow } from './taxReturnMemoRow';
+import { TaxReturnResponse } from './taxReturnResponse';
+import { TaxReturnSpreadInstalment } from './taxReturnSpreadInstalment';
+import { TaxReturnTransitionRequest } from './taxReturnTransitionRequest';
+import { TaxReturnVintage } from './taxReturnVintage';
+import { TaxReturnWorkflowStep } from './taxReturnWorkflowStep';
 import { TaxSyncStatus } from './taxSyncStatus';
 import { TemplateField } from './templateField';
 import { TenderEvent } from './tenderEvent';
@@ -3671,6 +3734,7 @@ import { UnattributedAmount } from './unattributedAmount';
 import { UnitisationData } from './unitisationData';
 import { UnitsRatio } from './unitsRatio';
 import { UnknownProceedsElection } from './unknownProceedsElection';
+import { UnmatchedBreakdown } from './unmatchedBreakdown';
 import { UnsettledTransaction } from './unsettledTransaction';
 import { UnsettledTransactionCounterLegRevaluation } from './unsettledTransactionCounterLegRevaluation';
 import { UnsettledTransactionRevaluation } from './unsettledTransactionRevaluation';
@@ -4629,6 +4693,7 @@ let typeMap: {[index: string]: any} = {
     "AccountedQuote": AccountedQuote,
     "AccountedTransaction": AccountedTransaction,
     "AccountsUpsertResponse": AccountsUpsertResponse,
+    "AccruedFeeLine": AccruedFeeLine,
     "AccumulationEvent": AccumulationEvent,
     "AccumulationEventAllOf": AccumulationEventAllOf,
     "ActionId": ActionId,
@@ -4686,6 +4751,8 @@ let typeMap: {[index: string]: any} = {
     "AllocationEventReceipt": AllocationEventReceipt,
     "AllocationEventReceiptRequest": AllocationEventReceiptRequest,
     "AllocationEventRefund": AllocationEventRefund,
+    "AllocationEventRefundPayment": AllocationEventRefundPayment,
+    "AllocationEventRefundPaymentRequest": AllocationEventRefundPaymentRequest,
     "AllocationEventRequest": AllocationEventRequest,
     "AllocationEventReversal": AllocationEventReversal,
     "AllocationEventReverseRequest": AllocationEventReverseRequest,
@@ -4721,6 +4788,8 @@ let typeMap: {[index: string]: any} = {
     "AllocationReceivablesAgeing": AllocationReceivablesAgeing,
     "AllocationRegisterReceivable": AllocationRegisterReceivable,
     "AllocationRequest": AllocationRequest,
+    "AllocationRule": AllocationRule,
+    "AllocationRuleEffective": AllocationRuleEffective,
     "AllocationServiceRunAllocation": AllocationServiceRunAllocation,
     "AllocationServiceRunResponse": AllocationServiceRunResponse,
     "AllocationServiceRunWarning": AllocationServiceRunWarning,
@@ -4729,6 +4798,7 @@ let typeMap: {[index: string]: any} = {
     "AmendCommitmentEventAllOf": AmendCommitmentEventAllOf,
     "AmortisationEvent": AmortisationEvent,
     "AmortisationEventAllOf": AmortisationEventAllOf,
+    "AmortisationHorizon": AmortisationHorizon,
     "AmortisationRule": AmortisationRule,
     "Amount": Amount,
     "AnnulQuotesResponse": AnnulQuotesResponse,
@@ -5447,6 +5517,7 @@ let typeMap: {[index: string]: any} = {
     "IUnitDefinitionDto": IUnitDefinitionDto,
     "IdSelectorDefinition": IdSelectorDefinition,
     "IdentifierPartSchema": IdentifierPartSchema,
+    "IgnoredDistributionTag": IgnoredDistributionTag,
     "IndexConvention": IndexConvention,
     "IndexModelOptions": IndexModelOptions,
     "IndexModelOptionsAllOf": IndexModelOptionsAllOf,
@@ -5784,11 +5855,13 @@ let typeMap: {[index: string]: any} = {
     "ParticipationSetRequest": ParticipationSetRequest,
     "PartnerAllocation": PartnerAllocation,
     "PartnerAllocationPool": PartnerAllocationPool,
+    "PartnerAllocationPoolSources": PartnerAllocationPoolSources,
     "PartnerAllocationRunRequest": PartnerAllocationRunRequest,
     "PartnerAllocationRunResult": PartnerAllocationRunResult,
     "PartnerCapitalAccount": PartnerCapitalAccount,
     "PartnerCapitalAccountMemo": PartnerCapitalAccountMemo,
     "PartnerCapitalAccountRow": PartnerCapitalAccountRow,
+    "PartnerCapitalAccountRowDetail": PartnerCapitalAccountRowDetail,
     "PartnerPerformance": PartnerPerformance,
     "PartnerPerformanceCashFlow": PartnerPerformanceCashFlow,
     "PartnerPerformanceMeasures": PartnerPerformanceMeasures,
@@ -5799,6 +5872,7 @@ let typeMap: {[index: string]: any} = {
     "PartnerStatementRequest": PartnerStatementRequest,
     "PartnershipAccountingConfiguration": PartnershipAccountingConfiguration,
     "PartnershipAccountingValuationPointData": PartnershipAccountingValuationPointData,
+    "PartnershipAllocationProblem": PartnershipAllocationProblem,
     "PartnershipConfigPack": PartnershipConfigPack,
     "PaymentInKindEvent": PaymentInKindEvent,
     "PaymentInKindEventAllOf": PaymentInKindEventAllOf,
@@ -6171,6 +6245,7 @@ let typeMap: {[index: string]: any} = {
     "SettlementConfigurationCategory": SettlementConfigurationCategory,
     "SettlementConfigurationMethodOverride": SettlementConfigurationMethodOverride,
     "SettlementCycle": SettlementCycle,
+    "SettlementFx": SettlementFx,
     "SettlementInLieu": SettlementInLieu,
     "SettlementInstructionAmendRequest": SettlementInstructionAmendRequest,
     "SettlementInstructionQuery": SettlementInstructionQuery,
@@ -6186,6 +6261,7 @@ let typeMap: {[index: string]: any} = {
     "ShareClassDefinition": ShareClassDefinition,
     "ShareClassDetails": ShareClassDetails,
     "ShareClassPnlBreakdown": ShareClassPnlBreakdown,
+    "ShareClassProperties": ShareClassProperties,
     "ShareClassRoundingConvention": ShareClassRoundingConvention,
     "SharesPremiumDividendEvent": SharesPremiumDividendEvent,
     "SharesPremiumDividendEventAllOf": SharesPremiumDividendEventAllOf,
@@ -6256,6 +6332,7 @@ let typeMap: {[index: string]: any} = {
     "SwingTriggerEvaluation": SwingTriggerEvaluation,
     "TargetTaxLot": TargetTaxLot,
     "TargetTaxLotRequest": TargetTaxLotRequest,
+    "TaxAccountingPeriod": TaxAccountingPeriod,
     "TaxClassification": TaxClassification,
     "TaxClassificationDecisionStep": TaxClassificationDecisionStep,
     "TaxClassificationDetail": TaxClassificationDetail,
@@ -6263,11 +6340,29 @@ let typeMap: {[index: string]: any} = {
     "TaxClassificationExceptionRecord": TaxClassificationExceptionRecord,
     "TaxClassificationFieldVersion": TaxClassificationFieldVersion,
     "TaxClassificationInputs": TaxClassificationInputs,
+    "TaxDeemedDisposalResponse": TaxDeemedDisposalResponse,
+    "TaxDeemedDisposalsResponse": TaxDeemedDisposalsResponse,
     "TaxExceptionItem": TaxExceptionItem,
     "TaxExceptionRootCause": TaxExceptionRootCause,
+    "TaxFundReconciliationHoldingResponse": TaxFundReconciliationHoldingResponse,
+    "TaxFundReconciliationProxyRow": TaxFundReconciliationProxyRow,
+    "TaxFundReconciliationResponse": TaxFundReconciliationResponse,
+    "TaxLedgerReconciliationHoldingResponse": TaxLedgerReconciliationHoldingResponse,
+    "TaxLedgerReconciliationResponse": TaxLedgerReconciliationResponse,
     "TaxPortfolioSyncStatus": TaxPortfolioSyncStatus,
     "TaxProvision": TaxProvision,
     "TaxProvisionMovement": TaxProvisionMovement,
+    "TaxReconciliationBridgeRow": TaxReconciliationBridgeRow,
+    "TaxReconciliationDifferenceRow": TaxReconciliationDifferenceRow,
+    "TaxReturnDisposalRow": TaxReturnDisposalRow,
+    "TaxReturnExcludedRow": TaxReturnExcludedRow,
+    "TaxReturnLoanRelationshipRow": TaxReturnLoanRelationshipRow,
+    "TaxReturnMemoRow": TaxReturnMemoRow,
+    "TaxReturnResponse": TaxReturnResponse,
+    "TaxReturnSpreadInstalment": TaxReturnSpreadInstalment,
+    "TaxReturnTransitionRequest": TaxReturnTransitionRequest,
+    "TaxReturnVintage": TaxReturnVintage,
+    "TaxReturnWorkflowStep": TaxReturnWorkflowStep,
     "TaxSyncStatus": TaxSyncStatus,
     "TemplateField": TemplateField,
     "TenderEvent": TenderEvent,
@@ -6350,6 +6445,7 @@ let typeMap: {[index: string]: any} = {
     "UnitisationData": UnitisationData,
     "UnitsRatio": UnitsRatio,
     "UnknownProceedsElection": UnknownProceedsElection,
+    "UnmatchedBreakdown": UnmatchedBreakdown,
     "UnsettledTransaction": UnsettledTransaction,
     "UnsettledTransactionCounterLegRevaluation": UnsettledTransactionCounterLegRevaluation,
     "UnsettledTransactionRevaluation": UnsettledTransactionRevaluation,
