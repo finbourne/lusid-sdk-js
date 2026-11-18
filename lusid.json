@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1753",
+    "version": "2.0.1754",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -24549,7 +24549,7 @@
           "Chart Of Accounts"
         ],
         "summary": "[EARLY ACCESS] SupersedePostingModuleRule: Supersede a rule of a Posting Module",
-        "description": "Supersede a Posting Rule by one or more rules in a single write. Every rule in the request records the superseded\r\nruleId as its originalRuleId. At most one of them may have the superseded ruleId: it becomes the rule's next\r\nversion, and the rule's latest version stops applying from its effectiveFrom, unless it already ends by then; it\r\nis never extended. Any other rule is new and must not have the ruleId of an existing rule. The rules take the\r\nlatest version's place in the rule list, in the order given.",
+        "description": "Supersede a Posting Rule by one or more rules in a single write. The superseded rule's latest version stops\r\napplying from the replacements' effectiveFrom date. All replacement rules must share the same effectiveFrom.\r\nEvery rule in the request records the superseded ruleId as its originalRuleId. At most one of them may have\r\nthe superseded ruleId: it becomes the rule's next version. Any other rule is new and must not have the ruleId\r\nof an existing rule. The rules take the latest version's place in the rule list, in the order given.",
         "operationId": "SupersedePostingModuleRule",
         "parameters": [
           {
@@ -60054,6 +60054,110 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PartnershipConfigPack"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/funds/{scope}/{code}/partnershipaccounting/typecheck": {
+      "get": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] CheckPartnershipTransactionTypes: [EXPERIMENTAL] CheckPartnershipTransactionTypes: Check the Fund's transaction types against its partnership configuration pack.",
+        "description": "Resolve every transaction type the Fund's portfolios book with, through their transaction type scope and each\r\nsource in it, and compare the register balance deltas each type's movements carry against the type contract of\r\nthe Fund's partnership configuration pack. A type whose deltas are not its contract, counted with repeats, is\r\nreturned as a difference with the deltas expected and the deltas carried; a Fund whose types all match has the\r\nstatus Ok and no differences. A type the contract names, or that moves a register balance, whose movements book\r\nthrough a side the Fund's transaction type scope does not define is a difference too, naming the missing sides.",
+        "operationId": "CheckPartnershipTransactionTypes",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to read the Fund and its transaction types. Defaults to return the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The outcome of checking the Fund's transaction types against its pack.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnershipTypeCheckResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnershipTypeCheckResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnershipTypeCheckResult"
                 }
               }
             }
@@ -154099,6 +154203,12 @@
                         "scope": "demo-parent",
                         "code": "demo-parent"
                       },
+                      "parentPortfolioIds": [
+                        {
+                          "scope": "demo-parent",
+                          "code": "demo-parent"
+                        }
+                      ],
                       "baseCurrency": "GBP",
                       "properties": [
                         {
@@ -154136,6 +154246,12 @@
                         "scope": "demo-parent",
                         "code": "demo-parent"
                       },
+                      "parentPortfolioIds": [
+                        {
+                          "scope": "demo-parent",
+                          "code": "demo-parent"
+                        }
+                      ],
                       "baseCurrency": "GBP",
                       "properties": [
                         {
@@ -154173,6 +154289,12 @@
                         "scope": "demo-parent",
                         "code": "demo-parent"
                       },
+                      "parentPortfolioIds": [
+                        {
+                          "scope": "demo-parent",
+                          "code": "demo-parent"
+                        }
+                      ],
                       "baseCurrency": "GBP",
                       "properties": [
                         {
@@ -204299,6 +204421,10 @@
             "format": "double",
             "nullable": true
           },
+          "notionalReset": {
+            "type": "boolean",
+            "description": "When true, the funding leg is re-struck at every asset price reset: from each reset date the funding\r\naccrues on the units held times the reset price instead of on the funding leg's own notional, as\r\nEquitySwap.NotionalReset does. A funding coupon spanning a reset is paid once and scaled by the\r\ntime-weighted average base over its accrual period. Defaults to false, preserving today's behaviour of\r\nfinancing on the funding leg's notional for the swap's whole life. Requires a ResetSchedule."
+          },
           "payReceive": {
             "maxLength": 32,
             "minLength": 1,
@@ -205572,7 +205698,7 @@
                 "maxLength": 50,
                 "minLength": 0,
                 "type": "string",
-                "description": "The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,\r\nirregular coupons etc.\r\nThe default CalculationType is `Standard`, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.\r\nPayment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.\r\n\r\nSupported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest].",
+                "description": "The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,\r\nirregular coupons etc.\r\nThe default CalculationType is `Standard`, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.\r\nPayment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.\r\nA `Standard` coupon stays Principal * Coupon Rate / Coupon Frequency on every regular (non-stub) period whatever the day count convention, while the accrued interest follows the day count.\r\nSo on an Act360 or Act365 bond the accrued interest on the day before a payment can be more or less than the coupon.\r\nUse `DayCountCoupon` when each coupon is Principal * Coupon Rate * YearFraction(accrual start date, accrual end date), so that it equals the interest accrued over the period.\r\n\r\nSupported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest].",
                 "nullable": true
               },
               "roundingConventions": {
@@ -211766,6 +211892,17 @@
           },
           "unitsRatio": {
             "$ref": "#/components/schemas/UnitsRatio"
+          },
+          "consentFeePrice": {
+            "type": "number",
+            "description": "Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent.",
+            "format": "double",
+            "nullable": true
+          },
+          "consentFeeCurrency": {
+            "type": "string",
+            "description": "Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -214048,6 +214185,9 @@
             },
             "description": "The collection of changes that were made."
           },
+          "sourcePortfolioId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -216068,6 +216208,14 @@
           "parentPortfolioId": {
             "$ref": "#/components/schemas/ResourceId"
           },
+          "parentPortfolioIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent.",
+            "nullable": true
+          },
           "isDerived": {
             "type": "boolean",
             "description": "Whether or not this is a derived portfolio.",
@@ -216078,10 +216226,11 @@
               "Transaction",
               "Reference",
               "DerivedTransaction",
-              "SimplePosition"
+              "SimplePosition",
+              "Composite"
             ],
             "type": "string",
-            "description": "The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition."
+            "description": "The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite."
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -216194,7 +216343,7 @@
                 "maxLength": 50,
                 "minLength": 0,
                 "type": "string",
-                "description": "The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,\r\nirregular coupons etc.\r\nThe default CalculationType is `Standard`, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.\r\nPayment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.\r\n\r\nSupported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest].",
+                "description": "The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,\r\nirregular coupons etc.\r\nThe default CalculationType is `Standard`, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.\r\nPayment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.\r\nA `Standard` coupon stays Principal * Coupon Rate / Coupon Frequency on every regular (non-stub) period whatever the day count convention, while the accrued interest follows the day count.\r\nSo on an Act360 or Act365 bond the accrued interest on the day before a payment can be more or less than the coupon.\r\nUse `DayCountCoupon` when each coupon is Principal * Coupon Rate * YearFraction(accrual start date, accrual end date), so that it equals the interest accrued over the period.\r\n\r\nSupported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon, StandardWithCappedAccruedInterest].",
                 "nullable": true
               },
               "schedules": {
@@ -218171,6 +218320,17 @@
           },
           "unitsRatio": {
             "$ref": "#/components/schemas/UnitsRatio"
+          },
+          "consentFeePrice": {
+            "type": "number",
+            "description": "Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent.",
+            "format": "double",
+            "nullable": true
+          },
+          "consentFeeCurrency": {
+            "type": "string",
+            "description": "Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -251160,6 +251320,17 @@
             "type": "number",
             "format": "double",
             "nullable": true
+          },
+          "consentFeePrice": {
+            "type": "number",
+            "description": "Optional. The consent fee paid to holders who consent, on top of the exchange consideration. Quoted per 1,000 of face for bonds, using the current notional at the effective date of the event, and per unit for other instruments. Must be greater than 0. Required together with ConsentFeeCurrency, and only supported on an ExchangeOfferEvent.",
+            "format": "double",
+            "nullable": true
+          },
+          "consentFeeCurrency": {
+            "type": "string",
+            "description": "Optional. Currency of the consent fee. Required if a consent fee price is provided, and only supported on an ExchangeOfferEvent.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -254292,6 +254463,9 @@
             },
             "description": "Links to the entities that manage this transaction.",
             "nullable": true
+          },
+          "sourcePortfolioId": {
+            "$ref": "#/components/schemas/ResourceId"
           }
         },
         "additionalProperties": false,
@@ -254666,6 +254840,33 @@
         "additionalProperties": false,
         "description": "A posting rule on a partnership configuration pack."
       },
+      "PackRegisterDelta": {
+        "required": [
+          "direction",
+          "key",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The holding property key of the register balance, for example PaidInCapital or UncalledCommitment."
+          },
+          "direction": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The direction the balance moves in when the type is booked, the movement's own direction folded into the delta's. Available values: Increase, Decrease."
+          },
+          "source": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The movement figure the delta moves the balance by. Available values: Amount, Units, PortfolioAmount, ProportionOfBalance, PortfolioAmountAtAverageRate."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A register balance delta: a partners' capital balance, the direction it moves in once booked and the figure it moves by."
+      },
       "PackTransactionType": {
         "required": [
           "creditAccount",
@@ -254703,6 +254904,37 @@
         },
         "additionalProperties": false,
         "description": "A transaction type carried by a partnership configuration pack."
+      },
+      "PackTypeContract": {
+        "required": [
+          "optionalDeltas",
+          "requiredDeltas",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The transaction type the contract is for."
+          },
+          "requiredDeltas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PackRegisterDelta"
+            },
+            "description": "The register balance deltas the type must carry, counted with repeats."
+          },
+          "optionalDeltas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PackRegisterDelta"
+            },
+            "description": "The register balance deltas the type may carry, each at most once, in the direction given and from the source given."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The register deltas a transaction type must carry for the partner register to read right."
       },
       "PagedResourceListOfAbor": {
         "required": [
@@ -258044,6 +258276,11 @@
             "type": "number",
             "description": "The amount allocated to the partner.",
             "format": "double"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why a partner listed at 0.00 took no share of the pool. Available values: Excluded (the bucket's rule leaves the partner out), Exempt (the partner's register flag sits it out), ZeroBasis (the partner has nothing on the pool's basis). Absent on a partner that shares; a partner at 0.00 with no reason shares the pool, but its share rounded to nothing at the pool's scale.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -258094,7 +258331,7 @@
             "items": {
               "$ref": "#/components/schemas/PartnerAllocation"
             },
-            "description": "Each partner's share of the pool."
+            "description": "Each partner's share of the pool; a partner who took none is listed at 0.00 with the reason."
           },
           "residual": {
             "type": "number",
@@ -258259,7 +258496,7 @@
             "items": {
               "$ref": "#/components/schemas/UnattributedAmount"
             },
-            "description": "Always empty: every profit and loss line is now pooled or the run is refused. Kept for one release."
+            "description": "Always empty: every profit and loss line is pooled or the run is refused. Kept until no published SDK requires it."
           },
           "bookedTransactionIds": {
             "type": "array",
@@ -258273,7 +258510,7 @@
             "items": {
               "type": "string"
             },
-            "description": "What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end.",
+            "description": "What the run noticed but did not refuse, for example an excluded investor record that is not on the register at the period end, or a fee accrual naming no investor that was pooled as unaccrued fee (AccruedFeeWithoutInvestor).",
             "nullable": true
           },
           "ignoredTags": {
@@ -258866,10 +259103,96 @@
             "type": "string",
             "description": "The code of the general ledger profile the pack's posting rules belong to.",
             "nullable": true
+          },
+          "typeContracts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PackTypeContract"
+            },
+            "description": "The register balance deltas each transaction type the partner register depends on must carry. A type not named must carry none.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "The partnership configuration pack a fund resolves to: the transaction types, chart of accounts and posting rules\r\nthe partners' ledger is booked under."
+        "description": "The partnership configuration pack a fund resolves to: the transaction types, chart of accounts and posting rules\r\nthe partners' ledger is booked under, and the register deltas each transaction type the partner register depends\r\non must carry."
+      },
+      "PartnershipTypeCheckResult": {
+        "required": [
+          "differences",
+          "pack",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "pack": {
+            "$ref": "#/components/schemas/PartnershipConfigPack"
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The outcome of the check. Available values: Ok, Differences."
+          },
+          "differences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartnershipTypeDifference"
+            },
+            "description": "The transaction types whose register balance deltas are not their contract in the pack, or whose movements book through a side the fund's transaction type scope does not define; empty when the status is Ok."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The outcome of checking a fund's transaction types against the type contract of its partnership configuration\r\npack: the pack checked against and every type whose register balance deltas are not its contract."
+      },
+      "PartnershipTypeDifference": {
+        "required": [
+          "actual",
+          "expected",
+          "missingSides",
+          "scope",
+          "source",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "source": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The source the transaction type is defined in."
+          },
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The transaction type."
+          },
+          "scope": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The transaction type scope the fund's portfolio resolves the type in."
+          },
+          "expected": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PackRegisterDelta"
+            },
+            "description": "The register balance deltas the pack's contract expects of the type."
+          },
+          "actual": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RegisterDeltaMovement"
+            },
+            "description": "The register balance deltas the type's movements carry, each named by its movement."
+          },
+          "missingSides": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The sides the type's movements book through that the fund's transaction type scope does not define, so the type cannot be booked there; empty when every side is defined."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A transaction type a fund's portfolios resolve whose register deltas are not its contract, or whose sides its scope does not define."
       },
       "PartnerStatement": {
         "required": [
@@ -260869,10 +261192,11 @@
               "Transaction",
               "Reference",
               "DerivedTransaction",
-              "SimplePosition"
+              "SimplePosition",
+              "Composite"
             ],
             "type": "string",
-            "description": "The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition."
+            "description": "The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite."
           },
           "displayName": {
             "minLength": 1,
@@ -260897,6 +261221,14 @@
           },
           "parentPortfolioId": {
             "$ref": "#/components/schemas/ResourceId"
+          },
+          "parentPortfolioIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent.",
+            "nullable": true
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -262250,10 +262582,11 @@
               "Transaction",
               "Reference",
               "DerivedTransaction",
-              "SimplePosition"
+              "SimplePosition",
+              "Composite"
             ],
             "type": "string",
-            "description": "The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition."
+            "description": "The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite."
           },
           "href": {
             "type": "string",
@@ -262283,6 +262616,14 @@
           },
           "parentPortfolioId": {
             "$ref": "#/components/schemas/ResourceId"
+          },
+          "parentPortfolioIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent.",
+            "nullable": true
           },
           "baseCurrency": {
             "type": "string",
@@ -262640,10 +262981,11 @@
               "Transaction",
               "Reference",
               "DerivedTransaction",
-              "SimplePosition"
+              "SimplePosition",
+              "Composite"
             ],
             "type": "string",
-            "description": "The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition."
+            "description": "The type of the portfolio. Available values: Transaction, Reference, DerivedTransaction, SimplePosition, Composite."
           },
           "displayName": {
             "minLength": 1,
@@ -262668,6 +263010,14 @@
           },
           "parentPortfolioId": {
             "$ref": "#/components/schemas/ResourceId"
+          },
+          "parentPortfolioIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceId"
+            },
+            "description": "The scope and code of each portfolio this portfolio takes its contents from: the parent of a derived transaction portfolio, or the constituents of a composite portfolio at the effective date. Empty for a portfolio with no parent.",
+            "nullable": true
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -268351,6 +268701,44 @@
           }
         },
         "additionalProperties": false
+      },
+      "RegisterDeltaMovement": {
+        "required": [
+          "direction",
+          "key",
+          "side",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The holding property key of the register balance, for example PaidInCapital or UncalledCommitment."
+          },
+          "direction": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The direction the balance moves in when the type is booked, the movement's own direction folded into the delta's. Available values: Increase, Decrease."
+          },
+          "source": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The movement figure the delta moves the balance by. Available values: Amount, Units, PortfolioAmount, ProportionOfBalance, PortfolioAmountAtAverageRate."
+          },
+          "movementName": {
+            "type": "string",
+            "description": "The name of the movement that carries the delta.",
+            "nullable": true
+          },
+          "side": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The side of the movement that carries the delta."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A register balance delta one of a transaction type's movements carries, as the engine books it, named by that movement."
       },
       "RelatedEntity": {
         "required": [
@@ -279287,11 +279675,11 @@
             "minLength": 1,
             "pattern": "^[a-zA-Z0-9\\-_]+$",
             "type": "string",
-            "description": "The identifier of the Posting Rule. At most one rule in the request may have the ruleId of the superseded rule. If it does, the existing rule is capped so that it stops applying from this rule's EffectiveFrom, and this rule is created as its next version. Otherwise this rule is created as a new rule."
+            "description": "The identifier of the Posting Rule. At most one rule in the request may have the ruleId of the superseded rule, in which case this rule is created as its next version. Otherwise this rule is created as a new rule."
           },
           "effectiveFrom": {
             "type": "string",
-            "description": "The inclusive accounting date from which this rule applies. If this rule has the ruleId of the superseded rule, the superseded rule's latest version stops applying from this date, unless it already ends by then; it is never extended.",
+            "description": "The inclusive accounting date from which this rule applies. All rules in the request must share the same EffectiveFrom. The superseded rule's latest version stops applying from this date.",
             "format": "date-time"
           },
           "effectiveUntil": {
@@ -283365,6 +283753,9 @@
             },
             "description": "Links to the entities that manage this transaction.",
             "nullable": true
+          },
+          "sourcePortfolioId": {
+            "$ref": "#/components/schemas/ResourceId"
           }
         },
         "additionalProperties": false,
@@ -285814,7 +286205,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "An amount on the income summary an allocation run could not attribute to any pool."
+        "description": "An amount on the income summary an allocation run could not attribute to any pool. Always empty: every profit and\r\nloss line is pooled or the run is refused. Kept, required, until no published SDK requires it."
       },
       "UnitisationData": {
         "required": [
@@ -292681,6 +293072,10 @@
       "description": "Methods for storage and retrieval of generic compliance data"
     },
     {
+      "name": "Composite Portfolios",
+      "description": "A composite portfolio composes several constituent portfolios, merging their positions into one consolidated holding while holding its own transactions and configuration. Note that a composite portfolio is a type of portfolio, so endpoints in the Portfolios API can also be called to read its holdings, transactions and valuations."
+    },
+    {
       "name": "Configuration Recipe",
       "description": "Methods for the storage and retrieval of Configuration Recipe and Composer documents. Read more about these in the LUSID Knowledge Base here https://support.lusid.com/what-is-a-lusid-recipe-and-how-is-it-used."
     },
@@ -293035,6 +293430,7 @@
       "Collateral Agreements",
       "Complex Market Data",
       "Compliance",
+      "Composite Portfolios",
       "Configuration Recipe",
       "Conventions",
       "Corporate Action Sources",

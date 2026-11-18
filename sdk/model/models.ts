@@ -1096,7 +1096,9 @@ export * from './overrideVirtualTransactionsRequest';
 export * from './oversubscribeElection';
 export * from './packAccount';
 export * from './packPostingRule';
+export * from './packRegisterDelta';
 export * from './packTransactionType';
+export * from './packTypeContract';
 export * from './pagedResourceListOfAbor';
 export * from './pagedResourceListOfAborConfiguration';
 export * from './pagedResourceListOfAccount';
@@ -1204,6 +1206,8 @@ export * from './partnershipAccountingConfiguration';
 export * from './partnershipAccountingValuationPointData';
 export * from './partnershipAllocationProblem';
 export * from './partnershipConfigPack';
+export * from './partnershipTypeCheckResult';
+export * from './partnershipTypeDifference';
 export * from './paymentInKindEvent';
 export * from './paymentInKindEventAllOf';
 export * from './percentCheckStep';
@@ -1385,6 +1389,7 @@ export * from './referenceListRequest';
 export * from './referenceListResponse';
 export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
+export * from './registerDeltaMovement';
 export * from './relatedEntity';
 export * from './relation';
 export * from './relationalDataPointFieldValueResponse';
@@ -3055,7 +3060,9 @@ import { OverrideVirtualTransactionsRequest } from './overrideVirtualTransaction
 import { OversubscribeElection } from './oversubscribeElection';
 import { PackAccount } from './packAccount';
 import { PackPostingRule } from './packPostingRule';
+import { PackRegisterDelta } from './packRegisterDelta';
 import { PackTransactionType } from './packTransactionType';
+import { PackTypeContract } from './packTypeContract';
 import { PagedResourceListOfAbor } from './pagedResourceListOfAbor';
 import { PagedResourceListOfAborConfiguration } from './pagedResourceListOfAborConfiguration';
 import { PagedResourceListOfAccount } from './pagedResourceListOfAccount';
@@ -3163,6 +3170,8 @@ import { PartnershipAccountingConfiguration } from './partnershipAccountingConfi
 import { PartnershipAccountingValuationPointData } from './partnershipAccountingValuationPointData';
 import { PartnershipAllocationProblem } from './partnershipAllocationProblem';
 import { PartnershipConfigPack } from './partnershipConfigPack';
+import { PartnershipTypeCheckResult } from './partnershipTypeCheckResult';
+import { PartnershipTypeDifference } from './partnershipTypeDifference';
 import { PaymentInKindEvent } from './paymentInKindEvent';
 import { PaymentInKindEventAllOf } from './paymentInKindEventAllOf';
 import { PercentCheckStep } from './percentCheckStep';
@@ -3344,6 +3353,7 @@ import { ReferenceListRequest } from './referenceListRequest';
 import { ReferenceListResponse } from './referenceListResponse';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
+import { RegisterDeltaMovement } from './registerDeltaMovement';
 import { RelatedEntity } from './relatedEntity';
 import { Relation } from './relation';
 import { RelationalDataPointFieldValueResponse } from './relationalDataPointFieldValueResponse';
@@ -5766,7 +5776,9 @@ let typeMap: {[index: string]: any} = {
     "OversubscribeElection": OversubscribeElection,
     "PackAccount": PackAccount,
     "PackPostingRule": PackPostingRule,
+    "PackRegisterDelta": PackRegisterDelta,
     "PackTransactionType": PackTransactionType,
+    "PackTypeContract": PackTypeContract,
     "PagedResourceListOfAbor": PagedResourceListOfAbor,
     "PagedResourceListOfAborConfiguration": PagedResourceListOfAborConfiguration,
     "PagedResourceListOfAccount": PagedResourceListOfAccount,
@@ -5874,6 +5886,8 @@ let typeMap: {[index: string]: any} = {
     "PartnershipAccountingValuationPointData": PartnershipAccountingValuationPointData,
     "PartnershipAllocationProblem": PartnershipAllocationProblem,
     "PartnershipConfigPack": PartnershipConfigPack,
+    "PartnershipTypeCheckResult": PartnershipTypeCheckResult,
+    "PartnershipTypeDifference": PartnershipTypeDifference,
     "PaymentInKindEvent": PaymentInKindEvent,
     "PaymentInKindEventAllOf": PaymentInKindEventAllOf,
     "PercentCheckStep": PercentCheckStep,
@@ -6055,6 +6069,7 @@ let typeMap: {[index: string]: any} = {
     "ReferenceListResponse": ReferenceListResponse,
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
+    "RegisterDeltaMovement": RegisterDeltaMovement,
     "RelatedEntity": RelatedEntity,
     "Relation": Relation,
     "RelationalDataPointFieldValueResponse": RelationalDataPointFieldValueResponse,
