@@ -436,6 +436,7 @@ export * from './corporateActionTransition';
 export * from './corporateActionTransitionComponent';
 export * from './corporateActionTransitionComponentRequest';
 export * from './corporateActionTransitionRequest';
+export * from './correctPostingModuleRuleVersionRequest';
 export * from './counterpartyAgreement';
 export * from './counterpartyRiskInformation';
 export * from './counterpartySignatory';
@@ -918,6 +919,8 @@ export * from './instrumentResolutionDetail';
 export * from './instrumentSearchProperty';
 export * from './interestPaymentEvent';
 export * from './interestPaymentEventAllOf';
+export * from './interestPaymentWithPrincipalEvent';
+export * from './interestPaymentWithPrincipalEventAllOf';
 export * from './interestRateSwap';
 export * from './interestRateSwapAllOf';
 export * from './interestRateSwaption';
@@ -966,6 +969,7 @@ export * from './loanInterestCapitalisationEvent';
 export * from './loanInterestCapitalisationEventAllOf';
 export * from './loanInterestRepaymentEvent';
 export * from './loanInterestRepaymentEventAllOf';
+export * from './loanOptions';
 export * from './loanPeriod';
 export * from './loanPrincipalRepaymentEvent';
 export * from './loanPrincipalRepaymentEventAllOf';
@@ -2400,6 +2404,7 @@ import { CorporateActionTransition } from './corporateActionTransition';
 import { CorporateActionTransitionComponent } from './corporateActionTransitionComponent';
 import { CorporateActionTransitionComponentRequest } from './corporateActionTransitionComponentRequest';
 import { CorporateActionTransitionRequest } from './corporateActionTransitionRequest';
+import { CorrectPostingModuleRuleVersionRequest } from './correctPostingModuleRuleVersionRequest';
 import { CounterpartyAgreement } from './counterpartyAgreement';
 import { CounterpartyRiskInformation } from './counterpartyRiskInformation';
 import { CounterpartySignatory } from './counterpartySignatory';
@@ -2882,6 +2887,8 @@ import { InstrumentResolutionDetail } from './instrumentResolutionDetail';
 import { InstrumentSearchProperty } from './instrumentSearchProperty';
 import { InterestPaymentEvent } from './interestPaymentEvent';
 import { InterestPaymentEventAllOf } from './interestPaymentEventAllOf';
+import { InterestPaymentWithPrincipalEvent } from './interestPaymentWithPrincipalEvent';
+import { InterestPaymentWithPrincipalEventAllOf } from './interestPaymentWithPrincipalEventAllOf';
 import { InterestRateSwap } from './interestRateSwap';
 import { InterestRateSwapAllOf } from './interestRateSwapAllOf';
 import { InterestRateSwaption } from './interestRateSwaption';
@@ -2930,6 +2937,7 @@ import { LoanInterestCapitalisationEvent } from './loanInterestCapitalisationEve
 import { LoanInterestCapitalisationEventAllOf } from './loanInterestCapitalisationEventAllOf';
 import { LoanInterestRepaymentEvent } from './loanInterestRepaymentEvent';
 import { LoanInterestRepaymentEventAllOf } from './loanInterestRepaymentEventAllOf';
+import { LoanOptions } from './loanOptions';
 import { LoanPeriod } from './loanPeriod';
 import { LoanPrincipalRepaymentEvent } from './loanPrincipalRepaymentEvent';
 import { LoanPrincipalRepaymentEventAllOf } from './loanPrincipalRepaymentEventAllOf';
@@ -4368,6 +4376,8 @@ let enumsMap: {[index: string]: any} = {
         "InstrumentListComplianceParameter.ComplianceParameterTypeEnum": InstrumentListComplianceParameter.ComplianceParameterTypeEnum,
         "InterestPaymentEvent.InstrumentEventTypeEnum": InterestPaymentEvent.InstrumentEventTypeEnum,
         "InterestPaymentEventAllOf.InstrumentEventTypeEnum": InterestPaymentEventAllOf.InstrumentEventTypeEnum,
+        "InterestPaymentWithPrincipalEvent.InstrumentEventTypeEnum": InterestPaymentWithPrincipalEvent.InstrumentEventTypeEnum,
+        "InterestPaymentWithPrincipalEventAllOf.InstrumentEventTypeEnum": InterestPaymentWithPrincipalEventAllOf.InstrumentEventTypeEnum,
         "InterestRateSwap.InstrumentTypeEnum": InterestRateSwap.InstrumentTypeEnum,
         "InterestRateSwapAllOf.InstrumentTypeEnum": InterestRateSwapAllOf.InstrumentTypeEnum,
         "InterestRateSwaption.InstrumentTypeEnum": InterestRateSwaption.InstrumentTypeEnum,
@@ -5117,6 +5127,7 @@ let typeMap: {[index: string]: any} = {
     "CorporateActionTransitionComponent": CorporateActionTransitionComponent,
     "CorporateActionTransitionComponentRequest": CorporateActionTransitionComponentRequest,
     "CorporateActionTransitionRequest": CorporateActionTransitionRequest,
+    "CorrectPostingModuleRuleVersionRequest": CorrectPostingModuleRuleVersionRequest,
     "CounterpartyAgreement": CounterpartyAgreement,
     "CounterpartyRiskInformation": CounterpartyRiskInformation,
     "CounterpartySignatory": CounterpartySignatory,
@@ -5598,6 +5609,8 @@ let typeMap: {[index: string]: any} = {
     "InstrumentSearchProperty": InstrumentSearchProperty,
     "InterestPaymentEvent": InterestPaymentEvent,
     "InterestPaymentEventAllOf": InterestPaymentEventAllOf,
+    "InterestPaymentWithPrincipalEvent": InterestPaymentWithPrincipalEvent,
+    "InterestPaymentWithPrincipalEventAllOf": InterestPaymentWithPrincipalEventAllOf,
     "InterestRateSwap": InterestRateSwap,
     "InterestRateSwapAllOf": InterestRateSwapAllOf,
     "InterestRateSwaption": InterestRateSwaption,
@@ -5646,6 +5659,7 @@ let typeMap: {[index: string]: any} = {
     "LoanInterestCapitalisationEventAllOf": LoanInterestCapitalisationEventAllOf,
     "LoanInterestRepaymentEvent": LoanInterestRepaymentEvent,
     "LoanInterestRepaymentEventAllOf": LoanInterestRepaymentEventAllOf,
+    "LoanOptions": LoanOptions,
     "LoanPeriod": LoanPeriod,
     "LoanPrincipalRepaymentEvent": LoanPrincipalRepaymentEvent,
     "LoanPrincipalRepaymentEventAllOf": LoanPrincipalRepaymentEventAllOf,
