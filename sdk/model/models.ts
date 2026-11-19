@@ -74,6 +74,8 @@ export * from './allocationEventNoticeCumulative';
 export * from './allocationEventNoticeEvent';
 export * from './allocationEventNoticeLine';
 export * from './allocationEventNoticePartner';
+export * from './allocationEventNoticePartnerLine';
+export * from './allocationEventNoticeTransfer';
 export * from './allocationEventNoticeUnfundedReconciliation';
 export * from './allocationEventNoticeWire';
 export * from './allocationEventReallocateRequest';
@@ -1198,6 +1200,7 @@ export * from './partnerCapitalAccount';
 export * from './partnerCapitalAccountMemo';
 export * from './partnerCapitalAccountRow';
 export * from './partnerCapitalAccountRowDetail';
+export * from './partnerInterestShare';
 export * from './partnerPerformance';
 export * from './partnerPerformanceCashFlow';
 export * from './partnerPerformanceMeasures';
@@ -2042,6 +2045,8 @@ import { AllocationEventNoticeCumulative } from './allocationEventNoticeCumulati
 import { AllocationEventNoticeEvent } from './allocationEventNoticeEvent';
 import { AllocationEventNoticeLine } from './allocationEventNoticeLine';
 import { AllocationEventNoticePartner } from './allocationEventNoticePartner';
+import { AllocationEventNoticePartnerLine } from './allocationEventNoticePartnerLine';
+import { AllocationEventNoticeTransfer } from './allocationEventNoticeTransfer';
 import { AllocationEventNoticeUnfundedReconciliation } from './allocationEventNoticeUnfundedReconciliation';
 import { AllocationEventNoticeWire } from './allocationEventNoticeWire';
 import { AllocationEventReallocateRequest } from './allocationEventReallocateRequest';
@@ -3166,6 +3171,7 @@ import { PartnerCapitalAccount } from './partnerCapitalAccount';
 import { PartnerCapitalAccountMemo } from './partnerCapitalAccountMemo';
 import { PartnerCapitalAccountRow } from './partnerCapitalAccountRow';
 import { PartnerCapitalAccountRowDetail } from './partnerCapitalAccountRowDetail';
+import { PartnerInterestShare } from './partnerInterestShare';
 import { PartnerPerformance } from './partnerPerformance';
 import { PartnerPerformanceCashFlow } from './partnerPerformanceCashFlow';
 import { PartnerPerformanceMeasures } from './partnerPerformanceMeasures';
@@ -4765,6 +4771,8 @@ let typeMap: {[index: string]: any} = {
     "AllocationEventNoticeEvent": AllocationEventNoticeEvent,
     "AllocationEventNoticeLine": AllocationEventNoticeLine,
     "AllocationEventNoticePartner": AllocationEventNoticePartner,
+    "AllocationEventNoticePartnerLine": AllocationEventNoticePartnerLine,
+    "AllocationEventNoticeTransfer": AllocationEventNoticeTransfer,
     "AllocationEventNoticeUnfundedReconciliation": AllocationEventNoticeUnfundedReconciliation,
     "AllocationEventNoticeWire": AllocationEventNoticeWire,
     "AllocationEventReallocateRequest": AllocationEventReallocateRequest,
@@ -5888,6 +5896,7 @@ let typeMap: {[index: string]: any} = {
     "PartnerCapitalAccountMemo": PartnerCapitalAccountMemo,
     "PartnerCapitalAccountRow": PartnerCapitalAccountRow,
     "PartnerCapitalAccountRowDetail": PartnerCapitalAccountRowDetail,
+    "PartnerInterestShare": PartnerInterestShare,
     "PartnerPerformance": PartnerPerformance,
     "PartnerPerformanceCashFlow": PartnerPerformanceCashFlow,
     "PartnerPerformanceMeasures": PartnerPerformanceMeasures,

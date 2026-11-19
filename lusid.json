@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1755",
+    "version": "2.0.1756",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -103890,6 +103890,16 @@
               "default": true
             },
             "x-nullable": true
+          },
+          {
+            "name": "dryRun",
+            "in": "query",
+            "description": "When true, the allocations are computed and returned as the run would create them, but nothing is written\r\nand no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers\r\nprefixed \"preview-\" rather than the identifiers a real run would assign. Because nothing is written, the\r\nproperty entitlement and validation checks made when allocations are stored do not run, so a dry run can\r\nsucceed where the real run would be refused, and property values are returned as computed rather than as\r\ntheir property definitions type them. Defaults to false.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-nullable": true
           }
         ],
         "requestBody": {
@@ -104378,6 +104388,16 @@
             "schema": {
               "type": "boolean",
               "default": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "dryRun",
+            "in": "query",
+            "description": "When true, the allocations are computed and returned as the run would create them, but nothing is written\r\nand no booked transactions are cancelled. Allocations the run would create carry placeholder identifiers\r\nprefixed \"preview-\" rather than the identifiers a real run would assign. Because nothing is written, the\r\nproperty entitlement and validation checks made when allocations are stored do not run, so a dry run can\r\nsucceed where the real run would be refused, and property values are returned as computed rather than as\r\ntheir property definitions type them. Defaults to false.",
+            "schema": {
+              "type": "boolean",
+              "default": false
             },
             "x-nullable": true
           }
@@ -201323,6 +201343,9 @@
           "paymentHold": {
             "$ref": "#/components/schemas/AllocationPaymentHold"
           },
+          "transfer": {
+            "$ref": "#/components/schemas/AllocationEventNoticeTransfer"
+          },
           "watermark": {
             "type": "string",
             "description": "DRAFT until the allocation event is booked, otherwise null.",
@@ -201336,7 +201359,8 @@
         "required": [
           "contributions",
           "distributions",
-          "recallable"
+          "recallable",
+          "taxWithheld"
         ],
         "type": "object",
         "properties": {
@@ -201347,12 +201371,17 @@
           },
           "distributions": {
             "type": "number",
-            "description": "Cumulative distributions after the event.",
+            "description": "Cumulative distributions after the event, tax withheld on the partner's behalf included, as the capital account's distributions row counts them.",
             "format": "double"
           },
           "recallable": {
             "type": "number",
             "description": "Cumulative recallable distributions after the event.",
+            "format": "double"
+          },
+          "taxWithheld": {
+            "type": "number",
+            "description": "Tax withheld from the partner's distributions to date and paid to the tax authority on its behalf: counted in the cumulative distributions, so the cash the partner actually received is distributions less this.",
             "format": "double"
           }
         },
@@ -201464,12 +201493,97 @@
           },
           "commitment": {
             "type": "number",
-            "description": "The partner's total commitment.",
+            "description": "The partner's committed capital on the fund the event allocates over at the event date, summed over the lines the event allocates to there; for a partner looked through to, its line on the feeder. Never the partner's total across funds.",
             "format": "double"
+          },
+          "lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AllocationEventNoticePartnerLine"
+            },
+            "description": "The register lines the partner was allocated on, one per line, each with the fund whose register holds it, its commitment at the event date and the partner's share landing on it. The shares sum to the net amount due before tax withheld.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
         "description": "The partner a notice is addressed to."
+      },
+      "AllocationEventNoticePartnerLine": {
+        "required": [
+          "amount",
+          "commitment",
+          "commitmentLineId",
+          "fundId"
+        ],
+        "type": "object",
+        "properties": {
+          "commitmentLineId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The identifier of the register line."
+          },
+          "fundId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "commitment": {
+            "type": "number",
+            "description": "The line's committed capital at the event date.",
+            "format": "double"
+          },
+          "amount": {
+            "type": "number",
+            "description": "The partner's share of the event landing on the line, signed as the net amount due is. On a transfer, the committed capital moving on the line.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "One register line a notice's partner was allocated on: the line, the fund whose register holds it, the line's\r\ncommitment at the event date and the partner's share landing on it."
+      },
+      "AllocationEventNoticeTransfer": {
+        "required": [
+          "fraction",
+          "fromLineId",
+          "pnlSplit",
+          "toLineId"
+        ],
+        "type": "object",
+        "properties": {
+          "counterpartyInvestorRecordId": {
+            "type": "string",
+            "description": "The investor record on the other side of the leg: the transferor on the transferee's notice, the transferee on the transferor's. Absent when the register does not say who holds the source line.",
+            "nullable": true
+          },
+          "fromLineId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The register line the interest moves from."
+          },
+          "toLineId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The register line the interest moves to."
+          },
+          "fraction": {
+            "type": "number",
+            "description": "The fraction of the source line transferred.",
+            "format": "double"
+          },
+          "pnlSplit": {
+            "minLength": 1,
+            "type": "string",
+            "description": "How the period's profit and loss is split around the transfer date: InterimClose or DailyProration."
+          },
+          "consideration": {
+            "$ref": "#/components/schemas/AllocationEventTransferConsideration"
+          },
+          "consentReference": {
+            "type": "string",
+            "description": "A reference to the consent obtained for the transfer, when one was.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The transfer a notice reports, from the leg the partner is on: the other party to the leg, the lines the\r\ninterest moves between, the fraction and the terms."
       },
       "AllocationEventNoticeUnfundedReconciliation": {
         "required": [
@@ -202615,10 +202729,18 @@
             "description": "The datetime from which the exception is in force. Defaults to always if not specified.",
             "format": "date-time",
             "nullable": true
+          },
+          "commitmentLineId": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The register line of the investor record the exception applies to, when it applies to one line rather than the record as a whole. The record's other lines take part as usual: an Excluded line's basis leaves the event's basis total, and a FixedPercentage line takes its fixed share off the top. Optional.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "A departure from the default participation of an Allocation Map for one investor record."
+        "description": "A departure from the default participation of an Allocation Map for one investor record or one of its register lines."
       },
       "AllocationMapFixedFactor": {
         "required": [
@@ -204800,6 +204922,36 @@
                 "description": "One election per ballot option that pays nothing — consent granted with no fee, consent\r\ndenied, abstain, or no action — keyed \"{OptionNumber}-{OptionCode}\", for example \"6-NOAC\".\r\nKeys are free-form because a real ballot carries CONY twice and CONN twice. Defaults to an\r\nempty list.",
                 "nullable": true
               },
+              "mixedLotConstituentsElections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MixedLotConstituentsElection"
+                },
+                "description": "List of possible mixed lot options for this event, if any. Each election removes the original position\r\nand delivers one or more distinct new securities and/or cash legs of its own, each with its own\r\nsettlement date. The event has no event-level NewInstrument: every security constituent carries its own.\r\nDefaults to an empty list.",
+                "nullable": true
+              },
+              "fractionalUnitsCashPrice": {
+                "type": "number",
+                "description": "The cash price paid in lieu of fractional units.",
+                "format": "double",
+                "nullable": true
+              },
+              "fractionalUnitsCashCurrency": {
+                "type": "string",
+                "description": "The currency of the cash paid in lieu of fractional units.",
+                "nullable": true
+              },
+              "fractionalUnitsRoundingConvention": {
+                "type": "string",
+                "description": "The convention used to round the fractional units entitlement. Defaults to Floor. BuyUp is not supported. Available values: Floor, Ceiling, RoundHalfUp, RoundHalfDown, RoundToDecimalPlaces, BuyUp, BankerRounding.",
+                "nullable": true
+              },
+              "fractionalUnitsDecimalPlaces": {
+                "type": "integer",
+                "description": "The number of decimal places to round to when FractionalUnitsRoundingConvention is RoundToDecimalPlaces.",
+                "format": "int32",
+                "nullable": true
+              },
               "instrumentEventType": {
                 "enum": [
                   "TransitionEvent",
@@ -204939,7 +205091,7 @@
             }
           }
         ],
-        "description": "A Bankruptcy (BRUP) event recording the legal status of a company unable to meet its financial\r\nobligations. With no elections it is a pure informational marker, generating no transactions and\r\nhaving no position impact. It may also carry a ballot: one CashOfferElection per option that pays\r\ncash and one LapseElection per option that pays nothing."
+        "description": "A Bankruptcy (BRUP) event recording the legal status of a company unable to meet its financial\r\nobligations. With no elections it is a pure informational marker, generating no transactions and\r\nhaving no position impact. It may also carry a ballot: one CashOfferElection per option that pays\r\ncash, one LapseElection per option that pays nothing, and one MixedLotConstituentsElection per option that\r\ndelivers new securities, cash, or both and removes the original position."
       },
       "Barrier": {
         "required": [
@@ -259400,6 +259552,44 @@
         "additionalProperties": false,
         "description": "One labelled part of a capital account row's total: the kind of amount, the allocation event it arose on and its\r\nquarter-, year- and inception-to-date amounts, each already included in the row's own column."
       },
+      "PartnerInterestShare": {
+        "required": [
+          "holder",
+          "member",
+          "shareSource",
+          "viaInstrumentId"
+        ],
+        "type": "object",
+        "properties": {
+          "holder": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The short code of the holding fund, as the fund structure names it."
+          },
+          "member": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The short code of the held fund structure member whose P&L flowed."
+          },
+          "viaInstrumentId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The LUSID instrument id of the instrument the holder holds the member through: the holder's line on the member's partner register."
+          },
+          "shareSource": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Where the holder's share of the member's P&L came from. 'MemberBooked': the member's booked partner allocation to the holder's line for the period, pool by pool, which a Final valuation point requires. 'MemberDryRun': the member has not booked the period, so a dry run of its allocation gave the holder's line what the booking would; the point cannot be accepted until the member books and the point is struck again. 'Provisional': the member cannot be allocated yet, so the member's P&L flowed at the line's committed capital over the register total; the point cannot be accepted until the member books and the point is struck again. 'Declared': the via instrument is not a line of the member's register, or the register carries no commitments, so the edge's declared sharing percentage was used; the valuation point's diagnostics name the fall-back."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why a provisional or declared share was taken. Absent when the share came from the member's allocation.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "How a holder's partner interest in a held fund structure member flowed when the valuation point was struck: from\r\nthe member's booked partner allocation, from a dry run of it, at a provisional share of committed capital, or at\r\nthe sharing percentage the fund structure edge declares."
+      },
       "PartnerPerformance": {
         "required": [
           "cashFlows",
@@ -290274,6 +290464,14 @@
               "$ref": "#/components/schemas/BucketSetSeed"
             },
             "description": "The bucket set seeds set on the Valuation Point, when the request resolved to the Valuation Point itself. Null when it has none.",
+            "nullable": true
+          },
+          "partnerInterestShares": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartnerInterestShare"
+            },
+            "description": "How each partner interest (LP, GP or carry) this fund holds in a partnership-enabled fund structure member flowed when the valuation point was struck: from the member's booked partner allocation to the holder's line, from a dry run of it while the member has not booked, at a provisional share of committed capital while the member cannot be allocated, or at the sharing percentage the fund structure edge declares. Absent when the fund holds none.",
             "nullable": true
           },
           "links": {
