@@ -2,6 +2,7 @@ import localVarRequest from 'request';
 
 export * from './a2BBreakdown';
 export * from './a2BCategory';
+export * from './a2BCorrectionCause';
 export * from './a2BDataRecord';
 export * from './a2BMovementRecord';
 export * from './abor';
@@ -1973,6 +1974,7 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 import { A2BBreakdown } from './a2BBreakdown';
 import { A2BCategory } from './a2BCategory';
+import { A2BCorrectionCause } from './a2BCorrectionCause';
 import { A2BDataRecord } from './a2BDataRecord';
 import { A2BMovementRecord } from './a2BMovementRecord';
 import { Abor } from './abor';
@@ -4699,6 +4701,7 @@ let enumsMap: {[index: string]: any} = {
 let typeMap: {[index: string]: any} = {
     "A2BBreakdown": A2BBreakdown,
     "A2BCategory": A2BCategory,
+    "A2BCorrectionCause": A2BCorrectionCause,
     "A2BDataRecord": A2BDataRecord,
     "A2BMovementRecord": A2BMovementRecord,
     "Abor": Abor,

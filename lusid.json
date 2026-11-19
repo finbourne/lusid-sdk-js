@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1756",
+    "version": "2.0.1757",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -198260,6 +198260,23 @@
         "additionalProperties": false,
         "description": "A2B Category - one of the five major categories in the A2BDataRecord"
       },
+      "A2BCorrectionCause": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string",
+            "description": "The unique identifier of the transaction behind the correction.",
+            "nullable": true
+          },
+          "action": {
+            "type": "string",
+            "description": "How the late change reached the ledger: TrueUp for a transaction that was booked, Reversal for one that was cancelled, ReversalAndTrueUp for one that was amended. Available values: TrueUp, Reversal, ReversalAndTrueUp.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A transaction behind a BackdatedCorrection movement, with the journal action that put it there"
+      },
       "A2BDataRecord": {
         "type": "object",
         "properties": {
@@ -198442,6 +198459,14 @@
               "$ref": "#/components/schemas/ResponseMetaData"
             },
             "description": "Any errors with the record are reported here.",
+            "nullable": true
+          },
+          "causes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/A2BCorrectionCause"
+            },
+            "description": "For a BackdatedCorrection movement, the transactions booked, amended or cancelled after the previous period closed that the correction reconciles, each with the journal action that explains it. Empty for any other movement.",
             "nullable": true
           }
         },
@@ -211513,6 +211538,30 @@
               "recalledCapitalAmount": {
                 "type": "number",
                 "description": "The cumulative recalled capital that the destination line takes over, in the commitment currency. Used on the 'In' side only; must not be negative. An In side carries the source line's share of RecalledCapital, as the Out side gives it up, and is refused when it omits a share the source line carries, and the transaction type configuration must include the RecalledCapital movement for the balance to move.",
+                "format": "double",
+                "nullable": true
+              },
+              "totalDistributionsAmount": {
+                "type": "number",
+                "description": "The cumulative distributions that the destination line takes over, in the commitment currency. Used on the 'In' side only; must not be negative. An In side that carries it must carry the source line's share of TotalDistributions, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the TotalDistributions movement for the balance to move.",
+                "format": "double",
+                "nullable": true
+              },
+              "callsOutsideCommitmentAmount": {
+                "type": "number",
+                "description": "The cumulative capital paid outside the commitment that the destination line takes over, in the commitment currency. Used on the 'In' side only; must not be negative. An In side that carries it must carry the source line's share of CallsOutsideCommitment, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the CallsOutsideCommitment movement for the balance to move.",
+                "format": "double",
+                "nullable": true
+              },
+              "totalDistributionsPortfolioCcyAmount": {
+                "type": "number",
+                "description": "The cumulative distributions that the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative. An In side that carries it must carry the source line's share of TotalDistributionsPortfolioCcy, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the TotalDistributionsPortfolioCcy movement for the twin to move.",
+                "format": "double",
+                "nullable": true
+              },
+              "callsOutsideCommitmentPortfolioCcyAmount": {
+                "type": "number",
+                "description": "The cumulative capital paid outside the commitment that the destination line takes over, already in the portfolio's base currency at the source line's historical rates. Used on the 'In' side only; must not be negative. An In side that carries it must carry the source line's share of CallsOutsideCommitmentPortfolioCcy, as the Out side gives it up. An In side may leave it out: the Out side still gives the share up and the destination line takes over none of it. The transaction type configuration must include the CallsOutsideCommitmentPortfolioCcy movement for the twin to move.",
                 "format": "double",
                 "nullable": true
               },
@@ -231755,6 +231804,31 @@
             "type": "boolean",
             "description": "Whether the FeeFloor raised the amount accrued at this valuation point."
           },
+          "isPayableDate": {
+            "type": "boolean",
+            "description": "Whether the valuation point's window, from the day after the previous valuation point to this one, holds one of the fee's payable dates, set by its PayableFrequency and AnchorDate and rolled by its BusinessDayConvention."
+          },
+          "payableDate": {
+            "type": "string",
+            "description": "The latest payable date of the fee in the valuation point's window, after business day adjustment. Null when the window holds no payable date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "payableAmount": {
+            "type": "number",
+            "description": "The accrued balance that became payable at this valuation point: the previous valuation point's AccruedBalance plus the accrual through the end of the PayableDate, less what the fund's own transactions tagged with the fee's code in a Transaction/<fund scope>/FeeCode property deemed payable on or before it. Several payable dates in one window give one combined payable. Never negative: zero when the window holds no payable date, or when the balance due is not positive, as when tagged transactions already deemed more than was due. A share class's PayableAmount is its share of the fund's, apportioned by each class's balance due before deems, so the classes' add up to the fund's.",
+            "format": "double"
+          },
+          "accruedBalance": {
+            "type": "number",
+            "description": "The amount accrued and not yet payable. It resets on a payable date, unlike TotalAccrual, and the total consideration of each of the fund's transactions in the valuation point's window tagged with the fee's code in a Transaction/<fund scope>/FeeCode property comes off it. A negative balance, from deeming more than was due, nets off later accruals before anything is payable again, as a prepaid fee does.",
+            "format": "double"
+          },
+          "previousAccruedBalance": {
+            "type": "number",
+            "description": "The previous valuation point's AccruedBalance.",
+            "format": "double"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -235171,6 +235245,14 @@
               "$ref": "#/components/schemas/ResponseMetaData"
             },
             "description": "Any errors with the record are reported here.",
+            "nullable": true
+          },
+          "causes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/A2BCorrectionCause"
+            },
+            "description": "For a BackdatedCorrection movement, the transactions booked, amended or cancelled after the previous period closed that the correction reconciles, each with the journal action that explains it. Empty for any other movement.",
             "nullable": true
           }
         },
@@ -241901,7 +241983,7 @@
           "holdingPropertyKey": {
             "minLength": 1,
             "type": "string",
-            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'ExcessCapitalReturned', 'RecalledCapital', 'PaidInCapitalPortfolioCcy', 'ReturnedCapitalPortfolioCcy', 'ExcessCapitalReturnedPortfolioCcy', 'FundedCapital' and 'UnfundedCapital'. The '...PortfolioCcy' balances are the same balances in the portfolio's base currency, each movement converted at its own RateToPortfolio on the day it was booked and never re-translated at a later spot rate; source them from 'PortfolioAmount', or from 'PortfolioAmountAtAverageRate' to unwind one at the average rate it was built at. 'ExcessCapitalReturned' is the cumulative excess capital the fund has handed back, kept separately because a return of excess lowers PaidInCapital and restores UncalledCommitment at the same time. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment, ExcessCapitalReturned, RecalledCapital, PaidInCapitalPortfolioCcy, ReturnedCapitalPortfolioCcy, ExcessCapitalReturnedPortfolioCcy."
+            "description": "The running balance on the holding to adjust. Allowed values: 'CommittedCapital', 'UncalledCommitment', 'PaidInCapital', 'ReturnedCapital', 'RecallableCapital', 'NonRecallableCapital', 'ExcessCapitalReturned', 'RecalledCapital', 'PaidInCapitalPortfolioCcy', 'ReturnedCapitalPortfolioCcy', 'ExcessCapitalReturnedPortfolioCcy', 'TotalDistributions', 'CallsOutsideCommitment', 'TotalDistributionsPortfolioCcy', 'CallsOutsideCommitmentPortfolioCcy', 'FundedCapital' and 'UnfundedCapital'. The '...PortfolioCcy' balances are the same balances in the portfolio's base currency, each movement converted at its own RateToPortfolio on the day it was booked and never re-translated at a later spot rate; source them from 'PortfolioAmount', or from 'PortfolioAmountAtAverageRate' to unwind one at the average rate it was built at. 'TotalDistributions' is the cumulative distributions from the fund, gross of carry and tax withheld and excluding returns of excess; 'CallsOutsideCommitment' is the cumulative capital paid outside the commitment. 'ExcessCapitalReturned' is the cumulative excess capital the fund has handed back, kept separately because a return of excess lowers PaidInCapital and restores UncalledCommitment at the same time. 'UnfundedCapital' is a deprecated alias of 'UncalledCommitment'; 'FundedCapital' is served as PaidInCapital less ReturnedCapital and new configuration should target those two instead. Available values: CommittedCapital, FundedCapital, UnfundedCapital, RecallableCapital, NonRecallableCapital, PaidInCapital, ReturnedCapital, UncalledCommitment, ExcessCapitalReturned, RecalledCapital, PaidInCapitalPortfolioCcy, ReturnedCapitalPortfolioCcy, ExcessCapitalReturnedPortfolioCcy, TotalDistributions, CallsOutsideCommitment, TotalDistributionsPortfolioCcy, CallsOutsideCommitmentPortfolioCcy."
           },
           "source": {
             "minLength": 1,
@@ -245863,6 +245945,12 @@
               "announcementDate": {
                 "type": "string",
                 "description": "The date the event was announced by the issuer. Optional.",
+                "format": "date-time",
+                "nullable": true
+              },
+              "dueDate": {
+                "type": "string",
+                "description": "The date the interest was originally due, when it is paid after the bond's scheduled coupon date. Optional. When set, the interest is booked on this date and settles on the payment date, and the coupon the bond's schedule generates for this date is not booked. It must fall between the record date and the payment date.",
                 "format": "date-time",
                 "nullable": true
               },
@@ -284790,7 +284878,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Allows extra specifications for the movement. The options currently available are 'DirectAdjustment', 'IncludesTradedInterest', 'Virtual', 'Income', 'Expense', 'Bought', 'Sold', 'Coupon', 'Dividend', 'Fee', 'Tax' and 'TaxLotAdjustment'. More than one option may be given. A movement type of 'StockMovement' with an option of 'DirectAdjusment' will allow you to adjust the units of a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction. A movement type of 'Carry' with the option as 'Expense' will not impact the interest accrual for cash-type holdings such loans, loan facilities and deposits. 'Bought' and 'Sold' declare the direction of traded interest and are only valid alongside 'IncludesTradedInterest' on a 'Carry' or 'CarryAsPnl' movement; without them the direction is inferred from the sign of the amount. 'Coupon' and 'Dividend' declare the kind of income and are valid alongside 'Income' for the gross income line, or alongside 'Fee' or 'Tax' on a 'Carry' or 'CarryAsPnl' movement for a charge taken out of that income, such as withholding tax on a dividend. 'Fee' and 'Tax' declare the kind of charge and are valid on 'Fee', 'Capital', 'Carry' and 'CarryAsPnl' movements; on a 'Carry' or 'CarryAsPnl' movement they must be declared alongside 'Expense', 'Coupon' or 'Dividend', and they cannot be combined with 'Income' or 'IncludesTradedInterest'. 'Income', 'Expense' and 'IncludesTradedInterest' are mutually exclusive, as are 'Bought' and 'Sold', 'Coupon' and 'Dividend', and 'Fee' and 'Tax'. 'TaxLotAdjustment' is valid only on its own on a 'StockMovement'. It sets the amortised cost of the tax lot named by 'Transaction/default/TargetTaxlotId', or apportions one across the holding's open lots when no lot is named, from 'Transaction/default/TargetAmortisedCostPerUnit' or 'Transaction/default/TargetIncomeToAmortisePerUnit', anchored at the transaction's date or, given in 'Transaction/default/AmortisationAnchorDate' for a named lot, at the lot's amortisation start date, and books no units, cost or cash. The outcome is reported on the output transaction as 'Transaction/system/TaxLotAdjustmentResult'.",
+            "description": "Allows extra specifications for the movement. The options currently available are 'DirectAdjustment', 'IncludesTradedInterest', 'Virtual', 'Income', 'Expense', 'Bought', 'Sold', 'Coupon', 'Dividend', 'Fee', 'Tax', 'TaxLotAdjustment' and 'Registry'. More than one option may be given. A movement type of 'StockMovement' with an option of 'DirectAdjusment' will allow you to adjust the units of a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction. A movement type of 'Carry' with the option as 'Expense' will not impact the interest accrual for cash-type holdings such loans, loan facilities and deposits. 'Bought' and 'Sold' declare the direction of traded interest and are only valid alongside 'IncludesTradedInterest' on a 'Carry' or 'CarryAsPnl' movement; without them the direction is inferred from the sign of the amount. 'Coupon' and 'Dividend' declare the kind of income and are valid alongside 'Income' for the gross income line, or alongside 'Fee' or 'Tax' on a 'Carry' or 'CarryAsPnl' movement for a charge taken out of that income, such as withholding tax on a dividend. 'Fee' and 'Tax' declare the kind of charge and are valid on 'Fee', 'Capital', 'Carry' and 'CarryAsPnl' movements; on a 'Carry' or 'CarryAsPnl' movement they must be declared alongside 'Expense', 'Coupon' or 'Dividend', and they cannot be combined with 'Income' or 'IncludesTradedInterest'. 'Income', 'Expense' and 'IncludesTradedInterest' are mutually exclusive, as are 'Bought' and 'Sold', 'Coupon' and 'Dividend', and 'Fee' and 'Tax'. 'TaxLotAdjustment' is valid only on its own on a 'StockMovement'. It sets the amortised cost of the tax lot named by 'Transaction/default/TargetTaxlotId', or apportions one across the holding's open lots when no lot is named, from 'Transaction/default/TargetAmortisedCostPerUnit' or 'Transaction/default/TargetIncomeToAmortisePerUnit', anchored at the transaction's date or, given in 'Transaction/default/AmortisationAnchorDate' for a named lot, at the lot's amortisation start date, and books no units, cost or cash. The outcome is reported on the output transaction as 'Transaction/system/TaxLotAdjustmentResult'. 'Registry' applies the movement to the portfolio's registry collection, where the partner register lines of a partnership live, instead of its holdings: the line takes the units, cost and capital balances but is never a holding, is never valued and never appears in the holdings output. It is valid only on a movement type that includes 'Traded', such as 'StockMovement'; declared beside 'Virtual' on a zero-unit movement with holding property deltas it moves the line's capital balances without booking cost.",
             "nullable": true
           }
         },
@@ -284869,7 +284957,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Allows extra specifications for the movement. The options currently available are 'DirectAdjustment', 'IncludesTradedInterest', 'Virtual', 'Income', 'Expense', 'Bought', 'Sold', 'Coupon', 'Dividend', 'Fee', 'Tax' and 'TaxLotAdjustment'. More than one option may be given. A movement type of 'StockMovement' with an option of 'DirectAdjusment' will allow you to adjust the units of a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction. A movement type of 'Carry' with the option as 'Expense' will not impact the interest accrual for cash-type holdings such loans, loan facilities and deposits. 'Bought' and 'Sold' declare the direction of traded interest and are only valid alongside 'IncludesTradedInterest' on a 'Carry' or 'CarryAsPnl' movement; without them the direction is inferred from the sign of the amount. 'Coupon' and 'Dividend' declare the kind of income and are valid alongside 'Income' for the gross income line, or alongside 'Fee' or 'Tax' on a 'Carry' or 'CarryAsPnl' movement for a charge taken out of that income, such as withholding tax on a dividend. 'Fee' and 'Tax' declare the kind of charge and are valid on 'Fee', 'Capital', 'Carry' and 'CarryAsPnl' movements; on a 'Carry' or 'CarryAsPnl' movement they must be declared alongside 'Expense', 'Coupon' or 'Dividend', and they cannot be combined with 'Income' or 'IncludesTradedInterest'. 'Income', 'Expense' and 'IncludesTradedInterest' are mutually exclusive, as are 'Bought' and 'Sold', 'Coupon' and 'Dividend', and 'Fee' and 'Tax'. 'TaxLotAdjustment' is valid only on its own on a 'StockMovement'. It sets the amortised cost of the tax lot named by 'Transaction/default/TargetTaxlotId', or apportions one across the holding's open lots when no lot is named, from 'Transaction/default/TargetAmortisedCostPerUnit' or 'Transaction/default/TargetIncomeToAmortisePerUnit', anchored at the transaction's date or, given in 'Transaction/default/AmortisationAnchorDate' for a named lot, at the lot's amortisation start date, and books no units, cost or cash. The outcome is reported on the output transaction as 'Transaction/system/TaxLotAdjustmentResult'.",
+            "description": "Allows extra specifications for the movement. The options currently available are 'DirectAdjustment', 'IncludesTradedInterest', 'Virtual', 'Income', 'Expense', 'Bought', 'Sold', 'Coupon', 'Dividend', 'Fee', 'Tax', 'TaxLotAdjustment' and 'Registry'. More than one option may be given. A movement type of 'StockMovement' with an option of 'DirectAdjusment' will allow you to adjust the units of a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction. A movement type of 'Carry' with the option as 'Expense' will not impact the interest accrual for cash-type holdings such loans, loan facilities and deposits. 'Bought' and 'Sold' declare the direction of traded interest and are only valid alongside 'IncludesTradedInterest' on a 'Carry' or 'CarryAsPnl' movement; without them the direction is inferred from the sign of the amount. 'Coupon' and 'Dividend' declare the kind of income and are valid alongside 'Income' for the gross income line, or alongside 'Fee' or 'Tax' on a 'Carry' or 'CarryAsPnl' movement for a charge taken out of that income, such as withholding tax on a dividend. 'Fee' and 'Tax' declare the kind of charge and are valid on 'Fee', 'Capital', 'Carry' and 'CarryAsPnl' movements; on a 'Carry' or 'CarryAsPnl' movement they must be declared alongside 'Expense', 'Coupon' or 'Dividend', and they cannot be combined with 'Income' or 'IncludesTradedInterest'. 'Income', 'Expense' and 'IncludesTradedInterest' are mutually exclusive, as are 'Bought' and 'Sold', 'Coupon' and 'Dividend', and 'Fee' and 'Tax'. 'TaxLotAdjustment' is valid only on its own on a 'StockMovement'. It sets the amortised cost of the tax lot named by 'Transaction/default/TargetTaxlotId', or apportions one across the holding's open lots when no lot is named, from 'Transaction/default/TargetAmortisedCostPerUnit' or 'Transaction/default/TargetIncomeToAmortisePerUnit', anchored at the transaction's date or, given in 'Transaction/default/AmortisationAnchorDate' for a named lot, at the lot's amortisation start date, and books no units, cost or cash. The outcome is reported on the output transaction as 'Transaction/system/TaxLotAdjustmentResult'. 'Registry' applies the movement to the portfolio's registry collection, where the partner register lines of a partnership live, instead of its holdings: the line takes the units, cost and capital balances but is never a holding, is never valued and never appears in the holdings output. It is valid only on a movement type that includes 'Traded', such as 'StockMovement'; declared beside 'Virtual' on a zero-unit movement with holding property deltas it moves the line's capital balances without booking cost.",
             "nullable": true
           }
         },
@@ -286247,7 +286335,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Allows extra specifications for the movement. The options currently available are 'DirectAdjustment', 'IncludesTradedInterest', 'Virtual', 'Income', 'Expense', 'Bought', 'Sold', 'Coupon', 'Dividend', 'Fee', 'Tax' and 'TaxLotAdjustment'. More than one option may be given. A movement type of 'StockMovement' with an option of 'DirectAdjusment' will allow you to adjust the units of a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction. A movement type of 'Carry' with the option as 'Expense' will not impact the interest accrual for cash-type holdings such loans, loan facilities and deposits. 'Bought' and 'Sold' declare the direction of traded interest and are only valid alongside 'IncludesTradedInterest' on a 'Carry' or 'CarryAsPnl' movement; without them the direction is inferred from the sign of the amount. 'Coupon' and 'Dividend' declare the kind of income and are valid alongside 'Income' for the gross income line, or alongside 'Fee' or 'Tax' on a 'Carry' or 'CarryAsPnl' movement for a charge taken out of that income, such as withholding tax on a dividend. 'Fee' and 'Tax' declare the kind of charge and are valid on 'Fee', 'Capital', 'Carry' and 'CarryAsPnl' movements; on a 'Carry' or 'CarryAsPnl' movement they must be declared alongside 'Expense', 'Coupon' or 'Dividend', and they cannot be combined with 'Income' or 'IncludesTradedInterest'. 'Income', 'Expense' and 'IncludesTradedInterest' are mutually exclusive, as are 'Bought' and 'Sold', 'Coupon' and 'Dividend', and 'Fee' and 'Tax'. 'TaxLotAdjustment' is valid only on its own on a 'StockMovement'. It sets the amortised cost of the tax lot named by 'Transaction/default/TargetTaxlotId', or apportions one across the holding's open lots when no lot is named, from 'Transaction/default/TargetAmortisedCostPerUnit' or 'Transaction/default/TargetIncomeToAmortisePerUnit', anchored at the transaction's date or, given in 'Transaction/default/AmortisationAnchorDate' for a named lot, at the lot's amortisation start date, and books no units, cost or cash. The outcome is reported on the output transaction as 'Transaction/system/TaxLotAdjustmentResult'.",
+            "description": "Allows extra specifications for the movement. The options currently available are 'DirectAdjustment', 'IncludesTradedInterest', 'Virtual', 'Income', 'Expense', 'Bought', 'Sold', 'Coupon', 'Dividend', 'Fee', 'Tax', 'TaxLotAdjustment' and 'Registry'. More than one option may be given. A movement type of 'StockMovement' with an option of 'DirectAdjusment' will allow you to adjust the units of a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction. A movement type of 'Carry' with the option as 'Expense' will not impact the interest accrual for cash-type holdings such loans, loan facilities and deposits. 'Bought' and 'Sold' declare the direction of traded interest and are only valid alongside 'IncludesTradedInterest' on a 'Carry' or 'CarryAsPnl' movement; without them the direction is inferred from the sign of the amount. 'Coupon' and 'Dividend' declare the kind of income and are valid alongside 'Income' for the gross income line, or alongside 'Fee' or 'Tax' on a 'Carry' or 'CarryAsPnl' movement for a charge taken out of that income, such as withholding tax on a dividend. 'Fee' and 'Tax' declare the kind of charge and are valid on 'Fee', 'Capital', 'Carry' and 'CarryAsPnl' movements; on a 'Carry' or 'CarryAsPnl' movement they must be declared alongside 'Expense', 'Coupon' or 'Dividend', and they cannot be combined with 'Income' or 'IncludesTradedInterest'. 'Income', 'Expense' and 'IncludesTradedInterest' are mutually exclusive, as are 'Bought' and 'Sold', 'Coupon' and 'Dividend', and 'Fee' and 'Tax'. 'TaxLotAdjustment' is valid only on its own on a 'StockMovement'. It sets the amortised cost of the tax lot named by 'Transaction/default/TargetTaxlotId', or apportions one across the holding's open lots when no lot is named, from 'Transaction/default/TargetAmortisedCostPerUnit' or 'Transaction/default/TargetIncomeToAmortisePerUnit', anchored at the transaction's date or, given in 'Transaction/default/AmortisationAnchorDate' for a named lot, at the lot's amortisation start date, and books no units, cost or cash. The outcome is reported on the output transaction as 'Transaction/system/TaxLotAdjustmentResult'. 'Registry' applies the movement to the portfolio's registry collection, where the partner register lines of a partnership live, instead of its holdings: the line takes the units, cost and capital balances but is never a holding, is never valued and never appears in the holdings output. It is valid only on a movement type that includes 'Traded', such as 'StockMovement'; declared beside 'Virtual' on a zero-unit movement with holding property deltas it moves the line's capital balances without booking cost.",
             "nullable": true
           },
           "settlementDateOverride": {
@@ -290495,7 +290583,7 @@
           "type": {
             "minLength": 1,
             "type": "string",
-            "description": "What kind of finding this is. 'OwnershipDrift': a fund structure holder's declared sharing percentage in a held member differs from the share its contributions make of that member's capital by enough to misallocate more of the period's P&L than the holder's drift materiality warning amount allows. 'FeeStrikeFailed': the fees struck when the valuation point was last created or updated failed, so its lines carry no fee transactions and it cannot be accepted until they are struck again."
+            "description": "What kind of finding this is. 'OwnershipDrift': a fund structure holder's declared sharing percentage in a held member differs from the share its contributions make of that member's capital by enough to misallocate more of the period's P&L than the holder's drift materiality warning amount allows. 'FeeStrikeFailed': the fees struck when the valuation point was last created or updated failed, so its lines carry no fee transactions and it cannot be accepted until they are struck again. 'FeeInvoiceOutsideTolerance': the invoices booked for a fee in the valuation point's window, tagged with a Transaction/<fund scope>/InvoicedFeeCode property, differ from the fee's accrual for the period they cover by more than its Fee/<scope>/InvoiceTolerance, or else its fund's Fund/<scope>/InvoiceTolerance, allows; they are booked as they are. 'FeeInvoiceNotChecked': such an invoice could not be checked, because no final valuation point holds its period's accrual, it is not in the fee's currency, or the tolerance cannot be read. Neither stops the valuation point."
           },
           "message": {
             "minLength": 1,
@@ -290508,7 +290596,7 @@
               "type": "string",
               "nullable": true
             },
-            "description": "The values the finding was made on, by name. For 'OwnershipDrift': holder, member, declaredShare, actualShare, delta (actual less declared) and impact (the P&L the drift would misallocate this period). For 'FeeStrikeFailed': failureType and failureMessage, the cause of the failed strike.",
+            "description": "The values the finding was made on, by name. For 'OwnershipDrift': holder, member, declaredShare, actualShare, delta (actual less declared) and impact (the P&L the drift would misallocate this period). For 'FeeStrikeFailed': failureType and failureMessage, the cause of the failed strike. For 'FeeInvoiceOutsideTolerance': feeCode, feeName, periodEnd (the payable date ending the period), accrualValuationPoint, currency, accrual, invoice, difference (invoice less accrual), differencePercent, tolerancePercent, toleranceFloor, tolerance (the larger of the percentage of the accrual and the floor), toleranceProperty and transactionIds. For 'FeeInvoiceNotChecked': feeCode, feeName, reason (AccrualNotFound, CurrencyMismatch or ToleranceUnreadable), transactionIds, and the figures it was found on.",
             "nullable": true
           }
         },
