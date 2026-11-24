@@ -585,6 +585,7 @@ export * from './earlyCloseOutEventAllOf';
 export * from './earlyRedemptionElection';
 export * from './earlyRedemptionEvent';
 export * from './earlyRedemptionEventAllOf';
+export * from './economicBucketAmount';
 export * from './economicDependency';
 export * from './economicDependencyWithComplexMarketData';
 export * from './economicDependencyWithQuote';
@@ -1025,6 +1026,7 @@ export * from './metadataFieldsToAdd';
 export * from './metadataFieldsToRemove';
 export * from './metadataFieldsToUpdate';
 export * from './metricValue';
+export * from './missingMovementOption';
 export * from './mixedLotConstituentsElection';
 export * from './modelOptionShiftDefinition';
 export * from './modelOptionShiftDefinitionAllOf';
@@ -1053,6 +1055,8 @@ export * from './opaqueMarketData';
 export * from './opaqueMarketDataAllOf';
 export * from './opaqueModelOptions';
 export * from './opaqueModelOptionsAllOf';
+export * from './openCloseMovementQueryParameters';
+export * from './openCloseMovementRecord';
 export * from './openEvent';
 export * from './openEventAllOf';
 export * from './operation';
@@ -1137,7 +1141,6 @@ export * from './pagedResourceListOfFund';
 export * from './pagedResourceListOfFundCalendarEntries';
 export * from './pagedResourceListOfFundCalendarEntry';
 export * from './pagedResourceListOfFundConfiguration';
-export * from './pagedResourceListOfFundPartner';
 export * from './pagedResourceListOfFundStructure';
 export * from './pagedResourceListOfGeneralLedgerProfileResponse';
 export * from './pagedResourceListOfGetScenarioResponse';
@@ -1152,7 +1155,6 @@ export * from './pagedResourceListOfOrderGraphBlock';
 export * from './pagedResourceListOfOrderGraphPlacement';
 export * from './pagedResourceListOfOrderInstruction';
 export * from './pagedResourceListOfParticipation';
-export * from './pagedResourceListOfPartnerCapitalAccount';
 export * from './pagedResourceListOfPerson';
 export * from './pagedResourceListOfPlacement';
 export * from './pagedResourceListOfPortfolioGroup';
@@ -1507,6 +1509,8 @@ export * from './resourceListOfTransactionType';
 export * from './resourceListOfValueType';
 export * from './resourceListOfVirtualTransactionOverrideRecord';
 export * from './resourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery';
+export * from './resourceListWithWarningsOfFundPartner';
+export * from './resourceListWithWarningsOfPartnerCapitalAccount';
 export * from './resourceRecord';
 export * from './responseMetaData';
 export * from './resultAxisDefinition';
@@ -1906,6 +1910,7 @@ export * from './versionedResourceListOfFundA2BDataRecord';
 export * from './versionedResourceListOfFundA2BMovementRecord';
 export * from './versionedResourceListOfHoldingContributor';
 export * from './versionedResourceListOfJournalEntryLine';
+export * from './versionedResourceListOfOpenCloseMovementRecord';
 export * from './versionedResourceListOfOutputTransaction';
 export * from './versionedResourceListOfPortfolioHolding';
 export * from './versionedResourceListOfTransaction';
@@ -2557,6 +2562,7 @@ import { EarlyCloseOutEventAllOf } from './earlyCloseOutEventAllOf';
 import { EarlyRedemptionElection } from './earlyRedemptionElection';
 import { EarlyRedemptionEvent } from './earlyRedemptionEvent';
 import { EarlyRedemptionEventAllOf } from './earlyRedemptionEventAllOf';
+import { EconomicBucketAmount } from './economicBucketAmount';
 import { EconomicDependency } from './economicDependency';
 import { EconomicDependencyWithComplexMarketData } from './economicDependencyWithComplexMarketData';
 import { EconomicDependencyWithQuote } from './economicDependencyWithQuote';
@@ -2997,6 +3003,7 @@ import { MetadataFieldsToAdd } from './metadataFieldsToAdd';
 import { MetadataFieldsToRemove } from './metadataFieldsToRemove';
 import { MetadataFieldsToUpdate } from './metadataFieldsToUpdate';
 import { MetricValue } from './metricValue';
+import { MissingMovementOption } from './missingMovementOption';
 import { MixedLotConstituentsElection } from './mixedLotConstituentsElection';
 import { ModelOptionShiftDefinition } from './modelOptionShiftDefinition';
 import { ModelOptionShiftDefinitionAllOf } from './modelOptionShiftDefinitionAllOf';
@@ -3025,6 +3032,8 @@ import { OpaqueMarketData } from './opaqueMarketData';
 import { OpaqueMarketDataAllOf } from './opaqueMarketDataAllOf';
 import { OpaqueModelOptions } from './opaqueModelOptions';
 import { OpaqueModelOptionsAllOf } from './opaqueModelOptionsAllOf';
+import { OpenCloseMovementQueryParameters } from './openCloseMovementQueryParameters';
+import { OpenCloseMovementRecord } from './openCloseMovementRecord';
 import { OpenEvent } from './openEvent';
 import { OpenEventAllOf } from './openEventAllOf';
 import { Operation } from './operation';
@@ -3109,7 +3118,6 @@ import { PagedResourceListOfFund } from './pagedResourceListOfFund';
 import { PagedResourceListOfFundCalendarEntries } from './pagedResourceListOfFundCalendarEntries';
 import { PagedResourceListOfFundCalendarEntry } from './pagedResourceListOfFundCalendarEntry';
 import { PagedResourceListOfFundConfiguration } from './pagedResourceListOfFundConfiguration';
-import { PagedResourceListOfFundPartner } from './pagedResourceListOfFundPartner';
 import { PagedResourceListOfFundStructure } from './pagedResourceListOfFundStructure';
 import { PagedResourceListOfGeneralLedgerProfileResponse } from './pagedResourceListOfGeneralLedgerProfileResponse';
 import { PagedResourceListOfGetScenarioResponse } from './pagedResourceListOfGetScenarioResponse';
@@ -3124,7 +3132,6 @@ import { PagedResourceListOfOrderGraphBlock } from './pagedResourceListOfOrderGr
 import { PagedResourceListOfOrderGraphPlacement } from './pagedResourceListOfOrderGraphPlacement';
 import { PagedResourceListOfOrderInstruction } from './pagedResourceListOfOrderInstruction';
 import { PagedResourceListOfParticipation } from './pagedResourceListOfParticipation';
-import { PagedResourceListOfPartnerCapitalAccount } from './pagedResourceListOfPartnerCapitalAccount';
 import { PagedResourceListOfPerson } from './pagedResourceListOfPerson';
 import { PagedResourceListOfPlacement } from './pagedResourceListOfPlacement';
 import { PagedResourceListOfPortfolioGroup } from './pagedResourceListOfPortfolioGroup';
@@ -3479,6 +3486,8 @@ import { ResourceListOfTransactionType } from './resourceListOfTransactionType';
 import { ResourceListOfValueType } from './resourceListOfValueType';
 import { ResourceListOfVirtualTransactionOverrideRecord } from './resourceListOfVirtualTransactionOverrideRecord';
 import { ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery } from './resourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery';
+import { ResourceListWithWarningsOfFundPartner } from './resourceListWithWarningsOfFundPartner';
+import { ResourceListWithWarningsOfPartnerCapitalAccount } from './resourceListWithWarningsOfPartnerCapitalAccount';
 import { ResourceRecord } from './resourceRecord';
 import { ResponseMetaData } from './responseMetaData';
 import { ResultAxisDefinition } from './resultAxisDefinition';
@@ -3878,6 +3887,7 @@ import { VersionedResourceListOfFundA2BDataRecord } from './versionedResourceLis
 import { VersionedResourceListOfFundA2BMovementRecord } from './versionedResourceListOfFundA2BMovementRecord';
 import { VersionedResourceListOfHoldingContributor } from './versionedResourceListOfHoldingContributor';
 import { VersionedResourceListOfJournalEntryLine } from './versionedResourceListOfJournalEntryLine';
+import { VersionedResourceListOfOpenCloseMovementRecord } from './versionedResourceListOfOpenCloseMovementRecord';
 import { VersionedResourceListOfOutputTransaction } from './versionedResourceListOfOutputTransaction';
 import { VersionedResourceListOfPortfolioHolding } from './versionedResourceListOfPortfolioHolding';
 import { VersionedResourceListOfTransaction } from './versionedResourceListOfTransaction';
@@ -5283,6 +5293,7 @@ let typeMap: {[index: string]: any} = {
     "EarlyRedemptionElection": EarlyRedemptionElection,
     "EarlyRedemptionEvent": EarlyRedemptionEvent,
     "EarlyRedemptionEventAllOf": EarlyRedemptionEventAllOf,
+    "EconomicBucketAmount": EconomicBucketAmount,
     "EconomicDependency": EconomicDependency,
     "EconomicDependencyWithComplexMarketData": EconomicDependencyWithComplexMarketData,
     "EconomicDependencyWithQuote": EconomicDependencyWithQuote,
@@ -5723,6 +5734,7 @@ let typeMap: {[index: string]: any} = {
     "MetadataFieldsToRemove": MetadataFieldsToRemove,
     "MetadataFieldsToUpdate": MetadataFieldsToUpdate,
     "MetricValue": MetricValue,
+    "MissingMovementOption": MissingMovementOption,
     "MixedLotConstituentsElection": MixedLotConstituentsElection,
     "ModelOptionShiftDefinition": ModelOptionShiftDefinition,
     "ModelOptionShiftDefinitionAllOf": ModelOptionShiftDefinitionAllOf,
@@ -5751,6 +5763,8 @@ let typeMap: {[index: string]: any} = {
     "OpaqueMarketDataAllOf": OpaqueMarketDataAllOf,
     "OpaqueModelOptions": OpaqueModelOptions,
     "OpaqueModelOptionsAllOf": OpaqueModelOptionsAllOf,
+    "OpenCloseMovementQueryParameters": OpenCloseMovementQueryParameters,
+    "OpenCloseMovementRecord": OpenCloseMovementRecord,
     "OpenEvent": OpenEvent,
     "OpenEventAllOf": OpenEventAllOf,
     "Operation": Operation,
@@ -5835,7 +5849,6 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfFundCalendarEntries": PagedResourceListOfFundCalendarEntries,
     "PagedResourceListOfFundCalendarEntry": PagedResourceListOfFundCalendarEntry,
     "PagedResourceListOfFundConfiguration": PagedResourceListOfFundConfiguration,
-    "PagedResourceListOfFundPartner": PagedResourceListOfFundPartner,
     "PagedResourceListOfFundStructure": PagedResourceListOfFundStructure,
     "PagedResourceListOfGeneralLedgerProfileResponse": PagedResourceListOfGeneralLedgerProfileResponse,
     "PagedResourceListOfGetScenarioResponse": PagedResourceListOfGetScenarioResponse,
@@ -5850,7 +5863,6 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfOrderGraphPlacement": PagedResourceListOfOrderGraphPlacement,
     "PagedResourceListOfOrderInstruction": PagedResourceListOfOrderInstruction,
     "PagedResourceListOfParticipation": PagedResourceListOfParticipation,
-    "PagedResourceListOfPartnerCapitalAccount": PagedResourceListOfPartnerCapitalAccount,
     "PagedResourceListOfPerson": PagedResourceListOfPerson,
     "PagedResourceListOfPlacement": PagedResourceListOfPlacement,
     "PagedResourceListOfPortfolioGroup": PagedResourceListOfPortfolioGroup,
@@ -6205,6 +6217,8 @@ let typeMap: {[index: string]: any} = {
     "ResourceListOfValueType": ResourceListOfValueType,
     "ResourceListOfVirtualTransactionOverrideRecord": ResourceListOfVirtualTransactionOverrideRecord,
     "ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery": ResourceListWithPostBodiesOfSettlementActivityToSettlementActivityQuery,
+    "ResourceListWithWarningsOfFundPartner": ResourceListWithWarningsOfFundPartner,
+    "ResourceListWithWarningsOfPartnerCapitalAccount": ResourceListWithWarningsOfPartnerCapitalAccount,
     "ResourceRecord": ResourceRecord,
     "ResponseMetaData": ResponseMetaData,
     "ResultAxisDefinition": ResultAxisDefinition,
@@ -6603,6 +6617,7 @@ let typeMap: {[index: string]: any} = {
     "VersionedResourceListOfFundA2BMovementRecord": VersionedResourceListOfFundA2BMovementRecord,
     "VersionedResourceListOfHoldingContributor": VersionedResourceListOfHoldingContributor,
     "VersionedResourceListOfJournalEntryLine": VersionedResourceListOfJournalEntryLine,
+    "VersionedResourceListOfOpenCloseMovementRecord": VersionedResourceListOfOpenCloseMovementRecord,
     "VersionedResourceListOfOutputTransaction": VersionedResourceListOfOutputTransaction,
     "VersionedResourceListOfPortfolioHolding": VersionedResourceListOfPortfolioHolding,
     "VersionedResourceListOfTransaction": VersionedResourceListOfTransaction,
