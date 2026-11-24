@@ -91,6 +91,7 @@ export * from './allocationEventReverseRequest';
 export * from './allocationEventRoundingResidual';
 export * from './allocationEventTransfer';
 export * from './allocationEventTransferConsideration';
+export * from './allocationEventTransferee';
 export * from './allocationEventUnbookRequest';
 export * from './allocationEventUseOfProceeds';
 export * from './allocationGroup';
@@ -596,6 +597,8 @@ export * from './electionSpecification';
 export * from './eligibilityCalculation';
 export * from './emptyModelOptions';
 export * from './emptyModelOptionsAllOf';
+export * from './entitlementLeg';
+export * from './entitlementLegRequest';
 export * from './entityIdentifier';
 export * from './equalisationTerms';
 export * from './equity';
@@ -728,6 +731,12 @@ export * from './fundDistributionEvent';
 export * from './fundDistributionEventAllOf';
 export * from './fundEstimateValuationPoint';
 export * from './fundEstimateValuationPointAllOf';
+export * from './fundGroupReportOutput';
+export * from './fundGroupReportResult';
+export * from './fundGroupReportValuationPoint';
+export * from './fundGroupTrialBalance';
+export * from './fundGroupTrialBalanceRequest';
+export * from './fundGroupTrialBalanceResponse';
 export * from './fundIdList';
 export * from './fundIdListAllOf';
 export * from './fundInstrument';
@@ -842,6 +851,10 @@ export * from './holdingAdjustment';
 export * from './holdingAdjustmentWithDate';
 export * from './holdingContext';
 export * from './holdingContributor';
+export * from './holdingEntitlement';
+export * from './holdingEntitlementEntity';
+export * from './holdingEntitlementRequest';
+export * from './holdingEntitlementsResponse';
 export * from './holdingIdsRequest';
 export * from './holdingPricingInfo';
 export * from './holdingPropertyDelta';
@@ -853,6 +866,8 @@ export * from './iUnitDefinitionDto';
 export * from './idSelectorDefinition';
 export * from './identifierPartSchema';
 export * from './ignoredDistributionTag';
+export * from './increaseInValueEvent';
+export * from './increaseInValueEventAllOf';
 export * from './indexConvention';
 export * from './indexModelOptions';
 export * from './indexModelOptionsAllOf';
@@ -1145,6 +1160,7 @@ export * from './pagedResourceListOfFundStructure';
 export * from './pagedResourceListOfGeneralLedgerProfileResponse';
 export * from './pagedResourceListOfGetScenarioResponse';
 export * from './pagedResourceListOfGetSubscriptionResponse';
+export * from './pagedResourceListOfHoldingEntitlement';
 export * from './pagedResourceListOfInstrument';
 export * from './pagedResourceListOfInstrumentEventHolder';
 export * from './pagedResourceListOfInstrumentEventInstruction';
@@ -2068,6 +2084,7 @@ import { AllocationEventReverseRequest } from './allocationEventReverseRequest';
 import { AllocationEventRoundingResidual } from './allocationEventRoundingResidual';
 import { AllocationEventTransfer } from './allocationEventTransfer';
 import { AllocationEventTransferConsideration } from './allocationEventTransferConsideration';
+import { AllocationEventTransferee } from './allocationEventTransferee';
 import { AllocationEventUnbookRequest } from './allocationEventUnbookRequest';
 import { AllocationEventUseOfProceeds } from './allocationEventUseOfProceeds';
 import { AllocationGroup } from './allocationGroup';
@@ -2573,6 +2590,8 @@ import { ElectionSpecification } from './electionSpecification';
 import { EligibilityCalculation } from './eligibilityCalculation';
 import { EmptyModelOptions } from './emptyModelOptions';
 import { EmptyModelOptionsAllOf } from './emptyModelOptionsAllOf';
+import { EntitlementLeg } from './entitlementLeg';
+import { EntitlementLegRequest } from './entitlementLegRequest';
 import { EntityIdentifier } from './entityIdentifier';
 import { EqualisationTerms } from './equalisationTerms';
 import { Equity } from './equity';
@@ -2705,6 +2724,12 @@ import { FundDistributionEvent } from './fundDistributionEvent';
 import { FundDistributionEventAllOf } from './fundDistributionEventAllOf';
 import { FundEstimateValuationPoint } from './fundEstimateValuationPoint';
 import { FundEstimateValuationPointAllOf } from './fundEstimateValuationPointAllOf';
+import { FundGroupReportOutput } from './fundGroupReportOutput';
+import { FundGroupReportResult } from './fundGroupReportResult';
+import { FundGroupReportValuationPoint } from './fundGroupReportValuationPoint';
+import { FundGroupTrialBalance } from './fundGroupTrialBalance';
+import { FundGroupTrialBalanceRequest } from './fundGroupTrialBalanceRequest';
+import { FundGroupTrialBalanceResponse } from './fundGroupTrialBalanceResponse';
 import { FundIdList } from './fundIdList';
 import { FundIdListAllOf } from './fundIdListAllOf';
 import { FundInstrument } from './fundInstrument';
@@ -2819,6 +2844,10 @@ import { HoldingAdjustment } from './holdingAdjustment';
 import { HoldingAdjustmentWithDate } from './holdingAdjustmentWithDate';
 import { HoldingContext } from './holdingContext';
 import { HoldingContributor } from './holdingContributor';
+import { HoldingEntitlement } from './holdingEntitlement';
+import { HoldingEntitlementEntity } from './holdingEntitlementEntity';
+import { HoldingEntitlementRequest } from './holdingEntitlementRequest';
+import { HoldingEntitlementsResponse } from './holdingEntitlementsResponse';
 import { HoldingIdsRequest } from './holdingIdsRequest';
 import { HoldingPricingInfo } from './holdingPricingInfo';
 import { HoldingPropertyDelta } from './holdingPropertyDelta';
@@ -2830,6 +2859,8 @@ import { IUnitDefinitionDto } from './iUnitDefinitionDto';
 import { IdSelectorDefinition } from './idSelectorDefinition';
 import { IdentifierPartSchema } from './identifierPartSchema';
 import { IgnoredDistributionTag } from './ignoredDistributionTag';
+import { IncreaseInValueEvent } from './increaseInValueEvent';
+import { IncreaseInValueEventAllOf } from './increaseInValueEventAllOf';
 import { IndexConvention } from './indexConvention';
 import { IndexModelOptions } from './indexModelOptions';
 import { IndexModelOptionsAllOf } from './indexModelOptionsAllOf';
@@ -3122,6 +3153,7 @@ import { PagedResourceListOfFundStructure } from './pagedResourceListOfFundStruc
 import { PagedResourceListOfGeneralLedgerProfileResponse } from './pagedResourceListOfGeneralLedgerProfileResponse';
 import { PagedResourceListOfGetScenarioResponse } from './pagedResourceListOfGetScenarioResponse';
 import { PagedResourceListOfGetSubscriptionResponse } from './pagedResourceListOfGetSubscriptionResponse';
+import { PagedResourceListOfHoldingEntitlement } from './pagedResourceListOfHoldingEntitlement';
 import { PagedResourceListOfInstrument } from './pagedResourceListOfInstrument';
 import { PagedResourceListOfInstrumentEventHolder } from './pagedResourceListOfInstrumentEventHolder';
 import { PagedResourceListOfInstrumentEventInstruction } from './pagedResourceListOfInstrumentEventInstruction';
@@ -4342,6 +4374,8 @@ let enumsMap: {[index: string]: any} = {
         "HullWhiteModelOptions.ModelOptionsTypeEnum": HullWhiteModelOptions.ModelOptionsTypeEnum,
         "HullWhiteModelOptionsAllOf.ModelOptionsTypeEnum": HullWhiteModelOptionsAllOf.ModelOptionsTypeEnum,
         "IUnitDefinitionDto.SchemaEnum": IUnitDefinitionDto.SchemaEnum,
+        "IncreaseInValueEvent.InstrumentEventTypeEnum": IncreaseInValueEvent.InstrumentEventTypeEnum,
+        "IncreaseInValueEventAllOf.InstrumentEventTypeEnum": IncreaseInValueEventAllOf.InstrumentEventTypeEnum,
         "IndexModelOptions.PortfolioScalingEnum": IndexModelOptions.PortfolioScalingEnum,
         "IndexModelOptions.ModelOptionsTypeEnum": IndexModelOptions.ModelOptionsTypeEnum,
         "IndexModelOptionsAllOf.PortfolioScalingEnum": IndexModelOptionsAllOf.PortfolioScalingEnum,
@@ -4800,6 +4834,7 @@ let typeMap: {[index: string]: any} = {
     "AllocationEventRoundingResidual": AllocationEventRoundingResidual,
     "AllocationEventTransfer": AllocationEventTransfer,
     "AllocationEventTransferConsideration": AllocationEventTransferConsideration,
+    "AllocationEventTransferee": AllocationEventTransferee,
     "AllocationEventUnbookRequest": AllocationEventUnbookRequest,
     "AllocationEventUseOfProceeds": AllocationEventUseOfProceeds,
     "AllocationGroup": AllocationGroup,
@@ -5304,6 +5339,8 @@ let typeMap: {[index: string]: any} = {
     "EligibilityCalculation": EligibilityCalculation,
     "EmptyModelOptions": EmptyModelOptions,
     "EmptyModelOptionsAllOf": EmptyModelOptionsAllOf,
+    "EntitlementLeg": EntitlementLeg,
+    "EntitlementLegRequest": EntitlementLegRequest,
     "EntityIdentifier": EntityIdentifier,
     "EqualisationTerms": EqualisationTerms,
     "Equity": Equity,
@@ -5436,6 +5473,12 @@ let typeMap: {[index: string]: any} = {
     "FundDistributionEventAllOf": FundDistributionEventAllOf,
     "FundEstimateValuationPoint": FundEstimateValuationPoint,
     "FundEstimateValuationPointAllOf": FundEstimateValuationPointAllOf,
+    "FundGroupReportOutput": FundGroupReportOutput,
+    "FundGroupReportResult": FundGroupReportResult,
+    "FundGroupReportValuationPoint": FundGroupReportValuationPoint,
+    "FundGroupTrialBalance": FundGroupTrialBalance,
+    "FundGroupTrialBalanceRequest": FundGroupTrialBalanceRequest,
+    "FundGroupTrialBalanceResponse": FundGroupTrialBalanceResponse,
     "FundIdList": FundIdList,
     "FundIdListAllOf": FundIdListAllOf,
     "FundInstrument": FundInstrument,
@@ -5550,6 +5593,10 @@ let typeMap: {[index: string]: any} = {
     "HoldingAdjustmentWithDate": HoldingAdjustmentWithDate,
     "HoldingContext": HoldingContext,
     "HoldingContributor": HoldingContributor,
+    "HoldingEntitlement": HoldingEntitlement,
+    "HoldingEntitlementEntity": HoldingEntitlementEntity,
+    "HoldingEntitlementRequest": HoldingEntitlementRequest,
+    "HoldingEntitlementsResponse": HoldingEntitlementsResponse,
     "HoldingIdsRequest": HoldingIdsRequest,
     "HoldingPricingInfo": HoldingPricingInfo,
     "HoldingPropertyDelta": HoldingPropertyDelta,
@@ -5561,6 +5608,8 @@ let typeMap: {[index: string]: any} = {
     "IdSelectorDefinition": IdSelectorDefinition,
     "IdentifierPartSchema": IdentifierPartSchema,
     "IgnoredDistributionTag": IgnoredDistributionTag,
+    "IncreaseInValueEvent": IncreaseInValueEvent,
+    "IncreaseInValueEventAllOf": IncreaseInValueEventAllOf,
     "IndexConvention": IndexConvention,
     "IndexModelOptions": IndexModelOptions,
     "IndexModelOptionsAllOf": IndexModelOptionsAllOf,
@@ -5853,6 +5902,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfGeneralLedgerProfileResponse": PagedResourceListOfGeneralLedgerProfileResponse,
     "PagedResourceListOfGetScenarioResponse": PagedResourceListOfGetScenarioResponse,
     "PagedResourceListOfGetSubscriptionResponse": PagedResourceListOfGetSubscriptionResponse,
+    "PagedResourceListOfHoldingEntitlement": PagedResourceListOfHoldingEntitlement,
     "PagedResourceListOfInstrument": PagedResourceListOfInstrument,
     "PagedResourceListOfInstrumentEventHolder": PagedResourceListOfInstrumentEventHolder,
     "PagedResourceListOfInstrumentEventInstruction": PagedResourceListOfInstrumentEventInstruction,
