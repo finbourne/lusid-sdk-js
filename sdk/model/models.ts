@@ -356,6 +356,7 @@ export * from './closeEventAllOf';
 export * from './closePeriodDiaryEntryRequest';
 export * from './collateral';
 export * from './collateralInstrument';
+export * from './collateralSubstitutionConstituent';
 export * from './commodityCalendarSchedule';
 export * from './commodityCalendarScheduleAllOf';
 export * from './commodityCalendarSwap';
@@ -697,6 +698,8 @@ export * from './flexibleRepoCashFlowEvent';
 export * from './flexibleRepoCashFlowEventAllOf';
 export * from './flexibleRepoCollateralEvent';
 export * from './flexibleRepoCollateralEventAllOf';
+export * from './flexibleRepoCollateralSubstitutionEvent';
+export * from './flexibleRepoCollateralSubstitutionEventAllOf';
 export * from './flexibleRepoFullClosureEvent';
 export * from './flexibleRepoFullClosureEventAllOf';
 export * from './flexibleRepoInterestPaymentEvent';
@@ -1000,7 +1003,10 @@ export * from './lusidUniqueId';
 export * from './lusidValidationProblemDetails';
 export * from './managementFeeLine';
 export * from './managementFeeOffset';
+export * from './managementFeePrepaidSplit';
 export * from './managementFeeRequest';
+export * from './managementFeeResplitRequest';
+export * from './managementFeeResplitResult';
 export * from './managementFeeResult';
 export * from './managementFeeTotals';
 export * from './mappedString';
@@ -2349,6 +2355,7 @@ import { CloseEventAllOf } from './closeEventAllOf';
 import { ClosePeriodDiaryEntryRequest } from './closePeriodDiaryEntryRequest';
 import { Collateral } from './collateral';
 import { CollateralInstrument } from './collateralInstrument';
+import { CollateralSubstitutionConstituent } from './collateralSubstitutionConstituent';
 import { CommodityCalendarSchedule } from './commodityCalendarSchedule';
 import { CommodityCalendarScheduleAllOf } from './commodityCalendarScheduleAllOf';
 import { CommodityCalendarSwap } from './commodityCalendarSwap';
@@ -2690,6 +2697,8 @@ import { FlexibleRepoCashFlowEvent } from './flexibleRepoCashFlowEvent';
 import { FlexibleRepoCashFlowEventAllOf } from './flexibleRepoCashFlowEventAllOf';
 import { FlexibleRepoCollateralEvent } from './flexibleRepoCollateralEvent';
 import { FlexibleRepoCollateralEventAllOf } from './flexibleRepoCollateralEventAllOf';
+import { FlexibleRepoCollateralSubstitutionEvent } from './flexibleRepoCollateralSubstitutionEvent';
+import { FlexibleRepoCollateralSubstitutionEventAllOf } from './flexibleRepoCollateralSubstitutionEventAllOf';
 import { FlexibleRepoFullClosureEvent } from './flexibleRepoFullClosureEvent';
 import { FlexibleRepoFullClosureEventAllOf } from './flexibleRepoFullClosureEventAllOf';
 import { FlexibleRepoInterestPaymentEvent } from './flexibleRepoInterestPaymentEvent';
@@ -2993,7 +3002,10 @@ import { LusidUniqueId } from './lusidUniqueId';
 import { LusidValidationProblemDetails } from './lusidValidationProblemDetails';
 import { ManagementFeeLine } from './managementFeeLine';
 import { ManagementFeeOffset } from './managementFeeOffset';
+import { ManagementFeePrepaidSplit } from './managementFeePrepaidSplit';
 import { ManagementFeeRequest } from './managementFeeRequest';
+import { ManagementFeeResplitRequest } from './managementFeeResplitRequest';
+import { ManagementFeeResplitResult } from './managementFeeResplitResult';
 import { ManagementFeeResult } from './managementFeeResult';
 import { ManagementFeeTotals } from './managementFeeTotals';
 import { MappedString } from './mappedString';
@@ -4284,6 +4296,8 @@ let enumsMap: {[index: string]: any} = {
         "FlexibleRepoCashFlowEventAllOf.InstrumentEventTypeEnum": FlexibleRepoCashFlowEventAllOf.InstrumentEventTypeEnum,
         "FlexibleRepoCollateralEvent.InstrumentEventTypeEnum": FlexibleRepoCollateralEvent.InstrumentEventTypeEnum,
         "FlexibleRepoCollateralEventAllOf.InstrumentEventTypeEnum": FlexibleRepoCollateralEventAllOf.InstrumentEventTypeEnum,
+        "FlexibleRepoCollateralSubstitutionEvent.InstrumentEventTypeEnum": FlexibleRepoCollateralSubstitutionEvent.InstrumentEventTypeEnum,
+        "FlexibleRepoCollateralSubstitutionEventAllOf.InstrumentEventTypeEnum": FlexibleRepoCollateralSubstitutionEventAllOf.InstrumentEventTypeEnum,
         "FlexibleRepoFullClosureEvent.InstrumentEventTypeEnum": FlexibleRepoFullClosureEvent.InstrumentEventTypeEnum,
         "FlexibleRepoFullClosureEventAllOf.InstrumentEventTypeEnum": FlexibleRepoFullClosureEventAllOf.InstrumentEventTypeEnum,
         "FlexibleRepoInterestPaymentEvent.InstrumentEventTypeEnum": FlexibleRepoInterestPaymentEvent.InstrumentEventTypeEnum,
@@ -5099,6 +5113,7 @@ let typeMap: {[index: string]: any} = {
     "ClosePeriodDiaryEntryRequest": ClosePeriodDiaryEntryRequest,
     "Collateral": Collateral,
     "CollateralInstrument": CollateralInstrument,
+    "CollateralSubstitutionConstituent": CollateralSubstitutionConstituent,
     "CommodityCalendarSchedule": CommodityCalendarSchedule,
     "CommodityCalendarScheduleAllOf": CommodityCalendarScheduleAllOf,
     "CommodityCalendarSwap": CommodityCalendarSwap,
@@ -5439,6 +5454,8 @@ let typeMap: {[index: string]: any} = {
     "FlexibleRepoCashFlowEventAllOf": FlexibleRepoCashFlowEventAllOf,
     "FlexibleRepoCollateralEvent": FlexibleRepoCollateralEvent,
     "FlexibleRepoCollateralEventAllOf": FlexibleRepoCollateralEventAllOf,
+    "FlexibleRepoCollateralSubstitutionEvent": FlexibleRepoCollateralSubstitutionEvent,
+    "FlexibleRepoCollateralSubstitutionEventAllOf": FlexibleRepoCollateralSubstitutionEventAllOf,
     "FlexibleRepoFullClosureEvent": FlexibleRepoFullClosureEvent,
     "FlexibleRepoFullClosureEventAllOf": FlexibleRepoFullClosureEventAllOf,
     "FlexibleRepoInterestPaymentEvent": FlexibleRepoInterestPaymentEvent,
@@ -5742,7 +5759,10 @@ let typeMap: {[index: string]: any} = {
     "LusidValidationProblemDetails": LusidValidationProblemDetails,
     "ManagementFeeLine": ManagementFeeLine,
     "ManagementFeeOffset": ManagementFeeOffset,
+    "ManagementFeePrepaidSplit": ManagementFeePrepaidSplit,
     "ManagementFeeRequest": ManagementFeeRequest,
+    "ManagementFeeResplitRequest": ManagementFeeResplitRequest,
+    "ManagementFeeResplitResult": ManagementFeeResplitResult,
     "ManagementFeeResult": ManagementFeeResult,
     "ManagementFeeTotals": ManagementFeeTotals,
     "MappedString": MappedString,
