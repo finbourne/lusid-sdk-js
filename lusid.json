@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "2.0.1761",
+    "version": "2.0.1762",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -49655,219 +49655,6 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
-    "/api/fundgroups/{scope}/{code}/trialbalance/$query": {
-      "post": {
-        "tags": [
-          "Fund Groups"
-        ],
-        "summary": "[EARLY ACCESS] GetFundGroupTrialBalance: Get the Trial Balance for a group of Funds.",
-        "description": "Runs the Trial Balance once for every Fund in a fund group, where the group is a reference list of type\r\nFundIdList or FilteredFundIdList identified by the scope and code. LUSID chooses the Valuation Point for\r\neach Fund and NAV type from the run type, and each returned row carries the Fund, NAV type and Valuation Point\r\nit came from. A Fund that could not be reported, because no Valuation Point matches the run type or the NAV type\r\nis missing, is listed in fundResults alongside the rows. A Fund in a FundIdList that the caller is not entitled\r\nto read is listed there too; a FilteredFundIdList only ever contains the Funds the caller can read.\r\n            \r\nRows are ordered by Fund scope, then Fund code, then NAV type code, then as GetValuationPointTrialBalance orders\r\nthem, so the order is stable across pages.",
-        "operationId": "GetFundGroupTrialBalance",
-        "parameters": [
-          {
-            "name": "scope",
-            "in": "path",
-            "description": "The scope of the reference list that defines the fund group.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "code",
-            "in": "path",
-            "description": "The code of the reference list that defines the fund group. Together with the scope this uniquely identifies the reference list.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\-_]+$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "asAt",
-            "in": "query",
-            "description": "The asAt datetime at which to retrieve the Trial Balances and resolve the fund group.\r\n             Defaults to returning the latest version if not specified.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Expression to filter the rows by, using the same fields as GetValuationPointTrialBalance.\r\n             For more information about filtering results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.",
-            "schema": {
-              "maxLength": 16384,
-              "minLength": 0,
-              "pattern": "^[\\s\\S]*$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "When paginating, limit the number of returned rows to this number.\r\n             Defaults to 100 if not specified.",
-            "schema": {
-              "maximum": 5000,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-nullable": true
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The pagination token to use to continue listing rows.\r\n             This token is returned from the previous call.\r\n             If a pagination token is provided, the filter, request body and asAt fields\r\n             must not have changed since the original request.",
-            "schema": {
-              "maxLength": 500,
-              "minLength": 1,
-              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "propertyKeys",
-            "in": "query",
-            "description": "A list of property keys from the 'Instrument', 'Transaction', 'Portfolio', 'Account', 'LegalEntity' or 'CustodianAccount'\r\n             domain to decorate onto each row's TrialBalance.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
-              }
-            },
-            "x-nullable": true
-          }
-        ],
-        "requestBody": {
-          "description": "The run type, dates, NAV type and Trial Balance options.",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FundGroupTrialBalanceRequest"
-              },
-              "example": {
-                "runType": "LatestApprovedNav",
-                "effectiveAt": "2024-06-30T00:00:00.0000000+00:00",
-                "output": {
-                  "mode": "NonConsolidated"
-                },
-                "generalLedgerProfileCode": "GeneralLedgerProfileCode",
-                "excludeCleardownModule": false
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FundGroupTrialBalanceRequest"
-              },
-              "example": {
-                "runType": "LatestApprovedNav",
-                "effectiveAt": "2024-06-30T00:00:00.0000000+00:00",
-                "output": {
-                  "mode": "NonConsolidated"
-                },
-                "generalLedgerProfileCode": "GeneralLedgerProfileCode",
-                "excludeCleardownModule": false
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FundGroupTrialBalanceRequest"
-              },
-              "example": {
-                "runType": "LatestApprovedNav",
-                "effectiveAt": "2024-06-30T00:00:00.0000000+00:00",
-                "output": {
-                  "mode": "NonConsolidated"
-                },
-                "generalLedgerProfileCode": "GeneralLedgerProfileCode",
-                "excludeCleardownModule": false
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FundGroupTrialBalanceRequest"
-              },
-              "example": {
-                "runType": "LatestApprovedNav",
-                "effectiveAt": "2024-06-30T00:00:00.0000000+00:00",
-                "output": {
-                  "mode": "NonConsolidated"
-                },
-                "generalLedgerProfileCode": "GeneralLedgerProfileCode",
-                "excludeCleardownModule": false
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "The Trial Balance rows of the Funds in the group, with the outcome for each Fund and NAV type.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FundGroupTrialBalanceResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FundGroupTrialBalanceResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FundGroupTrialBalanceResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The details of the input related failure",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LusidProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
-        "x-fbn-apistatus": "EarlyAccess"
-      }
-    },
     "/api/funds": {
       "get": {
         "tags": [
@@ -56707,6 +56494,977 @@
         "x-fbn-apistatus": "EarlyAccess"
       }
     },
+    "/api/funds/{scope}/{code}/facilities": {
+      "post": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] CreateFacility: [EARLY ACCESS] CreateFacility: Create a Facility.",
+        "description": "Create the given Facility against a Fund.",
+        "operationId": "CreateFacility",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Facility to create.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacilityRequest"
+              },
+              "example": {
+                "code": "FacilityCode",
+                "displayName": "Revolving Credit Facility",
+                "description": "Subscription line with Bank A",
+                "lender": "Bank A",
+                "limit": 50000000,
+                "currency": "USD",
+                "rateReference": "SOFR",
+                "margin": 0.0175,
+                "commitmentFeeRate": 0.0035,
+                "dayCountConvention": "Act360",
+                "availableFrom": "2024-01-01T00:00:00.0000000+00:00",
+                "maturityDate": "2026-12-31T00:00:00.0000000+00:00",
+                "limitChanges": [
+                  {
+                    "effectiveFrom": "2025-01-01T00:00:00.0000000+00:00",
+                    "limit": 75000000
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacilityRequest"
+              },
+              "example": {
+                "code": "FacilityCode",
+                "displayName": "Revolving Credit Facility",
+                "description": "Subscription line with Bank A",
+                "lender": "Bank A",
+                "limit": 50000000,
+                "currency": "USD",
+                "rateReference": "SOFR",
+                "margin": 0.0175,
+                "commitmentFeeRate": 0.0035,
+                "dayCountConvention": "Act360",
+                "availableFrom": "2024-01-01T00:00:00.0000000+00:00",
+                "maturityDate": "2026-12-31T00:00:00.0000000+00:00",
+                "limitChanges": [
+                  {
+                    "effectiveFrom": "2025-01-01T00:00:00.0000000+00:00",
+                    "limit": 75000000
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacilityRequest"
+              },
+              "example": {
+                "code": "FacilityCode",
+                "displayName": "Revolving Credit Facility",
+                "description": "Subscription line with Bank A",
+                "lender": "Bank A",
+                "limit": 50000000,
+                "currency": "USD",
+                "rateReference": "SOFR",
+                "margin": 0.0175,
+                "commitmentFeeRate": 0.0035,
+                "dayCountConvention": "Act360",
+                "availableFrom": "2024-01-01T00:00:00.0000000+00:00",
+                "maturityDate": "2026-12-31T00:00:00.0000000+00:00",
+                "limitChanges": [
+                  {
+                    "effectiveFrom": "2025-01-01T00:00:00.0000000+00:00",
+                    "limit": 75000000
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacilityRequest"
+              },
+              "example": {
+                "code": "FacilityCode",
+                "displayName": "Revolving Credit Facility",
+                "description": "Subscription line with Bank A",
+                "lender": "Bank A",
+                "limit": 50000000,
+                "currency": "USD",
+                "rateReference": "SOFR",
+                "margin": 0.0175,
+                "commitmentFeeRate": 0.0035,
+                "dayCountConvention": "Act360",
+                "availableFrom": "2024-01-01T00:00:00.0000000+00:00",
+                "maturityDate": "2026-12-31T00:00:00.0000000+00:00",
+                "limitChanges": [
+                  {
+                    "effectiveFrom": "2025-01-01T00:00:00.0000000+00:00",
+                    "limit": 75000000
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "The newly created Facility.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facility"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facility"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facility"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      },
+      "get": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] ListFacilities: [EARLY ACCESS] ListFacilities: List Facilities for a specified Fund.",
+        "description": "List all the Facilities matching a particular criteria.",
+        "operationId": "ListFacilities",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to list the Facilities. Defaults to the current LUSID\r\n            system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to list the Facilities. Defaults to returning the latest version of each Facility if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing facilities; this\r\n            value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt\r\n            and asAt fields must not have changed since the original request.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the results to this number. Defaults to 100 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the results.\r\n            For example, to filter on the lender, specify \"lender eq 'Bank'\". For more information about filtering\r\n            results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\"",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested Facilities.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfFacility"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "facilityCode": "FacilityCode",
+                      "displayName": "Revolving Credit Facility",
+                      "description": "Subscription line with Bank A",
+                      "lender": "Bank A",
+                      "limit": 50000000,
+                      "currency": "USD",
+                      "rateReference": "SOFR",
+                      "margin": 0.0175,
+                      "commitmentFeeRate": 0.0035,
+                      "dayCountConvention": "Act360"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfFacility"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "facilityCode": "FacilityCode",
+                      "displayName": "Revolving Credit Facility",
+                      "description": "Subscription line with Bank A",
+                      "lender": "Bank A",
+                      "limit": 50000000,
+                      "currency": "USD",
+                      "rateReference": "SOFR",
+                      "margin": 0.0175,
+                      "commitmentFeeRate": 0.0035,
+                      "dayCountConvention": "Act360"
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedResourceListOfFacility"
+                },
+                "example": {
+                  "values": [
+                    {
+                      "facilityCode": "FacilityCode",
+                      "displayName": "Revolving Credit Facility",
+                      "description": "Subscription line with Bank A",
+                      "lender": "Bank A",
+                      "limit": 50000000,
+                      "currency": "USD",
+                      "rateReference": "SOFR",
+                      "margin": 0.0175,
+                      "commitmentFeeRate": 0.0035,
+                      "dayCountConvention": "Act360"
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/funds/{scope}/{code}/facilities/{facilityCode}": {
+      "get": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] GetFacility: [EARLY ACCESS] GetFacility: Get a Facility for a specified Fund.",
+        "description": "Retrieve a Facility for a specified Fund.",
+        "operationId": "GetFacility",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "facilityCode",
+            "in": "path",
+            "description": "The code of the Facility.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the Facility. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the Facility. Defaults to returning the latest version of the Facility if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested Facility definition.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facility"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facility"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facility"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      },
+      "put": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] UpdateFacility: [EARLY ACCESS] UpdateFacility: Update a Facility.",
+        "description": "Replace the definition of a Facility of a Fund. The code, the Fund and the currency cannot change. Lowering\r\nthe limit below what is already drawn is accepted and the response carries a warning: the draws already\r\nbooked stand, and further draws are refused until the Facility is repaid within its limit.",
+        "operationId": "UpdateFacility",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "facilityCode",
+            "in": "path",
+            "description": "The code of the Facility to update.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Facility definition to store.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacilityRequest"
+              },
+              "example": {
+                "code": "FacilityCode",
+                "displayName": "Revolving Credit Facility",
+                "description": "Subscription line with Bank A",
+                "lender": "Bank A",
+                "limit": 50000000,
+                "currency": "USD",
+                "rateReference": "SOFR",
+                "margin": 0.0175,
+                "commitmentFeeRate": 0.0035,
+                "dayCountConvention": "Act360",
+                "availableFrom": "2024-01-01T00:00:00.0000000+00:00",
+                "maturityDate": "2026-12-31T00:00:00.0000000+00:00",
+                "limitChanges": [
+                  {
+                    "effectiveFrom": "2025-01-01T00:00:00.0000000+00:00",
+                    "limit": 75000000
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacilityRequest"
+              },
+              "example": {
+                "code": "FacilityCode",
+                "displayName": "Revolving Credit Facility",
+                "description": "Subscription line with Bank A",
+                "lender": "Bank A",
+                "limit": 50000000,
+                "currency": "USD",
+                "rateReference": "SOFR",
+                "margin": 0.0175,
+                "commitmentFeeRate": 0.0035,
+                "dayCountConvention": "Act360",
+                "availableFrom": "2024-01-01T00:00:00.0000000+00:00",
+                "maturityDate": "2026-12-31T00:00:00.0000000+00:00",
+                "limitChanges": [
+                  {
+                    "effectiveFrom": "2025-01-01T00:00:00.0000000+00:00",
+                    "limit": 75000000
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacilityRequest"
+              },
+              "example": {
+                "code": "FacilityCode",
+                "displayName": "Revolving Credit Facility",
+                "description": "Subscription line with Bank A",
+                "lender": "Bank A",
+                "limit": 50000000,
+                "currency": "USD",
+                "rateReference": "SOFR",
+                "margin": 0.0175,
+                "commitmentFeeRate": 0.0035,
+                "dayCountConvention": "Act360",
+                "availableFrom": "2024-01-01T00:00:00.0000000+00:00",
+                "maturityDate": "2026-12-31T00:00:00.0000000+00:00",
+                "limitChanges": [
+                  {
+                    "effectiveFrom": "2025-01-01T00:00:00.0000000+00:00",
+                    "limit": 75000000
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FacilityRequest"
+              },
+              "example": {
+                "code": "FacilityCode",
+                "displayName": "Revolving Credit Facility",
+                "description": "Subscription line with Bank A",
+                "lender": "Bank A",
+                "limit": 50000000,
+                "currency": "USD",
+                "rateReference": "SOFR",
+                "margin": 0.0175,
+                "commitmentFeeRate": 0.0035,
+                "dayCountConvention": "Act360",
+                "availableFrom": "2024-01-01T00:00:00.0000000+00:00",
+                "maturityDate": "2026-12-31T00:00:00.0000000+00:00",
+                "limitChanges": [
+                  {
+                    "effectiveFrom": "2025-01-01T00:00:00.0000000+00:00",
+                    "limit": 75000000
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The updated Facility.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facility"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facility"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facility"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      },
+      "delete": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] DeleteFacility: [EARLY ACCESS] DeleteFacility: Delete a Facility.",
+        "description": "Delete the given Facility.",
+        "operationId": "DeleteFacility",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "facilityCode",
+            "in": "path",
+            "description": "The code of the Facility to be deleted.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The datetime that the Facility was deleted",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                },
+                "example": {
+                  "asAt": "2018-03-05T10:10:10.0000000+00:00"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                },
+                "example": {
+                  "asAt": "2018-03-05T10:10:10.0000000+00:00"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedEntityResponse"
+                },
+                "example": {
+                  "asAt": "2018-03-05T10:10:10.0000000+00:00"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/funds/{scope}/{code}/facilities/{facilityCode}/$reseed": {
+      "post": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] ReseedFacilityBalance: [EARLY ACCESS] ReseedFacilityBalance: Re-seed a Facility's balance from its booked draws and repayments.",
+        "description": "Rebuild the balance a Facility's limit is judged on from the draws and repayments booked on it: DealFundings\r\ndrawn from it and capital calls repaying it, in Booked or Booking status, on allocation maps whose\r\nstructureMemberId is the Fund, and FacilityDrawEvents and FacilityRepaymentEvents in the sources of the Fund's\r\nportfolios. Afterwards the balance is the booked draws and repayments. Running it again writes nothing. A\r\nFacility with nothing booked on it is seeded with 0. Draws and repayments still in Booking status count, and\r\nare named in a FacilityBookingInProgress warning.\r\nA draw or repayment written at the same time makes the re-seed fail as a concurrent modification; retry it.\r\nA draw or repayment naming the Facility on an allocation map whose structureMemberId is not a fund cannot be\r\nattributed, and the re-seed is refused with 409 FacilityFlowsUnattributable naming them; nothing is written,\r\nand draws, repayments, FacilityInterestEvents and FacilityCommitmentFeeEvents on the Facility are refused the\r\nsame way until the maps are fixed and the Facility is re-seeded.\r\nWith dryRun, nothing is written: the response says what a re-seed would write, or lists the draws and\r\nrepayments that cannot be attributed. Requires the Fund's update entitlement, except for a dry run.",
+        "operationId": "ReseedFacilityBalance",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "facilityCode",
+            "in": "path",
+            "description": "The code of the Facility to re-seed.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "dryRun",
+            "in": "query",
+            "description": "Report what a re-seed would write, and any draws or repayments that cannot be attributed, without writing anything. Defaults to false.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The outcome of the re-seed, or of the dry run.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FacilityReseedResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FacilityReseedResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FacilityReseedResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
     "/api/funds/{scope}/{code}/fees": {
       "post": {
         "tags": [
@@ -61454,6 +62212,322 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FundProperties"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/funds/{scope}/{code}/registry": {
+      "get": {
+        "tags": [
+          "Funds"
+        ],
+        "summary": "[EARLY ACCESS] GetRegistryForFund: [EARLY ACCESS] GetRegistryForFund: Get the registry of a Fund.",
+        "description": "Get the register lines of a Fund at the given effective and asAt datetimes: the registry lines of its\r\ntransaction portfolios, each tagged with the portfolio it sits in, with their units, cost and capital\r\nbalances. Registry lines are never holdings, so they do not appear in the holdings of the Fund.",
+        "operationId": "GetRegistryForFund",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the Fund. Together with the scope this uniquely identifies the Fund.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the registry. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the registry. Defaults to return the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto\r\n            the lines. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/CommittedCapital\".",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              }
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "navTypeCode",
+            "in": "query",
+            "description": "When provided, runs against the specified NAV Type, otherwise the Primary NAV Type will be used.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "investorRecordId",
+            "in": "query",
+            "description": "When provided, only the lines of this investor record are returned.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "commitmentLineId",
+            "in": "query",
+            "description": "When provided, only the lines of this commitment line are returned.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing registry lines from a previous call to get the registry.\r\n            This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,\r\n            propertyKeys, investorRecordId and commitmentLineId must not change between calls.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The registry lines of the transaction portfolios of a Fund",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionedResourceListWithWarningsOfRegistryLine"
+                },
+                "example": {
+                  "version": {
+                    "effectiveFrom": "2026-03-31T00:00:00.0000000+00:00",
+                    "asAtDate": "2026-03-31T12:00:00.0000000+00:00"
+                  },
+                  "values": [
+                    {
+                      "portfolioId": {
+                        "scope": "Finbourne-Examples",
+                        "code": "MeridianGrowthIV"
+                      },
+                      "instrumentScope": "default",
+                      "instrumentUid": "LUID_XH4GNUEX",
+                      "subHoldingKeys": {},
+                      "properties": {},
+                      "holdingType": "P",
+                      "holdingTypeName": "Position",
+                      "units": 1,
+                      "settledUnits": 1,
+                      "cost": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "costPortfolioCcy": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "currency": "USD",
+                      "holdingId": 1,
+                      "investorRecordId": "StatePensionFund",
+                      "commitmentLineId": "CI-LINE-001",
+                      "committed": 1000000,
+                      "uncalledCommitment": 900000,
+                      "paidIn": 100000,
+                      "returned": 0,
+                      "recallable": 0,
+                      "unfunded": 900000
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionedResourceListWithWarningsOfRegistryLine"
+                },
+                "example": {
+                  "version": {
+                    "effectiveFrom": "2026-03-31T00:00:00.0000000+00:00",
+                    "asAtDate": "2026-03-31T12:00:00.0000000+00:00"
+                  },
+                  "values": [
+                    {
+                      "portfolioId": {
+                        "scope": "Finbourne-Examples",
+                        "code": "MeridianGrowthIV"
+                      },
+                      "instrumentScope": "default",
+                      "instrumentUid": "LUID_XH4GNUEX",
+                      "subHoldingKeys": {},
+                      "properties": {},
+                      "holdingType": "P",
+                      "holdingTypeName": "Position",
+                      "units": 1,
+                      "settledUnits": 1,
+                      "cost": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "costPortfolioCcy": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "currency": "USD",
+                      "holdingId": 1,
+                      "investorRecordId": "StatePensionFund",
+                      "commitmentLineId": "CI-LINE-001",
+                      "committed": 1000000,
+                      "uncalledCommitment": 900000,
+                      "paidIn": 100000,
+                      "returned": 0,
+                      "recallable": 0,
+                      "unfunded": 900000
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionedResourceListWithWarningsOfRegistryLine"
+                },
+                "example": {
+                  "version": {
+                    "effectiveFrom": "2026-03-31T00:00:00.0000000+00:00",
+                    "asAtDate": "2026-03-31T12:00:00.0000000+00:00"
+                  },
+                  "values": [
+                    {
+                      "portfolioId": {
+                        "scope": "Finbourne-Examples",
+                        "code": "MeridianGrowthIV"
+                      },
+                      "instrumentScope": "default",
+                      "instrumentUid": "LUID_XH4GNUEX",
+                      "subHoldingKeys": {},
+                      "properties": {},
+                      "holdingType": "P",
+                      "holdingTypeName": "Position",
+                      "units": 1,
+                      "settledUnits": 1,
+                      "cost": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "costPortfolioCcy": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "currency": "USD",
+                      "holdingId": 1,
+                      "investorRecordId": "StatePensionFund",
+                      "commitmentLineId": "CI-LINE-001",
+                      "committed": 1000000,
+                      "uncalledCommitment": 900000,
+                      "paidIn": 100000,
+                      "returned": 0,
+                      "recallable": 0,
+                      "unfunded": 900000
+                    }
+                  ],
+                  "links": []
                 }
               }
             }
@@ -184872,6 +185946,311 @@
         "x-fbn-apistatus": "Stable"
       }
     },
+    "/api/transactionportfolios/{scope}/{code}/registry": {
+      "get": {
+        "tags": [
+          "Transaction Portfolios"
+        ],
+        "summary": "[EARLY ACCESS] GetRegistry: [EARLY ACCESS] GetRegistry: Get the registry of a transaction portfolio.",
+        "description": "Get the registry lines of a transaction portfolio at the given effective and asAt datetimes: the partner\r\nregister lines that transaction types flagged 'Registry' apply to, with their units, cost and capital\r\nbalances. Registry lines are never holdings, so they do not appear in the holdings of the portfolio.",
+        "operationId": "GetRegistry",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The scope of the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "The code of the transaction portfolio. Together with the scope this uniquely identifies\r\n            the transaction portfolio.",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "effectiveAt",
+            "in": "query",
+            "description": "The effective datetime or cut label at which to retrieve the registry of the transaction\r\n            portfolio. Defaults to the current LUSID system datetime if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "dateorcutlabel"
+            }
+          },
+          {
+            "name": "asAt",
+            "in": "query",
+            "description": "The asAt datetime at which to retrieve the registry of the transaction portfolio. Defaults\r\n            to return the latest version if not specified.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Expression to filter the result set.\r\n            For example, to filter on the Holding Type, use \"holdingType eq 'p'\".\r\n            For more information about filtering LUSID results, see https://support.lusid.com/docs/filtering-information-retrieved-from-lusid.",
+            "schema": {
+              "maxLength": 16384,
+              "minLength": 0,
+              "pattern": "^[\\s\\S]*$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "propertyKeys",
+            "in": "query",
+            "description": "A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto\r\n            the lines. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/CommittedCapital\".",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}."
+              }
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "investorRecordId",
+            "in": "query",
+            "description": "When provided, only the lines of this investor record are returned.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "commitmentLineId",
+            "in": "query",
+            "description": "When provided, only the lines of this commitment line are returned.",
+            "schema": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\-_]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "When paginating, limit the number of returned results to this many. Defaults to 5000 if not specified.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The pagination token to use to continue listing registry lines from a previous call to get the registry.\r\n            This value is returned from the previous call. If a pagination token is provided, the effectiveAt, asAt, filter,\r\n            propertyKeys, investorRecordId and commitmentLineId must not change between calls.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The registry lines and version of the specified transaction portfolio",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionedResourceListWithWarningsOfRegistryLine"
+                },
+                "example": {
+                  "version": {
+                    "effectiveFrom": "2026-03-31T00:00:00.0000000+00:00",
+                    "asAtDate": "2026-03-31T12:00:00.0000000+00:00"
+                  },
+                  "values": [
+                    {
+                      "portfolioId": {
+                        "scope": "Finbourne-Examples",
+                        "code": "MeridianGrowthIV"
+                      },
+                      "instrumentScope": "default",
+                      "instrumentUid": "LUID_XH4GNUEX",
+                      "subHoldingKeys": {},
+                      "properties": {},
+                      "holdingType": "P",
+                      "holdingTypeName": "Position",
+                      "units": 1,
+                      "settledUnits": 1,
+                      "cost": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "costPortfolioCcy": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "currency": "USD",
+                      "holdingId": 1,
+                      "investorRecordId": "StatePensionFund",
+                      "commitmentLineId": "CI-LINE-001",
+                      "committed": 1000000,
+                      "uncalledCommitment": 900000,
+                      "paidIn": 100000,
+                      "returned": 0,
+                      "recallable": 0,
+                      "unfunded": 900000
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionedResourceListWithWarningsOfRegistryLine"
+                },
+                "example": {
+                  "version": {
+                    "effectiveFrom": "2026-03-31T00:00:00.0000000+00:00",
+                    "asAtDate": "2026-03-31T12:00:00.0000000+00:00"
+                  },
+                  "values": [
+                    {
+                      "portfolioId": {
+                        "scope": "Finbourne-Examples",
+                        "code": "MeridianGrowthIV"
+                      },
+                      "instrumentScope": "default",
+                      "instrumentUid": "LUID_XH4GNUEX",
+                      "subHoldingKeys": {},
+                      "properties": {},
+                      "holdingType": "P",
+                      "holdingTypeName": "Position",
+                      "units": 1,
+                      "settledUnits": 1,
+                      "cost": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "costPortfolioCcy": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "currency": "USD",
+                      "holdingId": 1,
+                      "investorRecordId": "StatePensionFund",
+                      "commitmentLineId": "CI-LINE-001",
+                      "committed": 1000000,
+                      "uncalledCommitment": 900000,
+                      "paidIn": 100000,
+                      "returned": 0,
+                      "recallable": 0,
+                      "unfunded": 900000
+                    }
+                  ],
+                  "links": []
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionedResourceListWithWarningsOfRegistryLine"
+                },
+                "example": {
+                  "version": {
+                    "effectiveFrom": "2026-03-31T00:00:00.0000000+00:00",
+                    "asAtDate": "2026-03-31T12:00:00.0000000+00:00"
+                  },
+                  "values": [
+                    {
+                      "portfolioId": {
+                        "scope": "Finbourne-Examples",
+                        "code": "MeridianGrowthIV"
+                      },
+                      "instrumentScope": "default",
+                      "instrumentUid": "LUID_XH4GNUEX",
+                      "subHoldingKeys": {},
+                      "properties": {},
+                      "holdingType": "P",
+                      "holdingTypeName": "Position",
+                      "units": 1,
+                      "settledUnits": 1,
+                      "cost": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "costPortfolioCcy": {
+                        "amount": 100000,
+                        "currency": "USD"
+                      },
+                      "currency": "USD",
+                      "holdingId": 1,
+                      "investorRecordId": "StatePensionFund",
+                      "commitmentLineId": "CI-LINE-001",
+                      "committed": 1000000,
+                      "uncalledCommitment": 900000,
+                      "paidIn": 100000,
+                      "returned": 0,
+                      "recallable": 0,
+                      "unfunded": 900000
+                    }
+                  ],
+                  "links": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
     "/api/transactionportfolios/{scope}/{code}/settlementinstructions": {
       "post": {
         "tags": [
@@ -234110,6 +235489,128 @@
         },
         "additionalProperties": false
       },
+      "Facility": {
+        "required": [
+          "commitmentFeeRate",
+          "currency",
+          "dayCountConvention",
+          "displayName",
+          "lender",
+          "limit",
+          "margin"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
+            "format": "uri",
+            "nullable": true
+          },
+          "facilityCode": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The code of the Facility, unique within the Fund.",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the Facility."
+          },
+          "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "A description for the Facility.",
+            "nullable": true
+          },
+          "lender": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the lender providing the Facility."
+          },
+          "limit": {
+            "type": "number",
+            "description": "The committed limit of the Facility. Must be greater than zero.",
+            "format": "double"
+          },
+          "currency": {
+            "maxLength": 3,
+            "minLength": 3,
+            "pattern": "^[A-Za-z]{3}$",
+            "type": "string",
+            "description": "The three-letter currency code in which the Facility is denominated."
+          },
+          "rateReference": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "The reference rate the Facility interest is based on, for example SOFR. Optional.",
+            "nullable": true
+          },
+          "margin": {
+            "type": "number",
+            "description": "The margin over the reference rate, expressed as a decimal. Must be zero or greater.",
+            "format": "double"
+          },
+          "commitmentFeeRate": {
+            "type": "number",
+            "description": "The annual commitment fee rate charged on the undrawn balance, expressed as a decimal. Must be zero or greater.",
+            "format": "double"
+          },
+          "dayCountConvention": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "The day count convention used to accrue interest. One of: Act360, Act365, Act365F, Thirty360."
+          },
+          "availableFrom": {
+            "type": "string",
+            "description": "The first date the Facility may be drawn, inclusive. A draw dated before it is refused. Required on creation; a Facility stored without one may be drawn on any date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "maturityDate": {
+            "type": "string",
+            "description": "The last date the Facility may be drawn, inclusive. A draw dated after it is refused; a repayment is not. Optional; omit for a Facility with no maturity.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "limitChanges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityLimitChange"
+            },
+            "description": "Changes to the committed limit after the initial limit, each in force from its effective date until the next. Each must take effect after AvailableFrom and, when set, on or before MaturityDate. A draw is held to the limit in force on its date.",
+            "nullable": true
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            },
+            "description": "Warnings about the Facility as stored, for example that its limit is now below what is already drawn. Only present on a successful update.",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "FacilityCommitmentFeeEvent": {
         "allOf": [
           {
@@ -234680,6 +236181,181 @@
         ],
         "description": "Interest accrued on the drawn balance of a fund-level credit facility for a period, at the facility rate\r\non the given day-count basis: outstanding x rate x days / basis. A partnership expense that is allocated\r\nto partners like other fund expenses; it never moves a partner's capital balances."
       },
+      "FacilityLimitChange": {
+        "required": [
+          "effectiveFrom",
+          "limit"
+        ],
+        "type": "object",
+        "properties": {
+          "effectiveFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "limit": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A change to a Facility's committed limit: the limit in force from a date until the next change."
+      },
+      "FacilityPayableCheck": {
+        "required": [
+          "balance",
+          "differences",
+          "inFlightLines",
+          "otherCurrencyLines",
+          "payable",
+          "payableAccounts",
+          "status",
+          "unattributedLines",
+          "unexplainedLines"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The outcome. Available values: Agrees (the principal balance equals the payable at every date), Differs (they differ on at least one date, listed in differences, or payable lines name the Facility in another currency, listed in otherCurrencyLines), NotAvailable (the Fund's journal could not be read; see reason)."
+          },
+          "payableAccounts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The general ledger accounts the Fund's posting rules mapped the Facility's principal lines to."
+          },
+          "balance": {
+            "type": "number",
+            "description": "The Facility's principal balance after its last movement, events in Booking status left out.",
+            "format": "double"
+          },
+          "payable": {
+            "type": "number",
+            "description": "The principal on the facility payable naming the Facility after its last line, the lines of events in Booking status left out.",
+            "format": "double"
+          },
+          "differences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityPayableDifference"
+            },
+            "description": "Every date on which the principal balance and the payable differ, each as it stands at the end of that date."
+          },
+          "inFlightLines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityPayableLine"
+            },
+            "description": "The payable lines of events still in Booking status, left out of the comparison as their movements are."
+          },
+          "unexplainedLines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityPayableLine"
+            },
+            "description": "Principal lines naming the Facility that no facility event or allocation event booked, such as hand-keyed principal. They are in the comparison, so they show as differences."
+          },
+          "unattributedLines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityPayableLine"
+            },
+            "description": "Principal lines of the Fund that name no Facility, so no Facility's balance carries them. Listed as breaks; they are not compared."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why the check could not be made, when the status is NotAvailable; or, otherwise, that the Fund's journal could not be read to the asAt and was read only to the Facility's last movement, so a payable line after it is not seen.",
+            "nullable": true
+          },
+          "otherCurrencyLines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityPayableLine"
+            },
+            "description": "Principal lines naming the Facility in a currency other than the Facility's. A Facility is drawn and repaid in its own currency, so they are not converted or compared, and make the status Differs."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Facility's principal balance checked against the facility payable in the Fund's journal, at every date."
+      },
+      "FacilityPayableDifference": {
+        "required": [
+          "balance",
+          "date",
+          "difference",
+          "payable"
+        ],
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "The date the principal balance and the payable differ on.",
+            "format": "date-time"
+          },
+          "balance": {
+            "type": "number",
+            "description": "The principal balance at the end of the date.",
+            "format": "double"
+          },
+          "payable": {
+            "type": "number",
+            "description": "The principal on the payable at the end of the date.",
+            "format": "double"
+          },
+          "difference": {
+            "type": "number",
+            "description": "The principal balance less the payable.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A date on which a Facility's principal balance and its payable differ."
+      },
+      "FacilityPayableLine": {
+        "required": [
+          "currency",
+          "date",
+          "principal",
+          "transactionId"
+        ],
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "The line's activity date.",
+            "format": "date-time"
+          },
+          "principal": {
+            "type": "number",
+            "description": "The principal the line puts on the payable: positive for a draw, negative for a repayment.",
+            "format": "double"
+          },
+          "currency": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The currency of the line."
+          },
+          "generalLedgerAccountCode": {
+            "type": "string",
+            "description": "The general ledger account the Fund's posting rules mapped the line to. Absent when no rule mapped it.",
+            "nullable": true
+          },
+          "transactionId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The transaction that booked the line."
+          },
+          "facilityId": {
+            "type": "string",
+            "description": "The Facility the transaction names. Absent when it names none.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A principal line on the facility payable in a Fund's journal."
+      },
       "FacilityRepaymentEvent": {
         "allOf": [
           {
@@ -234856,6 +236532,243 @@
           }
         ],
         "description": "A repayment of principal on a fund-level credit facility recorded against a CapitalInterest: cash goes\r\nout and the facility payable comes down by the same amount. Financing, not capital: no partner balance moves."
+      },
+      "FacilityRequest": {
+        "required": [
+          "availableFrom",
+          "code",
+          "commitmentFeeRate",
+          "currency",
+          "dayCountConvention",
+          "displayName",
+          "lender",
+          "limit",
+          "margin"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9\\-_]+$",
+            "type": "string",
+            "description": "The code of the Facility, unique within the Fund."
+          },
+          "displayName": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the Facility."
+          },
+          "description": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "pattern": "^[\\s\\S]*$",
+            "type": "string",
+            "description": "A description for the Facility.",
+            "nullable": true
+          },
+          "lender": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the lender providing the Facility."
+          },
+          "limit": {
+            "type": "number",
+            "description": "The committed limit of the Facility. Must be greater than zero.",
+            "format": "double"
+          },
+          "currency": {
+            "maxLength": 3,
+            "minLength": 3,
+            "pattern": "^[A-Za-z]{3}$",
+            "type": "string",
+            "description": "The three-letter currency code in which the Facility is denominated."
+          },
+          "rateReference": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The reference rate the Facility interest is based on, for example SOFR. Optional.",
+            "nullable": true
+          },
+          "margin": {
+            "type": "number",
+            "description": "The margin over the reference rate, expressed as a decimal. Must be zero or greater.",
+            "format": "double"
+          },
+          "commitmentFeeRate": {
+            "type": "number",
+            "description": "The annual commitment fee rate charged on the undrawn balance, expressed as a decimal. Must be zero or greater.",
+            "format": "double"
+          },
+          "dayCountConvention": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "The day count convention used to accrue interest. One of: Act360, Act365, Act365F, Thirty360."
+          },
+          "availableFrom": {
+            "type": "string",
+            "description": "The first date the Facility may be drawn, inclusive. A draw dated before it is refused. Required on creation; a Facility stored without one may be drawn on any date.",
+            "format": "date-time"
+          },
+          "maturityDate": {
+            "type": "string",
+            "description": "The last date the Facility may be drawn, inclusive. A draw dated after it is refused; a repayment is not. Optional; omit for a Facility with no maturity.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "limitChanges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityLimitChange"
+            },
+            "description": "Changes to the committed limit after the initial limit, each in force from its effective date until the next. Each must take effect after AvailableFrom and, when set, on or before MaturityDate. A draw is held to the limit in force on its date.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FacilityReseedFlow": {
+        "required": [
+          "amount",
+          "currency",
+          "date",
+          "event",
+          "isDraw"
+        ],
+        "type": "object",
+        "properties": {
+          "event": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The event that booked the draw or repayment."
+          },
+          "date": {
+            "type": "string",
+            "description": "The date the draw or repayment takes effect.",
+            "format": "date-time"
+          },
+          "amount": {
+            "type": "number",
+            "description": "The amount drawn or repaid.",
+            "format": "double"
+          },
+          "currency": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The currency the amount was booked in."
+          },
+          "isDraw": {
+            "type": "boolean",
+            "description": "Whether the flow draws the Facility rather than repaying it."
+          },
+          "allocationMapId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "structureMemberId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why the flow cannot be attributed to the Fund: its allocation map's structureMemberId is not the map's member fund. Present for an unattributable flow.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A draw or repayment booked on a Facility, as a re-seed reads it."
+      },
+      "FacilityReseedResult": {
+        "required": [
+          "asAt",
+          "bookingInProgress",
+          "currency",
+          "drawn",
+          "dryRun",
+          "facilityCode",
+          "movementCount",
+          "payableCheck",
+          "status",
+          "unattributableFlows"
+        ],
+        "type": "object",
+        "properties": {
+          "facilityCode": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The code of the Facility re-seeded."
+          },
+          "currency": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The currency of the Facility, which every amount in the result is in."
+          },
+          "dryRun": {
+            "type": "boolean",
+            "description": "Whether this was a dry run, which writes nothing."
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The outcome. Available values: Reseeded (the balance was written from the booked draws and repayments), Unchanged (the balance already matched them, so nothing was written), WouldReseed (a dry run that would write the balance), Unattributable (a dry run that found draws or repayments naming the Facility on allocation maps whose structureMemberId is not their member fund; a re-seed is refused with 409 FacilityFlowsUnattributable until the maps are fixed)."
+          },
+          "drawnBefore": {
+            "type": "number",
+            "description": "What the stored balance had outstanding before the re-seed. Absent when the Facility had no balance.",
+            "format": "double",
+            "nullable": true
+          },
+          "seedVersionBefore": {
+            "type": "integer",
+            "description": "The seed rule the stored balance was seeded by before the re-seed; 0 for a balance stored before re-seeding existed, which the first draw or repayment on the Facility re-seeds. Absent when the Facility had no balance.",
+            "format": "int32",
+            "nullable": true
+          },
+          "drawn": {
+            "type": "number",
+            "description": "What the booked draws and repayments have outstanding, including events still in Booking status: the balance the Facility's limit is judged on.",
+            "format": "double"
+          },
+          "movementCount": {
+            "type": "integer",
+            "description": "How many draws and repayments are booked on the Facility.",
+            "format": "int32"
+          },
+          "bookingInProgress": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityReseedFlow"
+            },
+            "description": "The draws and repayments of events still in Booking status. They count in the balance and the headroom, are left out of both sides of the payable check as in flight, and are reported with a FacilityBookingInProgress warning."
+          },
+          "unattributableFlows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityReseedFlow"
+            },
+            "description": "The draws and repayments naming the Facility on allocation maps whose structureMemberId is not their member fund: not a fund, or not the fund the map's fund structure places it on. Only listed by a dry run; empty otherwise."
+          },
+          "asAt": {
+            "type": "string",
+            "description": "The asAt the balance was written at, or the asAt a dry run or an unchanged re-seed read at.",
+            "format": "date-time"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            },
+            "description": "Warnings about the re-seed: FacilityBookingInProgress, or FacilityPayableBreak when the payable check finds breaks.",
+            "nullable": true
+          },
+          "payableCheck": {
+            "$ref": "#/components/schemas/FacilityPayableCheck"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The outcome of re-seeding a Facility's balance from the draws and repayments booked on it, or of a dry run of it."
       },
       "Fee": {
         "required": [
@@ -240096,219 +242009,6 @@
             }
           }
         ]
-      },
-      "FundGroupReportOutput": {
-        "type": "object",
-        "properties": {
-          "mode": {
-            "type": "string",
-            "description": "Available values: NonConsolidated (each fund's rows returned as they are, tagged with the fund and valuation point). Consolidated is not yet supported. Defaults to NonConsolidated. Available values: NonConsolidated, Consolidated.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FundGroupReportResult": {
-        "type": "object",
-        "properties": {
-          "fundId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "navTypeCode": {
-            "type": "string",
-            "description": "The code of the NAV type the row, or result, was produced for.",
-            "nullable": true
-          },
-          "status": {
-            "type": "string",
-            "description": "Whether the fund was reported. Available values: Succeeded, Failed.",
-            "nullable": true
-          },
-          "valuationPoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FundGroupReportValuationPoint"
-            },
-            "description": "The valuation points reported for the fund and NAV type, oldest first. Empty when it failed.",
-            "nullable": true
-          },
-          "error": {
-            "$ref": "#/components/schemas/ErrorDetail"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FundGroupReportValuationPoint": {
-        "type": "object",
-        "properties": {
-          "diaryEntryCode": {
-            "type": "string",
-            "description": "The code of the valuation point the row was produced for.",
-            "nullable": true
-          },
-          "status": {
-            "type": "string",
-            "description": "The status of the valuation point the row was produced for, such as Final or Estimate.",
-            "nullable": true
-          },
-          "effectiveEnd": {
-            "type": "string",
-            "description": "The effective end date of the valuation point the row was produced for.",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FundGroupTrialBalance": {
-        "type": "object",
-        "properties": {
-          "fundId": {
-            "$ref": "#/components/schemas/ResourceId"
-          },
-          "navTypeCode": {
-            "type": "string",
-            "description": "The code of the NAV type the row, or result, was produced for.",
-            "nullable": true
-          },
-          "diaryEntryCode": {
-            "type": "string",
-            "description": "The code of the valuation point the row was produced for.",
-            "nullable": true
-          },
-          "valuationPointStatus": {
-            "type": "string",
-            "description": "The status of the valuation point the row was produced for, such as Final or Estimate.",
-            "nullable": true
-          },
-          "effectiveEnd": {
-            "type": "string",
-            "description": "The effective end date of the valuation point the row was produced for.",
-            "format": "date-time"
-          },
-          "trialBalance": {
-            "$ref": "#/components/schemas/TrialBalance"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FundGroupTrialBalanceRequest": {
-        "required": [
-          "runType"
-        ],
-        "type": "object",
-        "properties": {
-          "runType": {
-            "minLength": 1,
-            "type": "string",
-            "description": "How the valuation point is chosen for each fund and NAV type. Available values: LatestApprovedNav (the latest Final valuation point on or before effectiveAt), LatestNav (the latest Final, Estimate or Candidate valuation point on or before effectiveAt), DateRange (every valuation point ending between start and end). AdHoc is not supported for the trial balance. Available values: LatestApprovedNav, LatestNav, AdHoc, DateRange."
-          },
-          "effectiveAt": {
-            "type": "string",
-            "description": "The date, or cut label, the valuation point is chosen for: the latest valuation point whose effective end is on or before this instant. Required for LatestApprovedNav and LatestNav; ignored for DateRange.",
-            "format": "dateorcutlabel",
-            "nullable": true
-          },
-          "start": {
-            "type": "string",
-            "description": "The first effective end date, or cut label, a DateRange run includes. Required for DateRange.",
-            "format": "dateorcutlabel",
-            "nullable": true
-          },
-          "end": {
-            "type": "string",
-            "description": "The last effective end date, or cut label, a DateRange run includes. Required for DateRange.",
-            "format": "dateorcutlabel",
-            "nullable": true
-          },
-          "navTypeCode": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string",
-            "description": "When provided, every fund in the group is reported on this NAV type and a fund without it is reported as a failure. Otherwise each fund's NAV type comes from the reference list's NAV type codes hint, or its primary NAV type.",
-            "nullable": true
-          },
-          "statuses": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Narrows the valuation point statuses a LatestNav or DateRange run considers. Defaults to all three. Available values: Final, Estimate, Candidate.",
-            "nullable": true
-          },
-          "output": {
-            "$ref": "#/components/schemas/FundGroupReportOutput"
-          },
-          "generalLedgerProfileCode": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string",
-            "description": "The optional code of a General Ledger Profile used to decorate the rows with levels; it must exist in each fund's chart of accounts.",
-            "nullable": true
-          },
-          "excludeCleardownModule": {
-            "type": "boolean",
-            "description": "If this is set to true, no Cleardown Module will be applied to the Trial Balances. Defaults to false."
-          },
-          "variant": {
-            "maxLength": 64,
-            "minLength": 1,
-            "pattern": "^[a-zA-Z0-9\\-_]+$",
-            "type": "string",
-            "description": "The optional valuation point variant to report for each fund.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FundGroupTrialBalanceResponse": {
-        "required": [
-          "values",
-          "version"
-        ],
-        "type": "object",
-        "properties": {
-          "fundResults": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FundGroupReportResult"
-            },
-            "description": "One entry per fund and NAV type in the group: the valuation points reported, or the reason nothing was reported for it.",
-            "nullable": true
-          },
-          "version": {
-            "$ref": "#/components/schemas/Version"
-          },
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FundGroupTrialBalance"
-            }
-          },
-          "href": {
-            "type": "string",
-            "description": "The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.",
-            "format": "uri",
-            "nullable": true
-          },
-          "nextPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "previousPage": {
-            "type": "string",
-            "nullable": true
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Link"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       },
       "FundIdList": {
         "allOf": [
@@ -261442,6 +263142,41 @@
         },
         "additionalProperties": false
       },
+      "PagedResourceListOfFacility": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Facility"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "PagedResourceListOfFee": {
         "required": [
           "values"
@@ -274454,6 +276189,136 @@
         },
         "additionalProperties": false,
         "description": "A register balance delta one of a transaction type's movements carries, as the engine books it, named by that movement."
+      },
+      "RegistryLine": {
+        "required": [
+          "commitmentLineId",
+          "committed",
+          "cost",
+          "costPortfolioCcy",
+          "holdingType",
+          "instrumentUid",
+          "investorRecordId",
+          "paidIn",
+          "portfolioId",
+          "recallable",
+          "returned",
+          "settledUnits",
+          "uncalledCommitment",
+          "unfunded",
+          "units"
+        ],
+        "type": "object",
+        "properties": {
+          "portfolioId": {
+            "$ref": "#/components/schemas/ResourceId"
+          },
+          "instrumentScope": {
+            "type": "string",
+            "description": "The scope in which the line's capital-interest instrument is in.",
+            "nullable": true
+          },
+          "instrumentUid": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The unique Lusid Instrument Id (LUID) of the capital-interest instrument of the line."
+          },
+          "subHoldingKeys": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PerpetualProperty"
+            },
+            "description": "The sub-holding properties which identify the holding. Each property will be from the 'Transaction' domain. These are configured on a transaction portfolio.",
+            "nullable": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Property"
+            },
+            "description": "The properties which have been requested to be decorated onto the line. These will be from the 'Instrument' or 'Holding' domain; the capital balances are available as 'Holding/system' properties when requested by key.",
+            "nullable": true
+          },
+          "holdingType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The code for the type of the holding e.g. P, B, C, R, F etc."
+          },
+          "holdingTypeName": {
+            "type": "string",
+            "description": "The decoded type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc.",
+            "nullable": true
+          },
+          "units": {
+            "type": "number",
+            "description": "The number of units of the line, one per open line.",
+            "format": "double"
+          },
+          "settledUnits": {
+            "type": "number",
+            "description": "The number of settled units of the line.",
+            "format": "double"
+          },
+          "cost": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "costPortfolioCcy": {
+            "$ref": "#/components/schemas/CurrencyAndAmount"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The commitment currency of the line.",
+            "nullable": true
+          },
+          "holdingId": {
+            "type": "integer",
+            "description": "A single identifier for the line within the portfolio, constructed from the LusidInstrumentId, sub-holding keys and currency.",
+            "format": "int64",
+            "nullable": true
+          },
+          "investorRecordId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The identifier of the investor record the line belongs to, as the register shows it."
+          },
+          "commitmentLineId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The identifier of the commitment (register) line, as its capital-interest instrument declares it."
+          },
+          "committed": {
+            "type": "number",
+            "description": "The committed capital, in the commitment currency.",
+            "format": "double"
+          },
+          "uncalledCommitment": {
+            "type": "number",
+            "description": "The commitment not yet called, in the commitment currency.",
+            "format": "double"
+          },
+          "paidIn": {
+            "type": "number",
+            "description": "The capital paid in, in the commitment currency.",
+            "format": "double"
+          },
+          "returned": {
+            "type": "number",
+            "description": "The capital returned, in the commitment currency.",
+            "format": "double"
+          },
+          "recallable": {
+            "type": "number",
+            "description": "The returned capital that may be recalled, in the commitment currency.",
+            "format": "double"
+          },
+          "unfunded": {
+            "type": "number",
+            "description": "The unfunded commitment: the uncalled commitment plus the recallable capital, in the commitment currency.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A line of a portfolio's registry: a partner register line with the fields of a holding row and its capital\r\nbalances. Registry lines are never holdings, so a line here is absent from the portfolio's holdings."
       },
       "RelatedEntity": {
         "required": [
@@ -297106,6 +298971,56 @@
         },
         "additionalProperties": false
       },
+      "VersionedResourceListWithWarningsOfRegistryLine": {
+        "required": [
+          "values",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RegistryLine"
+            },
+            "description": "The resources to list."
+          },
+          "href": {
+            "type": "string",
+            "description": "The URI of the resource list.",
+            "format": "uri",
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "description": "The next page of results.",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "description": "The previous page of results.",
+            "nullable": true
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            },
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "VersionSummaryDto": {
         "type": "object",
         "properties": {
@@ -299155,10 +301070,6 @@
       "description": "Methods to create and manage FundConfiguration entities."
     },
     {
-      "name": "Fund Groups",
-      "description": "Endpoints for reporting on groups of Funds."
-    },
-    {
       "name": "Fund Structures",
       "description": "Methods to create and manage Fund Structure entities."
     },
@@ -299457,7 +301368,6 @@
       "Executions",
       "Fee Types",
       "Fund Configuration",
-      "Fund Groups",
       "Fund Structures",
       "Fund Valuation Templates",
       "Funds",

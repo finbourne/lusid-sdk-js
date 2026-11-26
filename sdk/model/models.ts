@@ -646,14 +646,22 @@ export * from './externalDealingEstimateAmount';
 export * from './externalDealingEstimateLine';
 export * from './externalDealingEstimateSource';
 export * from './externalFeeComponentFilter';
+export * from './facility';
 export * from './facilityCommitmentFeeEvent';
 export * from './facilityCommitmentFeeEventAllOf';
 export * from './facilityDrawEvent';
 export * from './facilityDrawEventAllOf';
 export * from './facilityInterestEvent';
 export * from './facilityInterestEventAllOf';
+export * from './facilityLimitChange';
+export * from './facilityPayableCheck';
+export * from './facilityPayableDifference';
+export * from './facilityPayableLine';
 export * from './facilityRepaymentEvent';
 export * from './facilityRepaymentEventAllOf';
+export * from './facilityRequest';
+export * from './facilityReseedFlow';
+export * from './facilityReseedResult';
 export * from './fee';
 export * from './feeAccrual';
 export * from './feeCalculationRequest';
@@ -734,12 +742,6 @@ export * from './fundDistributionEvent';
 export * from './fundDistributionEventAllOf';
 export * from './fundEstimateValuationPoint';
 export * from './fundEstimateValuationPointAllOf';
-export * from './fundGroupReportOutput';
-export * from './fundGroupReportResult';
-export * from './fundGroupReportValuationPoint';
-export * from './fundGroupTrialBalance';
-export * from './fundGroupTrialBalanceRequest';
-export * from './fundGroupTrialBalanceResponse';
 export * from './fundIdList';
 export * from './fundIdListAllOf';
 export * from './fundInstrument';
@@ -1156,6 +1158,7 @@ export * from './pagedResourceListOfDataTypeSummary';
 export * from './pagedResourceListOfDialectId';
 export * from './pagedResourceListOfDiaryEntry';
 export * from './pagedResourceListOfExecution';
+export * from './pagedResourceListOfFacility';
 export * from './pagedResourceListOfFee';
 export * from './pagedResourceListOfFeeType';
 export * from './pagedResourceListOfFund';
@@ -1422,6 +1425,7 @@ export * from './referenceListResponse';
 export * from './referencePortfolioConstituent';
 export * from './referencePortfolioConstituentRequest';
 export * from './registerDeltaMovement';
+export * from './registryLine';
 export * from './relatedEntity';
 export * from './relation';
 export * from './relationalDataPointFieldValueResponse';
@@ -1940,6 +1944,7 @@ export * from './versionedResourceListOfTransactionSettlementInstruction';
 export * from './versionedResourceListOfTrialBalance';
 export * from './versionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery';
 export * from './versionedResourceListWithWarningsOfPortfolioHolding';
+export * from './versionedResourceListWithWarningsOfRegistryLine';
 export * from './virtualDocument';
 export * from './virtualDocumentRow';
 export * from './virtualRow';
@@ -2645,14 +2650,22 @@ import { ExternalDealingEstimateAmount } from './externalDealingEstimateAmount';
 import { ExternalDealingEstimateLine } from './externalDealingEstimateLine';
 import { ExternalDealingEstimateSource } from './externalDealingEstimateSource';
 import { ExternalFeeComponentFilter } from './externalFeeComponentFilter';
+import { Facility } from './facility';
 import { FacilityCommitmentFeeEvent } from './facilityCommitmentFeeEvent';
 import { FacilityCommitmentFeeEventAllOf } from './facilityCommitmentFeeEventAllOf';
 import { FacilityDrawEvent } from './facilityDrawEvent';
 import { FacilityDrawEventAllOf } from './facilityDrawEventAllOf';
 import { FacilityInterestEvent } from './facilityInterestEvent';
 import { FacilityInterestEventAllOf } from './facilityInterestEventAllOf';
+import { FacilityLimitChange } from './facilityLimitChange';
+import { FacilityPayableCheck } from './facilityPayableCheck';
+import { FacilityPayableDifference } from './facilityPayableDifference';
+import { FacilityPayableLine } from './facilityPayableLine';
 import { FacilityRepaymentEvent } from './facilityRepaymentEvent';
 import { FacilityRepaymentEventAllOf } from './facilityRepaymentEventAllOf';
+import { FacilityRequest } from './facilityRequest';
+import { FacilityReseedFlow } from './facilityReseedFlow';
+import { FacilityReseedResult } from './facilityReseedResult';
 import { Fee } from './fee';
 import { FeeAccrual } from './feeAccrual';
 import { FeeCalculationRequest } from './feeCalculationRequest';
@@ -2733,12 +2746,6 @@ import { FundDistributionEvent } from './fundDistributionEvent';
 import { FundDistributionEventAllOf } from './fundDistributionEventAllOf';
 import { FundEstimateValuationPoint } from './fundEstimateValuationPoint';
 import { FundEstimateValuationPointAllOf } from './fundEstimateValuationPointAllOf';
-import { FundGroupReportOutput } from './fundGroupReportOutput';
-import { FundGroupReportResult } from './fundGroupReportResult';
-import { FundGroupReportValuationPoint } from './fundGroupReportValuationPoint';
-import { FundGroupTrialBalance } from './fundGroupTrialBalance';
-import { FundGroupTrialBalanceRequest } from './fundGroupTrialBalanceRequest';
-import { FundGroupTrialBalanceResponse } from './fundGroupTrialBalanceResponse';
 import { FundIdList } from './fundIdList';
 import { FundIdListAllOf } from './fundIdListAllOf';
 import { FundInstrument } from './fundInstrument';
@@ -3155,6 +3162,7 @@ import { PagedResourceListOfDataTypeSummary } from './pagedResourceListOfDataTyp
 import { PagedResourceListOfDialectId } from './pagedResourceListOfDialectId';
 import { PagedResourceListOfDiaryEntry } from './pagedResourceListOfDiaryEntry';
 import { PagedResourceListOfExecution } from './pagedResourceListOfExecution';
+import { PagedResourceListOfFacility } from './pagedResourceListOfFacility';
 import { PagedResourceListOfFee } from './pagedResourceListOfFee';
 import { PagedResourceListOfFeeType } from './pagedResourceListOfFeeType';
 import { PagedResourceListOfFund } from './pagedResourceListOfFund';
@@ -3421,6 +3429,7 @@ import { ReferenceListResponse } from './referenceListResponse';
 import { ReferencePortfolioConstituent } from './referencePortfolioConstituent';
 import { ReferencePortfolioConstituentRequest } from './referencePortfolioConstituentRequest';
 import { RegisterDeltaMovement } from './registerDeltaMovement';
+import { RegistryLine } from './registryLine';
 import { RelatedEntity } from './relatedEntity';
 import { Relation } from './relation';
 import { RelationalDataPointFieldValueResponse } from './relationalDataPointFieldValueResponse';
@@ -3939,6 +3948,7 @@ import { VersionedResourceListOfTransactionSettlementInstruction } from './versi
 import { VersionedResourceListOfTrialBalance } from './versionedResourceListOfTrialBalance';
 import { VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery } from './versionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery';
 import { VersionedResourceListWithWarningsOfPortfolioHolding } from './versionedResourceListWithWarningsOfPortfolioHolding';
+import { VersionedResourceListWithWarningsOfRegistryLine } from './versionedResourceListWithWarningsOfRegistryLine';
 import { VirtualDocument } from './virtualDocument';
 import { VirtualDocumentRow } from './virtualDocumentRow';
 import { VirtualRow } from './virtualRow';
@@ -5402,14 +5412,22 @@ let typeMap: {[index: string]: any} = {
     "ExternalDealingEstimateLine": ExternalDealingEstimateLine,
     "ExternalDealingEstimateSource": ExternalDealingEstimateSource,
     "ExternalFeeComponentFilter": ExternalFeeComponentFilter,
+    "Facility": Facility,
     "FacilityCommitmentFeeEvent": FacilityCommitmentFeeEvent,
     "FacilityCommitmentFeeEventAllOf": FacilityCommitmentFeeEventAllOf,
     "FacilityDrawEvent": FacilityDrawEvent,
     "FacilityDrawEventAllOf": FacilityDrawEventAllOf,
     "FacilityInterestEvent": FacilityInterestEvent,
     "FacilityInterestEventAllOf": FacilityInterestEventAllOf,
+    "FacilityLimitChange": FacilityLimitChange,
+    "FacilityPayableCheck": FacilityPayableCheck,
+    "FacilityPayableDifference": FacilityPayableDifference,
+    "FacilityPayableLine": FacilityPayableLine,
     "FacilityRepaymentEvent": FacilityRepaymentEvent,
     "FacilityRepaymentEventAllOf": FacilityRepaymentEventAllOf,
+    "FacilityRequest": FacilityRequest,
+    "FacilityReseedFlow": FacilityReseedFlow,
+    "FacilityReseedResult": FacilityReseedResult,
     "Fee": Fee,
     "FeeAccrual": FeeAccrual,
     "FeeCalculationRequest": FeeCalculationRequest,
@@ -5490,12 +5508,6 @@ let typeMap: {[index: string]: any} = {
     "FundDistributionEventAllOf": FundDistributionEventAllOf,
     "FundEstimateValuationPoint": FundEstimateValuationPoint,
     "FundEstimateValuationPointAllOf": FundEstimateValuationPointAllOf,
-    "FundGroupReportOutput": FundGroupReportOutput,
-    "FundGroupReportResult": FundGroupReportResult,
-    "FundGroupReportValuationPoint": FundGroupReportValuationPoint,
-    "FundGroupTrialBalance": FundGroupTrialBalance,
-    "FundGroupTrialBalanceRequest": FundGroupTrialBalanceRequest,
-    "FundGroupTrialBalanceResponse": FundGroupTrialBalanceResponse,
     "FundIdList": FundIdList,
     "FundIdListAllOf": FundIdListAllOf,
     "FundInstrument": FundInstrument,
@@ -5912,6 +5924,7 @@ let typeMap: {[index: string]: any} = {
     "PagedResourceListOfDialectId": PagedResourceListOfDialectId,
     "PagedResourceListOfDiaryEntry": PagedResourceListOfDiaryEntry,
     "PagedResourceListOfExecution": PagedResourceListOfExecution,
+    "PagedResourceListOfFacility": PagedResourceListOfFacility,
     "PagedResourceListOfFee": PagedResourceListOfFee,
     "PagedResourceListOfFeeType": PagedResourceListOfFeeType,
     "PagedResourceListOfFund": PagedResourceListOfFund,
@@ -6178,6 +6191,7 @@ let typeMap: {[index: string]: any} = {
     "ReferencePortfolioConstituent": ReferencePortfolioConstituent,
     "ReferencePortfolioConstituentRequest": ReferencePortfolioConstituentRequest,
     "RegisterDeltaMovement": RegisterDeltaMovement,
+    "RegistryLine": RegistryLine,
     "RelatedEntity": RelatedEntity,
     "Relation": Relation,
     "RelationalDataPointFieldValueResponse": RelationalDataPointFieldValueResponse,
@@ -6695,6 +6709,7 @@ let typeMap: {[index: string]: any} = {
     "VersionedResourceListOfTrialBalance": VersionedResourceListOfTrialBalance,
     "VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery": VersionedResourceListWithPostBodiesOfSettlementInstructionWithTransactionToSettlementInstructionQuery,
     "VersionedResourceListWithWarningsOfPortfolioHolding": VersionedResourceListWithWarningsOfPortfolioHolding,
+    "VersionedResourceListWithWarningsOfRegistryLine": VersionedResourceListWithWarningsOfRegistryLine,
     "VirtualDocument": VirtualDocument,
     "VirtualDocumentRow": VirtualDocumentRow,
     "VirtualRow": VirtualRow,

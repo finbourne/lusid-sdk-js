@@ -25,7 +25,6 @@ import {EntitiesApi} from './api/entitiesApi';
 import {ExecutionsApi} from './api/executionsApi';
 import {FeeTypesApi} from './api/feeTypesApi';
 import {FundConfigurationApi} from './api/fundConfigurationApi';
-import {FundGroupsApi} from './api/fundGroupsApi';
 import {FundsApi} from './api/fundsApi';
 import {FundStructuresApi} from './api/fundStructuresApi';
 import {InstrumentEventsApi} from './api/instrumentEventsApi';
@@ -104,7 +103,6 @@ export class Api {
     public executions:  ExecutionsApi
     public feeTypes:  FeeTypesApi
     public fundConfiguration:  FundConfigurationApi
-    public fundGroups:  FundGroupsApi
     public funds:  FundsApi
     public fundStructures:  FundStructuresApi
     public instrumentEvents:  InstrumentEventsApi
